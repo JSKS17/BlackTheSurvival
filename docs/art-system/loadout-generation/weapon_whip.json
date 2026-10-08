@@ -1,0 +1,16 @@
+{
+  "id": "weapon_whip",
+  "name": "바람 가르기",
+  "kind": "weapon",
+  "originalId": 3004000,
+  "weaponClass": "채찍",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_192.png",
+  "referencePath": "docs/art-system/references/loadout/weapon_whip.png",
+  "originalTooltip": "소모값 없음 / 쿨다운 25 초\n\n전방으로 채찍을 휘둘러 대상의 현재 체력에 비례한 피해를 입히고 이동 속도를 감소시킵니다. 일정 시간 동안 스킬을 재사용할 수 있습니다. 재사용 시: 지정한 방향으로 채찍을 내려쳐 대상의 잃은 체력에 비례한 피해를 입힙니다. <i>쿨다운 고정: 쿨다운 감소 스탯의 영향을 받지 않습니다.</i>",
+  "output": "Assets/Resources/Lumia/SkillIcons/weapon_whip.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art D weapon-skill icon for Black The Survival. Image 1 is the original Eternal Return 바람 가르기 icon used as silhouette/color reference. Image 2 is our existing icon contact sheet as pixel-art style reference. Create a NEW single standalone icon matching the coarse pixel-art family, not a collage. Subject: A coiled dark leather whip forming two concentric spirals, golden-yellow illuminated edges and curved handle, with a few gold motion rays; retain the curled whip silhouette. Composition: centered, roughly 80% of square, readable at 32x32 logical pixels. Style: authentic 32x32 sprite enlarged with sharp square pixel clusters, limited 12-18 colors, stepped outlines, deliberate grouped highlights. Keep the original recognizable form, angle and major colors. Transparent background with genuine alpha; remove the source's background tile. No square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth glow or airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-af9792ec-326b-4150-a431-04d63097e3f6.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

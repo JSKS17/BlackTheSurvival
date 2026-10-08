@@ -1,0 +1,1074 @@
+[
+  {
+    "batch": "skills_01",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_01_raw.png",
+    "xSpans": [
+      [
+        21,
+        256
+      ],
+      [
+        294,
+        544
+      ],
+      [
+        577,
+        825
+      ],
+      [
+        857,
+        1106
+      ],
+      [
+        1143,
+        1383
+      ]
+    ],
+    "ySpans": [
+      [
+        52,
+        286
+      ],
+      [
+        315,
+        542
+      ],
+      [
+        575,
+        802
+      ],
+      [
+        836,
+        1072
+      ]
+    ]
+  },
+  {
+    "batch": "skills_02",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_02_raw.png",
+    "xSpans": [
+      [
+        25,
+        264
+      ],
+      [
+        302,
+        545
+      ],
+      [
+        581,
+        824
+      ],
+      [
+        859,
+        1104
+      ],
+      [
+        1140,
+        1379
+      ]
+    ],
+    "ySpans": [
+      [
+        52,
+        286
+      ],
+      [
+        317,
+        543
+      ],
+      [
+        573,
+        801
+      ],
+      [
+        835,
+        1068
+      ]
+    ]
+  },
+  {
+    "batch": "skills_03",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_03_raw.png",
+    "xSpans": [
+      [
+        23,
+        260
+      ],
+      [
+        296,
+        542
+      ],
+      [
+        577,
+        823
+      ],
+      [
+        861,
+        1105
+      ],
+      [
+        1142,
+        1380
+      ]
+    ],
+    "ySpans": [
+      [
+        52,
+        286
+      ],
+      [
+        315,
+        547
+      ],
+      [
+        575,
+        803
+      ],
+      [
+        831,
+        1063
+      ]
+    ]
+  },
+  {
+    "batch": "skills_04",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_04_raw.png",
+    "xSpans": [
+      [
+        20,
+        263
+      ],
+      [
+        294,
+        545
+      ],
+      [
+        576,
+        827
+      ],
+      [
+        858,
+        1108
+      ],
+      [
+        1139,
+        1382
+      ]
+    ],
+    "ySpans": [
+      [
+        48,
+        284
+      ],
+      [
+        311,
+        546
+      ],
+      [
+        568,
+        802
+      ],
+      [
+        830,
+        1071
+      ]
+    ]
+  },
+  {
+    "batch": "skills_05",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_05_raw.png",
+    "xSpans": [
+      [
+        22,
+        257
+      ],
+      [
+        297,
+        542
+      ],
+      [
+        582,
+        821
+      ],
+      [
+        860,
+        1105
+      ],
+      [
+        1144,
+        1382
+      ]
+    ],
+    "ySpans": [
+      [
+        52,
+        287
+      ],
+      [
+        316,
+        545
+      ],
+      [
+        573,
+        804
+      ],
+      [
+        834,
+        1070
+      ]
+    ]
+  },
+  {
+    "batch": "skills_06",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_06_raw.png",
+    "xSpans": [
+      [
+        22,
+        264
+      ],
+      [
+        298,
+        545
+      ],
+      [
+        578,
+        824
+      ],
+      [
+        857,
+        1105
+      ],
+      [
+        1139,
+        1380
+      ]
+    ],
+    "ySpans": [
+      [
+        52,
+        286
+      ],
+      [
+        315,
+        548
+      ],
+      [
+        575,
+        806
+      ],
+      [
+        834,
+        1070
+      ]
+    ]
+  },
+  {
+    "batch": "skills_07",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_07_raw.png",
+    "xSpans": [
+      [
+        22,
+        261
+      ],
+      [
+        300,
+        544
+      ],
+      [
+        580,
+        824
+      ],
+      [
+        860,
+        1104
+      ],
+      [
+        1141,
+        1381
+      ]
+    ],
+    "ySpans": [
+      [
+        52,
+        285
+      ],
+      [
+        315,
+        546
+      ],
+      [
+        576,
+        807
+      ],
+      [
+        836,
+        1068
+      ]
+    ]
+  },
+  {
+    "batch": "skills_08",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_08_raw.png",
+    "xSpans": [
+      [
+        22,
+        260
+      ],
+      [
+        297,
+        542
+      ],
+      [
+        578,
+        824
+      ],
+      [
+        859,
+        1106
+      ],
+      [
+        1143,
+        1382
+      ]
+    ],
+    "ySpans": [
+      [
+        51,
+        284
+      ],
+      [
+        310,
+        543
+      ],
+      [
+        568,
+        797
+      ],
+      [
+        828,
+        1068
+      ]
+    ]
+  },
+  {
+    "batch": "skills_09",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_09_raw.png",
+    "xSpans": [
+      [
+        21,
+        262
+      ],
+      [
+        296,
+        546
+      ],
+      [
+        578,
+        826
+      ],
+      [
+        858,
+        1107
+      ],
+      [
+        1140,
+        1383
+      ]
+    ],
+    "ySpans": [
+      [
+        52,
+        285
+      ],
+      [
+        313,
+        544
+      ],
+      [
+        572,
+        804
+      ],
+      [
+        833,
+        1071
+      ]
+    ]
+  },
+  {
+    "batch": "skills_10",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_10_raw.png",
+    "xSpans": [
+      [
+        25,
+        264
+      ],
+      [
+        301,
+        547
+      ],
+      [
+        582,
+        823
+      ],
+      [
+        859,
+        1106
+      ],
+      [
+        1141,
+        1380
+      ]
+    ],
+    "ySpans": [
+      [
+        53,
+        287
+      ],
+      [
+        316,
+        545
+      ],
+      [
+        572,
+        805
+      ],
+      [
+        832,
+        1067
+      ]
+    ]
+  },
+  {
+    "batch": "skills_11",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_11_raw.png",
+    "xSpans": [
+      [
+        21,
+        258
+      ],
+      [
+        296,
+        545
+      ],
+      [
+        579,
+        824
+      ],
+      [
+        859,
+        1106
+      ],
+      [
+        1144,
+        1382
+      ]
+    ],
+    "ySpans": [
+      [
+        53,
+        288
+      ],
+      [
+        315,
+        542
+      ],
+      [
+        571,
+        801
+      ],
+      [
+        833,
+        1071
+      ]
+    ]
+  },
+  {
+    "batch": "skills_12",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_12_raw.png",
+    "xSpans": [
+      [
+        21,
+        263
+      ],
+      [
+        295,
+        545
+      ],
+      [
+        577,
+        826
+      ],
+      [
+        859,
+        1109
+      ],
+      [
+        1141,
+        1382
+      ]
+    ],
+    "ySpans": [
+      [
+        53,
+        288
+      ],
+      [
+        316,
+        546
+      ],
+      [
+        573,
+        804
+      ],
+      [
+        832,
+        1069
+      ]
+    ]
+  },
+  {
+    "batch": "skills_13",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_13_raw.png",
+    "xSpans": [
+      [
+        21,
+        263
+      ],
+      [
+        295,
+        545
+      ],
+      [
+        577,
+        826
+      ],
+      [
+        857,
+        1107
+      ],
+      [
+        1139,
+        1382
+      ]
+    ],
+    "ySpans": [
+      [
+        49,
+        280
+      ],
+      [
+        309,
+        538
+      ],
+      [
+        569,
+        799
+      ],
+      [
+        828,
+        1067
+      ]
+    ]
+  },
+  {
+    "batch": "skills_14",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_14_raw.png",
+    "xSpans": [
+      [
+        21,
+        257
+      ],
+      [
+        295,
+        541
+      ],
+      [
+        579,
+        824
+      ],
+      [
+        861,
+        1107
+      ],
+      [
+        1146,
+        1381
+      ]
+    ],
+    "ySpans": [
+      [
+        52,
+        286
+      ],
+      [
+        316,
+        542
+      ],
+      [
+        573,
+        803
+      ],
+      [
+        834,
+        1068
+      ]
+    ]
+  },
+  {
+    "batch": "skills_15",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_15_raw.png",
+    "xSpans": [
+      [
+        21,
+        257
+      ],
+      [
+        297,
+        543
+      ],
+      [
+        578,
+        825
+      ],
+      [
+        861,
+        1108
+      ],
+      [
+        1144,
+        1382
+      ]
+    ],
+    "ySpans": [
+      [
+        53,
+        288
+      ],
+      [
+        318,
+        545
+      ],
+      [
+        575,
+        805
+      ],
+      [
+        834,
+        1071
+      ]
+    ]
+  },
+  {
+    "batch": "skills_16",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_16_raw.png",
+    "xSpans": [
+      [
+        25,
+        260
+      ],
+      [
+        295,
+        544
+      ],
+      [
+        579,
+        823
+      ],
+      [
+        858,
+        1109
+      ],
+      [
+        1143,
+        1382
+      ]
+    ],
+    "ySpans": [
+      [
+        51,
+        284
+      ],
+      [
+        314,
+        543
+      ],
+      [
+        574,
+        799
+      ],
+      [
+        831,
+        1072
+      ]
+    ]
+  },
+  {
+    "batch": "skills_17",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_17_raw.png",
+    "xSpans": [
+      [
+        26,
+        261
+      ],
+      [
+        297,
+        544
+      ],
+      [
+        578,
+        825
+      ],
+      [
+        859,
+        1106
+      ],
+      [
+        1142,
+        1379
+      ]
+    ],
+    "ySpans": [
+      [
+        52,
+        282
+      ],
+      [
+        308,
+        537
+      ],
+      [
+        566,
+        794
+      ],
+      [
+        825,
+        1068
+      ]
+    ]
+  },
+  {
+    "batch": "skills_18",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_18_raw.png",
+    "xSpans": [
+      [
+        23,
+        264
+      ],
+      [
+        298,
+        546
+      ],
+      [
+        580,
+        825
+      ],
+      [
+        859,
+        1106
+      ],
+      [
+        1140,
+        1380
+      ]
+    ],
+    "ySpans": [
+      [
+        52,
+        286
+      ],
+      [
+        315,
+        543
+      ],
+      [
+        572,
+        802
+      ],
+      [
+        833,
+        1065
+      ]
+    ]
+  },
+  {
+    "batch": "skills_19",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_19_raw.png",
+    "xSpans": [
+      [
+        22,
+        263
+      ],
+      [
+        296,
+        547
+      ],
+      [
+        577,
+        826
+      ],
+      [
+        857,
+        1108
+      ],
+      [
+        1141,
+        1381
+      ]
+    ],
+    "ySpans": [
+      [
+        50,
+        284
+      ],
+      [
+        312,
+        543
+      ],
+      [
+        571,
+        804
+      ],
+      [
+        832,
+        1069
+      ]
+    ]
+  },
+  {
+    "batch": "skills_20",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_20_raw.png",
+    "xSpans": [
+      [
+        21,
+        263
+      ],
+      [
+        298,
+        544
+      ],
+      [
+        580,
+        822
+      ],
+      [
+        858,
+        1106
+      ],
+      [
+        1141,
+        1382
+      ]
+    ],
+    "ySpans": [
+      [
+        51,
+        291
+      ],
+      [
+        314,
+        548
+      ],
+      [
+        568,
+        801
+      ],
+      [
+        827,
+        1069
+      ]
+    ]
+  },
+  {
+    "batch": "skills_21",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_21_raw.png",
+    "xSpans": [
+      [
+        23,
+        269
+      ],
+      [
+        298,
+        547
+      ],
+      [
+        577,
+        826
+      ],
+      [
+        855,
+        1108
+      ],
+      [
+        1138,
+        1381
+      ]
+    ],
+    "ySpans": [
+      [
+        53,
+        288
+      ],
+      [
+        316,
+        543
+      ],
+      [
+        571,
+        805
+      ],
+      [
+        832,
+        1069
+      ]
+    ]
+  },
+  {
+    "batch": "skills_22",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_22_raw.png",
+    "xSpans": [
+      [
+        23,
+        257
+      ],
+      [
+        295,
+        541
+      ],
+      [
+        579,
+        822
+      ],
+      [
+        860,
+        1108
+      ],
+      [
+        1147,
+        1382
+      ]
+    ],
+    "ySpans": [
+      [
+        52,
+        287
+      ],
+      [
+        315,
+        548
+      ],
+      [
+        576,
+        809
+      ],
+      [
+        834,
+        1071
+      ]
+    ]
+  },
+  {
+    "batch": "skills_23",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_23_raw.png",
+    "xSpans": [
+      [
+        19,
+        258
+      ],
+      [
+        297,
+        545
+      ],
+      [
+        579,
+        823
+      ],
+      [
+        857,
+        1106
+      ],
+      [
+        1143,
+        1383
+      ]
+    ],
+    "ySpans": [
+      [
+        53,
+        287
+      ],
+      [
+        314,
+        548
+      ],
+      [
+        575,
+        809
+      ]
+    ]
+  },
+  {
+    "batch": "skills_extra",
+    "method": "authored-panel-gutters",
+    "source": "docs/art-chibi/generated/skills_extra_raw.png",
+    "xSpans": [
+      [
+        22,
+        272
+      ],
+      [
+        296,
+        554
+      ],
+      [
+        579,
+        824
+      ],
+      [
+        850,
+        1106
+      ],
+      [
+        1132,
+        1381
+      ]
+    ],
+    "ySpans": [
+      [
+        23,
+        275
+      ],
+      [
+        299,
+        548
+      ],
+      [
+        573,
+        815
+      ]
+    ]
+  }
+]

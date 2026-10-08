@@ -1,0 +1,5022 @@
+{
+  "schema": 1,
+  "manifest": "docs/art-chibi/game-art-manifest.json",
+  "manifestSha256": "8f4912fdc1175a3a9d149da0ba682f11f531340989b4bf1d3b4b834cabaaf4fd",
+  "processingPolicy": "Only generated atlases, mechanical cropping, nearest-neighbour scaling and transparent padding. Source files are preserved.",
+  "assets": [
+    {
+      "id": "abigail",
+      "kind": "portrait",
+      "name": "아비게일",
+      "path": "Assets/Resources/Lumia/Portraits/abigail.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "a6d019b6d3eea11c5399f20bdc30a453a363510104cee1d34e14fe2886338d19",
+      "pixelSha256": "a7f7be09d247436c9e232417f05005bb4ea34c80060432ac8f9a84d85326da9d",
+      "batch": "sprites_09",
+      "source": "docs/art-chibi/generated/sprites_09_raw.png",
+      "sourceSha256": "324e466247f242308c9bb229c56b359f34785e167b48147e26d2c19082340288",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 1,
+      "cropBox": [
+        377,
+        558,
+        774,
+        986
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          1,
+          397,
+          428
+        ],
+        "visiblePixels": 121171,
+        "transparentPixels": 48745,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 121171,
+        "borderVisiblePixels": 84,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 107171,
+          "bounds": [
+            383,
+            564,
+            768,
+            980
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          12,
+          8,
+          116,
+          120
+        ],
+        "visiblePixels": 8338,
+        "transparentPixels": 8046,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 8338,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "adela",
+      "kind": "portrait",
+      "name": "아델라",
+      "path": "Assets/Resources/Lumia/Portraits/adela.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "18a26f9eeb8ba906d634da351730b984492f2976d421c156bc65e2d70a877875",
+      "pixelSha256": "be1266e382d264e7398b4828f6425ffe944cac7e9d42fee0219e350fe1e518db",
+      "batch": "sprites_05",
+      "source": "docs/art-chibi/generated/sprites_05_raw.png",
+      "sourceSha256": "10a9ebd99b7110619c118ed3d922b1282663a6f67e878552f38d9a838e64a221",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 1,
+      "cropBox": [
+        50,
+        585,
+        374,
+        960
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          4,
+          324,
+          375
+        ],
+        "visiblePixels": 85376,
+        "transparentPixels": 36124,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 85376,
+        "borderVisiblePixels": 54,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 76905,
+          "bounds": [
+            56,
+            591,
+            368,
+            954
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          15,
+          8,
+          113,
+          120
+        ],
+        "visiblePixels": 7802,
+        "transparentPixels": 8582,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7802,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "adina",
+      "kind": "portrait",
+      "name": "아디나",
+      "path": "Assets/Resources/Lumia/Portraits/adina.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "ac1177019cc558fe5e5f2d08935aee1c75ea2c635844bf40307a0336009a66a9",
+      "pixelSha256": "c44c94650ef3e1483fd3304485130aaf6e829045d86f5522a2640e2413a5ac65",
+      "batch": "sprites_05",
+      "source": "docs/art-chibi/generated/sprites_05_raw.png",
+      "sourceSha256": "10a9ebd99b7110619c118ed3d922b1282663a6f67e878552f38d9a838e64a221",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 1,
+      "cropBox": [
+        781,
+        595,
+        1151,
+        962
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          2,
+          1,
+          367,
+          365
+        ],
+        "visiblePixels": 97504,
+        "transparentPixels": 38286,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 97504,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 91067,
+          "bounds": [
+            787,
+            601,
+            1145,
+            956
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          8,
+          8,
+          120,
+          120
+        ],
+        "visiblePixels": 9179,
+        "transparentPixels": 7205,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 9179,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "adriana",
+      "kind": "portrait",
+      "name": "아드리아나",
+      "path": "Assets/Resources/Lumia/Portraits/adriana.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "4edbcf6c0b4ae4b5ea61a4fb6ac8d614c05d012fe507a50c2c24ed6e23ffac6c",
+      "pixelSha256": "706626387a60da318689673427e83863d9c3e855034c94ee9951d54b07e58016",
+      "batch": "sprites_05",
+      "source": "docs/art-chibi/generated/sprites_05_raw.png",
+      "sourceSha256": "10a9ebd99b7110619c118ed3d922b1282663a6f67e878552f38d9a838e64a221",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 1,
+      "cropBox": [
+        421,
+        569,
+        740,
+        963
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          4,
+          317,
+          391
+        ],
+        "visiblePixels": 94504,
+        "transparentPixels": 31182,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 94504,
+        "borderVisiblePixels": 11,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 84926,
+          "bounds": [
+            427,
+            575,
+            734,
+            957
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          18,
+          8,
+          110,
+          120
+        ],
+        "visiblePixels": 7948,
+        "transparentPixels": 8436,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7948,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "aiden",
+      "kind": "portrait",
+      "name": "에이든",
+      "path": "Assets/Resources/Lumia/Portraits/aiden.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "923c8361df6a98d6a1911d1929e79f4bf035e7c8e4f5d26054539547f46bbc79",
+      "pixelSha256": "ceb15c337f934cbd2109480acfa5f5e858d6db5418cff20fe4eec5d6ab4ea6a6",
+      "batch": "sprites_06",
+      "source": "docs/art-chibi/generated/sprites_06_raw.png",
+      "sourceSha256": "34f0c9269373e6d3773c2915ecef6df0b90db95afbeb0c4bfb4fdc5b3ff43e6d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 0,
+      "cropBox": [
+        1231,
+        107,
+        1507,
+        514
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          3,
+          273,
+          407
+        ],
+        "visiblePixels": 75423,
+        "transparentPixels": 36909,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 75423,
+        "borderVisiblePixels": 16,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 64260,
+          "bounds": [
+            1237,
+            113,
+            1501,
+            508
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          26,
+          9,
+          102,
+          120
+        ],
+        "visiblePixels": 5833,
+        "transparentPixels": 10551,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 5833,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "alex",
+      "kind": "portrait",
+      "name": "알렉스",
+      "path": "Assets/Resources/Lumia/Portraits/alex.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "4642041184941bd04c3ea56156d1e8804dbdaebdc1fa5486318f72842ab6194f",
+      "pixelSha256": "651e8cd6eab0093cebeb88db8e0249a2854d80710b5865dafc7d8b2e6c3c651b",
+      "batch": "sprites_06",
+      "source": "docs/art-chibi/generated/sprites_06_raw.png",
+      "sourceSha256": "34f0c9269373e6d3773c2915ecef6df0b90db95afbeb0c4bfb4fdc5b3ff43e6d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 0,
+      "cropBox": [
+        47,
+        113,
+        311,
+        514
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          263,
+          401
+        ],
+        "visiblePixels": 74960,
+        "transparentPixels": 30904,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 74960,
+        "borderVisiblePixels": 61,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 65502,
+          "bounds": [
+            53,
+            119,
+            305,
+            508
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          27,
+          8,
+          100,
+          120
+        ],
+        "visiblePixels": 5811,
+        "transparentPixels": 10573,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 5811,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "alonso",
+      "kind": "portrait",
+      "name": "알론소",
+      "path": "Assets/Resources/Lumia/Portraits/alonso.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "071234cac720e02bf84a0d265ec6e1843e9572d7d07d63c53730c87d9a0fb89e",
+      "pixelSha256": "491513bdd6a03cdcc50d985e7fd4eb36b2051fd2b1cc8f2da55b9b0263c0976d",
+      "batch": "sprites_09",
+      "source": "docs/art-chibi/generated/sprites_09_raw.png",
+      "sourceSha256": "324e466247f242308c9bb229c56b359f34785e167b48147e26d2c19082340288",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 1,
+      "cropBox": [
+        780,
+        557,
+        1176,
+        986
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          1,
+          3,
+          396,
+          429
+        ],
+        "visiblePixels": 117381,
+        "transparentPixels": 52503,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 117381,
+        "borderVisiblePixels": 27,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 106439,
+          "bounds": [
+            786,
+            563,
+            1170,
+            980
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          12,
+          8,
+          116,
+          120
+        ],
+        "visiblePixels": 8124,
+        "transparentPixels": 8260,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 8124,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "arda",
+      "kind": "portrait",
+      "name": "아르다",
+      "path": "Assets/Resources/Lumia/Portraits/arda.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "26abff7190ade3d49858326087fa5596f189a79d2e7d8210b77d3569a6c5d61b",
+      "pixelSha256": "cc3deb1b5addac8ab56696d430d25acdce4e3d70f6a069eb7d9c1bfcbb697385",
+      "batch": "sprites_09",
+      "source": "docs/art-chibi/generated/sprites_09_raw.png",
+      "sourceSha256": "324e466247f242308c9bb229c56b359f34785e167b48147e26d2c19082340288",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 1,
+      "cropBox": [
+        55,
+        564,
+        362,
+        986
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          307,
+          422
+        ],
+        "visiblePixels": 92409,
+        "transparentPixels": 37145,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 92409,
+        "borderVisiblePixels": 109,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 81916,
+          "bounds": [
+            61,
+            570,
+            356,
+            980
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          23,
+          8,
+          104,
+          120
+        ],
+        "visiblePixels": 6467,
+        "transparentPixels": 9917,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6467,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "barbara",
+      "kind": "portrait",
+      "name": "바바라",
+      "path": "Assets/Resources/Lumia/Portraits/barbara.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "45151d3dd81576e36b9c81b452b1e556f541b622c5fbbf651c1eef3b8bfa8756",
+      "pixelSha256": "aeca62af8898c93b3dc0518bdc280cad69be42346f17b8d8ee188df06303b984",
+      "batch": "sprites_04",
+      "source": "docs/art-chibi/generated/sprites_04_raw.png",
+      "sourceSha256": "e121bf9faa5e2366fb2732d3b78b1314bb138d075bdccf4fe42100ad0c1b5666",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 1,
+      "cropBox": [
+        82,
+        604,
+        307,
+        896
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          222,
+          292
+        ],
+        "visiblePixels": 48857,
+        "transparentPixels": 16843,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 48857,
+        "borderVisiblePixels": 40,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 43255,
+          "bounds": [
+            88,
+            610,
+            301,
+            890
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          21,
+          8,
+          106,
+          120
+        ],
+        "visiblePixels": 7186,
+        "transparentPixels": 9198,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7186,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "bernice",
+      "kind": "portrait",
+      "name": "버니스",
+      "path": "Assets/Resources/Lumia/Portraits/bernice.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "2009229b34c7c4023f59d95ea180d25a433ace20647482764cd666c4d408a226",
+      "pixelSha256": "1b0157384f007924d6bc51862dad44fbbd111cec6bb813b23cf37362c6540b5e",
+      "batch": "sprites_04",
+      "source": "docs/art-chibi/generated/sprites_04_raw.png",
+      "sourceSha256": "e121bf9faa5e2366fb2732d3b78b1314bb138d075bdccf4fe42100ad0c1b5666",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 1,
+      "cropBox": [
+        471,
+        606,
+        696,
+        895
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          1,
+          223,
+          289
+        ],
+        "visiblePixels": 50585,
+        "transparentPixels": 14440,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 50585,
+        "borderVisiblePixels": 50,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 45445,
+          "bounds": [
+            477,
+            612,
+            690,
+            889
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          20,
+          8,
+          107,
+          120
+        ],
+        "visiblePixels": 7668,
+        "transparentPixels": 8716,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7668,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "bianca",
+      "kind": "portrait",
+      "name": "비앙카",
+      "path": "Assets/Resources/Lumia/Portraits/bianca.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "0b0af017b63e906bac186a65da8270a57c518153f486f0bc5f7a19d7201aec9f",
+      "pixelSha256": "2b4656174f4be82a1ad8f889a6d99d804754ab05adf3674c8ea89b59c810a754",
+      "batch": "sprites_04",
+      "source": "docs/art-chibi/generated/sprites_04_raw.png",
+      "sourceSha256": "e121bf9faa5e2366fb2732d3b78b1314bb138d075bdccf4fe42100ad0c1b5666",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 1,
+      "cropBox": [
+        870,
+        591,
+        1098,
+        897
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          1,
+          228,
+          305
+        ],
+        "visiblePixels": 55405,
+        "transparentPixels": 14363,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 55405,
+        "borderVisiblePixels": 35,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 49323,
+          "bounds": [
+            876,
+            597,
+            1092,
+            891
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          22,
+          8,
+          106,
+          120
+        ],
+        "visiblePixels": 7539,
+        "transparentPixels": 8845,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7539,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "bihyung",
+      "kind": "portrait",
+      "name": "비형",
+      "path": "Assets/Resources/Lumia/Portraits/bihyung.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "e02d3ae783f21d51cbc09b9713360ab90ceee83fe6168e29562b7d345b1d1973",
+      "pixelSha256": "4bfc32a7fab4ee2614a69d9a76cca2fbfee025ea003d0f061a06fe556b9eacf8",
+      "batch": "sprites_12",
+      "source": "docs/art-chibi/generated/sprites_12_raw.png",
+      "sourceSha256": "ab555ba65a0dc87143c06a55c25beef7418a7b9a90d647065a7cc4a4326a3789",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 0,
+      "cropBox": [
+        11,
+        118,
+        414,
+        585
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          3,
+          2,
+          403,
+          466
+        ],
+        "visiblePixels": 118710,
+        "transparentPixels": 69491,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 118710,
+        "borderVisiblePixels": 21,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 107549,
+          "bounds": [
+            17,
+            124,
+            408,
+            579
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          15,
+          8,
+          112,
+          120
+        ],
+        "visiblePixels": 6958,
+        "transparentPixels": 9426,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6958,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "blair",
+      "kind": "portrait",
+      "name": "블레어",
+      "path": "Assets/Resources/Lumia/Portraits/blair.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "7d14e558ade4803458ddbc89f60c072686133558194841fbc07dd240557e032e",
+      "pixelSha256": "8b5d47548621d365e14697ced1854c3a16e9297db52586bb75832690ab812290",
+      "batch": "sprites_11",
+      "source": "docs/art-chibi/generated/sprites_11_raw.png",
+      "sourceSha256": "0f50cd60f8e95670318e05549b8c30a87fdb9f1fde2f205e510a8c7d5e9a061d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 1,
+      "cropBox": [
+        8,
+        573,
+        413,
+        981
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          1,
+          2,
+          405,
+          405
+        ],
+        "visiblePixels": 101360,
+        "transparentPixels": 63880,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 101360,
+        "borderVisiblePixels": 8,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 87165,
+          "bounds": [
+            14,
+            579,
+            407,
+            975
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          8,
+          8,
+          120,
+          120
+        ],
+        "visiblePixels": 7815,
+        "transparentPixels": 8569,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7815,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "camilo",
+      "kind": "portrait",
+      "name": "카밀로",
+      "path": "Assets/Resources/Lumia/Portraits/camilo.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "ffd728917a4c6cb2846e8d1d1b72c4bc4480e48c78b0260331849b733f563de0",
+      "pixelSha256": "45b5af7d2d82c608810055c31a6a959da9ee3170e8b41ec8f5c7cc34216a649f",
+      "batch": "sprites_07",
+      "source": "docs/art-chibi/generated/sprites_07_raw.png",
+      "sourceSha256": "7ffc1ebc3e6ee5624c26b46ef5bf9b000a41cce58267929a3ecf81a66ee069de",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 1,
+      "cropBox": [
+        804,
+        570,
+        1087,
+        960
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          283,
+          390
+        ],
+        "visiblePixels": 82565,
+        "transparentPixels": 27805,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 82565,
+        "borderVisiblePixels": 137,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 70181,
+          "bounds": [
+            810,
+            576,
+            1081,
+            954
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          23,
+          8,
+          104,
+          120
+        ],
+        "visiblePixels": 6788,
+        "transparentPixels": 9596,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6788,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 32,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "cathy",
+      "kind": "portrait",
+      "name": "캐시",
+      "path": "Assets/Resources/Lumia/Portraits/cathy.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "a6858bcdbccef0d17a90641bd7982c0d4aacbd75e9aa71b65738325a943017b6",
+      "pixelSha256": "90cacfa13c24c33308983b98f8cba324a4e8c0ddfcc0ddd6778ac20db7ebb570",
+      "batch": "sprites_08",
+      "source": "docs/art-chibi/generated/sprites_08_raw.png",
+      "sourceSha256": "550b1b6ccaafd971ecc81338ff9b7454f1c5dd8c982b1592d8e86fa0c6f1c1dd",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 0,
+      "cropBox": [
+        21,
+        83,
+        366,
+        519
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          345,
+          436
+        ],
+        "visiblePixels": 105312,
+        "transparentPixels": 45108,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 105312,
+        "borderVisiblePixels": 77,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 95323,
+          "bounds": [
+            27,
+            89,
+            360,
+            513
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          19,
+          8,
+          108,
+          120
+        ],
+        "visiblePixels": 6964,
+        "transparentPixels": 9420,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6964,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "celine",
+      "kind": "portrait",
+      "name": "셀린",
+      "path": "Assets/Resources/Lumia/Portraits/celine.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "8211c2972328d12997dfa07fca67d3f95ecadd2f637539bda03c7a9c9f12c0e6",
+      "pixelSha256": "df99ce305ab31c0eace43b9fdc2e15ff63775ed8a5a1a74222d1a1ee3e8374f5",
+      "batch": "sprites_04",
+      "source": "docs/art-chibi/generated/sprites_04_raw.png",
+      "sourceSha256": "e121bf9faa5e2366fb2732d3b78b1314bb138d075bdccf4fe42100ad0c1b5666",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 1,
+      "cropBox": [
+        1267,
+        610,
+        1460,
+        897
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          190,
+          287
+        ],
+        "visiblePixels": 41305,
+        "transparentPixels": 14086,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 41305,
+        "borderVisiblePixels": 82,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 36030,
+          "bounds": [
+            1273,
+            616,
+            1454,
+            891
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          27,
+          8,
+          101,
+          120
+        ],
+        "visiblePixels": 6285,
+        "transparentPixels": 10099,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6285,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "ceres",
+      "kind": "portrait",
+      "name": "세레스",
+      "path": "Assets/Resources/Lumia/Portraits/ceres.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "3817f48b20258fc3580e159c560a2e7972de18440026139d9e6f81adf91b596f",
+      "pixelSha256": "441facb7c37b320a2da372c10f30216bf9ee0c8fec10303f25a17e0041260e76",
+      "batch": "sprites_12",
+      "source": "docs/art-chibi/generated/sprites_12_raw.png",
+      "sourceSha256": "ab555ba65a0dc87143c06a55c25beef7418a7b9a90d647065a7cc4a4326a3789",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 0,
+      "cropBox": [
+        1152,
+        153,
+        1490,
+        594
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          3,
+          336,
+          440
+        ],
+        "visiblePixels": 103367,
+        "transparentPixels": 45691,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 103367,
+        "borderVisiblePixels": 10,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 94754,
+          "bounds": [
+            1158,
+            159,
+            1484,
+            588
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          21,
+          8,
+          107,
+          120
+        ],
+        "visiblePixels": 6761,
+        "transparentPixels": 9623,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6761,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "chiara",
+      "kind": "portrait",
+      "name": "키아라",
+      "path": "Assets/Resources/Lumia/Portraits/chiara.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "7edf936ebc767fe6c5ab2f43c5ae6e1544ba5e6b527c7b6ee49a74b4777edbd1",
+      "pixelSha256": "02596e5596bf604896c51c602706e2ba62efd5e1dc8b37da561b15cd5f2f3497",
+      "batch": "sprites_08",
+      "source": "docs/art-chibi/generated/sprites_08_raw.png",
+      "sourceSha256": "550b1b6ccaafd971ecc81338ff9b7454f1c5dd8c982b1592d8e86fa0c6f1c1dd",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 0,
+      "cropBox": [
+        773,
+        86,
+        1152,
+        517
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          379,
+          428
+        ],
+        "visiblePixels": 122779,
+        "transparentPixels": 40570,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 122779,
+        "borderVisiblePixels": 128,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 110753,
+          "bounds": [
+            779,
+            92,
+            1146,
+            511
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          14,
+          8,
+          113,
+          120
+        ],
+        "visiblePixels": 8384,
+        "transparentPixels": 8000,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 8384,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "chloe",
+      "kind": "portrait",
+      "name": "클로에",
+      "path": "Assets/Resources/Lumia/Portraits/chloe.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "9386b7decfa8ce6d8cd373d5b9f40d5f77cd3a5ace2c1307b8c0eefe9ee541f4",
+      "pixelSha256": "8c5fa05fe22e817fc679c071722a4d75ce39fc5ed4e8fe7bfac06bfcf495431d",
+      "batch": "sprites_08",
+      "source": "docs/art-chibi/generated/sprites_08_raw.png",
+      "sourceSha256": "550b1b6ccaafd971ecc81338ff9b7454f1c5dd8c982b1592d8e86fa0c6f1c1dd",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 0,
+      "cropBox": [
+        370,
+        49,
+        766,
+        532
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          396,
+          483
+        ],
+        "visiblePixels": 121910,
+        "transparentPixels": 69358,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 121910,
+        "borderVisiblePixels": 132,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 107608,
+          "bounds": [
+            376,
+            55,
+            760,
+            526
+          ]
+        },
+        {
+          "pixels": 6,
+          "bounds": [
+            685,
+            89,
+            688,
+            93
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          18,
+          8,
+          110,
+          120
+        ],
+        "visiblePixels": 6561,
+        "transparentPixels": 9823,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6561,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "coraline",
+      "kind": "portrait",
+      "name": "코렐라인",
+      "path": "Assets/Resources/Lumia/Portraits/coraline.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "db4c1c9b27c9faf87da790e7187713ceabdafc4cea0910a13aa55d1e06c7ba4a",
+      "pixelSha256": "342fad293a80f9918fdcece145330c865d134e3846e10bb98a6cb9cab9610175",
+      "batch": "sprites_11",
+      "source": "docs/art-chibi/generated/sprites_11_raw.png",
+      "sourceSha256": "0f50cd60f8e95670318e05549b8c30a87fdb9f1fde2f205e510a8c7d5e9a061d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 1,
+      "cropBox": [
+        1111,
+        555,
+        1525,
+        983
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          3,
+          411,
+          427
+        ],
+        "visiblePixels": 128075,
+        "transparentPixels": 49117,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 128075,
+        "borderVisiblePixels": 22,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 2841,
+          "bounds": [
+            1196,
+            561,
+            1243,
+            655
+          ]
+        },
+        {
+          "pixels": 101034,
+          "bounds": [
+            1117,
+            591,
+            1519,
+            977
+          ]
+        },
+        {
+          "pixels": 2257,
+          "bounds": [
+            1475,
+            689,
+            1514,
+            788
+          ]
+        },
+        {
+          "pixels": 1067,
+          "bounds": [
+            1142,
+            745,
+            1174,
+            803
+          ]
+        },
+        {
+          "pixels": 546,
+          "bounds": [
+            1257,
+            579,
+            1276,
+            624
+          ]
+        },
+        {
+          "pixels": 289,
+          "bounds": [
+            1496,
+            772,
+            1510,
+            804
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          9,
+          8,
+          117,
+          120
+        ],
+        "visiblePixels": 8951,
+        "transparentPixels": 7433,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 8951,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "craver",
+      "kind": "portrait",
+      "name": "크레이버",
+      "path": "Assets/Resources/Lumia/Portraits/craver.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "2ec7b4cd7e809a09690cb437d51c43ee0e25126a27f7f67196a101fc4c735c8f",
+      "pixelSha256": "dc931d282e49a6bbe85335288506073d6f0574532d2f41c7ac40362e78e6481e",
+      "batch": "sprites_12",
+      "source": "docs/art-chibi/generated/sprites_12_raw.png",
+      "sourceSha256": "ab555ba65a0dc87143c06a55c25beef7418a7b9a90d647065a7cc4a4326a3789",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 0,
+      "cropBox": [
+        403,
+        138,
+        775,
+        591
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          3,
+          370,
+          453
+        ],
+        "visiblePixels": 108239,
+        "transparentPixels": 60277,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 108239,
+        "borderVisiblePixels": 35,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 95590,
+          "bounds": [
+            409,
+            144,
+            769,
+            585
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          18,
+          8,
+          110,
+          120
+        ],
+        "visiblePixels": 6689,
+        "transparentPixels": 9695,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6689,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "darko",
+      "kind": "portrait",
+      "name": "다르코",
+      "path": "Assets/Resources/Lumia/Portraits/darko.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "4ba64a4ed9c67314fcdae30917114e292382280f266944c59ff303c912e7140c",
+      "pixelSha256": "38658afc468fe9b75b316da9efc834989c18d0f5ce98e915ff95f2d6e167249f",
+      "batch": "sprites_10",
+      "source": "docs/art-chibi/generated/sprites_10_raw.png",
+      "sourceSha256": "d66ab69e08f6b57752be658796028bc36ac2edaaaa805cd31ccb370565219207",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 0,
+      "cropBox": [
+        1160,
+        81,
+        1523,
+        529
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          360,
+          448
+        ],
+        "visiblePixels": 111590,
+        "transparentPixels": 51034,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 111590,
+        "borderVisiblePixels": 118,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 98449,
+          "bounds": [
+            1166,
+            87,
+            1517,
+            523
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          19,
+          8,
+          109,
+          120
+        ],
+        "visiblePixels": 6984,
+        "transparentPixels": 9400,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6984,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "debi_marlene",
+      "kind": "portrait",
+      "name": "데비&마를렌",
+      "path": "Assets/Resources/Lumia/Portraits/debi_marlene.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "e54bdc0d807676138d0c271e457172003b49679ca96b9bec4fc93cac67a5061f",
+      "pixelSha256": "8af3cd9daf9468674900a89479c7147be15ea387021d8276d9ad176afc253542",
+      "batch": "sprites_09",
+      "source": "docs/art-chibi/generated/sprites_09_raw.png",
+      "sourceSha256": "324e466247f242308c9bb229c56b359f34785e167b48147e26d2c19082340288",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 0,
+      "cropBox": [
+        1093,
+        115,
+        1530,
+        518
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          437,
+          402
+        ],
+        "visiblePixels": 128727,
+        "transparentPixels": 47384,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 128727,
+        "borderVisiblePixels": 69,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 116205,
+          "bounds": [
+            1099,
+            121,
+            1524,
+            512
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          8,
+          17,
+          120,
+          120
+        ],
+        "visiblePixels": 8446,
+        "transparentPixels": 7938,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 8446,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "echion",
+      "kind": "portrait",
+      "name": "에키온",
+      "path": "Assets/Resources/Lumia/Portraits/echion.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "ee75392de8f7a16bb4a7ac608cdcfae2cef20c56c8fd8bced17f8e106a03fce7",
+      "pixelSha256": "ef0063009bd81491c6cf84d7a0f1fde817449dbe135b5a1afcf31785594b1429",
+      "batch": "sprites_06",
+      "source": "docs/art-chibi/generated/sprites_06_raw.png",
+      "sourceSha256": "34f0c9269373e6d3773c2915ecef6df0b90db95afbeb0c4bfb4fdc5b3ff43e6d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 1,
+      "cropBox": [
+        48,
+        548,
+        311,
+        979
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          263,
+          429
+        ],
+        "visiblePixels": 82348,
+        "transparentPixels": 31005,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 82348,
+        "borderVisiblePixels": 30,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 72441,
+          "bounds": [
+            54,
+            554,
+            305,
+            973
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          29,
+          9,
+          98,
+          120
+        ],
+        "visiblePixels": 5631,
+        "transparentPixels": 10753,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 5631,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "elena",
+      "kind": "portrait",
+      "name": "엘레나",
+      "path": "Assets/Resources/Lumia/Portraits/elena.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "726ef6bfa63098850541b191a6d41557ac626b8f8770625cbf607cf7ca52abfd",
+      "pixelSha256": "b1d527080d5e7533b1f1e05cff32caf0e0a46181245958804a0732d98e55d566",
+      "batch": "sprites_06",
+      "source": "docs/art-chibi/generated/sprites_06_raw.png",
+      "sourceSha256": "34f0c9269373e6d3773c2915ecef6df0b90db95afbeb0c4bfb4fdc5b3ff43e6d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 1,
+      "cropBox": [
+        401,
+        576,
+        821,
+        979
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          420,
+          401
+        ],
+        "visiblePixels": 100767,
+        "transparentPixels": 68493,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 100767,
+        "borderVisiblePixels": 60,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 85630,
+          "bounds": [
+            407,
+            582,
+            815,
+            973
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          8,
+          13,
+          120,
+          120
+        ],
+        "visiblePixels": 7179,
+        "transparentPixels": 9205,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7179,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "eleven",
+      "kind": "portrait",
+      "name": "일레븐",
+      "path": "Assets/Resources/Lumia/Portraits/eleven.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "963a6da4a2af91f3be6797654ca15e10efab38a6e8360d6a7b0718329310ff1c",
+      "pixelSha256": "c24d0b080016be7581f1044ecd6cbee8cd7a475929fac056cd548daa740a06dd",
+      "batch": "sprites_07",
+      "source": "docs/art-chibi/generated/sprites_07_raw.png",
+      "sourceSha256": "7ffc1ebc3e6ee5624c26b46ef5bf9b000a41cce58267929a3ecf81a66ee069de",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 0,
+      "cropBox": [
+        1172,
+        84,
+        1493,
+        485
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          321,
+          401
+        ],
+        "visiblePixels": 89787,
+        "transparentPixels": 38934,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 89787,
+        "borderVisiblePixels": 135,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 80223,
+          "bounds": [
+            1178,
+            90,
+            1487,
+            479
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          19,
+          8,
+          109,
+          120
+        ],
+        "visiblePixels": 7023,
+        "transparentPixels": 9361,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7023,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 32,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "estelle",
+      "kind": "portrait",
+      "name": "에스텔",
+      "path": "Assets/Resources/Lumia/Portraits/estelle.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "64c5044420f61a098b1d30b3b16a153d10bd82c70e549e73909843a2cbd5dac9",
+      "pixelSha256": "ba6c55ab334dbc4cbbd349ee331a395fe601a3ffc9569e2d9ee1264e592aa8fd",
+      "batch": "sprites_06",
+      "source": "docs/art-chibi/generated/sprites_06_raw.png",
+      "sourceSha256": "34f0c9269373e6d3773c2915ecef6df0b90db95afbeb0c4bfb4fdc5b3ff43e6d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 0,
+      "cropBox": [
+        812,
+        134,
+        1124,
+        514
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          310,
+          380
+        ],
+        "visiblePixels": 81025,
+        "transparentPixels": 37535,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 81025,
+        "borderVisiblePixels": 12,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 72764,
+          "bounds": [
+            818,
+            140,
+            1118,
+            508
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          18,
+          8,
+          109,
+          120
+        ],
+        "visiblePixels": 7002,
+        "transparentPixels": 9382,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7002,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "eva",
+      "kind": "portrait",
+      "name": "이바",
+      "path": "Assets/Resources/Lumia/Portraits/eva.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "711b150129979a3d07dd59aa6392a157c2a719a65246fad1e9551d94de032a13",
+      "pixelSha256": "3955eb4df7f24434d69f3c2edf62fb06a3acef2133cf36314e73753bce910042",
+      "batch": "sprites_07",
+      "source": "docs/art-chibi/generated/sprites_07_raw.png",
+      "sourceSha256": "7ffc1ebc3e6ee5624c26b46ef5bf9b000a41cce58267929a3ecf81a66ee069de",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 0,
+      "cropBox": [
+        409,
+        108,
+        735,
+        485
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          326,
+          377
+        ],
+        "visiblePixels": 93225,
+        "transparentPixels": 29677,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 93225,
+        "borderVisiblePixels": 130,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 84321,
+          "bounds": [
+            415,
+            114,
+            729,
+            479
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          15,
+          8,
+          112,
+          120
+        ],
+        "visiblePixels": 8243,
+        "transparentPixels": 8141,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 8243,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 32,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "felix",
+      "kind": "portrait",
+      "name": "펠릭스",
+      "path": "Assets/Resources/Lumia/Portraits/felix.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "b27a2ce8dc0bc65a1bb13c26928aa23046aeb85385652bffd4d962965545efb2",
+      "pixelSha256": "dc797861639a55a8e9c26893d0a21a8d02801626431e573bc1eebbe82fcc01c6",
+      "batch": "sprites_08",
+      "source": "docs/art-chibi/generated/sprites_08_raw.png",
+      "sourceSha256": "550b1b6ccaafd971ecc81338ff9b7454f1c5dd8c982b1592d8e86fa0c6f1c1dd",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 1,
+      "cropBox": [
+        397,
+        552,
+        731,
+        998
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          334,
+          444
+        ],
+        "visiblePixels": 92781,
+        "transparentPixels": 56183,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 92781,
+        "borderVisiblePixels": 50,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 79982,
+          "bounds": [
+            403,
+            558,
+            725,
+            992
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          22,
+          8,
+          106,
+          120
+        ],
+        "visiblePixels": 5870,
+        "transparentPixels": 10514,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 5870,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "fenrir",
+      "kind": "portrait",
+      "name": "펜리르",
+      "path": "Assets/Resources/Lumia/Portraits/fenrir.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "4e45cc99121e32412ca776be14dfbc85daab3482fe58a013f9c616b27981b2ac",
+      "pixelSha256": "7ab884018422289a345c8c09db809efaf876387bdb1f1cc442695baa8f828d6b",
+      "batch": "sprites_11",
+      "source": "docs/art-chibi/generated/sprites_11_raw.png",
+      "sourceSha256": "0f50cd60f8e95670318e05549b8c30a87fdb9f1fde2f205e510a8c7d5e9a061d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 1,
+      "cropBox": [
+        807,
+        581,
+        1097,
+        980
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          290,
+          399
+        ],
+        "visiblePixels": 83882,
+        "transparentPixels": 31828,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 83882,
+        "borderVisiblePixels": 75,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 71026,
+          "bounds": [
+            813,
+            587,
+            1091,
+            974
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          23,
+          8,
+          104,
+          120
+        ],
+        "visiblePixels": 6566,
+        "transparentPixels": 9818,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6566,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "fiora",
+      "kind": "portrait",
+      "name": "피오라",
+      "path": "Assets/Resources/Lumia/Portraits/fiora.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "1f418346ec042c89f3c194852d38c01891b246b7ff7be3be0b1cc7d5e8ac92a8",
+      "pixelSha256": "7a0b3fbbe82342623edd252cb30b3510fb5ab7c26d9881d02489a2ea5f1064fd",
+      "batch": "sprites_08",
+      "source": "docs/art-chibi/generated/sprites_08_raw.png",
+      "sourceSha256": "550b1b6ccaafd971ecc81338ff9b7454f1c5dd8c982b1592d8e86fa0c6f1c1dd",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 1,
+      "cropBox": [
+        1158,
+        549,
+        1531,
+        992
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          1,
+          0,
+          373,
+          443
+        ],
+        "visiblePixels": 96966,
+        "transparentPixels": 68273,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 96966,
+        "borderVisiblePixels": 134,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 83172,
+          "bounds": [
+            1164,
+            555,
+            1525,
+            986
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          17,
+          8,
+          111,
+          120
+        ],
+        "visiblePixels": 6196,
+        "transparentPixels": 10188,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6196,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "garnet",
+      "kind": "portrait",
+      "name": "가넷",
+      "path": "Assets/Resources/Lumia/Portraits/garnet.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "1341e7427f5b67ff145da2b72747dcdd894f447e739734f415b76e7fcf4b5c4e",
+      "pixelSha256": "9455c8a7d5d07c134cbdacd1892c7420e05b12842379ea6af60209a1aa1abfc2",
+      "batch": "sprites_10",
+      "source": "docs/art-chibi/generated/sprites_10_raw.png",
+      "sourceSha256": "d66ab69e08f6b57752be658796028bc36ac2edaaaa805cd31ccb370565219207",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 1,
+      "cropBox": [
+        376,
+        535,
+        783,
+        998
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          407,
+          460
+        ],
+        "visiblePixels": 126616,
+        "transparentPixels": 61825,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 126616,
+        "borderVisiblePixels": 52,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 105189,
+          "bounds": [
+            382,
+            541,
+            777,
+            992
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          14,
+          8,
+          113,
+          120
+        ],
+        "visiblePixels": 7519,
+        "transparentPixels": 8865,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7519,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "hart",
+      "kind": "portrait",
+      "name": "하트",
+      "path": "Assets/Resources/Lumia/Portraits/hart.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "4aa00dd7a321cd52320b1fe2e5ad98f3b53d4d4b7408cd75361e38d7c4956e11",
+      "pixelSha256": "df3c27e8f2b87d5d64e2b74be86992439475297c60cecf61f86a3d88dda266f9",
+      "batch": "sprites_09",
+      "source": "docs/art-chibi/generated/sprites_09_raw.png",
+      "sourceSha256": "324e466247f242308c9bb229c56b359f34785e167b48147e26d2c19082340288",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 0,
+      "cropBox": [
+        431,
+        76,
+        739,
+        517
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          3,
+          308,
+          441
+        ],
+        "visiblePixels": 98117,
+        "transparentPixels": 37711,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 98117,
+        "borderVisiblePixels": 28,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 88703,
+          "bounds": [
+            437,
+            82,
+            733,
+            511
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          24,
+          8,
+          103,
+          120
+        ],
+        "visiblePixels": 6435,
+        "transparentPixels": 9949,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6435,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "haze",
+      "kind": "portrait",
+      "name": "헤이즈",
+      "path": "Assets/Resources/Lumia/Portraits/haze.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "ff9a942d612fdd28e3548680c7d924902e3a49f6adf0c6204c05639bf01794f8",
+      "pixelSha256": "c5a339274c5f8a8572dbbe5ebe37dfe0e681f7700c110696d353ddd975086840",
+      "batch": "sprites_09",
+      "source": "docs/art-chibi/generated/sprites_09_raw.png",
+      "sourceSha256": "324e466247f242308c9bb229c56b359f34785e167b48147e26d2c19082340288",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 0,
+      "cropBox": [
+        759,
+        92,
+        1127,
+        518
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          3,
+          367,
+          423
+        ],
+        "visiblePixels": 98614,
+        "transparentPixels": 58154,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 98614,
+        "borderVisiblePixels": 27,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 90124,
+          "bounds": [
+            765,
+            98,
+            1121,
+            512
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          15,
+          8,
+          112,
+          120
+        ],
+        "visiblePixels": 7022,
+        "transparentPixels": 9362,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7022,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "henry",
+      "kind": "portrait",
+      "name": "헨리",
+      "path": "Assets/Resources/Lumia/Portraits/henry.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "9912d7657403f0e1915c3eaec2b70696a2e005a1599b7eb1409394006bb0e562",
+      "pixelSha256": "fd7bceae791dd342a63b445a07c547ca4d03417de6c943fb4520cf57f5ba8441",
+      "batch": "sprites_11",
+      "source": "docs/art-chibi/generated/sprites_11_raw.png",
+      "sourceSha256": "0f50cd60f8e95670318e05549b8c30a87fdb9f1fde2f205e510a8c7d5e9a061d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 0,
+      "cropBox": [
+        1131,
+        135,
+        1522,
+        531
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          1,
+          0,
+          387,
+          393
+        ],
+        "visiblePixels": 98940,
+        "transparentPixels": 55896,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 98940,
+        "borderVisiblePixels": 38,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 79180,
+          "bounds": [
+            1140,
+            141,
+            1516,
+            525
+          ]
+        },
+        {
+          "pixels": 1844,
+          "bounds": [
+            1406,
+            202,
+            1508,
+            300
+          ]
+        },
+        {
+          "pixels": 1157,
+          "bounds": [
+            1137,
+            313,
+            1220,
+            368
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          9,
+          8,
+          119,
+          120
+        ],
+        "visiblePixels": 8009,
+        "transparentPixels": 8375,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 8009,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "hisui",
+      "kind": "portrait",
+      "name": "히스이",
+      "path": "Assets/Resources/Lumia/Portraits/hisui.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "c645070116f09488306e74e9c67a04d694285db90b1a7860bcc6175140a1f510",
+      "pixelSha256": "b0b4260e50cb0ff2c50b60b541640fa12c4a6c7d91aed6ced5715c65c976ee0b",
+      "batch": "sprites_10",
+      "source": "docs/art-chibi/generated/sprites_10_raw.png",
+      "sourceSha256": "d66ab69e08f6b57752be658796028bc36ac2edaaaa805cd31ccb370565219207",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 1,
+      "cropBox": [
+        1150,
+        533,
+        1531,
+        998
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          381,
+          462
+        ],
+        "visiblePixels": 125331,
+        "transparentPixels": 51834,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 125331,
+        "borderVisiblePixels": 42,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 107575,
+          "bounds": [
+            1156,
+            539,
+            1525,
+            992
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          18,
+          8,
+          110,
+          120
+        ],
+        "visiblePixels": 7353,
+        "transparentPixels": 9031,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7353,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "ian",
+      "kind": "portrait",
+      "name": "이안",
+      "path": "Assets/Resources/Lumia/Portraits/ian.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "b669a0b155cab1cd271870694030628c4c5d01c122ca564cb2ade3864f51c9af",
+      "pixelSha256": "e64159ec6800e642b61f03a197fc8a20a11ed35a75f79e8ee107dcf05485eb3b",
+      "batch": "sprites_07",
+      "source": "docs/art-chibi/generated/sprites_07_raw.png",
+      "sourceSha256": "7ffc1ebc3e6ee5624c26b46ef5bf9b000a41cce58267929a3ecf81a66ee069de",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 0,
+      "cropBox": [
+        779,
+        110,
+        1173,
+        489
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          394,
+          379
+        ],
+        "visiblePixels": 113150,
+        "transparentPixels": 36176,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 113150,
+        "borderVisiblePixels": 73,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 102650,
+          "bounds": [
+            785,
+            116,
+            1167,
+            483
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          8,
+          12,
+          120,
+          120
+        ],
+        "visiblePixels": 9176,
+        "transparentPixels": 7208,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 9176,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 32,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "irem",
+      "kind": "portrait",
+      "name": "이렘",
+      "path": "Assets/Resources/Lumia/Portraits/irem.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "9f1e94f3950b791892b6adbbf9670fae1321ab77626bfaa51ad63d04d9b028d9",
+      "pixelSha256": "207b7ceba86e6c203ba50f46ad80e026770f3ae895445b5fa4ccd6ae43697bfd",
+      "batch": "sprites_07",
+      "source": "docs/art-chibi/generated/sprites_07_raw.png",
+      "sourceSha256": "7ffc1ebc3e6ee5624c26b46ef5bf9b000a41cce58267929a3ecf81a66ee069de",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 0,
+      "cropBox": [
+        76,
+        96,
+        356,
+        484
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          280,
+          388
+        ],
+        "visiblePixels": 82959,
+        "transparentPixels": 25681,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 82959,
+        "borderVisiblePixels": 126,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 73778,
+          "bounds": [
+            82,
+            102,
+            350,
+            478
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          23,
+          8,
+          104,
+          120
+        ],
+        "visiblePixels": 6925,
+        "transparentPixels": 9459,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6925,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 32,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "isaac",
+      "kind": "portrait",
+      "name": "아이작",
+      "path": "Assets/Resources/Lumia/Portraits/isaac.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "1bfeec97d8ef9c9ff394fe7f7dc6194ca86be20ec11703ac44c056d908cb680c",
+      "pixelSha256": "37df5b8346399b67c00b779876191f2b2a0e5cdd7bc4aaa35a9a97a0a039ebe0",
+      "batch": "sprites_05",
+      "source": "docs/art-chibi/generated/sprites_05_raw.png",
+      "sourceSha256": "10a9ebd99b7110619c118ed3d922b1282663a6f67e878552f38d9a838e64a221",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 1,
+      "cropBox": [
+        1184,
+        591,
+        1495,
+        963
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          1,
+          307,
+          369
+        ],
+        "visiblePixels": 80071,
+        "transparentPixels": 35621,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 80071,
+        "borderVisiblePixels": 4,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 72543,
+          "bounds": [
+            1190,
+            597,
+            1489,
+            957
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          17,
+          9,
+          110,
+          120
+        ],
+        "visiblePixels": 7385,
+        "transparentPixels": 8999,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7385,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "istvan",
+      "kind": "portrait",
+      "name": "이슈트반",
+      "path": "Assets/Resources/Lumia/Portraits/istvan.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "e0e96c0384b86eaf8010376956c3727b6052535204e45b28f91b2473cb7fd073",
+      "pixelSha256": "4b69cc18c76cd2c7fc3dd179ee03c7ff83d77cdd9eae56973b1f0ebe13cf54ed",
+      "batch": "sprites_11",
+      "source": "docs/art-chibi/generated/sprites_11_raw.png",
+      "sourceSha256": "0f50cd60f8e95670318e05549b8c30a87fdb9f1fde2f205e510a8c7d5e9a061d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 0,
+      "cropBox": [
+        389,
+        82,
+        774,
+        547
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          4,
+          383,
+          464
+        ],
+        "visiblePixels": 108162,
+        "transparentPixels": 70863,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 108162,
+        "borderVisiblePixels": 25,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 90426,
+          "bounds": [
+            395,
+            88,
+            768,
+            541
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          17,
+          8,
+          110,
+          120
+        ],
+        "visiblePixels": 6416,
+        "transparentPixels": 9968,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6416,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "jan",
+      "kind": "portrait",
+      "name": "얀",
+      "path": "Assets/Resources/Lumia/Portraits/jan.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "c67dbb6ff7f92e3c07eb51df77e247be4b7fbdf4189690c008d19a6e699ed6f8",
+      "pixelSha256": "376f1712e011ca790ca5564aad93e712ab80240477abba4c89fceecc4413d1be",
+      "batch": "sprites_06",
+      "source": "docs/art-chibi/generated/sprites_06_raw.png",
+      "sourceSha256": "34f0c9269373e6d3773c2915ecef6df0b90db95afbeb0c4bfb4fdc5b3ff43e6d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 0,
+      "cropBox": [
+        438,
+        84,
+        710,
+        514
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          268,
+          430
+        ],
+        "visiblePixels": 82715,
+        "transparentPixels": 34245,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 82715,
+        "borderVisiblePixels": 68,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 72397,
+          "bounds": [
+            444,
+            90,
+            704,
+            508
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          29,
+          8,
+          99,
+          120
+        ],
+        "visiblePixels": 5633,
+        "transparentPixels": 10751,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 5633,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "jenny",
+      "kind": "portrait",
+      "name": "제니",
+      "path": "Assets/Resources/Lumia/Portraits/jenny.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "c3cb273e39b8c6d88ac98ea486d2d3c12c7ca78e99920fe082f605446220c225",
+      "pixelSha256": "a985175a65bc535a898aaf206b7c4b7977542a7ab503f9b80951cdb0f71312e7",
+      "batch": "sprites_07",
+      "source": "docs/art-chibi/generated/sprites_07_raw.png",
+      "sourceSha256": "7ffc1ebc3e6ee5624c26b46ef5bf9b000a41cce58267929a3ecf81a66ee069de",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 1,
+      "cropBox": [
+        393,
+        563,
+        751,
+        964
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          358,
+          401
+        ],
+        "visiblePixels": 106199,
+        "transparentPixels": 37359,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 106199,
+        "borderVisiblePixels": 81,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 95728,
+          "bounds": [
+            399,
+            569,
+            745,
+            958
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          14,
+          8,
+          114,
+          120
+        ],
+        "visiblePixels": 8284,
+        "transparentPixels": 8100,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 8284,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 32,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "johann",
+      "kind": "portrait",
+      "name": "요한",
+      "path": "Assets/Resources/Lumia/Portraits/johann.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "ac53379dcefbe2cf00df0dffac7ab932701c1c5d83c7458119fc4015520d40a8",
+      "pixelSha256": "29113614bcfa42c0268dc7309d01bb91831cd1fa9f8cbd8e5f2afe9d2f27ae18",
+      "batch": "sprites_06",
+      "source": "docs/art-chibi/generated/sprites_06_raw.png",
+      "sourceSha256": "34f0c9269373e6d3773c2915ecef6df0b90db95afbeb0c4bfb4fdc5b3ff43e6d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 1,
+      "cropBox": [
+        836,
+        586,
+        1081,
+        979
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          4,
+          244,
+          392
+        ],
+        "visiblePixels": 73817,
+        "transparentPixels": 22468,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 73817,
+        "borderVisiblePixels": 21,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 65020,
+          "bounds": [
+            842,
+            592,
+            1075,
+            973
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          29,
+          8,
+          98,
+          120
+        ],
+        "visiblePixels": 6123,
+        "transparentPixels": 10261,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6123,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "justyna",
+      "kind": "portrait",
+      "name": "유스티나",
+      "path": "Assets/Resources/Lumia/Portraits/justyna.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "ef9a8e7908bb53ab6f737700798ae21d2e4659f867f6237ac17fc2d2bc83162d",
+      "pixelSha256": "76676be6e9be5db9a1747a411b23bfcf5e59945f16144abee0b305760982ab8f",
+      "batch": "sprites_11",
+      "source": "docs/art-chibi/generated/sprites_11_raw.png",
+      "sourceSha256": "0f50cd60f8e95670318e05549b8c30a87fdb9f1fde2f205e510a8c7d5e9a061d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 0,
+      "cropBox": [
+        10,
+        103,
+        384,
+        531
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          2,
+          3,
+          374,
+          427
+        ],
+        "visiblePixels": 103148,
+        "transparentPixels": 56924,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 103148,
+        "borderVisiblePixels": 16,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 89206,
+          "bounds": [
+            16,
+            109,
+            378,
+            525
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          15,
+          8,
+          113,
+          120
+        ],
+        "visiblePixels": 7177,
+        "transparentPixels": 9207,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7177,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "karla",
+      "kind": "portrait",
+      "name": "칼라",
+      "path": "Assets/Resources/Lumia/Portraits/karla.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "2cb6cba3a4bc0835772c90a9fcf1576aec0973d02b2e904fbf5747e05fe549ed",
+      "pixelSha256": "cd6f2d94458615c3f4f0bf0e085277267fea43762f9870e86019b12d22286c00",
+      "batch": "sprites_07",
+      "source": "docs/art-chibi/generated/sprites_07_raw.png",
+      "sourceSha256": "7ffc1ebc3e6ee5624c26b46ef5bf9b000a41cce58267929a3ecf81a66ee069de",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 1,
+      "cropBox": [
+        1163,
+        570,
+        1507,
+        957
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          344,
+          387
+        ],
+        "visiblePixels": 90279,
+        "transparentPixels": 42849,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 90279,
+        "borderVisiblePixels": 154,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 79301,
+          "bounds": [
+            1169,
+            576,
+            1501,
+            951
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          14,
+          8,
+          114,
+          120
+        ],
+        "visiblePixels": 7610,
+        "transparentPixels": 8774,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7610,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 32,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "katja",
+      "kind": "portrait",
+      "name": "카티야",
+      "path": "Assets/Resources/Lumia/Portraits/katja.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "aa61f30bdd06d7ce7d0ecb788d769bc59c0a6f6b6525697c59a4b68908dac49a",
+      "pixelSha256": "6ce617f282174eb32d08523f5bb22fba5bc0c576409059acc765ac6992dc897e",
+      "batch": "sprites_10",
+      "source": "docs/art-chibi/generated/sprites_10_raw.png",
+      "sourceSha256": "d66ab69e08f6b57752be658796028bc36ac2edaaaa805cd31ccb370565219207",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 0,
+      "cropBox": [
+        771,
+        102,
+        1159,
+        529
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          388,
+          427
+        ],
+        "visiblePixels": 113020,
+        "transparentPixels": 52656,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 113020,
+        "borderVisiblePixels": 142,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 95949,
+          "bounds": [
+            777,
+            108,
+            1153,
+            523
+          ]
+        },
+        {
+          "pixels": 2,
+          "bounds": [
+            1114,
+            427,
+            1115,
+            429
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          13,
+          8,
+          115,
+          120
+        ],
+        "visiblePixels": 7786,
+        "transparentPixels": 8598,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7786,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "kenneth",
+      "kind": "portrait",
+      "name": "케네스",
+      "path": "Assets/Resources/Lumia/Portraits/kenneth.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "730bb30ea722fb2a4bd64853eabba475b6b8166226ceff972fb26200772b85ee",
+      "pixelSha256": "d1a17375ca2052244d0d20ee7ebef90e98accac0dad2c3d822f3f234ea95d3e6",
+      "batch": "sprites_10",
+      "source": "docs/art-chibi/generated/sprites_10_raw.png",
+      "sourceSha256": "d66ab69e08f6b57752be658796028bc36ac2edaaaa805cd31ccb370565219207",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 0,
+      "cropBox": [
+        404,
+        37,
+        763,
+        529
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          359,
+          492
+        ],
+        "visiblePixels": 122050,
+        "transparentPixels": 54578,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 122050,
+        "borderVisiblePixels": 136,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 108222,
+          "bounds": [
+            410,
+            43,
+            757,
+            523
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          23,
+          8,
+          105,
+          120
+        ],
+        "visiblePixels": 6345,
+        "transparentPixels": 10039,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6345,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "leni",
+      "kind": "portrait",
+      "name": "레니",
+      "path": "Assets/Resources/Lumia/Portraits/leni.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "6973a0725c8abdb9aac66dcd46ec27a6bf8e69802a5db04c8327af1ada077e8c",
+      "pixelSha256": "398101a699ad2760852014409af5b34e75ce9f2d22d1c6981efbabb5130633c4",
+      "batch": "sprites_09",
+      "source": "docs/art-chibi/generated/sprites_09_raw.png",
+      "sourceSha256": "324e466247f242308c9bb229c56b359f34785e167b48147e26d2c19082340288",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 1,
+      "cropBox": [
+        1169,
+        547,
+        1530,
+        986
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          361,
+          439
+        ],
+        "visiblePixels": 97688,
+        "transparentPixels": 60791,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 97688,
+        "borderVisiblePixels": 51,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 84705,
+          "bounds": [
+            1175,
+            553,
+            1524,
+            980
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          18,
+          8,
+          110,
+          120
+        ],
+        "visiblePixels": 6346,
+        "transparentPixels": 10038,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6346,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "lenore",
+      "kind": "portrait",
+      "name": "르노어",
+      "path": "Assets/Resources/Lumia/Portraits/lenore.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "bbbb6ef9558b87e4637e6395ff114df070446d30bbc3526def807a8093746f33",
+      "pixelSha256": "b1c1540adddd5aab2cc72ce11713daef4fc2adcb5d095acb5be5fb29d7d7f5db",
+      "batch": "sprites_10",
+      "source": "docs/art-chibi/generated/sprites_10_raw.png",
+      "sourceSha256": "d66ab69e08f6b57752be658796028bc36ac2edaaaa805cd31ccb370565219207",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 1,
+      "cropBox": [
+        20,
+        553,
+        362,
+        998
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          342,
+          445
+        ],
+        "visiblePixels": 106840,
+        "transparentPixels": 45350,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 106840,
+        "borderVisiblePixels": 97,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 94476,
+          "bounds": [
+            26,
+            559,
+            356,
+            992
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          21,
+          8,
+          107,
+          120
+        ],
+        "visiblePixels": 6741,
+        "transparentPixels": 9643,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6741,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "lucia",
+      "kind": "portrait",
+      "name": "루치아",
+      "path": "Assets/Resources/Lumia/Portraits/lucia.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "19d31d0c5245eaaf787ef3899e3120a0f569971960d2814d94d00ab5cb89e3fb",
+      "pixelSha256": "80c91e72241c44c3f191e1ca0efe7aa26be108da939fb4d6dd5f128b824f7a94",
+      "batch": "sprites_12",
+      "source": "docs/art-chibi/generated/sprites_12_raw.png",
+      "sourceSha256": "ab555ba65a0dc87143c06a55c25beef7418a7b9a90d647065a7cc4a4326a3789",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 0,
+      "cropBox": [
+        764,
+        160,
+        1175,
+        592
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          2,
+          2,
+          407,
+          432
+        ],
+        "visiblePixels": 114581,
+        "transparentPixels": 62971,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 114581,
+        "borderVisiblePixels": 4,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 102947,
+          "bounds": [
+            770,
+            166,
+            1169,
+            586
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          11,
+          8,
+          116,
+          120
+        ],
+        "visiblePixels": 7737,
+        "transparentPixels": 8647,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7737,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "magnus",
+      "kind": "portrait",
+      "name": "매그너스",
+      "path": "Assets/Resources/Lumia/Portraits/magnus.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "83f1efc26e6b0b6c70669981206b9c9ccc1505b43381e22da6c7a073a362df85",
+      "pixelSha256": "8ba106ae8809e3672739ef219785ca986a84de0b85d60fb089eb730cf2079a6b",
+      "batch": "sprites_04",
+      "source": "docs/art-chibi/generated/sprites_04_raw.png",
+      "sourceSha256": "e121bf9faa5e2366fb2732d3b78b1314bb138d075bdccf4fe42100ad0c1b5666",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 0,
+      "cropBox": [
+        864,
+        145,
+        1087,
+        425
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          2,
+          223,
+          279
+        ],
+        "visiblePixels": 40560,
+        "transparentPixels": 21880,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 40560,
+        "borderVisiblePixels": 36,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 35236,
+          "bounds": [
+            870,
+            151,
+            1081,
+            419
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          19,
+          8,
+          109,
+          120
+        ],
+        "visiblePixels": 6607,
+        "transparentPixels": 9777,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6607,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "mai",
+      "kind": "portrait",
+      "name": "마이",
+      "path": "Assets/Resources/Lumia/Portraits/mai.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "839228b6b198bf654a4192367b4ec1971957135e7deefc858184a5bc2ccf2a6a",
+      "pixelSha256": "2e9ba6c5698da220cbfd17a960c4e5c89614d0ff184fc43afadafbb5cb451db3",
+      "batch": "sprites_04",
+      "source": "docs/art-chibi/generated/sprites_04_raw.png",
+      "sourceSha256": "e121bf9faa5e2366fb2732d3b78b1314bb138d075bdccf4fe42100ad0c1b5666",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 0,
+      "cropBox": [
+        85,
+        144,
+        300,
+        428
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          215,
+          284
+        ],
+        "visiblePixels": 44266,
+        "transparentPixels": 16794,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 44266,
+        "borderVisiblePixels": 59,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 38481,
+          "bounds": [
+            91,
+            150,
+            294,
+            422
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          21,
+          8,
+          106,
+          120
+        ],
+        "visiblePixels": 6902,
+        "transparentPixels": 9482,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6902,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "markus",
+      "kind": "portrait",
+      "name": "마커스",
+      "path": "Assets/Resources/Lumia/Portraits/markus.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "b89e3802e48830b66e1d0db90cbb2a627f85a769b9d5f5b6b3981a6a970b0e09",
+      "pixelSha256": "7ad592d03410f9d901ab9b7c83e819aa878ae2957cca55eae71ff9b5eee2f6e4",
+      "batch": "sprites_04",
+      "source": "docs/art-chibi/generated/sprites_04_raw.png",
+      "sourceSha256": "e121bf9faa5e2366fb2732d3b78b1314bb138d075bdccf4fe42100ad0c1b5666",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 0,
+      "cropBox": [
+        423,
+        146,
+        699,
+        425
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          274,
+          278
+        ],
+        "visiblePixels": 46108,
+        "transparentPixels": 30896,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 46108,
+        "borderVisiblePixels": 33,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 40584,
+          "bounds": [
+            429,
+            152,
+            693,
+            419
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          9,
+          8,
+          119,
+          119
+        ],
+        "visiblePixels": 7460,
+        "transparentPixels": 8924,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7460,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "mirka",
+      "kind": "portrait",
+      "name": "미르카",
+      "path": "Assets/Resources/Lumia/Portraits/mirka.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "8f2561503f4ad7b2f5a9ab1ae459f5a2a290f7df7691ea93a2fbbdc90955c65c",
+      "pixelSha256": "5f74d7c3cc060ed4166111cc8744cbce88d7708d62af62465b44404f81eb7ecd",
+      "batch": "sprites_11",
+      "source": "docs/art-chibi/generated/sprites_11_raw.png",
+      "sourceSha256": "0f50cd60f8e95670318e05549b8c30a87fdb9f1fde2f205e510a8c7d5e9a061d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 1,
+      "cropBox": [
+        390,
+        550,
+        804,
+        979
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          414,
+          426
+        ],
+        "visiblePixels": 119417,
+        "transparentPixels": 58189,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 119417,
+        "borderVisiblePixels": 58,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 104703,
+          "bounds": [
+            396,
+            556,
+            798,
+            973
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          9,
+          8,
+          117,
+          120
+        ],
+        "visiblePixels": 8256,
+        "transparentPixels": 8128,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 8256,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "piolo",
+      "kind": "portrait",
+      "name": "피올로",
+      "path": "Assets/Resources/Lumia/Portraits/piolo.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "c35d3a4032ca46100a70c36c402b34daa86497ebea950a591dc9e3cd058721d3",
+      "pixelSha256": "5ae8a483967adda541938f6b5d6645be9cd9a40fc76609397807625d813fca1d",
+      "batch": "sprites_09",
+      "source": "docs/art-chibi/generated/sprites_09_raw.png",
+      "sourceSha256": "324e466247f242308c9bb229c56b359f34785e167b48147e26d2c19082340288",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 0,
+      "cropBox": [
+        34,
+        81,
+        334,
+        520
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          300,
+          439
+        ],
+        "visiblePixels": 96688,
+        "transparentPixels": 35012,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 96688,
+        "borderVisiblePixels": 61,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 84879,
+          "bounds": [
+            40,
+            87,
+            328,
+            514
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          25,
+          8,
+          102,
+          120
+        ],
+        "visiblePixels": 6330,
+        "transparentPixels": 10054,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6330,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "priya",
+      "kind": "portrait",
+      "name": "프리야",
+      "path": "Assets/Resources/Lumia/Portraits/priya.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "817de45e1659a6cba3c90ce4a512ae59ec27ee4b07aa6955425d647b9b16a33c",
+      "pixelSha256": "b636380ed0fc7f8f54dcc061e35092d624a230cfe0e99e515879115339e9dac8",
+      "batch": "sprites_08",
+      "source": "docs/art-chibi/generated/sprites_08_raw.png",
+      "sourceSha256": "550b1b6ccaafd971ecc81338ff9b7454f1c5dd8c982b1592d8e86fa0c6f1c1dd",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 1,
+      "cropBox": [
+        804,
+        574,
+        1146,
+        994
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          2,
+          342,
+          420
+        ],
+        "visiblePixels": 104663,
+        "transparentPixels": 38977,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 104663,
+        "borderVisiblePixels": 57,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 92651,
+          "bounds": [
+            810,
+            580,
+            1140,
+            988
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          18,
+          8,
+          110,
+          120
+        ],
+        "visiblePixels": 7537,
+        "transparentPixels": 8847,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7537,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "sho",
+      "kind": "portrait",
+      "name": "쇼우",
+      "path": "Assets/Resources/Lumia/Portraits/sho.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "62f00f6e949280af0e46005ca5f30a5c7dacb720291995e8a1900142c480653d",
+      "pixelSha256": "28c11d892bcd17bba2ee54ec8c48e8b15764703f0bfe489b77225dc1fb929115",
+      "batch": "sprites_05",
+      "source": "docs/art-chibi/generated/sprites_05_raw.png",
+      "sourceSha256": "10a9ebd99b7110619c118ed3d922b1282663a6f67e878552f38d9a838e64a221",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 0,
+      "cropBox": [
+        48,
+        127,
+        401,
+        493
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          2,
+          352,
+          366
+        ],
+        "visiblePixels": 90240,
+        "transparentPixels": 38958,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 90240,
+        "borderVisiblePixels": 27,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 82781,
+          "bounds": [
+            54,
+            133,
+            395,
+            487
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          10,
+          8,
+          118,
+          120
+        ],
+        "visiblePixels": 8525,
+        "transparentPixels": 7859,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 8525,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "shoichi",
+      "kind": "portrait",
+      "name": "쇼이치",
+      "path": "Assets/Resources/Lumia/Portraits/shoichi.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "1559b56d374221303385edd6b3ba3703cdafe89becfa3d57a4fc90e098e0710b",
+      "pixelSha256": "232ff20d5a0d75844966e2c9db6f556901d43b41cfb776c1484cd4dd9940aa7a",
+      "batch": "sprites_05",
+      "source": "docs/art-chibi/generated/sprites_05_raw.png",
+      "sourceSha256": "10a9ebd99b7110619c118ed3d922b1282663a6f67e878552f38d9a838e64a221",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 0,
+      "cropBox": [
+        466,
+        112,
+        702,
+        493
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          3,
+          236,
+          381
+        ],
+        "visiblePixels": 63548,
+        "transparentPixels": 26368,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 63548,
+        "borderVisiblePixels": 49,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 56070,
+          "bounds": [
+            472,
+            118,
+            696,
+            487
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          29,
+          8,
+          99,
+          120
+        ],
+        "visiblePixels": 5593,
+        "transparentPixels": 10791,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 5593,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "silvia",
+      "kind": "portrait",
+      "name": "실비아",
+      "path": "Assets/Resources/Lumia/Portraits/silvia.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "1648bd742bf4335687b7d1c12f32101c2c3dfcdbca478e4db16c80767b17b847",
+      "pixelSha256": "ab24abdf37e063eaffa4d3f636dacebacf38d132b4f8cfda640f514b820da7ca",
+      "batch": "sprites_05",
+      "source": "docs/art-chibi/generated/sprites_05_raw.png",
+      "sourceSha256": "10a9ebd99b7110619c118ed3d922b1282663a6f67e878552f38d9a838e64a221",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 0,
+      "cropBox": [
+        1215,
+        114,
+        1477,
+        493
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          259,
+          379
+        ],
+        "visiblePixels": 66494,
+        "transparentPixels": 32804,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 66494,
+        "borderVisiblePixels": 55,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 59474,
+          "bounds": [
+            1221,
+            120,
+            1471,
+            487
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          25,
+          8,
+          102,
+          120
+        ],
+        "visiblePixels": 5847,
+        "transparentPixels": 10537,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 5847,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "sissela",
+      "kind": "portrait",
+      "name": "시셀라",
+      "path": "Assets/Resources/Lumia/Portraits/sissela.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "3b3c4d7e799678ac3208d689ca3a87b46a94b61c839a87ebfdd0750ad4bab2bc",
+      "pixelSha256": "38ead344316029565cd113f0364c7c524dd274f18c9a01b5153dbdd5d5b95a89",
+      "batch": "sprites_05",
+      "source": "docs/art-chibi/generated/sprites_05_raw.png",
+      "sourceSha256": "10a9ebd99b7110619c118ed3d922b1282663a6f67e878552f38d9a838e64a221",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 0,
+      "cropBox": [
+        795,
+        118,
+        1106,
+        490
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          3,
+          308,
+          372
+        ],
+        "visiblePixels": 83331,
+        "transparentPixels": 32361,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 83331,
+        "borderVisiblePixels": 19,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 73573,
+          "bounds": [
+            801,
+            124,
+            1100,
+            484
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          17,
+          8,
+          110,
+          120
+        ],
+        "visiblePixels": 7628,
+        "transparentPixels": 8756,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7628,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "tazia",
+      "kind": "portrait",
+      "name": "타지아",
+      "path": "Assets/Resources/Lumia/Portraits/tazia.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "ec741438635607a58fe7127363660ee8d7e0063f835b83a56012dad221c8a22c",
+      "pixelSha256": "673bda1c22534d3df5e5bec0e1eeca9f6dab32228ac630b06610776bfc2a25c7",
+      "batch": "sprites_08",
+      "source": "docs/art-chibi/generated/sprites_08_raw.png",
+      "sourceSha256": "550b1b6ccaafd971ecc81338ff9b7454f1c5dd8c982b1592d8e86fa0c6f1c1dd",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 0,
+      "cropBox": [
+        1187,
+        81,
+        1521,
+        522
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          333,
+          441
+        ],
+        "visiblePixels": 105502,
+        "transparentPixels": 41792,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 105502,
+        "borderVisiblePixels": 94,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 80199,
+          "bounds": [
+            1212,
+            87,
+            1515,
+            516
+          ]
+        },
+        {
+          "pixels": 2111,
+          "bounds": [
+            1193,
+            145,
+            1233,
+            235
+          ]
+        },
+        {
+          "pixels": 2507,
+          "bounds": [
+            1454,
+            226,
+            1504,
+            325
+          ]
+        },
+        {
+          "pixels": 3579,
+          "bounds": [
+            1193,
+            252,
+            1254,
+            361
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          21,
+          8,
+          106,
+          120
+        ],
+        "visiblePixels": 6821,
+        "transparentPixels": 9563,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6821,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "theodore",
+      "kind": "portrait",
+      "name": "테오도르",
+      "path": "Assets/Resources/Lumia/Portraits/theodore.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "befd9daeedb6ae29ad2c3a3c947e613d913e1abc3d353487e53559acf1df1c0e",
+      "pixelSha256": "91b29ddad4fbb4c634e94a7338cb047ccc394c2674a98d498dd5f65148030df4",
+      "batch": "sprites_08",
+      "source": "docs/art-chibi/generated/sprites_08_raw.png",
+      "sourceSha256": "550b1b6ccaafd971ecc81338ff9b7454f1c5dd8c982b1592d8e86fa0c6f1c1dd",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 1,
+      "cropBox": [
+        14,
+        558,
+        387,
+        997
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          2,
+          1,
+          370,
+          437
+        ],
+        "visiblePixels": 108575,
+        "transparentPixels": 55172,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 108575,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 98818,
+          "bounds": [
+            20,
+            564,
+            381,
+            991
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          16,
+          8,
+          111,
+          120
+        ],
+        "visiblePixels": 7194,
+        "transparentPixels": 9190,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7194,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "tsubame",
+      "kind": "portrait",
+      "name": "츠바메",
+      "path": "Assets/Resources/Lumia/Portraits/tsubame.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "0280e013550439771c6ccf95986e052a313fbd53961e0447523aba954ebda4ce",
+      "pixelSha256": "0ed15d91901100761b6d09406ec1d7b0f7acc4d7b21f253d6a99bc056518b069",
+      "batch": "sprites_10",
+      "source": "docs/art-chibi/generated/sprites_10_raw.png",
+      "sourceSha256": "d66ab69e08f6b57752be658796028bc36ac2edaaaa805cd31ccb370565219207",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 0,
+      "cropBox": [
+        36,
+        63,
+        383,
+        528
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          2,
+          347,
+          465
+        ],
+        "visiblePixels": 112796,
+        "transparentPixels": 48559,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 112796,
+        "borderVisiblePixels": 103,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 98554,
+          "bounds": [
+            42,
+            69,
+            377,
+            522
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          22,
+          8,
+          106,
+          120
+        ],
+        "visiblePixels": 6617,
+        "transparentPixels": 9767,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6617,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "vanya",
+      "kind": "portrait",
+      "name": "바냐",
+      "path": "Assets/Resources/Lumia/Portraits/vanya.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "c9065837cfe02908d8e4869101fef477537af6dd7208d50f631aa207fb4f4dc5",
+      "pixelSha256": "e6249d5c5847907466094288afcfbbda7d60a0e47c05ec09c6c45869b7e9157a",
+      "batch": "sprites_04",
+      "source": "docs/art-chibi/generated/sprites_04_raw.png",
+      "sourceSha256": "e121bf9faa5e2366fb2732d3b78b1314bb138d075bdccf4fe42100ad0c1b5666",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 0,
+      "cropBox": [
+        1263,
+        157,
+        1458,
+        430
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          3,
+          193,
+          273
+        ],
+        "visiblePixels": 40662,
+        "transparentPixels": 12573,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 40662,
+        "borderVisiblePixels": 38,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 33169,
+          "bounds": [
+            1269,
+            163,
+            1452,
+            424
+          ]
+        },
+        {
+          "pixels": 467,
+          "bounds": [
+            1418,
+            296,
+            1446,
+            326
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          24,
+          8,
+          104,
+          120
+        ],
+        "visiblePixels": 6993,
+        "transparentPixels": 9391,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6993,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "william",
+      "kind": "portrait",
+      "name": "윌리엄",
+      "path": "Assets/Resources/Lumia/Portraits/william.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "c51963c5bd138bd40d5c728041d249cdad0a62ca0c4ca45df58116971f771104",
+      "pixelSha256": "6b49aa73878a5dcc148325008d390f6c98f7e1bf85f9194c205fc7a6103dd0de",
+      "batch": "sprites_06",
+      "source": "docs/art-chibi/generated/sprites_06_raw.png",
+      "sourceSha256": "34f0c9269373e6d3773c2915ecef6df0b90db95afbeb0c4bfb4fdc5b3ff43e6d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 1,
+      "cropBox": [
+        1220,
+        586,
+        1491,
+        979
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          1,
+          268,
+          391
+        ],
+        "visiblePixels": 69563,
+        "transparentPixels": 36940,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 69563,
+        "borderVisiblePixels": 24,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 59640,
+          "bounds": [
+            1226,
+            592,
+            1485,
+            973
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          25,
+          8,
+          102,
+          120
+        ],
+        "visiblePixels": 5722,
+        "transparentPixels": 10662,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 5722,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "xuelin",
+      "kind": "portrait",
+      "name": "슈린",
+      "path": "Assets/Resources/Lumia/Portraits/xuelin.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "e9e9066e78eb7805e746cf7ca83cb2149cc72226777ac4704cbf1e0d3cfdbc11",
+      "pixelSha256": "3c6df97bab8f606506e22d32ece17800ec8dbbe0f24d3e591b6e7e241575ed3f",
+      "batch": "sprites_11",
+      "source": "docs/art-chibi/generated/sprites_11_raw.png",
+      "sourceSha256": "0f50cd60f8e95670318e05549b8c30a87fdb9f1fde2f205e510a8c7d5e9a061d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 0,
+      "cropBox": [
+        763,
+        134,
+        1170,
+        531
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          2,
+          405,
+          396
+        ],
+        "visiblePixels": 93683,
+        "transparentPixels": 67896,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 93683,
+        "borderVisiblePixels": 15,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 77882,
+          "bounds": [
+            769,
+            140,
+            1164,
+            525
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          8,
+          11,
+          120,
+          120
+        ],
+        "visiblePixels": 7156,
+        "transparentPixels": 9228,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7156,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "yumin",
+      "kind": "portrait",
+      "name": "유민",
+      "path": "Assets/Resources/Lumia/Portraits/yumin.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "bf11f8818496c9afdef7a8ca5fdc1d58869fa259d0852e6e5fc50fbd904444c0",
+      "pixelSha256": "e380828a6eab9de99ae5c9f6358095ec327e7463ef678c91ecbd3fb4ac2fc0dc",
+      "batch": "sprites_10",
+      "source": "docs/art-chibi/generated/sprites_10_raw.png",
+      "sourceSha256": "d66ab69e08f6b57752be658796028bc36ac2edaaaa805cd31ccb370565219207",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 1,
+      "cropBox": [
+        788,
+        542,
+        1151,
+        1001
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          363,
+          459
+        ],
+        "visiblePixels": 112170,
+        "transparentPixels": 54447,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 112170,
+        "borderVisiblePixels": 78,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 98261,
+          "bounds": [
+            794,
+            548,
+            1145,
+            995
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          19,
+          8,
+          108,
+          120
+        ],
+        "visiblePixels": 6702,
+        "transparentPixels": 9682,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6702,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 128,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "zahir",
+      "kind": "portrait",
+      "name": "자히르",
+      "path": "Assets/Resources/Lumia/Portraits/zahir.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "fa38e4600f628c79d92726a218faf5893c8d9fb44bd6960db3228312039233b0",
+      "pixelSha256": "733af3fce4684258174af2a1565953858e6c87f04c63d9c9bc3bcd9e982cbe02",
+      "batch": "sprites_07",
+      "source": "docs/art-chibi/generated/sprites_07_raw.png",
+      "sourceSha256": "7ffc1ebc3e6ee5624c26b46ef5bf9b000a41cce58267929a3ecf81a66ee069de",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 1,
+      "cropBox": [
+        17,
+        575,
+        376,
+        962
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          359,
+          387
+        ],
+        "visiblePixels": 95245,
+        "transparentPixels": 43688,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 95245,
+        "borderVisiblePixels": 71,
+        "borderStrongPixels": 0
+      },
+      "sourceComponents": [
+        {
+          "pixels": 85191,
+          "bounds": [
+            23,
+            581,
+            370,
+            956
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          12,
+          8,
+          116,
+          120
+        ],
+        "visiblePixels": 7983,
+        "transparentPixels": 8401,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7983,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "extraction": "global-alpha-islands",
+      "sourceComponentCoordinates": "atlas",
+      "islandCoreAlpha": 32,
+      "islandFringe": 6,
+      "warnings": [],
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+    }
+  ],
+  "warnings": []
+}

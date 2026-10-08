@@ -1,0 +1,6 @@
+{
+  "id": "tree",
+  "prompt": "Use case: stylized-concept. Asset type: single inventory game icon for a Korean pixel-art deck-building fan game Black The Survival. The input is a visual reference of Eternal Return's original tree icon, not an edit target. Primary request: redraw the item as crisp chunky old-school pixel art, keeping its recognizable original silhouette, composition, and colors. Subject: Tree of Life: a lush green leafy sacred twig with luminous golden-green core and several distinct green leaves. Style: deliberately coarse 32x32 logical pixel grid enlarged cleanly, crisp square pixel clusters, 8-12 colors, bright readable subject on transparent background. Composition: one centered complete item, occupies 78% of square canvas, generous transparent margin. No surrounding frame, no text, no UI, no gradients, no smooth rendering, no anti-aliasing, no extra objects. Preserve original-game identity while reinterpreting in chunky pixel art.",
+  "tool": "built-in image_gen",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11c9c-551a-7501-bf90-08f5e3102524\\exec-1da48440-6c31-4b8d-9bc4-72590d9a07dc.png"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "bihyung",
+  "name": "비형",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Playful dark-haired woman, bright GOLDEN eyes, ONE eye WINKING, lifted eyebrow and wide open delighted smile. Long aqua-black hair and colorful ghost-themed outfit. Wink remains clear.\n",
+  "originalReference": "docs/art-chibi/references/subjects/bihyung.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Bihyung_S000.png",
+  "referenceSha256": "aa9d3be71f19cc12014c2d6deb7d44d52f9d16ccd14f8645d5f051069d86c9af",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 비형 (bihyung). Original outfit and identity: Black hair with bright teal strands and very long teal tail, round red glasses, white-black-red hooded street outfit, giant mallet.. Signature prop: Carry a giant black-and-red mallet with a square mechanical head..\nCharacter-specific face and pose: Playful dark-haired woman, bright GOLDEN eyes, ONE eye WINKING, lifted eyebrow and wide open delighted smile. Long aqua-black hair and colorful ghost-themed outfit. Wink remains clear.\n",
+  "generatedSource": "docs/art-identity/generated/bihyung.png",
+  "generatedSha256": "ac235a351b1187d66cbf1428b48d3dad134d95c3f8dc37707c1a3c0194402234",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    8,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/bihyung.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "0d0f8a3208bd6f86b145ab0c8c79e0d0a803cf281427af5176068703ff64cd66",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

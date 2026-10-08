@@ -1,0 +1,32 @@
+{
+  "id": "blair",
+  "name": "블레어",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Melancholic blonde woman, tired pale BLUE half-lidded eyes, raised sad inner brows, small softly parted lips. Long pale hair and black outfit.\n",
+  "originalReference": "docs/art-chibi/references/subjects/blair.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Blair_S000.png",
+  "referenceSha256": "31567343680389bcab0896ccef787445c78e608d977a09900be513a3053e4140",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 블레어 (blair). Original outfit and identity: Long cream-blond hair, black sleeveless high-neck crop outfit, silver necklace and chains, black coat, dual blades.. Signature prop: Hold two slender black-and-silver blades, one in each hand..\nCharacter-specific face and pose: Melancholic blonde woman, tired pale BLUE half-lidded eyes, raised sad inner brows, small softly parted lips. Long pale hair and black outfit.\n",
+  "generatedSource": "docs/art-identity/generated/blair.png",
+  "generatedSha256": "1652bff396906f736150003aaf5b9b2066f978f50f600d25d39814c74a4bd31a",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1096,
+    1402
+  ],
+  "resizedSize": [
+    119,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/blair.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "b835883fbd6f3710e6db7131a02440095ff070e205338738174023bd412e1f62",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

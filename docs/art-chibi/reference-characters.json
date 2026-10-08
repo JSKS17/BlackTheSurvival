@@ -1,0 +1,1321 @@
+[
+  {
+    "id": "hana",
+    "name": "하나",
+    "cdn_key": null,
+    "original_url": "https://playeternalreturn.com/posts/news/3330?hl=ko-KR",
+    "appearance": "Warm brown bob, amber eyes, yellow zigzag hair clip, green sweater, white laboratory coat, brown plaid skirt, books.",
+    "reference_path": "docs/art-chibi/references/subjects/hana.png",
+    "reference_note": "Official Dr. Hana event art, cropped to researcher figure.",
+    "reference_available": true,
+    "weapon_types": [],
+    "signature_prop": "Hold a small brown laboratory notebook and a pencil.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "nia",
+    "name": "니아",
+    "cdn_key": "Niah",
+    "original_url": "https://cdn.playeternalreturn.com/event/season6/roadmap/rd6/img_concept01.png",
+    "appearance": "Dusty lavender bob with curled side bunches, pink headphones, lilac-pink hooded vest, magenta plaid sleeves, controller.",
+    "reference_path": "docs/art-chibi/references/subjects/nia.png",
+    "cdn_art_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Niah_S000.png",
+    "reference_note": "Official NiaH concept sheet, front-view character cropped for full outfit continuity.",
+    "reference_available": true,
+    "weapon_types": [
+      "Pistol"
+    ],
+    "signature_prop": "Hold a small black-and-pink game controller with visible round buttons.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "jackie",
+    "name": "재키",
+    "cdn_key": "Jackie",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Jackie_S000.png",
+    "appearance": "Spiky white hair, red eyes, red-and-black sleeveless outfit, black gloves, oversized red axe or chainsaw.",
+    "reference_path": "docs/art-chibi/references/subjects/jackie.png",
+    "reference_available": true,
+    "weapon_types": [
+      "OneHandSword",
+      "TwoHandSword",
+      "Axe",
+      "DualSword"
+    ],
+    "signature_prop": "Carry an oversized red-and-black battle axe over one shoulder.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "aya",
+    "name": "아야",
+    "cdn_key": "Aya",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Aya_S000.png",
+    "appearance": "Brown braids, round glasses, olive police jacket, navy skirt, dark firearm.",
+    "reference_path": "docs/art-chibi/references/subjects/aya.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Pistol",
+      "AssaultRifle",
+      "SniperRifle"
+    ],
+    "signature_prop": "Hold a compact black assault rifle with a visible stock and barrel.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "hyunwoo",
+    "name": "현우",
+    "cdn_key": "Hyunwoo",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Hyunwoo_S000.png",
+    "appearance": "Red-orange short hair, open brown school jacket, white shirt, clenched fists.",
+    "reference_path": "docs/art-chibi/references/subjects/hyunwoo.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Glove",
+      "Tonfa"
+    ],
+    "signature_prop": "Show clenched fists with red-and-white boxing wraps.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "yuki",
+    "name": "유키",
+    "cdn_key": "Yuki",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Yuki_S000.png",
+    "appearance": "Blue-black short hair, black Japanese school uniform with gold trim, katana.",
+    "reference_path": "docs/art-chibi/references/subjects/yuki.png",
+    "reference_available": true,
+    "weapon_types": [
+      "TwoHandSword",
+      "DualSword"
+    ],
+    "signature_prop": "Hold a slender black-and-gold katana in its scabbard.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "hyejin",
+    "name": "혜진",
+    "cdn_key": "Hyejin",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Hyejin_S000.png",
+    "appearance": "Long black braids, white-and-black sailor uniform, purple talismans.",
+    "reference_path": "docs/art-chibi/references/subjects/hyejin.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Bow",
+      "DirectFire"
+    ],
+    "signature_prop": "Hold a purple paper talisman with a dark ink rune.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "sua",
+    "name": "수아",
+    "cdn_key": "Sua",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Sua_S000.png",
+    "appearance": "Long brown hair, pale floral green dress, book and storybook hammer.",
+    "reference_path": "docs/art-chibi/references/subjects/sua.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Hammer",
+      "Bat"
+    ],
+    "signature_prop": "Hold a green storybook and a small green storybook hammer.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "isol",
+    "name": "아이솔",
+    "cdn_key": "Isol",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Isol_S000.png",
+    "appearance": "Light brown hair, red headband and checked scarf, white sleeveless shirt, olive tactical harness, assault rifle.",
+    "reference_path": "docs/art-chibi/references/subjects/isol.png",
+    "reference_available": true,
+    "weapon_types": [
+      "AssaultRifle",
+      "Pistol"
+    ],
+    "signature_prop": "Carry a black assault rifle over one shoulder.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "nadine",
+    "name": "나딘",
+    "cdn_key": "Nadine",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Nadine_S000.png",
+    "appearance": "Dark high ponytail, orange cap and hooded mantle, fitted dark hunting gear, bow or crossbow.",
+    "reference_path": "docs/art-chibi/references/subjects/nadine.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Bow",
+      "CrossBow"
+    ],
+    "signature_prop": "Hold a compact hunting crossbow with clearly visible transverse bow limbs.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "emma",
+    "name": "엠마",
+    "cdn_key": "Emma",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Emma_S000.png",
+    "appearance": "Turquoise twin braids and bunny-shaped bow, white-and-cyan magician outfit, playing cards.",
+    "reference_path": "docs/art-chibi/references/subjects/emma.png",
+    "reference_available": true,
+    "weapon_types": [
+      "DirectFire",
+      "Arcana"
+    ],
+    "signature_prop": "Fan out a few white playing cards with black suit symbols.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "charlotte",
+    "name": "샬럿",
+    "cdn_key": "Charlotte",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Charlotte_S000.png",
+    "appearance": "Long pink hair, lace maid headband, white and black gothic dress, floating pale crystal blades.",
+    "reference_path": "docs/art-chibi/references/subjects/charlotte.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Arcana"
+    ],
+    "signature_prop": "Float a few pale blue crystal blades beside her hands.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "nathapon",
+    "name": "나타폰",
+    "cdn_key": "Nathapon",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Nathapon_S000.png",
+    "appearance": "Brown side-swept hair, backward white cap, light-blue denim vest, white shirt, big camera.",
+    "reference_path": "docs/art-chibi/references/subjects/nathapon.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Camera"
+    ],
+    "signature_prop": "Hold a black DSLR camera with a long black-and-white lens.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "nicky",
+    "name": "니키",
+    "cdn_key": "Nicky",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Nicky_S000.png",
+    "appearance": "Blond bob, crossed green/orange hair clips, bright orange cropped sports jacket, boxing gloves.",
+    "reference_path": "docs/art-chibi/references/subjects/nicky.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Glove"
+    ],
+    "signature_prop": "Wear bulky orange-and-black boxing gloves and hold both fists up.",
+    "prop_avoid": "No tablets, knives, books, cameras, or glowing handheld devices; use boxing gloves."
+  },
+  {
+    "id": "daniel",
+    "name": "다니엘",
+    "cdn_key": "Daniel",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Daniel_S000.png",
+    "appearance": "Long dark-purple hair, pale face, high-collar black strapped jacket, tailor scissors.",
+    "reference_path": "docs/art-chibi/references/subjects/daniel.png",
+    "reference_available": true,
+    "weapon_types": [
+      "OneHandSword"
+    ],
+    "signature_prop": "Hold an open pair of large silver tailor scissors with dark handles.",
+    "prop_avoid": "No magic books, talismans, or cards; use clearly open tailor scissors."
+  },
+  {
+    "id": "tia",
+    "name": "띠아",
+    "cdn_key": "Tia",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Tia_S000.png",
+    "appearance": "Honey-blond long hair with rose-shaped side knot, yellow ribbon, brown artist outfit, broad paintbrush.",
+    "reference_path": "docs/art-chibi/references/subjects/tia.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Bat"
+    ],
+    "signature_prop": "Hold a long broad paintbrush with a brown handle and visible bristles.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "laura",
+    "name": "라우라",
+    "cdn_key": "Laura",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Laura_S000.png",
+    "appearance": "Long silvery lilac hair, glossy black high-collar suit, dark blue mantle, hydrangea and whip.",
+    "reference_path": "docs/art-chibi/references/subjects/laura.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Whip"
+    ],
+    "signature_prop": "Hold a coiled black-and-violet whip decorated with a small violet flower.",
+    "prop_avoid": "Do not copy Bianca's parasol; her distinctive weapon is a flexible whip."
+  },
+  {
+    "id": "lenox",
+    "name": "레녹스",
+    "cdn_key": "Lenox",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Lenox_S000.png",
+    "appearance": "Short green hair, red-brown blazer worn on shoulders, black crop top, sleeve tattoo, fishing whip.",
+    "reference_path": "docs/art-chibi/references/subjects/lenox.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Whip"
+    ],
+    "signature_prop": "Hold a long fishing-line whip with a dark grip and a visible curved line.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "leon",
+    "name": "레온",
+    "cdn_key": "Leon",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Leon_S000.png",
+    "appearance": "Brown hair, white headphones, blue-white open sports hoodie, orange shoulder strap, swimmer theme.",
+    "reference_path": "docs/art-chibi/references/subjects/leon.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Glove",
+      "Tonfa"
+    ],
+    "signature_prop": "Show wrapped bare fists with a few small turquoise water droplets.",
+    "prop_avoid": "No guitar, violin case, firearm, or sword; use wrapped fists and water droplets."
+  },
+  {
+    "id": "rozzi",
+    "name": "로지",
+    "cdn_key": "Rozzi",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Rozzi_S000.png",
+    "appearance": "Black wavy bob partly covering one eye, sleeveless black and gold tactical dress, dual pistols.",
+    "reference_path": "docs/art-chibi/references/subjects/rozzi.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Pistol"
+    ],
+    "signature_prop": "Hold two compact black pistols, one in each hand.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "luke",
+    "name": "루크",
+    "cdn_key": "Luke",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Luke_S000.png",
+    "appearance": "Spiky light brown hair, yellow goggles around neck, white-red flame shirt, dark work overalls, broom.",
+    "reference_path": "docs/art-chibi/references/subjects/luke.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Bat"
+    ],
+    "signature_prop": "Hold a janitor broom with a long handle and a wide brush head.",
+    "prop_avoid": "No wrench or sword; use the wide-bristled cleaning broom."
+  },
+  {
+    "id": "dailin",
+    "name": "리 다이린",
+    "cdn_key": "LiDailin",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_LiDailin_S000.png",
+    "appearance": "Black twin hair buns with long orange ribbons, yellow-black cropped jacket, dragon embroidery, bottle.",
+    "reference_path": "docs/art-chibi/references/subjects/dailin.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Glove",
+      "Nunchaku"
+    ],
+    "signature_prop": "Hold a small brown liquor bottle with a red neck cord.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "rio",
+    "name": "리오",
+    "cdn_key": "Rio",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Rio_S000.png",
+    "appearance": "Long straight white hair and blunt bangs, yellow eyes, gray-black sailor uniform, yellow neckerchief, bow.",
+    "reference_path": "docs/art-chibi/references/subjects/rio.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Bow"
+    ],
+    "signature_prop": "Hold a tall traditional archery bow with a visible curved limb and bowstring.",
+    "prop_avoid": "No camera, camcorder, grenade, or firearm; show an unmistakable archery bow."
+  },
+  {
+    "id": "martina",
+    "name": "마르티나",
+    "cdn_key": "Martina",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Martina_S000.png",
+    "appearance": "Gray side-swept hair, black eyepatch, mustard trench coat, large shoulder video camera.",
+    "reference_path": "docs/art-chibi/references/subjects/martina.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Camera"
+    ],
+    "signature_prop": "Carry a large blue-and-white camcorder on one shoulder.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "mai",
+    "name": "마이",
+    "cdn_key": "Mai",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Mai_S000.png",
+    "appearance": "Auburn bob, white sleeveless fashion blouse, black-and-white striped neck scarf, teal-gold draped sleeves.",
+    "reference_path": "docs/art-chibi/references/subjects/mai.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Whip"
+    ],
+    "signature_prop": "Hold a long teal-and-gold measuring ribbon that curls like a soft whip.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "markus",
+    "name": "마커스",
+    "cdn_key": "Markus",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Markus_S000.png",
+    "appearance": "Short black hair, trimmed beard, dark gray tank top, huge silver shoulder guard, battle axe.",
+    "reference_path": "docs/art-chibi/references/subjects/markus.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Axe",
+      "Hammer"
+    ],
+    "signature_prop": "Carry a heavy silver battle axe with a very broad axe head.",
+    "prop_avoid": "No narrow sword; the weapon must have a very broad axe or hammer head."
+  },
+  {
+    "id": "magnus",
+    "name": "매그너스",
+    "cdn_key": "Magnus",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Magnus_S000.png",
+    "appearance": "Bright blond-orange mohawk, black studded biker vest, broad build, bat and motorcycle theme.",
+    "reference_path": "docs/art-chibi/references/subjects/magnus.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Hammer",
+      "Bat"
+    ],
+    "signature_prop": "Carry a thick black metal baseball bat across his shoulder.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "vanya",
+    "name": "바냐",
+    "cdn_key": "Vanya",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Vanya_S000.png",
+    "appearance": "Short pale blue hair, cyan butterfly hair ornaments, white-and-cyan ribbon dress, blue butterfly wings.",
+    "reference_path": "docs/art-chibi/references/subjects/vanya.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Arcana"
+    ],
+    "signature_prop": "Let a few small bright blue butterflies float around her open hand.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "barbara",
+    "name": "바바라",
+    "cdn_key": "Barbara",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Barbara_S000.png",
+    "appearance": "Brown ponytail, glasses, chunky white-gray visor helmet, cobalt blue mechanic suit, orange harness, robot tools.",
+    "reference_path": "docs/art-chibi/references/subjects/barbara.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Pistol"
+    ],
+    "signature_prop": "Hold a small steel engineering wrench beside a tiny blue robotic device.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "bernice",
+    "name": "버니스",
+    "cdn_key": "Bernice",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Bernice_S000.png",
+    "appearance": "Shaggy blond hair, fur-trimmed yellow field coat, green camouflage layer, hunting shotgun.",
+    "reference_path": "docs/art-chibi/references/subjects/bernice.png",
+    "reference_available": true,
+    "weapon_types": [
+      "SniperRifle"
+    ],
+    "signature_prop": "Hold a hunting rifle with a brown wooden stock and a long black barrel.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "bianca",
+    "name": "비앙카",
+    "cdn_key": "Bianca",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Bianca_S000.png",
+    "appearance": "Dark teal hair, red eyes, maid lace headband, black gothic dress, dark parasol and blood bag.",
+    "reference_path": "docs/art-chibi/references/subjects/bianca.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Arcana"
+    ],
+    "signature_prop": "Hold a black gothic parasol and a small red blood bag.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "celine",
+    "name": "셀린",
+    "cdn_key": "Celine",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Celine_S000.png",
+    "appearance": "Straight icy blue bob, yellow eyes, orange utility jacket, black crop top, demolition gear.",
+    "reference_path": "docs/art-chibi/references/subjects/celine.png",
+    "reference_available": true,
+    "weapon_types": [
+      "HighAngleFire"
+    ],
+    "signature_prop": "Hold one green hand grenade with a visible pin ring.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "sho",
+    "name": "쇼우",
+    "cdn_key": "Xiukai",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Xiukai_S000.png",
+    "appearance": "Round smiling chef, dark topknot, bamboo-rimmed straw hat, white chef coat, red scarf, bamboo cooking tools.",
+    "reference_path": "docs/art-chibi/references/subjects/sho.png",
+    "reference_available": true,
+    "weapon_types": [
+      "OneHandSword",
+      "Spear"
+    ],
+    "signature_prop": "Hold an oversized steel cooking cleaver and a small dark wok.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "shoichi",
+    "name": "쇼이치",
+    "cdn_key": "Shoichi",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Shoichi_S000.png",
+    "appearance": "Brown neatly styled hair, glasses, tan business suit, white shirt, olive tie, employee ID, knife.",
+    "reference_path": "docs/art-chibi/references/subjects/shoichi.png",
+    "reference_available": true,
+    "weapon_types": [
+      "OneHandSword"
+    ],
+    "signature_prop": "Hold a short silver dagger with a dark handle.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "sissela",
+    "name": "시셀라",
+    "cdn_key": "Sissela",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Sissela_S000.png",
+    "appearance": "Short pale white hair covering one eye, blue eyes, pale gray patient gown, black collar, IV drip and white orb.",
+    "reference_path": "docs/art-chibi/references/subjects/sissela.png",
+    "reference_available": true,
+    "weapon_types": [
+      "HighAngleFire",
+      "DirectFire"
+    ],
+    "signature_prop": "Float a round white companion orb beside a thin medical IV stand.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "silvia",
+    "name": "실비아",
+    "cdn_key": "Silvia",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Silvia_S000.png",
+    "appearance": "Short dark blue hair with cyan accent, blue-white biker jacket, black gloves, motorbike theme.",
+    "reference_path": "docs/art-chibi/references/subjects/silvia.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Pistol"
+    ],
+    "signature_prop": "Hold a compact blue-and-black pistol beside her motorcycle helmet.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "adela",
+    "name": "아델라",
+    "cdn_key": "Adela",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Adela_S000.png",
+    "appearance": "Long swept black hair, glasses, high-collar black-and-gold coat, large white chess motifs.",
+    "reference_path": "docs/art-chibi/references/subjects/adela.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Rapier",
+      "Bat"
+    ],
+    "signature_prop": "Hold a slim chess-themed rapier with a white chess-piece guard.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "adriana",
+    "name": "아드리아나",
+    "cdn_key": "Adriana",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Adriana_S000.png",
+    "appearance": "Bright orange-red ponytail, pipe, gray hooded utility coat, red lining, green bottle and yellow flamethrower tank.",
+    "reference_path": "docs/art-chibi/references/subjects/adriana.png",
+    "reference_available": true,
+    "weapon_types": [
+      "HighAngleFire"
+    ],
+    "signature_prop": "Carry a yellow flamethrower tank with a short hose and spray nozzle.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "adina",
+    "name": "아디나",
+    "cdn_key": "Adina",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Adina_S000.png",
+    "appearance": "Long pale blue hair, dark blue hood with gold border, white-and-blue celestial outfit, star cards.",
+    "reference_path": "docs/art-chibi/references/subjects/adina.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Arcana"
+    ],
+    "signature_prop": "Hold a few dark blue tarot cards decorated with pale gold stars.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "isaac",
+    "name": "아이작",
+    "cdn_key": "Isaac",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Isaac_S000.png",
+    "appearance": "Swept white hair and white goatee, beige vest, red plaid shirt, dark coat, fighting baton.",
+    "reference_path": "docs/art-chibi/references/subjects/isaac.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Tonfa"
+    ],
+    "signature_prop": "Hold a black police tonfa with a clearly visible side handle.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "alex",
+    "name": "알렉스",
+    "cdn_key": "Alex",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Alex_S000.png",
+    "appearance": "Straw-blond side-swept hair, black sunglasses, black spy trench coat, blue tie, radio and pistol.",
+    "reference_path": "docs/art-chibi/references/subjects/alex.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Tonfa",
+      "TwoHandSword",
+      "DirectFire",
+      "Pistol"
+    ],
+    "signature_prop": "Hold a compact black pistol and a small black spy radio.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "jan",
+    "name": "얀",
+    "cdn_key": "Jan",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Jan_S000.png",
+    "appearance": "Dark skin, yellow eyes, thick white dreadlock topknot, bare muscular torso with dark tattoo, bandaged arms.",
+    "reference_path": "docs/art-chibi/references/subjects/jan.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Glove",
+      "Tonfa"
+    ],
+    "signature_prop": "Show both fists clenched with white bandages around his forearms.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "estelle",
+    "name": "에스텔",
+    "cdn_key": "Estelle",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Estelle_S000.png",
+    "appearance": "Chestnut bob, orange-red firefighter suit, black collar with pale pink quilted lining, neck respirator, axe and shield.",
+    "reference_path": "docs/art-chibi/references/subjects/estelle.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Axe"
+    ],
+    "signature_prop": "Hold a red fire axe and a broad gray firefighter shield.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "aiden",
+    "name": "에이든",
+    "cdn_key": "Aiden",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Aiden_S000.png",
+    "appearance": "Messy white hair, red eyes, white military coat with blue collar and tie, silver belt and sword.",
+    "reference_path": "docs/art-chibi/references/subjects/aiden.png",
+    "reference_available": true,
+    "weapon_types": [
+      "TwoHandSword"
+    ],
+    "signature_prop": "Hold a long silver sword with small blue electrical sparks.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "echion",
+    "name": "에키온",
+    "cdn_key": "Echion",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Echion_S000.png",
+    "appearance": "Spiky silver-lilac hair, dark red shirt, black leather coat, black-white-magenta biomechanical arm.",
+    "reference_path": "docs/art-chibi/references/subjects/echion.png",
+    "reference_available": true,
+    "weapon_types": [
+      "VFArm"
+    ],
+    "signature_prop": "Show his large black-white-magenta biomechanical VF arm as a curved claw.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "elena",
+    "name": "엘레나",
+    "cdn_key": "Elena",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Elena_S000.png",
+    "appearance": "Pale blue long twin ponytails, ice-crown ornaments, bright blue layered ice-skating dress, large snowflake brooch.",
+    "reference_path": "docs/art-chibi/references/subjects/elena.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Rapier"
+    ],
+    "signature_prop": "Hold a slender ice-blue rapier with a small snowflake-shaped guard.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "johann",
+    "name": "요한",
+    "cdn_key": "Johann",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Johann_S000.png",
+    "appearance": "Neat dark blue-black hair, solemn face, black priest clothes, royal blue stole with gold crosses.",
+    "reference_path": "docs/art-chibi/references/subjects/johann.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Arcana"
+    ],
+    "signature_prop": "Hold a small gold Christian cross in front of his blue priest stole.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "william",
+    "name": "윌리엄",
+    "cdn_key": "William",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_William_S000.png",
+    "appearance": "Brown hair, blue baseball cap, white pinstriped baseball jersey, blue lettering, brown arm guard, baseball.",
+    "reference_path": "docs/art-chibi/references/subjects/william.png",
+    "reference_available": true,
+    "weapon_types": [
+      "HighAngleFire"
+    ],
+    "signature_prop": "Hold a white baseball and wear a brown baseball glove.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "irem",
+    "name": "이렘",
+    "cdn_key": "Irem",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Irem_S000.png",
+    "appearance": "Peach-orange hair, cat ears and red headband, oversized cream-yellow cardigan, white-red cat-themed dress.",
+    "reference_path": "docs/art-chibi/references/subjects/irem.png",
+    "reference_available": true,
+    "weapon_types": [
+      "HighAngleFire"
+    ],
+    "signature_prop": "Wear cream cat-paw mittens with visible pink paw pads.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "eva",
+    "name": "이바",
+    "cdn_key": "Eva",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Eva_S000.png",
+    "appearance": "Long beige-blond hair, mauve eyes, black-white sailor-like combat dress, dark arm gauntlets.",
+    "reference_path": "docs/art-chibi/references/subjects/eva.png",
+    "reference_available": true,
+    "weapon_types": [
+      "HighAngleFire"
+    ],
+    "signature_prop": "Float a small violet VF energy orb above one open hand.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "ian",
+    "name": "이안",
+    "cdn_key": "Lyanh",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Lyanh_S000.png",
+    "appearance": "Wavy pale sage-green hair, brown bow, white blouse and fitted brown dress, brass medallion, eerie book.",
+    "reference_path": "docs/art-chibi/references/subjects/ian.png",
+    "reference_available": true,
+    "weapon_types": [
+      "OneHandSword"
+    ],
+    "signature_prop": "Hold a short ritual dagger with a dark monster shadow behind her shoulder.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "eleven",
+    "name": "일레븐",
+    "cdn_key": "Eleven",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Eleven_S000.png",
+    "appearance": "Pink hair, pink-white maid-idol outfit, heart brooch, pastel checked skirt, bright pink giant hammer.",
+    "reference_path": "docs/art-chibi/references/subjects/eleven.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Hammer"
+    ],
+    "signature_prop": "Carry a huge pastel pink hammer with a bright heart motif.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "zahir",
+    "name": "자히르",
+    "cdn_key": "Zahir",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Zahir_S000.png",
+    "appearance": "Dark skin, dark wavy hair, gold-red ceremonial headpiece, white-pink-gold robes, floating gold blades.",
+    "reference_path": "docs/art-chibi/references/subjects/zahir.png",
+    "reference_available": true,
+    "weapon_types": [
+      "HighAngleFire",
+      "DirectFire"
+    ],
+    "signature_prop": "Float a few pointed gold throwing blades around one hand.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "jenny",
+    "name": "제니",
+    "cdn_key": "Jenny",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Jenny_S000.png",
+    "appearance": "Long blond hair, red sunglasses atop head, burgundy dress, white fur stole, movie-star elegance, pistol.",
+    "reference_path": "docs/art-chibi/references/subjects/jenny.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Pistol"
+    ],
+    "signature_prop": "Hold an elegant compact black pistol with a small gold accent.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "camilo",
+    "name": "카밀로",
+    "cdn_key": "Camilo",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Camilo_S000.png",
+    "appearance": "Cream-blond swept hair, teal eyes, open black pinstriped dance shirt, suspenders, twin swords.",
+    "reference_path": "docs/art-chibi/references/subjects/camilo.png",
+    "reference_available": true,
+    "weapon_types": [
+      "DualSword",
+      "Rapier"
+    ],
+    "signature_prop": "Hold two slim silver dancing swords, one in each hand.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "karla",
+    "name": "칼라",
+    "cdn_key": "Karla",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Karla_S000.png",
+    "appearance": "Long auburn braid, red military beret with silver rose badge, red-black cropped outfit, large crossbow.",
+    "reference_path": "docs/art-chibi/references/subjects/karla.png",
+    "reference_available": true,
+    "weapon_types": [
+      "CrossBow"
+    ],
+    "signature_prop": "Hold an oversized red-and-black crossbow with visible curved bow limbs.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "cathy",
+    "name": "캐시",
+    "cdn_key": "Cathy",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Cathy_S000.png",
+    "appearance": "Brown hair with blue ribbon, blue eyes, white medical coat, blue scarf, surgical tools.",
+    "reference_path": "docs/art-chibi/references/subjects/cathy.png",
+    "reference_available": true,
+    "weapon_types": [
+      "OneHandSword",
+      "DualSword"
+    ],
+    "signature_prop": "Hold a small steel surgical scalpel and a compact medical pouch.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "chloe",
+    "name": "클로에",
+    "cdn_key": "Chloe",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Chloe_S000.png",
+    "appearance": "Long ash gray hair and blunt fringe, white knit sleeveless sweater, brown skirt, flower belt, doll strings.",
+    "reference_path": "docs/art-chibi/references/subjects/chloe.png",
+    "reference_available": true,
+    "weapon_types": [
+      "DirectFire"
+    ],
+    "signature_prop": "Use fingertip puppet strings connected to Nina, a small gray twin-tailed doll in a white ruffle dress with lilac bows and black mechanical blade legs.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here.",
+    "companion_reference": "docs/art-chibi/references/chloe_nina_full.png",
+    "companion_source": "https://store.steampowered.com/news/app/1049590/view/3044989230676877444"
+  },
+  {
+    "id": "chiara",
+    "name": "키아라",
+    "cdn_key": "Chiara",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Chiara_S000.png",
+    "appearance": "Long white hair with pale pink shading, pink eyes, black gothic puff-sleeve dress, white feather trim and violet gem.",
+    "reference_path": "docs/art-chibi/references/subjects/chiara.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Rapier"
+    ],
+    "signature_prop": "Hold an ornate black rapier with a violet gemstone at the guard.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "tazia",
+    "name": "타지아",
+    "cdn_key": "Tazia",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Tazia_S000.png",
+    "appearance": "Crimson side ponytail, gold eyes, black-red tailored coat, blue crystal flower accents and floating glass shards.",
+    "reference_path": "docs/art-chibi/references/subjects/tazia.png",
+    "reference_available": true,
+    "weapon_types": [
+      "DirectFire"
+    ],
+    "signature_prop": "Float a few sharp translucent blue and lilac glass shards near one hand.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "theodore",
+    "name": "테오도르",
+    "cdn_key": "Theodore",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Theodore_S000.png",
+    "appearance": "Swept dark blue-black hair, cyan eyes, dark blue tactical sniper uniform, large rifle.",
+    "reference_path": "docs/art-chibi/references/subjects/theodore.png",
+    "reference_available": true,
+    "weapon_types": [
+      "SniperRifle"
+    ],
+    "signature_prop": "Hold a long dark navy sniper rifle with a visible scope.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "felix",
+    "name": "펠릭스",
+    "cdn_key": "Felix",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Felix_S000.png",
+    "appearance": "Short sandy-blond hair, green eyes, gray-green utility hoodie, white shirt, green patches, spear.",
+    "reference_path": "docs/art-chibi/references/subjects/felix.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Spear"
+    ],
+    "signature_prop": "Hold a long silver spear with a single pointed spearhead.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "priya",
+    "name": "프리야",
+    "cdn_key": "Priya",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Priya_S000.png",
+    "appearance": "Short green hair with braid crown, large white flower, warm brown skin, white-blue sari-like outfit, guitar.",
+    "reference_path": "docs/art-chibi/references/subjects/priya.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Guitar"
+    ],
+    "signature_prop": "Hold a blue acoustic guitar decorated with small white flowers.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "fiora",
+    "name": "피오라",
+    "cdn_key": "Fiora",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Fiora_S000.png",
+    "appearance": "Long brown ponytail with blue ribbons, blue-white fencing uniform, silver gauntlet and rapier.",
+    "reference_path": "docs/art-chibi/references/subjects/fiora.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Rapier",
+      "TwoHandSword",
+      "Spear"
+    ],
+    "signature_prop": "Hold a slender silver fencing rapier with a round guard.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "piolo",
+    "name": "피올로",
+    "cdn_key": "Piolo",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Piolo_S000.png",
+    "appearance": "Messy brown hair, dark green lined sleeveless hooded vest, bare torso, white waist band, nunchaku.",
+    "reference_path": "docs/art-chibi/references/subjects/piolo.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Nunchaku"
+    ],
+    "signature_prop": "Hold black-and-silver nunchaku with two short sticks joined by a chain.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "hart",
+    "name": "하트",
+    "cdn_key": "Hart",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Hart_S000.png",
+    "appearance": "Blond bob, black beret, bright pink rock jacket, patterned leggings, red electric guitar.",
+    "reference_path": "docs/art-chibi/references/subjects/hart.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Guitar"
+    ],
+    "signature_prop": "Hold a bright red electric guitar with a dark neck.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "haze",
+    "name": "헤이즈",
+    "cdn_key": "Haze",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Haze_S000.png",
+    "appearance": "Straight gray hair, black headset, charcoal business suit, white shirt and red tie, huge firearm case.",
+    "reference_path": "docs/art-chibi/references/subjects/haze.png",
+    "reference_available": true,
+    "weapon_types": [
+      "AssaultRifle"
+    ],
+    "signature_prop": "Carry a very large gray assault weapon with a boxy barrel and stock.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "debi_marlene",
+    "name": "데비&마를렌",
+    "cdn_key": "DebiMarlene",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_DebiMarlene_S000.png",
+    "appearance": "Two sisters together: black short hair, baseball caps, black cropped outfits; blue jacket accents for Debi and red for Marlene.",
+    "reference_path": "docs/art-chibi/references/subjects/debi_marlene.png",
+    "reference_available": true,
+    "weapon_types": [
+      "TwoHandSword"
+    ],
+    "signature_prop": "Give the blue sister a blue-accented greatsword and the red sister a red-accented greatsword.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "arda",
+    "name": "아르다",
+    "cdn_key": "Arda",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Arda_S000.png",
+    "appearance": "Fluffy golden hair, beige expedition shirt, green checked scarf, green backpack straps, relics and compass.",
+    "reference_path": "docs/art-chibi/references/subjects/arda.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Arcana"
+    ],
+    "signature_prop": "Hold a small carved ancient stone relic and a rolled parchment scroll.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "abigail",
+    "name": "아비게일",
+    "cdn_key": "Abigail",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Abigail_S000.png",
+    "appearance": "Long black-blue hair, green eyes, silver hairpin, fitted blue-white cape uniform, large blue battle axe.",
+    "reference_path": "docs/art-chibi/references/subjects/abigail.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Axe"
+    ],
+    "signature_prop": "Hold a large blue battle axe with a broad crescent-shaped axe head.",
+    "prop_avoid": "Do not mistake her large axe for a straight sword."
+  },
+  {
+    "id": "alonso",
+    "name": "알론소",
+    "cdn_key": "Alonso",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Alonso_S000.png",
+    "appearance": "Huge spiky orange mane, black mask with yellow eyes, gray-black strapped coat, amber mechanical chest accents.",
+    "reference_path": "docs/art-chibi/references/subjects/alonso.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Glove"
+    ],
+    "signature_prop": "Wear very large dark magnetic gauntlets with amber glowing panels.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "leni",
+    "name": "레니",
+    "cdn_key": "Leni",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Leni_S000.png",
+    "appearance": "Light brown side bunches, black pointed bunny hat with yellow flowers, black-pink street outfit, pastel carrot bazooka.",
+    "reference_path": "docs/art-chibi/references/subjects/leni.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Pistol"
+    ],
+    "signature_prop": "Hold a pastel pink carrot-themed handheld launcher with a short visible barrel.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "tsubame",
+    "name": "츠바메",
+    "cdn_key": "Tsubame",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Tsubame_S000.png",
+    "appearance": "Dark purple hair in high knot with long strands, aqua cord, black cropped outfit, purple jacket, throwing darts.",
+    "reference_path": "docs/art-chibi/references/subjects/tsubame.png",
+    "reference_available": true,
+    "weapon_types": [
+      "DirectFire"
+    ],
+    "signature_prop": "Hold a few black-and-turquoise shuriken with visible pointed blades.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "kenneth",
+    "name": "케네스",
+    "cdn_key": "Kenneth",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Kenneth_S000.png",
+    "appearance": "Gray-white hair with red earpiece, black-red hooded jacket, strapped gray combat trousers, large axe.",
+    "reference_path": "docs/art-chibi/references/subjects/kenneth.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Axe"
+    ],
+    "signature_prop": "Carry a huge red-and-black battle axe with a broad axe head.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "katja",
+    "name": "카티야",
+    "cdn_key": "Katja",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Katja_S000.png",
+    "appearance": "Gray hair with long side ponytail, teal eyes, round glasses, dark gray-cyan tech sniper outfit, oversized rifle.",
+    "reference_path": "docs/art-chibi/references/subjects/katja.png",
+    "reference_available": true,
+    "weapon_types": [
+      "SniperRifle"
+    ],
+    "signature_prop": "Hold an oversized black-and-teal sniper rifle with a scope.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "darko",
+    "name": "다르코",
+    "cdn_key": "Darko",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Darko_S000.png",
+    "appearance": "Long swept green-gray hair, side partly shaved, dark blue open jacket, tattoos, chain pendant, dark baseball bat.",
+    "reference_path": "docs/art-chibi/references/subjects/darko.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Bat"
+    ],
+    "signature_prop": "Hold a rugged dark baseball bat with a thick wrapped grip.",
+    "prop_avoid": "Do not add a firearm; his weapon class is a baseball bat."
+  },
+  {
+    "id": "lenore",
+    "name": "르노어",
+    "cdn_key": "Lenore",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Lenore_S000.png",
+    "appearance": "Blue hair under blue hood, white-blue bard outfit, silver armor shoulder, black chest straps, chains and guitar.",
+    "reference_path": "docs/art-chibi/references/subjects/lenore.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Guitar"
+    ],
+    "signature_prop": "Hold a dark blue electric guitar decorated with small silver chains.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "garnet",
+    "name": "가넷",
+    "cdn_key": "Garnet",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Garnet_S000.png",
+    "appearance": "Shaggy silver-gray hair, red eyes, black strappy crop outfit, dark gauntlets, white accents, spiked metal bat.",
+    "reference_path": "docs/art-chibi/references/subjects/garnet.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Bat"
+    ],
+    "signature_prop": "Carry a thick black metal bat covered with silver spikes.",
+    "prop_avoid": "Use a spiked metal bat, not an axe."
+  },
+  {
+    "id": "yumin",
+    "name": "유민",
+    "cdn_key": "YuMin",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_YuMin_S000.png",
+    "appearance": "Long black hair with side fringe, navy-white formal robe, violet neck ribbon, fan and red waist sash.",
+    "reference_path": "docs/art-chibi/references/subjects/yumin.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Arcana"
+    ],
+    "signature_prop": "Hold an open violet-and-teal hand fan with clearly visible folds.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "hisui",
+    "name": "히스이",
+    "cdn_key": "Hisui",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Hisui_S000.png",
+    "appearance": "Black-teal twin ponytails with red bands, sharp grin, white-red cropped uniform, red-black neck ribbon, red-white katana.",
+    "reference_path": "docs/art-chibi/references/subjects/hisui.png",
+    "reference_available": true,
+    "weapon_types": [
+      "TwoHandSword"
+    ],
+    "signature_prop": "Hold a red-and-white katana with a dark handle.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "justyna",
+    "name": "유스티나",
+    "cdn_key": "Justyna",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Justyna_S000.png",
+    "appearance": "Long bright red ponytail, visor goggles, white-gray mechanical coat with red trim, silver mechanical crossbow.",
+    "reference_path": "docs/art-chibi/references/subjects/justyna.png",
+    "reference_available": true,
+    "weapon_types": [
+      "CrossBow"
+    ],
+    "signature_prop": "Hold a futuristic silver crossbow with broad red mechanical bow limbs.",
+    "prop_avoid": "Show the crossbow's transverse limbs, not only gauntlets."
+  },
+  {
+    "id": "istvan",
+    "name": "이슈트반",
+    "cdn_key": "Istvan",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Istvan_S000.png",
+    "appearance": "Long black hair with red-purple ends, stern face, long white military coat, black shirt, pink badge strip, long spear.",
+    "reference_path": "docs/art-chibi/references/subjects/istvan.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Spear"
+    ],
+    "signature_prop": "Hold a long dark silver spear with a narrow pointed head and red ribbon.",
+    "prop_avoid": "Use a long spear, not a short sword."
+  },
+  {
+    "id": "xuelin",
+    "name": "슈린",
+    "cdn_key": "Xuelin",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Xuelin_S000.png",
+    "appearance": "Long dark teal hair with high loops, white-teal martial outfit, silver belt, flowing turquoise ribbons and energy rapier.",
+    "reference_path": "docs/art-chibi/references/subjects/xuelin.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Rapier"
+    ],
+    "signature_prop": "Hold a slender turquoise energy sword shaped like a fencing rapier.",
+    "prop_avoid": "Use the slender energy sword, not a polearm."
+  },
+  {
+    "id": "henry",
+    "name": "헨리",
+    "cdn_key": "Henry",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Henry_S000.png",
+    "appearance": "Gray-lilac hair with white streak, purple eyes, brown-pink Victorian coat, burgundy tie, gold pocket watch and clock-hand throwing blades.",
+    "reference_path": "docs/art-chibi/references/subjects/henry.png",
+    "reference_available": true,
+    "weapon_types": [
+      "DirectFire"
+    ],
+    "signature_prop": "Hold a gold pocket watch while pointed gold clock hands float as throwing blades.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "blair",
+    "name": "블레어",
+    "cdn_key": "Blair",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Blair_S000.png",
+    "appearance": "Long cream-blond hair, black sleeveless high-neck crop outfit, silver necklace and chains, black coat, dual blades.",
+    "reference_path": "docs/art-chibi/references/subjects/blair.png",
+    "reference_available": true,
+    "weapon_types": [
+      "DualSword"
+    ],
+    "signature_prop": "Hold two slender black-and-silver blades, one in each hand.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "mirka",
+    "name": "미르카",
+    "cdn_key": "Mirka",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Mirka_S000.png",
+    "appearance": "Long bright pink hair, black baseball cap, forest green bomber outfit, black strapped gear and silver plates.",
+    "reference_path": "docs/art-chibi/references/subjects/mirka.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Hammer"
+    ],
+    "signature_prop": "Carry a heavy square-headed steel hammer with dark green accents.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "fenrir",
+    "name": "펜리르",
+    "cdn_key": "Fenrir",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Fenrir_S000.png",
+    "appearance": "Olive-brown tousled hair, cyan eyes, black belted racing outfit, orange cable and motorcycle accents.",
+    "reference_path": "docs/art-chibi/references/subjects/fenrir.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Glove"
+    ],
+    "signature_prop": "Wear black-and-orange racing gloves and show both fists raised.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "coraline",
+    "name": "코렐라인",
+    "cdn_key": "Coraline",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Coraline_S000.png",
+    "appearance": "Half pale white and half dark hair, pink-violet eyes, white-black magical outfit with pink gems, black-pink angular wings.",
+    "reference_path": "docs/art-chibi/references/subjects/coraline.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Arcana"
+    ],
+    "signature_prop": "Float angular pink crystal arcana beside her black-and-pink fairy wings.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "bihyung",
+    "name": "비형",
+    "cdn_key": "Bihyung",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Bihyung_S000.png",
+    "appearance": "Black hair with bright teal strands and very long teal tail, round red glasses, white-black-red hooded street outfit, giant mallet.",
+    "reference_path": "docs/art-chibi/references/subjects/bihyung.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Bat"
+    ],
+    "signature_prop": "Carry a giant black-and-red mallet with a square mechanical head.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  },
+  {
+    "id": "craver",
+    "name": "크레이버",
+    "cdn_key": "Craver",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Craver_S000.png",
+    "appearance": "Messy vivid red hair, red circular glasses, black-red sharply angled coat, gray gloves, black-red revolver and red energy effects.",
+    "reference_path": "docs/art-chibi/references/subjects/craver.png",
+    "reference_available": true,
+    "weapon_types": [
+      "Pistol"
+    ],
+    "signature_prop": "Hold a large black-and-red revolver with a clearly visible cylinder.",
+    "prop_avoid": "His red energy effects must not replace the revolver silhouette."
+  },
+  {
+    "id": "lucia",
+    "name": "루치아",
+    "cdn_key": "Lucia",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Lucia_S000.png",
+    "appearance": "Pale gray twin buns and short strands, cyan eyes, white-purple ornate dress, purple ribbons, ornate long-barrel musket.",
+    "reference_path": "docs/art-chibi/references/subjects/lucia.png",
+    "reference_available": true,
+    "weapon_types": [
+      "SniperRifle"
+    ],
+    "signature_prop": "Hold an ornate silver-and-violet long-barrel musket with a shoulder stock.",
+    "prop_avoid": "Use an ornate long-barrel musket rather than two short pistols."
+  },
+  {
+    "id": "ceres",
+    "name": "세레스",
+    "cdn_key": "Seres",
+    "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Seres_S000.png",
+    "appearance": "Silver bob, white lace headband, white-black armored maid outfit, black gauntlets, huge gold-black blade with pink crystal.",
+    "reference_path": "docs/art-chibi/references/subjects/ceres.png",
+    "reference_available": true,
+    "weapon_types": [
+      "TwoHandSword"
+    ],
+    "signature_prop": "Hold a huge black-and-gold greatsword with a large magenta crystal near the guard.",
+    "prop_avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+  }
+]

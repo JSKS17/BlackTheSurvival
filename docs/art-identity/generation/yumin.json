@@ -1,0 +1,32 @@
+{
+  "id": "yumin",
+  "name": "유민",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Gentle elegant man, one narrow GRAY-BROWN sleepy eye visible under long dark hair, softly lowered brows, faint serene closed smile. Adult male facial anatomy.\n",
+  "originalReference": "docs/art-chibi/references/subjects/yumin.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_YuMin_S000.png",
+  "referenceSha256": "da7a17593ac1ab57e003eb65de92a58296eb9ac92dc83ce27b85fd1bfd8999c4",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 유민 (yumin). Original outfit and identity: Long black hair with side fringe, navy-white formal robe, violet neck ribbon, fan and red waist sash.. Signature prop: Hold an open violet-and-teal hand fan with clearly visible folds..\nCharacter-specific face and pose: Gentle elegant man, one narrow GRAY-BROWN sleepy eye visible under long dark hair, softly lowered brows, faint serene closed smile. Adult male facial anatomy.\n",
+  "generatedSource": "docs/art-identity/generated/yumin.png",
+  "generatedSha256": "6c34960047243326334ced8e5cf5831aa7f1245be0ff6c4e8f639cd89ee88c80",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1116,
+    1402
+  ],
+  "resizedSize": [
+    121,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/yumin.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "c481a4945e0eb4d2d410a1259673b597944f4b0fcac26342554c0a2a51f39554",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

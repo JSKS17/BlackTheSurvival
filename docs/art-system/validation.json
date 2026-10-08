@@ -1,0 +1,4638 @@
+{
+  "schema": 1,
+  "passed": true,
+  "complete": true,
+  "allowIncomplete": false,
+  "expected": {
+    "icons": 70,
+    "portraits": 92
+  },
+  "counts": {
+    "icons": 70,
+    "portraits": 92
+  },
+  "missing": [],
+  "errors": [],
+  "warnings": [],
+  "duplicateArtwork": [],
+  "duplicateGeneratedSources": [],
+  "duplicateGenerationResults": [],
+  "checks": [
+    "database and manifest ID coverage",
+    "RGBA PNG dimensions",
+    "nonempty transparent background and icon margin",
+    "exact 2x2 icon pixel blocks",
+    "individual icon generation records",
+    "generated source and export SHA-256",
+    "92 character portraits with height 80",
+    "unique exported artwork"
+  ],
+  "assets": [
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3068,
+      "visiblePixels": 1028,
+      "partialAlphaPixels": 1028,
+      "visibleColors": 223,
+      "alphaBounds": [
+        6,
+        12,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        6,
+        12,
+        58,
+        54
+      ],
+      "id": "akelte",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/akelte.png",
+      "fileSha256": "befd467aa29d15d8d37fd159cd299b211d82395d9399e566f4cf054a84f70258",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2684,
+      "visiblePixels": 1412,
+      "partialAlphaPixels": 1408,
+      "visibleColors": 282,
+      "alphaBounds": [
+        6,
+        10,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        6,
+        10,
+        58,
+        56
+      ],
+      "id": "altair",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/altair.png",
+      "fileSha256": "60ef80f342077ebfcf46dd71cdf19f1c6337f491ec7dabce922ab48145813257",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2248,
+      "visiblePixels": 1848,
+      "partialAlphaPixels": 1820,
+      "visibleColors": 431,
+      "alphaBounds": [
+        6,
+        8,
+        58,
+        60
+      ],
+      "strongAlphaBounds": [
+        6,
+        8,
+        58,
+        56
+      ],
+      "id": "amplification_drone",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/amplification_drone.png",
+      "fileSha256": "930ff2cc82cecc0f7db7304cc5f57fb8f6a88cda281dc04fdc40adbbad04649e",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3436,
+      "visiblePixels": 660,
+      "partialAlphaPixels": 660,
+      "visibleColors": 146,
+      "alphaBounds": [
+        4,
+        8,
+        58,
+        54
+      ],
+      "strongAlphaBounds": [
+        8,
+        8,
+        58,
+        54
+      ],
+      "id": "andromeda",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/andromeda.png",
+      "fileSha256": "ae5c0c9d7e2b70104f28a9f17f989070b61abe30e1c4209378880b40b42ed090",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2968,
+      "visiblePixels": 1128,
+      "partialAlphaPixels": 1124,
+      "visibleColors": 254,
+      "alphaBounds": [
+        6,
+        12,
+        58,
+        54
+      ],
+      "strongAlphaBounds": [
+        8,
+        12,
+        58,
+        52
+      ],
+      "id": "angel_halo",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/angel_halo.png",
+      "fileSha256": "0a0469f5fdfb6ac7bdcf98e805c7b87e347426751bae792e4e0dc327939154b9",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2556,
+      "visiblePixels": 1540,
+      "partialAlphaPixels": 1532,
+      "visibleColors": 309,
+      "alphaBounds": [
+        6,
+        6,
+        60,
+        58
+      ],
+      "strongAlphaBounds": [
+        6,
+        6,
+        60,
+        58
+      ],
+      "id": "ao_dai",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/ao_dai.png",
+      "fileSha256": "614a63187debcc30c5d2377e936fcb8eefb623582808ec49766877005937e9be",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3300,
+      "visiblePixels": 796,
+      "partialAlphaPixels": 788,
+      "visibleColors": 172,
+      "alphaBounds": [
+        6,
+        12,
+        58,
+        54
+      ],
+      "strongAlphaBounds": [
+        8,
+        12,
+        58,
+        54
+      ],
+      "id": "auto_arms",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/auto_arms.png",
+      "fileSha256": "0b2585fd93ccce09ee28c48fc04cbb2506d2f248f1fcec7777083733f201168f",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2772,
+      "visiblePixels": 1324,
+      "partialAlphaPixels": 1320,
+      "visibleColors": 274,
+      "alphaBounds": [
+        8,
+        10,
+        58,
+        54
+      ],
+      "strongAlphaBounds": [
+        8,
+        10,
+        58,
+        54
+      ],
+      "id": "blood",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/blood.png",
+      "fileSha256": "9292e3e1d8434abe22c5e9fe99d1169b2c24b955972bee7cb9b8bc9126e5eda4",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3092,
+      "visiblePixels": 1004,
+      "partialAlphaPixels": 988,
+      "visibleColors": 236,
+      "alphaBounds": [
+        8,
+        8,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        8,
+        8,
+        56,
+        56
+      ],
+      "id": "blood_hands",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/blood_hands.png",
+      "fileSha256": "c3fb773f394a12a90f8a77a995192058b720174907cb7df24fdf533fcb54a5a9",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2652,
+      "visiblePixels": 1444,
+      "partialAlphaPixels": 1432,
+      "visibleColors": 333,
+      "alphaBounds": [
+        12,
+        6,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        12,
+        8,
+        58,
+        56
+      ],
+      "id": "cabana",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/cabana.png",
+      "fileSha256": "9d46d34d151d8f6d230e168581acb96a1529e643488269f60c3476cea5de98f4",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3292,
+      "visiblePixels": 804,
+      "partialAlphaPixels": 788,
+      "visibleColors": 180,
+      "alphaBounds": [
+        12,
+        12,
+        52,
+        54
+      ],
+      "strongAlphaBounds": [
+        12,
+        12,
+        52,
+        54
+      ],
+      "id": "campfire",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/campfire.png",
+      "fileSha256": "c7544b1152c0ba151d891cfb87a6fd6d536df14a7a3a80a2d57182c7a5c41d82",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3304,
+      "visiblePixels": 792,
+      "partialAlphaPixels": 792,
+      "visibleColors": 184,
+      "alphaBounds": [
+        10,
+        12,
+        54,
+        58
+      ],
+      "strongAlphaBounds": [
+        10,
+        12,
+        54,
+        58
+      ],
+      "id": "cerberus",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/cerberus.png",
+      "fileSha256": "92d2e61c5817f7b6bf4ae44077f06ceb79bb615f120005a7c11c10bfc48279f4",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2464,
+      "visiblePixels": 1632,
+      "partialAlphaPixels": 1612,
+      "visibleColors": 334,
+      "alphaBounds": [
+        4,
+        6,
+        58,
+        54
+      ],
+      "strongAlphaBounds": [
+        10,
+        8,
+        54,
+        54
+      ],
+      "id": "circular",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/circular.png",
+      "fileSha256": "542e776f50b54175a5a827c2e21f738b7a40a3bebaee5de4fd4e30726a3a543c",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3692,
+      "visiblePixels": 404,
+      "partialAlphaPixels": 400,
+      "visibleColors": 95,
+      "alphaBounds": [
+        10,
+        8,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        10,
+        8,
+        58,
+        56
+      ],
+      "id": "cosmic_bident",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/cosmic_bident.png",
+      "fileSha256": "e19cd074155c2c0edb750a4ef7b4f9cfb94c8dacf02ab1f174d2256407b68c64",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2280,
+      "visiblePixels": 1816,
+      "partialAlphaPixels": 1816,
+      "visibleColors": 371,
+      "alphaBounds": [
+        6,
+        8,
+        56,
+        56
+      ],
+      "strongAlphaBounds": [
+        8,
+        8,
+        56,
+        56
+      ],
+      "id": "coupon",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/coupon.png",
+      "fileSha256": "c452c1313fc4ef309a3b7abb7e67dec4a05120ea2f26148fc38be5416d813b34",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2792,
+      "visiblePixels": 1304,
+      "partialAlphaPixels": 1284,
+      "visibleColors": 306,
+      "alphaBounds": [
+        6,
+        8,
+        58,
+        52
+      ],
+      "strongAlphaBounds": [
+        6,
+        16,
+        58,
+        48
+      ],
+      "id": "credits",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/credits.png",
+      "fileSha256": "0f16554271c27a180c7701cb4b264f03d4c47801eaf8c697be3acdca375c6b1c",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2804,
+      "visiblePixels": 1292,
+      "partialAlphaPixels": 1280,
+      "visibleColors": 295,
+      "alphaBounds": [
+        6,
+        6,
+        60,
+        56
+      ],
+      "strongAlphaBounds": [
+        6,
+        10,
+        58,
+        54
+      ],
+      "id": "cube_watch",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/cube_watch.png",
+      "fileSha256": "5db6e868c628c5298301a99ce9b3af5f74bdfc8673117f1b04cd32824dab6ec8",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3620,
+      "visiblePixels": 476,
+      "partialAlphaPixels": 468,
+      "visibleColors": 115,
+      "alphaBounds": [
+        6,
+        10,
+        58,
+        58
+      ],
+      "strongAlphaBounds": [
+        6,
+        10,
+        58,
+        58
+      ],
+      "id": "dainsleif",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/dainsleif.png",
+      "fileSha256": "9e27edfdb917e8ebcc048d1d072d9ad05102a128786172ea37ac22ca5036422c",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3028,
+      "visiblePixels": 1068,
+      "partialAlphaPixels": 1060,
+      "visibleColors": 255,
+      "alphaBounds": [
+        10,
+        10,
+        56,
+        56
+      ],
+      "strongAlphaBounds": [
+        10,
+        10,
+        54,
+        56
+      ],
+      "id": "death_book",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/death_book.png",
+      "fileSha256": "2829e57c03d508754f79255d576045b4688369a1f484695c9c29a62227ba8b4e",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3220,
+      "visiblePixels": 876,
+      "partialAlphaPixels": 872,
+      "visibleColors": 215,
+      "alphaBounds": [
+        6,
+        10,
+        58,
+        58
+      ],
+      "strongAlphaBounds": [
+        6,
+        10,
+        58,
+        58
+      ],
+      "id": "deathadder_mt",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/deathadder_mt.png",
+      "fileSha256": "f8650b07132507325c20e37c70552566b46e3a333025aec629f25942b08f67ac",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2192,
+      "visiblePixels": 1904,
+      "partialAlphaPixels": 1904,
+      "visibleColors": 443,
+      "alphaBounds": [
+        8,
+        6,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        8,
+        6,
+        56,
+        56
+      ],
+      "id": "diamond",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/diamond.png",
+      "fileSha256": "17961f1c5e20fd008976f4783cf550f6e02d9845e3df88ef0123995d5bde185e",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2236,
+      "visiblePixels": 1860,
+      "partialAlphaPixels": 1852,
+      "visibleColors": 400,
+      "alphaBounds": [
+        8,
+        6,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        8,
+        8,
+        56,
+        56
+      ],
+      "id": "dog_mask",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/dog_mask.png",
+      "fileSha256": "1c5564b1c56876353f64f7e4b33856022fda86d4ea8cbc3e21179aa94bdc14af",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3532,
+      "visiblePixels": 564,
+      "partialAlphaPixels": 556,
+      "visibleColors": 136,
+      "alphaBounds": [
+        8,
+        20,
+        58,
+        48
+      ],
+      "strongAlphaBounds": [
+        8,
+        20,
+        58,
+        46
+      ],
+      "id": "doomsday",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/doomsday.png",
+      "fileSha256": "15c95290b264be316be1896035cceb98c5b98b628dfb6aecba968ca21d2204e8",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3136,
+      "visiblePixels": 960,
+      "partialAlphaPixels": 960,
+      "visibleColors": 221,
+      "alphaBounds": [
+        8,
+        6,
+        58,
+        58
+      ],
+      "strongAlphaBounds": [
+        8,
+        6,
+        56,
+        58
+      ],
+      "id": "eagle_eye",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/eagle_eye.png",
+      "fileSha256": "5a4076f43e13454998304d66d51379c76b6909221917ed7e3ca90dbcc01c300a",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2924,
+      "visiblePixels": 1172,
+      "partialAlphaPixels": 1164,
+      "visibleColors": 279,
+      "alphaBounds": [
+        12,
+        10,
+        54,
+        58
+      ],
+      "strongAlphaBounds": [
+        12,
+        10,
+        54,
+        58
+      ],
+      "id": "empress",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/empress.png",
+      "fileSha256": "9f21f9963c34b325fdfa71439980cbe24571537b0c185a8db81894b41d21db27",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3428,
+      "visiblePixels": 668,
+      "partialAlphaPixels": 664,
+      "visibleColors": 145,
+      "alphaBounds": [
+        8,
+        16,
+        56,
+        48
+      ],
+      "strongAlphaBounds": [
+        8,
+        16,
+        56,
+        48
+      ],
+      "id": "eternal_frost",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/eternal_frost.png",
+      "fileSha256": "04b6c0ad14ac18c1dcbbe1569dcec75a79f65becdf917e2bc8373fdbe1689137",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3204,
+      "visiblePixels": 892,
+      "partialAlphaPixels": 876,
+      "visibleColors": 221,
+      "alphaBounds": [
+        14,
+        10,
+        56,
+        56
+      ],
+      "strongAlphaBounds": [
+        14,
+        10,
+        56,
+        54
+      ],
+      "id": "fireball",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/fireball.png",
+      "fileSha256": "0e703c81431185224ed57ac35fa2e528c1e075f80e029f56217af3747c01d234",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2792,
+      "visiblePixels": 1304,
+      "partialAlphaPixels": 1296,
+      "visibleColors": 298,
+      "alphaBounds": [
+        6,
+        8,
+        60,
+        60
+      ],
+      "strongAlphaBounds": [
+        8,
+        14,
+        58,
+        54
+      ],
+      "id": "force",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/force.png",
+      "fileSha256": "1704c228ff7df2b836de525ef62aac55cb086e85cb2944b9066a9529e23964ac",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3628,
+      "visiblePixels": 468,
+      "partialAlphaPixels": 452,
+      "visibleColors": 114,
+      "alphaBounds": [
+        14,
+        16,
+        54,
+        52
+      ],
+      "strongAlphaBounds": [
+        14,
+        16,
+        54,
+        52
+      ],
+      "id": "fragarach",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/fragarach.png",
+      "fileSha256": "bd402bdc5d5c9ba279e18680ac1c7f23f1d59ab6a406187c586d6e77c1149e37",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2316,
+      "visiblePixels": 1780,
+      "partialAlphaPixels": 1776,
+      "visibleColors": 340,
+      "alphaBounds": [
+        8,
+        8,
+        56,
+        58
+      ],
+      "strongAlphaBounds": [
+        8,
+        8,
+        56,
+        56
+      ],
+      "id": "frailty",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/frailty.png",
+      "fileSha256": "f1ba1c50d42d102373f07e21694deb56b71d5d3b913c74c085f87bd2b0acae72",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3036,
+      "visiblePixels": 1060,
+      "partialAlphaPixels": 1056,
+      "visibleColors": 240,
+      "alphaBounds": [
+        8,
+        12,
+        56,
+        54
+      ],
+      "strongAlphaBounds": [
+        8,
+        12,
+        56,
+        54
+      ],
+      "id": "galaxy_step",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/galaxy_step.png",
+      "fileSha256": "3fb57f9794992176b1d65b3e0937fce06bdf4f8e11fbe84fe616853bc6ba65d8",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3144,
+      "visiblePixels": 952,
+      "partialAlphaPixels": 948,
+      "visibleColors": 236,
+      "alphaBounds": [
+        12,
+        14,
+        54,
+        52
+      ],
+      "strongAlphaBounds": [
+        12,
+        14,
+        54,
+        52
+      ],
+      "id": "glacial_shoes",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/glacial_shoes.png",
+      "fileSha256": "025102e18096a7cee9bc0022c8f774b63ba9865aff24fae2933619512b44e17f",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2220,
+      "visiblePixels": 1876,
+      "partialAlphaPixels": 1872,
+      "visibleColors": 386,
+      "alphaBounds": [
+        6,
+        8,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        6,
+        8,
+        58,
+        56
+      ],
+      "id": "guardian",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/guardian.png",
+      "fileSha256": "29631b8627e1829de3b4a1c2b67792162867161cc021fb4a9116d94d332ffb6c",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2064,
+      "visiblePixels": 2032,
+      "partialAlphaPixels": 2032,
+      "visibleColors": 413,
+      "alphaBounds": [
+        6,
+        6,
+        58,
+        58
+      ],
+      "strongAlphaBounds": [
+        6,
+        6,
+        58,
+        58
+      ],
+      "id": "healing_drone",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/healing_drone.png",
+      "fileSha256": "b38885d72b46a30cf6e15f73c937d7139ec0a08333ba726b749d0ea5e6eabbbe",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3116,
+      "visiblePixels": 980,
+      "partialAlphaPixels": 980,
+      "visibleColors": 234,
+      "alphaBounds": [
+        10,
+        14,
+        56,
+        52
+      ],
+      "strongAlphaBounds": [
+        10,
+        14,
+        56,
+        50
+      ],
+      "id": "hermes",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/hermes.png",
+      "fileSha256": "c6a6ea4ad8c52ee834b5fed70b05687ab269b0303f0cea2295ee5b51de951968",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2096,
+      "visiblePixels": 2000,
+      "partialAlphaPixels": 2000,
+      "visibleColors": 403,
+      "alphaBounds": [
+        6,
+        8,
+        58,
+        58
+      ],
+      "strongAlphaBounds": [
+        6,
+        8,
+        58,
+        56
+      ],
+      "id": "hunting",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/hunting.png",
+      "fileSha256": "01b03b0df0b28d84dd0f3bb82754af4d1e8dca6ad8072906eae061b4836d87e4",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2984,
+      "visiblePixels": 1112,
+      "partialAlphaPixels": 1108,
+      "visibleColors": 230,
+      "alphaBounds": [
+        4,
+        16,
+        60,
+        50
+      ],
+      "strongAlphaBounds": [
+        6,
+        18,
+        58,
+        50
+      ],
+      "id": "insight",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/insight.png",
+      "fileSha256": "17ba305644f8c1f93e230b5e7cf2716569fb48b9ef36441c66774bc91db0b2d2",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3376,
+      "visiblePixels": 720,
+      "partialAlphaPixels": 720,
+      "visibleColors": 155,
+      "alphaBounds": [
+        6,
+        16,
+        58,
+        48
+      ],
+      "strongAlphaBounds": [
+        8,
+        20,
+        58,
+        48
+      ],
+      "id": "judgement",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/judgement.png",
+      "fileSha256": "bd08143d7071a85ee21a68b1b6d8b031ae1c33b76862d259a61519c5ef83efac",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3348,
+      "visiblePixels": 748,
+      "partialAlphaPixels": 740,
+      "visibleColors": 174,
+      "alphaBounds": [
+        10,
+        20,
+        58,
+        48
+      ],
+      "strongAlphaBounds": [
+        10,
+        20,
+        58,
+        48
+      ],
+      "id": "juggernaut",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/juggernaut.png",
+      "fileSha256": "0089866179900501fbe1885e313cf0f4e199f02aa223c21ec6fa37807f47e7b3",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3256,
+      "visiblePixels": 840,
+      "partialAlphaPixels": 832,
+      "visibleColors": 209,
+      "alphaBounds": [
+        8,
+        10,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        8,
+        10,
+        58,
+        56
+      ],
+      "id": "laevateinn",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/laevateinn.png",
+      "fileSha256": "3cefd547895ecd3ceb931fe1bb309e23c98cfb771756ded50ee98a46efae063b",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2168,
+      "visiblePixels": 1928,
+      "partialAlphaPixels": 1928,
+      "visibleColors": 354,
+      "alphaBounds": [
+        6,
+        8,
+        58,
+        58
+      ],
+      "strongAlphaBounds": [
+        8,
+        8,
+        56,
+        58
+      ],
+      "id": "lightning",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/lightning.png",
+      "fileSha256": "e8186ab3b418abb0afdd817276362c655756991e0f63bb4815a1ba3d36083fa1",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3392,
+      "visiblePixels": 704,
+      "partialAlphaPixels": 704,
+      "visibleColors": 166,
+      "alphaBounds": [
+        10,
+        20,
+        54,
+        48
+      ],
+      "strongAlphaBounds": [
+        10,
+        20,
+        54,
+        46
+      ],
+      "id": "loigor",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/loigor.png",
+      "fileSha256": "21b31bdf33a2879752b2099778ddce772df767ef1df2e1fbcaa33ff4a64089fa",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2844,
+      "visiblePixels": 1252,
+      "partialAlphaPixels": 1252,
+      "visibleColors": 282,
+      "alphaBounds": [
+        6,
+        14,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        6,
+        14,
+        58,
+        52
+      ],
+      "id": "meteorite",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/meteorite.png",
+      "fileSha256": "5b4b5d77c9596c2c9134db8506c49d97c6f693799c762d688998406834425a8d",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3712,
+      "visiblePixels": 384,
+      "partialAlphaPixels": 380,
+      "visibleColors": 93,
+      "alphaBounds": [
+        6,
+        10,
+        58,
+        58
+      ],
+      "strongAlphaBounds": [
+        6,
+        10,
+        58,
+        58
+      ],
+      "id": "mistilteinn",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/mistilteinn.png",
+      "fileSha256": "f5f22e15833d1a7d2ba20374544ae8e8940182cca298b17a50994530eed264c9",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2976,
+      "visiblePixels": 1120,
+      "partialAlphaPixels": 1112,
+      "visibleColors": 253,
+      "alphaBounds": [
+        8,
+        14,
+        54,
+        50
+      ],
+      "strongAlphaBounds": [
+        10,
+        14,
+        54,
+        50
+      ],
+      "id": "mithril",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/mithril.png",
+      "fileSha256": "834c160e22473a4a7564545baec537bbb27439d6a3cd40d4943eae9d2fe63990",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2552,
+      "visiblePixels": 1544,
+      "partialAlphaPixels": 1540,
+      "visibleColors": 329,
+      "alphaBounds": [
+        10,
+        8,
+        56,
+        58
+      ],
+      "strongAlphaBounds": [
+        10,
+        8,
+        56,
+        58
+      ],
+      "id": "mithril_armor",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/mithril_armor.png",
+      "fileSha256": "512cd75af5cc6e004a8171daea89dd8246dc223e4880001a63e05e87cb470eec",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2892,
+      "visiblePixels": 1204,
+      "partialAlphaPixels": 1204,
+      "visibleColors": 268,
+      "alphaBounds": [
+        10,
+        12,
+        56,
+        54
+      ],
+      "strongAlphaBounds": [
+        10,
+        12,
+        54,
+        54
+      ],
+      "id": "mithril_boots",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/mithril_boots.png",
+      "fileSha256": "0b5fd2685ad79b00c5750e4b7d7826b8ce26468ccbc023555ff3d758637bcca6",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2660,
+      "visiblePixels": 1436,
+      "partialAlphaPixels": 1420,
+      "visibleColors": 323,
+      "alphaBounds": [
+        10,
+        10,
+        56,
+        54
+      ],
+      "strongAlphaBounds": [
+        10,
+        10,
+        56,
+        54
+      ],
+      "id": "mithril_helm",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/mithril_helm.png",
+      "fileSha256": "08ae5f46417d7953b69a3dea0b87164b7ed88143cdbd35f0a960fbd08a516bac",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2764,
+      "visiblePixels": 1332,
+      "partialAlphaPixels": 1332,
+      "visibleColors": 293,
+      "alphaBounds": [
+        10,
+        12,
+        56,
+        52
+      ],
+      "strongAlphaBounds": [
+        10,
+        12,
+        56,
+        52
+      ],
+      "id": "mithril_shield",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/mithril_shield.png",
+      "fileSha256": "de4932e5be9f6030a323d34c4e224eeb007752ddf212d0e32adedbc036560642",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2516,
+      "visiblePixels": 1580,
+      "partialAlphaPixels": 1576,
+      "visibleColors": 379,
+      "alphaBounds": [
+        8,
+        6,
+        56,
+        56
+      ],
+      "strongAlphaBounds": [
+        8,
+        6,
+        56,
+        56
+      ],
+      "id": "opera_mask",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/opera_mask.png",
+      "fileSha256": "d8670c98a385c9071f97ddd72b61f07871fa6af89fdbe63d58087d4d25868c0a",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2920,
+      "visiblePixels": 1176,
+      "partialAlphaPixels": 1168,
+      "visibleColors": 273,
+      "alphaBounds": [
+        8,
+        16,
+        58,
+        54
+      ],
+      "strongAlphaBounds": [
+        8,
+        16,
+        58,
+        54
+      ],
+      "id": "pink_shoes",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/pink_shoes.png",
+      "fileSha256": "9c742e1c1f436320aab8151e4ddf5ec0fc2cc03bd1cafad0db367a330947020d",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2732,
+      "visiblePixels": 1364,
+      "partialAlphaPixels": 1364,
+      "visibleColors": 305,
+      "alphaBounds": [
+        8,
+        8,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        8,
+        10,
+        56,
+        54
+      ],
+      "id": "prominence",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/prominence.png",
+      "fileSha256": "f0911f65f23f7249680438e83a39f1a41650edb2b34823cbbc06d8b17447c87f",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2596,
+      "visiblePixels": 1500,
+      "partialAlphaPixels": 1500,
+      "visibleColors": 343,
+      "alphaBounds": [
+        6,
+        10,
+        58,
+        60
+      ],
+      "strongAlphaBounds": [
+        6,
+        10,
+        58,
+        52
+      ],
+      "id": "queen_heart",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/queen_heart.png",
+      "fileSha256": "4e24ae7b40689273f2c05c9edb5a600ce5957c3b20f9528cf2b053850f2fa931",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2364,
+      "visiblePixels": 1732,
+      "partialAlphaPixels": 1732,
+      "visibleColors": 374,
+      "alphaBounds": [
+        8,
+        8,
+        56,
+        60
+      ],
+      "strongAlphaBounds": [
+        8,
+        8,
+        56,
+        56
+      ],
+      "id": "quickfire",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/quickfire.png",
+      "fileSha256": "67e7f370e88b1de80bd072a48a58b7b6a1a0b8073244fec5aa989e8dc163cedb",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2788,
+      "visiblePixels": 1308,
+      "partialAlphaPixels": 1308,
+      "visibleColors": 275,
+      "alphaBounds": [
+        10,
+        8,
+        54,
+        56
+      ],
+      "strongAlphaBounds": [
+        10,
+        8,
+        54,
+        56
+      ],
+      "id": "radar",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/radar.png",
+      "fileSha256": "79cd640e796b99c82494846c6b21a7deb6ed58d4ba8922ddaab6fcabd0fa8d72",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3384,
+      "visiblePixels": 712,
+      "partialAlphaPixels": 712,
+      "visibleColors": 164,
+      "alphaBounds": [
+        12,
+        10,
+        56,
+        56
+      ],
+      "strongAlphaBounds": [
+        12,
+        12,
+        56,
+        52
+      ],
+      "id": "ruyi",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/ruyi.png",
+      "fileSha256": "8931578452176fe34779a631f7f6e9cb923e5481d2a3f9907d1f69d4b51f2ae9",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 1916,
+      "visiblePixels": 2180,
+      "partialAlphaPixels": 2176,
+      "visibleColors": 390,
+      "alphaBounds": [
+        6,
+        6,
+        58,
+        58
+      ],
+      "strongAlphaBounds": [
+        6,
+        6,
+        58,
+        58
+      ],
+      "id": "scar",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/scar.png",
+      "fileSha256": "67c1b343536ed58c3eebffbf55b4fb7a32595d9fea73dfa35eadbbddb64d9f59",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3304,
+      "visiblePixels": 792,
+      "partialAlphaPixels": 788,
+      "visibleColors": 180,
+      "alphaBounds": [
+        8,
+        14,
+        60,
+        50
+      ],
+      "strongAlphaBounds": [
+        8,
+        16,
+        58,
+        50
+      ],
+      "id": "sharanga",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/sharanga.png",
+      "fileSha256": "d42a58cc11bf646fdb1df0ea24fe5d7ceecc19a6b6966d0db63bf96e78f3ed16",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3480,
+      "visiblePixels": 616,
+      "partialAlphaPixels": 612,
+      "visibleColors": 147,
+      "alphaBounds": [
+        8,
+        18,
+        58,
+        46
+      ],
+      "strongAlphaBounds": [
+        8,
+        18,
+        58,
+        46
+      ],
+      "id": "skadi",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/skadi.png",
+      "fileSha256": "9fa61636f0f0f78b12b53530feadf730e178fc179f013e63a7b5ba7c178c834c",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3112,
+      "visiblePixels": 984,
+      "partialAlphaPixels": 984,
+      "visibleColors": 217,
+      "alphaBounds": [
+        8,
+        14,
+        56,
+        54
+      ],
+      "strongAlphaBounds": [
+        8,
+        14,
+        56,
+        52
+      ],
+      "id": "tactical_visor",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/tactical_visor.png",
+      "fileSha256": "c71e084849b7c0bdd68105596262b49f761a331751dee1c873f07a88af649830",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2272,
+      "visiblePixels": 1824,
+      "partialAlphaPixels": 1824,
+      "visibleColors": 403,
+      "alphaBounds": [
+        8,
+        8,
+        56,
+        56
+      ],
+      "strongAlphaBounds": [
+        8,
+        8,
+        56,
+        56
+      ],
+      "id": "tempering",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/tempering.png",
+      "fileSha256": "558fc0747636eaa9291c237a29bb427925ebee60b89f4f073ea0b3cab9b422ba",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2604,
+      "visiblePixels": 1492,
+      "partialAlphaPixels": 1480,
+      "visibleColors": 314,
+      "alphaBounds": [
+        6,
+        8,
+        58,
+        60
+      ],
+      "strongAlphaBounds": [
+        6,
+        8,
+        58,
+        56
+      ],
+      "id": "titan_armor",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/titan_armor.png",
+      "fileSha256": "8dec2e68ca71c9376e4583a171dd506aba6a8366aae2f0ea3a51b6b1e546c671",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2848,
+      "visiblePixels": 1248,
+      "partialAlphaPixels": 1244,
+      "visibleColors": 297,
+      "alphaBounds": [
+        10,
+        10,
+        56,
+        52
+      ],
+      "strongAlphaBounds": [
+        10,
+        10,
+        56,
+        52
+      ],
+      "id": "tree",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/tree.png",
+      "fileSha256": "fb8167684c3e854cc89039fe671dda39553f19c1b24bed5a915e6ad566f66211",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2840,
+      "visiblePixels": 1256,
+      "partialAlphaPixels": 1256,
+      "visibleColors": 243,
+      "alphaBounds": [
+        6,
+        10,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        6,
+        10,
+        58,
+        56
+      ],
+      "id": "ultravision",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/ultravision.png",
+      "fileSha256": "8af1d6743ef71a0d9f2456f779700756d576f549a754e27d9b2a4efdc7d39faf",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3368,
+      "visiblePixels": 728,
+      "partialAlphaPixels": 728,
+      "visibleColors": 175,
+      "alphaBounds": [
+        8,
+        18,
+        56,
+        50
+      ],
+      "strongAlphaBounds": [
+        10,
+        18,
+        56,
+        50
+      ],
+      "id": "uranus",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/uranus.png",
+      "fileSha256": "80a7668bd98e2c624f99c678a1232ea9ed2b107ba2836669e430a1f15b27c190",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 1988,
+      "visiblePixels": 2108,
+      "partialAlphaPixels": 2104,
+      "visibleColors": 399,
+      "alphaBounds": [
+        6,
+        6,
+        58,
+        60
+      ],
+      "strongAlphaBounds": [
+        6,
+        6,
+        58,
+        58
+      ],
+      "id": "vampire",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/vampire.png",
+      "fileSha256": "8900f10215e2b248bef571b82bd2aa1d303a33e28bbd50b1db3a46ee615ba4d2",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2000,
+      "visiblePixels": 2096,
+      "partialAlphaPixels": 2088,
+      "visibleColors": 448,
+      "alphaBounds": [
+        6,
+        6,
+        58,
+        60
+      ],
+      "strongAlphaBounds": [
+        6,
+        6,
+        58,
+        58
+      ],
+      "id": "vigilance",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/vigilance.png",
+      "fileSha256": "4fd321e5255fb59a2f7bfada5b21e11f01160d2937035567cd8c0bc1bf68d2e0",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2268,
+      "visiblePixels": 1828,
+      "partialAlphaPixels": 1828,
+      "visibleColors": 419,
+      "alphaBounds": [
+        8,
+        8,
+        56,
+        56
+      ],
+      "strongAlphaBounds": [
+        8,
+        8,
+        56,
+        56
+      ],
+      "id": "vortex",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/vortex.png",
+      "fileSha256": "d0ebea1621ad08787381ad7de3044ce187afd815f303822d60f4ff9de6d86f65",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2880,
+      "visiblePixels": 1216,
+      "partialAlphaPixels": 1208,
+      "visibleColors": 266,
+      "alphaBounds": [
+        6,
+        14,
+        58,
+        52
+      ],
+      "strongAlphaBounds": [
+        6,
+        14,
+        58,
+        52
+      ],
+      "id": "wilderness_star",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/wilderness_star.png",
+      "fileSha256": "518159ad0cc64f7efd4b29c470be37dc47ed7350383feb9747eb276d255cea35",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3328,
+      "visiblePixels": 768,
+      "partialAlphaPixels": 768,
+      "visibleColors": 187,
+      "alphaBounds": [
+        8,
+        8,
+        58,
+        56
+      ],
+      "strongAlphaBounds": [
+        8,
+        8,
+        58,
+        56
+      ],
+      "id": "wonderful_tonight",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/wonderful_tonight.png",
+      "fileSha256": "f8d278319b2d50a996c41f2dc08d7e36321001a60fc21871c4fe5a44cf5b9374",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3941,
+      "visiblePixels": 2459,
+      "partialAlphaPixels": 2459,
+      "visibleColors": 2247,
+      "alphaBounds": [
+        15,
+        5,
+        64,
+        75
+      ],
+      "strongAlphaBounds": [
+        16,
+        6,
+        63,
+        74
+      ],
+      "id": "hana",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/hana.png",
+      "fileSha256": "4191c6deab8b79ffd763933c61d786fce2c56dacf6275bff630c27eda13fdf29"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3682,
+      "visiblePixels": 2718,
+      "partialAlphaPixels": 2718,
+      "visibleColors": 2552,
+      "alphaBounds": [
+        13,
+        5,
+        68,
+        75
+      ],
+      "strongAlphaBounds": [
+        13,
+        6,
+        67,
+        74
+      ],
+      "id": "nia",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/nia.png",
+      "fileSha256": "2c57790620aa6b8ba9eed26656eb6a6496a63bb32b8d3104540799f7db857848"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3617,
+      "visiblePixels": 2783,
+      "partialAlphaPixels": 2783,
+      "visibleColors": 2541,
+      "alphaBounds": [
+        9,
+        5,
+        70,
+        75
+      ],
+      "strongAlphaBounds": [
+        10,
+        6,
+        69,
+        74
+      ],
+      "id": "jackie",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/jackie.png",
+      "fileSha256": "b7e0327a21e30826c58eb562500c7f965bae646fab508432094d9131eae4e7de"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3836,
+      "visiblePixels": 2564,
+      "partialAlphaPixels": 2564,
+      "visibleColors": 2341,
+      "alphaBounds": [
+        13,
+        5,
+        67,
+        75
+      ],
+      "strongAlphaBounds": [
+        14,
+        6,
+        66,
+        74
+      ],
+      "id": "aya",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/aya.png",
+      "fileSha256": "644f64901786e8017f2f4140b1ad1ee542a3aefec219a610e31b7af88f2fb140"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4118,
+      "visiblePixels": 2282,
+      "partialAlphaPixels": 2282,
+      "visibleColors": 2160,
+      "alphaBounds": [
+        18,
+        5,
+        62,
+        75
+      ],
+      "strongAlphaBounds": [
+        19,
+        6,
+        61,
+        74
+      ],
+      "id": "hyunwoo",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/hyunwoo.png",
+      "fileSha256": "4cfedd577f940d27ff65a48bf822b7b1c12ee71b612a42426be7cc064ac69f36"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4001,
+      "visiblePixels": 2399,
+      "partialAlphaPixels": 2399,
+      "visibleColors": 2060,
+      "alphaBounds": [
+        16,
+        5,
+        64,
+        75
+      ],
+      "strongAlphaBounds": [
+        16,
+        6,
+        63,
+        74
+      ],
+      "id": "yuki",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/yuki.png",
+      "fileSha256": "76783526ce83a5b43d0fba288a239f863fadb5a40a34a523820bd582aaad97ce"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3335,
+      "visiblePixels": 3065,
+      "partialAlphaPixels": 3065,
+      "visibleColors": 2839,
+      "alphaBounds": [
+        11,
+        5,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        11,
+        6,
+        68,
+        74
+      ],
+      "id": "hyejin",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/hyejin.png",
+      "fileSha256": "c1b2a007509fd68a9b455518812bf091c8a2b6236c25748846820cfb3a2f3806"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3422,
+      "visiblePixels": 2978,
+      "partialAlphaPixels": 2978,
+      "visibleColors": 2784,
+      "alphaBounds": [
+        11,
+        5,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        13,
+        6,
+        68,
+        74
+      ],
+      "id": "sua",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/sua.png",
+      "fileSha256": "27387a4eab77b2fd8219d27c0119561c5b4c0f6d9372dd7d24711b711adf7559"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3884,
+      "visiblePixels": 2516,
+      "partialAlphaPixels": 2516,
+      "visibleColors": 2377,
+      "alphaBounds": [
+        10,
+        5,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        11,
+        6,
+        68,
+        74
+      ],
+      "id": "isol",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/isol.png",
+      "fileSha256": "69d110657648c0435c2aa6d45a9a34161da1d336de3e643de9ce5c3a16cd34bc"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3910,
+      "visiblePixels": 2490,
+      "partialAlphaPixels": 2490,
+      "visibleColors": 2392,
+      "alphaBounds": [
+        13,
+        5,
+        66,
+        75
+      ],
+      "strongAlphaBounds": [
+        14,
+        6,
+        65,
+        74
+      ],
+      "id": "nadine",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/nadine.png",
+      "fileSha256": "0504490c51e4f12ab51cd496af554b3a6f1466193bb94342a35c7f857927da36"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3390,
+      "visiblePixels": 3010,
+      "partialAlphaPixels": 3010,
+      "visibleColors": 2880,
+      "alphaBounds": [
+        9,
+        5,
+        71,
+        75
+      ],
+      "strongAlphaBounds": [
+        10,
+        6,
+        70,
+        74
+      ],
+      "id": "emma",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/emma.png",
+      "fileSha256": "ce1860e08f2300c6626a9c54d0f8cd3f430b469f443106a6cdd0c669bf880967"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3608,
+      "visiblePixels": 2792,
+      "partialAlphaPixels": 2792,
+      "visibleColors": 2641,
+      "alphaBounds": [
+        11,
+        5,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        12,
+        6,
+        68,
+        74
+      ],
+      "id": "charlotte",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/charlotte.png",
+      "fileSha256": "58c3f96f5b6d20cc911b0c73e912c46a9ade6440549c3534499078aca56345b4"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4014,
+      "visiblePixels": 2386,
+      "partialAlphaPixels": 2386,
+      "visibleColors": 2246,
+      "alphaBounds": [
+        14,
+        5,
+        66,
+        75
+      ],
+      "strongAlphaBounds": [
+        15,
+        6,
+        65,
+        74
+      ],
+      "id": "nathapon",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/nathapon.png",
+      "fileSha256": "6c0766b9515b38e40a23317214bbe700f9adb77de81fef93d01f6339440e6806"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4077,
+      "visiblePixels": 2323,
+      "partialAlphaPixels": 2323,
+      "visibleColors": 2120,
+      "alphaBounds": [
+        16,
+        5,
+        64,
+        74
+      ],
+      "strongAlphaBounds": [
+        17,
+        6,
+        63,
+        74
+      ],
+      "id": "nicky",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/nicky.png",
+      "fileSha256": "61913501100ef36dfd434b90ed24be57f1b2de42e36b71bbbeb1b28f08bffd54"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3778,
+      "visiblePixels": 2622,
+      "partialAlphaPixels": 2622,
+      "visibleColors": 2404,
+      "alphaBounds": [
+        11,
+        5,
+        68,
+        75
+      ],
+      "strongAlphaBounds": [
+        12,
+        6,
+        68,
+        74
+      ],
+      "id": "daniel",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/daniel.png",
+      "fileSha256": "b6fade61888ed6b234e446dbd4b72537cdca0dc5eaba8960e011972e289692e4"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3394,
+      "visiblePixels": 3006,
+      "partialAlphaPixels": 3006,
+      "visibleColors": 2849,
+      "alphaBounds": [
+        9,
+        5,
+        71,
+        75
+      ],
+      "strongAlphaBounds": [
+        10,
+        6,
+        70,
+        74
+      ],
+      "id": "tia",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/tia.png",
+      "fileSha256": "4d187475a612f61983b06269f3b010de07d21f63ba1863ca88155c3c39237bbc"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3464,
+      "visiblePixels": 2936,
+      "partialAlphaPixels": 2936,
+      "visibleColors": 2732,
+      "alphaBounds": [
+        10,
+        5,
+        70,
+        75
+      ],
+      "strongAlphaBounds": [
+        11,
+        6,
+        69,
+        74
+      ],
+      "id": "laura",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/laura.png",
+      "fileSha256": "8704332856da0ab2b754e77a430d1d36b2d218730925be396bebe4f6927c3bde"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3858,
+      "visiblePixels": 2542,
+      "partialAlphaPixels": 2542,
+      "visibleColors": 2402,
+      "alphaBounds": [
+        13,
+        5,
+        67,
+        75
+      ],
+      "strongAlphaBounds": [
+        13,
+        6,
+        66,
+        74
+      ],
+      "id": "lenox",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/lenox.png",
+      "fileSha256": "4a679227d9b44f104e40c7f5fef5673fea92e11f4f2454c32460ff8216ce7dcd"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4157,
+      "visiblePixels": 2243,
+      "partialAlphaPixels": 2243,
+      "visibleColors": 2114,
+      "alphaBounds": [
+        19,
+        5,
+        61,
+        75
+      ],
+      "strongAlphaBounds": [
+        20,
+        6,
+        60,
+        74
+      ],
+      "id": "leon",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/leon.png",
+      "fileSha256": "c85a45018c534d18c973452bbe8307293eca1ff9711581fcbefabc030733cca6"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3768,
+      "visiblePixels": 2632,
+      "partialAlphaPixels": 2632,
+      "visibleColors": 2237,
+      "alphaBounds": [
+        14,
+        5,
+        66,
+        75
+      ],
+      "strongAlphaBounds": [
+        15,
+        6,
+        66,
+        74
+      ],
+      "id": "rozzi",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/rozzi.png",
+      "fileSha256": "7a7f5f3aa517ff77f39212b4ad03b19d8912383f3e10133f81467b573713e47a"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4139,
+      "visiblePixels": 2261,
+      "partialAlphaPixels": 2261,
+      "visibleColors": 2163,
+      "alphaBounds": [
+        14,
+        5,
+        65,
+        74
+      ],
+      "strongAlphaBounds": [
+        16,
+        6,
+        65,
+        74
+      ],
+      "id": "luke",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/luke.png",
+      "fileSha256": "66a0a8441ef2d892a5bf41e24892f170710127860341ea6ea8605d5d5e14683a"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3314,
+      "visiblePixels": 3086,
+      "partialAlphaPixels": 3086,
+      "visibleColors": 2756,
+      "alphaBounds": [
+        9,
+        5,
+        71,
+        74
+      ],
+      "strongAlphaBounds": [
+        10,
+        6,
+        70,
+        74
+      ],
+      "id": "dailin",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/dailin.png",
+      "fileSha256": "fb6583059154e85545cc7d8c8f17bec46f963559616b5ed8d142ea0cca599e08"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3379,
+      "visiblePixels": 3021,
+      "partialAlphaPixels": 3021,
+      "visibleColors": 2676,
+      "alphaBounds": [
+        8,
+        5,
+        71,
+        75
+      ],
+      "strongAlphaBounds": [
+        9,
+        6,
+        71,
+        74
+      ],
+      "id": "rio",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/rio.png",
+      "fileSha256": "a035f52e731948cc55c20cb95c83bfd619c849741071d62983b0fa575bef429c"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4013,
+      "visiblePixels": 2387,
+      "partialAlphaPixels": 2387,
+      "visibleColors": 2256,
+      "alphaBounds": [
+        13,
+        5,
+        66,
+        75
+      ],
+      "strongAlphaBounds": [
+        14,
+        6,
+        66,
+        74
+      ],
+      "id": "martina",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/martina.png",
+      "fileSha256": "7a415382e74221d326b0db06916861d693331c64e40541e64fd34eb15e85714f"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3698,
+      "visiblePixels": 2702,
+      "partialAlphaPixels": 2702,
+      "visibleColors": 2614,
+      "alphaBounds": [
+        13,
+        5,
+        66,
+        75
+      ],
+      "strongAlphaBounds": [
+        14,
+        6,
+        65,
+        74
+      ],
+      "id": "mai",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/mai.png",
+      "fileSha256": "3cd788a7f44866ab1fe09474d21a5e905a95235539baf0c7e6249894335d69f3"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3499,
+      "visiblePixels": 2901,
+      "partialAlphaPixels": 2901,
+      "visibleColors": 2648,
+      "alphaBounds": [
+        6,
+        5,
+        74,
+        74
+      ],
+      "strongAlphaBounds": [
+        7,
+        6,
+        74,
+        74
+      ],
+      "id": "markus",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/markus.png",
+      "fileSha256": "3459341f2a96e0d6673f61b40988dd38b9d420be5b858151d63014dfb49eb4fe"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3829,
+      "visiblePixels": 2571,
+      "partialAlphaPixels": 2571,
+      "visibleColors": 2448,
+      "alphaBounds": [
+        12,
+        5,
+        68,
+        75
+      ],
+      "strongAlphaBounds": [
+        13,
+        6,
+        67,
+        74
+      ],
+      "id": "magnus",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/magnus.png",
+      "fileSha256": "c17d2b12ab63ee7be1810ccd3b0c5c30e2dd78f0bd515db6c3f05c6b31d2aed7"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3662,
+      "visiblePixels": 2738,
+      "partialAlphaPixels": 2738,
+      "visibleColors": 2635,
+      "alphaBounds": [
+        15,
+        5,
+        65,
+        75
+      ],
+      "strongAlphaBounds": [
+        16,
+        6,
+        64,
+        74
+      ],
+      "id": "vanya",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/vanya.png",
+      "fileSha256": "8bb2c56513467443c44d616dfe3f21bae750b2208e60d0c645a85ff068dde3bb"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3589,
+      "visiblePixels": 2811,
+      "partialAlphaPixels": 2811,
+      "visibleColors": 2746,
+      "alphaBounds": [
+        13,
+        5,
+        66,
+        75
+      ],
+      "strongAlphaBounds": [
+        14,
+        6,
+        66,
+        74
+      ],
+      "id": "barbara",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/barbara.png",
+      "fileSha256": "6d0ba27455e746dd05766dcb4128fec1c3b894c46fd115ab141ed52a5ab67a44"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3407,
+      "visiblePixels": 2993,
+      "partialAlphaPixels": 2993,
+      "visibleColors": 2924,
+      "alphaBounds": [
+        13,
+        5,
+        67,
+        75
+      ],
+      "strongAlphaBounds": [
+        14,
+        6,
+        66,
+        74
+      ],
+      "id": "bernice",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/bernice.png",
+      "fileSha256": "2ce55f26c81340f8aa36abef44457dba8ff6464bdb1dfb2e0d69b8596521d57b"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3461,
+      "visiblePixels": 2939,
+      "partialAlphaPixels": 2939,
+      "visibleColors": 2828,
+      "alphaBounds": [
+        14,
+        5,
+        66,
+        75
+      ],
+      "strongAlphaBounds": [
+        15,
+        6,
+        65,
+        74
+      ],
+      "id": "bianca",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/bianca.png",
+      "fileSha256": "552ba1b2e01d009f335a0192b1cf83b22abba7264c6613da7d1444d394dca579"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3927,
+      "visiblePixels": 2473,
+      "partialAlphaPixels": 2473,
+      "visibleColors": 2378,
+      "alphaBounds": [
+        17,
+        5,
+        63,
+        75
+      ],
+      "strongAlphaBounds": [
+        18,
+        6,
+        63,
+        74
+      ],
+      "id": "celine",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/celine.png",
+      "fileSha256": "232368c94a9bc326aaeba952ac3aad47b6240138fb875c993e6ab4e9cedc3fbf"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3074,
+      "visiblePixels": 3326,
+      "partialAlphaPixels": 3326,
+      "visibleColors": 3102,
+      "alphaBounds": [
+        6,
+        5,
+        74,
+        75
+      ],
+      "strongAlphaBounds": [
+        8,
+        6,
+        73,
+        74
+      ],
+      "id": "sho",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/sho.png",
+      "fileSha256": "0afb0072c05824ab0d5930684d22968f8bdf93eab2a3d1d7683a8d3a7a2f10d1"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4215,
+      "visiblePixels": 2185,
+      "partialAlphaPixels": 2185,
+      "visibleColors": 2057,
+      "alphaBounds": [
+        18,
+        5,
+        62,
+        75
+      ],
+      "strongAlphaBounds": [
+        19,
+        6,
+        61,
+        74
+      ],
+      "id": "shoichi",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/shoichi.png",
+      "fileSha256": "a4c421c24dba1a82cc8254b962d1f5d6d76ffbc865b7e39bfe2a76432466f0ab"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3402,
+      "visiblePixels": 2998,
+      "partialAlphaPixels": 2998,
+      "visibleColors": 2756,
+      "alphaBounds": [
+        11,
+        5,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        12,
+        6,
+        68,
+        74
+      ],
+      "id": "sissela",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/sissela.png",
+      "fileSha256": "3e98a49b24e831f86bfd76a918aed3aae5a1b004df6c3625af6275be6932814c"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4119,
+      "visiblePixels": 2281,
+      "partialAlphaPixels": 2281,
+      "visibleColors": 2100,
+      "alphaBounds": [
+        16,
+        5,
+        63,
+        75
+      ],
+      "strongAlphaBounds": [
+        17,
+        6,
+        63,
+        74
+      ],
+      "id": "silvia",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/silvia.png",
+      "fileSha256": "895367c82ec072aab79bbb8f94cbe41b23d72c32728891ae532672232fe5ba40"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3360,
+      "visiblePixels": 3040,
+      "partialAlphaPixels": 3040,
+      "visibleColors": 2338,
+      "alphaBounds": [
+        9,
+        5,
+        71,
+        75
+      ],
+      "strongAlphaBounds": [
+        11,
+        6,
+        69,
+        74
+      ],
+      "id": "adela",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/adela.png",
+      "fileSha256": "51270f0369aee6dc29980d184bae867651fb64cad57666fbe3d53708657d68c8"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3289,
+      "visiblePixels": 3111,
+      "partialAlphaPixels": 3111,
+      "visibleColors": 2935,
+      "alphaBounds": [
+        11,
+        6,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        13,
+        6,
+        68,
+        74
+      ],
+      "id": "adriana",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/adriana.png",
+      "fileSha256": "801994dac4eb924e5b229c960ec6dff27b4b0fcd965ce748094a59aa2a3e36b9"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 2828,
+      "visiblePixels": 3572,
+      "partialAlphaPixels": 3572,
+      "visibleColors": 3315,
+      "alphaBounds": [
+        5,
+        5,
+        75,
+        75
+      ],
+      "strongAlphaBounds": [
+        6,
+        6,
+        74,
+        74
+      ],
+      "id": "adina",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/adina.png",
+      "fileSha256": "6449c999b8f5bd1c49ce4ab9ebfdc85ee3b714c065df533903d3a13410b81e19"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3523,
+      "visiblePixels": 2877,
+      "partialAlphaPixels": 2877,
+      "visibleColors": 2730,
+      "alphaBounds": [
+        11,
+        6,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        12,
+        6,
+        68,
+        74
+      ],
+      "id": "isaac",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/isaac.png",
+      "fileSha256": "2b19266391caf4de12b9b3f356db7a6842741d00e6b24fdc6594542f088d61fd"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4133,
+      "visiblePixels": 2267,
+      "partialAlphaPixels": 2267,
+      "visibleColors": 2055,
+      "alphaBounds": [
+        17,
+        5,
+        63,
+        75
+      ],
+      "strongAlphaBounds": [
+        18,
+        6,
+        62,
+        74
+      ],
+      "id": "alex",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/alex.png",
+      "fileSha256": "2d95210be0b67bee13e4602a83fc50ba015af00e102a0927230eef081f37632b"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4212,
+      "visiblePixels": 2188,
+      "partialAlphaPixels": 2188,
+      "visibleColors": 1915,
+      "alphaBounds": [
+        18,
+        5,
+        62,
+        75
+      ],
+      "strongAlphaBounds": [
+        19,
+        6,
+        61,
+        74
+      ],
+      "id": "jan",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/jan.png",
+      "fileSha256": "edfc095a6a375f44895aa20d4d06514e33ae55a159c27e65e8feb7a0da078a0d"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3675,
+      "visiblePixels": 2725,
+      "partialAlphaPixels": 2725,
+      "visibleColors": 2552,
+      "alphaBounds": [
+        11,
+        5,
+        68,
+        75
+      ],
+      "strongAlphaBounds": [
+        12,
+        6,
+        68,
+        74
+      ],
+      "id": "estelle",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/estelle.png",
+      "fileSha256": "6055623569c9eb50710c289c4e659f4fa5944cac16554d0a8decbd023cd791b1"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4118,
+      "visiblePixels": 2282,
+      "partialAlphaPixels": 2282,
+      "visibleColors": 2107,
+      "alphaBounds": [
+        16,
+        6,
+        64,
+        75
+      ],
+      "strongAlphaBounds": [
+        18,
+        6,
+        63,
+        74
+      ],
+      "id": "aiden",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/aiden.png",
+      "fileSha256": "3ef19b397c546d8f4f03357836e59eeea8b7d04c8bc35170a596d2c54e852ff5"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4206,
+      "visiblePixels": 2194,
+      "partialAlphaPixels": 2194,
+      "visibleColors": 2066,
+      "alphaBounds": [
+        18,
+        6,
+        61,
+        75
+      ],
+      "strongAlphaBounds": [
+        19,
+        6,
+        61,
+        74
+      ],
+      "id": "echion",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/echion.png",
+      "fileSha256": "0f93ac2dec11278330f64462e6595938a6f7864ae8886238a9684f7a692840fc"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3590,
+      "visiblePixels": 2810,
+      "partialAlphaPixels": 2810,
+      "visibleColors": 2717,
+      "alphaBounds": [
+        5,
+        8,
+        75,
+        75
+      ],
+      "strongAlphaBounds": [
+        6,
+        9,
+        74,
+        74
+      ],
+      "id": "elena",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/elena.png",
+      "fileSha256": "d95a90cf4ba073c620e325c2e4272747710cc8e67b988f9459985413633f6add"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4013,
+      "visiblePixels": 2387,
+      "partialAlphaPixels": 2387,
+      "visibleColors": 2111,
+      "alphaBounds": [
+        18,
+        5,
+        61,
+        75
+      ],
+      "strongAlphaBounds": [
+        19,
+        6,
+        61,
+        74
+      ],
+      "id": "johann",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/johann.png",
+      "fileSha256": "dcaf3a05fcd9972bbbfcbc9124b51b19fb957bc4bd589605a84e1bef3f849d45"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4164,
+      "visiblePixels": 2236,
+      "partialAlphaPixels": 2236,
+      "visibleColors": 2071,
+      "alphaBounds": [
+        16,
+        6,
+        64,
+        75
+      ],
+      "strongAlphaBounds": [
+        16,
+        6,
+        63,
+        74
+      ],
+      "id": "william",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/william.png",
+      "fileSha256": "0644dc2e77cdeadf8dce30b3bad7b473fc419417fd040d03211931eebcc6dc46"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3708,
+      "visiblePixels": 2692,
+      "partialAlphaPixels": 2692,
+      "visibleColors": 2546,
+      "alphaBounds": [
+        14,
+        5,
+        65,
+        75
+      ],
+      "strongAlphaBounds": [
+        16,
+        6,
+        64,
+        74
+      ],
+      "id": "irem",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/irem.png",
+      "fileSha256": "5e3fedb999aa4c3d587582246e89f2a0358d3307fc4cffd1de11c03e1609e43d"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3188,
+      "visiblePixels": 3212,
+      "partialAlphaPixels": 3212,
+      "visibleColors": 2987,
+      "alphaBounds": [
+        9,
+        5,
+        70,
+        75
+      ],
+      "strongAlphaBounds": [
+        11,
+        6,
+        69,
+        74
+      ],
+      "id": "eva",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/eva.png",
+      "fileSha256": "6db46459064d51ae1e0beeee5d354710f9c2526e3bc635b8a2a2521d4c0b4792"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 2820,
+      "visiblePixels": 3580,
+      "partialAlphaPixels": 3580,
+      "visibleColors": 3398,
+      "alphaBounds": [
+        5,
+        7,
+        75,
+        75
+      ],
+      "strongAlphaBounds": [
+        6,
+        9,
+        74,
+        74
+      ],
+      "id": "ian",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/ian.png",
+      "fileSha256": "9e169d0f77cd5ed1ea5d412f27bb0df1cf6b7f1bf48d18c2c1234c2175387ee3"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3660,
+      "visiblePixels": 2740,
+      "partialAlphaPixels": 2740,
+      "visibleColors": 2580,
+      "alphaBounds": [
+        12,
+        5,
+        68,
+        75
+      ],
+      "strongAlphaBounds": [
+        13,
+        6,
+        67,
+        74
+      ],
+      "id": "eleven",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/eleven.png",
+      "fileSha256": "bbd74e6a53eea54c3eb0d7116b828965e14960bf7d351cd7e39f351f093d1421"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3273,
+      "visiblePixels": 3127,
+      "partialAlphaPixels": 3127,
+      "visibleColors": 2954,
+      "alphaBounds": [
+        8,
+        5,
+        73,
+        75
+      ],
+      "strongAlphaBounds": [
+        9,
+        6,
+        71,
+        74
+      ],
+      "id": "zahir",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/zahir.png",
+      "fileSha256": "e4db6c16e0a8bfd2e44f3f36ff593c67fe916a600e2e6806c0e21245e4844ff3"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3166,
+      "visiblePixels": 3234,
+      "partialAlphaPixels": 3234,
+      "visibleColors": 3075,
+      "alphaBounds": [
+        9,
+        5,
+        71,
+        75
+      ],
+      "strongAlphaBounds": [
+        10,
+        6,
+        70,
+        74
+      ],
+      "id": "jenny",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/jenny.png",
+      "fileSha256": "419af310bf4b2b5d50e81bd1ae7fc9ca9b23001ddb7a55242ee974a4f6821842"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3757,
+      "visiblePixels": 2643,
+      "partialAlphaPixels": 2643,
+      "visibleColors": 2527,
+      "alphaBounds": [
+        14,
+        5,
+        65,
+        75
+      ],
+      "strongAlphaBounds": [
+        16,
+        6,
+        64,
+        74
+      ],
+      "id": "camilo",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/camilo.png",
+      "fileSha256": "060a2a56a4b6c9cda22d53997a2e4a785e2deb5cf84dbc8428f810cde5847712"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3437,
+      "visiblePixels": 2963,
+      "partialAlphaPixels": 2963,
+      "visibleColors": 2854,
+      "alphaBounds": [
+        9,
+        5,
+        71,
+        75
+      ],
+      "strongAlphaBounds": [
+        10,
+        6,
+        70,
+        74
+      ],
+      "id": "karla",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/karla.png",
+      "fileSha256": "014c382436d19beee79dfb707e14e3a1e87408a4e0c133a89c08e2409dd6b17d"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3666,
+      "visiblePixels": 2734,
+      "partialAlphaPixels": 2734,
+      "visibleColors": 2573,
+      "alphaBounds": [
+        12,
+        5,
+        68,
+        75
+      ],
+      "strongAlphaBounds": [
+        13,
+        6,
+        67,
+        74
+      ],
+      "id": "cathy",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/cathy.png",
+      "fileSha256": "5cafbffe2c62f8b52aa84f2395b1fa7e1b8bc96d149d204c688719b958de8b32"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3838,
+      "visiblePixels": 2562,
+      "partialAlphaPixels": 2562,
+      "visibleColors": 2415,
+      "alphaBounds": [
+        11,
+        5,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        12,
+        6,
+        68,
+        74
+      ],
+      "id": "chloe",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/chloe.png",
+      "fileSha256": "64733d62c4c8eef1d96211e6d45212a5488d34b8f1fbfad83d5e0cc729e71b70"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3123,
+      "visiblePixels": 3277,
+      "partialAlphaPixels": 3277,
+      "visibleColors": 3032,
+      "alphaBounds": [
+        9,
+        5,
+        71,
+        75
+      ],
+      "strongAlphaBounds": [
+        9,
+        6,
+        70,
+        74
+      ],
+      "id": "chiara",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/chiara.png",
+      "fileSha256": "6742f878ef1bc2eb1ee79e9fa0d244e5e238848d0f9b9107e8efbbae27e06094"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3733,
+      "visiblePixels": 2667,
+      "partialAlphaPixels": 2667,
+      "visibleColors": 2530,
+      "alphaBounds": [
+        13,
+        5,
+        66,
+        75
+      ],
+      "strongAlphaBounds": [
+        14,
+        6,
+        66,
+        74
+      ],
+      "id": "tazia",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/tazia.png",
+      "fileSha256": "79799844296ef000dc9713f96b86ce4ec0f8edfee7b6f4636c80e610c7a861ac"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3596,
+      "visiblePixels": 2804,
+      "partialAlphaPixels": 2804,
+      "visibleColors": 2629,
+      "alphaBounds": [
+        10,
+        5,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        11,
+        6,
+        69,
+        74
+      ],
+      "id": "theodore",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/theodore.png",
+      "fileSha256": "5005c299fb516fed804d73e5c3d9f68733a16eb675d631cfcd207febf5019f29"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 4115,
+      "visiblePixels": 2285,
+      "partialAlphaPixels": 2285,
+      "visibleColors": 2212,
+      "alphaBounds": [
+        14,
+        5,
+        66,
+        75
+      ],
+      "strongAlphaBounds": [
+        14,
+        6,
+        65,
+        74
+      ],
+      "id": "felix",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/felix.png",
+      "fileSha256": "c14ac05a756ac5b1d67de395201b1b0bc5dced6588d21b190d2991bee0d7b170"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3459,
+      "visiblePixels": 2941,
+      "partialAlphaPixels": 2941,
+      "visibleColors": 2865,
+      "alphaBounds": [
+        11,
+        5,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        13,
+        6,
+        68,
+        74
+      ],
+      "id": "priya",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/priya.png",
+      "fileSha256": "a99738c1d50ef323b7abcb328d602db79a0707fe0c49fa711afedb3cce3b5a1d"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3984,
+      "visiblePixels": 2416,
+      "partialAlphaPixels": 2416,
+      "visibleColors": 2340,
+      "alphaBounds": [
+        11,
+        5,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        11,
+        6,
+        69,
+        74
+      ],
+      "id": "fiora",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/fiora.png",
+      "fileSha256": "efcca2699722c0594fce03c02cc64e370c39832e4697df6dbd21bf15ce99235c"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3927,
+      "visiblePixels": 2473,
+      "partialAlphaPixels": 2473,
+      "visibleColors": 2354,
+      "alphaBounds": [
+        16,
+        5,
+        64,
+        75
+      ],
+      "strongAlphaBounds": [
+        16,
+        6,
+        63,
+        74
+      ],
+      "id": "piolo",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/piolo.png",
+      "fileSha256": "f7670cb4a8fc77fab67bcb0b1ddd65c753c02fd50553754762854170627141f3"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3898,
+      "visiblePixels": 2502,
+      "partialAlphaPixels": 2502,
+      "visibleColors": 2323,
+      "alphaBounds": [
+        15,
+        5,
+        64,
+        75
+      ],
+      "strongAlphaBounds": [
+        16,
+        6,
+        64,
+        74
+      ],
+      "id": "hart",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/hart.png",
+      "fileSha256": "63eb7e4932708d66d68d60a3fb0d9992bd608c54e3f97265e254779bf51788c3"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3658,
+      "visiblePixels": 2742,
+      "partialAlphaPixels": 2742,
+      "visibleColors": 2534,
+      "alphaBounds": [
+        9,
+        5,
+        70,
+        75
+      ],
+      "strongAlphaBounds": [
+        10,
+        6,
+        70,
+        74
+      ],
+      "id": "haze",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/haze.png",
+      "fileSha256": "1f233b47425e300c8b1728311f4ccca1adeb4d5fdd29ef735d7019b9b244e479"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3108,
+      "visiblePixels": 3292,
+      "partialAlphaPixels": 3292,
+      "visibleColors": 3144,
+      "alphaBounds": [
+        5,
+        11,
+        75,
+        74
+      ],
+      "strongAlphaBounds": [
+        6,
+        12,
+        74,
+        74
+      ],
+      "id": "debi_marlene",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/debi_marlene.png",
+      "fileSha256": "613e09b75f0bdb797e7a420867479010febccdd2ed2ef77c64556fe7cf81f0f1"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3868,
+      "visiblePixels": 2532,
+      "partialAlphaPixels": 2532,
+      "visibleColors": 2472,
+      "alphaBounds": [
+        14,
+        5,
+        65,
+        75
+      ],
+      "strongAlphaBounds": [
+        15,
+        6,
+        64,
+        74
+      ],
+      "id": "arda",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/arda.png",
+      "fileSha256": "d5a352520d99930a88ce4298cdc4416f2e19700cf71b40847ad3af353ed4c530"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3151,
+      "visiblePixels": 3249,
+      "partialAlphaPixels": 3249,
+      "visibleColors": 3175,
+      "alphaBounds": [
+        8,
+        5,
+        73,
+        75
+      ],
+      "strongAlphaBounds": [
+        9,
+        6,
+        71,
+        74
+      ],
+      "id": "abigail",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/abigail.png",
+      "fileSha256": "20d6d409e2c606df1ba51e30090ae52b3a94b380d1d1e94d294e0eeb2ef49e76"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3236,
+      "visiblePixels": 3164,
+      "partialAlphaPixels": 3164,
+      "visibleColors": 3089,
+      "alphaBounds": [
+        8,
+        5,
+        73,
+        75
+      ],
+      "strongAlphaBounds": [
+        8,
+        6,
+        72,
+        74
+      ],
+      "id": "alonso",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/alonso.png",
+      "fileSha256": "f1677358407eb6f839bd2ff187a3c1d3968f31448772c45e364d7b4929b373e6"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3908,
+      "visiblePixels": 2492,
+      "partialAlphaPixels": 2492,
+      "visibleColors": 2405,
+      "alphaBounds": [
+        11,
+        5,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        12,
+        6,
+        68,
+        74
+      ],
+      "id": "leni",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/leni.png",
+      "fileSha256": "aafe1cd7e74d305b8d494a92bc3f0778fdc94a88e46305b916ebe79c8d2456d8"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3818,
+      "visiblePixels": 2582,
+      "partialAlphaPixels": 2582,
+      "visibleColors": 2498,
+      "alphaBounds": [
+        14,
+        5,
+        66,
+        75
+      ],
+      "strongAlphaBounds": [
+        14,
+        6,
+        65,
+        74
+      ],
+      "id": "tsubame",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/tsubame.png",
+      "fileSha256": "c2f2a2f25bf55ea714abe48b20c3680a23686f5cbb9e8f08fb9f47bb90c4b238"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3914,
+      "visiblePixels": 2486,
+      "partialAlphaPixels": 2486,
+      "visibleColors": 2379,
+      "alphaBounds": [
+        14,
+        5,
+        66,
+        75
+      ],
+      "strongAlphaBounds": [
+        15,
+        6,
+        65,
+        74
+      ],
+      "id": "kenneth",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/kenneth.png",
+      "fileSha256": "eef370e4f9e4be8407662f3ee22f9cb65e44d27e6a8e51cd165ee593ef22a879"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3360,
+      "visiblePixels": 3040,
+      "partialAlphaPixels": 3040,
+      "visibleColors": 2971,
+      "alphaBounds": [
+        8,
+        5,
+        72,
+        75
+      ],
+      "strongAlphaBounds": [
+        9,
+        6,
+        71,
+        74
+      ],
+      "id": "katja",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/katja.png",
+      "fileSha256": "e5cbf36bfcf2fd2d741bfd57c978eb3f8e93e4d7cf8ecf87686e16de51624e93"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3672,
+      "visiblePixels": 2728,
+      "partialAlphaPixels": 2728,
+      "visibleColors": 2650,
+      "alphaBounds": [
+        12,
+        5,
+        68,
+        75
+      ],
+      "strongAlphaBounds": [
+        13,
+        6,
+        68,
+        74
+      ],
+      "id": "darko",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/darko.png",
+      "fileSha256": "ce48e90f25e1febec900abf29cf899091ae09f42a00e4c9a5ce129c8ca6e87f0"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3778,
+      "visiblePixels": 2622,
+      "partialAlphaPixels": 2622,
+      "visibleColors": 2598,
+      "alphaBounds": [
+        13,
+        5,
+        67,
+        75
+      ],
+      "strongAlphaBounds": [
+        14,
+        6,
+        66,
+        74
+      ],
+      "id": "lenore",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/lenore.png",
+      "fileSha256": "09535dab5db4104722516c83931e3933593797e502df07a6b036e3d8610262a0"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3464,
+      "visiblePixels": 2936,
+      "partialAlphaPixels": 2936,
+      "visibleColors": 2873,
+      "alphaBounds": [
+        9,
+        5,
+        71,
+        75
+      ],
+      "strongAlphaBounds": [
+        9,
+        6,
+        70,
+        74
+      ],
+      "id": "garnet",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/garnet.png",
+      "fileSha256": "153646936ce228db630253de55b88c0c9719b8b46740bddced4c261aba863cd0"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3785,
+      "visiblePixels": 2615,
+      "partialAlphaPixels": 2615,
+      "visibleColors": 2481,
+      "alphaBounds": [
+        12,
+        5,
+        68,
+        75
+      ],
+      "strongAlphaBounds": [
+        13,
+        6,
+        67,
+        74
+      ],
+      "id": "yumin",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/yumin.png",
+      "fileSha256": "02c382215e31adefe3c5235d2ce3584e0b4066c7263a2a41fb6798480b08a46a"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3534,
+      "visiblePixels": 2866,
+      "partialAlphaPixels": 2866,
+      "visibleColors": 2829,
+      "alphaBounds": [
+        11,
+        5,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        12,
+        6,
+        67,
+        74
+      ],
+      "id": "hisui",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/hisui.png",
+      "fileSha256": "1963c25610f130916dd83ccb196b101f3372099d30dfca0dd0904a7fcb40ad31"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3594,
+      "visiblePixels": 2806,
+      "partialAlphaPixels": 2806,
+      "visibleColors": 2784,
+      "alphaBounds": [
+        9,
+        5,
+        71,
+        75
+      ],
+      "strongAlphaBounds": [
+        10,
+        6,
+        70,
+        74
+      ],
+      "id": "justyna",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/justyna.png",
+      "fileSha256": "e8ec9bbea727bcdfa100654d21271320a537f3642345d539249d8fe44c85e1e6"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3890,
+      "visiblePixels": 2510,
+      "partialAlphaPixels": 2510,
+      "visibleColors": 2437,
+      "alphaBounds": [
+        11,
+        6,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        11,
+        6,
+        68,
+        74
+      ],
+      "id": "istvan",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/istvan.png",
+      "fileSha256": "c8f7cc6f0dd2e5664bc014dd58086e13a90197fcff976f6cde141ab119e933be"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3627,
+      "visiblePixels": 2773,
+      "partialAlphaPixels": 2773,
+      "visibleColors": 2719,
+      "alphaBounds": [
+        5,
+        7,
+        74,
+        75
+      ],
+      "strongAlphaBounds": [
+        6,
+        7,
+        74,
+        74
+      ],
+      "id": "xuelin",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/xuelin.png",
+      "fileSha256": "ee0bea80e2c29b68d802696b8b3fb1c3552798065c9ae89405b08dedfb007c0d"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3274,
+      "visiblePixels": 3126,
+      "partialAlphaPixels": 3126,
+      "visibleColors": 3085,
+      "alphaBounds": [
+        6,
+        5,
+        74,
+        75
+      ],
+      "strongAlphaBounds": [
+        6,
+        6,
+        74,
+        74
+      ],
+      "id": "henry",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/henry.png",
+      "fileSha256": "56d4b9f91ea5ccaa0f1661f7631a0152d9ec21b98bb4892d89bc10729217b96d"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3363,
+      "visiblePixels": 3037,
+      "partialAlphaPixels": 3037,
+      "visibleColors": 2916,
+      "alphaBounds": [
+        5,
+        5,
+        75,
+        75
+      ],
+      "strongAlphaBounds": [
+        6,
+        6,
+        74,
+        74
+      ],
+      "id": "blair",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/blair.png",
+      "fileSha256": "3c6e29b826ad0278c6b874e217f8f5865f8f7e4d1a34cde4610d95b3e242b716"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3187,
+      "visiblePixels": 3213,
+      "partialAlphaPixels": 3213,
+      "visibleColors": 3164,
+      "alphaBounds": [
+        6,
+        5,
+        73,
+        75
+      ],
+      "strongAlphaBounds": [
+        6,
+        6,
+        73,
+        74
+      ],
+      "id": "mirka",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/mirka.png",
+      "fileSha256": "440931fccfe796b2553401f71818d164ab6a630dfec2bafff466ca221811c912"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3835,
+      "visiblePixels": 2565,
+      "partialAlphaPixels": 2565,
+      "visibleColors": 2502,
+      "alphaBounds": [
+        14,
+        5,
+        65,
+        74
+      ],
+      "strongAlphaBounds": [
+        15,
+        6,
+        64,
+        74
+      ],
+      "id": "fenrir",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/fenrir.png",
+      "fileSha256": "9808d2925cd943801488d56f213f69940728b6a9b7919ec6d91f69871a32c148"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 2912,
+      "visiblePixels": 3488,
+      "partialAlphaPixels": 3488,
+      "visibleColors": 3427,
+      "alphaBounds": [
+        6,
+        5,
+        73,
+        75
+      ],
+      "strongAlphaBounds": [
+        6,
+        6,
+        73,
+        74
+      ],
+      "id": "coraline",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/coraline.png",
+      "fileSha256": "944460b8ca728df3a761b908d7ee1a3d1b7ae71b32212ef8fa862a546466eb36"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3692,
+      "visiblePixels": 2708,
+      "partialAlphaPixels": 2708,
+      "visibleColors": 2638,
+      "alphaBounds": [
+        9,
+        5,
+        70,
+        75
+      ],
+      "strongAlphaBounds": [
+        9,
+        6,
+        69,
+        74
+      ],
+      "id": "bihyung",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/bihyung.png",
+      "fileSha256": "f773d78c5f4f9ee9c96220afcea92b576bb774213cfb7476744ac9a2ff928d76"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3785,
+      "visiblePixels": 2615,
+      "partialAlphaPixels": 2615,
+      "visibleColors": 2536,
+      "alphaBounds": [
+        11,
+        5,
+        69,
+        75
+      ],
+      "strongAlphaBounds": [
+        12,
+        5,
+        68,
+        74
+      ],
+      "id": "craver",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/craver.png",
+      "fileSha256": "2396f4d6bcad7657ed09d3dda905ccddef81c4cb3efe6a3435f2e3f1d146978f"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3371,
+      "visiblePixels": 3029,
+      "partialAlphaPixels": 3029,
+      "visibleColors": 2880,
+      "alphaBounds": [
+        7,
+        5,
+        73,
+        75
+      ],
+      "strongAlphaBounds": [
+        8,
+        6,
+        72,
+        74
+      ],
+      "id": "lucia",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/lucia.png",
+      "fileSha256": "cd4b0b397d06e0d45daba54e029c3cc1ba0be95bcb616c36f782cd587f05ad71"
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        80,
+        80
+      ],
+      "transparentPixels": 3775,
+      "visiblePixels": 2625,
+      "partialAlphaPixels": 2625,
+      "visibleColors": 2430,
+      "alphaBounds": [
+        13,
+        5,
+        67,
+        75
+      ],
+      "strongAlphaBounds": [
+        14,
+        6,
+        66,
+        74
+      ],
+      "id": "ceres",
+      "kind": "portrait",
+      "path": "Assets/Resources/Lumia/PortraitsCoarse/ceres.png",
+      "fileSha256": "486d8b82aaedeedb791a7f2040af4318ccb09cec9923dd6a2857221df608a010"
+    }
+  ]
+}

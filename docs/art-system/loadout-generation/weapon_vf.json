@@ -1,0 +1,16 @@
+{
+  "id": "weapon_vf",
+  "name": "VF 안정화",
+  "kind": "weapon",
+  "originalId": 3025000,
+  "weaponClass": "VF의수",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_198.png",
+  "referencePath": "docs/art-system/references/loadout/weapon_vf.png",
+  "originalTooltip": "소모값 없음 / 쿨다운 13 초\n\n1초 동안 스킬을 시전하며, 각각의 상태에 따른 효과가 적용됩니다. <color=white>VF게이지 50미만:</color> 일정량의 게이지를 충전합니다. <color=white>VF게이지 50이상:</color> 일정량의 게이지를 소모하고, 무기 스킬을 제외한 스킬의 쿨다운을 감소시키며 이동 속도가 증가합니다. <color=white>VF폭주 상태:</color> 폭주 지속 시간을 연장하고, 스킬의 쿨다운을 감소시키며 이동 속도가 증가합니다. <color=white>과부하 상태:</color> 과부하 상태를 일정 시간 감소시킵니다. <i>쿨다운 고정: 쿨다운 감소 스탯의 영향을 받지 않습니다.</i>",
+  "output": "Assets/Resources/Lumia/SkillIcons/weapon_vf.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art D weapon-skill icon for Black The Survival. Image 1 is the original Eternal Return VF 안정화 icon used as silhouette/color reference. Image 2 is our existing icon contact sheet as pixel-art style reference. Create a NEW single standalone icon matching the coarse pixel-art family, not a collage. Subject: A segmented silver-gray VF mechanical prosthetic hand and forearm arranged diagonally, angular dark joint plates and hot magenta energy accents, sparse purple stabilization rays; preserve the original jointed metallic shape. Composition: centered, roughly 80% of square, readable at 32x32 logical pixels. Style: authentic 32x32 sprite enlarged with sharp square pixel clusters, limited 12-18 colors, stepped outlines, deliberate grouped highlights. Keep the original recognizable form, angle and major colors. Transparent background with genuine alpha; remove the source's background tile. No square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth glow or airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-a846ad99-59ed-4714-9585-896ebaccae7a.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

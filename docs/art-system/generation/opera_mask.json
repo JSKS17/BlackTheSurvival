@@ -1,0 +1,6 @@
+{
+  "id": "opera_mask",
+  "prompt": "Use case: stylized-concept. Asset type: single inventory game icon for a Korean pixel-art deck-building fan game Black The Survival. Input image is the exact original Eternal Return item icon for silhouette/color reference only, not an edit target. Primary request: reinterpret this original icon in deliberately coarse old-school pixel art, retaining its exact item identity. Subject: Chinese Opera Mask: ornate red gold theatrical face mask with stylized yellow eyebrows, large black eye slots, curled gold side patterns, chin red and gold, preserve original traditional theatrical motif. Style: 32x32 logical pixels enlarged with nearest-neighbour, bold square pixel clusters, clean limited palette 8-12 colors, no tiny details. Composition: one complete centered item, occupies about 78% of square canvas, transparent margin. Preserve original item silhouette, orientation and major colors. Genuinely transparent background, no frame, no letters, no UI, no watermark, no smooth gradients, no antialiasing, no photographic shading.",
+  "tool": "built-in image_gen",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11c9c-551a-7501-bf90-08f5e3102524\\exec-c95819a7-ab81-4d40-818e-88f20759b275.png"
+}

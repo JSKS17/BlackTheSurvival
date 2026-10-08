@@ -1,0 +1,32 @@
+{
+  "id": "mirka",
+  "name": "미르카",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Rebellious pink-haired woman, sharp GREEN upturned eyes, strongly crooked eyebrow, broad asymmetrical TOOTHY GRIN. Backward black cap and green jacket.\n",
+  "originalReference": "docs/art-chibi/references/subjects/mirka.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Mirka_S000.png",
+  "referenceSha256": "c9fa0df69d31e2699aa0e92a6f3662e249e78bdb1f00d77978eb1f063cbcb49f",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 미르카 (mirka). Original outfit and identity: Long bright pink hair, black baseball cap, forest green bomber outfit, black strapped gear and silver plates.. Signature prop: Carry a heavy square-headed steel hammer with dark green accents..\nCharacter-specific face and pose: Rebellious pink-haired woman, sharp GREEN upturned eyes, strongly crooked eyebrow, broad asymmetrical TOOTHY GRIN. Backward black cap and green jacket.\n",
+  "generatedSource": "docs/art-identity/generated/mirka.png",
+  "generatedSha256": "9753b958a644ea35c59c3e3150214240d456fc2d5d7a3c08386124ad555b6405",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    8,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/mirka.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "56159a6dd28efa6b8cb11d178f7485c191b50a6ba4ec4bb104d9235be040759b",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

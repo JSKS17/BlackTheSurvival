@@ -1,0 +1,285 @@
+{
+  "count": 35,
+  "frames": [
+    {
+      "view": "lobby",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "starting_passives",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "preparation",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "map",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "long_map",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "combat",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "rewards",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "rewards_cancelled",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "combo",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "detail",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "fx_player",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "fx_enemy",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "fx_recover",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "kiosk",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "campfire",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "encounter",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "catalog",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "inventory",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "passive_inventory",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "passive_replacement",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "mechanic_blocks",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "mechanic_discount",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "mechanic_field",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "mechanic_detail",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "trait_basic",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "trait_third",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "trait_detail",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "rune_buff",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "rune_inventory",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "rune_detail",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "rune_selection",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "kiosk_coupon",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "trait_revive",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "enemy_detail",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "view": "combo_field",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ]
+}

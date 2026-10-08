@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: 1b27470f02b33254a8b3554ed719f2a2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7211578329111034739
+    second: FoodAtlas_0
+  - first:
+      213: -362276670325376642
+    second: FoodAtlas_1
+  - first:
+      213: 502066941134260950
+    second: FoodAtlas_2
+  - first:
+      213: -2911711953861129685
+    second: FoodAtlas_3
+  - first:
+      213: -1734434427654271181
+    second: FoodAtlas_4
+  - first:
+      213: 7999086314427179678
+    second: FoodAtlas_5
+  - first:
+      213: 269212726424092919
+    second: FoodAtlas_6
+  - first:
+      213: -334039640791840112
+    second: FoodAtlas_7
+  - first:
+      213: 7219976954150849596
+    second: FoodAtlas_8
+  - first:
+      213: -3739746345140122637
+    second: FoodAtlas_9
+  - first:
+      213: 6622840050050897336
+    second: FoodAtlas_10
+  - first:
+      213: -756213944206581637
+    second: FoodAtlas_11
+  - first:
+      213: 5590964454790280201
+    second: FoodAtlas_12
+  - first:
+      213: 1136400723245107570
+    second: FoodAtlas_13
+  - first:
+      213: 6578079146049607482
+    second: FoodAtlas_14
+  - first:
+      213: 8627792565525837961
+    second: FoodAtlas_15
+  - first:
+      213: -4340519308001404226
+    second: FoodAtlas_16
+  - first:
+      213: -1863666425091974210
+    second: FoodAtlas_17
+  - first:
+      213: -4367999464906072081
+    second: FoodAtlas_18
+  - first:
+      213: 7825379218290301485
+    second: FoodAtlas_19
+  - first:
+      213: 4704383653802703644
+    second: FoodAtlas_20
+  - first:
+      213: 4611344923892885649
+    second: FoodAtlas_21
+  - first:
+      213: -7165867461824205909
+    second: FoodAtlas_22
+  - first:
+      213: 1021215436295377956
+    second: FoodAtlas_23
+  - first:
+      213: -2094743739113587224
+    second: FoodAtlas_24
+  - first:
+      213: 8003531681762742054
+    second: FoodAtlas_25
+  - first:
+      213: -5280855538547532383
+    second: FoodAtlas_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FoodAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 907
+        width: 267
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37b7190284ca41460800000000000000
+      internalID: 7211578329111034739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 933
+        width: 284
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7938daa94fe8faf0800000000000000
+      internalID: -362276670325376642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 931
+        width: 341
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6da46cf0933b7f600800000000000000
+      internalID: 502066941134260950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 1191
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a49d5a7658797d0800000000000000
+      internalID: -2911711953861129685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 907
+        width: 276
+        height: 301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33f8575d31d0ee7e0800000000000000
+      internalID: -1734434427654271181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 996
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e92ee1b3f96720f60800000000000000
+      internalID: 7999086314427179678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 980
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f0c58f5c8f6cb300800000000000000
+      internalID: 269212726424092919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 933
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09a04bd67b04d5bf0800000000000000
+      internalID: -334039640791840112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 955
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3c0ba669c2823460800000000000000
+      internalID: 7219976954150849596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 933
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb8bdb5380c91cc0800000000000000
+      internalID: -3739746345140122637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 933
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5938bafed09eb50800000000000000
+      internalID: 6622840050050897336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 931
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b70ae51ac636185f0800000000000000
+      internalID: -756213944206581637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 337
+        width: 301
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9043c97ac88179d40800000000000000
+      internalID: 5590964454790280201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 625
+        width: 287
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2798587df6e45cf00800000000000000
+      internalID: 1136400723245107570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 601
+        width: 299
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3711b491280a4b50800000000000000
+      internalID: 6578079146049607482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_15
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 602
+        width: 637
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9887ce750a31cb770800000000000000
+      internalID: 8627792565525837961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_16
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 644
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eba1ad9bfa063c3c0800000000000000
+      internalID: -4340519308001404226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_17
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 622
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb1290b24de226e0800000000000000
+      internalID: -1863666425091974210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_18
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 618
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fef5d2b11afb163c0800000000000000
+      internalID: -4367999464906072081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_19
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 610
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2adaea30f4599c60800000000000000
+      internalID: 7825379218290301485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_20
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 644
+        width: 51
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1b701c1204594140800000000000000
+      internalID: 4704383653802703644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 630
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 198af6db6c9ceff30800000000000000
+      internalID: 4611344923892885649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_22
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 313
+        width: 936
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bab20768289bd8c90800000000000000
+      internalID: -7165867461824205909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_23
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 0
+        width: 629
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 424188757061c2e00800000000000000
+      internalID: 1021215436295377956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_24
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 304
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ed39aeeaa9fde2e0800000000000000
+      internalID: -2094743739113587224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_25
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 23
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62f8d08f8a1421f60800000000000000
+      internalID: 8003531681762742054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodAtlas_26
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 23
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad58baedd1a6b6b0800000000000000
+      internalID: -5280855538547532383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FoodAtlas_0: 7211578329111034739
+      FoodAtlas_1: -362276670325376642
+      FoodAtlas_10: 6622840050050897336
+      FoodAtlas_11: -756213944206581637
+      FoodAtlas_12: 5590964454790280201
+      FoodAtlas_13: 1136400723245107570
+      FoodAtlas_14: 6578079146049607482
+      FoodAtlas_15: 8627792565525837961
+      FoodAtlas_16: -4340519308001404226
+      FoodAtlas_17: -1863666425091974210
+      FoodAtlas_18: -4367999464906072081
+      FoodAtlas_19: 7825379218290301485
+      FoodAtlas_2: 502066941134260950
+      FoodAtlas_20: 4704383653802703644
+      FoodAtlas_21: 4611344923892885649
+      FoodAtlas_22: -7165867461824205909
+      FoodAtlas_23: 1021215436295377956
+      FoodAtlas_24: -2094743739113587224
+      FoodAtlas_25: 8003531681762742054
+      FoodAtlas_26: -5280855538547532383
+      FoodAtlas_3: -2911711953861129685
+      FoodAtlas_4: -1734434427654271181
+      FoodAtlas_5: 7999086314427179678
+      FoodAtlas_6: 269212726424092919
+      FoodAtlas_7: -334039640791840112
+      FoodAtlas_8: 7219976954150849596
+      FoodAtlas_9: -3739746345140122637
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

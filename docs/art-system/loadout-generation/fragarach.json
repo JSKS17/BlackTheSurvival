@@ -1,0 +1,14 @@
+{
+  "id": "fragarach",
+  "name": "프라가라흐",
+  "kind": "gear",
+  "originalId": 101405,
+  "weaponClass": "단검",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_101405.png",
+  "referencePath": "docs/art-system/references/loadout/fragarach.png",
+  "originalTooltip": "전설 / 단검\n\n공격력 +73\n공격 속도 +40%\n이동 속도 +2%\n\n<b><color=yellow>가벼운 발걸음</color></b>\n0.4m 이동할 때마다 [가벼운 발걸음]을 최대 100회까지 중첩해서 획득합니다. 중첩에 따라 이동 속도를 최대 <color=white>0.16</color>까지 획득합니다. 기본 공격 피해를 입힐 경우 중첩을 모두 소모하여 최대 <color=white>100</color>의 스킬 피해를 입힙니다. (근거리) 최대 중첩 상태에서 기본 공격에 피격된 대상의 이동 속도를 2초 동안 <color=white>20%</color> 감소시킵니다.\n\n어떠한 갑옷으로도 막을 수 없고, 절대 빗나가지 않는 검. 켈트 신화의 요정왕 마나난 막 리르의 검이다.",
+  "output": "Assets/Resources/Lumia/SystemIcons/fragarach.png",
+  "prompt": "Create one isolated pixel art game inventory icon for Eternal Return 프라가라흐 (단검). Redraw the attached original item's silhouette, colors and distinctive details as crisp hand-authored-looking 32x32 logical pixel art: readable at small scale, dark one-pixel outlines, limited clustered colors, no gradients or anti-aliasing, no text, no frame. Keep the entire object inside a square with transparent padding. Transparent background genuine alpha. This is one asset for Black The Survival's established cute retro pixel UI, not a sprite sheet.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-b4a84480-17a9-4a90-adf2-6e487d2452c1.png",
+  "tool": "image_gen.imagegen"
+}

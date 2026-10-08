@@ -1,0 +1,32 @@
+{
+  "id": "rozzi",
+  "name": "로지",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Cool reserved woman, one GREEN slender eye visible, other naturally covered by wavy black bob; thin level brow, subtle closed sideways smile.\n",
+  "originalReference": "docs/art-chibi/references/subjects/rozzi.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Rozzi_S000.png",
+  "referenceSha256": "de00d5198c9ef5fc5c30c33750c2e21ecfc5c50a14641243511edf6707aabfce",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 로지 (rozzi).\nOutfit and identity: Black wavy bob partly covering one eye, sleeveless black and gold tactical dress, dual pistols.\nSignature prop, do not copy another character's prop: Hold two compact black pistols, one in each hand.\nFace design from original: Cool reserved woman, one GREEN slender eye visible, other naturally covered by wavy black bob; thin level brow, subtle closed sideways smile.\n",
+  "generatedSource": "docs/art-identity/generated/rozzi.png",
+  "generatedSha256": "738f37b1d02db779c8f165eaed7a6a61d4b496f2913e6e2429af7b0da93d1f11",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/rozzi.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "8786fe5953ece49b58bb8df0be209a1f3eef6b35b92b939c6e5bb7a55b5190dc",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

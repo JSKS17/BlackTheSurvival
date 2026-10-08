@@ -1,0 +1,32 @@
+{
+  "id": "magnus",
+  "name": "매그너스",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Rugged biker, piercing icy BLUE squint, heavy scowling brow and deep brow crease, broad nose, crooked rough grin, angular face. Orange mohawk.\n",
+  "originalReference": "docs/art-chibi/references/subjects/magnus.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Magnus_S000.png",
+  "referenceSha256": "af68085dc9f97aadfa07513eddb8e0881940b811d6a18cf20356bef5128b02c4",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 매그너스 (magnus).\nOutfit and identity: Bright blond-orange mohawk, black studded biker vest, broad build, bat and motorcycle theme.\nSignature prop, do not copy another character's prop: Carry a thick black metal baseball bat across his shoulder.\nFace design from original: Rugged biker, piercing icy BLUE squint, heavy scowling brow and deep brow crease, broad nose, crooked rough grin, angular face. Orange mohawk.\n",
+  "generatedSource": "docs/art-identity/generated/magnus.png",
+  "generatedSha256": "635f87e3b2be643bc40a9dcd3378f2887ce7765f602f743dc5c39c3b2e568e47",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    23,
+    0,
+    1112,
+    1402
+  ],
+  "resizedSize": [
+    118,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/magnus.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "ef06567c837c38f63c1deaf5646538d9ebec3cb2c26ff65ee4c2ed7e51250722",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

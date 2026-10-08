@@ -1,0 +1,16 @@
+{
+  "id": "radar",
+  "name": "레이더",
+  "kind": "gear",
+  "originalId": 203502,
+  "weaponClass": "",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_203502.png",
+  "referencePath": "docs/art-system/references/loadout/radar.png",
+  "originalTooltip": "전설 / 팔/장식\n\n공격력 +10\n공격 속도 +38%\n치명타 확률 +35%\n\n<b><color=yellow>포톤 런처</color></b>\n3번째 기본 공격을 가할 때마다 적에게 <color=white>10</color><color=#FFD775>(+공격력의 45%)</color><color=green>(+캐릭터 레벨 * 2)</color>의 추가 스킬 피해를 입히고 추가 피해의 <color=white>30%</color>만큼 회복합니다.\n\n팔에 장착하면 모든 참가자들의 위치를 파악할 수 있다.",
+  "output": "Assets/Resources/Lumia/SystemIcons/radar.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art inventory icon for Black The Survival. Image 1 is the original Eternal Return 레이더 icon used as silhouette/color reference. Image 2 is our existing icon contact sheet as pixel-art style reference. Create a NEW single standalone icon matching the coarse pixel-art family, not a collage. Subject: A small open dark gray laptop or foldable radar console, screen containing vivid neon-green radar rings and a green dot, silver-gray compact keyboard and dark casing; no text. Composition: centered, roughly 80% of square, readable at 32x32 logical pixels. Style: authentic 32x32 sprite enlarged with sharp square pixel clusters, limited 12-18 colors, stepped outlines, deliberate grouped highlights. Keep the original recognizable form, angle and major colors. Transparent background with genuine alpha; remove the source's background tile. No square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth glow or airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-9432553b-39be-47c7-8c77-b58eff4e8641.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

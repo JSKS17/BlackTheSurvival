@@ -1,0 +1,32 @@
+{
+  "id": "hana",
+  "name": "하나",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Warm young researcher: round amber-brown iris, softly arched concerned eyebrows, lively gentle open smile with a tiny visible tongue. Distinct brown bob and zigzag yellow clip; research notebook and pencil. No blank doll face.\n",
+  "originalReference": "docs/art-chibi/references/subjects/hana.png",
+  "originalSourceUrl": "https://playeternalreturn.com/posts/news/3330?hl=ko-KR",
+  "referenceSha256": "3aa4b823d1d797fe7e1df52faeb81c7d9e48a21248f95b25160759a903ab630d",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter-specific face and pose: Warm young researcher: round amber-brown iris, softly arched concerned eyebrows, lively gentle open smile with a tiny visible tongue. Distinct brown bob and zigzag yellow clip; research notebook and pencil. No blank doll face.\n",
+  "generatedSource": "docs/art-identity/generated/hana.png",
+  "generatedSha256": "f6c87a40f5af0057fdc47c87837bb6bd8270431ece1946383f755c1cde29aa31",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    14,
+    1116,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/hana.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "df42142facc94606a490b393f42308d392eff7407e870216835f1cbf46c865f8",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

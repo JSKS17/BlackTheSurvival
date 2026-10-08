@@ -1,0 +1,32 @@
+{
+  "id": "fenrir",
+  "name": "펜리르",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Playful canine young man, large lively CYAN pointed almond eyes, arched wild eyebrows, open grin showing one small fang. Green-brown windswept short hair.\n",
+  "originalReference": "docs/art-chibi/references/subjects/fenrir.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Fenrir_S000.png",
+  "referenceSha256": "3d6b154038ffc5ec1dab032578b8303d2566e1e21bef92e59a9d9062f453e78b",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 펜리르 (fenrir). Original outfit and identity: Olive-brown tousled hair, cyan eyes, black belted racing outfit, orange cable and motorcycle accents.. Signature prop: Wear black-and-orange racing gloves and show both fists raised..\nCharacter-specific face and pose: Playful canine young man, large lively CYAN pointed almond eyes, arched wild eyebrows, open grin showing one small fang. Green-brown windswept short hair.\n",
+  "generatedSource": "docs/art-identity/generated/fenrir.png",
+  "generatedSha256": "94f1500e3be005f63ac0e0b755c1735820ead8245499a494ce5d57c0ed1a3da7",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    31,
+    10,
+    1119,
+    1402
+  ],
+  "resizedSize": [
+    119,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/fenrir.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "f547e5959a6d0fe129964e5a1d37f4f2b572e10f9ccc841775cbacef85659e92",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

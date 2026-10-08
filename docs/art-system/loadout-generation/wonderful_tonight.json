@@ -1,0 +1,16 @@
+{
+  "id": "wonderful_tonight",
+  "name": "원더풀 투나잇",
+  "kind": "gear",
+  "originalId": 121405,
+  "weaponClass": "기타",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_121405.png",
+  "referencePath": "docs/art-system/references/loadout/wonderful_tonight.png",
+  "originalTooltip": "전설 / 기타\n\n공격력 +66\n공격 속도 +30%\n\n<b><color=yellow>열정</color></b>\n기본 공격이 적 실험체에게 적중 시, 적 실험체의 <color=#688A08>현재 체력의 2%</color>의 스킬 피해를 입히고, 5초간 열정을 중첩하며, 중첩 당 <color=white>7%</color>의 공격 속도를 얻습니다. 최대 4 중첩이 되면 <color=#FFD775>10</color>의 공격력과 <color=white>0.1</color>의 이동 속도를 추가로 얻습니다.\n\n아름다운 밤이에요.",
+  "output": "Assets/Resources/Lumia/SystemIcons/wonderful_tonight.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art inventory icon for the game Black The Survival. Image 1 is the original Eternal Return 원더풀 투나잇 icon used only as a silhouette/color reference. Image 2 is our existing game icon contact sheet used only as a pixel-art style reference. Create a NEW single standalone icon matching this existing coarse pixel-art family, not a collage. Subject: A bright turquoise electric guitar with white lower body and gold-yellow edging, a long dark blue-purple neck angled up-right, small golden knobs and teal circular ornament. Composition: centered, occupies roughly 80% of a square, readable at 32x32 logical pixels. Style: authentic 32x32 game sprite enlarged with sharp hard-edged square pixels, limited 12-18 color palette, stepped outlines and deliberate clustered highlights. Keep the original equipment's recognizable form, angle and major colors. Transparent background with genuine alpha, no square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-6938dbc8-2676-4809-8335-42188084cca3.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

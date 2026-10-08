@@ -1,0 +1,16 @@
+{
+  "id": "death_book",
+  "name": "생사부",
+  "kind": "gear",
+  "originalId": 113412,
+  "weaponClass": "암기",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_113412.png",
+  "referencePath": "docs/art-system/references/loadout/death_book.png",
+  "originalTooltip": "전설 / 암기\n\n공격력 +41\n스킬 증폭 +88\n\n<b><color=yellow>저주</color></b>\n스킬 공격을 가하면 적을 4초간 저주 상태로 만듭니다. 저주 상태인 적은 저주 상태에서 해제될 때 50 <color=#DDA0DD>(+스킬 증폭의 15%)</color> 에 해당하는 고정 피해를 입습니다. 한번 저주 상태가 되면 8초간 (기본 공격 피격 시 1초 감소) 다시 저주 상태가 되지 않습니다. (쿨다운: 2초)\n\n어디 보자, 네 수명은.. 10..9..8..",
+  "output": "Assets/Resources/Lumia/SystemIcons/death_book.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art inventory icon for the game Black The Survival. Image 1 is the original Eternal Return 생사부 icon used only as a silhouette/color reference. Image 2 is our existing game icon contact sheet used only as a pixel-art style reference. Create a NEW single standalone icon matching this existing coarse pixel-art family, not a collage. Subject: An ornate cool blue and indigo circular crescent emblem surrounding a pale icy lotus; preserve its moon-ring and blue lotus silhouette. Composition: centered, occupies roughly 80% of a square, readable at 32x32 logical pixels. Style: authentic 32x32 game sprite enlarged with sharp hard-edged square pixels, limited 12-18 color palette, stepped outlines and deliberate clustered highlights. Keep the original equipment's recognizable form, angle and major colors. Transparent background with genuine alpha, no square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-47cc3262-55bb-4efa-bab3-7bec2c57b0ba.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

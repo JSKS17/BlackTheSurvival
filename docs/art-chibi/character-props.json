@@ -1,0 +1,862 @@
+{
+  "schema": 1,
+  "source": "https://er.dakgg.io/api/v1/data/characters?hl=en",
+  "skill_source": "https://er.dakgg.io/api/v1/data/skills?hl=en",
+  "note": "Weapon classes are original-game data; signature props are visual instructions checked against default artwork and ability actions. Do not inherit a different character's prop from the style master.",
+  "characters": {
+    "hana": {
+      "name": "하나",
+      "cdn_key": null,
+      "weapon_types": [],
+      "signature_prop": "Hold a small brown laboratory notebook and a pencil.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "nia": {
+      "name": "니아",
+      "cdn_key": "Niah",
+      "weapon_types": [
+        "Pistol"
+      ],
+      "signature_prop": "Hold a small black-and-pink game controller with visible round buttons.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "jackie": {
+      "name": "재키",
+      "cdn_key": "Jackie",
+      "weapon_types": [
+        "OneHandSword",
+        "TwoHandSword",
+        "Axe",
+        "DualSword"
+      ],
+      "signature_prop": "Carry an oversized red-and-black battle axe over one shoulder.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "aya": {
+      "name": "아야",
+      "cdn_key": "Aya",
+      "weapon_types": [
+        "Pistol",
+        "AssaultRifle",
+        "SniperRifle"
+      ],
+      "signature_prop": "Hold a compact black assault rifle with a visible stock and barrel.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "hyunwoo": {
+      "name": "현우",
+      "cdn_key": "Hyunwoo",
+      "weapon_types": [
+        "Glove",
+        "Tonfa"
+      ],
+      "signature_prop": "Show clenched fists with red-and-white boxing wraps.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "yuki": {
+      "name": "유키",
+      "cdn_key": "Yuki",
+      "weapon_types": [
+        "TwoHandSword",
+        "DualSword"
+      ],
+      "signature_prop": "Hold a slender black-and-gold katana in its scabbard.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "hyejin": {
+      "name": "혜진",
+      "cdn_key": "Hyejin",
+      "weapon_types": [
+        "Bow",
+        "DirectFire"
+      ],
+      "signature_prop": "Hold a purple paper talisman with a dark ink rune.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "sua": {
+      "name": "수아",
+      "cdn_key": "Sua",
+      "weapon_types": [
+        "Hammer",
+        "Bat"
+      ],
+      "signature_prop": "Hold a green storybook and a small green storybook hammer.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "isol": {
+      "name": "아이솔",
+      "cdn_key": "Isol",
+      "weapon_types": [
+        "AssaultRifle",
+        "Pistol"
+      ],
+      "signature_prop": "Carry a black assault rifle over one shoulder.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "nadine": {
+      "name": "나딘",
+      "cdn_key": "Nadine",
+      "weapon_types": [
+        "Bow",
+        "CrossBow"
+      ],
+      "signature_prop": "Hold a compact hunting crossbow with clearly visible transverse bow limbs.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "emma": {
+      "name": "엠마",
+      "cdn_key": "Emma",
+      "weapon_types": [
+        "DirectFire",
+        "Arcana"
+      ],
+      "signature_prop": "Fan out a few white playing cards with black suit symbols.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "charlotte": {
+      "name": "샬럿",
+      "cdn_key": "Charlotte",
+      "weapon_types": [
+        "Arcana"
+      ],
+      "signature_prop": "Float a few pale blue crystal blades beside her hands.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "nathapon": {
+      "name": "나타폰",
+      "cdn_key": "Nathapon",
+      "weapon_types": [
+        "Camera"
+      ],
+      "signature_prop": "Hold a black DSLR camera with a long black-and-white lens.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "nicky": {
+      "name": "니키",
+      "cdn_key": "Nicky",
+      "weapon_types": [
+        "Glove"
+      ],
+      "signature_prop": "Wear bulky orange-and-black boxing gloves and hold both fists up.",
+      "avoid": "No tablets, knives, books, cameras, or glowing handheld devices; use boxing gloves."
+    },
+    "daniel": {
+      "name": "다니엘",
+      "cdn_key": "Daniel",
+      "weapon_types": [
+        "OneHandSword"
+      ],
+      "signature_prop": "Hold an open pair of large silver tailor scissors with dark handles.",
+      "avoid": "No magic books, talismans, or cards; use clearly open tailor scissors."
+    },
+    "tia": {
+      "name": "띠아",
+      "cdn_key": "Tia",
+      "weapon_types": [
+        "Bat"
+      ],
+      "signature_prop": "Hold a long broad paintbrush with a brown handle and visible bristles.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "laura": {
+      "name": "라우라",
+      "cdn_key": "Laura",
+      "weapon_types": [
+        "Whip"
+      ],
+      "signature_prop": "Hold a coiled black-and-violet whip decorated with a small violet flower.",
+      "avoid": "Do not copy Bianca's parasol; her distinctive weapon is a flexible whip."
+    },
+    "lenox": {
+      "name": "레녹스",
+      "cdn_key": "Lenox",
+      "weapon_types": [
+        "Whip"
+      ],
+      "signature_prop": "Hold a long fishing-line whip with a dark grip and a visible curved line.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "leon": {
+      "name": "레온",
+      "cdn_key": "Leon",
+      "weapon_types": [
+        "Glove",
+        "Tonfa"
+      ],
+      "signature_prop": "Show wrapped bare fists with a few small turquoise water droplets.",
+      "avoid": "No guitar, violin case, firearm, or sword; use wrapped fists and water droplets."
+    },
+    "rozzi": {
+      "name": "로지",
+      "cdn_key": "Rozzi",
+      "weapon_types": [
+        "Pistol"
+      ],
+      "signature_prop": "Hold two compact black pistols, one in each hand.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "luke": {
+      "name": "루크",
+      "cdn_key": "Luke",
+      "weapon_types": [
+        "Bat"
+      ],
+      "signature_prop": "Hold a janitor broom with a long handle and a wide brush head.",
+      "avoid": "No wrench or sword; use the wide-bristled cleaning broom."
+    },
+    "dailin": {
+      "name": "리 다이린",
+      "cdn_key": "LiDailin",
+      "weapon_types": [
+        "Glove",
+        "Nunchaku"
+      ],
+      "signature_prop": "Hold a small brown liquor bottle with a red neck cord.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "rio": {
+      "name": "리오",
+      "cdn_key": "Rio",
+      "weapon_types": [
+        "Bow"
+      ],
+      "signature_prop": "Hold a tall traditional archery bow with a visible curved limb and bowstring.",
+      "avoid": "No camera, camcorder, grenade, or firearm; show an unmistakable archery bow."
+    },
+    "martina": {
+      "name": "마르티나",
+      "cdn_key": "Martina",
+      "weapon_types": [
+        "Camera"
+      ],
+      "signature_prop": "Carry a large blue-and-white camcorder on one shoulder.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "mai": {
+      "name": "마이",
+      "cdn_key": "Mai",
+      "weapon_types": [
+        "Whip"
+      ],
+      "signature_prop": "Hold a long teal-and-gold measuring ribbon that curls like a soft whip.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "markus": {
+      "name": "마커스",
+      "cdn_key": "Markus",
+      "weapon_types": [
+        "Axe",
+        "Hammer"
+      ],
+      "signature_prop": "Carry a heavy silver battle axe with a very broad axe head.",
+      "avoid": "No narrow sword; the weapon must have a very broad axe or hammer head."
+    },
+    "magnus": {
+      "name": "매그너스",
+      "cdn_key": "Magnus",
+      "weapon_types": [
+        "Hammer",
+        "Bat"
+      ],
+      "signature_prop": "Carry a thick black metal baseball bat across his shoulder.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "vanya": {
+      "name": "바냐",
+      "cdn_key": "Vanya",
+      "weapon_types": [
+        "Arcana"
+      ],
+      "signature_prop": "Let a few small bright blue butterflies float around her open hand.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "barbara": {
+      "name": "바바라",
+      "cdn_key": "Barbara",
+      "weapon_types": [
+        "Pistol"
+      ],
+      "signature_prop": "Hold a small steel engineering wrench beside a tiny blue robotic device.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "bernice": {
+      "name": "버니스",
+      "cdn_key": "Bernice",
+      "weapon_types": [
+        "SniperRifle"
+      ],
+      "signature_prop": "Hold a hunting rifle with a brown wooden stock and a long black barrel.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "bianca": {
+      "name": "비앙카",
+      "cdn_key": "Bianca",
+      "weapon_types": [
+        "Arcana"
+      ],
+      "signature_prop": "Hold a black gothic parasol and a small red blood bag.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "celine": {
+      "name": "셀린",
+      "cdn_key": "Celine",
+      "weapon_types": [
+        "HighAngleFire"
+      ],
+      "signature_prop": "Hold one green hand grenade with a visible pin ring.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "sho": {
+      "name": "쇼우",
+      "cdn_key": "Xiukai",
+      "weapon_types": [
+        "OneHandSword",
+        "Spear"
+      ],
+      "signature_prop": "Hold an oversized steel cooking cleaver and a small dark wok.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "shoichi": {
+      "name": "쇼이치",
+      "cdn_key": "Shoichi",
+      "weapon_types": [
+        "OneHandSword"
+      ],
+      "signature_prop": "Hold a short silver dagger with a dark handle.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "sissela": {
+      "name": "시셀라",
+      "cdn_key": "Sissela",
+      "weapon_types": [
+        "HighAngleFire",
+        "DirectFire"
+      ],
+      "signature_prop": "Float a round white companion orb beside a thin medical IV stand.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "silvia": {
+      "name": "실비아",
+      "cdn_key": "Silvia",
+      "weapon_types": [
+        "Pistol"
+      ],
+      "signature_prop": "Hold a compact blue-and-black pistol beside her motorcycle helmet.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "adela": {
+      "name": "아델라",
+      "cdn_key": "Adela",
+      "weapon_types": [
+        "Rapier",
+        "Bat"
+      ],
+      "signature_prop": "Hold a slim chess-themed rapier with a white chess-piece guard.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "adriana": {
+      "name": "아드리아나",
+      "cdn_key": "Adriana",
+      "weapon_types": [
+        "HighAngleFire"
+      ],
+      "signature_prop": "Carry a yellow flamethrower tank with a short hose and spray nozzle.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "adina": {
+      "name": "아디나",
+      "cdn_key": "Adina",
+      "weapon_types": [
+        "Arcana"
+      ],
+      "signature_prop": "Hold a few dark blue tarot cards decorated with pale gold stars.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "isaac": {
+      "name": "아이작",
+      "cdn_key": "Isaac",
+      "weapon_types": [
+        "Tonfa"
+      ],
+      "signature_prop": "Hold a black police tonfa with a clearly visible side handle.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "alex": {
+      "name": "알렉스",
+      "cdn_key": "Alex",
+      "weapon_types": [
+        "Tonfa",
+        "TwoHandSword",
+        "DirectFire",
+        "Pistol"
+      ],
+      "signature_prop": "Hold a compact black pistol and a small black spy radio.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "jan": {
+      "name": "얀",
+      "cdn_key": "Jan",
+      "weapon_types": [
+        "Glove",
+        "Tonfa"
+      ],
+      "signature_prop": "Show both fists clenched with white bandages around his forearms.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "estelle": {
+      "name": "에스텔",
+      "cdn_key": "Estelle",
+      "weapon_types": [
+        "Axe"
+      ],
+      "signature_prop": "Hold a red fire axe and a broad gray firefighter shield.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "aiden": {
+      "name": "에이든",
+      "cdn_key": "Aiden",
+      "weapon_types": [
+        "TwoHandSword"
+      ],
+      "signature_prop": "Hold a long silver sword with small blue electrical sparks.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "echion": {
+      "name": "에키온",
+      "cdn_key": "Echion",
+      "weapon_types": [
+        "VFArm"
+      ],
+      "signature_prop": "Show his large black-white-magenta biomechanical VF arm as a curved claw.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "elena": {
+      "name": "엘레나",
+      "cdn_key": "Elena",
+      "weapon_types": [
+        "Rapier"
+      ],
+      "signature_prop": "Hold a slender ice-blue rapier with a small snowflake-shaped guard.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "johann": {
+      "name": "요한",
+      "cdn_key": "Johann",
+      "weapon_types": [
+        "Arcana"
+      ],
+      "signature_prop": "Hold a small gold Christian cross in front of his blue priest stole.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "william": {
+      "name": "윌리엄",
+      "cdn_key": "William",
+      "weapon_types": [
+        "HighAngleFire"
+      ],
+      "signature_prop": "Hold a white baseball and wear a brown baseball glove.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "irem": {
+      "name": "이렘",
+      "cdn_key": "Irem",
+      "weapon_types": [
+        "HighAngleFire"
+      ],
+      "signature_prop": "Wear cream cat-paw mittens with visible pink paw pads.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "eva": {
+      "name": "이바",
+      "cdn_key": "Eva",
+      "weapon_types": [
+        "HighAngleFire"
+      ],
+      "signature_prop": "Float a small violet VF energy orb above one open hand.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "ian": {
+      "name": "이안",
+      "cdn_key": "Lyanh",
+      "weapon_types": [
+        "OneHandSword"
+      ],
+      "signature_prop": "Hold a short ritual dagger with a dark monster shadow behind her shoulder.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "eleven": {
+      "name": "일레븐",
+      "cdn_key": "Eleven",
+      "weapon_types": [
+        "Hammer"
+      ],
+      "signature_prop": "Carry a huge pastel pink hammer with a bright heart motif.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "zahir": {
+      "name": "자히르",
+      "cdn_key": "Zahir",
+      "weapon_types": [
+        "HighAngleFire",
+        "DirectFire"
+      ],
+      "signature_prop": "Float a few pointed gold throwing blades around one hand.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "jenny": {
+      "name": "제니",
+      "cdn_key": "Jenny",
+      "weapon_types": [
+        "Pistol"
+      ],
+      "signature_prop": "Hold an elegant compact black pistol with a small gold accent.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "camilo": {
+      "name": "카밀로",
+      "cdn_key": "Camilo",
+      "weapon_types": [
+        "DualSword",
+        "Rapier"
+      ],
+      "signature_prop": "Hold two slim silver dancing swords, one in each hand.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "karla": {
+      "name": "칼라",
+      "cdn_key": "Karla",
+      "weapon_types": [
+        "CrossBow"
+      ],
+      "signature_prop": "Hold an oversized red-and-black crossbow with visible curved bow limbs.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "cathy": {
+      "name": "캐시",
+      "cdn_key": "Cathy",
+      "weapon_types": [
+        "OneHandSword",
+        "DualSword"
+      ],
+      "signature_prop": "Hold a small steel surgical scalpel and a compact medical pouch.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "chloe": {
+      "name": "클로에",
+      "cdn_key": "Chloe",
+      "weapon_types": [
+        "DirectFire"
+      ],
+      "signature_prop": "Use fingertip puppet strings connected to Nina, a small gray twin-tailed doll in a white ruffle dress with lilac bows and black mechanical blade legs.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "chiara": {
+      "name": "키아라",
+      "cdn_key": "Chiara",
+      "weapon_types": [
+        "Rapier"
+      ],
+      "signature_prop": "Hold an ornate black rapier with a violet gemstone at the guard.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "tazia": {
+      "name": "타지아",
+      "cdn_key": "Tazia",
+      "weapon_types": [
+        "DirectFire"
+      ],
+      "signature_prop": "Float a few sharp translucent blue and lilac glass shards near one hand.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "theodore": {
+      "name": "테오도르",
+      "cdn_key": "Theodore",
+      "weapon_types": [
+        "SniperRifle"
+      ],
+      "signature_prop": "Hold a long dark navy sniper rifle with a visible scope.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "felix": {
+      "name": "펠릭스",
+      "cdn_key": "Felix",
+      "weapon_types": [
+        "Spear"
+      ],
+      "signature_prop": "Hold a long silver spear with a single pointed spearhead.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "priya": {
+      "name": "프리야",
+      "cdn_key": "Priya",
+      "weapon_types": [
+        "Guitar"
+      ],
+      "signature_prop": "Hold a blue acoustic guitar decorated with small white flowers.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "fiora": {
+      "name": "피오라",
+      "cdn_key": "Fiora",
+      "weapon_types": [
+        "Rapier",
+        "TwoHandSword",
+        "Spear"
+      ],
+      "signature_prop": "Hold a slender silver fencing rapier with a round guard.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "piolo": {
+      "name": "피올로",
+      "cdn_key": "Piolo",
+      "weapon_types": [
+        "Nunchaku"
+      ],
+      "signature_prop": "Hold black-and-silver nunchaku with two short sticks joined by a chain.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "hart": {
+      "name": "하트",
+      "cdn_key": "Hart",
+      "weapon_types": [
+        "Guitar"
+      ],
+      "signature_prop": "Hold a bright red electric guitar with a dark neck.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "haze": {
+      "name": "헤이즈",
+      "cdn_key": "Haze",
+      "weapon_types": [
+        "AssaultRifle"
+      ],
+      "signature_prop": "Carry a very large gray assault weapon with a boxy barrel and stock.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "debi_marlene": {
+      "name": "데비&마를렌",
+      "cdn_key": "DebiMarlene",
+      "weapon_types": [
+        "TwoHandSword"
+      ],
+      "signature_prop": "Give the blue sister a blue-accented greatsword and the red sister a red-accented greatsword.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "arda": {
+      "name": "아르다",
+      "cdn_key": "Arda",
+      "weapon_types": [
+        "Arcana"
+      ],
+      "signature_prop": "Hold a small carved ancient stone relic and a rolled parchment scroll.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "abigail": {
+      "name": "아비게일",
+      "cdn_key": "Abigail",
+      "weapon_types": [
+        "Axe"
+      ],
+      "signature_prop": "Hold a large blue battle axe with a broad crescent-shaped axe head.",
+      "avoid": "Do not mistake her large axe for a straight sword."
+    },
+    "alonso": {
+      "name": "알론소",
+      "cdn_key": "Alonso",
+      "weapon_types": [
+        "Glove"
+      ],
+      "signature_prop": "Wear very large dark magnetic gauntlets with amber glowing panels.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "leni": {
+      "name": "레니",
+      "cdn_key": "Leni",
+      "weapon_types": [
+        "Pistol"
+      ],
+      "signature_prop": "Hold a pastel pink carrot-themed handheld launcher with a short visible barrel.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "tsubame": {
+      "name": "츠바메",
+      "cdn_key": "Tsubame",
+      "weapon_types": [
+        "DirectFire"
+      ],
+      "signature_prop": "Hold a few black-and-turquoise shuriken with visible pointed blades.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "kenneth": {
+      "name": "케네스",
+      "cdn_key": "Kenneth",
+      "weapon_types": [
+        "Axe"
+      ],
+      "signature_prop": "Carry a huge red-and-black battle axe with a broad axe head.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "katja": {
+      "name": "카티야",
+      "cdn_key": "Katja",
+      "weapon_types": [
+        "SniperRifle"
+      ],
+      "signature_prop": "Hold an oversized black-and-teal sniper rifle with a scope.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "darko": {
+      "name": "다르코",
+      "cdn_key": "Darko",
+      "weapon_types": [
+        "Bat"
+      ],
+      "signature_prop": "Hold a rugged dark baseball bat with a thick wrapped grip.",
+      "avoid": "Do not add a firearm; his weapon class is a baseball bat."
+    },
+    "lenore": {
+      "name": "르노어",
+      "cdn_key": "Lenore",
+      "weapon_types": [
+        "Guitar"
+      ],
+      "signature_prop": "Hold a dark blue electric guitar decorated with small silver chains.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "garnet": {
+      "name": "가넷",
+      "cdn_key": "Garnet",
+      "weapon_types": [
+        "Bat"
+      ],
+      "signature_prop": "Carry a thick black metal bat covered with silver spikes.",
+      "avoid": "Use a spiked metal bat, not an axe."
+    },
+    "yumin": {
+      "name": "유민",
+      "cdn_key": "YuMin",
+      "weapon_types": [
+        "Arcana"
+      ],
+      "signature_prop": "Hold an open violet-and-teal hand fan with clearly visible folds.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "hisui": {
+      "name": "히스이",
+      "cdn_key": "Hisui",
+      "weapon_types": [
+        "TwoHandSword"
+      ],
+      "signature_prop": "Hold a red-and-white katana with a dark handle.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "justyna": {
+      "name": "유스티나",
+      "cdn_key": "Justyna",
+      "weapon_types": [
+        "CrossBow"
+      ],
+      "signature_prop": "Hold a futuristic silver crossbow with broad red mechanical bow limbs.",
+      "avoid": "Show the crossbow's transverse limbs, not only gauntlets."
+    },
+    "istvan": {
+      "name": "이슈트반",
+      "cdn_key": "Istvan",
+      "weapon_types": [
+        "Spear"
+      ],
+      "signature_prop": "Hold a long dark silver spear with a narrow pointed head and red ribbon.",
+      "avoid": "Use a long spear, not a short sword."
+    },
+    "xuelin": {
+      "name": "슈린",
+      "cdn_key": "Xuelin",
+      "weapon_types": [
+        "Rapier"
+      ],
+      "signature_prop": "Hold a slender turquoise energy sword shaped like a fencing rapier.",
+      "avoid": "Use the slender energy sword, not a polearm."
+    },
+    "henry": {
+      "name": "헨리",
+      "cdn_key": "Henry",
+      "weapon_types": [
+        "DirectFire"
+      ],
+      "signature_prop": "Hold a gold pocket watch while pointed gold clock hands float as throwing blades.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "blair": {
+      "name": "블레어",
+      "cdn_key": "Blair",
+      "weapon_types": [
+        "DualSword"
+      ],
+      "signature_prop": "Hold two slender black-and-silver blades, one in each hand.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "mirka": {
+      "name": "미르카",
+      "cdn_key": "Mirka",
+      "weapon_types": [
+        "Hammer"
+      ],
+      "signature_prop": "Carry a heavy square-headed steel hammer with dark green accents.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "fenrir": {
+      "name": "펜리르",
+      "cdn_key": "Fenrir",
+      "weapon_types": [
+        "Glove"
+      ],
+      "signature_prop": "Wear black-and-orange racing gloves and show both fists raised.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "coraline": {
+      "name": "코렐라인",
+      "cdn_key": "Coraline",
+      "weapon_types": [
+        "Arcana"
+      ],
+      "signature_prop": "Float angular pink crystal arcana beside her black-and-pink fairy wings.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "bihyung": {
+      "name": "비형",
+      "cdn_key": "Bihyung",
+      "weapon_types": [
+        "Bat"
+      ],
+      "signature_prop": "Carry a giant black-and-red mallet with a square mechanical head.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    },
+    "craver": {
+      "name": "크레이버",
+      "cdn_key": "Craver",
+      "weapon_types": [
+        "Pistol"
+      ],
+      "signature_prop": "Hold a large black-and-red revolver with a clearly visible cylinder.",
+      "avoid": "His red energy effects must not replace the revolver silhouette."
+    },
+    "lucia": {
+      "name": "루치아",
+      "cdn_key": "Lucia",
+      "weapon_types": [
+        "SniperRifle"
+      ],
+      "signature_prop": "Hold an ornate silver-and-violet long-barrel musket with a shoulder stock.",
+      "avoid": "Use an ornate long-barrel musket rather than two short pistols."
+    },
+    "ceres": {
+      "name": "세레스",
+      "cdn_key": "Seres",
+      "weapon_types": [
+        "TwoHandSword"
+      ],
+      "signature_prop": "Hold a huge black-and-gold greatsword with a large magenta crystal near the guard.",
+      "avoid": "Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here."
+    }
+  }
+}

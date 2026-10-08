@@ -1,0 +1,32 @@
+{
+  "id": "justyna",
+  "name": "유스티나",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Spirited red-haired engineer, bright CYAN sharp eyes, raised assertive eyebrows, broad open confident laugh. Goggles perched on forehead.\n",
+  "originalReference": "docs/art-chibi/references/subjects/justyna.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Justyna_S000.png",
+  "referenceSha256": "3215f7a3a7b4daf131c2d62532807372b6ebacbdd92756f5c542dc320b2c595e",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 유스티나 (justyna). Original outfit and identity: Long bright red ponytail, visor goggles, white-gray mechanical coat with red trim, silver mechanical crossbow.. Signature prop: Hold a futuristic silver crossbow with broad red mechanical bow limbs..\nCharacter-specific face and pose: Spirited red-haired engineer, bright CYAN sharp eyes, raised assertive eyebrows, broad open confident laugh. Goggles perched on forehead.\n",
+  "generatedSource": "docs/art-identity/generated/justyna.png",
+  "generatedSha256": "c88569052a1e8bd72b20bc430e9660ae73f33052532ddd333242dc4766ec3e69",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1091,
+    1390
+  ],
+  "resizedSize": [
+    119,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/justyna.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "55e0e1a639b0b8a1ae5b0f9ed7cb0f65c4e6ee4d4c3e1f7c235cb4c3a1156c6a",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "weapon_tonfa",
+  "name": "고속 회전",
+  "kind": "weapon",
+  "originalId": 3002000,
+  "weaponClass": "톤파",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_091.png",
+  "referencePath": "docs/art-system/references/loadout/weapon_tonfa.png",
+  "originalTooltip": "소모값 없음 / 쿨다운 30 초\n\n일정 시간 동안 받는 피해가 감소하고, 공격한 대상에게 스킬 피해를 입힙니다. (공격의 효과는 막지 못합니다.) <i>쿨다운 고정: 쿨다운 감소 스탯의 영향을 받지 않습니다.</i>",
+  "output": "Assets/Resources/Lumia/SkillIcons/weapon_tonfa.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art D weapon-skill icon for Black The Survival. Image 1 is the original Eternal Return 고속 회전 icon used as silhouette/color reference. Image 2 is our existing icon contact sheet as pixel-art style reference. Create a NEW single standalone icon matching the coarse pixel-art family, not a collage. Subject: A combat skill emblem of two dark gray and lavender tonfa batons crossed in an X with a few magenta angular rotation streaks; preserve the original paired batons, purple highlights and cross silhouette. Composition: centered, roughly 80% of square, readable at 32x32 logical pixels. Style: authentic 32x32 sprite enlarged with sharp square pixel clusters, limited 12-18 colors, stepped outlines, deliberate grouped highlights. Keep the original recognizable form, angle and major colors. Transparent background with genuine alpha; remove the source's background tile. No square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth glow or airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-c94b2b9c-f27f-4671-9567-967ac1aee13c.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

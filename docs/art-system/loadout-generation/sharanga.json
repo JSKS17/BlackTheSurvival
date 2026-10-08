@@ -1,0 +1,14 @@
+{
+  "id": "sharanga",
+  "name": "샤릉가",
+  "kind": "gear",
+  "originalId": 115501,
+  "weaponClass": "석궁",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_115501.png",
+  "referencePath": "docs/art-system/references/loadout/sharanga.png",
+  "originalTooltip": "전설 / 석궁\n\n공격력 +86\n공격 속도 +35%\n\n<b><color=yellow>연장 총열</color></b>\n7초 마다 다음 기본 공격이 강화되어 사거리가 <color=white>25%</color>만큼 늘어나며 (최대 7.5m까지), <color=green>(캐릭터 레벨 * 3)</color>의 추가 스킬 피해를 입힙니다. 기본 공격을 가할 때마다 쿨다운이 1초 감소합니다.\n\n인도 신화의 신인 비슈누가 시바와의 대결에서 사용했던 활.",
+  "output": "Assets/Resources/Lumia/SystemIcons/sharanga.png",
+  "prompt": "Create ONE isolated game inventory icon for Eternal Return 샤릉가 (석궁). Redraw the attached original silhouette, colors and distinctive details as crisp 32x32 logical pixel art. Dark pixel outlines, clustered limited colors, readable at small size, no gradients or anti-aliasing, no text, no frame. Keep entire object within square with transparent padding. Genuine transparent alpha background. Match Black The Survival cute retro pixel UI.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-f39060bd-c3fa-4682-b867-c9e94c59ab8d.png",
+  "tool": "image_gen.imagegen"
+}

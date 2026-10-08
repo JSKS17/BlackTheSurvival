@@ -1,0 +1,14 @@
+{
+  "id": "loigor",
+  "name": "로이거 차르",
+  "kind": "gear",
+  "originalId": 103502,
+  "weaponClass": "쌍검",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_103502.png",
+  "referencePath": "docs/art-system/references/loadout/loigor.png",
+  "originalTooltip": "전설 / 쌍검\n\n공격력 +31\n스킬 증폭 +90\n쿨다운 감소 +15\n\n<b><color=yellow>가벼운 발걸음</color></b>\n0.2m 이동할 때마다 [가벼운 발걸음]을 최대 100회까지 중첩해서 획득합니다. 중첩에 따라 이동 속도를 최대 <color=white>0.1</color>까지 획득합니다. 기본 공격 피해를 입힐 경우 중첩을 모두 소모하여 최대 <color=white>150</color>의 스킬 피해를 입힙니다. (근거리) 최대 중첩 상태에서 기본 공격에 피격된 대상의 이동 속도를 2초 동안 <color=white>20%</color> 감소시킵니다.\n\n로이거와 차르는 크툴루 신화에 등장하는 그레이드올드원들이다. 주위에서 원인 모를 바람이 발생했다면 로이거가 곁에 있다는 암시이니 주의하자.",
+  "output": "Assets/Resources/Lumia/SystemIcons/loigor.png",
+  "prompt": "Create ONE isolated game inventory icon for Eternal Return 로이거 차르 (쌍검). Redraw the attached original silhouette, colors and distinctive details as crisp 32x32 logical pixel art. Dark pixel outlines, clustered limited colors, readable at small size, no gradients or anti-aliasing, no text, no frame. Keep entire object within square with transparent padding. Genuine transparent alpha background. Match Black The Survival cute retro pixel UI.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-bdf8d730-9f70-4d93-86b4-ba760a8c8455.png",
+  "tool": "image_gen.imagegen"
+}

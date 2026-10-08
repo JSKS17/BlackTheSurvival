@@ -1,0 +1,32 @@
+{
+  "id": "jackie",
+  "name": "재키",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Jackie: mischievous dangerous young woman. Preserve SHARPLY UPSWEPT red eyes, pointed outer eye corners, sharply angled brows, wide asymmetric cocky TOOTHY GRIN. Eyes narrow and feline rather than circular. Spiky windswept WHITE hair, dark crisscross choker and arm tattoo, black sleeveless crop outfit with dark-red accents. Carry huge red-black battle axe. Her red sly eyes and grin MUST visibly differ from every generic doll face.\n",
+  "originalReference": "docs/art-chibi/references/subjects/jackie.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Jackie_S000.png",
+  "referenceSha256": "e824b259ba120803084f5004fd6b0265b10fb4a5f7aad9da7abbf19c8fd336d2",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter-specific face and pose: Jackie: mischievous dangerous young woman. Preserve SHARPLY UPSWEPT red eyes, pointed outer eye corners, sharply angled brows, wide asymmetric cocky TOOTHY GRIN. Eyes narrow and feline rather than circular. Spiky windswept WHITE hair, dark crisscross choker and arm tattoo, black sleeveless crop outfit with dark-red accents. Carry huge red-black battle axe. Her red sly eyes and grin MUST visibly differ from every generic doll face.\n",
+  "generatedSource": "docs/art-identity/generated/jackie.png",
+  "generatedSha256": "8791fb77d1b22ef107d373a39cd54eab85e3b86bc926b0ee7665831dae3047d4",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/jackie.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "3d14224d3284cc4cb08a9807d087f1862dbeec6d37ab1f31b4d08a6363fc96c9",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

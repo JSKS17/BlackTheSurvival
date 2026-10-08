@@ -1,0 +1,1458 @@
+[
+  {
+    "id": "akelte",
+    "path": "Assets/Resources/Lumia/SystemIcons/akelte.png",
+    "source": "docs/art-system/generated/akelte.png",
+    "promptRecord": "docs/art-system/generation/akelte.json",
+    "fileSha256": "befd467aa29d15d8d37fd159cd299b211d82395d9399e566f4cf054a84f70258",
+    "sourceSha256": "20858de052bf43129bc5b820666875c668bb27cbe6a3536593770c67a211e225",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3068,
+    "visiblePixels": 1028
+  },
+  {
+    "id": "altair",
+    "path": "Assets/Resources/Lumia/SystemIcons/altair.png",
+    "source": "docs/art-system/generated/altair.png",
+    "promptRecord": "docs/art-system/generation/altair.json",
+    "fileSha256": "60ef80f342077ebfcf46dd71cdf19f1c6337f491ec7dabce922ab48145813257",
+    "sourceSha256": "5269ee4093b37acacc5041dac93b6eaf82044610aeb8c2314fdc94a505f73963",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2684,
+    "visiblePixels": 1412
+  },
+  {
+    "id": "amplification_drone",
+    "path": "Assets/Resources/Lumia/SystemIcons/amplification_drone.png",
+    "source": "docs/art-system/generated/amplification_drone.png",
+    "promptRecord": "docs/art-system/generation/amplification_drone.json",
+    "fileSha256": "930ff2cc82cecc0f7db7304cc5f57fb8f6a88cda281dc04fdc40adbbad04649e",
+    "sourceSha256": "f431d045b9fdc6976154609fef3d3077464233e730f5745f8a176f7a006b160c",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2248,
+    "visiblePixels": 1848
+  },
+  {
+    "id": "andromeda",
+    "path": "Assets/Resources/Lumia/SystemIcons/andromeda.png",
+    "source": "docs/art-system/generated/andromeda.png",
+    "promptRecord": "docs/art-system/generation/andromeda.json",
+    "fileSha256": "ae5c0c9d7e2b70104f28a9f17f989070b61abe30e1c4209378880b40b42ed090",
+    "sourceSha256": "31425d6a84468ec84e92f37e7926b3e82ab29e97ca012973edeac05c60a99cd1",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3436,
+    "visiblePixels": 660
+  },
+  {
+    "id": "ao_dai",
+    "path": "Assets/Resources/Lumia/SystemIcons/ao_dai.png",
+    "source": "docs/art-system/generated/ao_dai.png",
+    "promptRecord": "docs/art-system/generation/ao_dai.json",
+    "fileSha256": "614a63187debcc30c5d2377e936fcb8eefb623582808ec49766877005937e9be",
+    "sourceSha256": "dd67d9df4e53c6e897535da3eec2ec72ed9d402d108e7fb257c7e437f65896af",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2556,
+    "visiblePixels": 1540
+  },
+  {
+    "id": "auto_arms",
+    "path": "Assets/Resources/Lumia/SystemIcons/auto_arms.png",
+    "source": "docs/art-system/generated/auto_arms.png",
+    "promptRecord": "docs/art-system/generation/auto_arms.json",
+    "fileSha256": "0b2585fd93ccce09ee28c48fc04cbb2506d2f248f1fcec7777083733f201168f",
+    "sourceSha256": "427ba5c87401fc0dbd0d3d967ff868359a8152e0ba3005c4bf876196b774ae7c",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3300,
+    "visiblePixels": 796
+  },
+  {
+    "id": "blood",
+    "path": "Assets/Resources/Lumia/SystemIcons/blood.png",
+    "source": "docs/art-system/generated/blood.png",
+    "promptRecord": "docs/art-system/generation/blood.json",
+    "fileSha256": "9292e3e1d8434abe22c5e9fe99d1169b2c24b955972bee7cb9b8bc9126e5eda4",
+    "sourceSha256": "c7aca949ff61a82bebdd88fa7d593c425ebb4603c1bbcc46060981b5b39ef14f",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2772,
+    "visiblePixels": 1324
+  },
+  {
+    "id": "blood_hands",
+    "path": "Assets/Resources/Lumia/SystemIcons/blood_hands.png",
+    "source": "docs/art-system/generated/blood_hands.png",
+    "promptRecord": "docs/art-system/generation/blood_hands.json",
+    "fileSha256": "c3fb773f394a12a90f8a77a995192058b720174907cb7df24fdf533fcb54a5a9",
+    "sourceSha256": "32472af801523e567339926b1d1d14c6bea78285ec792da8a6042f41e940ba50",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3092,
+    "visiblePixels": 1004
+  },
+  {
+    "id": "cabana",
+    "path": "Assets/Resources/Lumia/SystemIcons/cabana.png",
+    "source": "docs/art-system/generated/cabana.png",
+    "promptRecord": "docs/art-system/generation/cabana.json",
+    "fileSha256": "9d46d34d151d8f6d230e168581acb96a1529e643488269f60c3476cea5de98f4",
+    "sourceSha256": "f625a1fc91143ba32368c93c652777eb1d744b7f5e45e67db5ccca60080ff2d1",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2652,
+    "visiblePixels": 1444
+  },
+  {
+    "id": "campfire",
+    "path": "Assets/Resources/Lumia/SystemIcons/campfire.png",
+    "source": "docs/art-system/generated/campfire.png",
+    "promptRecord": "docs/art-system/generation/campfire.json",
+    "fileSha256": "c7544b1152c0ba151d891cfb87a6fd6d536df14a7a3a80a2d57182c7a5c41d82",
+    "sourceSha256": "ac3a077db8f8149c35aa779464c91dd9c82c1b6800f4166d6c86d06a02ce8774",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3292,
+    "visiblePixels": 804
+  },
+  {
+    "id": "circular",
+    "path": "Assets/Resources/Lumia/SystemIcons/circular.png",
+    "source": "docs/art-system/generated/circular.png",
+    "promptRecord": "docs/art-system/generation/circular.json",
+    "fileSha256": "542e776f50b54175a5a827c2e21f738b7a40a3bebaee5de4fd4e30726a3a543c",
+    "sourceSha256": "993255273aa3574030de77d8e99e8bff3b31c61cf6d535deb969bfb458a8df9c",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2464,
+    "visiblePixels": 1632
+  },
+  {
+    "id": "coupon",
+    "path": "Assets/Resources/Lumia/SystemIcons/coupon.png",
+    "source": "docs/art-system/generated/coupon.png",
+    "promptRecord": "docs/art-system/generation/coupon.json",
+    "fileSha256": "c452c1313fc4ef309a3b7abb7e67dec4a05120ea2f26148fc38be5416d813b34",
+    "sourceSha256": "78f0cf567895f10e09cd56f754262da3416ab023bb7d4b592f21633859e56e8a",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2280,
+    "visiblePixels": 1816
+  },
+  {
+    "id": "credits",
+    "path": "Assets/Resources/Lumia/SystemIcons/credits.png",
+    "source": "docs/art-system/generated/credits.png",
+    "promptRecord": "docs/art-system/generation/credits.json",
+    "fileSha256": "0f16554271c27a180c7701cb4b264f03d4c47801eaf8c697be3acdca375c6b1c",
+    "sourceSha256": "4e4be31a11e7304d4b8e94facdf9c11dad20695719dcd088fe95562400f3f62a",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2792,
+    "visiblePixels": 1304
+  },
+  {
+    "id": "cube_watch",
+    "path": "Assets/Resources/Lumia/SystemIcons/cube_watch.png",
+    "source": "docs/art-system/generated/cube_watch.png",
+    "promptRecord": "docs/art-system/generation/cube_watch.json",
+    "fileSha256": "5db6e868c628c5298301a99ce9b3af5f74bdfc8673117f1b04cd32824dab6ec8",
+    "sourceSha256": "791042576448e9dc42c9e25f11b843da5303ba4c126788be2b2f42cfa3bc9658",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2804,
+    "visiblePixels": 1292
+  },
+  {
+    "id": "dainsleif",
+    "path": "Assets/Resources/Lumia/SystemIcons/dainsleif.png",
+    "source": "docs/art-system/generated/dainsleif.png",
+    "promptRecord": "docs/art-system/generation/dainsleif.json",
+    "fileSha256": "9e27edfdb917e8ebcc048d1d072d9ad05102a128786172ea37ac22ca5036422c",
+    "sourceSha256": "6e537fcee99b6b06a3055ce8512ee7d763dd947c51ef369b226ad1da69990791",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3620,
+    "visiblePixels": 476
+  },
+  {
+    "id": "diamond",
+    "path": "Assets/Resources/Lumia/SystemIcons/diamond.png",
+    "source": "docs/art-system/generated/diamond.png",
+    "promptRecord": "docs/art-system/generation/diamond.json",
+    "fileSha256": "17961f1c5e20fd008976f4783cf550f6e02d9845e3df88ef0123995d5bde185e",
+    "sourceSha256": "c0f4adec852d90320223d229829a310acf9c49ea4c8f51036cf69f4f74c5fcc6",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2192,
+    "visiblePixels": 1904
+  },
+  {
+    "id": "dog_mask",
+    "path": "Assets/Resources/Lumia/SystemIcons/dog_mask.png",
+    "source": "docs/art-system/generated/dog_mask.png",
+    "promptRecord": "docs/art-system/generation/dog_mask.json",
+    "fileSha256": "1c5564b1c56876353f64f7e4b33856022fda86d4ea8cbc3e21179aa94bdc14af",
+    "sourceSha256": "bfc6a17ff906acbc78c76c1df892403f1a8aef90316c0282d6eaea7abdf81bfa",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2236,
+    "visiblePixels": 1860
+  },
+  {
+    "id": "eagle_eye",
+    "path": "Assets/Resources/Lumia/SystemIcons/eagle_eye.png",
+    "source": "docs/art-system/generated/eagle_eye.png",
+    "promptRecord": "docs/art-system/generation/eagle_eye.json",
+    "fileSha256": "5a4076f43e13454998304d66d51379c76b6909221917ed7e3ca90dbcc01c300a",
+    "sourceSha256": "422ec53ef956e595c6a8e32ab4baac7eeee198516ab51cfcf38d2bf1b9a24997",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3136,
+    "visiblePixels": 960
+  },
+  {
+    "id": "force",
+    "path": "Assets/Resources/Lumia/SystemIcons/force.png",
+    "source": "docs/art-system/generated/force.png",
+    "promptRecord": "docs/art-system/generation/force.json",
+    "fileSha256": "1704c228ff7df2b836de525ef62aac55cb086e85cb2944b9066a9529e23964ac",
+    "sourceSha256": "eb15c786fa8340b45c9aa12cb6efe281abf526f6b20b69f2248a3c6933f1cf8b",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2792,
+    "visiblePixels": 1304
+  },
+  {
+    "id": "frailty",
+    "path": "Assets/Resources/Lumia/SystemIcons/frailty.png",
+    "source": "docs/art-system/generated/frailty.png",
+    "promptRecord": "docs/art-system/generation/frailty.json",
+    "fileSha256": "f1ba1c50d42d102373f07e21694deb56b71d5d3b913c74c085f87bd2b0acae72",
+    "sourceSha256": "3752dc800b1c2d8ab89737a609cbd881acba4a7e8c4ad1c0e307ed8e05a8caad",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2316,
+    "visiblePixels": 1780
+  },
+  {
+    "id": "galaxy_step",
+    "path": "Assets/Resources/Lumia/SystemIcons/galaxy_step.png",
+    "source": "docs/art-system/generated/galaxy_step.png",
+    "promptRecord": "docs/art-system/generation/galaxy_step.json",
+    "fileSha256": "3fb57f9794992176b1d65b3e0937fce06bdf4f8e11fbe84fe616853bc6ba65d8",
+    "sourceSha256": "9111650b5998e663ab31ea7766a9f6d863a4bb97c939008e5e067824cd2ec5b6",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3036,
+    "visiblePixels": 1060
+  },
+  {
+    "id": "glacial_shoes",
+    "path": "Assets/Resources/Lumia/SystemIcons/glacial_shoes.png",
+    "source": "docs/art-system/generated/glacial_shoes.png",
+    "promptRecord": "docs/art-system/generation/glacial_shoes.json",
+    "fileSha256": "025102e18096a7cee9bc0022c8f774b63ba9865aff24fae2933619512b44e17f",
+    "sourceSha256": "ac9142dfa174f93179294fee807b73d8da548e6bde399b81cbd5c481f317bf2b",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3144,
+    "visiblePixels": 952
+  },
+  {
+    "id": "guardian",
+    "path": "Assets/Resources/Lumia/SystemIcons/guardian.png",
+    "source": "docs/art-system/generated/guardian.png",
+    "promptRecord": "docs/art-system/generation/guardian.json",
+    "fileSha256": "29631b8627e1829de3b4a1c2b67792162867161cc021fb4a9116d94d332ffb6c",
+    "sourceSha256": "be37b463007c0df0275ae22a5d0ffa5af7010a10221ed1b967e333bf229cddca",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2220,
+    "visiblePixels": 1876
+  },
+  {
+    "id": "healing_drone",
+    "path": "Assets/Resources/Lumia/SystemIcons/healing_drone.png",
+    "source": "docs/art-system/generated/healing_drone.png",
+    "promptRecord": "docs/art-system/generation/healing_drone.json",
+    "fileSha256": "b38885d72b46a30cf6e15f73c937d7139ec0a08333ba726b749d0ea5e6eabbbe",
+    "sourceSha256": "a73651915061f49f221a9e2137522cebfed5e917dc2b2d2e3a21ff740e35c14b",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2064,
+    "visiblePixels": 2032
+  },
+  {
+    "id": "hermes",
+    "path": "Assets/Resources/Lumia/SystemIcons/hermes.png",
+    "source": "docs/art-system/generated/hermes.png",
+    "promptRecord": "docs/art-system/generation/hermes.json",
+    "fileSha256": "c6a6ea4ad8c52ee834b5fed70b05687ab269b0303f0cea2295ee5b51de951968",
+    "sourceSha256": "83f7a8005b08fb3483e4be11f268a549c3f4e63d9508c491918fd03b8438689e",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3116,
+    "visiblePixels": 980
+  },
+  {
+    "id": "hunting",
+    "path": "Assets/Resources/Lumia/SystemIcons/hunting.png",
+    "source": "docs/art-system/generated/hunting.png",
+    "promptRecord": "docs/art-system/generation/hunting.json",
+    "fileSha256": "01b03b0df0b28d84dd0f3bb82754af4d1e8dca6ad8072906eae061b4836d87e4",
+    "sourceSha256": "5192808bebe0c0ac2d2fed20db5cd3b70a95d560c2046ebe68c8555452983d9a",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2096,
+    "visiblePixels": 2000
+  },
+  {
+    "id": "insight",
+    "path": "Assets/Resources/Lumia/SystemIcons/insight.png",
+    "source": "docs/art-system/generated/insight.png",
+    "promptRecord": "docs/art-system/generation/insight.json",
+    "fileSha256": "17ba305644f8c1f93e230b5e7cf2716569fb48b9ef36441c66774bc91db0b2d2",
+    "sourceSha256": "7e864cdfc85c3d2fdb17adb2a7996c8a4b2a90813fa8e9c75563a749b26eb13e",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2984,
+    "visiblePixels": 1112
+  },
+  {
+    "id": "juggernaut",
+    "path": "Assets/Resources/Lumia/SystemIcons/juggernaut.png",
+    "source": "docs/art-system/generated/juggernaut.png",
+    "promptRecord": "docs/art-system/generation/juggernaut.json",
+    "fileSha256": "0089866179900501fbe1885e313cf0f4e199f02aa223c21ec6fa37807f47e7b3",
+    "sourceSha256": "265e2f4c0b492d51194840e0a8267c306e893dbd79a257f52098597016853c41",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3348,
+    "visiblePixels": 748
+  },
+  {
+    "id": "laevateinn",
+    "path": "Assets/Resources/Lumia/SystemIcons/laevateinn.png",
+    "source": "docs/art-system/generated/laevateinn.png",
+    "promptRecord": "docs/art-system/generation/laevateinn.json",
+    "fileSha256": "3cefd547895ecd3ceb931fe1bb309e23c98cfb771756ded50ee98a46efae063b",
+    "sourceSha256": "ffc75711dfc301fdf78682766bc855ccada3863d096ab1387b2ce45210fab5da",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3256,
+    "visiblePixels": 840
+  },
+  {
+    "id": "lightning",
+    "path": "Assets/Resources/Lumia/SystemIcons/lightning.png",
+    "source": "docs/art-system/generated/lightning.png",
+    "promptRecord": "docs/art-system/generation/lightning.json",
+    "fileSha256": "e8186ab3b418abb0afdd817276362c655756991e0f63bb4815a1ba3d36083fa1",
+    "sourceSha256": "df152bdd28752731395a89bc0531c4b846fd36d9245a79e436ab25a11dd6db63",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2168,
+    "visiblePixels": 1928
+  },
+  {
+    "id": "meteorite",
+    "path": "Assets/Resources/Lumia/SystemIcons/meteorite.png",
+    "source": "docs/art-system/generated/meteorite.png",
+    "promptRecord": "docs/art-system/generation/meteorite.json",
+    "fileSha256": "5b4b5d77c9596c2c9134db8506c49d97c6f693799c762d688998406834425a8d",
+    "sourceSha256": "69bb3a3f57adcfc9d488bb6bc0a6ec5a1d506f0a155e224041e4a0a1c087b86d",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2844,
+    "visiblePixels": 1252
+  },
+  {
+    "id": "mistilteinn",
+    "path": "Assets/Resources/Lumia/SystemIcons/mistilteinn.png",
+    "source": "docs/art-system/generated/mistilteinn.png",
+    "promptRecord": "docs/art-system/generation/mistilteinn.json",
+    "fileSha256": "f5f22e15833d1a7d2ba20374544ae8e8940182cca298b17a50994530eed264c9",
+    "sourceSha256": "c2b56f1234b11b4cdf8a4d9002241e8c450086bb76c1c80ac7f59ae086fafb80",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3712,
+    "visiblePixels": 384
+  },
+  {
+    "id": "mithril",
+    "path": "Assets/Resources/Lumia/SystemIcons/mithril.png",
+    "source": "docs/art-system/generated/mithril.png",
+    "promptRecord": "docs/art-system/generation/mithril.json",
+    "fileSha256": "834c160e22473a4a7564545baec537bbb27439d6a3cd40d4943eae9d2fe63990",
+    "sourceSha256": "876cee18cb0d41853d25c327ceb5b17fbd6862683965a9a463b16070796bfcbf",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2976,
+    "visiblePixels": 1120
+  },
+  {
+    "id": "mithril_armor",
+    "path": "Assets/Resources/Lumia/SystemIcons/mithril_armor.png",
+    "source": "docs/art-system/generated/mithril_armor.png",
+    "promptRecord": "docs/art-system/generation/mithril_armor.json",
+    "fileSha256": "512cd75af5cc6e004a8171daea89dd8246dc223e4880001a63e05e87cb470eec",
+    "sourceSha256": "6c291f3c2fa14fb9ff87808b4fd1c03a1de3724c2ef6e626a3bfc24e45c6e7fd",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2552,
+    "visiblePixels": 1544
+  },
+  {
+    "id": "mithril_boots",
+    "path": "Assets/Resources/Lumia/SystemIcons/mithril_boots.png",
+    "source": "docs/art-system/generated/mithril_boots.png",
+    "promptRecord": "docs/art-system/generation/mithril_boots.json",
+    "fileSha256": "0b5fd2685ad79b00c5750e4b7d7826b8ce26468ccbc023555ff3d758637bcca6",
+    "sourceSha256": "d7335d6c7ce4b204d43a87ea891e7c9234a122076891e9bcdb1e24c91f8f3e3a",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2892,
+    "visiblePixels": 1204
+  },
+  {
+    "id": "mithril_helm",
+    "path": "Assets/Resources/Lumia/SystemIcons/mithril_helm.png",
+    "source": "docs/art-system/generated/mithril_helm.png",
+    "promptRecord": "docs/art-system/generation/mithril_helm.json",
+    "fileSha256": "08ae5f46417d7953b69a3dea0b87164b7ed88143cdbd35f0a960fbd08a516bac",
+    "sourceSha256": "544805c4846819184638b10e1fd694fa5697a5963d6fc9eda89546f4d2a919f0",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2660,
+    "visiblePixels": 1436
+  },
+  {
+    "id": "mithril_shield",
+    "path": "Assets/Resources/Lumia/SystemIcons/mithril_shield.png",
+    "source": "docs/art-system/generated/mithril_shield.png",
+    "promptRecord": "docs/art-system/generation/mithril_shield.json",
+    "fileSha256": "de4932e5be9f6030a323d34c4e224eeb007752ddf212d0e32adedbc036560642",
+    "sourceSha256": "f62a958a02dd05be27b496bad3d0b4e9797ef75c744f7261172d8d2005160e1b",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2764,
+    "visiblePixels": 1332
+  },
+  {
+    "id": "opera_mask",
+    "path": "Assets/Resources/Lumia/SystemIcons/opera_mask.png",
+    "source": "docs/art-system/generated/opera_mask.png",
+    "promptRecord": "docs/art-system/generation/opera_mask.json",
+    "fileSha256": "d8670c98a385c9071f97ddd72b61f07871fa6af89fdbe63d58087d4d25868c0a",
+    "sourceSha256": "5850290c9e0f7fd84b73084871bc787c86d0f30d54d3abe00d62b3aab93cdb89",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2516,
+    "visiblePixels": 1580
+  },
+  {
+    "id": "pink_shoes",
+    "path": "Assets/Resources/Lumia/SystemIcons/pink_shoes.png",
+    "source": "docs/art-system/generated/pink_shoes.png",
+    "promptRecord": "docs/art-system/generation/pink_shoes.json",
+    "fileSha256": "9c742e1c1f436320aab8151e4ddf5ec0fc2cc03bd1cafad0db367a330947020d",
+    "sourceSha256": "90a4581c8876d2db9ac16cfa63ae35796d3433b79b79d7bd8e33fdf1133b8a92",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2920,
+    "visiblePixels": 1176
+  },
+  {
+    "id": "prominence",
+    "path": "Assets/Resources/Lumia/SystemIcons/prominence.png",
+    "source": "docs/art-system/generated/prominence.png",
+    "promptRecord": "docs/art-system/generation/prominence.json",
+    "fileSha256": "f0911f65f23f7249680438e83a39f1a41650edb2b34823cbbc06d8b17447c87f",
+    "sourceSha256": "424fe8f545f47d549a107391d414a9c984a1caef8311dd2926e250c0d6054cef",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2732,
+    "visiblePixels": 1364
+  },
+  {
+    "id": "queen_heart",
+    "path": "Assets/Resources/Lumia/SystemIcons/queen_heart.png",
+    "source": "docs/art-system/generated/queen_heart.png",
+    "promptRecord": "docs/art-system/generation/queen_heart.json",
+    "fileSha256": "4e24ae7b40689273f2c05c9edb5a600ce5957c3b20f9528cf2b053850f2fa931",
+    "sourceSha256": "113edbb4d957663c425800544f4ee1098e1cae1aa74cb1320b935eb3970b921b",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2596,
+    "visiblePixels": 1500
+  },
+  {
+    "id": "quickfire",
+    "path": "Assets/Resources/Lumia/SystemIcons/quickfire.png",
+    "source": "docs/art-system/generated/quickfire.png",
+    "promptRecord": "docs/art-system/generation/quickfire.json",
+    "fileSha256": "67e7f370e88b1de80bd072a48a58b7b6a1a0b8073244fec5aa989e8dc163cedb",
+    "sourceSha256": "72e20e06eaac7d7b446c79ffec7a947d5b44c576426b0bdf323892422a33e1b6",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2364,
+    "visiblePixels": 1732
+  },
+  {
+    "id": "scar",
+    "path": "Assets/Resources/Lumia/SystemIcons/scar.png",
+    "source": "docs/art-system/generated/scar.png",
+    "promptRecord": "docs/art-system/generation/scar.json",
+    "fileSha256": "67c1b343536ed58c3eebffbf55b4fb7a32595d9fea73dfa35eadbbddb64d9f59",
+    "sourceSha256": "80cd36c440a5f39330ad13fd695217732b68cf3eb0fee517d57cf54931e878a0",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 1916,
+    "visiblePixels": 2180
+  },
+  {
+    "id": "skadi",
+    "path": "Assets/Resources/Lumia/SystemIcons/skadi.png",
+    "source": "docs/art-system/generated/skadi.png",
+    "promptRecord": "docs/art-system/generation/skadi.json",
+    "fileSha256": "9fa61636f0f0f78b12b53530feadf730e178fc179f013e63a7b5ba7c178c834c",
+    "sourceSha256": "d62cf296f9cb38e644da42afc66899161c922f21cc536d6d0b1373733b74fe51",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3480,
+    "visiblePixels": 616
+  },
+  {
+    "id": "tactical_visor",
+    "path": "Assets/Resources/Lumia/SystemIcons/tactical_visor.png",
+    "source": "docs/art-system/generated/tactical_visor.png",
+    "promptRecord": "docs/art-system/generation/tactical_visor.json",
+    "fileSha256": "c71e084849b7c0bdd68105596262b49f761a331751dee1c873f07a88af649830",
+    "sourceSha256": "39e481f6a4477448b2bf90ae8c789f50c4fed53ceb2249af066508d4a86038a4",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 3112,
+    "visiblePixels": 984
+  },
+  {
+    "id": "tempering",
+    "path": "Assets/Resources/Lumia/SystemIcons/tempering.png",
+    "source": "docs/art-system/generated/tempering.png",
+    "promptRecord": "docs/art-system/generation/tempering.json",
+    "fileSha256": "558fc0747636eaa9291c237a29bb427925ebee60b89f4f073ea0b3cab9b422ba",
+    "sourceSha256": "6b72a1b0ce20e4ff2ab8677e9304ada20bbc21ea0ffe5da1d742edaa8586fdde",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2272,
+    "visiblePixels": 1824
+  },
+  {
+    "id": "titan_armor",
+    "path": "Assets/Resources/Lumia/SystemIcons/titan_armor.png",
+    "source": "docs/art-system/generated/titan_armor.png",
+    "promptRecord": "docs/art-system/generation/titan_armor.json",
+    "fileSha256": "8dec2e68ca71c9376e4583a171dd506aba6a8366aae2f0ea3a51b6b1e546c671",
+    "sourceSha256": "45abebba6d655f4f90ca16e6446185db85baa338363e319fa5862deb3bed33d2",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2604,
+    "visiblePixels": 1492
+  },
+  {
+    "id": "tree",
+    "path": "Assets/Resources/Lumia/SystemIcons/tree.png",
+    "source": "docs/art-system/generated/tree.png",
+    "promptRecord": "docs/art-system/generation/tree.json",
+    "fileSha256": "fb8167684c3e854cc89039fe671dda39553f19c1b24bed5a915e6ad566f66211",
+    "sourceSha256": "835bc74a8a14adf9c9ced7f2fd2a11e748055ed0c074a182df005e0de21d95d6",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2848,
+    "visiblePixels": 1248
+  },
+  {
+    "id": "vampire",
+    "path": "Assets/Resources/Lumia/SystemIcons/vampire.png",
+    "source": "docs/art-system/generated/vampire.png",
+    "promptRecord": "docs/art-system/generation/vampire.json",
+    "fileSha256": "8900f10215e2b248bef571b82bd2aa1d303a33e28bbd50b1db3a46ee615ba4d2",
+    "sourceSha256": "cde502d0433e9867819152cf584828dd2f00f262fa70506a0675fa984b07e1f2",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 1988,
+    "visiblePixels": 2108
+  },
+  {
+    "id": "vigilance",
+    "path": "Assets/Resources/Lumia/SystemIcons/vigilance.png",
+    "source": "docs/art-system/generated/vigilance.png",
+    "promptRecord": "docs/art-system/generation/vigilance.json",
+    "fileSha256": "4fd321e5255fb59a2f7bfada5b21e11f01160d2937035567cd8c0bc1bf68d2e0",
+    "sourceSha256": "773441c7ddc8ebd25dd0bb242349e26ed72b328dbef0227f8c008020c8e42d0a",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2000,
+    "visiblePixels": 2096
+  },
+  {
+    "id": "vortex",
+    "path": "Assets/Resources/Lumia/SystemIcons/vortex.png",
+    "source": "docs/art-system/generated/vortex.png",
+    "promptRecord": "docs/art-system/generation/vortex.json",
+    "fileSha256": "d0ebea1621ad08787381ad7de3044ce187afd815f303822d60f4ff9de6d86f65",
+    "sourceSha256": "baccb0c27e25142ec21ff818a6f790d8c527bea275c24e088f3bf9d1ce3f34a3",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2268,
+    "visiblePixels": 1828
+  },
+  {
+    "id": "wilderness_star",
+    "path": "Assets/Resources/Lumia/SystemIcons/wilderness_star.png",
+    "source": "docs/art-system/generated/wilderness_star.png",
+    "promptRecord": "docs/art-system/generation/wilderness_star.json",
+    "fileSha256": "518159ad0cc64f7efd4b29c470be37dc47ed7350383feb9747eb276d255cea35",
+    "sourceSha256": "bd4d53928d109c3556cf18ee911c15f5d7e8a671a656708b81487573bd01c01a",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "padding": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "transparentPixels": 2880,
+    "visiblePixels": 1216
+  }
+]

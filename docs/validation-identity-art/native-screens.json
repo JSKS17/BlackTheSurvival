@@ -1,0 +1,652 @@
+{
+  "passed": true,
+  "uiScreens": 57,
+  "artPages": 23,
+  "runtimeErrors": 0,
+  "sprites": 92,
+  "skillAndPassiveIcons": 483,
+  "systemIcons": 70,
+  "missing": 0,
+  "screens": [
+    {
+      "file": "native-ui/lobby.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/starting_passives.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/preparation.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/map.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/long_map.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/combat.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/rewards.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/rewards_cancelled.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/combo.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/fx_player.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/fx_enemy.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/fx_recover.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/kiosk.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/campfire.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/encounter.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/encounter_card.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/encounter_detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/encounter_trade.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/encounter_risky.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/encounter_long.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/catalog.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/inventory.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/gear_inventory.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/passive_inventory.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/passive_replacement.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/mechanic_blocks.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/mechanic_discount.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/mechanic_field.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/mechanic_detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/trait_basic.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/trait_third.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/trait_detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/rune_buff.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/rune_healing.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/rune_inventory.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/rune_detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/rune_selection.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/kiosk_coupon.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/trait_revive.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/enemy_detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/combo_field.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/status_cost.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/status_lock.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/status_field.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/status_detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/preparation_pinned.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/detail_full.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/mechanic_detail_full.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/trait_detail_full.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/rune_detail_full.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/player_status.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/enemy_loadout.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/enemy_field.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/alex_weapon_deck.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/gear_detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/gear_detail_full.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/sprites_01.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/sprites_02.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/sprites_03.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/sprites_04.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/sprites_05.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/sprites_06.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/sprites_07.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/sprites_08.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_01.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_02.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_03.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_04.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_05.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_06.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_07.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_08.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_09.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_10.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_11.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_12.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/icons_13.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/systems_01.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-art/systems_02.png",
+      "size": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ]
+}

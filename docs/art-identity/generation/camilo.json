@@ -1,0 +1,32 @@
+{
+  "id": "camilo",
+  "name": "카밀로",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Flamboyant handsome man, narrow aqua-blue eye visible under long pale fringe, elegant arched brows, pronounced sideways flirtatious closed smile. Not a girl.\n",
+  "originalReference": "docs/art-chibi/references/subjects/camilo.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Camilo_S000.png",
+  "referenceSha256": "0f5d0a7e8201eefee63209453934bd96a8d8fd3c8cf6253456059413ea531123",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\n\nCharacter-specific face and pose: Flamboyant handsome man, narrow aqua-blue eye visible under long pale fringe, elegant arched brows, pronounced sideways flirtatious closed smile. Not a girl.\nOriginal appearance: Cream-blond swept hair, teal eyes, open black pinstriped dance shirt, suspenders, twin swords.\nSignature prop: Hold two slim silver dancing swords, one in each hand.\nSingle face must remain readable at game size; honor the precise individual iris colors, eyelid shape, eyebrow angles and mouth expression above.\n",
+  "generatedSource": "docs/art-identity/generated/camilo.png",
+  "generatedSha256": "88741cad06cf4381dd9143a1cf9c06eb6a2834b573ef2162ddd494e728e2fa9f",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/camilo.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "4a9b77e5db97ce22db36c2f9aec1eb80edc0956a0c30147d04911749044a5562",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

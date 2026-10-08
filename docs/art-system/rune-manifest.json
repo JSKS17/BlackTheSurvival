@@ -1,0 +1,162 @@
+[
+  {
+    "id": "vampire",
+    "name": "흡혈마",
+    "kind": "rune",
+    "originalTraitId": 7000401,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7000400.png",
+    "referencePath": "docs/art-system/references/vampire.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/vampire.png"
+  },
+  {
+    "id": "frailty",
+    "name": "취약",
+    "kind": "rune",
+    "originalTraitId": 7000201,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7000200.png",
+    "referencePath": "docs/art-system/references/frailty.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/frailty.png"
+  },
+  {
+    "id": "lightning",
+    "name": "벽력",
+    "kind": "rune",
+    "originalTraitId": 7000501,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7000500.png",
+    "referencePath": "docs/art-system/references/lightning.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/lightning.png"
+  },
+  {
+    "id": "vortex",
+    "name": "와류",
+    "kind": "rune",
+    "originalTraitId": 7300301,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7300300.png",
+    "referencePath": "docs/art-system/references/vortex.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/vortex.png"
+  },
+  {
+    "id": "diamond",
+    "name": "금강",
+    "kind": "rune",
+    "originalTraitId": 7100101,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7100100.png",
+    "referencePath": "docs/art-system/references/diamond.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/diamond.png"
+  },
+  {
+    "id": "guardian",
+    "name": "빛의 수호",
+    "kind": "rune",
+    "originalTraitId": 7100401,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7100400.png",
+    "referencePath": "docs/art-system/references/guardian.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/guardian.png"
+  },
+  {
+    "id": "healing_drone",
+    "name": "치유 드론",
+    "kind": "rune",
+    "originalTraitId": 7200301,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7200300.png",
+    "referencePath": "docs/art-system/references/healing_drone.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/healing_drone.png"
+  },
+  {
+    "id": "amplification_drone",
+    "name": "증폭 드론",
+    "kind": "rune",
+    "originalTraitId": 7200201,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7200200.png",
+    "referencePath": "docs/art-system/references/amplification_drone.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/amplification_drone.png"
+  },
+  {
+    "id": "dog_mask",
+    "name": "들개 탈",
+    "kind": "rune",
+    "originalTraitId": 7011401,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7011400.png",
+    "referencePath": "docs/art-system/references/dog_mask.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/dog_mask.png"
+  },
+  {
+    "id": "scar",
+    "name": "상흔",
+    "kind": "rune",
+    "originalTraitId": 7011501,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7011500.png",
+    "referencePath": "docs/art-system/references/scar.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/scar.png"
+  },
+  {
+    "id": "quickfire",
+    "name": "속사",
+    "kind": "rune",
+    "originalTraitId": 7310601,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7310600.png",
+    "referencePath": "docs/art-system/references/quickfire.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/quickfire.png"
+  },
+  {
+    "id": "circular",
+    "name": "서큘러 시스템",
+    "kind": "rune",
+    "originalTraitId": 7310201,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7310200.png",
+    "referencePath": "docs/art-system/references/circular.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/circular.png"
+  },
+  {
+    "id": "vigilance",
+    "name": "경계심",
+    "kind": "rune",
+    "originalTraitId": 7111101,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7111100.png",
+    "referencePath": "docs/art-system/references/vigilance.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/vigilance.png"
+  },
+  {
+    "id": "tempering",
+    "name": "담금질",
+    "kind": "rune",
+    "originalTraitId": 7111201,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7111200.png",
+    "referencePath": "docs/art-system/references/tempering.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/tempering.png"
+  },
+  {
+    "id": "coupon",
+    "name": "할인 쿠폰",
+    "kind": "rune",
+    "originalTraitId": 7210801,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7210800.png",
+    "referencePath": "docs/art-system/references/coupon.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/coupon.png"
+  },
+  {
+    "id": "hunting",
+    "name": "사냥의 전율",
+    "kind": "rune",
+    "originalTraitId": 7211001,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/TraitSkillIcon_7211000.png",
+    "referencePath": "docs/art-system/references/hunting.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/trait-skills?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/hunting.png"
+  }
+]

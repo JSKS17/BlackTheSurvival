@@ -1,0 +1,32 @@
+{
+  "id": "leni",
+  "name": "레니",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Mischievous blond-pink schoolgirl, bright BLUE round eyes with lifted pointed corners, arched challenging brow, broad TOOTHY GRIN. Black bunny-ear headband.\n",
+  "originalReference": "docs/art-chibi/references/subjects/leni.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Leni_S000.png",
+  "referenceSha256": "e14df1e2523557b0d4264de361e4ab38ed81afc708bc74de1313626f2afa5aa3",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 레니 (leni). Original outfit and identity: Light brown side bunches, black pointed bunny hat with yellow flowers, black-pink street outfit, pastel carrot bazooka.. Signature prop: Hold a pastel pink carrot-themed handheld launcher with a short visible barrel..\nCharacter-specific face and pose: Mischievous blond-pink schoolgirl, bright BLUE round eyes with lifted pointed corners, arched challenging brow, broad TOOTHY GRIN. Black bunny-ear headband.\n",
+  "generatedSource": "docs/art-identity/generated/leni.png",
+  "generatedSha256": "7b981c5cc63b2f636635d9b6164547e2c878b38760df1ba8314acfdc7cbe85e2",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1102,
+    1402
+  ],
+  "resizedSize": [
+    119,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/leni.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "4e5ce7a2df1f4c2f559c0e91f4cbc31d17f26686836e5b9d11808b1e6aefdf24",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

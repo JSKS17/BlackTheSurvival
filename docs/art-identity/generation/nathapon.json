@@ -1,0 +1,32 @@
+{
+  "id": "nathapon",
+  "name": "나타폰",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Relaxed photographer, soft narrow BROWN eye partly under side-swept hair, relaxed brow, mellow slightly crooked closed smile. Backward white cap.\n",
+  "originalReference": "docs/art-chibi/references/subjects/nathapon.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Nathapon_S000.png",
+  "referenceSha256": "fd307bfc5bfaf12dae6d1b0e6ada834dd8ab809a33418e8589dabdb64b359ee0",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 나타폰 (nathapon).\nOutfit and identity: Brown side-swept hair, backward white cap, light-blue denim vest, white shirt, big camera.\nSignature prop, do not copy another character's prop: Hold a black DSLR camera with a long black-and-white lens.\nFace design from original: Relaxed photographer, soft narrow BROWN eye partly under side-swept hair, relaxed brow, mellow slightly crooked closed smile. Backward white cap.\n",
+  "generatedSource": "docs/art-identity/generated/nathapon.png",
+  "generatedSha256": "d599697b643223c9e1d63b9c01b373e6613418a2d296f67c10b556250efb5e62",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1102,
+    1402
+  ],
+  "resizedSize": [
+    119,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/nathapon.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "7482bba486c910fab03632310e59f75b2d970ca2c73d114caa0c81e9a65857dd",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

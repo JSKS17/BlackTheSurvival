@@ -1,0 +1,32 @@
+{
+  "id": "sua",
+  "name": "수아",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Sua: gentle warm young storyteller. Preserve LARGE SOFT ROUND green-gold irises with visible darker pupils, gently downward-curved outer eyelids, fine slightly raised brows, small open WARM SMILE showing peach mouth and tiny pale teeth. NO bored halfclosed eyes. Long brown hair, green leaf flower ornaments, pale floral mint dress. Hold green storybook and small green storybook hammer. Her sweet smile and soft eyes are distinctive.\n",
+  "originalReference": "docs/art-chibi/references/subjects/sua.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Sua_S000.png",
+  "referenceSha256": "6e8dde5772cbfd60bd4c83f24f61bd7c933ab63f05bd276b728e8f5d2696ea12",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter-specific face and pose: Sua: gentle warm young storyteller. Preserve LARGE SOFT ROUND green-gold irises with visible darker pupils, gently downward-curved outer eyelids, fine slightly raised brows, small open WARM SMILE showing peach mouth and tiny pale teeth. NO bored halfclosed eyes. Long brown hair, green leaf flower ornaments, pale floral mint dress. Hold green storybook and small green storybook hammer. Her sweet smile and soft eyes are distinctive.\n",
+  "generatedSource": "docs/art-identity/generated/sua.png",
+  "generatedSha256": "ee25bae65959be0e0373c560f353cb2162be1c6f60a796d95dde82eeed4b19e4",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/sua.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "7bad9b971079706f6a14b03b93b78cd9c1990552d0869f099be36ea1c023c725",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

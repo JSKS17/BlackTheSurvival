@@ -1,0 +1,16 @@
+{
+  "id": "fireball",
+  "name": "파이어 볼",
+  "kind": "gear",
+  "originalId": 112405,
+  "weaponClass": "투척",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_112405.png",
+  "referencePath": "docs/art-system/references/loadout/fireball.png",
+  "originalTooltip": "전설 / 투척\n\n공격력 +40\n스킬 증폭 +76\n공격 속도 +20%\n쿨다운 감소 +10\n\n<b><color=yellow>충전 - 섬광</color></b>\n다음에 가하는 기본 공격이 <color=green>캐릭터 레벨 * 8 </color><color=#DDA0DD>(+스킬 증폭의 15%)</color>의 추가 스킬 피해를 입히고 1초 동안 이동 속도를 20%만큼 감소시킵니다. (쿨다운: 5초)\n\n파이어 볼은 모든 마법사의 첫 번째 로망이다. 하지만 실제로 구형으로 타오르는 기체를 구현하기는 기술적으로 상당히 힘들어서, VF의 힘을 빌려야 한다.",
+  "output": "Assets/Resources/Lumia/SystemIcons/fireball.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art inventory icon for the game Black The Survival. Image 1 is the original Eternal Return 파이어 볼 icon used only as a silhouette/color reference. Image 2 is our existing game icon contact sheet used only as a pixel-art style reference. Create a NEW single standalone icon matching this existing coarse pixel-art family, not a collage. Subject: A round glowing yellow-white fire orb wrapped by a red-orange flame tail curling upwards; fiery gold core and orange-red silhouette. Composition: centered, occupies roughly 80% of a square, readable at 32x32 logical pixels. Style: authentic 32x32 game sprite enlarged with sharp hard-edged square pixels, limited 12-18 color palette, stepped outlines and deliberate clustered highlights. Keep the original equipment's recognizable form, angle and major colors. Transparent background with genuine alpha, no square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-cae55615-ce32-464f-9be9-c2a4749db2b4.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

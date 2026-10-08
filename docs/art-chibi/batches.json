@@ -1,0 +1,7922 @@
+{
+  "schema": 1,
+  "batches": [
+    {
+      "id": "sprites_01",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_01_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "hana",
+        "nia",
+        "jackie",
+        "aya",
+        "hyunwoo",
+        "yuki",
+        "hyejin",
+        "sua"
+      ]
+    },
+    {
+      "id": "sprites_02",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_02_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "isol",
+        "nadine",
+        "emma",
+        "charlotte",
+        "nathapon",
+        "nicky",
+        "daniel",
+        "tia"
+      ]
+    },
+    {
+      "id": "sprites_03",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_03_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "laura",
+        "lenox",
+        "leon",
+        "rozzi",
+        "luke",
+        "dailin",
+        "rio",
+        "martina"
+      ]
+    },
+    {
+      "id": "sprites_04",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_04_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "mai",
+        "markus",
+        "magnus",
+        "vanya",
+        "barbara",
+        "bernice",
+        "bianca",
+        "celine"
+      ]
+    },
+    {
+      "id": "sprites_05",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_05_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "sho",
+        "shoichi",
+        "sissela",
+        "silvia",
+        "adela",
+        "adriana",
+        "adina",
+        "isaac"
+      ]
+    },
+    {
+      "id": "sprites_06",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_06_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "alex",
+        "jan",
+        "estelle",
+        "aiden",
+        "echion",
+        "elena",
+        "johann",
+        "william"
+      ]
+    },
+    {
+      "id": "sprites_07",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_07_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "irem",
+        "eva",
+        "ian",
+        "eleven",
+        "zahir",
+        "jenny",
+        "camilo",
+        "karla"
+      ],
+      "island_alpha": 32
+    },
+    {
+      "id": "sprites_08",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_08_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "cathy",
+        "chloe",
+        "chiara",
+        "tazia",
+        "theodore",
+        "felix",
+        "priya",
+        "fiora"
+      ]
+    },
+    {
+      "id": "sprites_09",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_09_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "piolo",
+        "hart",
+        "haze",
+        "debi_marlene",
+        "arda",
+        "abigail",
+        "alonso",
+        "leni"
+      ]
+    },
+    {
+      "id": "sprites_10",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_10_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "tsubame",
+        "kenneth",
+        "katja",
+        "darko",
+        "lenore",
+        "garnet",
+        "yumin",
+        "hisui"
+      ]
+    },
+    {
+      "id": "sprites_11",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_11_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "justyna",
+        "istvan",
+        "xuelin",
+        "henry",
+        "blair",
+        "mirka",
+        "fenrir",
+        "coraline"
+      ]
+    },
+    {
+      "id": "sprites_12",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_12_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "bihyung",
+        "craver",
+        "lucia",
+        "ceres",
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": "skills_01",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_01_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "nia_p",
+          "kind": "passive"
+        },
+        {
+          "id": "nia_q",
+          "kind": "icon"
+        },
+        {
+          "id": "nia_w",
+          "kind": "icon"
+        },
+        {
+          "id": "nia_e",
+          "kind": "icon"
+        },
+        {
+          "id": "nia_r",
+          "kind": "icon"
+        },
+        {
+          "id": "jackie_p",
+          "kind": "passive"
+        },
+        {
+          "id": "jackie_q",
+          "kind": "icon"
+        },
+        {
+          "id": "jackie_w",
+          "kind": "icon"
+        },
+        {
+          "id": "jackie_e",
+          "kind": "icon"
+        },
+        {
+          "id": "jackie_r",
+          "kind": "icon"
+        },
+        {
+          "id": "aya_p",
+          "kind": "passive"
+        },
+        {
+          "id": "aya_q",
+          "kind": "icon"
+        },
+        {
+          "id": "aya_w",
+          "kind": "icon"
+        },
+        {
+          "id": "aya_e",
+          "kind": "icon"
+        },
+        {
+          "id": "aya_r",
+          "kind": "icon"
+        },
+        {
+          "id": "hyunwoo_p",
+          "kind": "passive"
+        },
+        {
+          "id": "hyunwoo_q",
+          "kind": "icon"
+        },
+        {
+          "id": "hyunwoo_w",
+          "kind": "icon"
+        },
+        {
+          "id": "hyunwoo_e",
+          "kind": "icon"
+        },
+        {
+          "id": "hyunwoo_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "nia_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            21,
+            52,
+            256,
+            286
+          ]
+        },
+        {
+          "id": "nia_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            294,
+            52,
+            544,
+            286
+          ]
+        },
+        {
+          "id": "nia_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            577,
+            52,
+            825,
+            286
+          ]
+        },
+        {
+          "id": "nia_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            857,
+            52,
+            1106,
+            286
+          ]
+        },
+        {
+          "id": "nia_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1143,
+            52,
+            1383,
+            286
+          ]
+        },
+        {
+          "id": "jackie_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            21,
+            315,
+            256,
+            542
+          ]
+        },
+        {
+          "id": "jackie_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            294,
+            315,
+            544,
+            542
+          ]
+        },
+        {
+          "id": "jackie_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            577,
+            315,
+            825,
+            542
+          ]
+        },
+        {
+          "id": "jackie_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            857,
+            315,
+            1106,
+            542
+          ]
+        },
+        {
+          "id": "jackie_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1143,
+            315,
+            1383,
+            542
+          ]
+        },
+        {
+          "id": "aya_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            21,
+            575,
+            256,
+            802
+          ]
+        },
+        {
+          "id": "aya_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            294,
+            575,
+            544,
+            802
+          ]
+        },
+        {
+          "id": "aya_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            577,
+            575,
+            825,
+            802
+          ]
+        },
+        {
+          "id": "aya_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            857,
+            575,
+            1106,
+            802
+          ]
+        },
+        {
+          "id": "aya_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1143,
+            575,
+            1383,
+            802
+          ]
+        },
+        {
+          "id": "hyunwoo_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            21,
+            836,
+            256,
+            1072
+          ]
+        },
+        {
+          "id": "hyunwoo_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            294,
+            836,
+            544,
+            1072
+          ]
+        },
+        {
+          "id": "hyunwoo_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            577,
+            836,
+            825,
+            1072
+          ]
+        },
+        {
+          "id": "hyunwoo_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            857,
+            836,
+            1106,
+            1072
+          ]
+        },
+        {
+          "id": "hyunwoo_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1143,
+            836,
+            1383,
+            1072
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_02",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_02_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "yuki_p",
+          "kind": "passive"
+        },
+        {
+          "id": "yuki_q",
+          "kind": "icon"
+        },
+        {
+          "id": "yuki_w",
+          "kind": "icon"
+        },
+        {
+          "id": "yuki_e",
+          "kind": "icon"
+        },
+        {
+          "id": "yuki_r",
+          "kind": "icon"
+        },
+        {
+          "id": "hyejin_p",
+          "kind": "passive"
+        },
+        {
+          "id": "hyejin_q",
+          "kind": "icon"
+        },
+        {
+          "id": "hyejin_w",
+          "kind": "icon"
+        },
+        {
+          "id": "hyejin_e",
+          "kind": "icon"
+        },
+        {
+          "id": "hyejin_r",
+          "kind": "icon"
+        },
+        {
+          "id": "sua_p",
+          "kind": "passive"
+        },
+        {
+          "id": "sua_q",
+          "kind": "icon"
+        },
+        {
+          "id": "sua_w",
+          "kind": "icon"
+        },
+        {
+          "id": "sua_e",
+          "kind": "icon"
+        },
+        {
+          "id": "sua_r",
+          "kind": "icon"
+        },
+        {
+          "id": "isol_p",
+          "kind": "passive"
+        },
+        {
+          "id": "isol_q",
+          "kind": "icon"
+        },
+        {
+          "id": "isol_w",
+          "kind": "icon"
+        },
+        {
+          "id": "isol_e",
+          "kind": "icon"
+        },
+        {
+          "id": "isol_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "yuki_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            25,
+            52,
+            264,
+            286
+          ]
+        },
+        {
+          "id": "yuki_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            302,
+            52,
+            545,
+            286
+          ]
+        },
+        {
+          "id": "yuki_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            581,
+            52,
+            824,
+            286
+          ]
+        },
+        {
+          "id": "yuki_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            859,
+            52,
+            1104,
+            286
+          ]
+        },
+        {
+          "id": "yuki_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1140,
+            52,
+            1379,
+            286
+          ]
+        },
+        {
+          "id": "hyejin_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            25,
+            317,
+            264,
+            543
+          ]
+        },
+        {
+          "id": "hyejin_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            302,
+            317,
+            545,
+            543
+          ]
+        },
+        {
+          "id": "hyejin_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            581,
+            317,
+            824,
+            543
+          ]
+        },
+        {
+          "id": "hyejin_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            859,
+            317,
+            1104,
+            543
+          ]
+        },
+        {
+          "id": "hyejin_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1140,
+            317,
+            1379,
+            543
+          ]
+        },
+        {
+          "id": "sua_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            25,
+            573,
+            264,
+            801
+          ]
+        },
+        {
+          "id": "sua_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            302,
+            573,
+            545,
+            801
+          ]
+        },
+        {
+          "id": "sua_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            581,
+            573,
+            824,
+            801
+          ]
+        },
+        {
+          "id": "sua_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            859,
+            573,
+            1104,
+            801
+          ]
+        },
+        {
+          "id": "sua_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1140,
+            573,
+            1379,
+            801
+          ]
+        },
+        {
+          "id": "isol_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            25,
+            835,
+            264,
+            1068
+          ]
+        },
+        {
+          "id": "isol_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            302,
+            835,
+            545,
+            1068
+          ]
+        },
+        {
+          "id": "isol_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            581,
+            835,
+            824,
+            1068
+          ]
+        },
+        {
+          "id": "isol_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            859,
+            835,
+            1104,
+            1068
+          ]
+        },
+        {
+          "id": "isol_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1140,
+            835,
+            1379,
+            1068
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_03",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_03_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "nadine_p",
+          "kind": "passive"
+        },
+        {
+          "id": "nadine_q",
+          "kind": "icon"
+        },
+        {
+          "id": "nadine_w",
+          "kind": "icon"
+        },
+        {
+          "id": "nadine_e",
+          "kind": "icon"
+        },
+        {
+          "id": "nadine_r",
+          "kind": "icon"
+        },
+        {
+          "id": "emma_p",
+          "kind": "passive"
+        },
+        {
+          "id": "emma_q",
+          "kind": "icon"
+        },
+        {
+          "id": "emma_w",
+          "kind": "icon"
+        },
+        {
+          "id": "emma_e",
+          "kind": "icon"
+        },
+        {
+          "id": "emma_r",
+          "kind": "icon"
+        },
+        {
+          "id": "charlotte_p",
+          "kind": "passive"
+        },
+        {
+          "id": "charlotte_q",
+          "kind": "icon"
+        },
+        {
+          "id": "charlotte_w",
+          "kind": "icon"
+        },
+        {
+          "id": "charlotte_e",
+          "kind": "icon"
+        },
+        {
+          "id": "charlotte_r",
+          "kind": "icon"
+        },
+        {
+          "id": "nathapon_p",
+          "kind": "passive"
+        },
+        {
+          "id": "nathapon_q",
+          "kind": "icon"
+        },
+        {
+          "id": "nathapon_w",
+          "kind": "icon"
+        },
+        {
+          "id": "nathapon_e",
+          "kind": "icon"
+        },
+        {
+          "id": "nathapon_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "nadine_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            23,
+            52,
+            260,
+            286
+          ]
+        },
+        {
+          "id": "nadine_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            296,
+            52,
+            542,
+            286
+          ]
+        },
+        {
+          "id": "nadine_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            577,
+            52,
+            823,
+            286
+          ]
+        },
+        {
+          "id": "nadine_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            861,
+            52,
+            1105,
+            286
+          ]
+        },
+        {
+          "id": "nadine_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1142,
+            52,
+            1380,
+            286
+          ]
+        },
+        {
+          "id": "emma_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            23,
+            315,
+            260,
+            547
+          ]
+        },
+        {
+          "id": "emma_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            296,
+            315,
+            542,
+            547
+          ]
+        },
+        {
+          "id": "emma_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            577,
+            315,
+            823,
+            547
+          ]
+        },
+        {
+          "id": "emma_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            861,
+            315,
+            1105,
+            547
+          ]
+        },
+        {
+          "id": "emma_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1142,
+            315,
+            1380,
+            547
+          ]
+        },
+        {
+          "id": "charlotte_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            23,
+            575,
+            260,
+            803
+          ]
+        },
+        {
+          "id": "charlotte_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            296,
+            575,
+            542,
+            803
+          ]
+        },
+        {
+          "id": "charlotte_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            577,
+            575,
+            823,
+            803
+          ]
+        },
+        {
+          "id": "charlotte_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            861,
+            575,
+            1105,
+            803
+          ]
+        },
+        {
+          "id": "charlotte_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1142,
+            575,
+            1380,
+            803
+          ]
+        },
+        {
+          "id": "nathapon_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            23,
+            831,
+            260,
+            1063
+          ]
+        },
+        {
+          "id": "nathapon_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            296,
+            831,
+            542,
+            1063
+          ]
+        },
+        {
+          "id": "nathapon_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            577,
+            831,
+            823,
+            1063
+          ]
+        },
+        {
+          "id": "nathapon_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            861,
+            831,
+            1105,
+            1063
+          ]
+        },
+        {
+          "id": "nathapon_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1142,
+            831,
+            1380,
+            1063
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_04",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_04_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "nicky_p",
+          "kind": "passive"
+        },
+        {
+          "id": "nicky_q",
+          "kind": "icon"
+        },
+        {
+          "id": "nicky_w",
+          "kind": "icon"
+        },
+        {
+          "id": "nicky_e",
+          "kind": "icon"
+        },
+        {
+          "id": "nicky_r",
+          "kind": "icon"
+        },
+        {
+          "id": "daniel_p",
+          "kind": "passive"
+        },
+        {
+          "id": "daniel_q",
+          "kind": "icon"
+        },
+        {
+          "id": "daniel_w",
+          "kind": "icon"
+        },
+        {
+          "id": "daniel_e",
+          "kind": "icon"
+        },
+        {
+          "id": "daniel_r",
+          "kind": "icon"
+        },
+        {
+          "id": "tia_p",
+          "kind": "passive"
+        },
+        {
+          "id": "tia_q",
+          "kind": "icon"
+        },
+        {
+          "id": "tia_w",
+          "kind": "icon"
+        },
+        {
+          "id": "tia_e",
+          "kind": "icon"
+        },
+        {
+          "id": "tia_r",
+          "kind": "icon"
+        },
+        {
+          "id": "laura_p",
+          "kind": "passive"
+        },
+        {
+          "id": "laura_q",
+          "kind": "icon"
+        },
+        {
+          "id": "laura_w",
+          "kind": "icon"
+        },
+        {
+          "id": "laura_e",
+          "kind": "icon"
+        },
+        {
+          "id": "laura_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "nicky_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            20,
+            48,
+            263,
+            284
+          ]
+        },
+        {
+          "id": "nicky_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            294,
+            48,
+            545,
+            284
+          ]
+        },
+        {
+          "id": "nicky_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            576,
+            48,
+            827,
+            284
+          ]
+        },
+        {
+          "id": "nicky_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            858,
+            48,
+            1108,
+            284
+          ]
+        },
+        {
+          "id": "nicky_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1139,
+            48,
+            1382,
+            284
+          ]
+        },
+        {
+          "id": "daniel_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            20,
+            311,
+            263,
+            546
+          ]
+        },
+        {
+          "id": "daniel_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            294,
+            311,
+            545,
+            546
+          ]
+        },
+        {
+          "id": "daniel_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            576,
+            311,
+            827,
+            546
+          ]
+        },
+        {
+          "id": "daniel_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            858,
+            311,
+            1108,
+            546
+          ]
+        },
+        {
+          "id": "daniel_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1139,
+            311,
+            1382,
+            546
+          ]
+        },
+        {
+          "id": "tia_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            20,
+            568,
+            263,
+            802
+          ]
+        },
+        {
+          "id": "tia_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            294,
+            568,
+            545,
+            802
+          ]
+        },
+        {
+          "id": "tia_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            576,
+            568,
+            827,
+            802
+          ]
+        },
+        {
+          "id": "tia_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            858,
+            568,
+            1108,
+            802
+          ]
+        },
+        {
+          "id": "tia_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1139,
+            568,
+            1382,
+            802
+          ]
+        },
+        {
+          "id": "laura_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            20,
+            830,
+            263,
+            1071
+          ]
+        },
+        {
+          "id": "laura_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            294,
+            830,
+            545,
+            1071
+          ]
+        },
+        {
+          "id": "laura_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            576,
+            830,
+            827,
+            1071
+          ]
+        },
+        {
+          "id": "laura_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            858,
+            830,
+            1108,
+            1071
+          ]
+        },
+        {
+          "id": "laura_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1139,
+            830,
+            1382,
+            1071
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_05",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_05_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "lenox_p",
+          "kind": "passive"
+        },
+        {
+          "id": "lenox_q",
+          "kind": "icon"
+        },
+        {
+          "id": "lenox_w",
+          "kind": "icon"
+        },
+        {
+          "id": "lenox_e",
+          "kind": "icon"
+        },
+        {
+          "id": "lenox_r",
+          "kind": "icon"
+        },
+        {
+          "id": "leon_p",
+          "kind": "passive"
+        },
+        {
+          "id": "leon_q",
+          "kind": "icon"
+        },
+        {
+          "id": "leon_w",
+          "kind": "icon"
+        },
+        {
+          "id": "leon_e",
+          "kind": "icon"
+        },
+        {
+          "id": "leon_r",
+          "kind": "icon"
+        },
+        {
+          "id": "rozzi_p",
+          "kind": "passive"
+        },
+        {
+          "id": "rozzi_q",
+          "kind": "icon"
+        },
+        {
+          "id": "rozzi_w",
+          "kind": "icon"
+        },
+        {
+          "id": "rozzi_e",
+          "kind": "icon"
+        },
+        {
+          "id": "rozzi_r",
+          "kind": "icon"
+        },
+        {
+          "id": "luke_p",
+          "kind": "passive"
+        },
+        {
+          "id": "luke_q",
+          "kind": "icon"
+        },
+        {
+          "id": "luke_w",
+          "kind": "icon"
+        },
+        {
+          "id": "luke_e",
+          "kind": "icon"
+        },
+        {
+          "id": "luke_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "lenox_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            22,
+            52,
+            257,
+            287
+          ]
+        },
+        {
+          "id": "lenox_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            297,
+            52,
+            542,
+            287
+          ]
+        },
+        {
+          "id": "lenox_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            582,
+            52,
+            821,
+            287
+          ]
+        },
+        {
+          "id": "lenox_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            860,
+            52,
+            1105,
+            287
+          ]
+        },
+        {
+          "id": "lenox_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1144,
+            52,
+            1382,
+            287
+          ]
+        },
+        {
+          "id": "leon_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            22,
+            316,
+            257,
+            545
+          ]
+        },
+        {
+          "id": "leon_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            297,
+            316,
+            542,
+            545
+          ]
+        },
+        {
+          "id": "leon_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            582,
+            316,
+            821,
+            545
+          ]
+        },
+        {
+          "id": "leon_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            860,
+            316,
+            1105,
+            545
+          ]
+        },
+        {
+          "id": "leon_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1144,
+            316,
+            1382,
+            545
+          ]
+        },
+        {
+          "id": "rozzi_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            22,
+            573,
+            257,
+            804
+          ]
+        },
+        {
+          "id": "rozzi_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            297,
+            573,
+            542,
+            804
+          ]
+        },
+        {
+          "id": "rozzi_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            582,
+            573,
+            821,
+            804
+          ]
+        },
+        {
+          "id": "rozzi_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            860,
+            573,
+            1105,
+            804
+          ]
+        },
+        {
+          "id": "rozzi_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1144,
+            573,
+            1382,
+            804
+          ]
+        },
+        {
+          "id": "luke_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            22,
+            834,
+            257,
+            1070
+          ]
+        },
+        {
+          "id": "luke_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            297,
+            834,
+            542,
+            1070
+          ]
+        },
+        {
+          "id": "luke_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            582,
+            834,
+            821,
+            1070
+          ]
+        },
+        {
+          "id": "luke_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            860,
+            834,
+            1105,
+            1070
+          ]
+        },
+        {
+          "id": "luke_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1144,
+            834,
+            1382,
+            1070
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_06",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_06_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "dailin_p",
+          "kind": "passive"
+        },
+        {
+          "id": "dailin_q",
+          "kind": "icon"
+        },
+        {
+          "id": "dailin_w",
+          "kind": "icon"
+        },
+        {
+          "id": "dailin_e",
+          "kind": "icon"
+        },
+        {
+          "id": "dailin_r",
+          "kind": "icon"
+        },
+        {
+          "id": "rio_p",
+          "kind": "passive"
+        },
+        {
+          "id": "rio_q",
+          "kind": "icon"
+        },
+        {
+          "id": "rio_w",
+          "kind": "icon"
+        },
+        {
+          "id": "rio_e",
+          "kind": "icon"
+        },
+        {
+          "id": "rio_r",
+          "kind": "icon"
+        },
+        {
+          "id": "martina_p",
+          "kind": "passive"
+        },
+        {
+          "id": "martina_q",
+          "kind": "icon"
+        },
+        {
+          "id": "martina_w",
+          "kind": "icon"
+        },
+        {
+          "id": "martina_e",
+          "kind": "icon"
+        },
+        {
+          "id": "martina_r",
+          "kind": "icon"
+        },
+        {
+          "id": "mai_p",
+          "kind": "passive"
+        },
+        {
+          "id": "mai_q",
+          "kind": "icon"
+        },
+        {
+          "id": "mai_w",
+          "kind": "icon"
+        },
+        {
+          "id": "mai_e",
+          "kind": "icon"
+        },
+        {
+          "id": "mai_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "dailin_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            22,
+            52,
+            264,
+            286
+          ]
+        },
+        {
+          "id": "dailin_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            298,
+            52,
+            545,
+            286
+          ]
+        },
+        {
+          "id": "dailin_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            578,
+            52,
+            824,
+            286
+          ]
+        },
+        {
+          "id": "dailin_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            857,
+            52,
+            1105,
+            286
+          ]
+        },
+        {
+          "id": "dailin_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1139,
+            52,
+            1380,
+            286
+          ]
+        },
+        {
+          "id": "rio_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            22,
+            315,
+            264,
+            548
+          ]
+        },
+        {
+          "id": "rio_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            298,
+            315,
+            545,
+            548
+          ]
+        },
+        {
+          "id": "rio_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            578,
+            315,
+            824,
+            548
+          ]
+        },
+        {
+          "id": "rio_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            857,
+            315,
+            1105,
+            548
+          ]
+        },
+        {
+          "id": "rio_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1139,
+            315,
+            1380,
+            548
+          ]
+        },
+        {
+          "id": "martina_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            22,
+            575,
+            264,
+            806
+          ]
+        },
+        {
+          "id": "martina_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            298,
+            575,
+            545,
+            806
+          ]
+        },
+        {
+          "id": "martina_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            578,
+            575,
+            824,
+            806
+          ]
+        },
+        {
+          "id": "martina_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            857,
+            575,
+            1105,
+            806
+          ]
+        },
+        {
+          "id": "martina_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1139,
+            575,
+            1380,
+            806
+          ]
+        },
+        {
+          "id": "mai_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            22,
+            834,
+            264,
+            1070
+          ]
+        },
+        {
+          "id": "mai_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            298,
+            834,
+            545,
+            1070
+          ]
+        },
+        {
+          "id": "mai_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            578,
+            834,
+            824,
+            1070
+          ]
+        },
+        {
+          "id": "mai_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            857,
+            834,
+            1105,
+            1070
+          ]
+        },
+        {
+          "id": "mai_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1139,
+            834,
+            1380,
+            1070
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_07",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_07_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "markus_p",
+          "kind": "passive"
+        },
+        {
+          "id": "markus_q",
+          "kind": "icon"
+        },
+        {
+          "id": "markus_w",
+          "kind": "icon"
+        },
+        {
+          "id": "markus_e",
+          "kind": "icon"
+        },
+        {
+          "id": "markus_r",
+          "kind": "icon"
+        },
+        {
+          "id": "magnus_p",
+          "kind": "passive"
+        },
+        {
+          "id": "magnus_q",
+          "kind": "icon"
+        },
+        {
+          "id": "magnus_w",
+          "kind": "icon"
+        },
+        {
+          "id": "magnus_e",
+          "kind": "icon"
+        },
+        {
+          "id": "magnus_r",
+          "kind": "icon"
+        },
+        {
+          "id": "vanya_p",
+          "kind": "passive"
+        },
+        {
+          "id": "vanya_q",
+          "kind": "icon"
+        },
+        {
+          "id": "vanya_w",
+          "kind": "icon"
+        },
+        {
+          "id": "vanya_e",
+          "kind": "icon"
+        },
+        {
+          "id": "vanya_r",
+          "kind": "icon"
+        },
+        {
+          "id": "barbara_p",
+          "kind": "passive"
+        },
+        {
+          "id": "barbara_q",
+          "kind": "icon"
+        },
+        {
+          "id": "barbara_w",
+          "kind": "icon"
+        },
+        {
+          "id": "barbara_e",
+          "kind": "icon"
+        },
+        {
+          "id": "barbara_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "markus_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            22,
+            52,
+            261,
+            285
+          ]
+        },
+        {
+          "id": "markus_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            300,
+            52,
+            544,
+            285
+          ]
+        },
+        {
+          "id": "markus_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            580,
+            52,
+            824,
+            285
+          ]
+        },
+        {
+          "id": "markus_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            860,
+            52,
+            1104,
+            285
+          ]
+        },
+        {
+          "id": "markus_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1141,
+            52,
+            1381,
+            285
+          ]
+        },
+        {
+          "id": "magnus_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            22,
+            315,
+            261,
+            546
+          ]
+        },
+        {
+          "id": "magnus_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            300,
+            315,
+            544,
+            546
+          ]
+        },
+        {
+          "id": "magnus_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            580,
+            315,
+            824,
+            546
+          ]
+        },
+        {
+          "id": "magnus_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            860,
+            315,
+            1104,
+            546
+          ]
+        },
+        {
+          "id": "magnus_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1141,
+            315,
+            1381,
+            546
+          ]
+        },
+        {
+          "id": "vanya_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            22,
+            576,
+            261,
+            807
+          ]
+        },
+        {
+          "id": "vanya_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            300,
+            576,
+            544,
+            807
+          ]
+        },
+        {
+          "id": "vanya_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            580,
+            576,
+            824,
+            807
+          ]
+        },
+        {
+          "id": "vanya_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            860,
+            576,
+            1104,
+            807
+          ]
+        },
+        {
+          "id": "vanya_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1141,
+            576,
+            1381,
+            807
+          ]
+        },
+        {
+          "id": "barbara_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            22,
+            836,
+            261,
+            1068
+          ]
+        },
+        {
+          "id": "barbara_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            300,
+            836,
+            544,
+            1068
+          ]
+        },
+        {
+          "id": "barbara_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            580,
+            836,
+            824,
+            1068
+          ]
+        },
+        {
+          "id": "barbara_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            860,
+            836,
+            1104,
+            1068
+          ]
+        },
+        {
+          "id": "barbara_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1141,
+            836,
+            1381,
+            1068
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_08",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_08_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "bernice_p",
+          "kind": "passive"
+        },
+        {
+          "id": "bernice_q",
+          "kind": "icon"
+        },
+        {
+          "id": "bernice_w",
+          "kind": "icon"
+        },
+        {
+          "id": "bernice_e",
+          "kind": "icon"
+        },
+        {
+          "id": "bernice_r",
+          "kind": "icon"
+        },
+        {
+          "id": "bianca_p",
+          "kind": "passive"
+        },
+        {
+          "id": "bianca_q",
+          "kind": "icon"
+        },
+        {
+          "id": "bianca_w",
+          "kind": "icon"
+        },
+        {
+          "id": "bianca_e",
+          "kind": "icon"
+        },
+        {
+          "id": "bianca_r",
+          "kind": "icon"
+        },
+        {
+          "id": "celine_p",
+          "kind": "passive"
+        },
+        {
+          "id": "celine_q",
+          "kind": "icon"
+        },
+        {
+          "id": "celine_w",
+          "kind": "icon"
+        },
+        {
+          "id": "celine_e",
+          "kind": "icon"
+        },
+        {
+          "id": "celine_r",
+          "kind": "icon"
+        },
+        {
+          "id": "sho_p",
+          "kind": "passive"
+        },
+        {
+          "id": "sho_q",
+          "kind": "icon"
+        },
+        {
+          "id": "sho_w",
+          "kind": "icon"
+        },
+        {
+          "id": "sho_e",
+          "kind": "icon"
+        },
+        {
+          "id": "sho_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "bernice_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            22,
+            51,
+            260,
+            284
+          ]
+        },
+        {
+          "id": "bernice_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            297,
+            51,
+            542,
+            284
+          ]
+        },
+        {
+          "id": "bernice_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            578,
+            51,
+            824,
+            284
+          ]
+        },
+        {
+          "id": "bernice_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            859,
+            51,
+            1106,
+            284
+          ]
+        },
+        {
+          "id": "bernice_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1143,
+            51,
+            1382,
+            284
+          ]
+        },
+        {
+          "id": "bianca_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            22,
+            310,
+            260,
+            543
+          ]
+        },
+        {
+          "id": "bianca_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            297,
+            310,
+            542,
+            543
+          ]
+        },
+        {
+          "id": "bianca_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            578,
+            310,
+            824,
+            543
+          ]
+        },
+        {
+          "id": "bianca_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            859,
+            310,
+            1106,
+            543
+          ]
+        },
+        {
+          "id": "bianca_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1143,
+            310,
+            1382,
+            543
+          ]
+        },
+        {
+          "id": "celine_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            22,
+            568,
+            260,
+            797
+          ]
+        },
+        {
+          "id": "celine_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            297,
+            568,
+            542,
+            797
+          ]
+        },
+        {
+          "id": "celine_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            578,
+            568,
+            824,
+            797
+          ]
+        },
+        {
+          "id": "celine_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            859,
+            568,
+            1106,
+            797
+          ]
+        },
+        {
+          "id": "celine_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1143,
+            568,
+            1382,
+            797
+          ]
+        },
+        {
+          "id": "sho_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            22,
+            828,
+            260,
+            1068
+          ]
+        },
+        {
+          "id": "sho_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            297,
+            828,
+            542,
+            1068
+          ]
+        },
+        {
+          "id": "sho_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            578,
+            828,
+            824,
+            1068
+          ]
+        },
+        {
+          "id": "sho_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            859,
+            828,
+            1106,
+            1068
+          ]
+        },
+        {
+          "id": "sho_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1143,
+            828,
+            1382,
+            1068
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_09",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_09_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "shoichi_p",
+          "kind": "passive"
+        },
+        {
+          "id": "shoichi_q",
+          "kind": "icon"
+        },
+        {
+          "id": "shoichi_w",
+          "kind": "icon"
+        },
+        {
+          "id": "shoichi_e",
+          "kind": "icon"
+        },
+        {
+          "id": "shoichi_r",
+          "kind": "icon"
+        },
+        {
+          "id": "sissela_p",
+          "kind": "passive"
+        },
+        {
+          "id": "sissela_q",
+          "kind": "icon"
+        },
+        {
+          "id": "sissela_w",
+          "kind": "icon"
+        },
+        {
+          "id": "sissela_e",
+          "kind": "icon"
+        },
+        {
+          "id": "sissela_r",
+          "kind": "icon"
+        },
+        {
+          "id": "silvia_p",
+          "kind": "passive"
+        },
+        {
+          "id": "silvia_q",
+          "kind": "icon"
+        },
+        {
+          "id": "silvia_w",
+          "kind": "icon"
+        },
+        {
+          "id": "silvia_e",
+          "kind": "icon"
+        },
+        {
+          "id": "silvia_r",
+          "kind": "icon"
+        },
+        {
+          "id": "adela_p",
+          "kind": "passive"
+        },
+        {
+          "id": "adela_q",
+          "kind": "icon"
+        },
+        {
+          "id": "adela_w",
+          "kind": "icon"
+        },
+        {
+          "id": "adela_e",
+          "kind": "icon"
+        },
+        {
+          "id": "adela_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "shoichi_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            21,
+            52,
+            262,
+            285
+          ]
+        },
+        {
+          "id": "shoichi_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            296,
+            52,
+            546,
+            285
+          ]
+        },
+        {
+          "id": "shoichi_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            578,
+            52,
+            826,
+            285
+          ]
+        },
+        {
+          "id": "shoichi_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            858,
+            52,
+            1107,
+            285
+          ]
+        },
+        {
+          "id": "shoichi_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1140,
+            52,
+            1383,
+            285
+          ]
+        },
+        {
+          "id": "sissela_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            21,
+            313,
+            262,
+            544
+          ]
+        },
+        {
+          "id": "sissela_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            296,
+            313,
+            546,
+            544
+          ]
+        },
+        {
+          "id": "sissela_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            578,
+            313,
+            826,
+            544
+          ]
+        },
+        {
+          "id": "sissela_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            858,
+            313,
+            1107,
+            544
+          ]
+        },
+        {
+          "id": "sissela_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1140,
+            313,
+            1383,
+            544
+          ]
+        },
+        {
+          "id": "silvia_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            21,
+            572,
+            262,
+            804
+          ]
+        },
+        {
+          "id": "silvia_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            296,
+            572,
+            546,
+            804
+          ]
+        },
+        {
+          "id": "silvia_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            578,
+            572,
+            826,
+            804
+          ]
+        },
+        {
+          "id": "silvia_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            858,
+            572,
+            1107,
+            804
+          ]
+        },
+        {
+          "id": "silvia_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1140,
+            572,
+            1383,
+            804
+          ]
+        },
+        {
+          "id": "adela_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            21,
+            833,
+            262,
+            1071
+          ]
+        },
+        {
+          "id": "adela_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            296,
+            833,
+            546,
+            1071
+          ]
+        },
+        {
+          "id": "adela_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            578,
+            833,
+            826,
+            1071
+          ]
+        },
+        {
+          "id": "adela_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            858,
+            833,
+            1107,
+            1071
+          ]
+        },
+        {
+          "id": "adela_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1140,
+            833,
+            1383,
+            1071
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_10",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_10_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "adriana_p",
+          "kind": "passive"
+        },
+        {
+          "id": "adriana_q",
+          "kind": "icon"
+        },
+        {
+          "id": "adriana_w",
+          "kind": "icon"
+        },
+        {
+          "id": "adriana_e",
+          "kind": "icon"
+        },
+        {
+          "id": "adriana_r",
+          "kind": "icon"
+        },
+        {
+          "id": "adina_p",
+          "kind": "passive"
+        },
+        {
+          "id": "adina_q",
+          "kind": "icon"
+        },
+        {
+          "id": "adina_w",
+          "kind": "icon"
+        },
+        {
+          "id": "adina_e",
+          "kind": "icon"
+        },
+        {
+          "id": "adina_r",
+          "kind": "icon"
+        },
+        {
+          "id": "isaac_p",
+          "kind": "passive"
+        },
+        {
+          "id": "isaac_q",
+          "kind": "icon"
+        },
+        {
+          "id": "isaac_w",
+          "kind": "icon"
+        },
+        {
+          "id": "isaac_e",
+          "kind": "icon"
+        },
+        {
+          "id": "isaac_r",
+          "kind": "icon"
+        },
+        {
+          "id": "alex_p",
+          "kind": "passive"
+        },
+        {
+          "id": "alex_q",
+          "kind": "icon"
+        },
+        {
+          "id": "alex_w",
+          "kind": "icon"
+        },
+        {
+          "id": "alex_e",
+          "kind": "icon"
+        },
+        {
+          "id": "alex_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "adriana_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            25,
+            53,
+            264,
+            287
+          ]
+        },
+        {
+          "id": "adriana_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            301,
+            53,
+            547,
+            287
+          ]
+        },
+        {
+          "id": "adriana_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            582,
+            53,
+            823,
+            287
+          ]
+        },
+        {
+          "id": "adriana_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            859,
+            53,
+            1106,
+            287
+          ]
+        },
+        {
+          "id": "adriana_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1141,
+            53,
+            1380,
+            287
+          ]
+        },
+        {
+          "id": "adina_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            25,
+            316,
+            264,
+            545
+          ]
+        },
+        {
+          "id": "adina_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            301,
+            316,
+            547,
+            545
+          ]
+        },
+        {
+          "id": "adina_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            582,
+            316,
+            823,
+            545
+          ]
+        },
+        {
+          "id": "adina_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            859,
+            316,
+            1106,
+            545
+          ]
+        },
+        {
+          "id": "adina_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1141,
+            316,
+            1380,
+            545
+          ]
+        },
+        {
+          "id": "isaac_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            25,
+            572,
+            264,
+            805
+          ]
+        },
+        {
+          "id": "isaac_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            301,
+            572,
+            547,
+            805
+          ]
+        },
+        {
+          "id": "isaac_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            582,
+            572,
+            823,
+            805
+          ]
+        },
+        {
+          "id": "isaac_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            859,
+            572,
+            1106,
+            805
+          ]
+        },
+        {
+          "id": "isaac_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1141,
+            572,
+            1380,
+            805
+          ]
+        },
+        {
+          "id": "alex_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            25,
+            832,
+            264,
+            1067
+          ]
+        },
+        {
+          "id": "alex_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            301,
+            832,
+            547,
+            1067
+          ]
+        },
+        {
+          "id": "alex_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            582,
+            832,
+            823,
+            1067
+          ]
+        },
+        {
+          "id": "alex_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            859,
+            832,
+            1106,
+            1067
+          ]
+        },
+        {
+          "id": "alex_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1141,
+            832,
+            1380,
+            1067
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_11",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_11_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "jan_p",
+          "kind": "passive"
+        },
+        {
+          "id": "jan_q",
+          "kind": "icon"
+        },
+        {
+          "id": "jan_w",
+          "kind": "icon"
+        },
+        {
+          "id": "jan_e",
+          "kind": "icon"
+        },
+        {
+          "id": "jan_r",
+          "kind": "icon"
+        },
+        {
+          "id": "estelle_p",
+          "kind": "passive"
+        },
+        {
+          "id": "estelle_q",
+          "kind": "icon"
+        },
+        {
+          "id": "estelle_w",
+          "kind": "icon"
+        },
+        {
+          "id": "estelle_e",
+          "kind": "icon"
+        },
+        {
+          "id": "estelle_r",
+          "kind": "icon"
+        },
+        {
+          "id": "aiden_p",
+          "kind": "passive"
+        },
+        {
+          "id": "aiden_q",
+          "kind": "icon"
+        },
+        {
+          "id": "aiden_w",
+          "kind": "icon"
+        },
+        {
+          "id": "aiden_e",
+          "kind": "icon"
+        },
+        {
+          "id": "aiden_r",
+          "kind": "icon"
+        },
+        {
+          "id": "echion_p",
+          "kind": "passive"
+        },
+        {
+          "id": "echion_q",
+          "kind": "icon"
+        },
+        {
+          "id": "echion_w",
+          "kind": "icon"
+        },
+        {
+          "id": "echion_e",
+          "kind": "icon"
+        },
+        {
+          "id": "echion_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "jan_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            21,
+            53,
+            258,
+            288
+          ]
+        },
+        {
+          "id": "jan_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            296,
+            53,
+            545,
+            288
+          ]
+        },
+        {
+          "id": "jan_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            579,
+            53,
+            824,
+            288
+          ]
+        },
+        {
+          "id": "jan_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            859,
+            53,
+            1106,
+            288
+          ]
+        },
+        {
+          "id": "jan_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1144,
+            53,
+            1382,
+            288
+          ]
+        },
+        {
+          "id": "estelle_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            21,
+            315,
+            258,
+            542
+          ]
+        },
+        {
+          "id": "estelle_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            296,
+            315,
+            545,
+            542
+          ]
+        },
+        {
+          "id": "estelle_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            579,
+            315,
+            824,
+            542
+          ]
+        },
+        {
+          "id": "estelle_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            859,
+            315,
+            1106,
+            542
+          ]
+        },
+        {
+          "id": "estelle_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1144,
+            315,
+            1382,
+            542
+          ]
+        },
+        {
+          "id": "aiden_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            21,
+            571,
+            258,
+            801
+          ]
+        },
+        {
+          "id": "aiden_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            296,
+            571,
+            545,
+            801
+          ]
+        },
+        {
+          "id": "aiden_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            579,
+            571,
+            824,
+            801
+          ]
+        },
+        {
+          "id": "aiden_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            859,
+            571,
+            1106,
+            801
+          ]
+        },
+        {
+          "id": "aiden_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1144,
+            571,
+            1382,
+            801
+          ]
+        },
+        {
+          "id": "echion_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            21,
+            833,
+            258,
+            1071
+          ]
+        },
+        {
+          "id": "echion_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            296,
+            833,
+            545,
+            1071
+          ]
+        },
+        {
+          "id": "echion_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            579,
+            833,
+            824,
+            1071
+          ]
+        },
+        {
+          "id": "echion_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            859,
+            833,
+            1106,
+            1071
+          ]
+        },
+        {
+          "id": "echion_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1144,
+            833,
+            1382,
+            1071
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_12",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_12_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "elena_p",
+          "kind": "passive"
+        },
+        {
+          "id": "elena_q",
+          "kind": "icon"
+        },
+        {
+          "id": "elena_w",
+          "kind": "icon"
+        },
+        {
+          "id": "elena_e",
+          "kind": "icon"
+        },
+        {
+          "id": "elena_r",
+          "kind": "icon"
+        },
+        {
+          "id": "johann_p",
+          "kind": "passive"
+        },
+        {
+          "id": "johann_q",
+          "kind": "icon"
+        },
+        {
+          "id": "johann_w",
+          "kind": "icon"
+        },
+        {
+          "id": "johann_e",
+          "kind": "icon"
+        },
+        {
+          "id": "johann_r",
+          "kind": "icon"
+        },
+        {
+          "id": "william_p",
+          "kind": "passive"
+        },
+        {
+          "id": "william_q",
+          "kind": "icon"
+        },
+        {
+          "id": "william_w",
+          "kind": "icon"
+        },
+        {
+          "id": "william_e",
+          "kind": "icon"
+        },
+        {
+          "id": "william_r",
+          "kind": "icon"
+        },
+        {
+          "id": "irem_p",
+          "kind": "passive"
+        },
+        {
+          "id": "irem_q",
+          "kind": "icon"
+        },
+        {
+          "id": "irem_w",
+          "kind": "icon"
+        },
+        {
+          "id": "irem_e",
+          "kind": "icon"
+        },
+        {
+          "id": "irem_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "elena_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            21,
+            53,
+            263,
+            288
+          ]
+        },
+        {
+          "id": "elena_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            295,
+            53,
+            545,
+            288
+          ]
+        },
+        {
+          "id": "elena_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            577,
+            53,
+            826,
+            288
+          ]
+        },
+        {
+          "id": "elena_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            859,
+            53,
+            1109,
+            288
+          ]
+        },
+        {
+          "id": "elena_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1141,
+            53,
+            1382,
+            288
+          ]
+        },
+        {
+          "id": "johann_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            21,
+            316,
+            263,
+            546
+          ]
+        },
+        {
+          "id": "johann_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            295,
+            316,
+            545,
+            546
+          ]
+        },
+        {
+          "id": "johann_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            577,
+            316,
+            826,
+            546
+          ]
+        },
+        {
+          "id": "johann_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            859,
+            316,
+            1109,
+            546
+          ]
+        },
+        {
+          "id": "johann_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1141,
+            316,
+            1382,
+            546
+          ]
+        },
+        {
+          "id": "william_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            21,
+            573,
+            263,
+            804
+          ]
+        },
+        {
+          "id": "william_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            295,
+            573,
+            545,
+            804
+          ]
+        },
+        {
+          "id": "william_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            577,
+            573,
+            826,
+            804
+          ]
+        },
+        {
+          "id": "william_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            859,
+            573,
+            1109,
+            804
+          ]
+        },
+        {
+          "id": "william_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1141,
+            573,
+            1382,
+            804
+          ]
+        },
+        {
+          "id": "irem_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            21,
+            832,
+            263,
+            1069
+          ]
+        },
+        {
+          "id": "irem_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            295,
+            832,
+            545,
+            1069
+          ]
+        },
+        {
+          "id": "irem_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            577,
+            832,
+            826,
+            1069
+          ]
+        },
+        {
+          "id": "irem_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            859,
+            832,
+            1109,
+            1069
+          ]
+        },
+        {
+          "id": "irem_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1141,
+            832,
+            1382,
+            1069
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_13",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_13_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "eva_p",
+          "kind": "passive"
+        },
+        {
+          "id": "eva_q",
+          "kind": "icon"
+        },
+        {
+          "id": "eva_w",
+          "kind": "icon"
+        },
+        {
+          "id": "eva_e",
+          "kind": "icon"
+        },
+        {
+          "id": "eva_r",
+          "kind": "icon"
+        },
+        {
+          "id": "ian_p",
+          "kind": "passive"
+        },
+        {
+          "id": "ian_q",
+          "kind": "icon"
+        },
+        {
+          "id": "ian_w",
+          "kind": "icon"
+        },
+        {
+          "id": "ian_e",
+          "kind": "icon"
+        },
+        {
+          "id": "ian_r",
+          "kind": "icon"
+        },
+        {
+          "id": "eleven_p",
+          "kind": "passive"
+        },
+        {
+          "id": "eleven_q",
+          "kind": "icon"
+        },
+        {
+          "id": "eleven_w",
+          "kind": "icon"
+        },
+        {
+          "id": "eleven_e",
+          "kind": "icon"
+        },
+        {
+          "id": "eleven_r",
+          "kind": "icon"
+        },
+        {
+          "id": "zahir_p",
+          "kind": "passive"
+        },
+        {
+          "id": "zahir_q",
+          "kind": "icon"
+        },
+        {
+          "id": "zahir_w",
+          "kind": "icon"
+        },
+        {
+          "id": "zahir_e",
+          "kind": "icon"
+        },
+        {
+          "id": "zahir_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "eva_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            21,
+            49,
+            263,
+            280
+          ]
+        },
+        {
+          "id": "eva_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            295,
+            49,
+            545,
+            280
+          ]
+        },
+        {
+          "id": "eva_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            577,
+            49,
+            826,
+            280
+          ]
+        },
+        {
+          "id": "eva_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            857,
+            49,
+            1107,
+            280
+          ]
+        },
+        {
+          "id": "eva_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1139,
+            49,
+            1382,
+            280
+          ]
+        },
+        {
+          "id": "ian_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            21,
+            309,
+            263,
+            538
+          ]
+        },
+        {
+          "id": "ian_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            295,
+            309,
+            545,
+            538
+          ]
+        },
+        {
+          "id": "ian_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            577,
+            309,
+            826,
+            538
+          ]
+        },
+        {
+          "id": "ian_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            857,
+            309,
+            1107,
+            538
+          ]
+        },
+        {
+          "id": "ian_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1139,
+            309,
+            1382,
+            538
+          ]
+        },
+        {
+          "id": "eleven_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            21,
+            569,
+            263,
+            799
+          ]
+        },
+        {
+          "id": "eleven_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            295,
+            569,
+            545,
+            799
+          ]
+        },
+        {
+          "id": "eleven_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            577,
+            569,
+            826,
+            799
+          ]
+        },
+        {
+          "id": "eleven_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            857,
+            569,
+            1107,
+            799
+          ]
+        },
+        {
+          "id": "eleven_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1139,
+            569,
+            1382,
+            799
+          ]
+        },
+        {
+          "id": "zahir_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            21,
+            828,
+            263,
+            1067
+          ]
+        },
+        {
+          "id": "zahir_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            295,
+            828,
+            545,
+            1067
+          ]
+        },
+        {
+          "id": "zahir_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            577,
+            828,
+            826,
+            1067
+          ]
+        },
+        {
+          "id": "zahir_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            857,
+            828,
+            1107,
+            1067
+          ]
+        },
+        {
+          "id": "zahir_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1139,
+            828,
+            1382,
+            1067
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_14",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_14_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "jenny_p",
+          "kind": "passive"
+        },
+        {
+          "id": "jenny_q",
+          "kind": "icon"
+        },
+        {
+          "id": "jenny_w",
+          "kind": "icon"
+        },
+        {
+          "id": "jenny_e",
+          "kind": "icon"
+        },
+        {
+          "id": "jenny_r",
+          "kind": "icon"
+        },
+        {
+          "id": "camilo_p",
+          "kind": "passive"
+        },
+        {
+          "id": "camilo_q",
+          "kind": "icon"
+        },
+        {
+          "id": "camilo_w",
+          "kind": "icon"
+        },
+        {
+          "id": "camilo_e",
+          "kind": "icon"
+        },
+        {
+          "id": "camilo_r",
+          "kind": "icon"
+        },
+        {
+          "id": "karla_p",
+          "kind": "passive"
+        },
+        {
+          "id": "karla_q",
+          "kind": "icon"
+        },
+        {
+          "id": "karla_w",
+          "kind": "icon"
+        },
+        {
+          "id": "karla_e",
+          "kind": "icon"
+        },
+        {
+          "id": "karla_r",
+          "kind": "icon"
+        },
+        {
+          "id": "cathy_p",
+          "kind": "passive"
+        },
+        {
+          "id": "cathy_q",
+          "kind": "icon"
+        },
+        {
+          "id": "cathy_w",
+          "kind": "icon"
+        },
+        {
+          "id": "cathy_e",
+          "kind": "icon"
+        },
+        {
+          "id": "cathy_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "jenny_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            21,
+            52,
+            257,
+            286
+          ]
+        },
+        {
+          "id": "jenny_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            295,
+            52,
+            541,
+            286
+          ]
+        },
+        {
+          "id": "jenny_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            579,
+            52,
+            824,
+            286
+          ]
+        },
+        {
+          "id": "jenny_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            861,
+            52,
+            1107,
+            286
+          ]
+        },
+        {
+          "id": "jenny_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1146,
+            52,
+            1381,
+            286
+          ]
+        },
+        {
+          "id": "camilo_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            21,
+            316,
+            257,
+            542
+          ]
+        },
+        {
+          "id": "camilo_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            295,
+            316,
+            541,
+            542
+          ]
+        },
+        {
+          "id": "camilo_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            579,
+            316,
+            824,
+            542
+          ]
+        },
+        {
+          "id": "camilo_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            861,
+            316,
+            1107,
+            542
+          ]
+        },
+        {
+          "id": "camilo_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1146,
+            316,
+            1381,
+            542
+          ]
+        },
+        {
+          "id": "karla_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            21,
+            573,
+            257,
+            803
+          ]
+        },
+        {
+          "id": "karla_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            295,
+            573,
+            541,
+            803
+          ]
+        },
+        {
+          "id": "karla_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            579,
+            573,
+            824,
+            803
+          ]
+        },
+        {
+          "id": "karla_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            861,
+            573,
+            1107,
+            803
+          ]
+        },
+        {
+          "id": "karla_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1146,
+            573,
+            1381,
+            803
+          ]
+        },
+        {
+          "id": "cathy_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            21,
+            834,
+            257,
+            1068
+          ]
+        },
+        {
+          "id": "cathy_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            295,
+            834,
+            541,
+            1068
+          ]
+        },
+        {
+          "id": "cathy_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            579,
+            834,
+            824,
+            1068
+          ]
+        },
+        {
+          "id": "cathy_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            861,
+            834,
+            1107,
+            1068
+          ]
+        },
+        {
+          "id": "cathy_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1146,
+            834,
+            1381,
+            1068
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_15",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_15_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "chloe_p",
+          "kind": "passive"
+        },
+        {
+          "id": "chloe_q",
+          "kind": "icon"
+        },
+        {
+          "id": "chloe_w",
+          "kind": "icon"
+        },
+        {
+          "id": "chloe_e",
+          "kind": "icon"
+        },
+        {
+          "id": "chloe_r",
+          "kind": "icon"
+        },
+        {
+          "id": "chiara_p",
+          "kind": "passive"
+        },
+        {
+          "id": "chiara_q",
+          "kind": "icon"
+        },
+        {
+          "id": "chiara_w",
+          "kind": "icon"
+        },
+        {
+          "id": "chiara_e",
+          "kind": "icon"
+        },
+        {
+          "id": "chiara_r",
+          "kind": "icon"
+        },
+        {
+          "id": "tazia_p",
+          "kind": "passive"
+        },
+        {
+          "id": "tazia_q",
+          "kind": "icon"
+        },
+        {
+          "id": "tazia_w",
+          "kind": "icon"
+        },
+        {
+          "id": "tazia_e",
+          "kind": "icon"
+        },
+        {
+          "id": "tazia_r",
+          "kind": "icon"
+        },
+        {
+          "id": "theodore_p",
+          "kind": "passive"
+        },
+        {
+          "id": "theodore_q",
+          "kind": "icon"
+        },
+        {
+          "id": "theodore_w",
+          "kind": "icon"
+        },
+        {
+          "id": "theodore_e",
+          "kind": "icon"
+        },
+        {
+          "id": "theodore_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "chloe_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            21,
+            53,
+            257,
+            288
+          ]
+        },
+        {
+          "id": "chloe_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            297,
+            53,
+            543,
+            288
+          ]
+        },
+        {
+          "id": "chloe_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            578,
+            53,
+            825,
+            288
+          ]
+        },
+        {
+          "id": "chloe_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            861,
+            53,
+            1108,
+            288
+          ]
+        },
+        {
+          "id": "chloe_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1144,
+            53,
+            1382,
+            288
+          ]
+        },
+        {
+          "id": "chiara_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            21,
+            318,
+            257,
+            545
+          ]
+        },
+        {
+          "id": "chiara_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            297,
+            318,
+            543,
+            545
+          ]
+        },
+        {
+          "id": "chiara_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            578,
+            318,
+            825,
+            545
+          ]
+        },
+        {
+          "id": "chiara_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            861,
+            318,
+            1108,
+            545
+          ]
+        },
+        {
+          "id": "chiara_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1144,
+            318,
+            1382,
+            545
+          ]
+        },
+        {
+          "id": "tazia_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            21,
+            575,
+            257,
+            805
+          ]
+        },
+        {
+          "id": "tazia_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            297,
+            575,
+            543,
+            805
+          ]
+        },
+        {
+          "id": "tazia_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            578,
+            575,
+            825,
+            805
+          ]
+        },
+        {
+          "id": "tazia_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            861,
+            575,
+            1108,
+            805
+          ]
+        },
+        {
+          "id": "tazia_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1144,
+            575,
+            1382,
+            805
+          ]
+        },
+        {
+          "id": "theodore_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            21,
+            834,
+            257,
+            1071
+          ]
+        },
+        {
+          "id": "theodore_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            297,
+            834,
+            543,
+            1071
+          ]
+        },
+        {
+          "id": "theodore_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            578,
+            834,
+            825,
+            1071
+          ]
+        },
+        {
+          "id": "theodore_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            861,
+            834,
+            1108,
+            1071
+          ]
+        },
+        {
+          "id": "theodore_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1144,
+            834,
+            1382,
+            1071
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_16",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_16_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "felix_p",
+          "kind": "passive"
+        },
+        {
+          "id": "felix_q",
+          "kind": "icon"
+        },
+        {
+          "id": "felix_w",
+          "kind": "icon"
+        },
+        {
+          "id": "felix_e",
+          "kind": "icon"
+        },
+        {
+          "id": "felix_r",
+          "kind": "icon"
+        },
+        {
+          "id": "priya_p",
+          "kind": "passive"
+        },
+        {
+          "id": "priya_q",
+          "kind": "icon"
+        },
+        {
+          "id": "priya_w",
+          "kind": "icon"
+        },
+        {
+          "id": "priya_e",
+          "kind": "icon"
+        },
+        {
+          "id": "priya_r",
+          "kind": "icon"
+        },
+        {
+          "id": "fiora_p",
+          "kind": "passive"
+        },
+        {
+          "id": "fiora_q",
+          "kind": "icon"
+        },
+        {
+          "id": "fiora_w",
+          "kind": "icon"
+        },
+        {
+          "id": "fiora_e",
+          "kind": "icon"
+        },
+        {
+          "id": "fiora_r",
+          "kind": "icon"
+        },
+        {
+          "id": "piolo_p",
+          "kind": "passive"
+        },
+        {
+          "id": "piolo_q",
+          "kind": "icon"
+        },
+        {
+          "id": "piolo_w",
+          "kind": "icon"
+        },
+        {
+          "id": "piolo_e",
+          "kind": "icon"
+        },
+        {
+          "id": "piolo_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "felix_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            25,
+            51,
+            260,
+            284
+          ]
+        },
+        {
+          "id": "felix_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            295,
+            51,
+            544,
+            284
+          ]
+        },
+        {
+          "id": "felix_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            579,
+            51,
+            823,
+            284
+          ]
+        },
+        {
+          "id": "felix_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            858,
+            51,
+            1109,
+            284
+          ]
+        },
+        {
+          "id": "felix_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1143,
+            51,
+            1382,
+            284
+          ]
+        },
+        {
+          "id": "priya_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            25,
+            314,
+            260,
+            543
+          ]
+        },
+        {
+          "id": "priya_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            295,
+            314,
+            544,
+            543
+          ]
+        },
+        {
+          "id": "priya_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            579,
+            314,
+            823,
+            543
+          ]
+        },
+        {
+          "id": "priya_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            858,
+            314,
+            1109,
+            543
+          ]
+        },
+        {
+          "id": "priya_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1143,
+            314,
+            1382,
+            543
+          ]
+        },
+        {
+          "id": "fiora_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            25,
+            574,
+            260,
+            799
+          ]
+        },
+        {
+          "id": "fiora_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            295,
+            574,
+            544,
+            799
+          ]
+        },
+        {
+          "id": "fiora_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            579,
+            574,
+            823,
+            799
+          ]
+        },
+        {
+          "id": "fiora_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            858,
+            574,
+            1109,
+            799
+          ]
+        },
+        {
+          "id": "fiora_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1143,
+            574,
+            1382,
+            799
+          ]
+        },
+        {
+          "id": "piolo_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            25,
+            831,
+            260,
+            1072
+          ]
+        },
+        {
+          "id": "piolo_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            295,
+            831,
+            544,
+            1072
+          ]
+        },
+        {
+          "id": "piolo_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            579,
+            831,
+            823,
+            1072
+          ]
+        },
+        {
+          "id": "piolo_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            858,
+            831,
+            1109,
+            1072
+          ]
+        },
+        {
+          "id": "piolo_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1143,
+            831,
+            1382,
+            1072
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_17",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_17_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "hart_p",
+          "kind": "passive"
+        },
+        {
+          "id": "hart_q",
+          "kind": "icon"
+        },
+        {
+          "id": "hart_w",
+          "kind": "icon"
+        },
+        {
+          "id": "hart_e",
+          "kind": "icon"
+        },
+        {
+          "id": "hart_r",
+          "kind": "icon"
+        },
+        {
+          "id": "haze_p",
+          "kind": "passive"
+        },
+        {
+          "id": "haze_q",
+          "kind": "icon"
+        },
+        {
+          "id": "haze_w",
+          "kind": "icon"
+        },
+        {
+          "id": "haze_e",
+          "kind": "icon"
+        },
+        {
+          "id": "haze_r",
+          "kind": "icon"
+        },
+        {
+          "id": "debi_marlene_p",
+          "kind": "passive"
+        },
+        {
+          "id": "debi_marlene_q",
+          "kind": "icon"
+        },
+        {
+          "id": "debi_marlene_w",
+          "kind": "icon"
+        },
+        {
+          "id": "debi_marlene_e",
+          "kind": "icon"
+        },
+        {
+          "id": "debi_marlene_r",
+          "kind": "icon"
+        },
+        {
+          "id": "arda_p",
+          "kind": "passive"
+        },
+        {
+          "id": "arda_q",
+          "kind": "icon"
+        },
+        {
+          "id": "arda_w",
+          "kind": "icon"
+        },
+        {
+          "id": "arda_e",
+          "kind": "icon"
+        },
+        {
+          "id": "arda_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "hart_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            26,
+            52,
+            261,
+            282
+          ]
+        },
+        {
+          "id": "hart_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            297,
+            52,
+            544,
+            282
+          ]
+        },
+        {
+          "id": "hart_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            578,
+            52,
+            825,
+            282
+          ]
+        },
+        {
+          "id": "hart_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            859,
+            52,
+            1106,
+            282
+          ]
+        },
+        {
+          "id": "hart_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1142,
+            52,
+            1379,
+            282
+          ]
+        },
+        {
+          "id": "haze_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            26,
+            308,
+            261,
+            537
+          ]
+        },
+        {
+          "id": "haze_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            297,
+            308,
+            544,
+            537
+          ]
+        },
+        {
+          "id": "haze_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            578,
+            308,
+            825,
+            537
+          ]
+        },
+        {
+          "id": "haze_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            859,
+            308,
+            1106,
+            537
+          ]
+        },
+        {
+          "id": "haze_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1142,
+            308,
+            1379,
+            537
+          ]
+        },
+        {
+          "id": "debi_marlene_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            26,
+            566,
+            261,
+            794
+          ]
+        },
+        {
+          "id": "debi_marlene_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            297,
+            566,
+            544,
+            794
+          ]
+        },
+        {
+          "id": "debi_marlene_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            578,
+            566,
+            825,
+            794
+          ]
+        },
+        {
+          "id": "debi_marlene_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            859,
+            566,
+            1106,
+            794
+          ]
+        },
+        {
+          "id": "debi_marlene_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1142,
+            566,
+            1379,
+            794
+          ]
+        },
+        {
+          "id": "arda_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            26,
+            825,
+            261,
+            1068
+          ]
+        },
+        {
+          "id": "arda_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            297,
+            825,
+            544,
+            1068
+          ]
+        },
+        {
+          "id": "arda_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            578,
+            825,
+            825,
+            1068
+          ]
+        },
+        {
+          "id": "arda_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            859,
+            825,
+            1106,
+            1068
+          ]
+        },
+        {
+          "id": "arda_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1142,
+            825,
+            1379,
+            1068
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_18",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_18_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "abigail_p",
+          "kind": "passive"
+        },
+        {
+          "id": "abigail_q",
+          "kind": "icon"
+        },
+        {
+          "id": "abigail_w",
+          "kind": "icon"
+        },
+        {
+          "id": "abigail_e",
+          "kind": "icon"
+        },
+        {
+          "id": "abigail_r",
+          "kind": "icon"
+        },
+        {
+          "id": "alonso_p",
+          "kind": "passive"
+        },
+        {
+          "id": "alonso_q",
+          "kind": "icon"
+        },
+        {
+          "id": "alonso_w",
+          "kind": "icon"
+        },
+        {
+          "id": "alonso_e",
+          "kind": "icon"
+        },
+        {
+          "id": "alonso_r",
+          "kind": "icon"
+        },
+        {
+          "id": "leni_p",
+          "kind": "passive"
+        },
+        {
+          "id": "leni_q",
+          "kind": "icon"
+        },
+        {
+          "id": "leni_w",
+          "kind": "icon"
+        },
+        {
+          "id": "leni_e",
+          "kind": "icon"
+        },
+        {
+          "id": "leni_r",
+          "kind": "icon"
+        },
+        {
+          "id": "tsubame_p",
+          "kind": "passive"
+        },
+        {
+          "id": "tsubame_q",
+          "kind": "icon"
+        },
+        {
+          "id": "tsubame_w",
+          "kind": "icon"
+        },
+        {
+          "id": "tsubame_e",
+          "kind": "icon"
+        },
+        {
+          "id": "tsubame_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "abigail_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            23,
+            52,
+            264,
+            286
+          ]
+        },
+        {
+          "id": "abigail_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            298,
+            52,
+            546,
+            286
+          ]
+        },
+        {
+          "id": "abigail_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            580,
+            52,
+            825,
+            286
+          ]
+        },
+        {
+          "id": "abigail_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            859,
+            52,
+            1106,
+            286
+          ]
+        },
+        {
+          "id": "abigail_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1140,
+            52,
+            1380,
+            286
+          ]
+        },
+        {
+          "id": "alonso_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            23,
+            315,
+            264,
+            543
+          ]
+        },
+        {
+          "id": "alonso_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            298,
+            315,
+            546,
+            543
+          ]
+        },
+        {
+          "id": "alonso_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            580,
+            315,
+            825,
+            543
+          ]
+        },
+        {
+          "id": "alonso_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            859,
+            315,
+            1106,
+            543
+          ]
+        },
+        {
+          "id": "alonso_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1140,
+            315,
+            1380,
+            543
+          ]
+        },
+        {
+          "id": "leni_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            23,
+            572,
+            264,
+            802
+          ]
+        },
+        {
+          "id": "leni_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            298,
+            572,
+            546,
+            802
+          ]
+        },
+        {
+          "id": "leni_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            580,
+            572,
+            825,
+            802
+          ]
+        },
+        {
+          "id": "leni_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            859,
+            572,
+            1106,
+            802
+          ]
+        },
+        {
+          "id": "leni_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1140,
+            572,
+            1380,
+            802
+          ]
+        },
+        {
+          "id": "tsubame_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            23,
+            833,
+            264,
+            1065
+          ]
+        },
+        {
+          "id": "tsubame_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            298,
+            833,
+            546,
+            1065
+          ]
+        },
+        {
+          "id": "tsubame_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            580,
+            833,
+            825,
+            1065
+          ]
+        },
+        {
+          "id": "tsubame_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            859,
+            833,
+            1106,
+            1065
+          ]
+        },
+        {
+          "id": "tsubame_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1140,
+            833,
+            1380,
+            1065
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_19",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_19_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "kenneth_p",
+          "kind": "passive"
+        },
+        {
+          "id": "kenneth_q",
+          "kind": "icon"
+        },
+        {
+          "id": "kenneth_w",
+          "kind": "icon"
+        },
+        {
+          "id": "kenneth_e",
+          "kind": "icon"
+        },
+        {
+          "id": "kenneth_r",
+          "kind": "icon"
+        },
+        {
+          "id": "katja_p",
+          "kind": "passive"
+        },
+        {
+          "id": "katja_q",
+          "kind": "icon"
+        },
+        {
+          "id": "katja_w",
+          "kind": "icon"
+        },
+        {
+          "id": "katja_e",
+          "kind": "icon"
+        },
+        {
+          "id": "katja_r",
+          "kind": "icon"
+        },
+        {
+          "id": "darko_p",
+          "kind": "passive"
+        },
+        {
+          "id": "darko_q",
+          "kind": "icon"
+        },
+        {
+          "id": "darko_w",
+          "kind": "icon"
+        },
+        {
+          "id": "darko_e",
+          "kind": "icon"
+        },
+        {
+          "id": "darko_r",
+          "kind": "icon"
+        },
+        {
+          "id": "lenore_p",
+          "kind": "passive"
+        },
+        {
+          "id": "lenore_q",
+          "kind": "icon"
+        },
+        {
+          "id": "lenore_w",
+          "kind": "icon"
+        },
+        {
+          "id": "lenore_e",
+          "kind": "icon"
+        },
+        {
+          "id": "lenore_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "kenneth_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            22,
+            50,
+            263,
+            284
+          ]
+        },
+        {
+          "id": "kenneth_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            296,
+            50,
+            547,
+            284
+          ]
+        },
+        {
+          "id": "kenneth_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            577,
+            50,
+            826,
+            284
+          ]
+        },
+        {
+          "id": "kenneth_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            857,
+            50,
+            1108,
+            284
+          ]
+        },
+        {
+          "id": "kenneth_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1141,
+            50,
+            1381,
+            284
+          ]
+        },
+        {
+          "id": "katja_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            22,
+            312,
+            263,
+            543
+          ]
+        },
+        {
+          "id": "katja_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            296,
+            312,
+            547,
+            543
+          ]
+        },
+        {
+          "id": "katja_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            577,
+            312,
+            826,
+            543
+          ]
+        },
+        {
+          "id": "katja_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            857,
+            312,
+            1108,
+            543
+          ]
+        },
+        {
+          "id": "katja_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1141,
+            312,
+            1381,
+            543
+          ]
+        },
+        {
+          "id": "darko_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            22,
+            571,
+            263,
+            804
+          ]
+        },
+        {
+          "id": "darko_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            296,
+            571,
+            547,
+            804
+          ]
+        },
+        {
+          "id": "darko_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            577,
+            571,
+            826,
+            804
+          ]
+        },
+        {
+          "id": "darko_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            857,
+            571,
+            1108,
+            804
+          ]
+        },
+        {
+          "id": "darko_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1141,
+            571,
+            1381,
+            804
+          ]
+        },
+        {
+          "id": "lenore_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            22,
+            832,
+            263,
+            1069
+          ]
+        },
+        {
+          "id": "lenore_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            296,
+            832,
+            547,
+            1069
+          ]
+        },
+        {
+          "id": "lenore_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            577,
+            832,
+            826,
+            1069
+          ]
+        },
+        {
+          "id": "lenore_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            857,
+            832,
+            1108,
+            1069
+          ]
+        },
+        {
+          "id": "lenore_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1141,
+            832,
+            1381,
+            1069
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_20",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_20_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "garnet_p",
+          "kind": "passive"
+        },
+        {
+          "id": "garnet_q",
+          "kind": "icon"
+        },
+        {
+          "id": "garnet_w",
+          "kind": "icon"
+        },
+        {
+          "id": "garnet_e",
+          "kind": "icon"
+        },
+        {
+          "id": "garnet_r",
+          "kind": "icon"
+        },
+        {
+          "id": "yumin_p",
+          "kind": "passive"
+        },
+        {
+          "id": "yumin_q",
+          "kind": "icon"
+        },
+        {
+          "id": "yumin_w",
+          "kind": "icon"
+        },
+        {
+          "id": "yumin_e",
+          "kind": "icon"
+        },
+        {
+          "id": "yumin_r",
+          "kind": "icon"
+        },
+        {
+          "id": "hisui_p",
+          "kind": "passive"
+        },
+        {
+          "id": "hisui_q",
+          "kind": "icon"
+        },
+        {
+          "id": "hisui_w",
+          "kind": "icon"
+        },
+        {
+          "id": "hisui_e",
+          "kind": "icon"
+        },
+        {
+          "id": "hisui_r",
+          "kind": "icon"
+        },
+        {
+          "id": "justyna_p",
+          "kind": "passive"
+        },
+        {
+          "id": "justyna_q",
+          "kind": "icon"
+        },
+        {
+          "id": "justyna_w",
+          "kind": "icon"
+        },
+        {
+          "id": "justyna_e",
+          "kind": "icon"
+        },
+        {
+          "id": "justyna_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "garnet_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            21,
+            51,
+            263,
+            291
+          ]
+        },
+        {
+          "id": "garnet_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            298,
+            51,
+            544,
+            291
+          ]
+        },
+        {
+          "id": "garnet_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            580,
+            51,
+            822,
+            291
+          ]
+        },
+        {
+          "id": "garnet_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            858,
+            51,
+            1106,
+            291
+          ]
+        },
+        {
+          "id": "garnet_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1141,
+            51,
+            1382,
+            291
+          ]
+        },
+        {
+          "id": "yumin_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            21,
+            314,
+            263,
+            548
+          ]
+        },
+        {
+          "id": "yumin_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            298,
+            314,
+            544,
+            548
+          ]
+        },
+        {
+          "id": "yumin_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            580,
+            314,
+            822,
+            548
+          ]
+        },
+        {
+          "id": "yumin_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            858,
+            314,
+            1106,
+            548
+          ]
+        },
+        {
+          "id": "yumin_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1141,
+            314,
+            1382,
+            548
+          ]
+        },
+        {
+          "id": "hisui_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            21,
+            568,
+            263,
+            801
+          ]
+        },
+        {
+          "id": "hisui_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            298,
+            568,
+            544,
+            801
+          ]
+        },
+        {
+          "id": "hisui_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            580,
+            568,
+            822,
+            801
+          ]
+        },
+        {
+          "id": "hisui_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            858,
+            568,
+            1106,
+            801
+          ]
+        },
+        {
+          "id": "hisui_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1141,
+            568,
+            1382,
+            801
+          ]
+        },
+        {
+          "id": "justyna_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            21,
+            827,
+            263,
+            1069
+          ]
+        },
+        {
+          "id": "justyna_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            298,
+            827,
+            544,
+            1069
+          ]
+        },
+        {
+          "id": "justyna_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            580,
+            827,
+            822,
+            1069
+          ]
+        },
+        {
+          "id": "justyna_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            858,
+            827,
+            1106,
+            1069
+          ]
+        },
+        {
+          "id": "justyna_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1141,
+            827,
+            1382,
+            1069
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_21",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_21_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "istvan_p",
+          "kind": "passive"
+        },
+        {
+          "id": "istvan_q",
+          "kind": "icon"
+        },
+        {
+          "id": "istvan_w",
+          "kind": "icon"
+        },
+        {
+          "id": "istvan_e",
+          "kind": "icon"
+        },
+        {
+          "id": "istvan_r",
+          "kind": "icon"
+        },
+        {
+          "id": "xuelin_p",
+          "kind": "passive"
+        },
+        {
+          "id": "xuelin_q",
+          "kind": "icon"
+        },
+        {
+          "id": "xuelin_w",
+          "kind": "icon"
+        },
+        {
+          "id": "xuelin_e",
+          "kind": "icon"
+        },
+        {
+          "id": "xuelin_r",
+          "kind": "icon"
+        },
+        {
+          "id": "henry_p",
+          "kind": "passive"
+        },
+        {
+          "id": "henry_q",
+          "kind": "icon"
+        },
+        {
+          "id": "henry_w",
+          "kind": "icon"
+        },
+        {
+          "id": "henry_e",
+          "kind": "icon"
+        },
+        {
+          "id": "henry_r",
+          "kind": "icon"
+        },
+        {
+          "id": "blair_p",
+          "kind": "passive"
+        },
+        {
+          "id": "blair_q",
+          "kind": "icon"
+        },
+        {
+          "id": "blair_w",
+          "kind": "icon"
+        },
+        {
+          "id": "blair_e",
+          "kind": "icon"
+        },
+        {
+          "id": "blair_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "istvan_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            23,
+            53,
+            269,
+            288
+          ]
+        },
+        {
+          "id": "istvan_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            298,
+            53,
+            547,
+            288
+          ]
+        },
+        {
+          "id": "istvan_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            577,
+            53,
+            826,
+            288
+          ]
+        },
+        {
+          "id": "istvan_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            855,
+            53,
+            1108,
+            288
+          ]
+        },
+        {
+          "id": "istvan_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1138,
+            53,
+            1381,
+            288
+          ]
+        },
+        {
+          "id": "xuelin_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            23,
+            316,
+            269,
+            543
+          ]
+        },
+        {
+          "id": "xuelin_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            298,
+            316,
+            547,
+            543
+          ]
+        },
+        {
+          "id": "xuelin_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            577,
+            316,
+            826,
+            543
+          ]
+        },
+        {
+          "id": "xuelin_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            855,
+            316,
+            1108,
+            543
+          ]
+        },
+        {
+          "id": "xuelin_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1138,
+            316,
+            1381,
+            543
+          ]
+        },
+        {
+          "id": "henry_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            23,
+            571,
+            269,
+            805
+          ]
+        },
+        {
+          "id": "henry_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            298,
+            571,
+            547,
+            805
+          ]
+        },
+        {
+          "id": "henry_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            577,
+            571,
+            826,
+            805
+          ]
+        },
+        {
+          "id": "henry_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            855,
+            571,
+            1108,
+            805
+          ]
+        },
+        {
+          "id": "henry_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1138,
+            571,
+            1381,
+            805
+          ]
+        },
+        {
+          "id": "blair_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            23,
+            832,
+            269,
+            1069
+          ]
+        },
+        {
+          "id": "blair_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            298,
+            832,
+            547,
+            1069
+          ]
+        },
+        {
+          "id": "blair_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            577,
+            832,
+            826,
+            1069
+          ]
+        },
+        {
+          "id": "blair_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            855,
+            832,
+            1108,
+            1069
+          ]
+        },
+        {
+          "id": "blair_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1138,
+            832,
+            1381,
+            1069
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_22",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_22_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "mirka_p",
+          "kind": "passive"
+        },
+        {
+          "id": "mirka_q",
+          "kind": "icon"
+        },
+        {
+          "id": "mirka_w",
+          "kind": "icon"
+        },
+        {
+          "id": "mirka_e",
+          "kind": "icon"
+        },
+        {
+          "id": "mirka_r",
+          "kind": "icon"
+        },
+        {
+          "id": "fenrir_p",
+          "kind": "passive"
+        },
+        {
+          "id": "fenrir_q",
+          "kind": "icon"
+        },
+        {
+          "id": "fenrir_w",
+          "kind": "icon"
+        },
+        {
+          "id": "fenrir_e",
+          "kind": "icon"
+        },
+        {
+          "id": "fenrir_r",
+          "kind": "icon"
+        },
+        {
+          "id": "coraline_p",
+          "kind": "passive"
+        },
+        {
+          "id": "coraline_q",
+          "kind": "icon"
+        },
+        {
+          "id": "coraline_w",
+          "kind": "icon"
+        },
+        {
+          "id": "coraline_e",
+          "kind": "icon"
+        },
+        {
+          "id": "coraline_r",
+          "kind": "icon"
+        },
+        {
+          "id": "bihyung_p",
+          "kind": "passive"
+        },
+        {
+          "id": "bihyung_q",
+          "kind": "icon"
+        },
+        {
+          "id": "bihyung_w",
+          "kind": "icon"
+        },
+        {
+          "id": "bihyung_e",
+          "kind": "icon"
+        },
+        {
+          "id": "bihyung_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "mirka_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            23,
+            52,
+            257,
+            287
+          ]
+        },
+        {
+          "id": "mirka_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            295,
+            52,
+            541,
+            287
+          ]
+        },
+        {
+          "id": "mirka_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            579,
+            52,
+            822,
+            287
+          ]
+        },
+        {
+          "id": "mirka_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            860,
+            52,
+            1108,
+            287
+          ]
+        },
+        {
+          "id": "mirka_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1147,
+            52,
+            1382,
+            287
+          ]
+        },
+        {
+          "id": "fenrir_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            23,
+            315,
+            257,
+            548
+          ]
+        },
+        {
+          "id": "fenrir_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            295,
+            315,
+            541,
+            548
+          ]
+        },
+        {
+          "id": "fenrir_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            579,
+            315,
+            822,
+            548
+          ]
+        },
+        {
+          "id": "fenrir_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            860,
+            315,
+            1108,
+            548
+          ]
+        },
+        {
+          "id": "fenrir_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1147,
+            315,
+            1382,
+            548
+          ]
+        },
+        {
+          "id": "coraline_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            23,
+            576,
+            257,
+            809
+          ]
+        },
+        {
+          "id": "coraline_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            295,
+            576,
+            541,
+            809
+          ]
+        },
+        {
+          "id": "coraline_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            579,
+            576,
+            822,
+            809
+          ]
+        },
+        {
+          "id": "coraline_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            860,
+            576,
+            1108,
+            809
+          ]
+        },
+        {
+          "id": "coraline_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1147,
+            576,
+            1382,
+            809
+          ]
+        },
+        {
+          "id": "bihyung_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 3,
+          "box": [
+            23,
+            834,
+            257,
+            1071
+          ]
+        },
+        {
+          "id": "bihyung_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 3,
+          "box": [
+            295,
+            834,
+            541,
+            1071
+          ]
+        },
+        {
+          "id": "bihyung_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 3,
+          "box": [
+            579,
+            834,
+            822,
+            1071
+          ]
+        },
+        {
+          "id": "bihyung_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 3,
+          "box": [
+            860,
+            834,
+            1108,
+            1071
+          ]
+        },
+        {
+          "id": "bihyung_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 3,
+          "box": [
+            1147,
+            834,
+            1382,
+            1071
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_23",
+      "kind": "skill",
+      "source": "docs/art-chibi/generated/skills_23_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "entries": [
+        {
+          "id": "craver_p",
+          "kind": "passive"
+        },
+        {
+          "id": "craver_q",
+          "kind": "icon"
+        },
+        {
+          "id": "craver_w",
+          "kind": "icon"
+        },
+        {
+          "id": "craver_e",
+          "kind": "icon"
+        },
+        {
+          "id": "craver_r",
+          "kind": "icon"
+        },
+        {
+          "id": "lucia_p",
+          "kind": "passive"
+        },
+        {
+          "id": "lucia_q",
+          "kind": "icon"
+        },
+        {
+          "id": "lucia_w",
+          "kind": "icon"
+        },
+        {
+          "id": "lucia_e",
+          "kind": "icon"
+        },
+        {
+          "id": "lucia_r",
+          "kind": "icon"
+        },
+        {
+          "id": "ceres_p",
+          "kind": "passive"
+        },
+        {
+          "id": "ceres_q",
+          "kind": "icon"
+        },
+        {
+          "id": "ceres_w",
+          "kind": "icon"
+        },
+        {
+          "id": "ceres_e",
+          "kind": "icon"
+        },
+        {
+          "id": "ceres_r",
+          "kind": "icon"
+        }
+      ],
+      "cells": [
+        {
+          "id": "craver_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 0,
+          "box": [
+            19,
+            53,
+            258,
+            287
+          ]
+        },
+        {
+          "id": "craver_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 0,
+          "box": [
+            297,
+            53,
+            545,
+            287
+          ]
+        },
+        {
+          "id": "craver_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 0,
+          "box": [
+            579,
+            53,
+            823,
+            287
+          ]
+        },
+        {
+          "id": "craver_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 0,
+          "box": [
+            857,
+            53,
+            1106,
+            287
+          ]
+        },
+        {
+          "id": "craver_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1143,
+            53,
+            1383,
+            287
+          ]
+        },
+        {
+          "id": "lucia_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 1,
+          "box": [
+            19,
+            314,
+            258,
+            548
+          ]
+        },
+        {
+          "id": "lucia_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 1,
+          "box": [
+            297,
+            314,
+            545,
+            548
+          ]
+        },
+        {
+          "id": "lucia_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 1,
+          "box": [
+            579,
+            314,
+            823,
+            548
+          ]
+        },
+        {
+          "id": "lucia_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 1,
+          "box": [
+            857,
+            314,
+            1106,
+            548
+          ]
+        },
+        {
+          "id": "lucia_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1143,
+            314,
+            1383,
+            548
+          ]
+        },
+        {
+          "id": "ceres_p",
+          "kind": "passive",
+          "column": 0,
+          "row": 2,
+          "box": [
+            19,
+            575,
+            258,
+            809
+          ]
+        },
+        {
+          "id": "ceres_q",
+          "kind": "icon",
+          "column": 1,
+          "row": 2,
+          "box": [
+            297,
+            575,
+            545,
+            809
+          ]
+        },
+        {
+          "id": "ceres_w",
+          "kind": "icon",
+          "column": 2,
+          "row": 2,
+          "box": [
+            579,
+            575,
+            823,
+            809
+          ]
+        },
+        {
+          "id": "ceres_e",
+          "kind": "icon",
+          "column": 3,
+          "row": 2,
+          "box": [
+            857,
+            575,
+            1106,
+            809
+          ]
+        },
+        {
+          "id": "ceres_r",
+          "kind": "icon",
+          "column": 4,
+          "row": 2,
+          "box": [
+            1143,
+            575,
+            1383,
+            809
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills_extra",
+      "kind": "icon",
+      "source": "docs/art-chibi/generated/skills_extra_raw.png",
+      "columns": 5,
+      "rows": 4,
+      "ids": [
+        "basic_attack",
+        "basic_guard",
+        "weapon_glove",
+        "weapon_pistol",
+        "weapon_dagger",
+        "weapon_axe",
+        "weapon_sword",
+        "weapon_bow",
+        "weapon_hammer",
+        "weapon_rapier",
+        "weapon_sniper",
+        "tactical_blink",
+        "tactical_wind",
+        "tactical_plasma"
+      ],
+      "cells": [
+        {
+          "id": "basic_attack",
+          "column": 0,
+          "row": 0,
+          "box": [
+            22,
+            23,
+            272,
+            275
+          ]
+        },
+        {
+          "id": "basic_guard",
+          "column": 1,
+          "row": 0,
+          "box": [
+            296,
+            23,
+            554,
+            275
+          ]
+        },
+        {
+          "id": "weapon_glove",
+          "column": 2,
+          "row": 0,
+          "box": [
+            579,
+            23,
+            824,
+            275
+          ]
+        },
+        {
+          "id": "weapon_pistol",
+          "column": 3,
+          "row": 0,
+          "box": [
+            850,
+            23,
+            1106,
+            275
+          ]
+        },
+        {
+          "id": "weapon_dagger",
+          "column": 4,
+          "row": 0,
+          "box": [
+            1132,
+            23,
+            1381,
+            275
+          ]
+        },
+        {
+          "id": "weapon_axe",
+          "column": 0,
+          "row": 1,
+          "box": [
+            22,
+            299,
+            272,
+            548
+          ]
+        },
+        {
+          "id": "weapon_sword",
+          "column": 1,
+          "row": 1,
+          "box": [
+            296,
+            299,
+            554,
+            548
+          ]
+        },
+        {
+          "id": "weapon_bow",
+          "column": 2,
+          "row": 1,
+          "box": [
+            579,
+            299,
+            824,
+            548
+          ]
+        },
+        {
+          "id": "weapon_hammer",
+          "column": 3,
+          "row": 1,
+          "box": [
+            850,
+            299,
+            1106,
+            548
+          ]
+        },
+        {
+          "id": "weapon_rapier",
+          "column": 4,
+          "row": 1,
+          "box": [
+            1132,
+            299,
+            1381,
+            548
+          ]
+        },
+        {
+          "id": "weapon_sniper",
+          "column": 0,
+          "row": 2,
+          "box": [
+            22,
+            573,
+            272,
+            815
+          ]
+        },
+        {
+          "id": "tactical_blink",
+          "column": 1,
+          "row": 2,
+          "box": [
+            296,
+            573,
+            554,
+            815
+          ]
+        },
+        {
+          "id": "tactical_wind",
+          "column": 2,
+          "row": 2,
+          "box": [
+            579,
+            573,
+            824,
+            815
+          ]
+        },
+        {
+          "id": "tactical_plasma",
+          "column": 3,
+          "row": 2,
+          "box": [
+            850,
+            573,
+            1106,
+            815
+          ]
+        }
+      ]
+    }
+  ]
+}

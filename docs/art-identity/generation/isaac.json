@@ -1,0 +1,32 @@
+{
+  "id": "isaac",
+  "name": "아이작",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Isaac: an OLDER MAN, not a boy or teenage chibi girl. Preserve long slightly tired narrow brown eyes with lower eyelid creases, strong asymmetric brows, clear nose bridge, pale WHITE MUSTACHE and angular GOATEE, deeper smile crease. Calm weathered reassuring half-smile. Swept-back white hair. Preserve beige vest, red plaid shirt and brown-dark coat. Hold black police tonfa with perpendicular handle. Cute proportions but visibly middle-aged facial anatomy.\n",
+  "originalReference": "docs/art-chibi/references/subjects/isaac.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Isaac_S000.png",
+  "referenceSha256": "e842e973a1e1f498c575da89d26ff405bda6d8e2d866edd3588604c47fe5709f",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter-specific face and pose: Isaac: an OLDER MAN, not a boy or teenage chibi girl. Preserve long slightly tired narrow brown eyes with lower eyelid creases, strong asymmetric brows, clear nose bridge, pale WHITE MUSTACHE and angular GOATEE, deeper smile crease. Calm weathered reassuring half-smile. Swept-back white hair. Preserve beige vest, red plaid shirt and brown-dark coat. Hold black police tonfa with perpendicular handle. Cute proportions but visibly middle-aged facial anatomy.\n",
+  "generatedSource": "docs/art-identity/generated/isaac.png",
+  "generatedSha256": "864554251771a28805b619dfc93e3f6da622930848b791c870196cb8d66d569f",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1084,
+    1402
+  ],
+  "resizedSize": [
+    118,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/isaac.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "82be59baf6d8e69ec5ed014a0891076086783f6e4ef67d0f9b9e03ac9ea99aba",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "shoichi",
+  "name": "쇼이치",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Adult businessman, brown eyes CLOSED in reassuring smiling crescents behind thin rectangular GLASSES, tidy brows, gentle closed smile. Keep glasses visible.\n",
+  "originalReference": "docs/art-chibi/references/subjects/shoichi.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Shoichi_S000.png",
+  "referenceSha256": "6eaedee0090c2fc7b9dbca5061d20809134d8f067969e0af7ef4ce25ece90f39",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 쇼이치 (shoichi).\nOutfit and identity: Brown neatly styled hair, glasses, tan business suit, white shirt, olive tie, employee ID, knife.\nSignature prop, do not copy another character's prop: Hold a short silver dagger with a dark handle.\nFace design from original: Adult businessman, brown eyes CLOSED in reassuring smiling crescents behind thin rectangular GLASSES, tidy brows, gentle closed smile. Keep glasses visible.\n",
+  "generatedSource": "docs/art-identity/generated/shoichi.png",
+  "generatedSha256": "169b6f9a20fb7914ad2845786676cb0142ff8bc3ca222c87a393e0af3f3d971e",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1108,
+    1402
+  ],
+  "resizedSize": [
+    120,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/shoichi.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "31729c00c1b942ccaba4abfc0d2e6d8ce425a954af1df4d0ab5af7eb545d2397",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

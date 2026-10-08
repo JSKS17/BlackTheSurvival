@@ -1,0 +1,32 @@
+{
+  "id": "tia",
+  "name": "띠아",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Thoughtful shy artist, warm AMBER downturned almond eyes, gently raised inner eyebrows, tiny hesitant parted lips. Golden rose-knot hair.\n",
+  "originalReference": "docs/art-chibi/references/subjects/tia.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Tia_S000.png",
+  "referenceSha256": "84583c38eaa2cfef6060e331c576c51a67bb7a37d1b8024af0cb195e541f4f70",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 띠아 (tia).\nOutfit and identity: Honey-blond long hair with rose-shaped side knot, yellow ribbon, brown artist outfit, broad paintbrush.\nSignature prop, do not copy another character's prop: Hold a long broad paintbrush with a brown handle and visible bristles.\nFace design from original: Thoughtful shy artist, warm AMBER downturned almond eyes, gently raised inner eyebrows, tiny hesitant parted lips. Golden rose-knot hair.\n",
+  "generatedSource": "docs/art-identity/generated/tia.png",
+  "generatedSha256": "cc36402806abb70479be9a936f5a6e1024ee364f4ffad9963c242f7db2bce3de",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    19,
+    1112,
+    1388
+  ],
+  "resizedSize": [
+    123,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/tia.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "9cd3976d5135cfd745c3136de3b4f062d7a443ef14b3a273f9310734d2275007",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

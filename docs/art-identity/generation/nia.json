@@ -1,0 +1,32 @@
+{
+  "id": "nia",
+  "name": "니아",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Nia: adolescent sleepy gamer girl. Preserve the reference's HALF-CLOSED drooping upper eyelids, tiny visible dark violet irises, soft low straight eyebrows and unimpressed expression. Small cheek-to-mouth pink bubblegum bubble, still allow visible nose and both differently angled eyelids. NO round wide-open star eyes or cheerful generic smile. Dusty lavender bob with curled ends, small pink headset accents. Hold black-and-pink game controller.\n",
+  "originalReference": "docs/art-chibi/references/subjects/nia.png",
+  "originalSourceUrl": "https://cdn.playeternalreturn.com/event/season6/roadmap/rd6/img_concept01.png",
+  "referenceSha256": "ed283cf94adffa8761131e992d997db038fecbf6a07ad891c6773da97b2b8618",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter-specific face and pose: Nia: adolescent sleepy gamer girl. Preserve the reference's HALF-CLOSED drooping upper eyelids, tiny visible dark violet irises, soft low straight eyebrows and unimpressed expression. Small cheek-to-mouth pink bubblegum bubble, still allow visible nose and both differently angled eyelids. NO round wide-open star eyes or cheerful generic smile. Dusty lavender bob with curled ends, small pink headset accents. Hold black-and-pink game controller.\n",
+  "generatedSource": "docs/art-identity/generated/nia.png",
+  "generatedSha256": "992b5c5dc92a8ac53ad7a676f03ed4ecc480fdffb4930f0b9d369a20df0d1373",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    17,
+    8,
+    1092,
+    1402
+  ],
+  "resizedSize": [
+    117,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/nia.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "59b53e1a6b513323019b4313c2a058812a9f715855084b7ed211baf71b2e8139",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

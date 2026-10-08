@@ -1,0 +1,16 @@
+{
+  "id": "empress",
+  "name": "여제",
+  "kind": "gear",
+  "originalId": 130501,
+  "weaponClass": "아르카나",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_130501.png",
+  "referencePath": "docs/art-system/references/loadout/empress.png",
+  "originalTooltip": "전설 / 아르카나\n\n공격력 +40\n스킬 증폭 +93\n쿨다운 감소 +15\n\n<b><color=yellow>한파</color></b>\n스킬로 적에게 피해를 입히면 1초간 이동 속도를 <color=white>25%</color>, 공격 속도를 <color=white>30%</color>만큼 감소시킵니다. (쿨다운 2초)\n\n모든 것을 품고, 아낌없이 채워준다. 순수한 사랑은 그런 것이다.",
+  "output": "Assets/Resources/Lumia/SystemIcons/empress.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art inventory icon for the game Black The Survival. Image 1 is the original Eternal Return 여제 icon used only as a silhouette/color reference. Image 2 is our existing game icon contact sheet used only as a pixel-art style reference. Create a NEW single standalone icon matching this existing coarse pixel-art family, not a collage. Subject: A tilted green tarot-like rectangular card with a pale silver queen silhouette and diamond ornament; teal-green card corners and pale face emblem, no letters. Composition: centered, occupies roughly 80% of a square, readable at 32x32 logical pixels. Style: authentic 32x32 game sprite enlarged with sharp hard-edged square pixels, limited 12-18 color palette, stepped outlines and deliberate clustered highlights. Keep the original equipment's recognizable form, angle and major colors. Transparent background with genuine alpha, no square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-b1b1a0e2-3cd4-416f-8c44-2d48710f65ad.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

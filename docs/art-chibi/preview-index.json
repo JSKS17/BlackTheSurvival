@@ -1,0 +1,572 @@
+{
+  "schema": 1,
+  "manifest": "docs/art-chibi/game-art-manifest.json",
+  "manifestSha256": "8f4912fdc1175a3a9d149da0ba682f11f531340989b4bf1d3b4b834cabaaf4fd",
+  "processingPolicy": "Only generated atlases, mechanical cropping, nearest-neighbour scaling and transparent padding. Source files are preserved.",
+  "assets": [
+    {
+      "id": "aya",
+      "kind": "portrait",
+      "name": "아야",
+      "path": "Assets/Resources/Lumia/Portraits/aya.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "92fd1700fab03d7b2c945f5f990abb9447e73360a350dc810dcefbb26193bd5d",
+      "pixelSha256": "149b690869db8ba5706ef3878fec1ad951d7403beb8f6d9c8185cff72adb8d48",
+      "batch": "sprites_01_preview",
+      "source": "docs/art-chibi/generated/sprites_01_raw.png",
+      "sourceSha256": "40119af0d925fb4521a6ace4b6b28eaf3d512ba49cca65d7bb2445ae41dfa02d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 0,
+      "cropBox": [
+        1152,
+        0,
+        1536,
+        512
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          41,
+          366,
+          512
+        ],
+        "visiblePixels": 116521,
+        "transparentPixels": 80087,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 116521,
+        "borderVisiblePixels": 261,
+        "borderStrongPixels": 197
+      },
+      "sourceComponents": [
+        {
+          "pixels": 101409,
+          "bounds": [
+            12,
+            56,
+            358,
+            512
+          ]
+        },
+        {
+          "pixels": 1779,
+          "bounds": [
+            0,
+            161,
+            32,
+            277
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          20,
+          10,
+          107,
+          120
+        ],
+        "visiblePixels": 6585,
+        "transparentPixels": 9799,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6585,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "processing": "crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "hana",
+      "kind": "portrait",
+      "name": "하나",
+      "path": "Assets/Resources/Lumia/Portraits/hana.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "da18f59ef0dccb6f850745b454b37885851026d436033066f524138e69f02181",
+      "pixelSha256": "9d080d28dcf4b4710a7ca471abf18d28932cf03e46ed17dbc61bce2581daea6d",
+      "batch": "sprites_01_preview",
+      "source": "docs/art-chibi/generated/sprites_01_raw.png",
+      "sourceSha256": "40119af0d925fb4521a6ace4b6b28eaf3d512ba49cca65d7bb2445ae41dfa02d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 0,
+      "cropBox": [
+        0,
+        0,
+        384,
+        512
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          33,
+          33,
+          384,
+          512
+        ],
+        "visiblePixels": 115346,
+        "transparentPixels": 81262,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 115346,
+        "borderVisiblePixels": 144,
+        "borderStrongPixels": 80
+      },
+      "sourceComponents": [
+        {
+          "pixels": 104105,
+          "bounds": [
+            38,
+            40,
+            360,
+            512
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          23,
+          8,
+          104,
+          120
+        ],
+        "visiblePixels": 6321,
+        "transparentPixels": 10063,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6321,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "processing": "crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "hyejin",
+      "kind": "portrait",
+      "name": "혜진",
+      "path": "Assets/Resources/Lumia/Portraits/hyejin.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "808fe2f58a24d1017e3b73dd3394a0c2ea0217c0ae4de6511e714ab5aa1cda6a",
+      "pixelSha256": "fc89eeb641ee41aff9576387223e29b69e28b006fe03df69c4fc558f2fcec4b4",
+      "batch": "sprites_01_preview",
+      "source": "docs/art-chibi/generated/sprites_01_raw.png",
+      "sourceSha256": "40119af0d925fb4521a6ace4b6b28eaf3d512ba49cca65d7bb2445ae41dfa02d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 1,
+      "cropBox": [
+        768,
+        512,
+        1152,
+        1024
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          384,
+          492
+        ],
+        "visiblePixels": 134256,
+        "transparentPixels": 62352,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 134256,
+        "borderVisiblePixels": 377,
+        "borderStrongPixels": 245
+      },
+      "sourceComponents": [
+        {
+          "pixels": 123396,
+          "bounds": [
+            0,
+            21,
+            352,
+            483
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          20,
+          8,
+          107,
+          120
+        ],
+        "visiblePixels": 6909,
+        "transparentPixels": 9475,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 6909,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "processing": "crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "hyunwoo",
+      "kind": "portrait",
+      "name": "현우",
+      "path": "Assets/Resources/Lumia/Portraits/hyunwoo.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "5b8756c504df14f3d8e7632d39ef8e2919aebaad0d487775a660a4bafc175774",
+      "pixelSha256": "c82c429d8c4a01dfe49b19e115664a9ce13ee59c6f069f590b466072b48c8f9c",
+      "batch": "sprites_01_preview",
+      "source": "docs/art-chibi/generated/sprites_01_raw.png",
+      "sourceSha256": "40119af0d925fb4521a6ace4b6b28eaf3d512ba49cca65d7bb2445ae41dfa02d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 0,
+      "row": 1,
+      "cropBox": [
+        0,
+        512,
+        384,
+        1024
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          384,
+          492
+        ],
+        "visiblePixels": 110082,
+        "transparentPixels": 86526,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 110082,
+        "borderVisiblePixels": 136,
+        "borderStrongPixels": 72
+      },
+      "sourceComponents": [
+        {
+          "pixels": 96663,
+          "bounds": [
+            49,
+            8,
+            340,
+            483
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          20,
+          8,
+          107,
+          120
+        ],
+        "visiblePixels": 5682,
+        "transparentPixels": 10702,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 5682,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "processing": "crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "jackie",
+      "kind": "portrait",
+      "name": "재키",
+      "path": "Assets/Resources/Lumia/Portraits/jackie.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "c356baac297f67cff169d9e3d8e3030662282ab47587608db63df53d0a0e4ae0",
+      "pixelSha256": "dcdebd8481b79c2692dd9f336270d3f708273312da73630e6e55dbba06ea0cb4",
+      "batch": "sprites_01_preview",
+      "source": "docs/art-chibi/generated/sprites_01_raw.png",
+      "sourceSha256": "40119af0d925fb4521a6ace4b6b28eaf3d512ba49cca65d7bb2445ae41dfa02d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 2,
+      "row": 0,
+      "cropBox": [
+        768,
+        0,
+        1152,
+        512
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          33,
+          384,
+          512
+        ],
+        "visiblePixels": 131301,
+        "transparentPixels": 65307,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 131301,
+        "borderVisiblePixels": 353,
+        "borderStrongPixels": 239
+      },
+      "sourceComponents": [
+        {
+          "pixels": 117541,
+          "bounds": [
+            0,
+            36,
+            384,
+            512
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          19,
+          8,
+          109,
+          120
+        ],
+        "visiblePixels": 7181,
+        "transparentPixels": 9203,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7181,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "processing": "crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "nia",
+      "kind": "portrait",
+      "name": "니아",
+      "path": "Assets/Resources/Lumia/Portraits/nia.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "447d108195d3906f1a812673ca45c044e5b81dd566811de78ecd8a0fd8c8e18d",
+      "pixelSha256": "bca1d36ba67ed321c3d189532555c7d4f281249449bbc381791794b62b28989e",
+      "batch": "sprites_01_preview",
+      "source": "docs/art-chibi/generated/sprites_01_raw.png",
+      "sourceSha256": "40119af0d925fb4521a6ace4b6b28eaf3d512ba49cca65d7bb2445ae41dfa02d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 0,
+      "cropBox": [
+        384,
+        0,
+        768,
+        512
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          23,
+          384,
+          512
+        ],
+        "visiblePixels": 113014,
+        "transparentPixels": 83594,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 113014,
+        "borderVisiblePixels": 174,
+        "borderStrongPixels": 90
+      },
+      "sourceComponents": [
+        {
+          "pixels": 102323,
+          "bounds": [
+            9,
+            63,
+            352,
+            512
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          20,
+          17,
+          108,
+          120
+        ],
+        "visiblePixels": 5931,
+        "transparentPixels": 10453,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 5931,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "processing": "crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "sua",
+      "kind": "portrait",
+      "name": "수아",
+      "path": "Assets/Resources/Lumia/Portraits/sua.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "d7eb2fb81474d2a8b783fdc2ff32aa8b01adb2d5594b1164310ad9a45dfc50af",
+      "pixelSha256": "280f4ba50ef52ffedb2c5cba803ac0451c3b6697ae9c8ce76d0c10cea4bcea45",
+      "batch": "sprites_01_preview",
+      "source": "docs/art-chibi/generated/sprites_01_raw.png",
+      "sourceSha256": "40119af0d925fb4521a6ace4b6b28eaf3d512ba49cca65d7bb2445ae41dfa02d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 3,
+      "row": 1,
+      "cropBox": [
+        1152,
+        512,
+        1536,
+        1024
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          0,
+          0,
+          373,
+          492
+        ],
+        "visiblePixels": 139087,
+        "transparentPixels": 57521,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 139087,
+        "borderVisiblePixels": 209,
+        "borderStrongPixels": 118
+      },
+      "sourceComponents": [
+        {
+          "pixels": 128441,
+          "bounds": [
+            0,
+            15,
+            369,
+            483
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          21,
+          8,
+          106,
+          120
+        ],
+        "visiblePixels": 7221,
+        "transparentPixels": 9163,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 7221,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "processing": "crop/alpha-trim/nearest-resize/transparent-padding"
+    },
+    {
+      "id": "yuki",
+      "kind": "portrait",
+      "name": "유키",
+      "path": "Assets/Resources/Lumia/Portraits/yuki.png",
+      "width": 128,
+      "height": 128,
+      "fileSha256": "7f8aa02b1f6051e9cb124bce0eeb125681e66e57e3639a6edab6b258028ca3ce",
+      "pixelSha256": "a873babb765eaf8cc7152ff3d6440261b570dbf3fe1873a93c1d04aa1280d4b6",
+      "batch": "sprites_01_preview",
+      "source": "docs/art-chibi/generated/sprites_01_raw.png",
+      "sourceSha256": "40119af0d925fb4521a6ace4b6b28eaf3d512ba49cca65d7bb2445ae41dfa02d",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "columns": 4,
+      "rows": 2,
+      "column": 1,
+      "row": 1,
+      "cropBox": [
+        384,
+        512,
+        768,
+        1024
+      ],
+      "sourceAlpha": {
+        "alphaBounds": [
+          6,
+          0,
+          384,
+          498
+        ],
+        "visiblePixels": 109344,
+        "transparentPixels": 87264,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 109344,
+        "borderVisiblePixels": 240,
+        "borderStrongPixels": 161
+      },
+      "sourceComponents": [
+        {
+          "pixels": 95209,
+          "bounds": [
+            12,
+            15,
+            312,
+            483
+          ]
+        },
+        {
+          "pixels": 939,
+          "bounds": [
+            358,
+            194,
+            384,
+            259
+          ]
+        }
+      ],
+      "outputAlpha": {
+        "alphaBounds": [
+          21,
+          8,
+          106,
+          118
+        ],
+        "visiblePixels": 5517,
+        "transparentPixels": 10867,
+        "opaquePixels": 0,
+        "partialAlphaPixels": 5517,
+        "borderVisiblePixels": 0,
+        "borderStrongPixels": 0
+      },
+      "processing": "crop/alpha-trim/nearest-resize/transparent-padding"
+    }
+  ],
+  "warnings": [
+    "hana: 80 nontransparent border pixels; check for a clipped sprite or neighbouring-cell contamination",
+    "nia: 90 nontransparent border pixels; check for a clipped sprite or neighbouring-cell contamination",
+    "jackie: 239 nontransparent border pixels; check for a clipped sprite or neighbouring-cell contamination",
+    "aya: 197 nontransparent border pixels; check for a clipped sprite or neighbouring-cell contamination",
+    "hyunwoo: 72 nontransparent border pixels; check for a clipped sprite or neighbouring-cell contamination",
+    "yuki: 161 nontransparent border pixels; check for a clipped sprite or neighbouring-cell contamination",
+    "hyejin: 245 nontransparent border pixels; check for a clipped sprite or neighbouring-cell contamination",
+    "sua: 118 nontransparent border pixels; check for a clipped sprite or neighbouring-cell contamination"
+  ]
+}

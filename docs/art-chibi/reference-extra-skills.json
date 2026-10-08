@@ -1,0 +1,128 @@
+[
+  {
+    "id": "basic_attack",
+    "card_name": "기본 공격",
+    "original_name": "Glove mastery pictogram",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/Ico_Ability_Glove.png",
+    "reference_path": "docs/art-chibi/skill-references/basic_attack.png",
+    "note": "기본 공격에는 독립된 원작 QWER 아이콘이 없어 글러브 무기군의 주먹 픽토그램을 시각적 참고로 사용합니다.",
+    "reference_available": true
+  },
+  {
+    "id": "basic_guard",
+    "card_name": "경계",
+    "original_name": "Force Field",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/VSkillIcon_4103000.png",
+    "reference_path": "docs/art-chibi/skill-references/basic_guard.png",
+    "note": "이 팬 게임 전용 경계 카드에는 독립된 원작 스킬 아이콘이 없어 포스 필드의 방어막 형상을 시각적 참고로 사용합니다.",
+    "reference_available": true
+  },
+  {
+    "id": "weapon_glove",
+    "card_name": "어퍼컷",
+    "original_name": "Uppercut",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_081.png",
+    "reference_path": "docs/art-chibi/skill-references/weapon_glove.png",
+    "note": "원작 무기군 스킬 아이콘입니다.",
+    "reference_available": true
+  },
+  {
+    "id": "weapon_pistol",
+    "card_name": "무빙 리로드",
+    "original_name": "Moving Reload",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_051.png",
+    "reference_path": "docs/art-chibi/skill-references/weapon_pistol.png",
+    "note": "원작 무기군 스킬 아이콘입니다.",
+    "reference_available": true
+  },
+  {
+    "id": "weapon_dagger",
+    "card_name": "망토와 단검",
+    "original_name": "Cloak and Dagger",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_011.png",
+    "reference_path": "docs/art-chibi/skill-references/weapon_dagger.png",
+    "note": "원작 무기군 스킬 아이콘입니다.",
+    "reference_available": true
+  },
+  {
+    "id": "weapon_axe",
+    "card_name": "피의 나선",
+    "original_name": "Maleficent Helix",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_031.png",
+    "reference_path": "docs/art-chibi/skill-references/weapon_axe.png",
+    "note": "원작 무기군 스킬 아이콘입니다.",
+    "reference_available": true
+  },
+  {
+    "id": "weapon_sword",
+    "card_name": "빗겨 흘리기",
+    "original_name": "Parry",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_021.png",
+    "reference_path": "docs/art-chibi/skill-references/weapon_sword.png",
+    "note": "원작 무기군 스킬 아이콘입니다.",
+    "reference_available": true
+  },
+  {
+    "id": "weapon_bow",
+    "card_name": "곡사",
+    "original_name": "Rain of Arrows",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_112.png",
+    "reference_path": "docs/art-chibi/skill-references/weapon_bow.png",
+    "note": "원작 무기군 스킬 아이콘입니다.",
+    "reference_available": true
+  },
+  {
+    "id": "weapon_hammer",
+    "card_name": "갑옷 깨기",
+    "original_name": "Armor Piercing",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_111.png",
+    "reference_path": "docs/art-chibi/skill-references/weapon_hammer.png",
+    "note": "원작 무기군 스킬 아이콘입니다.",
+    "reference_available": true
+  },
+  {
+    "id": "weapon_rapier",
+    "card_name": "섬격",
+    "original_name": "Quick Cut",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_114.png",
+    "reference_path": "docs/art-chibi/skill-references/weapon_rapier.png",
+    "note": "원작 무기군 스킬 아이콘입니다.",
+    "reference_available": true
+  },
+  {
+    "id": "weapon_sniper",
+    "card_name": "저격",
+    "original_name": "Ballistic Advantage",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_071.png",
+    "reference_path": "docs/art-chibi/skill-references/weapon_sniper.png",
+    "note": "원작 무기군 스킬 아이콘입니다.",
+    "reference_available": true
+  },
+  {
+    "id": "tactical_blink",
+    "card_name": "블링크",
+    "original_name": "Blink",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/VSkillIcon_4000000.png",
+    "reference_path": "docs/art-chibi/skill-references/tactical_blink.png",
+    "note": "원작 전술 스킬 아이콘입니다.",
+    "reference_available": true
+  },
+  {
+    "id": "tactical_wind",
+    "card_name": "치유의 바람",
+    "original_name": "Healing Wind",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/VSkillIcon_4108000.png",
+    "reference_path": "docs/art-chibi/skill-references/tactical_wind.png",
+    "note": "원작 전술 스킬 아이콘입니다.",
+    "reference_available": true
+  },
+  {
+    "id": "tactical_plasma",
+    "card_name": "플라즈마 대시",
+    "original_name": "Plasma Dash",
+    "image_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/VSkillIcon_4116000.png",
+    "reference_path": "docs/art-chibi/skill-references/tactical_plasma.png",
+    "note": "원작 전술 스킬 아이콘입니다.",
+    "reference_available": true
+  }
+]

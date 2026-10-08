@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "passed": true,
+  "complete": true,
+  "counts": {
+    "portrait": 92,
+    "icon": 392,
+    "passive": 91
+  },
+  "expectedCounts": {
+    "portrait": 92,
+    "icon": 392,
+    "passive": 91
+  },
+  "totalAssets": 575,
+  "sourceAtlases": 50,
+  "missing": [],
+  "duplicatePixelGroups": [],
+  "duplicateCropGroups": [],
+  "errors": [],
+  "warnings": [],
+  "checks": [
+    "full game-manifest coverage",
+    "RGBA PNG dimensions",
+    "nonempty readable sprites",
+    "transparent sprite backgrounds",
+    "sprite boundary separation",
+    "file and pixel SHA-256",
+    "unique pixels and source cells",
+    "original generated-atlas provenance"
+  ]
+}

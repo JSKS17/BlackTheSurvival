@@ -1,0 +1,14 @@
+{
+  "id": "uranus",
+  "name": "우라누스",
+  "kind": "gear",
+  "originalId": 109406,
+  "weaponClass": "채찍",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_109406.png",
+  "referencePath": "docs/art-system/references/loadout/uranus.png",
+  "originalTooltip": "전설 / 채찍\n\n공격력 +42\n스킬 증폭 +95\n공격 속도 +30%\n\n<b><color=yellow>충전 - 섬광</color></b>\n다음에 가하는 기본 공격이 <color=green>캐릭터 레벨 * 8 </color><color=#DDA0DD>(+스킬 증폭의 25%)</color>의 추가 스킬 피해를 입히고 1.5초 동안 이동 속도를 20%만큼 감소시킵니다. (쿨다운: 5초)",
+  "output": "Assets/Resources/Lumia/SystemIcons/uranus.png",
+  "prompt": "Create one isolated pixel art game inventory icon for Eternal Return 우라누스 (채찍). Redraw the attached original item's silhouette, colors and distinctive details as crisp hand-authored-looking 32x32 logical pixel art: readable at small scale, dark one-pixel outlines, limited clustered colors, no gradients or anti-aliasing, no text, no frame. Keep the entire object inside a square with transparent padding. Transparent background genuine alpha. This is one asset for Black The Survival's established cute retro pixel UI, not a sprite sheet.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-d4b1da42-9c0d-469b-9d2e-02662a5d62ef.png",
+  "tool": "image_gen.imagegen"
+}

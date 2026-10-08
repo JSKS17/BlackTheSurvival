@@ -1,0 +1,32 @@
+{
+  "id": "zahir",
+  "name": "자히르",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Dark-skinned ascetic man, intense glowing GOLD eyes with very narrow pointed lids, heavy serene brow, small austere straight mouth. Long dark hair.\n",
+  "originalReference": "docs/art-chibi/references/subjects/zahir.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Zahir_S000.png",
+  "referenceSha256": "c0a5945aeeddfb8f4727482cd37fd04621442f3a19f561459f8a63baa4f16ce3",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\n\nCharacter-specific face and pose: Dark-skinned ascetic man, intense glowing GOLD eyes with very narrow pointed lids, heavy serene brow, small austere straight mouth. Long dark hair.\nOriginal appearance: Dark warm-brown skin, long dark brown-black hair framing the face, white sleeveless high-collar ascetic top with magenta and gold concentric trim, black gloves and gold armbands, magenta cloth at waist. The large golden curved blades belong BEHIND him, not a crown on his head.\nSignature prop: Float a few pointed gold throwing blades around one hand.\nSingle face must remain readable at game size; honor the precise individual iris colors, eyelid shape, eyebrow angles and mouth expression above.\n",
+  "generatedSource": "docs/art-identity/generated/zahir.png",
+  "generatedSha256": "669244bb66d113b9d3569f2559630f703080a9122ede346565ebbe0ac1d7299f",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    9,
+    1066,
+    1402
+  ],
+  "resizedSize": [
+    116,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/zahir.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "405becd3553e539bbebc2598a030f0f07f3a13fbcdda93b3f33b8c3cfc430f30",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

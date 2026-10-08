@@ -1,0 +1,32 @@
+{
+  "id": "leon",
+  "name": "레온",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Cool athletic young man, slim vivid CYAN eyes, level relaxed brows, tiny confident closed smirk. Warm skin, brown bangs, white headphones.\n",
+  "originalReference": "docs/art-chibi/references/subjects/leon.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Leon_S000.png",
+  "referenceSha256": "be3bcedc9622cf6143aa17ccfb0acf1680d213d18a523d4145efde81dbe7fb45",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 레온 (leon).\nOutfit and identity: Brown hair, white headphones, blue-white open sports hoodie, orange shoulder strap, swimmer theme.\nSignature prop, do not copy another character's prop: Show wrapped bare fists with a few small turquoise water droplets.\nFace design from original: Cool athletic young man, slim vivid CYAN eyes, level relaxed brows, tiny confident closed smirk. Warm skin, brown bangs, white headphones.\n",
+  "generatedSource": "docs/art-identity/generated/leon.png",
+  "generatedSha256": "cd66c062942674d488a6b033ebf19b08f93427a58ca601b8f2ead5beab2ffca4",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    33,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    118,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/leon.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "e25e1546dd09f791bce98ab01a748ba8b785b87eb2a64d9a06269d6a93f44e42",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

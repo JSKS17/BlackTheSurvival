@@ -1,0 +1,32 @@
+{
+  "id": "barbara",
+  "name": "바바라",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Serious engineer, green eyes behind RECTANGULAR SPECTACLES, determined lowered brows, small flat closed mouth. Bulky white mechanical visor helmet.\n",
+  "originalReference": "docs/art-chibi/references/subjects/barbara.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Barbara_S000.png",
+  "referenceSha256": "60dfc3af5d4e0f0352b8d0225064c51116ffdaf698b78e0201aa1ed704775f3d",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 바바라 (barbara).\nOutfit and identity: Brown ponytail, glasses, chunky white-gray visor helmet, cobalt blue mechanic suit, orange harness, robot tools.\nSignature prop, do not copy another character's prop: Hold a small steel engineering wrench beside a tiny blue robotic device.\nFace design from original: Serious engineer, green eyes behind RECTANGULAR SPECTACLES, determined lowered brows, small flat closed mouth. Bulky white mechanical visor helmet.\n",
+  "generatedSource": "docs/art-identity/generated/barbara.png",
+  "generatedSha256": "320b8f5a36c826b93a1ea6c9ccffb14a53df6b7c29e9cffe1d9beff31190de5c",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    21,
+    0,
+    1108,
+    1402
+  ],
+  "resizedSize": [
+    118,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/barbara.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "8be48eb80f351bab20c7f6cd1bc73afedcb7c5ca4a520b28c84265817a49785b",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

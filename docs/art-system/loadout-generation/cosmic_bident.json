@@ -1,0 +1,16 @@
+{
+  "id": "cosmic_bident",
+  "name": "코스믹 바이던트",
+  "kind": "gear",
+  "originalId": 107404,
+  "weaponClass": "창",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_107404.png",
+  "referencePath": "docs/art-system/references/loadout/cosmic_bident.png",
+  "originalTooltip": "전설 / 창\n\n공격력 +40\n방어력 +8\n스킬 증폭 +97\n쿨다운 감소 +15\n\n<b><color=yellow>치유 감소</color></b>\n상대에게 피해를 입히면 피격된 대상의 치유 효과가 4초 동안 <color=white>20%</color> 감소합니다.\n\nDEATH의 신 하DEATH의 창을 미래지향적으로 재해석한 무기. 미래적인 기술로 상대의 미래를 뺏어버리자.",
+  "output": "Assets/Resources/Lumia/SystemIcons/cosmic_bident.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art inventory icon for the game Black The Survival. Image 1 is the original Eternal Return 코스믹 바이던트 icon used only as a silhouette/color reference. Image 2 is our existing game icon contact sheet used only as a pixel-art style reference. Create a NEW single standalone icon matching this existing coarse pixel-art family, not a collage. Subject: A futuristic elongated two-pronged black spear, angled from lower left to upper right, with a bright cyan-teal center jewel and pale gold spear forks, angular black shafts. Composition: centered, occupies roughly 80% of a square, readable at 32x32 logical pixels. Style: authentic 32x32 game sprite enlarged with sharp hard-edged square pixels, limited 12-18 color palette, stepped outlines and deliberate clustered highlights. Keep the original equipment's recognizable form, angle and major colors. Transparent background with genuine alpha, no square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-9232075b-d034-48e0-829d-4b0b46a79302.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

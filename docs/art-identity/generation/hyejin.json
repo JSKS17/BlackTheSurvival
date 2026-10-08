@@ -1,0 +1,32 @@
+{
+  "id": "hyejin",
+  "name": "혜진",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Reserved girl, serious violet almond eyes, long gently sloping lids, low reserved brow, small solemn CLOSED mouth. No cheerful smile.\n",
+  "originalReference": "docs/art-chibi/references/subjects/hyejin.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Hyejin_S000.png",
+  "referenceSha256": "0c85a47795833fd657e6eeeb35288499aa757ea59d5bdbcdc2cf85ccbf3d6fbb",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 혜진 (hyejin).\nOutfit and identity: Long black braids, white-and-black sailor uniform, purple talismans.\nSignature prop, do not copy another character's prop: Hold a purple paper talisman with a dark ink rune.\nFace design from original: Reserved girl, serious violet almond eyes, long gently sloping lids, low reserved brow, small solemn CLOSED mouth. No cheerful smile.\n",
+  "generatedSource": "docs/art-identity/generated/hyejin.png",
+  "generatedSha256": "2e3f756777b19e5950a0417d919b20b8c4865348e8922122caa81dcb042cc622",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1106,
+    1402
+  ],
+  "resizedSize": [
+    120,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/hyejin.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "a591076245fa9863053c9f9b5ffd057aaae193dd0bc8ce484ccdc92d13362338",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

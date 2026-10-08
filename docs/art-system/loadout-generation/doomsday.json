@@ -1,0 +1,14 @@
+{
+  "id": "doomsday",
+  "name": "둠스데이",
+  "kind": "gear",
+  "originalId": 104503,
+  "weaponClass": "망치",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_104503.png",
+  "referencePath": "docs/art-system/references/loadout/doomsday.png",
+  "originalTooltip": "전설 / 망치\n\n공격력 +40\n스킬 증폭 +90\n최대 체력 +120\n\n<b><color=yellow>파열</color></b>\n적 실험체에게 개별 스킬로 피해를 입힐 경우 적중된 실험체를 기준으로 0.8초 후 <color=white>60</color><color=green>(+캐릭터 레벨 * 3)</color><color=#DDA0DD>(+스킬 증폭의 25%)</color>만큼 스킬 피해를 입히는 광역 폭발을 일으킵니다. (쿨다운 8초)",
+  "output": "Assets/Resources/Lumia/SystemIcons/doomsday.png",
+  "prompt": "Create one isolated pixel art game inventory icon for Eternal Return 둠스데이 (망치). Redraw the attached original item's silhouette, colors and distinctive details as crisp hand-authored-looking 32x32 logical pixel art: readable at small scale, dark one-pixel outlines, limited clustered colors, no gradients or anti-aliasing, no text, no frame. Keep the entire object inside a square with transparent padding. Transparent background genuine alpha. This is one asset for Black The Survival's established cute retro pixel UI, not a sprite sheet.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-987b572a-f83d-430f-b874-c2a0caceb867.png",
+  "tool": "image_gen.imagegen"
+}

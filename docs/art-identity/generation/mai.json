@@ -1,0 +1,32 @@
+{
+  "id": "mai",
+  "name": "마이",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Assertive fashion designer, bright brown-orange eyes with confident lifted corners, assertive angled brows, small OPEN outspoken smile. Auburn bob.\n",
+  "originalReference": "docs/art-chibi/references/subjects/mai.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Mai_S000.png",
+  "referenceSha256": "b0e5df47b7e92ee497d091c786b66b402c31e2a5fbdf06f7795fcf0bcf113f68",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 마이 (mai).\nOutfit and identity: Auburn bob, white sleeveless fashion blouse, black-and-white striped neck scarf, teal-gold draped sleeves.\nSignature prop, do not copy another character's prop: Hold a long teal-and-gold measuring ribbon that curls like a soft whip.\nFace design from original: Assertive fashion designer, bright brown-orange eyes with confident lifted corners, assertive angled brows, small OPEN outspoken smile. Auburn bob.\n",
+  "generatedSource": "docs/art-identity/generated/mai.png",
+  "generatedSha256": "874f6a29c8c4a95ec2c36a038bce082e8f8c9b424049cbd39fd448329e392f34",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1092,
+    1402
+  ],
+  "resizedSize": [
+    118,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/mai.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "cc5de377c44a681221936b76ba1b32a0bfaba3ab31cf28fd760c29fb3feccdb1",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

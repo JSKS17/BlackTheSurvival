@@ -1,0 +1,32 @@
+{
+  "id": "estelle",
+  "name": "에스텔",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Reliable firefighter, warm RED-BROWN eyes with relaxed rounded corners, gently arched brows, soft reassuring closed smile. Chestnut bob and respirator at neck.\n",
+  "originalReference": "docs/art-chibi/references/subjects/estelle.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Estelle_S000.png",
+  "referenceSha256": "a27abc1cfeff9687ec65b152f24924d7af6ae08846c0f887ce6d678a7065527a",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 에스텔 (estelle).\nOutfit and identity: Chestnut bob, orange-red firefighter suit, black collar with pale pink quilted lining, neck respirator, axe and shield.\nSignature prop, do not copy another character's prop: Hold a red fire axe and a broad gray firefighter shield.\nFace design from original: Reliable firefighter, warm RED-BROWN eyes with relaxed rounded corners, gently arched brows, soft reassuring closed smile. Chestnut bob and respirator at neck.\n",
+  "generatedSource": "docs/art-identity/generated/estelle.png",
+  "generatedSha256": "7044556776a05ccc55aab7e305deae95e2b58ad4dcf6d504906961154528afdb",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/estelle.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "217298b35055801da00814d2f67f421716a0bf9eb1b192700836f3bbb84135ae",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

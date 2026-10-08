@@ -1,0 +1,546 @@
+[
+  {
+    "id": "fragarach",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/fragarach.png",
+    "source": "docs/art-system/loadout-generated/fragarach.png",
+    "promptRecord": "docs/art-system/loadout-generation/fragarach.json",
+    "fileSha256": "bd402bdc5d5c9ba279e18680ac1c7f23f1d59ab6a406187c586d6e77c1149e37",
+    "sourceSha256": "49d6fec1ce2826ca6d9b538b055b87dfe2e35aa196a67106d35890c97e850109",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "doomsday",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/doomsday.png",
+    "source": "docs/art-system/loadout-generated/doomsday.png",
+    "promptRecord": "docs/art-system/loadout-generation/doomsday.json",
+    "fileSha256": "15c95290b264be316be1896035cceb98c5b98b628dfb6aecba968ca21d2204e8",
+    "sourceSha256": "04b5efed035ea459351dfde985270b0b28ccd2f2286a1d76a704ef7c32f8e00e",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "ruyi",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/ruyi.png",
+    "source": "docs/art-system/loadout-generated/ruyi.png",
+    "promptRecord": "docs/art-system/loadout-generation/ruyi.json",
+    "fileSha256": "8931578452176fe34779a631f7f6e9cb923e5481d2a3f9907d1f69d4b51f2ae9",
+    "sourceSha256": "862dfbfef87ff91778ac9b02a608d26b8caeebe52743b4e0d64a5dfa6ff9bc74",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "uranus",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/uranus.png",
+    "source": "docs/art-system/loadout-generated/uranus.png",
+    "promptRecord": "docs/art-system/loadout-generation/uranus.json",
+    "fileSha256": "80a7668bd98e2c624f99c678a1232ea9ed2b107ba2836669e430a1f15b27c190",
+    "sourceSha256": "e1f6e7776f227d63975b95b57bfeefefcdd78c131f837850da29607f169e811b",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "eternal_frost",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/eternal_frost.png",
+    "source": "docs/art-system/loadout-generated/eternal_frost.png",
+    "promptRecord": "docs/art-system/loadout-generation/eternal_frost.json",
+    "fileSha256": "04b6c0ad14ac18c1dcbbe1569dcec75a79f65becdf917e2bc8373fdbe1689137",
+    "sourceSha256": "183fd5f961971c8219801c14de3b3e49e3708af28111f72ea92bcb3632bb15f7",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "loigor",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/loigor.png",
+    "source": "docs/art-system/loadout-generated/loigor.png",
+    "promptRecord": "docs/art-system/loadout-generation/loigor.json",
+    "fileSha256": "21b31bdf33a2879752b2099778ddce772df767ef1df2e1fbcaa33ff4a64089fa",
+    "sourceSha256": "b68cc5940609af0304053c917b57c4de14f3f0539bede50dbc639aa91cd37c1e",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "judgement",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/judgement.png",
+    "source": "docs/art-system/loadout-generated/judgement.png",
+    "promptRecord": "docs/art-system/loadout-generation/judgement.json",
+    "fileSha256": "bd08143d7071a85ee21a68b1b6d8b031ae1c33b76862d259a61519c5ef83efac",
+    "sourceSha256": "eb38ae32f1fca8379f01c61821c423045703f287fa8f74f4195a66b096d2d29e",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "sharanga",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/sharanga.png",
+    "source": "docs/art-system/loadout-generated/sharanga.png",
+    "promptRecord": "docs/art-system/loadout-generation/sharanga.json",
+    "fileSha256": "d42a58cc11bf646fdb1df0ea24fe5d7ceecc19a6b6966d0db63bf96e78f3ed16",
+    "sourceSha256": "3629ff980d3cca990a58022e7671ff53bcc68f17aeca14afa845a5f2ec790376",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "death_book",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/death_book.png",
+    "source": "docs/art-system/loadout-generated/death_book.png",
+    "promptRecord": "docs/art-system/loadout-generation/death_book.json",
+    "fileSha256": "2829e57c03d508754f79255d576045b4688369a1f484695c9c29a62227ba8b4e",
+    "sourceSha256": "9cf21e15037d10e6e48b395b98e7565104bd5914ac9ff0c9a440f373ca2df3ea",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "fireball",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/fireball.png",
+    "source": "docs/art-system/loadout-generated/fireball.png",
+    "promptRecord": "docs/art-system/loadout-generation/fireball.json",
+    "fileSha256": "0e703c81431185224ed57ac35fa2e528c1e075f80e029f56217af3747c01d234",
+    "sourceSha256": "8c9a7cc0b399b54de90a7c2677d9e332f8445af54b50b2f3a62a14fbe8d551f1",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "empress",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/empress.png",
+    "source": "docs/art-system/loadout-generated/empress.png",
+    "promptRecord": "docs/art-system/loadout-generation/empress.json",
+    "fileSha256": "9f21f9963c34b325fdfa71439980cbe24571537b0c185a8db81894b41d21db27",
+    "sourceSha256": "e5be80ea84dd3e1e31d2a1f9017540ca43c4183cbfd3575d6145b687ba174725",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "ultravision",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/ultravision.png",
+    "source": "docs/art-system/loadout-generated/ultravision.png",
+    "promptRecord": "docs/art-system/loadout-generation/ultravision.json",
+    "fileSha256": "8af1d6743ef71a0d9f2456f779700756d576f549a754e27d9b2a4efdc7d39faf",
+    "sourceSha256": "079fdb7be9a8ad47c2d96d53e09ee9768184eb58f9b82b20889d7d144a10a0c3",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "cosmic_bident",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/cosmic_bident.png",
+    "source": "docs/art-system/loadout-generated/cosmic_bident.png",
+    "promptRecord": "docs/art-system/loadout-generation/cosmic_bident.json",
+    "fileSha256": "e19cd074155c2c0edb750a4ef7b4f9cfb94c8dacf02ab1f174d2256407b68c64",
+    "sourceSha256": "87efece21ce112d4ff4483248784e613e0ef6f7b6071191142b1d39197a326a1",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "cerberus",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/cerberus.png",
+    "source": "docs/art-system/loadout-generated/cerberus.png",
+    "promptRecord": "docs/art-system/loadout-generation/cerberus.json",
+    "fileSha256": "92d2e61c5817f7b6bf4ae44077f06ceb79bb615f120005a7c11c10bfc48279f4",
+    "sourceSha256": "d69c3133b2d6333e501e5564404a229b34b7f9081ccb30e697dbffd6c68f733c",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "wonderful_tonight",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/wonderful_tonight.png",
+    "source": "docs/art-system/loadout-generated/wonderful_tonight.png",
+    "promptRecord": "docs/art-system/loadout-generation/wonderful_tonight.json",
+    "fileSha256": "f8d278319b2d50a996c41f2dc08d7e36321001a60fc21871c4fe5a44cf5b9374",
+    "sourceSha256": "0e32cca98adb75a6db2809591365d1d23fd0eadbdaec65fbb3fcc8361646e784",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "deathadder_mt",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/deathadder_mt.png",
+    "source": "docs/art-system/loadout-generated/deathadder_mt.png",
+    "promptRecord": "docs/art-system/loadout-generation/deathadder_mt.json",
+    "fileSha256": "f8650b07132507325c20e37c70552566b46e3a333025aec629f25942b08f67ac",
+    "sourceSha256": "8225c718f6a648b5d6c5f5228cee107685bcd5d9ad69c5ccb34fa7c58a807d9b",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "angel_halo",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/angel_halo.png",
+    "source": "docs/art-system/loadout-generated/angel_halo.png",
+    "promptRecord": "docs/art-system/loadout-generation/angel_halo.json",
+    "fileSha256": "0a0469f5fdfb6ac7bdcf98e805c7b87e347426751bae792e4e0dc327939154b9",
+    "sourceSha256": "cc0f94211b4fb541e6be75bb569f25972890c482e3fc8597e492934b92f499d1",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "radar",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/radar.png",
+    "source": "docs/art-system/loadout-generated/radar.png",
+    "promptRecord": "docs/art-system/loadout-generation/radar.json",
+    "fileSha256": "79cd640e796b99c82494846c6b21a7deb6ed58d4ba8922ddaab6fcabd0fa8d72",
+    "sourceSha256": "dcb5c440ee3c8066fe1ba973fe7433b37a5536f62987b6124bdbbfac417e9f87",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_tonfa",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_tonfa.png",
+    "source": "docs/art-system/loadout-generated/weapon_tonfa.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_tonfa.json",
+    "fileSha256": "c408d7bf2b9eafb48ef41795d79e316789c631dbe0f6a76255cf486ae7774b07",
+    "sourceSha256": "a1135b3bbb6bd7ccc4c81f4a574a6aa4d3fedefef0a1103f5b08b31c4e5f849e",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_bat",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_bat.png",
+    "source": "docs/art-system/loadout-generated/weapon_bat.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_bat.json",
+    "fileSha256": "9f7ae5e66fe6a3b30e7448a463d499e4012348a58702fdedfd82c6c299b68552",
+    "sourceSha256": "ad17637da5951acd7e9b06bc248032a9c06803fcba833d43eb51c59121d20014",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_whip",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_whip.png",
+    "source": "docs/art-system/loadout-generated/weapon_whip.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_whip.json",
+    "fileSha256": "f3e87d797e4ba823cf77abcc7182c30dfce25abc5422d006d121e00ad784a5d6",
+    "sourceSha256": "94d8b2aef837b574ce0a824727606c1febcebb593d733b104fc9c636e7866b32",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_throw",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_throw.png",
+    "source": "docs/art-system/loadout-generated/weapon_throw.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_throw.json",
+    "fileSha256": "d9c763f142e2e7fa1e28033f57703d6f15e68f4f72f1ec6b731c1277cd1c66a1",
+    "sourceSha256": "41b06466dda7b448adf94ec976e7131b5a21009dae546b1681293cd948429382",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_shuriken",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_shuriken.png",
+    "source": "docs/art-system/loadout-generated/weapon_shuriken.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_shuriken.json",
+    "fileSha256": "7a95e9f13e707baa317852432056fffb2be55bd032188daa18f7506ed1fc8438",
+    "sourceSha256": "736677e1188d2ae75478b60a5fb193b4a2ae7b29fd780f129494ea67170ad2a8",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_crossbow",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_crossbow.png",
+    "source": "docs/art-system/loadout-generated/weapon_crossbow.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_crossbow.json",
+    "fileSha256": "734a1d6e401ea1168391127d28c50b24cc702340ad3470d00e994603f1510c42",
+    "sourceSha256": "cd3b0fff80f0ef2fb0171468b76d554c1c4c07bf4afd18bc1d768c7c8ba3c71d",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_rifle",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_rifle.png",
+    "source": "docs/art-system/loadout-generated/weapon_rifle.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_rifle.json",
+    "fileSha256": "2e2be58a46873b8d6bc91eba301352e44022321471bbd7119168b750d3aac4e9",
+    "sourceSha256": "affb0f2318a9906b8a1f406caf0a30c2d4a2ad73007692d58b16892cb7b6e186",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_dual",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_dual.png",
+    "source": "docs/art-system/loadout-generated/weapon_dual.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_dual.json",
+    "fileSha256": "9d5b293c1c6288dd720427cbc0e78694bf54b0ee214d9aefe59ac18d8500bc12",
+    "sourceSha256": "1fffa3c25a9305886b9d1a9a58302a4cb1f6393e4e1df8faf24647e7644065b1",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_spear",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_spear.png",
+    "source": "docs/art-system/loadout-generated/weapon_spear.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_spear.json",
+    "fileSha256": "545ca066844e960bf283a85756fe30b4f8e6d0d6172db7b8de43126348520c49",
+    "sourceSha256": "dca0792063a0abd464026eb1f322bc315989378aac954fd559b3b0f74d919584",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_nunchaku",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_nunchaku.png",
+    "source": "docs/art-system/loadout-generated/weapon_nunchaku.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_nunchaku.json",
+    "fileSha256": "678371f0e9ef13c70ad4c118065b26660ef673f6f9648cf7985735d37266b4e7",
+    "sourceSha256": "0e32324a4a949fd7002f4d88f58bd9fb268021c0aa25a925b8ff08305b284c14",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_guitar",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_guitar.png",
+    "source": "docs/art-system/loadout-generated/weapon_guitar.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_guitar.json",
+    "fileSha256": "d576794dc1f65df15ace481ec93455b07f5080ccda1a89ed828caa09a114da38",
+    "sourceSha256": "57eaa3687c9ddcb59a2a48775d4fa7ffa6d017ac10a8a4358401cf1034ae597e",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_camera",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_camera.png",
+    "source": "docs/art-system/loadout-generated/weapon_camera.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_camera.json",
+    "fileSha256": "b73def6fc0deba861b71fa8d6068a3e0d109ad5a2d62664d8e31512d961c03f2",
+    "sourceSha256": "1ad485b0505937aecd9c6b7cd0a884c28ee646d6fbf9ed9374ac90d26eaa4232",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_arcana",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_arcana.png",
+    "source": "docs/art-system/loadout-generated/weapon_arcana.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_arcana.json",
+    "fileSha256": "b9e164ec3b11a90e322bccc6dce153fd185d421b96d32871c110240081b3c7a2",
+    "sourceSha256": "7aa56b96663749165c36c71b9b4eb6c50778e9937cdb93f46ef864eeaf64ed04",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  },
+  {
+    "id": "weapon_vf",
+    "kind": "weapon",
+    "path": "Assets/Resources/Lumia/SkillIcons/weapon_vf.png",
+    "source": "docs/art-system/loadout-generated/weapon_vf.png",
+    "promptRecord": "docs/art-system/loadout-generation/weapon_vf.json",
+    "fileSha256": "ff14e8d8cc2003b010844845423b9adf098270d6450c5208a07d9f6798b6ba98",
+    "sourceSha256": "1f1188890d3be8b08908cea5b0ed242c39351174d0975e85876adbe36ad30f11",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ]
+  }
+]

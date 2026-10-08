@@ -1,0 +1,3 @@
+Dedicated sprites: 92
+Dedicated icons: 469
+Missing assets: 0

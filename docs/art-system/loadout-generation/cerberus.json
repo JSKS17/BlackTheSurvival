@@ -1,0 +1,16 @@
+{
+  "id": "cerberus",
+  "name": "케르베로스",
+  "kind": "gear",
+  "originalId": 119403,
+  "weaponClass": "쌍절곤",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_119403.png",
+  "referencePath": "docs/art-system/references/loadout/cerberus.png",
+  "originalTooltip": "전설 / 쌍절곤\n\n공격력 +77\n공격 속도 +30%\n치명타 확률 +33%\n\n<b><color=yellow>치유 감소</color></b>\n상대에게 피해를 입히면 피격된 대상의 치유 효과가 4초 동안 <color=white>20%</color> 감소합니다.\n\n머리가 셋 달린 개. 하데스가 다스리는 명계를 지키는 문지기이다.",
+  "output": "Assets/Resources/Lumia/SystemIcons/cerberus.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art inventory icon for the game Black The Survival. Image 1 is the original Eternal Return 케르베로스 icon used only as a silhouette/color reference. Image 2 is our existing game icon contact sheet used only as a pixel-art style reference. Create a NEW single standalone icon matching this existing coarse pixel-art family, not a collage. Subject: A folded pair of dark steel-blue nunchaku batons with black chains and rectangular blue-gray metal inlays; compact double-stick silhouette. Composition: centered, occupies roughly 80% of a square, readable at 32x32 logical pixels. Style: authentic 32x32 game sprite enlarged with sharp hard-edged square pixels, limited 12-18 color palette, stepped outlines and deliberate clustered highlights. Keep the original equipment's recognizable form, angle and major colors. Transparent background with genuine alpha, no square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-f169d0f4-b6a8-460b-90a6-1efcb0cfdc21.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

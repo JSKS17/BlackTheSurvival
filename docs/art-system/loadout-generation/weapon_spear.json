@@ -1,0 +1,16 @@
+{
+  "id": "weapon_spear",
+  "name": "그림자 찌르기",
+  "kind": "weapon",
+  "originalId": 3019000,
+  "weaponClass": "창",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_115.png",
+  "referencePath": "docs/art-system/references/loadout/weapon_spear.png",
+  "originalTooltip": "소모값 없음 / 쿨다운 30 초\n\n지정한 방향으로 창을 강하게 내질러 피해를 입히고 공격 범위 밖으로 밀어버립니다. <i>쿨다운 고정: 쿨다운 감소 스탯의 영향을 받지 않습니다.</i>",
+  "output": "Assets/Resources/Lumia/SkillIcons/weapon_spear.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art D weapon-skill icon for Black The Survival. Image 1 is the original Eternal Return 그림자 찌르기 icon used as silhouette/color reference. Image 2 is our existing icon contact sheet as pixel-art style reference. Create a NEW single standalone icon matching the coarse pixel-art family, not a collage. Subject: A slim spear pointing toward upper left with a broad pale silver pointed head and straight dark purple shaft, bright lilac rim with sparse purple thrust rays; preserve original diagonal spear silhouette. Composition: centered, roughly 80% of square, readable at 32x32 logical pixels. Style: authentic 32x32 sprite enlarged with sharp square pixel clusters, limited 12-18 colors, stepped outlines, deliberate grouped highlights. Keep the original recognizable form, angle and major colors. Transparent background with genuine alpha; remove the source's background tile. No square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth glow or airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-07ac461a-0f1c-42cc-adcf-38ef85cbed8b.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "weapon_nunchaku",
+  "name": "맹룡과강",
+  "kind": "weapon",
+  "originalId": 3020000,
+  "weaponClass": "쌍절곤",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_191.png",
+  "referencePath": "docs/art-system/references/loadout/weapon_nunchaku.png",
+  "originalTooltip": "소모값 없음 / 쿨다운 25 초\n\n쌍절곤을 빠르게 휘둘러 바람을 모으며 이동 속도가 감소합니다. 다시 사용하면 지정한 방향으로 날립니다.바람의 구체는 쌍절곤을 휘두른 시간에 따라 증가된 피해를 입히며, 일정 시간 이상 휘두르면 맞은 대상을 기절시킵니다. <i>쿨다운 고정: 쿨다운 감소 스탯의 영향을 받지 않습니다.</i>",
+  "output": "Assets/Resources/Lumia/SkillIcons/weapon_nunchaku.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art D weapon-skill icon for Black The Survival. Image 1 is the original Eternal Return 맹룡과강 icon used as silhouette/color reference. Image 2 is our existing icon contact sheet as pixel-art style reference. Create a NEW single standalone icon matching the coarse pixel-art family, not a collage. Subject: A pair of dark black and silver nunchaku sticks angled like an inverted V and linked by a small silver chain, bright gold outline and a few amber swing rays; preserve original paired weapon form. Composition: centered, roughly 80% of square, readable at 32x32 logical pixels. Style: authentic 32x32 sprite enlarged with sharp square pixel clusters, limited 12-18 colors, stepped outlines, deliberate grouped highlights. Keep the original recognizable form, angle and major colors. Transparent background with genuine alpha; remove the source's background tile. No square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth glow or airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-8a7e6e30-579e-4a7f-b104-b22e76d3ee00.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

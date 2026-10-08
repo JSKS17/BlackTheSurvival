@@ -1,0 +1,32 @@
+{
+  "id": "bernice",
+  "name": "버니스",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Weathered middle-aged hunter, tired narrow amber eyes under blond bangs, heavy low brows, broad nose and pronounced mouth crease, unsmiling straight lips.\n",
+  "originalReference": "docs/art-chibi/references/subjects/bernice.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Bernice_S000.png",
+  "referenceSha256": "e25a965b8fc1d924654974221a17f8c05d09751a326ae83878be976a1be211ce",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 버니스 (bernice).\nOutfit and identity: Shaggy blond hair, fur-trimmed yellow field coat, green camouflage layer, hunting shotgun.\nSignature prop, do not copy another character's prop: Hold a hunting rifle with a brown wooden stock and a long black barrel.\nFace design from original: Weathered middle-aged hunter, tired narrow amber eyes under blond bangs, heavy low brows, broad nose and pronounced mouth crease, unsmiling straight lips.\n",
+  "generatedSource": "docs/art-identity/generated/bernice.png",
+  "generatedSha256": "8274888d10ad96cf520c4e7258b09ed3b8be1271aefd305f7979b09630dea614",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/bernice.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "fda327433f7557b0fe0c6cf8cf1707d2e87d2338b1b136a97fe78592a77570f3",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

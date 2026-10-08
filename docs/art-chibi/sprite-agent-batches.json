@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "batches": [
+    {
+      "id": "sprites_04",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_04_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "mai",
+        "markus",
+        "magnus",
+        "vanya",
+        "barbara",
+        "bernice",
+        "bianca",
+        "celine"
+      ]
+    },
+    {
+      "id": "sprites_05",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_05_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "sho",
+        "shoichi",
+        "sissela",
+        "silvia",
+        "adela",
+        "adriana",
+        "adina",
+        "isaac"
+      ]
+    },
+    {
+      "id": "sprites_06",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_06_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "alex",
+        "jan",
+        "estelle",
+        "aiden",
+        "echion",
+        "elena",
+        "johann",
+        "william"
+      ]
+    },
+    {
+      "id": "sprites_07",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_07_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "irem",
+        "eva",
+        "ian",
+        "eleven",
+        "zahir",
+        "jenny",
+        "camilo",
+        "karla"
+      ],
+      "island_alpha": 32
+    },
+    {
+      "id": "sprites_08",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_08_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "cathy",
+        "chloe",
+        "chiara",
+        "tazia",
+        "theodore",
+        "felix",
+        "priya",
+        "fiora"
+      ]
+    },
+    {
+      "id": "sprites_09",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_09_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "piolo",
+        "hart",
+        "haze",
+        "debi_marlene",
+        "arda",
+        "abigail",
+        "alonso",
+        "leni"
+      ]
+    },
+    {
+      "id": "sprites_10",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_10_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "tsubame",
+        "kenneth",
+        "katja",
+        "darko",
+        "lenore",
+        "garnet",
+        "yumin",
+        "hisui"
+      ]
+    },
+    {
+      "id": "sprites_11",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_11_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "justyna",
+        "istvan",
+        "xuelin",
+        "henry",
+        "blair",
+        "mirka",
+        "fenrir",
+        "coraline"
+      ]
+    },
+    {
+      "id": "sprites_12",
+      "kind": "portrait",
+      "source": "docs/art-chibi/generated/sprites_12_raw.png",
+      "columns": 4,
+      "rows": 2,
+      "ids": [
+        "bihyung",
+        "craver",
+        "lucia",
+        "ceres",
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  ],
+  "prompts": {
+    "sprites_04_initial": "Use case: stylized-concept. Asset type: transparent pixel game sprite atlas. Create a NEW atlas using Image 1 only as the Eternal Return character design reference, and Image 2 only as the cute CHIBI pixel style reference; do not copy Image 2's characters or its crowded layout. EXACT landscape canvas 1536x1024, FOUR EQUAL COLUMNS and TWO EQUAL ROWS, 8 full-body characters, no extra people. Each invisible cell is 384x512. CRITICAL SMALLER FIGURES WITH WIDE TRANSPARENT GUTTERS: every figure including hair, coat, weapon, umbrella and floating props must fit COMPLETELY inside the CENTRAL 270x350 rectangle of its cell. Keep at least 56px clear transparent space on BOTH left/right and 80px clear transparent space on BOTH top/bottom of EVERY cell. Centers at (192,256),(576,256),(960,256),(1344,256),(192,768),(576,768),(960,768),(1344,768). Characters only 320-340px tall, never scale them up to fill the cell. TRANSPARENT ALPHA background everywhere outside the characters, no background paint, no floor shadows. Order EXACTLY as Image 1: top row Mai (red-orange bob, white fashion outfit with long muted green-gold scarf/coat), Markus (short black hair, moustache/beard, charcoal muscular armored outfit and compact greatsword), Magnus (spiky orange-blond hair, black biker vest and compact bat), Vanya (ice blue hair, white-blue butterfly dress and butterfly adornments); bottom row Barbara (brown ponytail, glasses, white-blue engineer helmet and blue outfit with tools), Bernice (long blond hair, yellow fur-collar parka over camouflage, hunting firearm), Bianca (teal long hair, black gothic maid dress, red accents and a SMALL black parasol tucked close to her body), Celine (light blue bob, orange bomber/cropped engineering jacket, dark clothes and small grenade). Preserve reference hair colors, signature outfits and props faithfully. Style: adorable 2-head-tall super-deformed CHIBI with huge head about 55 percent of height, soft round large eyes, tiny compact torso, very short limbs and feet, cheerful/composed personality-fitting faces. HARD EDGED 16-bit pixel art, stepped pixel silhouette, clean chunky outline, limited tidy shading, individual pixels visible at downscale. No realistic anatomy, no tall anime proportions, no smooth antialiasing, no blur, no glow, no scenery, no labels, no text, no borders, no watermark. Keep eight isolated cute characters entirely separate.",
+    "sprites_04_edit": "Use case: precise-object-edit. Edit THIS existing eight-character chibi pixel sprite atlas. KEEP the same eight designs, same order, same poses, same pixel style, same 1536x1024 canvas and 4 columns x 2 rows. ONLY CHANGE THE SCALE AND SPACING: shrink EACH individual character plus all its props to HALF of its current width and HALF of its current height, independently. Make the whole atlas look much emptier with eight small thumbnail sprites. Place each HALF-SIZED figure at the exact center of its own 384x512 cell. Each complete sprite must be about 170-210px wide and 220-260px tall. The remaining large space around every character must have actual alpha=0 transparency. Do NOT enlarge any sprite back up to fill the cell. Do NOT crop a figure, move props separately, stretch the whole atlas, add a background, add a ground/floor shadow or add labels. There must be a VERY WIDE EMPTY TRANSPARENT GAP between every figure: at least 150px gap horizontally and 200px vertically. The girl with the umbrella and her umbrella must fit fully inside the same small thumbnail rectangle. Preserve all eight character faces, clothing colors, weapons, hair and cute two-head proportions unchanged. No text, no borders, no scenery, no gradient, no glow, no watermark. Small half-sized eight isolated sprite thumbnails floating on a fully transparent canvas.",
+    "sprites_05": "Use case: stylized-concept. Create a NEW transparent CHIBI pixel game sprite atlas. Image 1 is ONLY the original Eternal Return character design reference; Image 2 is ONLY the cute pixel style and SMALL FIGURE WITH LARGE GUTTER reference. Canvas 1536x1024, exactly FOUR columns by TWO rows of eight isolated full-body figures. Each character and all props fit in its own 384x512 cell, centered, ONLY 240-300px tall and 170-240px wide; leave huge genuine transparent padding around every figure. Do not fill cells with large characters. Match Image 2's tiny isolated figures and empty space. All backgrounds alpha=0, no gradient or scenery, no ground shadow. Adorable two-head-tall chibi: oversized head 55% of height, round big expressive eyes, compact torso, tiny limbs and feet. HARD EDGED 16-bit pixel sprite style, stepped dark outline, visible tidy pixel clusters, limited flat shade ramps, no realistic anatomy, no smooth antialiasing or blur. Preserve each original outfit, hair color and signature props; keep props compact inside their own cell. NO TEXT, labels, borders or watermark. EXACT Image 1 order: Top row Sho (round friendly chef, white Chinese chef coat, red neck scarf, broad straw hat with food utensils), Shoichi (brown hair, glasses, tan business suit, green tie, tiny dagger), Sissela (silver-white hair, black headband, pale medical dress, small IV pole and round companion), Silvia (short dark navy hair, sporty white-cyan jacket and black biker suit). Bottom row Adela (long black hair, glasses, elegant black chess commander outfit with gold accents and a chess piece), Adriana (red-orange ponytail, dark firefighter jacket with yellow BURN band, small fuel bottle), Adina (pale blue hair, very large navy-gold witch hood, blue astrology dress, small star orb), Isaac (white swept hair and white beard, red patterned shirt with tan vest and coat, compact weapon). Eight people only, all compact and fully separated.",
+    "sprites_06": "Use case: stylized-concept. Create a NEW transparent CHIBI pixel game sprite atlas. Image 1 is ONLY the original Eternal Return character design reference; Image 2 is ONLY the cute pixel style and SMALL FIGURE WITH LARGE GUTTER reference. Canvas 1536x1024, exactly FOUR columns by TWO rows of eight isolated full-body figures. Each character and all props fit in its own 384x512 cell, centered, ONLY 240-300px tall and 170-240px wide; leave huge genuine transparent padding around every figure. Do not fill cells with large characters. Match Image 2's tiny isolated figures and empty space. All backgrounds alpha=0, no gradient or scenery, no ground shadow. Adorable two-head-tall chibi: oversized head 55% of height, round big expressive eyes, compact torso, tiny limbs and feet. HARD EDGED 16-bit pixel sprite style, stepped dark outline, visible tidy pixel clusters, limited flat shade ramps, no realistic anatomy, no smooth antialiasing or blur. Preserve each original outfit, hair color and signature props; keep props compact inside their own cell. NO TEXT, labels, borders or watermark. EXACT Image 1 order: Top row Alex (blond hair, dark sunglasses, black spy long coat, compact firearm), Jan (dark brown skin, white tied dreadlocks, athletic bare torso and wrapped fists), Estelle (brown bob, orange-red firefighter protective suit with pink shoulders, compact shield and axe), Aiden (white hair, red eyes, formal white tactical coat with navy trim, compact sword). Bottom row Echion (spiky silver-lavender hair, black futuristic coat, pink-white armored experimental arm), Elena (ice-blue hair, delicate blue-white ice skating dress and snowflake jewelry), Johann (short navy-black hair, clerical black outfit, blue stole, gold cross and small book), William (brown hair under blue cap, white-blue baseball uniform and glove with ball). Eight people only, all compact and fully separated.",
+    "sprites_07": "Use case: stylized-concept. Create a NEW transparent CHIBI pixel game sprite atlas. Image 1 is ONLY the original Eternal Return character design reference; Image 2 is ONLY the cute pixel style and SMALL FIGURE WITH LARGE GUTTER reference. Canvas 1536x1024, exactly FOUR columns by TWO rows of eight isolated full-body figures. Each character and all props fit in its own 384x512 cell, centered, ONLY 240-300px tall and 170-240px wide; leave huge genuine transparent padding around every figure. Do not fill cells with large characters. Match Image 2's tiny isolated figures and empty space. All backgrounds alpha=0, no gradient or scenery, no ground shadow. Adorable two-head-tall chibi: oversized head 55% of height, round big expressive eyes, compact torso, tiny limbs and feet. HARD EDGED 16-bit pixel sprite style, stepped dark outline, visible tidy pixel clusters, limited flat shade ramps, no realistic anatomy, no smooth antialiasing or blur. Preserve each original outfit, hair color and signature props; keep props compact inside their own cell. NO TEXT, labels, borders or watermark. EXACT Image 1 order: Top row Irem (blonde cat ears, asymmetrical blue-orange eyes, white-yellow-red cat-themed outfit and paw sleeves), Eva (long ash-blonde hair, white futuristic dress with dark trim, little purple psychic glow held close to her hand), Ian (wavy pale sage-green hair, cream and brown gothic scholar outfit, small old book), Eleven (pink twin tails, white pink checkered idol uniform, oversized cute heart hammer held CLOSE to her body so it fits the cell). Bottom row Zahir (dark brown skin, dark purple long hair, white-gold-magenta mystic outfit and compact curved chakram), Jenny (long blonde hair, red sunglasses on head, burgundy dress with white fur coat), Camilo (ash blond chin-length hair, black elegant dancer suit with chest straps and compact twin blades), Karla (red braided hair, red military beret, red-black cropped outfit and compact crossbow). Eight people only, all compact and fully separated.",
+    "sprites_09": "Use case: stylized-concept. Create a NEW transparent CHIBI pixel game sprite atlas. Image 1 is ONLY the original Eternal Return character design reference; Image 2 is ONLY the cute pixel style reference. Canvas 1536x1024, exactly FOUR columns by TWO rows, eight isolated character UNITS, completely separated. Every person and ALL props stay centered in their own cell; keep large empty transparent gutters and no crossed props. Two-head-tall cute CHIBI with head 55% of height, round large expressive eyes, tiny torso, very short limbs and feet, hard stepped dark pixel outline, tidy 16-bit shade ramps and visible pixel clusters. Preserve the original hairstyles, clothing palettes, signature costumes and exact props listed. No smooth antialiasing, blur, photorealism, gradients, ground shadows, scenery, labels, text, borders or watermark. Background must be ACTUAL alpha=0 transparency. Figure height only 280-340px within each 384x512 cell. DO NOT INHERIT OTHER CHARACTERS' props from the style image. EXACT Image 1 order: top row Piolo (messy brown hair, athletic chest and dark green hooded vest; BLACK-SILVER NUNCHAKU, TWO SHORT STICKS joined by a clearly visible CHAIN), Hart (blonde bob, dark beret, red-pink jacket; BRIGHT RED ELECTRIC GUITAR with dark neck), Haze (straight gray hair, headphones, gray black suit and red tie; VERY LARGE BOX-SHAPED GRAY ASSAULT WEAPON with barrel and stock, held compactly), Debi & Marlene as ONE paired UNIT entirely inside fourth cell (two short dark-haired sporty twin girls with baseball caps; left blue jacket and BLUE-ACCENTED GREATSWORD, right red jacket and RED-ACCENTED GREATSWORD; both small so they do not touch other cells). Bottom row Arda (curly blond hair, beige explorer shirt, green checked scarf and backpack; SMALL CARVED ANCIENT STONE RELIC and ROLLED PARCHMENT SCROLL), Abigail (long slate-blue hair, green eyes, white-blue cape and blue dress; LARGE BLUE BATTLE AXE with VERY BROAD CRESCENT AXE HEAD, NOT a straight sword), Alonso (spiky sandy-orange hair, face covered by dark blue mechanical visor, black heavy armor; VERY LARGE DARK MAGNETIC GAUNTLETS with AMBER panels), Leni (ash-brown twin tails, black rabbit-ear ribbon, pastel pink-yellow-green black jacket and white shorts; PASTEL PINK CARROT-THEMED HANDHELD LAUNCHER with SHORT visible BARREL). No books/cameras or unlisted rifles. Eight logical units only, paired twins wholly within their one cell.",
+    "sprites_07_correction": "Use case: precise-object-edit. Edit ONLY these props in this existing atlas, keeping all eight faces, clothes, hair, order and all other props unchanged. Ian, the THIRD figure in the TOP row, must hold a SHORT SILVER RITUAL DAGGER with dark handle and a small DARK MONSTER SHADOW behind her shoulder; completely remove her book. Zahir, the FIRST figure in the BOTTOM row, must float a FEW POINTED GOLD THROWING BLADES around his hand, replacing the giant curved chakram ring. Jenny, the SECOND figure in the BOTTOM row, must hold an ELEGANT COMPACT BLACK PISTOL with small gold accent. Keep Irem paw mittens, Eva violet energy orb, Eleven heart hammer, Camilo two silver swords and Karla crossbow unchanged. Maintain source atlas pixel style and transparent gutters; no enlarging figures.",
+    "sprites_08": "Use case: stylized-concept. Create a NEW transparent CHIBI pixel game sprite atlas. Image 1 is ONLY the original Eternal Return character design reference; Image 2 is ONLY the cute pixel style reference. Canvas 1536x1024, exactly FOUR columns by TWO rows, eight isolated character UNITS, completely separated. Every person and ALL props stay centered in their own cell; keep large empty transparent gutters and no crossed props. Two-head-tall cute CHIBI with head 55% of height, round large expressive eyes, tiny torso, very short limbs and feet, hard stepped dark pixel outline, tidy 16-bit shade ramps and visible pixel clusters. Preserve the original hairstyles, clothing palettes, signature costumes and exact props listed. No smooth antialiasing, blur, photorealism, gradients, ground shadows, scenery, labels, text, borders or watermark. Background must be ACTUAL alpha=0 transparency. Figure height only 280-340px within each 384x512 cell. DO NOT INHERIT OTHER CHARACTERS' props from the style image. EXACT Image 1 order: top row Cathy (brown long hair, blue eyes, white lab coat over blue medical shirt, stethoscope; HOLD small steel SURGICAL SCALPEL and compact MEDICAL POUCH), Chloe (long gray-beige hair, white ribbed sleeveless high-neck blouse and tan skirt; control a SMALL NINA MARIONETTE through thin strings FROM HER FINGERS; Nina beside her in SAME cell has gray-beige long twin tails, pale lavender-white hair ribbons, white ruffled dress with lavender bows, black mechanical legs/blade feet, as Image 3; NO wooden control bar), Chiara (very pale silver-pink hair, pink eyes, black gothic dress and ornate BLACK RAPIER with VIOLET GEMSTONE guard), Tazia (red asymmetrical bob, black-red magician dress, float a few sharp transparent BLUE-LILAC GLASS SHARDS near hand). Bottom row Theodore (black hair, black-navy tactical uniform with blue sash; DARK NAVY SNIPER RIFLE with VISIBLE SCOPE), Felix (short pale sandy hair, white shirt and gray-green field jacket; LONG SILVER SPEAR with SINGLE pointed spearhead), Priya (tan skin, dark teal-green bob with white flowers, cream-gold-blue musician outfit; BLUE ACOUSTIC GUITAR decorated with white flowers), Fiora (long brown ponytail with blue ribbon, white-blue fencing uniform; SLENDER SILVER FENCING RAPIER with ROUND guard). No extra books/cameras/rifles except Theodore's specifically listed rifle. Every unit fits its own cell including Chloe plus Nina. Image 3 is ONLY Nina puppet appearance reference, no text from it.",
+    "sprites_04_correction": "Use case: precise-object-edit. Edit this existing transparent 4-column by 2-row CHIBI pixel sprite atlas. Change ONLY Markus, the second figure in the top row. Replace his narrow sword prop with a heavy silver battle AXE, with a VERY BROAD SILVER AXE HEAD and dark grip, carried at his shoulder. The blade must clearly be a broad axe or hammer-like axe head, never a thin sword. Keep the axe compact inside Markus's own cell. Do not change the other seven characters. STRICT INVARIANTS: preserve exact character order, existing cute two-head proportions, facial identities, hair, clothing colors, poses, pixel style, canvas dimensions, large transparent gutters and all unmentioned props. Every person and new prop stays fully inside its own current cell, with generous transparent padding. Do not add people, backgrounds, gradients, floor shadows, labels, text, borders or watermark. Do not enlarge the figures.",
+    "sprites_06_correction": "Use case: precise-object-edit. Edit this existing transparent 4-column by 2-row CHIBI pixel sprite atlas. Change ONLY the following handheld props. Elena, the second figure in the bottom row, must hold a SLENDER ICE-BLUE RAPIER with a small snowflake-shaped guard; replace her floating snowflake orb with this unmistakable narrow fencing sword. Johann, the third figure in the bottom row, must hold a SMALL GOLD CHRISTIAN CROSS in front of his blue priest stole; remove the brown book completely. Keep all other six figures and all clothing/face designs unchanged. STRICT INVARIANTS: preserve exact character order, existing cute two-head proportions, facial identities, hair, clothing colors, poses, pixel style, canvas dimensions, large transparent gutters and all unmentioned props. Every person and new prop stays fully inside its own current cell, with generous transparent padding. Do not add people, backgrounds, gradients, floor shadows, labels, text, borders or watermark. Do not enlarge the figures.",
+    "sprites_05_correction": "Use case: precise-object-edit. Edit this existing transparent 4-column by 2-row CHIBI pixel sprite atlas. Change ONLY the following handheld props while preserving all eight characters. Top-left Sho must visibly carry a broad steel cooking CLEAVER and a small dark WOK. Top-right Silvia must hold a compact blue-black PISTOL beside a small MOTORCYCLE HELMET. Bottom-left Adela must hold a slim chess-themed RAPIER with a white chess-piece guard, replacing the spare chess-piece props. Bottom third Adina must hold a few dark blue TAROT CARDS with pale gold stars instead of the spherical star orb. Keep Shoichi's dagger, Sissela's IV pole and round companion, Adriana's fuel tank/bottle and Isaac's police tonfa unchanged. No inherited books/cameras/rifles. STRICT INVARIANTS: preserve exact character order, existing cute two-head proportions, facial identities, hair, clothing colors, poses, pixel style, canvas dimensions, large transparent gutters and all unmentioned props. Every person and new prop stays fully inside its own current cell, with generous transparent padding. Do not add people, backgrounds, gradients, floor shadows, labels, text, borders or watermark. Do not enlarge the figures.",
+    "sprites_10": "Use case: stylized-concept. Asset type: transparent pixel-art CHIBI game sprite atlas. Image 1 is ONLY original character identity/clothing reference; Image 2 is ONLY cute chibi pixel style. NEW 1536x1024 canvas with FOUR columns by TWO rows. Every logical character unit fully separated in its own cell, large completely transparent gutters, no crossing weapons. Cute TWO HEADS tall: head 55% of height, round big expressive eyes, tiny short body/limbs/feet, clean dark stepped pixel outlines and tidy 16-bit pixel shade clusters. Preserve reference hair, outfit colors, face features and listed props EXACTLY. Complete head-to-toe figure including weapon fits central 280x370 region of each 384x512 cell. Background actual alpha=0, no floor shadow, scenery, gradient, smooth shading, antialiasing, text, labels, borders or watermark. DO NOT INHERIT DIFFERENT CHARACTERS' BOOKS/CAMERAS/GUNS from style image. EIGHT logical units. EXACT Image 1 order. Top row Tsubame (dark purple topknot with turquoise loop ribbon, purple-black ninja jacket, HOLD black-turquoise SHURIKEN with visible pointed blades), Kenneth (silver tied long hair, red eyes, black-red biker coat, CARRY HUGE RED-BLACK BATTLE AXE with very broad axe head), Katja (teal-gray hair and circular glasses, dark teal tactical coat, HOLD oversized BLACK-TEAL SNIPER RIFLE with visible SCOPE), Darko (messy gray-green hair covering eye, tattoos, dark blue shirt with black coat, HOLD rugged dark BASEBALL BAT with thick wrapped grip; NO firearm). Bottom row Lenore (short cobalt-blue hair, black-blue mechanical rock outfit, HOLD DARK BLUE ELECTRIC GUITAR with silver chains), Garnet (silver-white tied hair, red eyes, strappy black outfit, CARRY THICK BLACK METAL BAT covered in SILVER SPIKES; NOT axe), Yumin (long black hair, elegant white-black suit and purple ribbon, HOLD OPEN VIOLET-TEAL HAND FAN with clear folds), Hisui (dark teal high ponytail with red accents, white-black-red fighter coat, HOLD RED-WHITE KATANA with dark handle). All eight props compact inside their own cells.",
+    "sprites_11": "Use case: stylized-concept. Asset type: transparent pixel-art CHIBI game sprite atlas. Image 1 is ONLY original character identity/clothing reference; Image 2 is ONLY cute chibi pixel style. NEW 1536x1024 canvas with FOUR columns by TWO rows. Every logical character unit fully separated in its own cell, large completely transparent gutters, no crossing weapons. Cute TWO HEADS tall: head 55% of height, round big expressive eyes, tiny short body/limbs/feet, clean dark stepped pixel outlines and tidy 16-bit pixel shade clusters. Preserve reference hair, outfit colors, face features and listed props EXACTLY. Complete head-to-toe figure including weapon fits central 280x370 region of each 384x512 cell. Background actual alpha=0, no floor shadow, scenery, gradient, smooth shading, antialiasing, text, labels, borders or watermark. DO NOT INHERIT DIFFERENT CHARACTERS' BOOKS/CAMERAS/GUNS from style image. EIGHT logical units. EXACT Image 1 order. Top row Justyna (red hair, mechanic goggles on forehead, white-gray-red armored mechanic suit, HOLD futuristic SILVER CROSSBOW with broad RED TRANSVERSE MECHANICAL BOW LIMBS; NOT only gauntlets), Istvan (long dark black-indigo hair, stern face, white military coat with black trim, HOLD LONG DARK SILVER SPEAR with narrow pointed head and RED RIBBON; NOT a short sword), Xuelin (dark teal long tied hair, turquoise-white fighter armor, HOLD SLENDER TURQUOISE ENERGY RAPIER, narrow fencing-sword silhouette; NOT polearm), Henry (gray-lavender hair, purple eyes, formal tan-brown coat with red tie, HOLD GOLD POCKET WATCH while POINTED GOLD CLOCK HANDS float as small throwing blades). Bottom row Blair (long ash-blond hair, black fashion outfit with silver jewelry and turquoise accents, HOLD TWO SLENDER BLACK-SILVER BLADES, one per hand), Mirka (bright pink hair, black cap, dark green industrial outfit, CARRY HEAVY SQUARE-HEADED STEEL HAMMER with DARK GREEN accents), Fenrir (olive-brown tousled hair, green eyes, black-orange racer outfit, WEAR BLACK-ORANGE RACING GLOVES with BOTH FISTS RAISED; NO sword/gun), Coraline (half black/half pale silver hair, purple eyes, white-black-pink fairy outfit, BLACK-PINK FAIRY WINGS and FLOAT ANGULAR PINK CRYSTAL ARCANA beside them). All eight props and wings stay compact inside their own cells.",
+    "sprites_12": "Use case: stylized-concept. Asset type: transparent pixel-art CHIBI game sprite atlas. Image 1 is ONLY original character identity/clothing reference; Image 2 is ONLY cute chibi pixel style. NEW 1536x1024 canvas with FOUR columns by TWO rows. Every logical character unit fully separated in its own cell, large completely transparent gutters, no crossing weapons. Cute TWO HEADS tall: head 55% of height, round big expressive eyes, tiny short body/limbs/feet, clean dark stepped pixel outlines and tidy 16-bit pixel shade clusters. Preserve reference hair, outfit colors, face features and listed props EXACTLY. Complete head-to-toe figure including weapon fits central 280x370 region of each 384x512 cell. Background actual alpha=0, no floor shadow, scenery, gradient, smooth shading, antialiasing, text, labels, borders or watermark. DO NOT INHERIT DIFFERENT CHARACTERS' BOOKS/CAMERAS/GUNS from style image. ONLY FOUR CHARACTERS, aligned LEFT-TO-RIGHT in the TOP ROW ONLY; the ENTIRE BOTTOM HALF remains completely alpha=0 empty transparency. Do NOT rearrange into 2x2; do NOT duplicate any character. EXACT Image 1 top-row order: Bihyung (long black-mint hair, red eyes, white cropped coat over black-red outfit, CARRY GIANT BLACK-RED MALLET with SQUARE MECHANICAL HEAD), Craver (red hair and round red tinted glasses, black-red tactical outfit, HOLD LARGE BLACK-RED REVOLVER with CLEAR CYLINDER; energy effects may not replace the gun silhouette), Lucia (silver-white tied hair, teal eyes, white-violet formal riflefighter outfit, HOLD ORNATE SILVER-VIOLET LONG-BARREL MUSKET with SHOULDER STOCK; NOT two small pistols), Ceres (white braided hair with maid headband, black-white-gold armored dress, HOLD HUGE BLACK-GOLD GREATSWORD with LARGE MAGENTA CRYSTAL near guard). Four cute fully separated characters wholly within four top-row cells; all props compact, bottom row fully empty.",
+    "sprites_12_correction": "Use case: precise-object-edit. Edit this EXISTING four-character transparent CHIBI pixel sprite atlas. CHANGE ONLY CERES, the FOURTH/rightmost figure's BLACK-GOLD GREATSWORD POSITION and SIZE: the current sword runs off the RIGHT EDGE and is CUT OFF. Rotate the entire greatsword into a mostly VERTICAL or STEEP DIAGONAL pose close to Ceres's body, and make it slightly shorter so the COMPLETE BLADE TIP, CROSSGUARD and HILT are visibly preserved inside the canvas. Keep the large MAGENTA CRYSTAL near its guard and black-gold ornate blade design. Put the complete Ceres plus sword inside the rightmost top-row cell with at least 24px transparent clearance from the right edge; no part of the sword touches the image border. If necessary move only Ceres with her sword slightly LEFT within her own cell. STRICTLY preserve the other THREE characters exactly as they are, preserve Ceres's face, braided white hair, maid headband, black-white-gold outfit, cute two-head proportions, pixel style, original order and canvas size. Keep four figures in one top row, with empty transparent lower half. No new people, no scenery, shadows, gradients, text, labels or borders. The only artistic change is fixing the clipped sword so it is complete and entirely within the canvas."
+  },
+  "tool": "image_gen built-in"
+}

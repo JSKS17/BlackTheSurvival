@@ -1,0 +1,448 @@
+{
+  "expected": 20,
+  "actual": 20,
+  "issues": [],
+  "assets": [
+    {
+      "id": "echion",
+      "name": "에키온",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Bold handsome young man, sharp magenta-red eyes with narrow pupils, aggressively angled brows, confident wide asymmetric grin. Silver-lilac spikes.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Angled brows, magenta eyes and toothy asymmetric grin remain distinct."
+    },
+    {
+      "id": "elena",
+      "name": "엘레나",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Haughty ice skater, sharply narrow icy BLUE eyes, tapered long outer lashes, arched elegant brows, small cool superior smile. Twin ice-blue ponytails.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Icy blue narrow eyes, long tapered upper lashes and cool small smile."
+    },
+    {
+      "id": "johann",
+      "name": "요한",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Kind young priest, gray-green eyes with softly lowered outer corners, slightly sorrowful brows, gentle small closed smile. Dark center-parted hair.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Gray-green drooping eyes, sorrowful brows and gentle closed smile."
+    },
+    {
+      "id": "william",
+      "name": "윌리엄",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Focused athlete with warm tan skin, slender green-gray eyes under blue cap, straight strong brows, serious tiny closed mouth. Masculine broad nose.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Narrow green-gray eyes and focused straight mouth under the blue cap."
+    },
+    {
+      "id": "irem",
+      "name": "이렘",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Playful cat girl, HETEROCHROMIA: one ORANGE eye and one BLUE eye, bright round irises, cheerful lifted eyebrows and cute open smile. Preserve asymmetric iris colors.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Orange left image iris and blue right image iris; playful round eyes and open smile."
+    },
+    {
+      "id": "eva",
+      "name": "이바",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Soft reserved woman, large muted RED-MAUVE downturned eyes, uncertain raised inner brows, tiny softly parted mouth. Long pale beige hair.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Mauve-red downturned eyes, worried raised brows and soft parted mouth."
+    },
+    {
+      "id": "ian",
+      "name": "이안",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Haunted reserved girl, tired green-gray drooping eyes with dark eyelid accent, worried lifted inner brow, tiny closed almost-frowning lips. Pale green hair.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Muted olive-gray drooping eyes and tired restrained mouth."
+    },
+    {
+      "id": "eleven",
+      "name": "일레븐",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Bubbly streamer, luminous pink-orange wide eyes with rounded corners, lifted lively eyebrows, broad OPEN SMILE. Pink flowing hair. Happy expressive face.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Round pink-orange eyes, lively raised brows and broad open smile."
+    },
+    {
+      "id": "zahir",
+      "name": "자히르",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Dark-skinned ascetic man, intense glowing GOLD eyes with very narrow pointed lids, heavy serene brow, small austere straight mouth. Long dark hair.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Warm dark skin, golden sharp narrow eyes and austere mouth; golden blades stay behind hair."
+    },
+    {
+      "id": "jenny",
+      "name": "제니",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Glamorous blonde actress, narrow RED-AMBER sultry eyes with heavy long lashes, arched raised brows, confident tiny catlike smile. Red sunglasses perched on head.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Red-amber sultry eyes, long lashes and glamorous small curved smile."
+    },
+    {
+      "id": "camilo",
+      "name": "카밀로",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Flamboyant handsome man, narrow aqua-blue eye visible under long pale fringe, elegant arched brows, pronounced sideways flirtatious closed smile. Not a girl.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Male face with long fringe, narrow aqua eye, angled jaw and asymmetrical flirtatious smile."
+    },
+    {
+      "id": "karla",
+      "name": "칼라",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Pirate woman, fiery amber-red eyes with upswept corners, daring strong brows, cocky wide asymmetric grin. Red hat, red braid.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Red-amber eyes, bold angled brows and wide pirate grin."
+    },
+    {
+      "id": "cathy",
+      "name": "캐시",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Gentle brown-skinned doctor, soft BLUE downturned eyes, attentive gentle eyebrows, small reassuring closed smile. Brown hair and blue ribbon.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Blue downturned eyes and reassuring closed smile on warm brown skin."
+    },
+    {
+      "id": "chloe",
+      "name": "클로에",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Quiet puppet master, narrow GRAY-BROWN sleepy eyes, straight soft upper lids, gently lowered brows, subtle dreamy closed smile. Long gray-beige hair.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Narrow gray-brown sleepy eyes and quiet closed smile; Nina hangs beside the hand without obscuring the main face."
+    },
+    {
+      "id": "chiara",
+      "name": "키아라",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Pale distressed nun, one vivid PINK eye visible under long white-lilac hair, sharp frightened upper lid, worried brow, small tense parted mouth. No happy expression.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "One vivid pink visible eye, tense mouth and troubled brow, no cheerful expression."
+    },
+    {
+      "id": "tazia",
+      "name": "타지아",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Elegant assertive glass artist, sharp GOLDEN eyes, long rising dark lashes, slanted self-assured brow, very small confident closed smile. Crimson hair.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Sharp gold eyes, lifted angular brows and small assertive closed smile."
+    },
+    {
+      "id": "theodore",
+      "name": "테오도르",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Stern adult sniper, narrow icy BLUE eyes under furrowed brows, long angular nose, tight unsmiling mouth. Black swept hair and navy uniform.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Bright blue narrowed eyes, furrowed brows and firm unsmiling mouth."
+    },
+    {
+      "id": "felix",
+      "name": "펠릭스",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Friendly young adventurer, bright GREEN rounded almond eyes, gently relaxed brows, warm small closed grin. Ash-blond tousled hair.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Green rounded almond eyes, relaxed brows and small warm closed grin."
+    },
+    {
+      "id": "priya",
+      "name": "프리야",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Cheerful dark-skinned musician, large BLUE-TURQUOISE eyes, expressive lifted arched brows, broad warm open smile with tiny pale teeth. Short green hair and white flower.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Turquoise eyes and broad open warm smile, darker skin and green hair."
+    },
+    {
+      "id": "fiora",
+      "name": "피오라",
+      "size": [
+        160,
+        160
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shaMatches": true,
+      "faceDesign": "Proud fencer, sharp GREEN almond eyes, lifted sharply angular brows, small challenging parted lips. Brown high ponytail, blue ribbon.\n",
+      "review": "Passed: original reference and full sprite inspected; 160px sprite sheet and enlarged nearest-neighbour face sheet inspected.",
+      "visibleIdentity": "Green sharp almond eyes, angular raised brows and challenging parted mouth."
+    }
+  ],
+  "visualReview": "All 20 preserve individual iris hue, eyelid/brow geometry and mouth expression at the saved 160px canvas. No opaque rectangle, missing feet, face obstruction or shared generic face template found."
+}

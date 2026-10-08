@@ -1,0 +1,32 @@
+{
+  "id": "dailin",
+  "name": "리 다이린",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Tipsy relaxed young woman, warm amber HALF-LIDDED eyes, sleepy lowered brows, faint crooked closed smile. Black buns and long orange ribbons.\n",
+  "originalReference": "docs/art-chibi/references/subjects/dailin.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_LiDailin_S000.png",
+  "referenceSha256": "1efd6215c5aefd4d33cf5d74a8e4b33812a9657589cf6dbce06921a88098900a",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 리 다이린 (dailin).\nOutfit and identity: Black twin hair buns with long orange ribbons, yellow-black cropped jacket, dragon embroidery, bottle.\nSignature prop, do not copy another character's prop: Hold a small brown liquor bottle with a red neck cord.\nFace design from original: Tipsy relaxed young woman, warm amber HALF-LIDDED eyes, sleepy lowered brows, faint crooked closed smile. Black buns and long orange ribbons.\n",
+  "generatedSource": "docs/art-identity/generated/dailin.png",
+  "generatedSha256": "b31f3d887f2a4a05ea88ef7866083847690d1f385354f4aba6d5ceb3d8265d85",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/dailin.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "f1c3d5504c055eeceb480b66672d29473c71ac9317622b126e18768f3c7d0b64",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

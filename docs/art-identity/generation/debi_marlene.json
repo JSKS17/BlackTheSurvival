@@ -1,0 +1,32 @@
+{
+  "id": "debi_marlene",
+  "name": "데비&마를렌",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "TWO SISTERS as a single sprite, distinct faces: blue sister with narrow BLUE eyes and cheeky confident grin, red sister with narrow RED eyes and reserved small closed smile. Same black bob, different eye colors and expressions. Both faces large enough to read.\n",
+  "originalReference": "docs/art-chibi/references/subjects/debi_marlene.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_DebiMarlene_S000.png",
+  "referenceSha256": "02f32e1ca0e25c4ea1edd92d1f0bb54bd03bac7973ec89709624cdd2a83c20d2",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. Two sisters together in one cohesive paired sprite, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 데비&마를렌 (debi_marlene). Original outfit and identity: Two sisters together: black short hair, baseball caps, black cropped outfits; blue jacket accents for Debi and red for Marlene.. Signature prop: Give the blue sister a blue-accented greatsword and the red sister a red-accented greatsword..\nCharacter-specific face and pose: TWO SISTERS as a single sprite, distinct faces: blue sister with narrow BLUE eyes and cheeky confident grin, red sister with narrow RED eyes and reserved small closed smile. Same black bob, different eye colors and expressions. Both faces large enough to read. BOTH sisters have visible distinctive faces, complete bodies and feet; preserve blue cheerful Debi and red serious Marlene.\n",
+  "generatedSource": "docs/art-identity/generated/debi_marlene.png",
+  "generatedSha256": "335fbab7ed2786bf20c002b5d656312b03dce00fa3a97af586495712b9eeb4ef",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1116,
+    1402
+  ],
+  "resizedSize": [
+    121,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/debi_marlene.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "1f5db606a186c7b90a52458a1f72b4de5c537b014e8fe832fd89ae35913f4587",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

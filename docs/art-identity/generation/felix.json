@@ -1,0 +1,32 @@
+{
+  "id": "felix",
+  "name": "펠릭스",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Friendly young adventurer, bright GREEN rounded almond eyes, gently relaxed brows, warm small closed grin. Ash-blond tousled hair.\n",
+  "originalReference": "docs/art-chibi/references/subjects/felix.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Felix_S000.png",
+  "referenceSha256": "3ee1626f8b18e005b930df09c885a0a163f51fef5b39509fec36bc043eb11795",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\n\nCharacter-specific face and pose: Friendly young adventurer, bright GREEN rounded almond eyes, gently relaxed brows, warm small closed grin. Ash-blond tousled hair.\nOriginal appearance: Short sandy-blond hair, green eyes, gray-green utility hoodie, white shirt, green patches, spear.\nSignature prop: Hold a long silver spear with a single pointed spearhead.\nSingle face must remain readable at game size; honor the precise individual iris colors, eyelid shape, eyebrow angles and mouth expression above.\n",
+  "generatedSource": "docs/art-identity/generated/felix.png",
+  "generatedSha256": "31a5b76e27246bbf8fe99b9cde9602c43f292566bd6472a6bf73416574ebbf06",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/felix.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "26b3caaba40757f01624d1dde52ac10b2981e04ada4ad2344c0f0507f3dffc45",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

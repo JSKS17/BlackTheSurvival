@@ -1,0 +1,14 @@
+{
+  "expected": 92,
+  "actual": 92,
+  "runtimePngCount": 92,
+  "missing": [],
+  "issues": [],
+  "duplicateGeneratedSourceHashes": 0,
+  "duplicateRuntimeHashes": 0,
+  "generatedSourceHashMismatches": 0,
+  "originalReferenceHashMismatches": 0,
+  "runtimeHashMismatches": 0,
+  "promptMismatches": 0,
+  "complete": true
+}

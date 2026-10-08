@@ -1,0 +1,16 @@
+{
+  "id": "weapon_dual",
+  "name": "쌍검 난무",
+  "kind": "weapon",
+  "originalId": 3018000,
+  "weaponClass": "쌍검",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_041.png",
+  "referencePath": "docs/art-system/references/loadout/weapon_dual.png",
+  "originalTooltip": "소모값 없음 / 쿨다운 25 초\n\n지정한 방향으로 돌진하며 경로상에 있는 모든 적들에게 피해를 입힙니다. 공격에 성공하면 스킬을 한 번 더 사용할 수 있습니다. <i>쿨다운 고정: 쿨다운 감소 스탯의 영향을 받지 않습니다.</i>",
+  "output": "Assets/Resources/Lumia/SkillIcons/weapon_dual.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art D weapon-skill icon for Black The Survival. Image 1 is the original Eternal Return 쌍검 난무 icon used as silhouette/color reference. Image 2 is our existing icon contact sheet as pixel-art style reference. Create a NEW single standalone icon matching the coarse pixel-art family, not a collage. Subject: Two dark silver curved swords crossed in an X, pale lavender blade edges, deep purple grips and a few magenta slashing arcs; preserve original crossed dual-blade silhouette. Composition: centered, roughly 80% of square, readable at 32x32 logical pixels. Style: authentic 32x32 sprite enlarged with sharp square pixel clusters, limited 12-18 colors, stepped outlines, deliberate grouped highlights. Keep the original recognizable form, angle and major colors. Transparent background with genuine alpha; remove the source's background tile. No square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth glow or airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-a483ec8f-0f98-4707-911c-b6b5ffacc0b5.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

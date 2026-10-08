@@ -1,0 +1,32 @@
+{
+  "id": "adriana",
+  "name": "아드리아나",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Wry pyromaniac, narrow BROWN smoky half-lidded eyes, arched confident brows, closed knowing smile with pipe at mouth corner. Orange ponytail.\n",
+  "originalReference": "docs/art-chibi/references/subjects/adriana.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Adriana_S000.png",
+  "referenceSha256": "47c3be40f6a6cb3c917ca517a19cdaf5708b8b3c45fdb3eced8a3d7236656292",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 아드리아나 (adriana).\nOutfit and identity: Bright orange-red ponytail, pipe, gray hooded utility coat, red lining, green bottle and yellow flamethrower tank.\nSignature prop, do not copy another character's prop: Carry a yellow flamethrower tank with a short hose and spray nozzle.\nFace design from original: Wry pyromaniac, narrow BROWN smoky half-lidded eyes, arched confident brows, closed knowing smile with pipe at mouth corner. Orange ponytail.\n",
+  "generatedSource": "docs/art-identity/generated/adriana.png",
+  "generatedSha256": "a58995ec0b2297b62abba0abcfb92bc2d849a278739835c505958acb273cc619",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1108,
+    1388
+  ],
+  "resizedSize": [
+    121,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/adriana.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "9a7c732db64a6991707c16c9f9460ef8d692f585971126da6b718254b0b4cbb1",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "ceres",
+  "name": "세레스",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Strict elegant silver-haired maid, narrow PALE BLUE eyes with heavy flat upper lids, low straight brows, small displeased closed mouth. White lace headpiece.\n",
+  "originalReference": "docs/art-chibi/references/subjects/ceres.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Seres_S000.png",
+  "referenceSha256": "d61e8b636f9fc61fa6c107c25b27f6f63c3f256070f8aea03312b36ec20f0a69",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 세레스 (ceres). Original outfit and identity: Silver bob, white lace headband, white-black armored maid outfit, black gauntlets, huge gold-black blade with pink crystal.. Signature prop: Hold a huge black-and-gold greatsword with a large magenta crystal near the guard..\nCharacter-specific face and pose: Strict elegant silver-haired maid, narrow PALE BLUE eyes with heavy flat upper lids, low straight brows, small displeased closed mouth. White lace headpiece.\n",
+  "generatedSource": "docs/art-identity/generated/ceres.png",
+  "generatedSha256": "ea2bd69d55db831b962ad635742fecb1b3353d68924a993c563ce8e24a63710a",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/ceres.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "695265a705c493679dfe81e58b47951f0110ce4cf025a4f9d4dd7ad13f465fb5",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "daniel",
+  "name": "다니엘",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Gaunt pale young man, very narrow dark mauve half-lidded eyes, sharply level brows, cold thin straight closed mouth. Long dark-purple hair.\n",
+  "originalReference": "docs/art-chibi/references/subjects/daniel.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Daniel_S000.png",
+  "referenceSha256": "6ab8729a74bf3d7c3d927d219c5b26c37660f91434a377711452d2533fde61d7",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 다니엘 (daniel).\nOutfit and identity: Long dark-purple hair, pale face, high-collar black strapped jacket, tailor scissors.\nSignature prop, do not copy another character's prop: Hold an open pair of large silver tailor scissors with dark handles.\nFace design from original: Gaunt pale young man, very narrow dark mauve half-lidded eyes, sharply level brows, cold thin straight closed mouth. Long dark-purple hair.\n",
+  "generatedSource": "docs/art-identity/generated/daniel.png",
+  "generatedSha256": "d1845cba101dd6f26751f1be34d0258d8dffaa370a8bed39e5257539eab374ab",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/daniel.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "2b69c46c27764de412153c2820a034f608c707b9cd05eb480084fe09ae9b4399",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

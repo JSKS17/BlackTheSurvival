@@ -1,0 +1,14 @@
+{
+  "id": "ruyi",
+  "name": "여의봉",
+  "kind": "gear",
+  "originalId": 108502,
+  "weaponClass": "방망이",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_108502.png",
+  "referencePath": "docs/art-system/references/loadout/ruyi.png",
+  "originalTooltip": "전설 / 방망이\n\n공격력 +85\n공격 속도 +30%\n<color=#FFFF00>(고유)</color> 기본 공격 사거리 +0.2\n\n<b><color=yellow>크리티컬 블로우</color></b>\n적에 대한 다음 기본 공격은 <color=#FFD775>공격력의 55%</color>만큼 추가 스킬 피해를 입히고, 피해를 입힌 경우 <color=white>15</color><color=#FFD775>(+공격력의 30%)</color><color=#688A08>(+자신의 잃은 체력 5%)</color>만큼 체력을 회복합니다. 최대 체력을 초과한 회복량은 5초 동안 지속되는 추가 체력으로 전환됩니다. (쿨다운 6초)\n\n태상노군이 만든 강과 바다의 깊이를 측정하는 도구. 동해용왕이 용궁 창고에 보관해왔으나 손오공이 약탈하여 무기로 사용했다.",
+  "output": "Assets/Resources/Lumia/SystemIcons/ruyi.png",
+  "prompt": "Create one isolated pixel art game inventory icon for Eternal Return 여의봉 (방망이). Redraw the attached original item's silhouette, colors and distinctive details as crisp hand-authored-looking 32x32 logical pixel art: readable at small scale, dark one-pixel outlines, limited clustered colors, no gradients or anti-aliasing, no text, no frame. Keep the entire object inside a square with transparent padding. Transparent background genuine alpha. This is one asset for Black The Survival's established cute retro pixel UI, not a sprite sheet.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-bd4cb655-35d4-465e-9170-737932a1055e.png",
+  "tool": "image_gen.imagegen"
+}

@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "batches": [{
+    "id": "sprites_01_preview",
+    "kind": "portrait",
+    "source": "docs/art-chibi/generated/sprites_01_raw.png",
+    "columns": 4,
+    "rows": 2,
+    "ids": ["hana", "nia", "jackie", "aya", "hyunwoo", "yuki", "hyejin", "sua"]
+  }]
+}

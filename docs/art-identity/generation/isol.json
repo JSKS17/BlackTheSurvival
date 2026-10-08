@@ -1,0 +1,32 @@
+{
+  "id": "isol",
+  "name": "아이솔",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Serious young soldier, narrow amber-brown eyes glancing sideways, flat sharply focused brows, small closed skeptical mouth. Red headband.\n",
+  "originalReference": "docs/art-chibi/references/subjects/isol.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Isol_S000.png",
+  "referenceSha256": "dec16d843671b2c875b6881fb5a0b4042707df429d6b264088180488a6afc13a",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 아이솔 (isol).\nOutfit and identity: Light brown hair, red headband and checked scarf, white sleeveless shirt, olive tactical harness, assault rifle.\nSignature prop, do not copy another character's prop: Carry a black assault rifle over one shoulder.\nFace design from original: Serious young soldier, narrow amber-brown eyes glancing sideways, flat sharply focused brows, small closed skeptical mouth. Red headband.\n",
+  "generatedSource": "docs/art-identity/generated/isol.png",
+  "generatedSha256": "587091723588e803963087ed85461d1ddc6d5460e2e2250031a9be7f0f8ffd1a",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1090,
+    1402
+  ],
+  "resizedSize": [
+    118,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/isol.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "b9c20fa80e4f807881830651f5f2a819cc354a9253d3ebcd59f0585db243ad2f",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

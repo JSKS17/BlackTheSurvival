@@ -1,0 +1,16 @@
+{
+  "id": "weapon_guitar",
+  "name": "Love&...",
+  "kind": "weapon",
+  "originalId": 3022000,
+  "weaponClass": "기타",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/WSkillIcon_181.png",
+  "referencePath": "docs/art-system/references/loadout/weapon_guitar.png",
+  "originalTooltip": "소모값 없음 / 쿨다운 30 초\n\n지정한 방향으로 음파를 발사하여 일직선상에 있는 적들에게 스킬 피해를 입히고 이동 속도를 감소시킵니다. <i>쿨다운 고정: 쿨다운 감소 스탯의 영향을 받지 않습니다.</i>",
+  "output": "Assets/Resources/Lumia/SkillIcons/weapon_guitar.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art D weapon-skill icon for Black The Survival. Image 1 is the original Eternal Return Love&... icon used as silhouette/color reference. Image 2 is our existing icon contact sheet as pixel-art style reference. Create a NEW single standalone icon matching the coarse pixel-art family, not a collage. Subject: A red-magenta and black electric guitar angled from lower right to upper left, slim pale silver neck, dark strings and crimson sound-wave strokes; preserve the original instrument silhouette and red-purple colors. Composition: centered, roughly 80% of square, readable at 32x32 logical pixels. Style: authentic 32x32 sprite enlarged with sharp square pixel clusters, limited 12-18 colors, stepped outlines, deliberate grouped highlights. Keep the original recognizable form, angle and major colors. Transparent background with genuine alpha; remove the source's background tile. No square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth glow or airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-bff2c0a5-b802-436c-b253-47a1e17086ff.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

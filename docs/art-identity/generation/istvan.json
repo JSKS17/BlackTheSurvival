@@ -1,0 +1,32 @@
+{
+  "id": "istvan",
+  "name": "이슈트반",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Cold handsome man, extremely narrow dark RED eyes, heavy straight brows, deep nose bridge, small stern closed mouth. Long black-purple swept hair.\n",
+  "originalReference": "docs/art-chibi/references/subjects/istvan.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Istvan_S000.png",
+  "referenceSha256": "4848b38f8c3067352d58783d6917f960d13d169ffbfe59d70d2e49eef47fd8a6",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 이슈트반 (istvan). Original outfit and identity: Long black hair with red-purple ends, stern face, long white military coat, black shirt, pink badge strip, long spear.. Signature prop: Hold a long dark silver spear with a narrow pointed head and red ribbon..\nCharacter-specific face and pose: Cold handsome man, extremely narrow dark RED eyes, heavy straight brows, deep nose bridge, small stern closed mouth. Long black-purple swept hair.\n",
+  "generatedSource": "docs/art-identity/generated/istvan.png",
+  "generatedSha256": "83ccc3b37bb110161a66ab47a2d00a3265822a55121d9c7247a829e239179cfb",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    39,
+    9,
+    1108,
+    1402
+  ],
+  "resizedSize": [
+    117,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/istvan.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "6023c7592688a9609851a5a100e94d5a0498f53fae2a3fb96044549e5ce75c11",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

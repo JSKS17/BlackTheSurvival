@@ -1,0 +1,32 @@
+{
+  "id": "henry",
+  "name": "헨리",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Elegant young timekeeper, soft narrow VIOLET eyes with downturned outer corners, subtle arched brows, small composed closed smile. Silver-lilac wavy fringe.\n",
+  "originalReference": "docs/art-chibi/references/subjects/henry.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Henry_S000.png",
+  "referenceSha256": "604fb930411cb365ec691c7245ac71f60cdc623c8bc8e2af58a02af633e7cbae",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 헨리 (henry). Original outfit and identity: Gray-lilac hair with white streak, purple eyes, brown-pink Victorian coat, burgundy tie, gold pocket watch and clock-hand throwing blades.. Signature prop: Hold a gold pocket watch while pointed gold clock hands float as throwing blades..\nCharacter-specific face and pose: Elegant young timekeeper, soft narrow VIOLET eyes with downturned outer corners, subtle arched brows, small composed closed smile. Silver-lilac wavy fringe.\n",
+  "generatedSource": "docs/art-identity/generated/henry.png",
+  "generatedSha256": "a663862e3513a4b8fe0e2da8fb892a4af208e394f182f3f42cc4266e9ff6ddea",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1121,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/henry.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "17b2b7d92efcf49f84e9e2e86ccaa1b68d42055044829b783a675623d0f573bc",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

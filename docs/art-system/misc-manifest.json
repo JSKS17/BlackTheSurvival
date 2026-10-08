@@ -1,0 +1,22 @@
+[
+  {
+    "id": "credits",
+    "name": "크레딧",
+    "kind": "currency",
+    "referencePath": "docs/art-system/references/credits-ui-primary.png",
+    "referenceUrl": "https://cdn.playeternalreturn.com/2024%2F12%2F04%2F1733291889116-%ED%81%AC%EB%A0%88%EB%94%A7%2B.png",
+    "dataSource": "https://playeternalreturn.com/posts/news/2364?hl=ko-KR",
+    "visualNotes": "Green hexagonal tokens with a gold rim and a gold C mark.",
+    "output": "Assets/Resources/Lumia/SystemIcons/credits.png"
+  },
+  {
+    "id": "campfire",
+    "name": "모닥불",
+    "kind": "map",
+    "referencePath": "docs/art-system/references/campfire-kit-primary.png",
+    "referenceUrl": "https://clan.akamai.steamstatic.com/images/34875433/bb15e9d799d10003162c21ba7226f39fd01bf312.png",
+    "dataSource": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=1049590&count=50&maxlength=0&enddate=1685600000",
+    "visualNotes": "Official 3rd Dev Journal portable campfire: a conical radial bundle of dark wood logs and orange flames. Gameplay GIF preserved as campfire-ui-primary.gif.",
+    "output": "Assets/Resources/Lumia/SystemIcons/campfire.png"
+  }
+]

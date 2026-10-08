@@ -1,0 +1,32 @@
+{
+  "id": "aiden",
+  "name": "에이든",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Stoic pale young swordsman, narrow RED almond eyes, sharply lowered brows, firm flat closed mouth. White swept hair; no cute happy smile.\n",
+  "originalReference": "docs/art-chibi/references/subjects/aiden.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Aiden_S000.png",
+  "referenceSha256": "421e2c6222414929341b7c800723def70a0430d133b10fc22ddca14520acd413",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 에이든 (aiden).\nOutfit and identity: Messy white hair, red eyes, white military coat with blue collar and tie, silver belt and sword.\nSignature prop, do not copy another character's prop: Hold a long silver sword with small blue electrical sparks.\nFace design from original: Stoic pale young swordsman, narrow RED almond eyes, sharply lowered brows, firm flat closed mouth. White swept hair; no cute happy smile.\n",
+  "generatedSource": "docs/art-identity/generated/aiden.png",
+  "generatedSha256": "5aa4a06797f42ad910715471b437df6dcf9c0db9f6e55619552f64087394a084",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1102,
+    1402
+  ],
+  "resizedSize": [
+    119,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/aiden.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "06cfb07ed6f75cdb89e8ffb2bfab2cf70fac8d9d53f0a963197628c1037f6809",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

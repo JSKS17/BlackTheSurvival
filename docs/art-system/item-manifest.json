@@ -1,0 +1,342 @@
+[
+  {
+    "id": "laevateinn",
+    "name": "레바테인",
+    "kind": "gear",
+    "originalItemId": 102409,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_102409.png",
+    "referencePath": "docs/art-system/references/laevateinn.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/laevateinn.png"
+  },
+  {
+    "id": "dainsleif",
+    "name": "다인슬라이프 - 진홍",
+    "kind": "gear",
+    "originalItemId": 102701,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_102701.png",
+    "referencePath": "docs/art-system/references/dainsleif.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/dainsleif.png"
+  },
+  {
+    "id": "altair",
+    "name": "알타이르",
+    "kind": "gear",
+    "originalItemId": 116502,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_116502.png",
+    "referencePath": "docs/art-system/references/altair.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/altair.png"
+  },
+  {
+    "id": "akelte",
+    "name": "악켈테",
+    "kind": "gear",
+    "originalItemId": 116501,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_116501.png",
+    "referencePath": "docs/art-system/references/akelte.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/akelte.png"
+  },
+  {
+    "id": "blood_hands",
+    "name": "블러디 핸즈",
+    "kind": "gear",
+    "originalItemId": 110503,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_110503.png",
+    "referencePath": "docs/art-system/references/blood_hands.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/blood_hands.png"
+  },
+  {
+    "id": "juggernaut",
+    "name": "저거너트",
+    "kind": "gear",
+    "originalItemId": 105407,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_105407.png",
+    "referencePath": "docs/art-system/references/juggernaut.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/juggernaut.png"
+  },
+  {
+    "id": "mistilteinn",
+    "name": "미스틸테인",
+    "kind": "gear",
+    "originalItemId": 120402,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_120402.png",
+    "referencePath": "docs/art-system/references/mistilteinn.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/mistilteinn.png"
+  },
+  {
+    "id": "eagle_eye",
+    "name": "이글 아이",
+    "kind": "gear",
+    "originalItemId": 114505,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_114505.png",
+    "referencePath": "docs/art-system/references/eagle_eye.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/eagle_eye.png"
+  },
+  {
+    "id": "andromeda",
+    "name": "안드로메다",
+    "kind": "gear",
+    "originalItemId": 118503,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_118503.png",
+    "referencePath": "docs/art-system/references/andromeda.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/andromeda.png"
+  },
+  {
+    "id": "mithril_armor",
+    "name": "미스릴 갑옷",
+    "kind": "gear",
+    "originalItemId": 202407,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_202407.png",
+    "referencePath": "docs/art-system/references/mithril_armor.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/mithril_armor.png"
+  },
+  {
+    "id": "cabana",
+    "name": "카바나",
+    "kind": "gear",
+    "originalItemId": 202501,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_202501.png",
+    "referencePath": "docs/art-system/references/cabana.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/cabana.png"
+  },
+  {
+    "id": "titan_armor",
+    "name": "타이탄 아머",
+    "kind": "gear",
+    "originalItemId": 202517,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_202517.png",
+    "referencePath": "docs/art-system/references/titan_armor.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/titan_armor.png"
+  },
+  {
+    "id": "ao_dai",
+    "name": "아오자이",
+    "kind": "gear",
+    "originalItemId": 202505,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_202505.png",
+    "referencePath": "docs/art-system/references/ao_dai.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/ao_dai.png"
+  },
+  {
+    "id": "queen_heart",
+    "name": "퀸 오브 하트",
+    "kind": "gear",
+    "originalItemId": 202502,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_202502.png",
+    "referencePath": "docs/art-system/references/queen_heart.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/queen_heart.png"
+  },
+  {
+    "id": "mithril_helm",
+    "name": "미스릴 투구",
+    "kind": "gear",
+    "originalItemId": 201403,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_201403.png",
+    "referencePath": "docs/art-system/references/mithril_helm.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/mithril_helm.png"
+  },
+  {
+    "id": "insight",
+    "name": "인사이트",
+    "kind": "gear",
+    "originalItemId": 201527,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_201527.png",
+    "referencePath": "docs/art-system/references/insight.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/insight.png"
+  },
+  {
+    "id": "tactical_visor",
+    "name": "택티컬 바이저",
+    "kind": "gear",
+    "originalItemId": 701451,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_701451.png",
+    "referencePath": "docs/art-system/references/tactical_visor.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/tactical_visor.png"
+  },
+  {
+    "id": "wilderness_star",
+    "name": "황야의 별",
+    "kind": "gear",
+    "originalItemId": 201506,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_201506.png",
+    "referencePath": "docs/art-system/references/wilderness_star.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/wilderness_star.png"
+  },
+  {
+    "id": "opera_mask",
+    "name": "변검",
+    "kind": "gear",
+    "originalItemId": 201411,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_201411.png",
+    "referencePath": "docs/art-system/references/opera_mask.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/opera_mask.png"
+  },
+  {
+    "id": "mithril_shield",
+    "name": "미스릴 방패",
+    "kind": "gear",
+    "originalItemId": 203404,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_203404.png",
+    "referencePath": "docs/art-system/references/mithril_shield.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/mithril_shield.png"
+  },
+  {
+    "id": "cube_watch",
+    "name": "큐브 워치",
+    "kind": "gear",
+    "originalItemId": 203408,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_203408.png",
+    "referencePath": "docs/art-system/references/cube_watch.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/cube_watch.png"
+  },
+  {
+    "id": "skadi",
+    "name": "스카디의 팔찌",
+    "kind": "gear",
+    "originalItemId": 203501,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_203501.png",
+    "referencePath": "docs/art-system/references/skadi.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/skadi.png"
+  },
+  {
+    "id": "auto_arms",
+    "name": "오토-암즈",
+    "kind": "gear",
+    "originalItemId": 203503,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_203503.png",
+    "referencePath": "docs/art-system/references/auto_arms.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/auto_arms.png"
+  },
+  {
+    "id": "prominence",
+    "name": "프로미넌스",
+    "kind": "gear",
+    "originalItemId": 203504,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_203504.png",
+    "referencePath": "docs/art-system/references/prominence.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/prominence.png"
+  },
+  {
+    "id": "mithril_boots",
+    "name": "미스릴 부츠",
+    "kind": "gear",
+    "originalItemId": 204407,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_204407.png",
+    "referencePath": "docs/art-system/references/mithril_boots.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/mithril_boots.png"
+  },
+  {
+    "id": "glacial_shoes",
+    "name": "글레이셜 슈즈",
+    "kind": "gear",
+    "originalItemId": 204410,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_204410.png",
+    "referencePath": "docs/art-system/references/glacial_shoes.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/glacial_shoes.png"
+  },
+  {
+    "id": "galaxy_step",
+    "name": "갤럭시 스텝",
+    "kind": "gear",
+    "originalItemId": 204507,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_204507.png",
+    "referencePath": "docs/art-system/references/galaxy_step.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/galaxy_step.png"
+  },
+  {
+    "id": "hermes",
+    "name": "헤르메스의 부츠",
+    "kind": "gear",
+    "originalItemId": 204501,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_204501.png",
+    "referencePath": "docs/art-system/references/hermes.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/hermes.png"
+  },
+  {
+    "id": "pink_shoes",
+    "name": "분홍신",
+    "kind": "gear",
+    "originalItemId": 204502,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_204502.png",
+    "referencePath": "docs/art-system/references/pink_shoes.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/pink_shoes.png"
+  },
+  {
+    "id": "meteorite",
+    "name": "운석",
+    "kind": "object",
+    "originalItemId": 401209,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_401209.png",
+    "referencePath": "docs/art-system/references/meteorite.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/meteorite.png"
+  },
+  {
+    "id": "tree",
+    "name": "생명의 나무",
+    "kind": "object",
+    "originalItemId": 401208,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_401208.png",
+    "referencePath": "docs/art-system/references/tree.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/tree.png"
+  },
+  {
+    "id": "mithril",
+    "name": "미스릴",
+    "kind": "object",
+    "originalItemId": 401304,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_401304.png",
+    "referencePath": "docs/art-system/references/mithril.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/mithril.png"
+  },
+  {
+    "id": "force",
+    "name": "포스코어",
+    "kind": "object",
+    "originalItemId": 401403,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_401403.png",
+    "referencePath": "docs/art-system/references/force.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/force.png"
+  },
+  {
+    "id": "blood",
+    "name": "VF 혈액 샘플",
+    "kind": "object",
+    "originalItemId": 401401,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_401401.png",
+    "referencePath": "docs/art-system/references/blood.png",
+    "dataSource": "https://er.dakgg.io/api/v1/data/items?hl=ko",
+    "output": "Assets/Resources/Lumia/SystemIcons/blood.png"
+  }
+]

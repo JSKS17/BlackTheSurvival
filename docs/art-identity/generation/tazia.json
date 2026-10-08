@@ -1,0 +1,32 @@
+{
+  "id": "tazia",
+  "name": "타지아",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Elegant assertive glass artist, sharp GOLDEN eyes, long rising dark lashes, slanted self-assured brow, very small confident closed smile. Crimson hair.\n",
+  "originalReference": "docs/art-chibi/references/subjects/tazia.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Tazia_S000.png",
+  "referenceSha256": "43de4ed453f48c03203e1587ed14d0b16459db120f8a9d2a8ee6f74cd72997ac",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\n\nCharacter-specific face and pose: Elegant assertive glass artist, sharp GOLDEN eyes, long rising dark lashes, slanted self-assured brow, very small confident closed smile. Crimson hair.\nOriginal appearance: Crimson side ponytail, gold eyes, black-red tailored coat, blue crystal flower accents and floating glass shards.\nSignature prop: Float a few sharp translucent blue and lilac glass shards near one hand.\nSingle face must remain readable at game size; honor the precise individual iris colors, eyelid shape, eyebrow angles and mouth expression above.\n",
+  "generatedSource": "docs/art-identity/generated/tazia.png",
+  "generatedSha256": "2850d2e2d7aa7e7710aba428cc3889548e372948651f1bb976accdc1ecf4500e",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1106,
+    1402
+  ],
+  "resizedSize": [
+    120,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/tazia.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "cee40b60aeb31dd2b028cbc27884e3f1f0b74334b0ccdac3f43d8d507a8ab4ac",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "xuelin",
+  "name": "슈린",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Resolute martial woman, slender warm BROWN eyes with slightly raised corners, focused straight brows, tiny confident closed mouth. Dark teal flowing hair.\n",
+  "originalReference": "docs/art-chibi/references/subjects/xuelin.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Xuelin_S000.png",
+  "referenceSha256": "fe869c52c4f859f3d0a9d85a2c63e172ed6232d46865a05af86bb1f76b1d5dfa",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 슈린 (xuelin). Original outfit and identity: Long dark teal hair with high loops, white-teal martial outfit, silver belt, flowing turquoise ribbons and energy rapier.. Signature prop: Hold a slender turquoise energy sword shaped like a fencing rapier..\nCharacter-specific face and pose: Resolute martial woman, slender warm BROWN eyes with slightly raised corners, focused straight brows, tiny confident closed mouth. Dark teal flowing hair.\n",
+  "generatedSource": "docs/art-identity/generated/xuelin.png",
+  "generatedSha256": "be7d272d8455daa97c35da687831c8a042ee994e61318c051624cb28a6497e4e",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    23,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    124,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/xuelin.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "51cfb8d0b1f3da41086ff08742a557786d77cc031cd309a3f5b541a09302a556",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

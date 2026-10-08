@@ -1,0 +1,32 @@
+{
+  "id": "vanya",
+  "name": "바냐",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Dreamy delicate young woman, soft round PALE BLUE eyes, gently lifted worried inner brows, tiny wistful parted lips. Pale blue bob.\n",
+  "originalReference": "docs/art-chibi/references/subjects/vanya.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Vanya_S000.png",
+  "referenceSha256": "30d4236bbd8bbba2a39857a594bd4fc291ba49d767baea855f224b59a596aaa2",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 바냐 (vanya).\nOutfit and identity: Short pale blue hair, cyan butterfly hair ornaments, white-and-cyan ribbon dress, blue butterfly wings.\nSignature prop, do not copy another character's prop: Let a few small bright blue butterflies float around her open hand.\nFace design from original: Dreamy delicate young woman, soft round PALE BLUE eyes, gently lifted worried inner brows, tiny wistful parted lips. Pale blue bob.\n",
+  "generatedSource": "docs/art-identity/generated/vanya.png",
+  "generatedSha256": "be7beaab4a33a2173e89c2a4a2342c42e095f85f120b89bfa6824dc431b6f0d2",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1116,
+    1402
+  ],
+  "resizedSize": [
+    121,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/vanya.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "de117776f8eeaefddee98621736890ce8e844888ad2d75d94d9c4efd78976be5",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

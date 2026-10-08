@@ -1,0 +1,32 @@
+{
+  "id": "abigail",
+  "name": "아비게일",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Quiet mysterious girl, luminous GREEN downturned almond eyes, solemn raised inner brows, tiny straight closed mouth. Dark blue long hair and silver key clip.\n",
+  "originalReference": "docs/art-chibi/references/subjects/abigail.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Abigail_S000.png",
+  "referenceSha256": "e040fee17d7dca00475cdbf31be0cf5fcba43bf54d84eac20317c450bc1c981b",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 아비게일 (abigail). Original outfit and identity: Long black-blue hair, green eyes, silver hairpin, fitted blue-white cape uniform, large blue battle axe.. Signature prop: Hold a large blue battle axe with a broad crescent-shaped axe head..\nCharacter-specific face and pose: Quiet mysterious girl, luminous GREEN downturned almond eyes, solemn raised inner brows, tiny straight closed mouth. Dark blue long hair and silver key clip.\n",
+  "generatedSource": "docs/art-identity/generated/abigail.png",
+  "generatedSha256": "af0bf156dd29371050dfa1e5607804d92721edb420a28016b64f122d028f9bc3",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    13,
+    1104,
+    1402
+  ],
+  "resizedSize": [
+    121,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/abigail.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "50236457fca48b12b8aa6fa29371c35f3e488141a0f92c187e30c9c59560d006",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

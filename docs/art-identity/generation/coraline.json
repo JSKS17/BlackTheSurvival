@@ -1,0 +1,32 @@
+{
+  "id": "coraline",
+  "name": "코렐라인",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Unsettling monochrome woman, one magenta PINK eye and one VIOLET eye, widely rounded lower lids but sharp upper lids, high arched brows and small knowing closed smile. Half WHITE half BLACK hair. Preserve asymmetry.\n",
+  "originalReference": "docs/art-chibi/references/subjects/coraline.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Coraline_S000.png",
+  "referenceSha256": "652456e8605908220b4970aa8e27606b253b4b96e5f4501d7db5b76f36fa93a5",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 코렐라인 (coraline). Original outfit and identity: Half pale white and half dark hair, pink-violet eyes, white-black magical outfit with pink gems, black-pink angular wings.. Signature prop: Float angular pink crystal arcana beside her black-and-pink fairy wings..\nCharacter-specific face and pose: Unsettling monochrome woman, one magenta PINK eye and one VIOLET eye, widely rounded lower lids but sharp upper lids, high arched brows and small knowing closed smile. Half WHITE half BLACK hair. Preserve asymmetry.\n",
+  "generatedSource": "docs/art-identity/generated/coraline.png",
+  "generatedSha256": "0ee7d2f69734a873e90ea4570f99f506c5e06975ddc340faab1bc5089fb550d5",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    8,
+    1114,
+    1402
+  ],
+  "resizedSize": [
+    121,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/coraline.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "2139663549303f4ea83d3a0b886fa275aaaf1f0bd4568b2d78850854a56d87d7",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "path": "BlackTheSurvival.exe",
+    "sha256": "5BFB02293C482170C4D5035081245E45D69FE0F617FCC92A81E98ADEE13B945F",
+    "match": true
+  },
+  {
+    "path": "UnityPlayer.dll",
+    "sha256": "A2022611884470DDAB23927A3EB7BBAEF3924C18972D30BA7B5330A8FD25BCC4",
+    "match": true
+  },
+  {
+    "path": "BlackTheSurvival_Data/Managed/Assembly-CSharp.dll",
+    "sha256": "911AC591D12E79C45A2C2AC6D35E5FC311591A98F32CAE765975535CE8455984",
+    "match": true
+  },
+  {
+    "path": "BlackTheSurvival_Data/resources.assets",
+    "sha256": "959ACEE263F26E995C9D044215B521EE15F5D9C285F97F0F209E42E5DB1590B0",
+    "match": true
+  }
+]

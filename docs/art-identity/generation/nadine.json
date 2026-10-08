@@ -1,0 +1,32 @@
+{
+  "id": "nadine",
+  "name": "나딘",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Wary hunter, narrow amber eyes partially shaded by orange cap, angled low brow, subtle focused closed mouth. No generic sparkly eyes.\n",
+  "originalReference": "docs/art-chibi/references/subjects/nadine.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Nadine_S000.png",
+  "referenceSha256": "c84da67501514badb1b45a0842fbe5fa6ceebec1e7fa6534ac7134370998029f",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 나딘 (nadine).\nOutfit and identity: Dark high ponytail, orange cap and hooded mantle, fitted dark hunting gear, bow or crossbow.\nSignature prop, do not copy another character's prop: Hold a compact hunting crossbow with clearly visible transverse bow limbs.\nFace design from original: Wary hunter, narrow amber eyes partially shaded by orange cap, angled low brow, subtle focused closed mouth. No generic sparkly eyes.\n",
+  "generatedSource": "docs/art-identity/generated/nadine.png",
+  "generatedSha256": "647c3caaa8f34f77486569e2a53a2187ae7baea7ddeb54a81d9c3ba7b136c469",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    8,
+    1110,
+    1392
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/nadine.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "a25c994274a24dee826fad11d87a6f5e61e8394e48058683914092149e093c4c",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

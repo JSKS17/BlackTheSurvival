@@ -1,0 +1,32 @@
+{
+  "id": "rio",
+  "name": "리오",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Quiet archer, STRAIGHT UPPER EYELIDS over gold-yellow eyes, level low brows, small almost flat closed mouth. White blunt bangs.\n",
+  "originalReference": "docs/art-chibi/references/subjects/rio.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Rio_S000.png",
+  "referenceSha256": "58f81b371b93fe61fb97710e1423b4cda47fe41759054ce7755522eb9085cf83",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 리오 (rio).\nOutfit and identity: Long straight white hair and blunt bangs, yellow eyes, gray-black sailor uniform, yellow neckerchief, bow.\nSignature prop, do not copy another character's prop: Hold a tall traditional archery bow with a visible curved limb and bowstring.\nFace design from original: Quiet archer, STRAIGHT UPPER EYELIDS over gold-yellow eyes, level low brows, small almost flat closed mouth. White blunt bangs.\n",
+  "generatedSource": "docs/art-identity/generated/rio.png",
+  "generatedSha256": "42f9bb821025a44a0cd5466930b82734179ea70567df85884a9290544b4e095a",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1106,
+    1402
+  ],
+  "resizedSize": [
+    120,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/rio.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "d6a924ec2e956260737c12a057c47cae0132e2d7dc25dbeb6e35fb697b4908fb",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

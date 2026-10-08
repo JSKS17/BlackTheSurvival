@@ -1,0 +1,32 @@
+{
+  "id": "arda",
+  "name": "아르다",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Friendly scholarly man, soft golden AMBER almond eyes, gently arched brows, warm small closed smile. Golden tousled hair, green scarf.\n",
+  "originalReference": "docs/art-chibi/references/subjects/arda.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Arda_S000.png",
+  "referenceSha256": "59416ddc3ddc5448bbcb8c0958a3147d150a2146e0d33bed79dcbd6128c2b885",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 아르다 (arda). Original outfit and identity: Fluffy golden hair, beige expedition shirt, green checked scarf, green backpack straps, relics and compass.. Signature prop: Hold a small carved ancient stone relic and a rolled parchment scroll..\nCharacter-specific face and pose: Friendly scholarly man, soft golden AMBER almond eyes, gently arched brows, warm small closed smile. Golden tousled hair, green scarf.\n",
+  "generatedSource": "docs/art-identity/generated/arda.png",
+  "generatedSha256": "ceff69bf5f9183e603913519f40cf8ecf5dd89a5bbd334407cafdc1d72dbae1b",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/arda.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "d73269f61e22bd88d1a42adc2f851f12f231d0de5d58fdde64b83b38f78b2cc4",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

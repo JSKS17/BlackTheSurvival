@@ -1,0 +1,32 @@
+{
+  "id": "luke",
+  "name": "루크",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Mischievous janitor boy, slanted AMBER eyes, high cheek expression, arched teasing eyebrows, off-center friendly grin. Spiky pale-brown hair.\n",
+  "originalReference": "docs/art-chibi/references/subjects/luke.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Luke_S000.png",
+  "referenceSha256": "84ee410008c76fe771c273a3fb5aa7aab70457ecec62f5df2e5468e5ba9ca4b2",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 루크 (luke).\nOutfit and identity: Spiky light brown hair, yellow goggles around neck, white-red flame shirt, dark work overalls, broom.\nSignature prop, do not copy another character's prop: Hold a janitor broom with a long handle and a wide brush head.\nFace design from original: Mischievous janitor boy, slanted AMBER eyes, high cheek expression, arched teasing eyebrows, off-center friendly grin. Spiky pale-brown hair.\n",
+  "generatedSource": "docs/art-identity/generated/luke.png",
+  "generatedSha256": "17dea4e128da9b26a2f71ca1e0b5ef97f92eb25fc94d0bdc543110b5b259f25e",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    12,
+    1098,
+    1402
+  ],
+  "resizedSize": [
+    120,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/luke.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "9723b3bb7726d5459bb53945adc2e843f2e5f8a28a87df18fa68df97832e161f",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

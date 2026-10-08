@@ -1,0 +1,32 @@
+{
+  "id": "hyunwoo",
+  "name": "현우",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Hotheaded schoolboy: narrow orange-brown eyes with pointed outer corners, strongly inward-slanting thick brows, clenched-tooth determined grimace, white bandage across nose. No happy doll smile. Red-orange spiky hair, open brown school jacket, wrapped fists.\n",
+  "originalReference": "docs/art-chibi/references/subjects/hyunwoo.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Hyunwoo_S000.png",
+  "referenceSha256": "aa8c1f02a3203d9271b582e3b267cd879952cd5b4c3d2005b4fe3a1f10a72bad",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter-specific face and pose: Hotheaded schoolboy: narrow orange-brown eyes with pointed outer corners, strongly inward-slanting thick brows, clenched-tooth determined grimace, white bandage across nose. No happy doll smile. Red-orange spiky hair, open brown school jacket, wrapped fists.\n",
+  "generatedSource": "docs/art-identity/generated/hyunwoo.png",
+  "generatedSha256": "3bcdde359c42ebc24ac6f9ca32853bbc4acb527983946a77d25ef7f37ef6a9a3",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1121,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/hyunwoo.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "383fafaf61c17286e8e1046edcd08992f3b5442db0c96f5e49ae803bec698492",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

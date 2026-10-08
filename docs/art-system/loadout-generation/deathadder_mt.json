@@ -1,0 +1,16 @@
+{
+  "id": "deathadder_mt",
+  "name": "데스애더퀸-MT",
+  "kind": "gear",
+  "originalId": 131501,
+  "weaponClass": "VF의수",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_131501.png",
+  "referencePath": "docs/art-system/references/loadout/deathadder_mt.png",
+  "originalTooltip": "전설 / VF의수\n\n공격력 +66\n공격 속도 +20%\n레벨 당 기본 공격 증폭 +1~20%\n<color=#FFFF00>(고유)</color> 기본 공격 사거리 +0.2\n\n<b><color=yellow>의념</color></b>\n<color=red>VF폭주</color> 상태일 때 스킬을 사용하면 의념을 충전합니다. 충전된 상태에서 다음 3초 안에 이루어지는 기본 공격이 추가 스킬 피해를 입힙니다. (쿨다운: 0.2초) <color=green>캐릭터 레벨 * 7</color>에 해당하는 피해를 입힙니다. <color=red>VF폭주</color> 상태일 때에는 데스애더의 <color=yellow>의념</color>만 발동합니다.\n\n<b><color=yellow>독사의 맹독</color></b>\n독사의 진노(R)에 적중한 적 대상의 방어력을 7초 동안 7% 감소시킵니다. 이 효과는 최대 2 중첩까지 중첩됩니다.",
+  "output": "Assets/Resources/Lumia/SystemIcons/deathadder_mt.png",
+  "prompt": "Use case: stylized-concept. Asset type: one pixel-art inventory icon for the game Black The Survival. Image 1 is the original Eternal Return 데스애더퀸-MT icon used only as a silhouette/color reference. Image 2 is our existing game icon contact sheet used only as a pixel-art style reference. Create a NEW single standalone icon matching this existing coarse pixel-art family, not a collage. Subject: A futuristic magenta-violet mechanical serpent-shaped prosthetic weapon, elongated horizontally, bright pink hooked jaws and aqua cyan glints, jagged technological edges. Composition: centered, occupies roughly 80% of a square, readable at 32x32 logical pixels. Style: authentic 32x32 game sprite enlarged with sharp hard-edged square pixels, limited 12-18 color palette, stepped outlines and deliberate clustered highlights. Keep the original equipment's recognizable form, angle and major colors. Transparent background with genuine alpha, no square tile, no UI frame, no words or letters, no watermark, no additional items, no smooth airbrush, no antialiasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11cd7-8b06-78b1-8fee-fcc2f23d0839\\exec-a6127bcb-1256-4d90-8e35-80d2ed415b62.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "tool": "image_gen.imagegen"
+}

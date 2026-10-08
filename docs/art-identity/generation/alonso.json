@@ -1,0 +1,32 @@
+{
+  "id": "alonso",
+  "name": "알론소",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Masked magnetic brawler, keep BLACK mechanical FULL FACE MASK with TWO narrow glowing GOLD eye slits and angular vented jaw. Do not invent exposed human doll eyes or mouth. Huge wild sandy mane.\n",
+  "originalReference": "docs/art-chibi/references/subjects/alonso.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Alonso_S000.png",
+  "referenceSha256": "c711eaa763f96312711186a10e3f00bfd8cd6643cfd5ef8283be1f0fb586698b",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter: 알론소 (alonso). Original outfit and identity: Huge spiky orange mane, black mask with yellow eyes, gray-black strapped coat, amber mechanical chest accents.. Signature prop: Wear very large dark magnetic gauntlets with amber glowing panels..\nCharacter-specific face and pose: Masked magnetic brawler, keep BLACK mechanical FULL FACE MASK with TWO narrow glowing GOLD eye slits and angular vented jaw. Do not invent exposed human doll eyes or mouth. Huge wild sandy mane.\n",
+  "generatedSource": "docs/art-identity/generated/alonso.png",
+  "generatedSha256": "41c2cfd81939ca08186c4141b90970301e11de265abfc00095448d45352f9fd9",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/alonso.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "51febafa6ed81e9c51d7bc81d01ca27ad2bd4e90350a6e0e37ab8b6905ae3977",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

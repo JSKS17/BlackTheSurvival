@@ -1,0 +1,626 @@
+[
+  {
+    "id": "debi_marlene_q",
+    "actual": 4.0,
+    "expected": 4.0,
+    "ok": true
+  },
+  {
+    "id": "debi_marlene_w",
+    "actual": 10.0,
+    "expected": 10.0,
+    "ok": true
+  },
+  {
+    "id": "debi_marlene_e",
+    "actual": 18.0,
+    "expected": 18.0,
+    "ok": true
+  },
+  {
+    "id": "debi_marlene_r",
+    "actual": 90.0,
+    "expected": 90.0,
+    "ok": true
+  },
+  {
+    "id": "arda_q",
+    "actual": 7.0,
+    "expected": 7.0,
+    "ok": true
+  },
+  {
+    "id": "arda_w",
+    "actual": 14.0,
+    "expected": 14.0,
+    "ok": true
+  },
+  {
+    "id": "arda_e",
+    "actual": 16.0,
+    "expected": 16.0,
+    "ok": true
+  },
+  {
+    "id": "arda_r",
+    "actual": 30.0,
+    "expected": 30.0,
+    "ok": true
+  },
+  {
+    "id": "abigail_q",
+    "actual": 8.5,
+    "expected": 8.5,
+    "ok": true
+  },
+  {
+    "id": "abigail_w",
+    "actual": 10.0,
+    "expected": 10.0,
+    "ok": true
+  },
+  {
+    "id": "abigail_e",
+    "actual": 12.0,
+    "expected": 12.0,
+    "ok": true
+  },
+  {
+    "id": "abigail_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "alonso_q",
+    "actual": 8.0,
+    "expected": 8.0,
+    "ok": true
+  },
+  {
+    "id": "alonso_w",
+    "actual": 16.0,
+    "expected": 16.0,
+    "ok": true
+  },
+  {
+    "id": "alonso_e",
+    "actual": 17.0,
+    "expected": 17.0,
+    "ok": true
+  },
+  {
+    "id": "alonso_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "leni_q",
+    "actual": 12.0,
+    "expected": 12.0,
+    "ok": true
+  },
+  {
+    "id": "leni_w",
+    "actual": 16.0,
+    "expected": 16.0,
+    "ok": true
+  },
+  {
+    "id": "leni_e",
+    "actual": 9.0,
+    "expected": 9.0,
+    "ok": true
+  },
+  {
+    "id": "leni_r",
+    "actual": 30.0,
+    "expected": 30.0,
+    "ok": true
+  },
+  {
+    "id": "tsubame_q",
+    "actual": 6.0,
+    "expected": 6.0,
+    "ok": true
+  },
+  {
+    "id": "tsubame_w",
+    "actual": 11.0,
+    "expected": 11.0,
+    "ok": true
+  },
+  {
+    "id": "tsubame_e",
+    "actual": 24.0,
+    "expected": 24.0,
+    "ok": true
+  },
+  {
+    "id": "tsubame_r",
+    "actual": 0.5,
+    "expected": 0.5,
+    "ok": true
+  },
+  {
+    "id": "kenneth_q",
+    "actual": 9.0,
+    "expected": 9.0,
+    "ok": true
+  },
+  {
+    "id": "kenneth_w",
+    "actual": 14.0,
+    "expected": 14.0,
+    "ok": true
+  },
+  {
+    "id": "kenneth_e",
+    "actual": 14.0,
+    "expected": 14.0,
+    "ok": true
+  },
+  {
+    "id": "kenneth_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "katja_q",
+    "actual": 7.0,
+    "expected": 7.0,
+    "ok": true
+  },
+  {
+    "id": "katja_w",
+    "actual": 30.0,
+    "expected": 30.0,
+    "ok": true
+  },
+  {
+    "id": "katja_e",
+    "actual": 13.0,
+    "expected": 13.0,
+    "ok": true
+  },
+  {
+    "id": "katja_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "charlotte_q",
+    "actual": 8.0,
+    "expected": 8.0,
+    "ok": true
+  },
+  {
+    "id": "charlotte_w",
+    "actual": 10.0,
+    "expected": 10.0,
+    "ok": true
+  },
+  {
+    "id": "charlotte_e",
+    "actual": 8.0,
+    "expected": 8.0,
+    "ok": true
+  },
+  {
+    "id": "charlotte_r",
+    "actual": 130.0,
+    "expected": 130.0,
+    "ok": true
+  },
+  {
+    "id": "darko_q",
+    "actual": 3.0,
+    "expected": 3.0,
+    "ok": true
+  },
+  {
+    "id": "darko_w",
+    "actual": 10.0,
+    "expected": 10.0,
+    "ok": true
+  },
+  {
+    "id": "darko_e",
+    "actual": 14.0,
+    "expected": 14.0,
+    "ok": true
+  },
+  {
+    "id": "darko_r",
+    "actual": 90.0,
+    "expected": 90.0,
+    "ok": true
+  },
+  {
+    "id": "lenore_q",
+    "actual": 7.0,
+    "expected": 7.0,
+    "ok": true
+  },
+  {
+    "id": "lenore_w",
+    "actual": 15.0,
+    "expected": 15.0,
+    "ok": true
+  },
+  {
+    "id": "lenore_e",
+    "actual": 17.0,
+    "expected": 17.0,
+    "ok": true
+  },
+  {
+    "id": "lenore_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "garnet_q",
+    "actual": 6.0,
+    "expected": 6.0,
+    "ok": true
+  },
+  {
+    "id": "garnet_w",
+    "actual": 13.0,
+    "expected": 13.0,
+    "ok": true
+  },
+  {
+    "id": "garnet_e",
+    "actual": 9.0,
+    "expected": 9.0,
+    "ok": true
+  },
+  {
+    "id": "garnet_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "yumin_q",
+    "actual": 7.0,
+    "expected": 7.0,
+    "ok": true
+  },
+  {
+    "id": "yumin_w",
+    "actual": 9.0,
+    "expected": 9.0,
+    "ok": true
+  },
+  {
+    "id": "yumin_e",
+    "actual": 11.0,
+    "expected": 11.0,
+    "ok": true
+  },
+  {
+    "id": "yumin_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "hisui_q",
+    "actual": 10.0,
+    "expected": 10.0,
+    "ok": true
+  },
+  {
+    "id": "hisui_w",
+    "actual": 0.0,
+    "expected": 0,
+    "ok": true
+  },
+  {
+    "id": "hisui_e",
+    "actual": 15.0,
+    "expected": 15.0,
+    "ok": true
+  },
+  {
+    "id": "hisui_r",
+    "actual": 70.0,
+    "expected": 70.0,
+    "ok": true
+  },
+  {
+    "id": "justyna_q",
+    "actual": 0.8,
+    "expected": 0.8,
+    "ok": true
+  },
+  {
+    "id": "justyna_w",
+    "actual": 10.0,
+    "expected": 10.0,
+    "ok": true
+  },
+  {
+    "id": "justyna_e",
+    "actual": 2.0,
+    "expected": 2.0,
+    "ok": true
+  },
+  {
+    "id": "justyna_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "istvan_q",
+    "actual": 4.5,
+    "expected": 4.5,
+    "ok": true
+  },
+  {
+    "id": "istvan_w",
+    "actual": 8.0,
+    "expected": 8.0,
+    "ok": true
+  },
+  {
+    "id": "istvan_e",
+    "actual": 12.0,
+    "expected": 12.0,
+    "ok": true
+  },
+  {
+    "id": "istvan_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "xuelin_q",
+    "actual": 12.0,
+    "expected": 12.0,
+    "ok": true
+  },
+  {
+    "id": "xuelin_w",
+    "actual": 20.0,
+    "expected": 20.0,
+    "ok": true
+  },
+  {
+    "id": "xuelin_e",
+    "actual": 14.0,
+    "expected": 14.0,
+    "ok": true
+  },
+  {
+    "id": "xuelin_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "henry_q",
+    "actual": 9.0,
+    "expected": 9.0,
+    "ok": true
+  },
+  {
+    "id": "henry_w",
+    "actual": 14.0,
+    "expected": 14.0,
+    "ok": true
+  },
+  {
+    "id": "henry_e",
+    "actual": 13.0,
+    "expected": 13.0,
+    "ok": true
+  },
+  {
+    "id": "henry_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "blair_q",
+    "actual": 10.0,
+    "expected": 10.0,
+    "ok": true
+  },
+  {
+    "id": "blair_w",
+    "actual": 20.0,
+    "expected": 20.0,
+    "ok": true
+  },
+  {
+    "id": "blair_e",
+    "actual": 9.0,
+    "expected": 9.0,
+    "ok": true
+  },
+  {
+    "id": "blair_r",
+    "actual": 90.0,
+    "expected": 90.0,
+    "ok": true
+  },
+  {
+    "id": "mirka_q",
+    "actual": 10.0,
+    "expected": 10.0,
+    "ok": true
+  },
+  {
+    "id": "mirka_w",
+    "actual": 9.0,
+    "expected": 9.0,
+    "ok": true
+  },
+  {
+    "id": "mirka_e",
+    "actual": 13.0,
+    "expected": 13.0,
+    "ok": true
+  },
+  {
+    "id": "mirka_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "fenrir_q",
+    "actual": 5.0,
+    "expected": 5.0,
+    "ok": true
+  },
+  {
+    "id": "fenrir_w",
+    "actual": 14.0,
+    "expected": 14.0,
+    "ok": true
+  },
+  {
+    "id": "fenrir_e",
+    "actual": 14.0,
+    "expected": 14.0,
+    "ok": true
+  },
+  {
+    "id": "fenrir_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "coraline_q",
+    "actual": 8.0,
+    "expected": 8.0,
+    "ok": true
+  },
+  {
+    "id": "coraline_w",
+    "actual": 6.0,
+    "expected": 6.0,
+    "ok": true
+  },
+  {
+    "id": "coraline_e",
+    "actual": 14.0,
+    "expected": 14.0,
+    "ok": true
+  },
+  {
+    "id": "coraline_r",
+    "actual": 32.0,
+    "expected": 32.0,
+    "ok": true
+  },
+  {
+    "id": "bihyung_q",
+    "actual": 8.0,
+    "expected": 8.0,
+    "ok": true
+  },
+  {
+    "id": "bihyung_w",
+    "actual": 11.0,
+    "expected": 11.0,
+    "ok": true
+  },
+  {
+    "id": "bihyung_e",
+    "actual": 14.0,
+    "expected": 14.0,
+    "ok": true
+  },
+  {
+    "id": "bihyung_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "craver_q",
+    "actual": 9.0,
+    "expected": 9.0,
+    "ok": true
+  },
+  {
+    "id": "craver_w",
+    "actual": 11.0,
+    "expected": 11.0,
+    "ok": true
+  },
+  {
+    "id": "craver_e",
+    "actual": 13.0,
+    "expected": 13.0,
+    "ok": true
+  },
+  {
+    "id": "craver_r",
+    "actual": 80.0,
+    "expected": 80.0,
+    "ok": true
+  },
+  {
+    "id": "lucia_q",
+    "actual": 5.0,
+    "expected": 5.0,
+    "ok": true
+  },
+  {
+    "id": "lucia_w",
+    "actual": 8.0,
+    "expected": 8.0,
+    "ok": true
+  },
+  {
+    "id": "lucia_e",
+    "actual": 13.0,
+    "expected": 13,
+    "ok": true
+  },
+  {
+    "id": "lucia_r",
+    "actual": 70.0,
+    "expected": 70.0,
+    "ok": true
+  },
+  {
+    "id": "ceres_q",
+    "actual": 12.0,
+    "expected": 12.0,
+    "ok": true
+  },
+  {
+    "id": "ceres_w",
+    "actual": 13.0,
+    "expected": 13.0,
+    "ok": true
+  },
+  {
+    "id": "ceres_e",
+    "actual": 12.0,
+    "expected": 12.0,
+    "ok": true
+  },
+  {
+    "id": "ceres_r",
+    "actual": 85.0,
+    "expected": 85.0,
+    "ok": true
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "id": "eva",
+  "name": "이바",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Soft reserved woman, large muted RED-MAUVE downturned eyes, uncertain raised inner brows, tiny softly parted mouth. Long pale beige hair.\n",
+  "originalReference": "docs/art-chibi/references/subjects/eva.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Eva_S000.png",
+  "referenceSha256": "65d5d4c1f78d4ef0490bc054d004f3c7d64fd1be601c1bfabacc6263d7f3dd27",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\n\nCharacter-specific face and pose: Soft reserved woman, large muted RED-MAUVE downturned eyes, uncertain raised inner brows, tiny softly parted mouth. Long pale beige hair.\nOriginal appearance: Long beige-blond hair, mauve eyes, black-white sailor-like combat dress, dark arm gauntlets.\nSignature prop: Float a small violet VF energy orb above one open hand.\nSingle face must remain readable at game size; honor the precise individual iris colors, eyelid shape, eyebrow angles and mouth expression above.\n",
+  "generatedSource": "docs/art-identity/generated/eva.png",
+  "generatedSha256": "8af344b39b6441dd88902759ca411e4b96c686c2fc414dfeead7d64b3e1a72b1",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1122,
+    1402
+  ],
+  "resizedSize": [
+    122,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/eva.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "63d24eca20f64eb6b26359a9e64260d1971187ed88b4e215d7efef36e348a842",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

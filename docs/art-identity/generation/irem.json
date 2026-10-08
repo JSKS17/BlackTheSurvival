@@ -1,0 +1,32 @@
+{
+  "id": "irem",
+  "name": "이렘",
+  "tool": "builtin image_gen",
+  "intent": "style-transfer",
+  "faceDesign": "Playful cat girl, HETEROCHROMIA: one ORANGE eye and one BLUE eye, bright round irises, cheerful lifted eyebrows and cute open smile. Preserve asymmetric iris colors.\n",
+  "originalReference": "docs/art-chibi/references/subjects/irem.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Irem_S000.png",
+  "referenceSha256": "7b41de0a38d691b1afa120158b52e03a7ab83c205d7267aa5c9e1b2c7abde512",
+  "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\n\nCharacter-specific face and pose: Playful cat girl, HETEROCHROMIA: one ORANGE eye and one BLUE eye, bright round irises, cheerful lifted eyebrows and cute open smile. Preserve asymmetric iris colors.\nOriginal appearance: Peach-orange hair, cat ears and red headband, oversized cream-yellow cardigan, white-red cat-themed dress.\nSignature prop: Wear cream cat-paw mittens with visible pink paw pads.\nSingle face must remain readable at game size; honor the precise individual iris colors, eyelid shape, eyebrow angles and mouth expression above.\n",
+  "generatedSource": "docs/art-identity/generated/irem.png",
+  "generatedSha256": "9784f8c7370bad8a4b02765fc2fbc657a6d5bf5f032886a4bf33a4f4ed9919e3",
+  "generatedSize": [
+    1122,
+    1402
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1102,
+    1402
+  ],
+  "resizedSize": [
+    119,
+    152
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsIdentity/irem.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "97f64a876c7fb70cd0ace87702a1b9a948fcbabd544b8f04dd702c05347c4c70",
+  "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+}

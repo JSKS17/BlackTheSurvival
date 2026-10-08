@@ -1,0 +1,956 @@
+{
+  "schema": 1,
+  "sprites": [
+    {
+      "group": 1,
+      "reference_path": "docs/art-chibi/references/sprites_01.png",
+      "layout": "4 columns x 2 rows, row-major; unused tail cells blank",
+      "ids": [
+        "hana",
+        "nia",
+        "jackie",
+        "aya",
+        "hyunwoo",
+        "yuki",
+        "hyejin",
+        "sua"
+      ]
+    },
+    {
+      "group": 2,
+      "reference_path": "docs/art-chibi/references/sprites_02.png",
+      "layout": "4 columns x 2 rows, row-major; unused tail cells blank",
+      "ids": [
+        "isol",
+        "nadine",
+        "emma",
+        "charlotte",
+        "nathapon",
+        "nicky",
+        "daniel",
+        "tia"
+      ]
+    },
+    {
+      "group": 3,
+      "reference_path": "docs/art-chibi/references/sprites_03.png",
+      "layout": "4 columns x 2 rows, row-major; unused tail cells blank",
+      "ids": [
+        "laura",
+        "lenox",
+        "leon",
+        "rozzi",
+        "luke",
+        "dailin",
+        "rio",
+        "martina"
+      ]
+    },
+    {
+      "group": 4,
+      "reference_path": "docs/art-chibi/references/sprites_04.png",
+      "layout": "4 columns x 2 rows, row-major; unused tail cells blank",
+      "ids": [
+        "mai",
+        "markus",
+        "magnus",
+        "vanya",
+        "barbara",
+        "bernice",
+        "bianca",
+        "celine"
+      ]
+    },
+    {
+      "group": 5,
+      "reference_path": "docs/art-chibi/references/sprites_05.png",
+      "layout": "4 columns x 2 rows, row-major; unused tail cells blank",
+      "ids": [
+        "sho",
+        "shoichi",
+        "sissela",
+        "silvia",
+        "adela",
+        "adriana",
+        "adina",
+        "isaac"
+      ]
+    },
+    {
+      "group": 6,
+      "reference_path": "docs/art-chibi/references/sprites_06.png",
+      "layout": "4 columns x 2 rows, row-major; unused tail cells blank",
+      "ids": [
+        "alex",
+        "jan",
+        "estelle",
+        "aiden",
+        "echion",
+        "elena",
+        "johann",
+        "william"
+      ]
+    },
+    {
+      "group": 7,
+      "reference_path": "docs/art-chibi/references/sprites_07.png",
+      "layout": "4 columns x 2 rows, row-major; unused tail cells blank",
+      "ids": [
+        "irem",
+        "eva",
+        "ian",
+        "eleven",
+        "zahir",
+        "jenny",
+        "camilo",
+        "karla"
+      ]
+    },
+    {
+      "group": 8,
+      "reference_path": "docs/art-chibi/references/sprites_08.png",
+      "layout": "4 columns x 2 rows, row-major; unused tail cells blank",
+      "ids": [
+        "cathy",
+        "chloe",
+        "chiara",
+        "tazia",
+        "theodore",
+        "felix",
+        "priya",
+        "fiora"
+      ]
+    },
+    {
+      "group": 9,
+      "reference_path": "docs/art-chibi/references/sprites_09.png",
+      "layout": "4 columns x 2 rows, row-major; unused tail cells blank",
+      "ids": [
+        "piolo",
+        "hart",
+        "haze",
+        "debi_marlene",
+        "arda",
+        "abigail",
+        "alonso",
+        "leni"
+      ]
+    },
+    {
+      "group": 10,
+      "reference_path": "docs/art-chibi/references/sprites_10.png",
+      "layout": "4 columns x 2 rows, row-major; unused tail cells blank",
+      "ids": [
+        "tsubame",
+        "kenneth",
+        "katja",
+        "darko",
+        "lenore",
+        "garnet",
+        "yumin",
+        "hisui"
+      ]
+    },
+    {
+      "group": 11,
+      "reference_path": "docs/art-chibi/references/sprites_11.png",
+      "layout": "4 columns x 2 rows, row-major; unused tail cells blank",
+      "ids": [
+        "justyna",
+        "istvan",
+        "xuelin",
+        "henry",
+        "blair",
+        "mirka",
+        "fenrir",
+        "coraline"
+      ]
+    },
+    {
+      "group": 12,
+      "reference_path": "docs/art-chibi/references/sprites_12.png",
+      "layout": "4 columns x 2 rows, row-major; unused tail cells blank",
+      "ids": [
+        "bihyung",
+        "craver",
+        "lucia",
+        "ceres"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "group": 1,
+      "reference_path": "docs/art-chibi/references/skills_01.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "nia",
+        "jackie",
+        "aya",
+        "hyunwoo"
+      ],
+      "ids": [
+        "nia_p",
+        "nia_q",
+        "nia_w",
+        "nia_e",
+        "nia_r",
+        "jackie_p",
+        "jackie_q",
+        "jackie_w",
+        "jackie_e",
+        "jackie_r",
+        "aya_p",
+        "aya_q",
+        "aya_w",
+        "aya_e",
+        "aya_r",
+        "hyunwoo_p",
+        "hyunwoo_q",
+        "hyunwoo_w",
+        "hyunwoo_e",
+        "hyunwoo_r"
+      ]
+    },
+    {
+      "group": 2,
+      "reference_path": "docs/art-chibi/references/skills_02.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "yuki",
+        "hyejin",
+        "sua",
+        "isol"
+      ],
+      "ids": [
+        "yuki_p",
+        "yuki_q",
+        "yuki_w",
+        "yuki_e",
+        "yuki_r",
+        "hyejin_p",
+        "hyejin_q",
+        "hyejin_w",
+        "hyejin_e",
+        "hyejin_r",
+        "sua_p",
+        "sua_q",
+        "sua_w",
+        "sua_e",
+        "sua_r",
+        "isol_p",
+        "isol_q",
+        "isol_w",
+        "isol_e",
+        "isol_r"
+      ]
+    },
+    {
+      "group": 3,
+      "reference_path": "docs/art-chibi/references/skills_03.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "nadine",
+        "emma",
+        "charlotte",
+        "nathapon"
+      ],
+      "ids": [
+        "nadine_p",
+        "nadine_q",
+        "nadine_w",
+        "nadine_e",
+        "nadine_r",
+        "emma_p",
+        "emma_q",
+        "emma_w",
+        "emma_e",
+        "emma_r",
+        "charlotte_p",
+        "charlotte_q",
+        "charlotte_w",
+        "charlotte_e",
+        "charlotte_r",
+        "nathapon_p",
+        "nathapon_q",
+        "nathapon_w",
+        "nathapon_e",
+        "nathapon_r"
+      ]
+    },
+    {
+      "group": 4,
+      "reference_path": "docs/art-chibi/references/skills_04.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "nicky",
+        "daniel",
+        "tia",
+        "laura"
+      ],
+      "ids": [
+        "nicky_p",
+        "nicky_q",
+        "nicky_w",
+        "nicky_e",
+        "nicky_r",
+        "daniel_p",
+        "daniel_q",
+        "daniel_w",
+        "daniel_e",
+        "daniel_r",
+        "tia_p",
+        "tia_q",
+        "tia_w",
+        "tia_e",
+        "tia_r",
+        "laura_p",
+        "laura_q",
+        "laura_w",
+        "laura_e",
+        "laura_r"
+      ]
+    },
+    {
+      "group": 5,
+      "reference_path": "docs/art-chibi/references/skills_05.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "lenox",
+        "leon",
+        "rozzi",
+        "luke"
+      ],
+      "ids": [
+        "lenox_p",
+        "lenox_q",
+        "lenox_w",
+        "lenox_e",
+        "lenox_r",
+        "leon_p",
+        "leon_q",
+        "leon_w",
+        "leon_e",
+        "leon_r",
+        "rozzi_p",
+        "rozzi_q",
+        "rozzi_w",
+        "rozzi_e",
+        "rozzi_r",
+        "luke_p",
+        "luke_q",
+        "luke_w",
+        "luke_e",
+        "luke_r"
+      ]
+    },
+    {
+      "group": 6,
+      "reference_path": "docs/art-chibi/references/skills_06.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "dailin",
+        "rio",
+        "martina",
+        "mai"
+      ],
+      "ids": [
+        "dailin_p",
+        "dailin_q",
+        "dailin_w",
+        "dailin_e",
+        "dailin_r",
+        "rio_p",
+        "rio_q",
+        "rio_w",
+        "rio_e",
+        "rio_r",
+        "martina_p",
+        "martina_q",
+        "martina_w",
+        "martina_e",
+        "martina_r",
+        "mai_p",
+        "mai_q",
+        "mai_w",
+        "mai_e",
+        "mai_r"
+      ]
+    },
+    {
+      "group": 7,
+      "reference_path": "docs/art-chibi/references/skills_07.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "markus",
+        "magnus",
+        "vanya",
+        "barbara"
+      ],
+      "ids": [
+        "markus_p",
+        "markus_q",
+        "markus_w",
+        "markus_e",
+        "markus_r",
+        "magnus_p",
+        "magnus_q",
+        "magnus_w",
+        "magnus_e",
+        "magnus_r",
+        "vanya_p",
+        "vanya_q",
+        "vanya_w",
+        "vanya_e",
+        "vanya_r",
+        "barbara_p",
+        "barbara_q",
+        "barbara_w",
+        "barbara_e",
+        "barbara_r"
+      ]
+    },
+    {
+      "group": 8,
+      "reference_path": "docs/art-chibi/references/skills_08.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "bernice",
+        "bianca",
+        "celine",
+        "sho"
+      ],
+      "ids": [
+        "bernice_p",
+        "bernice_q",
+        "bernice_w",
+        "bernice_e",
+        "bernice_r",
+        "bianca_p",
+        "bianca_q",
+        "bianca_w",
+        "bianca_e",
+        "bianca_r",
+        "celine_p",
+        "celine_q",
+        "celine_w",
+        "celine_e",
+        "celine_r",
+        "sho_p",
+        "sho_q",
+        "sho_w",
+        "sho_e",
+        "sho_r"
+      ]
+    },
+    {
+      "group": 9,
+      "reference_path": "docs/art-chibi/references/skills_09.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "shoichi",
+        "sissela",
+        "silvia",
+        "adela"
+      ],
+      "ids": [
+        "shoichi_p",
+        "shoichi_q",
+        "shoichi_w",
+        "shoichi_e",
+        "shoichi_r",
+        "sissela_p",
+        "sissela_q",
+        "sissela_w",
+        "sissela_e",
+        "sissela_r",
+        "silvia_p",
+        "silvia_q",
+        "silvia_w",
+        "silvia_e",
+        "silvia_r",
+        "adela_p",
+        "adela_q",
+        "adela_w",
+        "adela_e",
+        "adela_r"
+      ]
+    },
+    {
+      "group": 10,
+      "reference_path": "docs/art-chibi/references/skills_10.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "adriana",
+        "adina",
+        "isaac",
+        "alex"
+      ],
+      "ids": [
+        "adriana_p",
+        "adriana_q",
+        "adriana_w",
+        "adriana_e",
+        "adriana_r",
+        "adina_p",
+        "adina_q",
+        "adina_w",
+        "adina_e",
+        "adina_r",
+        "isaac_p",
+        "isaac_q",
+        "isaac_w",
+        "isaac_e",
+        "isaac_r",
+        "alex_p",
+        "alex_q",
+        "alex_w",
+        "alex_e",
+        "alex_r"
+      ]
+    },
+    {
+      "group": 11,
+      "reference_path": "docs/art-chibi/references/skills_11.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "jan",
+        "estelle",
+        "aiden",
+        "echion"
+      ],
+      "ids": [
+        "jan_p",
+        "jan_q",
+        "jan_w",
+        "jan_e",
+        "jan_r",
+        "estelle_p",
+        "estelle_q",
+        "estelle_w",
+        "estelle_e",
+        "estelle_r",
+        "aiden_p",
+        "aiden_q",
+        "aiden_w",
+        "aiden_e",
+        "aiden_r",
+        "echion_p",
+        "echion_q",
+        "echion_w",
+        "echion_e",
+        "echion_r"
+      ]
+    },
+    {
+      "group": 12,
+      "reference_path": "docs/art-chibi/references/skills_12.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "elena",
+        "johann",
+        "william",
+        "irem"
+      ],
+      "ids": [
+        "elena_p",
+        "elena_q",
+        "elena_w",
+        "elena_e",
+        "elena_r",
+        "johann_p",
+        "johann_q",
+        "johann_w",
+        "johann_e",
+        "johann_r",
+        "william_p",
+        "william_q",
+        "william_w",
+        "william_e",
+        "william_r",
+        "irem_p",
+        "irem_q",
+        "irem_w",
+        "irem_e",
+        "irem_r"
+      ]
+    },
+    {
+      "group": 13,
+      "reference_path": "docs/art-chibi/references/skills_13.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "eva",
+        "ian",
+        "eleven",
+        "zahir"
+      ],
+      "ids": [
+        "eva_p",
+        "eva_q",
+        "eva_w",
+        "eva_e",
+        "eva_r",
+        "ian_p",
+        "ian_q",
+        "ian_w",
+        "ian_e",
+        "ian_r",
+        "eleven_p",
+        "eleven_q",
+        "eleven_w",
+        "eleven_e",
+        "eleven_r",
+        "zahir_p",
+        "zahir_q",
+        "zahir_w",
+        "zahir_e",
+        "zahir_r"
+      ]
+    },
+    {
+      "group": 14,
+      "reference_path": "docs/art-chibi/references/skills_14.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "jenny",
+        "camilo",
+        "karla",
+        "cathy"
+      ],
+      "ids": [
+        "jenny_p",
+        "jenny_q",
+        "jenny_w",
+        "jenny_e",
+        "jenny_r",
+        "camilo_p",
+        "camilo_q",
+        "camilo_w",
+        "camilo_e",
+        "camilo_r",
+        "karla_p",
+        "karla_q",
+        "karla_w",
+        "karla_e",
+        "karla_r",
+        "cathy_p",
+        "cathy_q",
+        "cathy_w",
+        "cathy_e",
+        "cathy_r"
+      ]
+    },
+    {
+      "group": 15,
+      "reference_path": "docs/art-chibi/references/skills_15.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "chloe",
+        "chiara",
+        "tazia",
+        "theodore"
+      ],
+      "ids": [
+        "chloe_p",
+        "chloe_q",
+        "chloe_w",
+        "chloe_e",
+        "chloe_r",
+        "chiara_p",
+        "chiara_q",
+        "chiara_w",
+        "chiara_e",
+        "chiara_r",
+        "tazia_p",
+        "tazia_q",
+        "tazia_w",
+        "tazia_e",
+        "tazia_r",
+        "theodore_p",
+        "theodore_q",
+        "theodore_w",
+        "theodore_e",
+        "theodore_r"
+      ]
+    },
+    {
+      "group": 16,
+      "reference_path": "docs/art-chibi/references/skills_16.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "felix",
+        "priya",
+        "fiora",
+        "piolo"
+      ],
+      "ids": [
+        "felix_p",
+        "felix_q",
+        "felix_w",
+        "felix_e",
+        "felix_r",
+        "priya_p",
+        "priya_q",
+        "priya_w",
+        "priya_e",
+        "priya_r",
+        "fiora_p",
+        "fiora_q",
+        "fiora_w",
+        "fiora_e",
+        "fiora_r",
+        "piolo_p",
+        "piolo_q",
+        "piolo_w",
+        "piolo_e",
+        "piolo_r"
+      ]
+    },
+    {
+      "group": 17,
+      "reference_path": "docs/art-chibi/references/skills_17.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "hart",
+        "haze",
+        "debi_marlene",
+        "arda"
+      ],
+      "ids": [
+        "hart_p",
+        "hart_q",
+        "hart_w",
+        "hart_e",
+        "hart_r",
+        "haze_p",
+        "haze_q",
+        "haze_w",
+        "haze_e",
+        "haze_r",
+        "debi_marlene_p",
+        "debi_marlene_q",
+        "debi_marlene_w",
+        "debi_marlene_e",
+        "debi_marlene_r",
+        "arda_p",
+        "arda_q",
+        "arda_w",
+        "arda_e",
+        "arda_r"
+      ]
+    },
+    {
+      "group": 18,
+      "reference_path": "docs/art-chibi/references/skills_18.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "abigail",
+        "alonso",
+        "leni",
+        "tsubame"
+      ],
+      "ids": [
+        "abigail_p",
+        "abigail_q",
+        "abigail_w",
+        "abigail_e",
+        "abigail_r",
+        "alonso_p",
+        "alonso_q",
+        "alonso_w",
+        "alonso_e",
+        "alonso_r",
+        "leni_p",
+        "leni_q",
+        "leni_w",
+        "leni_e",
+        "leni_r",
+        "tsubame_p",
+        "tsubame_q",
+        "tsubame_w",
+        "tsubame_e",
+        "tsubame_r"
+      ]
+    },
+    {
+      "group": 19,
+      "reference_path": "docs/art-chibi/references/skills_19.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "kenneth",
+        "katja",
+        "darko",
+        "lenore"
+      ],
+      "ids": [
+        "kenneth_p",
+        "kenneth_q",
+        "kenneth_w",
+        "kenneth_e",
+        "kenneth_r",
+        "katja_p",
+        "katja_q",
+        "katja_w",
+        "katja_e",
+        "katja_r",
+        "darko_p",
+        "darko_q",
+        "darko_w",
+        "darko_e",
+        "darko_r",
+        "lenore_p",
+        "lenore_q",
+        "lenore_w",
+        "lenore_e",
+        "lenore_r"
+      ]
+    },
+    {
+      "group": 20,
+      "reference_path": "docs/art-chibi/references/skills_20.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "garnet",
+        "yumin",
+        "hisui",
+        "justyna"
+      ],
+      "ids": [
+        "garnet_p",
+        "garnet_q",
+        "garnet_w",
+        "garnet_e",
+        "garnet_r",
+        "yumin_p",
+        "yumin_q",
+        "yumin_w",
+        "yumin_e",
+        "yumin_r",
+        "hisui_p",
+        "hisui_q",
+        "hisui_w",
+        "hisui_e",
+        "hisui_r",
+        "justyna_p",
+        "justyna_q",
+        "justyna_w",
+        "justyna_e",
+        "justyna_r"
+      ]
+    },
+    {
+      "group": 21,
+      "reference_path": "docs/art-chibi/references/skills_21.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "istvan",
+        "xuelin",
+        "henry",
+        "blair"
+      ],
+      "ids": [
+        "istvan_p",
+        "istvan_q",
+        "istvan_w",
+        "istvan_e",
+        "istvan_r",
+        "xuelin_p",
+        "xuelin_q",
+        "xuelin_w",
+        "xuelin_e",
+        "xuelin_r",
+        "henry_p",
+        "henry_q",
+        "henry_w",
+        "henry_e",
+        "henry_r",
+        "blair_p",
+        "blair_q",
+        "blair_w",
+        "blair_e",
+        "blair_r"
+      ]
+    },
+    {
+      "group": 22,
+      "reference_path": "docs/art-chibi/references/skills_22.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "mirka",
+        "fenrir",
+        "coraline",
+        "bihyung"
+      ],
+      "ids": [
+        "mirka_p",
+        "mirka_q",
+        "mirka_w",
+        "mirka_e",
+        "mirka_r",
+        "fenrir_p",
+        "fenrir_q",
+        "fenrir_w",
+        "fenrir_e",
+        "fenrir_r",
+        "coraline_p",
+        "coraline_q",
+        "coraline_w",
+        "coraline_e",
+        "coraline_r",
+        "bihyung_p",
+        "bihyung_q",
+        "bihyung_w",
+        "bihyung_e",
+        "bihyung_r"
+      ]
+    },
+    {
+      "group": 23,
+      "reference_path": "docs/art-chibi/references/skills_23.png",
+      "layout": "5 columns T,Q,W,E,R x 4 character rows; unused tail row blank",
+      "subjects": [
+        "craver",
+        "lucia",
+        "ceres"
+      ],
+      "ids": [
+        "craver_p",
+        "craver_q",
+        "craver_w",
+        "craver_e",
+        "craver_r",
+        "lucia_p",
+        "lucia_q",
+        "lucia_w",
+        "lucia_e",
+        "lucia_r",
+        "ceres_p",
+        "ceres_q",
+        "ceres_w",
+        "ceres_e",
+        "ceres_r"
+      ]
+    }
+  ],
+  "extra": {
+    "reference_path": "docs/art-chibi/references/skills_extra.png",
+    "layout": "5 columns x 4 rows, row-major; 14 occupied then 6 blank cells",
+    "ids": [
+      "basic_attack",
+      "basic_guard",
+      "weapon_glove",
+      "weapon_pistol",
+      "weapon_dagger",
+      "weapon_axe",
+      "weapon_sword",
+      "weapon_bow",
+      "weapon_hammer",
+      "weapon_rapier",
+      "weapon_sniper",
+      "tactical_blink",
+      "tactical_wind",
+      "tactical_plasma"
+    ]
+  }
+}
