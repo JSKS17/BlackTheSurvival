@@ -1090,7 +1090,7 @@ namespace Lumia
             if(token.kind=="deferred_damage") return "유예 피해 "+token.amount+" · 남은 "+token.remaining+"턴";
             if((token.kind??"").StartsWith("status_")) return token.label+" · "+token.remaining+"턴";
             if (token.kind == "free_cast") return token.label + " 무료 " + token.amount + "회";
-            if (token.kind == "revive" && token.persistent) return token.label + " 사용될 때까지";
+            if (token.kind == "revive" && token.persistent) return token.label;
             if (token.kind == "state") return token.label + " · 활성";
             if (token.kind == "resource") return token.label + " " + token.amount + "/" + token.cap;
             if (token.kind == "discount") return token.label + " −" + token.amount;
@@ -1138,6 +1138,7 @@ namespace Lumia
                 Txt(new Rect(67,y+9,706,23),TokenShort(t),15,fieldEnemy?Pink:Mint);
                 string detail=t.kind=="resource" ? (passive!=null || rune!=null ? "공통 행동에 반응하는 " + (passive!=null?passive.name:rune.name) + "의 누적 상태입니다." : t.owner + "의 연계 기술로 소비하거나 강화합니다.") : t.kind=="discount" ? "대상 카드를 한 번 사용하면 사라집니다. 코스트가 0이면 에너지 없이 사용할 수 있습니다." : t.kind=="counter" ? "적의 공격이 적중하면 턴당 한 번 " + t.amount + "의 피해로 반격합니다." : t.kind=="revive" ? "치명상을 한 번 막고 체력을 " + t.amount + " 회복합니다." : t.kind=="empower_basic" ? "다음 기본 공격의 첫 적중 피해를 " + t.amount + " 늘립니다." : t.kind=="hot" ? "자신의 턴 종료마다 체력을 " + t.amount + " 회복합니다." : t.kind=="guard" ? "자신의 턴 종료마다 방어도를 " + t.amount + " 얻습니다." : t.kind=="energy_buff" ? "최대 코스트가 " + t.amount + " 증가합니다. 이미 얻은 에너지는 즉시 회수하지 않습니다." : t.kind=="damage_buff" ? "각 공격 카드의 첫 적중 피해가 " + t.amount + " 증가합니다." : t.kind=="evasion_buff" ? "회피율이 " + t.amount + "% 증가합니다." : t.kind=="exposure" ? "받는 공격 피해가 " + t.amount + "% 증가합니다." : t.kind=="heal_reduction" ? "받는 회복량이 " + t.amount + "% 감소합니다." : t.kind=="delayed_damage" ? "자신의 턴 종료 " + t.delay + "회 후 " + t.amount + "의 피해를 줍니다." : "자신의 턴 종료마다 " + t.amount + "의 피해를 줍니다.";
                 if(t.kind=="free_cast") detail="이번 턴에 대상 카드 한 장을 코스트 없이 사용할 수 있습니다. 턴이 끝나면 사라집니다.";
+                if(t.kind=="revive" && t.persistent) detail+=" 효과가 발동할 때까지 유지됩니다.";
                 if(t.kind=="state") detail="현재 "+t.label+"입니다. 관련 기술의 상태 조건이 적용되며, 해제 조건을 충족하면 사라집니다.";
                 if(t.kind=="resource" && gear!=null) detail=gear.name+"의 장비 효과에 사용하는 누적 수치입니다. 장비 아이콘에서 발동 조건을 확인하세요.";
                 if(t.kind=="deferred_damage") detail="아오자이로 미룬 체력 피해입니다. 남은 피해 "+t.amount+"을 "+t.remaining+"턴에 나누어 자신의 턴 시작마다 받습니다.";

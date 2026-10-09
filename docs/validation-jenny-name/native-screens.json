@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "uiScreens": 121,
+  "newScreensSaved": 2,
+  "runtimeErrors": 0,
+  "synergyLayoutChecks": 26,
+  "cards": 392,
+  "nativePreviewMeasurements": 4704,
+  "previewOverflows": 0,
+  "innerCardScrolls": 0,
+  "screens": [
+    {
+      "file": "native-ui/trait_revive.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/jenny_passive_full.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ]
+}
