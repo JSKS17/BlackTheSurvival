@@ -29,9 +29,24 @@ namespace Lumia
             views=views.Concat(new[]{"preview_hand","irem_detail","irem_detail_full","irem_field","irem_reverted"}).ToArray();
             views=views.Concat(new[]{"kiosk_unlocked","campfire_critical","campfire_tagged","campfire_empty","critical_detail","fx_critical","encounter_energy","help"}).ToArray();
             views=views.Concat(new[]{"debuff_status","debuff_bleed","debuff_burn","debuff_next_basic","debuff_delayed","debuff_multiple","debuff_conditional","debuff_enemy","debuff_summary","debuff_none"}).ToArray();
+            views=views.Concat(new[]{"rewards_wildlife","rewards_wildlife_cancelled","wildlife_food_bag","encounter_basic","encounter_basic_detail"}).ToArray();
             foreach (string view in views)
             {
                 LumiaGame.Instance.VerificationView(view);
+                if (view == "rewards_wildlife" || view == "rewards_wildlife_cancelled" || view == "wildlife_food_bag")
+                {
+                    var engine = LumiaGame.Instance.Engine; var reward = engine.State.rewards;
+                    if (reward.choices.Count != 4 || !reward.choices.Contains("basic_attack") || reward.foodId != "meat" || engine.State.foods.Count(id => id == "meat") != 1)
+                        throw new System.InvalidOperationException("Wildlife bonus card or food missing in native UI.");
+                    bool cancelled = view == "rewards_wildlife_cancelled";
+                    if (reward.taken.Contains("basic_attack") == cancelled || engine.RewardRemainingBudget != (cancelled ? 3 : 2))
+                        throw new System.InvalidOperationException("Wildlife basic attack selection/cancellation failed in native UI.");
+                    var reloaded = new GameEngine(JsonUtility.FromJson<RunState>(JsonUtility.ToJson(engine.State)));
+                    if (reloaded.State.rewards.foodId != "meat" || reloaded.State.foods.Count(id => id == "meat") != 1 || !reloaded.State.rewards.choices.Contains("basic_attack"))
+                        throw new System.InvalidOperationException("Wildlife pending reward did not survive Unity save serialization.");
+                }
+                if ((view == "encounter_basic" || view == "encounter_basic_detail") && !GameDatabase.Event(LumiaGame.Instance.Engine.State.chosenEventId).options.Any(option => EventPresentation.RewardCard(option)?.id == "basic_attack" && option.description.Contains("기본 공격")))
+                    throw new System.InvalidOperationException("Named basic attack event reward missing in native UI.");
                 if (view == "kiosk" && LumiaGame.Instance.Engine.IsKioskObjectUnlocked("blood"))
                     throw new System.InvalidOperationException("VF blood sample was unlocked before two bosses.");
                 if (view == "kiosk_unlocked" && !LumiaGame.Instance.Engine.IsKioskObjectUnlocked("blood"))

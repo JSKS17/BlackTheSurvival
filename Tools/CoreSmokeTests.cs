@@ -17,13 +17,13 @@ public static class CoreSmokeTests
             if (args.Contains("--balance")) return BalanceSimulation.Run();
             KioskUnlockAndStock(); MapKioskProximity(); PermanentEnergyGrowth(); CriticalBasicAttacks();
             DatabaseIntegrity(); PreparationAndLocks(); RouteProgression(); CombatPilesAndEnergy();
-            EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); WildlifeDropTables(); SubjectDropTables();
-            ShopEconomy(); CampAndEquipment(); FoodAndCooking(); PassiveCapacity(); EventEffects();
+            EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); WildlifeDropTables(); WildlifeSupplyRewards(); SubjectDropTables();
+            ShopEconomy(); CampAndEquipment(); FoodAndCooking(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
             StarterLocksAndCeiling(); FullEnemyLoadouts(); EquipmentIdentityAndAlex();
             SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();
             OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates(); HealingDroneHealthTrigger(); RevisedEconomyAndEncounters();
-            Console.WriteLine("PASS: " + checks + " assertions across 49 game-rule scenarios.");
+            Console.WriteLine("PASS: " + checks + " assertions across 51 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -325,6 +325,73 @@ public static class CoreSmokeTests
         Check(drops.Count == 5 && drops["wolf"].Count == 2 && drops["bear"].Count == 4, "all species and allowed drops sampled");
     }
 
+    private static void WildlifeSupplyRewards()
+    {
+        Check(GameEngine.WildlifeBasicAttackDropChance == 3 && GameEngine.WildlifeMeatDropChance == 50, "wildlife supply rates are a rare basic attack and roughly half meat");
+        RunState bothRewards = null;
+        int totalBasic = 0, totalMeat = 0, both = 0, neither = 0, basicOnly = 0, meatOnly = 0;
+        bool objectAndMeat = false;
+        foreach (string animal in new[] { "chicken", "dog", "boar", "wolf", "bear" })
+        {
+            var template = Ready(4701);
+            template.State.passives.Clear(); template.State.gear.Clear(); template.State.mainRune = template.State.supportRune = null;
+            Enter(template, ZoneKind.Wildlife); template.State.combat.animal = template.State.combat.enemyId = animal;
+            int basicDrops = 0, meatDrops = 0;
+            for (int seed = 1; seed <= 1000; ++seed)
+            {
+                var e = new GameEngine((RunState)Clone(template.State)); e.State.rngState = seed * 7919;
+                int credits = e.State.credits, foods = e.State.foods.Count, deck = e.State.deck.Count, xp = e.State.xp;
+                Win(e); var reward = e.State.rewards;
+                bool basic = reward.choices.Contains("basic_attack"), meat = reward.foodId == "meat";
+                Check(reward.choices.Count == (basic ? 4 : 3) && reward.choices.Distinct().Count() == reward.choices.Count && reward.choices.Count(id => GameDatabase.Card(id).category != "basic") == 3, "wildlife basic is an optional fourth choice preserving all three skill offers: " + animal);
+                Check(reward.choices.Where(id => GameDatabase.Card(id).category == "basic").All(id => id == "basic_attack"), "wildlife never substitutes a guard for its rare basic attack: " + animal);
+                Check(reward.foodId == null || meat, "wildlife food drop is only raw meat: " + animal);
+                Check(e.State.foods.Count == foods + (meat ? 1 : 0) && e.State.foods.Count(id => id == "meat") == (meat ? 1 : 0), "meat is credited immediately exactly once: " + animal);
+                Check(e.State.deck.Count == deck && e.State.credits == credits + reward.credits && e.State.xp == xp + reward.xp, "new wildlife supplies preserve pending card selection and existing credit and experience rewards: " + animal);
+                if (basic) { basicDrops++; totalBasic++; }
+                if (meat) { meatDrops++; totalMeat++; }
+                if (basic && meat) { both++; if (bothRewards == null && reward.choices.Any(id => id != "basic_attack" && e.RewardCardPrice(id) > 0)) bothRewards = (RunState)Clone(e.State); }
+                else if (basic) basicOnly++;
+                else if (meat) meatOnly++;
+                else neither++;
+                objectAndMeat |= meat && reward.objectId != null;
+            }
+            Check(basicDrops >= 15 && basicDrops <= 45 && meatDrops >= 440 && meatDrops <= 560, "fixed seeded supply frequency stays near three and fifty percent for " + animal + ": " + basicDrops + "/" + meatDrops);
+        }
+        Check(totalBasic >= 100 && totalBasic <= 200 && totalMeat >= 2300 && totalMeat <= 2700, "five thousand victories preserve rare basic and half meat drop rates");
+        Check(both > 0 && neither > 0 && basicOnly > 0 && meatOnly > 0 && objectAndMeat, "independent supply rolls allow all combinations alongside existing object drops");
+        Check(bothRewards != null, "deterministic fixture includes a rare attack and meat reward");
+
+        var pending = new GameEngine((RunState)Clone(bothRewards)); var r = pending.State.rewards;
+        int copies = pending.State.deck.Count(id => id == "basic_attack"), foodCount = pending.State.foods.Count, budget = r.cardBudget;
+        Check(pending.ClaimCard("basic_attack") && pending.State.deck.Count(id => id == "basic_attack") == copies && pending.RewardRemainingBudget == budget - 1, "rare basic selection is pending and spends its normal one cost");
+        var loaded = new GameEngine((RunState)Clone(pending.State));
+        Check(loaded.State.rewards.foodId == "meat" && loaded.State.rewards.taken.Contains("basic_attack") && loaded.State.rewards.choices.SequenceEqual(r.choices) && loaded.State.foods.Count == foodCount && loaded.State.rngState == pending.State.rngState, "pending basic and already credited meat survive save and resume without reroll or duplicate food");
+        Check(loaded.ClaimCard("basic_attack") && loaded.RewardRemainingBudget == budget, "rare basic can be cancelled and restores its entire selection cost");
+        loaded.State.rewards.cardBudget = 1;
+        string alternative = loaded.State.rewards.choices.First(id => id != "basic_attack" && loaded.RewardCardPrice(id) > 0);
+        Check(loaded.ClaimCard("basic_attack") && !loaded.ClaimCard(alternative) && loaded.RewardRemainingBudget == 0, "rare basic obeys the shared wildlife card budget");
+        Check(loaded.ClaimCard("basic_attack") && loaded.RewardRemainingBudget == 1 && loaded.ClaimCard("basic_attack"), "budget cancellation permits selecting the rare basic again");
+        int awardCredits = loaded.State.credits, awardXp = loaded.State.xp;
+        Check(loaded.FinishRewards() && !loaded.FinishRewards() && !loaded.ClaimCard("basic_attack") && loaded.State.deck.Count(id => id == "basic_attack") == copies + 1 && loaded.State.foods.Count == foodCount && loaded.State.credits == awardCredits && loaded.State.xp == awardXp, "continue commits one basic exactly once without repeating meat, credits or experience");
+        var afterContinue = new GameEngine((RunState)Clone(loaded.State));
+        Check(!afterContinue.FinishRewards() && afterContinue.State.deck.Count(id => id == "basic_attack") == copies + 1 && afterContinue.State.foods.Count == foodCount, "resuming a completed wildlife reward cannot grant its supplies again");
+
+        var legacy = (RunState)Clone(bothRewards); legacy.rewards.foodId = null; legacy.rewards.choices.Remove("basic_attack"); legacy.foods.Clear();
+        var legacyLoaded = new GameEngine(legacy); int legacyRng = legacyLoaded.State.rngState;
+        Check(legacyLoaded.State.rewards.foodId == null && legacyLoaded.State.foods.Count == 0 && legacyLoaded.State.rewards.choices.Count == 3 && legacyLoaded.FinishRewards() && legacyLoaded.State.rngState == legacyRng && legacyLoaded.State.foods.Count == 0, "older pending rewards with no food field resolve without retroactive meat or a new supply roll");
+
+        foreach (var kind in new[] { ZoneKind.Subject, ZoneKind.Boss })
+        {
+            for (int seed = 1; seed <= 40; ++seed)
+            {
+                var e = Ready(seed); Enter(e, kind); int foods = e.State.foods.Count; Win(e);
+                Check(e.State.rewards.foodId == null && e.State.foods.Count == foods && !e.State.rewards.choices.Contains("basic_attack"), "wildlife supplies do not leak into subject or boss rewards: " + kind);
+            }
+        }
+        Console.WriteLine("Wildlife supply sample: basic attack " + totalBasic + "/5000, meat " + totalMeat + "/5000; all five animals and independent reward combinations covered.");
+    }
+
     private static void SubjectDropTables()
     {
         int nearbyDrops = 0;
@@ -421,6 +488,28 @@ public static class CoreSmokeTests
                 Check(e.State.stage == RunStage.Map || e.State.stage == RunStage.Lost || e.State.stage == RunStage.PassiveChoice, "event terminates in valid state");
                 Check(!e.ChooseEventOption(i), "event option cannot repeat");
             }
+        }
+    }
+
+    private static void BasicAttackEncounters()
+    {
+        var sources = GameDatabase.Events.Where(def => def.options.Any(option => option.cardId == "basic_attack")).ToArray();
+        Check(sources.Length == 6, "six character encounters offer an additional basic attack supply choice");
+        foreach (var def in sources)
+        {
+            var options = def.options.Select((option, index) => new { option, index }).Where(x => x.option.cardId == "basic_attack").ToArray();
+            Check(options.Length == 1 && options[0].option.effect == "card", "encounter offers exactly one free basic attack choice: " + def.id);
+            Check(def.options.Any(option => option.cardId != "basic_attack" && GameDatabase.Card(option.cardId) != null && GameDatabase.Card(option.cardId).owner == def.owner), "basic attack option retains its character's original skill reward: " + def.id);
+            int index = options[0].index; var selected = options[0].option;
+            Check(EventPresentation.RewardSummary(selected).Contains(GameDatabase.Card("basic_attack").name) && EventPresentation.RewardSummary(selected).Contains("1장"), "encounter preview names the exact basic attack card and amount: " + def.id);
+            var e = Ready(971); Enter(e, ZoneKind.Encounter); e.State.encounterOffers = new List<string> { def.id };
+            Check(e.SelectEncounter(def.id), "basic attack encounter is reachable: " + def.id);
+            var loaded = new GameEngine((RunState)Clone(e.State));
+            int copies = loaded.State.deck.Count(id => id == "basic_attack"), credits = loaded.State.credits, hp = loaded.State.hp;
+            Check(loaded.CanChooseEventOption(index) && loaded.ChooseEventOption(index) && loaded.State.deck.Count(id => id == "basic_attack") == copies + 1 && loaded.State.credits == credits && loaded.State.hp == hp && loaded.State.stage == RunStage.Map, "saved encounter grants exactly one basic attack with no unstated charge: " + def.id);
+            Check(!loaded.ChooseEventOption(index) && loaded.State.deck.Count(id => id == "basic_attack") == copies + 1, "basic attack encounter reward cannot be repeated: " + def.id);
+            var resumed = new GameEngine((RunState)Clone(loaded.State));
+            Check(!resumed.ChooseEventOption(index) && resumed.State.deck.Count(id => id == "basic_attack") == copies + 1, "completed encounter save retains exactly one awarded basic attack: " + def.id);
         }
     }
 
@@ -532,14 +621,14 @@ public static class CoreSmokeTests
         e.State.passives = new List<string> { "nia_p", "jackie_p" };
         loaded = new GameEngine((RunState)Clone(e.State));
         Win(e); Win(loaded);
-        Check(e.State.rewards.choices.SequenceEqual(loaded.State.rewards.choices) && e.State.rngState == loaded.State.rngState && e.State.rewards.choices.Count == 3 && e.State.rewards.choices.Distinct().Count() == 3, "wildlife reward preference resumes identically from a combat save with unique cards");
-        // WinBattle spends one RNG draw for credits before drawing the weighted wildlife offer.
+        Check(e.State.rewards.choices.SequenceEqual(loaded.State.rewards.choices) && e.State.rngState == loaded.State.rngState && e.State.rewards.choices.Count(id => id != "basic_attack") == 3 && e.State.rewards.choices.Distinct().Count() == e.State.rewards.choices.Count, "wildlife reward preference resumes identically from a combat save with unique cards and an optional basic attack");
+        // WinBattle spends one RNG draw for credits before drawing the three weighted wildlife skills.
         var predicted = new GameEngine(2); predicted.State.passives = new List<string> { "nia_p" }; predicted.State.rngState = 987654321;
         e = Ready(8821); Enter(e, ZoneKind.Wildlife); e.State.passives = new List<string> { "nia_p" }; e.State.rngState = predicted.State.rngState;
-        typeof(GameEngine).GetMethod("Next", BindingFlags.NonPublic | BindingFlags.Instance, null, new[] { typeof(int) }, null).Invoke(predicted, new object[] { 31 });
+        typeof(GameEngine).GetMethod("Next", BindingFlags.NonPublic | BindingFlags.Instance, null, new[] { typeof(int) }, null).Invoke(predicted, new object[] { 25 });
         var expectedReward = SampleCards(predicted, GameDatabase.Cards.Where(c => c.category == "skill" || c.category == "tactical").Select(c => c.id), 3);
         typeof(GameEngine).GetMethod("WinBattle", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(e, null);
-        Check(e.State.rewards.choices.SequenceEqual(expectedReward), "wildlife rewards call the weighted acquisition sampler");
+        Check(e.State.rewards.choices.Where(id => id != "basic_attack").SequenceEqual(expectedReward), "wildlife rewards preserve the weighted sampler's three skill offers before adding any rare basic attack");
 
         e = Ready(818); Enter(e, ZoneKind.Subject); loaded = new GameEngine((RunState)Clone(e.State));
         e.State.passives = new List<string> { "nia_p" }; loaded.State.passives = new List<string> { "aya_p" };

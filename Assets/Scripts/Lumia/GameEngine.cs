@@ -72,7 +72,7 @@ namespace Lumia
     [Serializable] public class RewardState
     {
         public int xp, credits, cardBudget;
-        public string objectId;
+        public string objectId, foodId;
         public bool boss, cardsCommitted;
         public List<string> choices = new List<string>(), taken = new List<string>();
         public List<RewardPrice> legacyPrices = new List<RewardPrice>();
@@ -109,6 +109,8 @@ namespace Lumia
         public const float PassiveSkillOfferMultiplier = 1.5f;
         public const int StartingMaxEnergy = 5;
         public const int CriticalChanceCap = 30;
+        public const int WildlifeBasicAttackDropChance = 3;
+        public const int WildlifeMeatDropChance = 50;
         public RunState State { get; private set; }
         public readonly List<CombatAction> CombatActions = new List<CombatAction>();
         private int actionSerial;
@@ -1481,6 +1483,10 @@ namespace Lumia
                 r.choices = CardOffer(RandomCardPool(), 3, ref State.rngState);
                 if (c.animal == "wolf" && Roll(25)) r.objectId = RandomObject(2);
                 if (c.animal == "bear" && Roll(35)) r.objectId = RandomObject(4);
+                // Independent bonus rolls preserve all three ordinary skill choices.
+                // The basic attack is optional and uses the same selection budget.
+                if (Roll(WildlifeBasicAttackDropChance)) r.choices.Add("basic_attack");
+                if (Roll(WildlifeMeatDropChance)) r.foodId = "meat";
             }
             else
             {
@@ -1498,8 +1504,9 @@ namespace Lumia
             }
             State.rewards = r; State.stage = RunStage.Rewards; State.credits += r.credits;
             if (!string.IsNullOrEmpty(r.objectId)) State.objects.Add(r.objectId);
+            if (!string.IsNullOrEmpty(r.foodId)) State.foods.Add(r.foodId);
             GainXp(r.xp); Heal(Modifier("kill_heal"));
-            Say("전투 승리 · 경험치 +" + r.xp + " · 크레딧 +" + r.credits + (boss ? " · 최대 코스트 +1 (" + PlayerBaseEnergy + ")" : "") + (r.objectId == null ? "" : " · " + GameDatabase.Object(r.objectId).name));
+            Say("전투 승리 · 경험치 +" + r.xp + " · 크레딧 +" + r.credits + (boss ? " · 최대 코스트 +1 (" + PlayerBaseEnergy + ")" : "") + (r.objectId == null ? "" : " · " + GameDatabase.Object(r.objectId).name) + (r.foodId == null ? "" : " · " + GameDatabase.Food(r.foodId).name + " 1개"));
         }
 
         private string RandomObject(int count) { return GameDatabase.Objects.Take(count).ElementAt(Next(Math.Min(count, GameDatabase.Objects.Count))).id; }

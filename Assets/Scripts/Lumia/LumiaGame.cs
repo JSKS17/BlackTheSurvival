@@ -517,7 +517,8 @@ namespace Lumia
             Header("실험 기록 확보", r.boss ? "보스 승리  /  영구 최대 코스트 +1  ·  현재 " + Engine.PlayerBaseEnergy : "전투 승리  /  보상은 한 번만 지급됩니다.");
             Txt(new Rect(40, 108, 1198, 40), "VICTORY", 33, Mint);
             string obj = string.IsNullOrEmpty(r.objectId) ? "" : "  +  " + GameDatabase.Object(r.objectId).name;
-            Txt(new Rect(40, 165, 1198, 28), "+ " + r.xp + " 경험치    + " + r.credits + " 크레딧" + obj, 20, Gold);
+            string food = string.IsNullOrEmpty(r.foodId) ? "" : "  +  " + GameDatabase.Food(r.foodId).name + " 1개 (가방에 지급)";
+            Txt(new Rect(40, 165, 1198, 28), "+ " + r.xp + " 경험치    + " + r.credits + " 크레딧" + obj + food, 20, Gold);
             Txt(new Rect(40, 222, 1198, 25), "다시 누르면 선택이 취소됩니다. 남은 획득 코스트: " + Engine.RewardRemainingBudget + " / " + r.cardBudget, 16, Text);
             var choices = r.choices.ToArray();
             for (int i = 0; i < choices.Length; i++)
@@ -1391,6 +1392,15 @@ namespace Lumia
                     Engine.BeginEndTurn(); Engine.AdvanceEnemyAction(); ConsumeCombatActions();
                 }
             }
+            else if (view == "rewards_wildlife" || view == "rewards_wildlife_cancelled" || view == "wildlife_food_bag")
+            {
+                Engine.State.stage = RunStage.Rewards;
+                Engine.State.rewards = new RewardState { xp = 68, credits = 65, cardBudget = 3, objectId = "mithril", foodId = "meat", choices = new List<string> { "nia_q", "aya_q", "hyunwoo_q", "basic_attack" } };
+                Engine.State.objects.Add("mithril"); Engine.State.foods.Add("meat");
+                Engine.ClaimCard("basic_attack");
+                if (view == "rewards_wildlife_cancelled") Engine.ClaimCard("basic_attack");
+                if (view == "wildlife_food_bag") { inventory = true; inventoryTab = 2; }
+            }
             else if (view == "rewards" || view == "rewards_cancelled")
             {
                 Engine.State.stage = RunStage.Rewards;
@@ -1431,10 +1441,12 @@ namespace Lumia
                     string owner=GameDatabase.Characters.First(x=>x.id==(view=="encounter_long"?"debi_marlene":view=="encounter_trade"?"blair":view=="encounter_risky"?"craver":"nia")).name;
                     var encounter=GameDatabase.Events.First(x=>x.owner==owner);
                     if (view == "encounter_energy") encounter = GameDatabase.Events.First(x => x.options.Any(option => option.effect == "max_energy"));
+                    if (view == "encounter_basic" || view == "encounter_basic_detail") encounter = GameDatabase.Events.First(x => x.options.Any(option => option.cardId == "basic_attack"));
                     Engine.State.encounterOffers.Add(encounter.id);Engine.SelectEncounter(encounter.id);
                     if(view=="encounter_trade") Engine.State.credits=0;
                     if(view=="encounter_risky") Engine.State.hp=8;
                     if(view=="encounter_detail") {inspectCard=EventPresentation.RewardCard(encounter.options.First(x=>EventPresentation.RewardCard(x)!=null)).id;detailScroll=Vector2.zero;}
+                    if(view=="encounter_basic_detail") { inspectCard="basic_attack"; detailScroll=Vector2.zero; }
                 }
             }
             else if (view == "catalog") catalog = true;
