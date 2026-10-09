@@ -41,6 +41,7 @@ namespace Lumia
                 case "credits": return "크레딧 " + option.amount + "을 획득합니다.";
                 case "damage": return "체력을 " + option.amount + " 소모합니다.";
                 case "max_health": return "최대 체력이 " + option.amount + " 증가합니다.";
+                case "max_energy": return "이번 탈출 동안 턴마다 사용할 최대 코스트가 " + option.amount + " 증가합니다.";
                 case "object": return material + " 1개를 획득합니다.";
                 case "trade_object": return "크레딧 " + option.amount + "을 지불하고 " + material + " 1개를 획득합니다.";
                 case "risky_object": return "체력 " + option.amount + "을 소모하고 " + material + " 1개를 획득합니다.";

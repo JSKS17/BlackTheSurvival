@@ -31,6 +31,10 @@ namespace Lumia
             Add(gear,"deathadder_mt","데스애더퀸-MT","mithril","VF의수");
             Add(gear,"angel_halo","천사의 고리","force",slot:GearSlot.Head);
             Add(gear,"radar","레이더","force",slot:GearSlot.Arm);
+            Add(gear,"meteor_sword","유성검","meteorite","레이피어");
+            Add(gear,"light_insignia","빛의 증표","meteorite",slot:GearSlot.Head);
+            Add(gear,"ghillie_suit","길리 슈트","tree",slot:GearSlot.Clothes);
+            Add(gear,"alexandros","알렉산드로스","tree",slot:GearSlot.Legs);
         }
         static TraitRule R(string trigger,string op,int amount=0,string key=null,string label=null,int every=1,int cooldown=0,int turn=0,int duration=1)
             => new TraitRule{trigger=trigger,op=op,amount=amount,key=key,label=label,every=every,cooldown=cooldown,maxPerTurn=turn,duration=duration};
@@ -61,7 +65,7 @@ namespace Lumia
         }
         public static void Configure(List<GearDef> gear)
         {
-            foreach(var item in gear){item.effect=null;item.amount=0;}
+            foreach(var item in gear){item.effect=null;item.amount=0;item.critChance=0;}
             Set(gear,"laevateinn",attack:3,summary:"기본 공격에 발화를 실어 두 턴 동안 타오르는 피해를 줍니다.",rules:new[]{Hit(R("after_basic","burn",2,"ignite","타오르는 고통",turn:2,duration:2))});
             Set(gear,"dainsleif",attack:5,summary:"충전된 기본 공격이 추가 피해를 주고 적을 둔화시킵니다.",rules:Charged(5));
             Set(gear,"altair",attack:2,summary:"이동 기술로 가벼운 발걸음을 쌓아 다음 기본 공격을 강화합니다.",rules:Footwork());
@@ -111,6 +115,12 @@ namespace Lumia
             Set(gear,"deathadder_mt",attack:3,summary:"스킬 사용으로 의념을 충전하며 R 적중 시 독사의 맹독으로 방어력을 감소시킵니다.",rules:new[]{R("after_skill","empower_basic",3,"ideation","의념",turn:1),Hit(R("after_ultimate","status",key:"armor_break",cooldown:1))});
             Set(gear,"angel_halo",attack:2,block:1,summary:"스킬 사용으로 의념을 충전해 다음 기본 공격을 강화합니다.",rules:new[]{R("after_skill","empower_basic",4,"ideation","의념",turn:1)});
             Set(gear,"radar",attack:1,summary:"세 번째 기본 공격마다 포톤 런처가 추가 피해를 주고 체력을 회복합니다.",rules:new[]{R("before_basic","bonus_damage",4,every:3),Hit(R("after_basic","heal",2,every:3))});
+            Set(gear,"meteor_sword",attack:2,summary:"충전된 기본 공격에 섬광 피해가 실리고 적을 둔화시킵니다.",rules:Charged(3));
+            Set(gear,"light_insignia",attack:1,summary:"빛의 증표로 공격에 치유 감소를 부여합니다.",rules:new[]{HealReduction()});
+            Set(gear,"ghillie_suit",block:1,health:4,summary:"기본 공격 적중으로 예열을 높이고 예열 3에서 다음 기본 공격을 강화합니다.",rules:new[]{Hit(Resource("after_basic","gain","preheat","예열",1)),Need(R("before_basic","bonus_damage",2,turn:2),"preheat",3)});
+            Set(gear,"alexandros",attack:1,evasion:4,summary:"가벼운 신발로 공격력과 회피율을 높입니다.");
+            foreach(string id in new[]{"cerberus","cube_watch","meteor_sword","ghillie_suit","alexandros"})gear.Find(x=>x.id==id).critChance=5;
+            foreach(string id in new[]{"radar","light_insignia"})gear.Find(x=>x.id==id).critChance=6;
             foreach(var item in gear)
             {
                 var sentences=new List<string>();
@@ -123,7 +133,26 @@ namespace Lumia
                 if(item.slot==GearSlot.Weapon)sentences.Add("장착하면 "+GameDatabase.Card(item.cardId).name+" D 카드 1장이 덱에 자동으로 추가됩니다.");
                 sentences.Add("같은 장비의 특수 효과는 중첩되지 않습니다.");
                 item.description=string.Join("\n",sentences);
+                item.optionTags=OptionTags(item);
             }
+        }
+
+        // The same explicit, readable tags drive campfire filtering and gear details.
+        public static string[] OptionTags(GearDef item)
+        {
+            var tags=new List<string>();
+            var rules=item.mechanics?.rules ?? new TraitRule[0];
+            if(item.attack>0 || rules.Any(r=>new[]{"bonus_damage","delayed_damage","burn","damage"}.Contains(r.op)))tags.Add("공격");
+            if(item.block>0 || item.controlResistance>0 || item.damageDeferral>0 || rules.Any(r=>r.op=="block" || r.op=="bonus_block"))tags.Add("방어");
+            if(item.health>0)tags.Add("체력");
+            if(rules.Any(r=>r.op=="heal" || r.op=="bonus_heal" || r.op=="revive"))tags.Add("회복");
+            if(item.evasion>0 || rules.Any(r=>r.op=="evasion_buff"))tags.Add("회피");
+            if(item.critChance>0 || rules.Any(r=>r.trigger=="before_basic" || r.trigger=="after_basic" || r.op=="empower_basic"))tags.Add("일반 공격");
+            if(item.critChance>0)tags.Add("치명타");
+            if(rules.Any(r=>r.trigger=="before_skill" || r.trigger=="after_skill" || r.trigger=="skill_hit" || r.trigger=="after_ultimate" || r.conditionCategory=="weapon" || r.conditionCategory=="skill"))tags.Add("스킬");
+            if(rules.Any(r=>r.op=="status" || r.op=="burn"))tags.Add("상태이상");
+            if(rules.Any(r=>r.op=="discount" || r.op=="discount_last" || r.op=="energy" || r.op=="energy_buff"))tags.Add("코스트");
+            return tags.ToArray();
         }
     }
 }

@@ -1,0 +1,22 @@
+{
+  "id": "death_book",
+  "name": "생사부",
+  "kind": "gear",
+  "originalId": 113412,
+  "weaponClass": "암기",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_113412.png",
+  "referencePath": "docs/art-system/references/loadout/death_book.png",
+  "originalTooltip": "전설 / 암기\n\n공격력 +41\n스킬 증폭 +88\n\n<b><color=yellow>저주</color></b>\n스킬 공격을 가하면 적을 4초간 저주 상태로 만듭니다. 저주 상태인 적은 저주 상태에서 해제될 때 50 <color=#DDA0DD>(+스킬 증폭의 15%)</color> 에 해당하는 고정 피해를 입습니다. 한번 저주 상태가 되면 8초간 (기본 공격 피격 시 1초 감소) 다시 저주 상태가 되지 않습니다. (쿨다운: 2초)\n\n어디 보자, 네 수명은.. 10..9..8..",
+  "output": "Assets/Resources/Lumia/SystemIcons/death_book.png",
+  "referenceRole": "original Eternal Return equipment silhouette and color",
+  "prompt": "Use case: style-transfer. Asset type: transparent pixel-art equipment icon for Black The Survival. Input image 1 is the original Eternal Return Death Book (생사부) identity reference. Image 2 is only a UI pixel style reference. Create exactly one GREEN PAPER TALISMAN, a thin long rectangular green banknote/scroll card tilted diagonally upward to the right. Deep jade green printed frame, pale mint paper center with an abstract sharp white talisman brush silhouette and a couple of geometric strokes, curled small silver upper-left edge. Preserve original green flat paper silhouette and pale center; do not make a blue orb, ring, flower, thick book or crown. Style: authentic low-resolution 32x32 logical-pixel sprite shown enlarged, clear chunky square pixel clusters, navy outline, green/mint highlights, tiny amber accent if needed. Isolated centered object with generous clear transparent margin. No readable text, watermark, frame, scene, smooth rendering, or anti-aliasing. Actually transparent background.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-d8500e89-a6b8-4288-b660-8dcabc8c5e82.png",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "generatedSource": "docs/art-system/map-critical-generated/death_book.png",
+  "referenceInputs": [
+    "docs/art-system/references/loadout/death_book.png",
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "empress",
+  "name": "여제",
+  "kind": "gear",
+  "originalId": 130501,
+  "weaponClass": "아르카나",
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_130501.png",
+  "referencePath": "docs/art-system/references/loadout/empress.png",
+  "originalTooltip": "전설 / 아르카나\n\n공격력 +40\n스킬 증폭 +93\n쿨다운 감소 +15\n\n<b><color=yellow>한파</color></b>\n스킬로 적에게 피해를 입히면 1초간 이동 속도를 <color=white>25%</color>, 공격 속도를 <color=white>30%</color>만큼 감소시킵니다. (쿨다운 2초)\n\n모든 것을 품고, 아낌없이 채워준다. 순수한 사랑은 그런 것이다.",
+  "output": "Assets/Resources/Lumia/SystemIcons/empress.png",
+  "referenceRole": "original Eternal Return equipment silhouette and color",
+  "prompt": "Use case: style-transfer. Asset type: transparent pixel-art equipment icon for Black The Survival. Input image 1 is the ORIGINAL Eternal Return Empress (여제) icon: use it as identity and silhouette reference. Image 2 is only existing UI style reference, not the desired subject. Create exactly ONE recognizable blue arcana Empress icon matching image 1: a dark circular ring surrounding a pale luminous blue lotus flower, silver curved frame sweeping around it with a small crystal near upper-left. The main mass is a CIRCULAR BLUE ARCANA, not a paper card, book, banknote, or wand. Authentic tiny 32x32 logical-pixel sprite shown enlarged with crisp square pixels, limited navy/silver/blue/ice-white palette, hard stepped outline, chunky coherent pixel clusters, sparse magenta glint at most. Isolated centered object taking about 85 percent of square canvas with even transparent margin. Preserve key circular ring and lotus petals. No border, no text, no scene, no anti-aliasing or smooth painterly shading. Actually transparent background.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-ab87f433-09b4-41a3-99cd-efbc27373e68.png",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "generatedSource": "docs/art-system/map-critical-generated/empress.png",
+  "referenceInputs": [
+    "docs/art-system/references/loadout/empress.png",
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ]
+}

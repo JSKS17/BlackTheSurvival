@@ -15,6 +15,7 @@ public static class CoreSmokeTests
         try
         {
             if (args.Contains("--balance")) return BalanceSimulation.Run();
+            KioskUnlockAndStock(); MapKioskProximity(); PermanentEnergyGrowth(); CriticalBasicAttacks();
             DatabaseIntegrity(); PreparationAndLocks(); RouteProgression(); CombatPilesAndEnergy();
             EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); WildlifeDropTables(); SubjectDropTables();
             ShopEconomy(); CampAndEquipment(); FoodAndCooking(); PassiveCapacity(); EventEffects();
@@ -22,7 +23,7 @@ public static class CoreSmokeTests
             SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();
             OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates(); HealingDroneHealthTrigger(); RevisedEconomyAndEncounters();
-            Console.WriteLine("PASS: " + checks + " assertions across 45 game-rule scenarios.");
+            Console.WriteLine("PASS: " + checks + " assertions across 49 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -169,7 +170,7 @@ public static class CoreSmokeTests
 
     private static void EquipmentIdentityAndAlex()
     {
-        Check(GameDatabase.Gear.Count==47 && GameDatabase.Gear.Where(x=>x.slot==GearSlot.Weapon).Select(x=>x.weaponClass).Distinct().Count()==23,"47 original legendary or mythic items cover every weapon class");
+        Check(GameDatabase.Gear.Count==51 && GameDatabase.Gear.Where(x=>x.slot==GearSlot.Weapon).Select(x=>x.weaponClass).Distinct().Count()==23,"51 original legendary or mythic items cover every weapon class");
         foreach(var item in GameDatabase.Gear)
             Check(item.mechanics!=null && item.effect==null && item.description.Split('\n').All(x=>x.Trim().EndsWith(".")),"equipment has one authored mechanic profile and sentence-based description: "+item.id);
         var e=Ready(40);e.State.passives.Clear();e.State.passives.Add("alex_p");Enter(e,ZoneKind.Campfire);e.ChooseCamp(true);
@@ -329,9 +330,11 @@ public static class CoreSmokeTests
         int nearbyDrops = 0;
         for (int seed = 1; seed <= 70; ++seed)
         {
-            var e = Ready(seed); var node = e.AvailableNodes().First(n => n.lane == 1); node.nearKiosk = false;
+            var e = Ready(seed); var node = e.AvailableNodes().First(n => n.lane == 1);
+            foreach(var service in e.State.map.Where(n=>n.act==node.act && Math.Abs(n.row-node.row)==1)) if(service.kind==ZoneKind.Kiosk)service.kind=ZoneKind.Encounter;
             Enter(e, ZoneKind.Subject); Win(e); Check(e.State.rewards.objectId == null, "distant subject drops no object");
-            e = Ready(seed); node = e.AvailableNodes().First(n => n.lane == 1); node.nearKiosk = true;
+            e = Ready(seed); node = e.AvailableNodes().First(n => n.lane == 1);
+            e.State.map.First(n=>n.act==node.act && n.row==node.row+1 && n.lane==node.lane).kind=ZoneKind.Kiosk;
             Enter(e, ZoneKind.Subject); Win(e);
             if (e.State.rewards.objectId != null) { nearbyDrops++; Check(e.State.rewards.objectId != "blood", "near kiosk excludes blood sample"); }
         }
@@ -344,7 +347,7 @@ public static class CoreSmokeTests
         Check(GameDatabase.Objects.Select(x => x.price).SequenceEqual(expected), "requested exact object prices");
         var e = Ready(); Enter(e, ZoneKind.Kiosk); e.State.credits = 499;
         Check(!e.BuyObject("blood") && e.State.credits == 499, "insufficient purchase is atomic");
-        e.State.credits = 500; Check(e.BuyObject("blood") && e.State.credits == 0 && e.State.objects.Contains("blood"), "blood purchase consumes 500 credits");
+        e.State.bossVictories = 2; e.State.credits = 500; Check(e.BuyObject("blood") && e.State.credits == 0 && e.State.objects.Contains("blood"), "unlocked blood purchase consumes 500 credits");
         Check(!e.BuyFood(GameDatabase.Foods[0].id), "food cannot overspend credits");
     }
 
@@ -689,16 +692,28 @@ public static class CoreSmokeTests
                 if(SkillMechanics.IsState(card,status.conditionKey))
                 {
                     ++namedStatusConditions;
-                    Check(statusDescription.Contains(SkillMechanics.StateCondition(card,status.conditionKey,status.conditionAmount,status.conditionExact)), "full control description uses named active/inactive state: "+card.id+"/"+status.conditionKey);
+                    string expected=StatusConditionPrefix(card,status);
+                    Check(statusDescription.Contains(expected), "full control description uses named active/inactive state: "+card.id+"/"+status.conditionKey+"; actual="+statusDescription+"; expected="+expected);
                     Check(!statusDescription.Contains(SkillMechanics.StateName(card,status.conditionKey)+"가 "+status.conditionAmount) && !statusDescription.Contains(SkillMechanics.StateName(card,status.conditionKey)+"이 "+status.conditionAmount), "full control description omits numerical state condition: "+card.id+"/"+status.conditionKey);
                 }
-                if(SkillMechanics.IsState(card,status.conditionKey2))Check(statusDescription.Contains(SkillMechanics.StateCondition(card,status.conditionKey2,status.conditionAmount2,status.conditionExact2)), "secondary control condition uses named state: "+card.id);
+                if(SkillMechanics.IsState(card,status.conditionKey2))Check(statusDescription.Contains(StatusConditionPrefix(card,status)), "secondary control condition uses named state: "+card.id);
             }
         }
         Check(namedStatusConditions==8, "all eight authored control rules that depend on binary states are covered");
         string rioStatus=string.Join(" ",StatusMechanics.Describe(GameDatabase.Card("rio_r")));
-        Check(rioStatus.Contains("장궁 자세 상태이면") && rioStatus.Contains("장궁 자세 상태가 아니면"), "Rio control descriptions distinguish longbow active and inactive without 0/1 values");
-        Check(string.Join(" ",StatusMechanics.Describe(GameDatabase.Card("nia_w"))).Contains("아케이드 블록이 1 이상이면"), "numerical resource control conditions retain their actual threshold");
+        Check(rioStatus.Contains("장궁 자세 상태이고 공격이 적중하면") && rioStatus.Contains("장궁 자세 상태가 아니고 공격이 적중하면"), "Rio control descriptions distinguish longbow active and inactive without 0/1 values");
+        Check(string.Join(" ",StatusMechanics.Describe(GameDatabase.Card("nia_w"))).Contains("아케이드 블록이 1 이상이고 공격이 적중하면"), "numerical resource control conditions retain their actual threshold");
+    }
+    private static string StatusConditionPrefix(CardDef card,CardStatusRule status)
+    {
+        var parts=new List<string>();
+        if(!string.IsNullOrEmpty(status.conditionKey))parts.Add(SkillMechanics.StateCondition(card,status.conditionKey,status.conditionAmount,status.conditionExact));
+        if(!string.IsNullOrEmpty(status.conditionPrevious))parts.Add("직전 기술이 "+GameDatabase.Card(status.conditionPrevious).name+"이면");
+        if(!string.IsNullOrEmpty(status.conditionKey2))parts.Add(SkillMechanics.StateCondition(card,status.conditionKey2,status.conditionAmount2,status.conditionExact2));
+        if(status.timing=="next_basic")parts.Add("다음 기본 공격이 적중하면");
+        else if(status.timing!="cast")parts.Add("해당 설치물·추가 효과가 적중하면");
+        else if(status.onHit)parts.Add("공격이 적중하면");
+        return DescriptionSummary.Normalize(string.Join(", ",parts));
     }
     private static void SkillTimedEffects()
     {
@@ -1174,6 +1189,121 @@ public static class CoreSmokeTests
         }
     }
 
+    private static void KioskUnlockAndStock()
+    {
+        var e=Ready();Enter(e,ZoneKind.Kiosk);e.State.credits=3000;
+        for(int bosses=0;bosses<2;++bosses)
+        {
+            e.State.bossVictories=bosses;int credits=e.State.credits,objects=e.State.objects.Count;
+            Check(!e.IsKioskObjectUnlocked("blood") && !e.CanBuyObject("blood") && !e.BuyObject("blood"),"blood sample stays locked before second boss despite sufficient credits");
+            Check(e.State.credits==credits && e.State.objects.Count==objects,"locked sample purchase is atomic");
+            Check(GameDatabase.Objects.Where(x=>x.id!="blood").All(x=>e.IsKioskObjectUnlocked(x.id)),"ordinary objects remain available before second boss");
+        }
+        e.State.bossVictories=2;int before=e.State.credits;
+        Check(e.IsKioskObjectUnlocked("blood") && e.CanBuyObject("blood") && e.BuyObject("blood") && e.State.credits==before-500,"second boss unlocks sample at exact listed price");
+        e.State.foods.Add("soup");var loaded=new GameEngine((RunState)Clone(e.State));
+        Check(loaded.CanBuyObject("blood") && loaded.State.foods.Contains("soup"),"unlock survives load without deleting previously owned food");
+        var stocked=e.KioskFoods.Select(x=>x.id).ToArray();
+        Check(stocked.Length==6 && stocked.Contains("watermelon") && stocked.All(x=>x!="soup"),"kiosk stocks five cooking ingredients and raw watermelon");
+        foreach(var food in GameDatabase.Foods)
+        {
+            int credits=e.State.credits,count=e.State.foods.Count;
+            if(stocked.Contains(food.id))Check(e.CanBuyFood(food.id) && e.BuyFood(food.id) && e.State.credits==credits-e.FoodPrice(food.id) && e.State.foods.Count==count+1,"stocked raw food purchases at exact price: "+food.id);
+            else Check(!e.IsKioskFood(food.id) && !e.CanBuyFood(food.id) && !e.BuyFood(food.id) && e.State.credits==credits && e.State.foods.Count==count,"finished meals and soup cannot be bought by bypassing UI: "+food.id);
+        }
+        e.LeaveKiosk();Check(!e.CanBuyObject("blood") && !e.CanBuyFood("potato"),"purchase availability requires an actual kiosk visit");
+    }
+
+    private static void MapKioskProximity()
+    {
+        var e=Ready();e.State.map=new List<MapNode>{
+            new MapNode{id=0,act=1,row=2,lane=1,kind=ZoneKind.Kiosk},
+            new MapNode{id=1,act=1,row=2,lane=0,kind=ZoneKind.Subject,nearKiosk=true},
+            new MapNode{id=2,act=1,row=1,lane=0,kind=ZoneKind.Subject},
+            new MapNode{id=3,act=1,row=3,lane=2,kind=ZoneKind.Wildlife},
+            new MapNode{id=4,act=1,row=4,lane=1,kind=ZoneKind.Subject,nearKiosk=true},
+            new MapNode{id=5,act=2,row=1,lane=1,kind=ZoneKind.Subject,nearKiosk=true},
+            new MapNode{id=6,act=1,row=1,lane=1,kind=ZoneKind.Encounter,nearKiosk=true},
+            new MapNode{id=7,act=1,row=3,lane=3,kind=ZoneKind.Subject,nearKiosk=true}};
+        e.RefreshMapProximity();
+        Check(e.State.map.Where(x=>x.nearKiosk).Select(x=>x.id).SequenceEqual(new[]{2,3}),"only directly linked previous/next-row combat nodes are near kiosk; parallel, distant, wrong-act and wrong-lane nodes are excluded");
+        foreach(var node in e.State.map)node.nearKiosk=true;
+        var loaded=new GameEngine((RunState)Clone(e.State));
+        Check(loaded.State.map.Where(x=>x.nearKiosk).Select(x=>x.id).SequenceEqual(new[]{2,3}),"load repairs stale serialized map proximity without altering route");
+        for(int seed=1;seed<=20;++seed)
+        {
+            var generated=Ready(seed);
+            foreach(var node in generated.State.map)
+                Check(node.nearKiosk==((node.kind==ZoneKind.Subject || node.kind==ZoneKind.Wildlife) && generated.State.map.Any(k=>k.kind==ZoneKind.Kiosk && k.act==node.act && Math.Abs(k.row-node.row)==1 && Math.Abs(k.lane-node.lane)<=1)),"generated proximity uses same connections drawn on map");
+        }
+    }
+
+    private static void PermanentEnergyGrowth()
+    {
+        var e=Ready();for(int level=1;level<=20;++level){e.State.level=level;Check(e.PlayerBaseEnergy==5 && e.MaxEnergy==5,"player level never grants maximum energy: "+level);}
+        e.State.level=1;e.State.passives.Clear();
+        for(int boss=1;boss<=3;++boss)
+        {
+            Enter(e,ZoneKind.Boss);Win(e);
+            Check(e.DefeatedBossCount==boss && e.PlayerBaseEnergy==5+boss && e.MaxEnergy==5+boss,"each actual boss victory grants exactly one permanent cost");
+            var loaded=new GameEngine((RunState)Clone(e.State));Check(loaded.DefeatedBossCount==boss && loaded.PlayerBaseEnergy==5+boss,"pending boss reward load preserves earned cost without repeating grant");
+            e.FinishRewards();if(e.State.stage==RunStage.PassiveChoice)e.ReplacePassive(-1);
+            Check(e.PlayerBaseEnergy==5+boss,"finishing rewards and passive choice cannot grant boss energy twice");
+        }
+        foreach(var ev in GameDatabase.Events.Where(x=>x.options.Any(o=>o.effect=="max_energy" || o.effect=="energy")))
+        {
+            e=Ready();e.State.level=20;Enter(e,ZoneKind.Encounter);e.State.encounterOffers=new List<string>{ev.id};e.SelectEncounter(ev.id);
+            int index=Array.FindIndex(ev.options,o=>o.effect=="max_energy" || o.effect=="energy"),amount=ev.options[index].amount;
+            Check(e.ChooseEventOption(index) && e.PlayerBaseEnergy==5+amount,"authored encounter grants its stated permanent cost: "+ev.id);
+            Check(!e.ChooseEventOption(index) && e.PlayerBaseEnergy==5+amount,"energy encounter choice cannot be repeated");
+            Check(new GameEngine((RunState)Clone(e.State)).PlayerBaseEnergy==5+amount,"event cost survives saving without level energy returning");
+        }
+        foreach(int version in new[]{1,2})
+        {
+            e=MechanicsFixture();var old=(RunState)Clone(e.State);old.version=version;old.energyGrowthVersion=0;old.maxEnergyBonus=0;old.bossVictories=0;old.level=20;old.act=3;old.defeatedBosses=new List<string>{"jackie","aya"};old.combat.energy=8;
+            int rng=old.rngState;var loaded=new GameEngine(old);
+            Check(loaded.PlayerBaseEnergy==7 && loaded.DefeatedBossCount==2 && loaded.State.combat.energy==8 && loaded.State.rngState==rng,"legacy combat migrates earned boss energy while preserving current action budget and RNG v"+version);
+            var reloaded=new GameEngine((RunState)Clone(loaded.State));Check(reloaded.PlayerBaseEnergy==7 && reloaded.DefeatedBossCount==2,"legacy boss migration is idempotent v"+version);
+            loaded.EndTurn();Check(loaded.State.combat.energy==7,"new turns use permanent boss and event energy after legacy migration v"+version);
+        }
+    }
+
+    private static void CriticalBasicAttacks()
+    {
+        var e=MechanicsFixture();var c=e.State.combat;
+        Check(e.CritChance==0 && e.EnemyCritChance==0,"unequipped actors have no innate critical chance");
+        e.State.gear.Add("alexandros");Check(e.CritChance==5,"original critical equipment contributes a small stated chance");
+        e.State.gear.AddRange(Enumerable.Repeat("light_insignia",10));Check(e.CritChance==GameEngine.CriticalChanceCap,"combined critical chance has a thirty percent ceiling");
+        e.State.gear=new List<string>{"alexandros"};c.hand.Add("basic_attack");e.State.rngState=30;
+        int normal=e.CardTotalDamage("basic_attack"),rng=e.State.rngState;
+        for(int i=0;i<5;++i){e.CardTotalDamage("basic_attack");var intent=e.EnemyIntent;var assumptions=e.EnemyMechanicAssumptions;}
+        Check(e.State.rngState==rng,"critical damage and intent previews never consume live RNG");
+        Check(e.PlayCard(0) && e.CombatActions.Last(x=>x.cardId=="basic_attack" && x.kind==null).critical && 999-c.enemyHp==GameEngine.CriticalBaseDamage(normal),"successful critical basic applies exactly 1.5x with integer damage rounding");
+        e=MechanicsFixture("isaac_p");c=e.State.combat;e.State.gear.Add("alexandros");c.enemyBlock=4;c.hand.Add("basic_attack");e.State.rngState=30;
+        int baseDamage=e.CardDamage("basic_attack"),bonus=e.CardTotalDamage("basic_attack")-baseDamage,before=c.enemyHp;
+        Check(bonus==2 && e.PlayCard(0) && before-c.enemyHp==GameEngine.CriticalBaseDamage(baseDamage)+bonus-4,"critical multiplies card hit before block while Isaac's passive damage remains unmultiplied");
+        Check(e.CombatActions.Last(x=>x.cardId=="basic_attack" && x.kind==null).criticalHits==1,"critical action exposes one actual landed hit for effects");
+        foreach(string id in new[]{"nia_q","weapon_dagger","tactical_plasma"})
+        {
+            e=MechanicsFixture();c=e.State.combat;e.State.gear.Add("alexandros");c.hand.Add(id);e.State.rngState=30;normal=e.CardTotalDamage(id);before=c.enemyHp;
+            Check(e.PlayCard(0) && !e.CombatActions.First(x=>x.cardId==id && x.kind==null).critical && before-c.enemyHp==normal,"skill, D and F attacks cannot critically strike: "+id);
+        }
+        e=MechanicsFixture();c=e.State.combat;e.State.gear.Add("alexandros");c.enemyEvasion=100;c.hand.Add("basic_attack");e.State.rngState=30;
+        var noCritical=new GameEngine((RunState)Clone(e.State));noCritical.State.gear.Clear();
+        Check(e.PlayCard(0) && noCritical.PlayCard(0) && c.enemyHp==999 && !e.CombatActions.Last(x=>x.cardId=="basic_attack" && x.kind==null).critical,"evaded attacks have no critical hit");
+        Check(e.State.rngState==noCritical.State.rngState,"misses do not make an additional critical roll");
+        e=MechanicsFixture();c=e.State.combat;e.State.gear.Add("alexandros");c.hand.Add("basic_attack");e.State.rngState=1;normal=e.CardTotalDamage("basic_attack");
+        Check(e.PlayCard(0) && 999-c.enemyHp==normal && !e.CombatActions.Last(x=>x.cardId=="basic_attack" && x.kind==null).critical,"ordinary hit remains unchanged when critical chance fails");
+        e=MechanicsFixture();c=e.State.combat;c.enemyGear.Add("alexandros");c.enemyPlan=new List<string>{"basic_attack"};c.enemyPlanCosts=new List<int>{1};c.enemyPlanFreeCast=new List<bool>{false};
+        string forecast=e.EnemyIntent;int expected=c.intentDamage;Check(e.EnemyCritChance==5 && e.EnemyMechanicAssumptions.Contains("5%"),"enemy normal-hit intent discloses its critical chance");
+        e.BeginEndTurn();e.State.rngState=30;before=e.State.hp;var saved=new GameEngine((RunState)Clone(e.State));
+        Check(e.AdvanceEnemyAction() && saved.AdvanceEnemyAction() && before-e.State.hp==GameEngine.CriticalBaseDamage(expected) && e.CombatActions.Last(x=>x.enemy && x.cardId=="basic_attack" && x.kind==null).critical,"subject basic attack uses same critical multiplier as player");
+        Check(saved.State.hp==e.State.hp && saved.State.rngState==e.State.rngState && saved.CombatActions.Last(x=>x.cardId=="basic_attack" && x.kind==null).critical,"paced enemy critical outcome is deterministic across save/load");
+        e=MechanicsFixture();c=e.State.combat;c.animal="wolf";c.enemyGear.Add("alexandros");c.enemyPlan=new List<string>{"basic_attack"};c.enemyPlanCosts=new List<int>{1};c.enemyPlanFreeCast=new List<bool>{false};
+        Check(e.EnemyCritChance==0,"wildlife patterns never receive equipment critical chance");e.BeginEndTurn();e.State.rngState=30;e.AdvanceEnemyAction();
+        Check(!e.CombatActions.Last(x=>x.enemy && x.cardId=="basic_attack" && x.kind==null).critical,"wildlife attack remains a noncritical natural pattern");
+    }
+
     private static object Clone(object source)
     {
         if (source == null) return null; var type = source.GetType();
@@ -1192,8 +1322,8 @@ public static class CoreSmokeTests
     {
         var e = Ready(); e.State.level = 19; e.State.xp = 9999;
         Enter(e, ZoneKind.Subject); Win(e);
-        Check(e.State.level == 20 && e.State.xp == 0 && e.MaxEnergy == 8, "player caps at level twenty and eight cost");
-        Check(GameEngine.EnergyForLevel(1) == 5 && GameEngine.EnergyForLevel(6) == 6 && GameEngine.EnergyForLevel(12) == 7 && GameEngine.EnergyForLevel(18) == 8, "level energy thresholds");
+        Check(e.State.level == 20 && e.State.xp == 0 && e.MaxEnergy == 5, "player level caps at twenty without increasing maximum energy");
+        Check(GameEngine.EnergyForLevel(1) == 5 && GameEngine.EnergyForLevel(6) == 6 && GameEngine.EnergyForLevel(12) == 7 && GameEngine.EnergyForLevel(18) == 8, "enemy level energy thresholds remain intact");
     }
 
     private static void LevelTwentyOnCombatRoute()

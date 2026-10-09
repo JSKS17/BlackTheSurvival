@@ -1,0 +1,106 @@
+[
+  {
+    "id": "empress",
+    "name": "여제",
+    "kind": "gear",
+    "originalId": 130501,
+    "weaponClass": "아르카나",
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_130501.png",
+    "referencePath": "docs/art-system/references/loadout/empress.png",
+    "originalTooltip": "전설 / 아르카나\n\n공격력 +40\n스킬 증폭 +93\n쿨다운 감소 +15\n\n<b><color=yellow>한파</color></b>\n스킬로 적에게 피해를 입히면 1초간 이동 속도를 <color=white>25%</color>, 공격 속도를 <color=white>30%</color>만큼 감소시킵니다. (쿨다운 2초)\n\n모든 것을 품고, 아낌없이 채워준다. 순수한 사랑은 그런 것이다.",
+    "output": "Assets/Resources/Lumia/SystemIcons/empress.png",
+    "referenceRole": "original Eternal Return equipment silhouette and color"
+  },
+  {
+    "id": "death_book",
+    "name": "생사부",
+    "kind": "gear",
+    "originalId": 113412,
+    "weaponClass": "암기",
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_113412.png",
+    "referencePath": "docs/art-system/references/loadout/death_book.png",
+    "originalTooltip": "전설 / 암기\n\n공격력 +41\n스킬 증폭 +88\n\n<b><color=yellow>저주</color></b>\n스킬 공격을 가하면 적을 4초간 저주 상태로 만듭니다. 저주 상태인 적은 저주 상태에서 해제될 때 50 <color=#DDA0DD>(+스킬 증폭의 15%)</color> 에 해당하는 고정 피해를 입습니다. 한번 저주 상태가 되면 8초간 (기본 공격 피격 시 1초 감소) 다시 저주 상태가 되지 않습니다. (쿨다운: 2초)\n\n어디 보자, 네 수명은.. 10..9..8..",
+    "output": "Assets/Resources/Lumia/SystemIcons/death_book.png",
+    "referenceRole": "original Eternal Return equipment silhouette and color"
+  },
+  {
+    "id": "kiosk",
+    "name": "키오스크",
+    "kind": "map",
+    "referencePath": "docs/art-system/references/map-critical/kiosk-minimap-original.png",
+    "referenceUrl": "https://support.playeternalreturn.com/hc/article_attachments/43409459849369",
+    "referenceRole": "original Eternal Return minimap kiosk C-arrow marker",
+    "output": "Assets/Resources/Lumia/SystemIcons/kiosk.png"
+  },
+  {
+    "id": "encounter",
+    "name": "실험체 조우",
+    "kind": "map",
+    "referencePath": "Assets/Resources/Lumia/SystemIcons/radar.png",
+    "referenceUrl": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Assets/Resources/Lumia/SystemIcons/radar.png",
+    "referenceRole": "existing project pixel UI palette and shape language; new map symbol",
+    "output": "Assets/Resources/Lumia/SystemIcons/encounter.png"
+  },
+  {
+    "id": "subject",
+    "name": "실험체 전투",
+    "kind": "map",
+    "referencePath": "Assets/Resources/Lumia/SystemIcons/radar.png",
+    "referenceUrl": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Assets/Resources/Lumia/SystemIcons/radar.png",
+    "referenceRole": "existing project pixel UI palette and shape language; new map symbol",
+    "output": "Assets/Resources/Lumia/SystemIcons/subject.png"
+  },
+  {
+    "id": "wildlife",
+    "name": "야생동물 전투",
+    "kind": "map",
+    "referencePath": "Assets/Resources/Lumia/SystemIcons/radar.png",
+    "referenceUrl": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Assets/Resources/Lumia/SystemIcons/radar.png",
+    "referenceRole": "existing project pixel UI palette and shape language; new map symbol",
+    "output": "Assets/Resources/Lumia/SystemIcons/wildlife.png"
+  },
+  {
+    "id": "meteor_sword",
+    "name": "유성검",
+    "originalId": 120404,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_120404.png",
+    "referencePath": "docs/art-system/references/critical/meteor_sword.png",
+    "originalTooltip": "전설 / 레이피어\n\n공격력 +62\n치명타 확률 +22%\n치명타 피해량 +9%\n\n<b><color=yellow>충전 - 섬광</color></b>\n다음에 가하는 기본 공격이 <color=green>캐릭터 레벨 * 11</color>의 추가 스킬 피해를 입히고 1.5초 동안 이동 속도를 20%만큼 감소시킵니다. (쿨다운: 5초)\n\n운철 중 일부는 드물게 은회색 빛을 띄는 것이 있는데 이를 가공하면 엄청난 강도를 가지는 검을 만들 수 있다. 대신 그만큼 제작하기도 쉽지 않아 양날만 세우고 직도로 가공하는게 보편적이다.",
+    "output": "Assets/Resources/Lumia/SystemIcons/meteor_sword.png",
+    "kind": "gear",
+    "referenceRole": "original Eternal Return equipment silhouette and color"
+  },
+  {
+    "id": "light_insignia",
+    "name": "빛의 증표",
+    "originalId": 201502,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_201502.png",
+    "referencePath": "docs/art-system/references/critical/light_insignia.png",
+    "originalTooltip": "전설 / 머리\n\n공격력 +20\n공격 속도 +25%\n치명타 확률 +35%\n치명타 피해량 +4%\n\n<b><color=yellow>치유 감소</color></b>\n상대에게 피해를 입히면 피격된 대상의 치유 효과가 4초 동안 <color=white>20%</color> 감소합니다.\n\n어둠의 세력을 무찌를 힘이 샘솟는 것 같다. 물론 다 무찌르고 난 후에는 팔아서 노후 생활을 대비하자.",
+    "output": "Assets/Resources/Lumia/SystemIcons/light_insignia.png",
+    "kind": "gear",
+    "referenceRole": "original Eternal Return equipment silhouette and color"
+  },
+  {
+    "id": "ghillie_suit",
+    "name": "길리 슈트",
+    "originalId": 202523,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_202523.png",
+    "referencePath": "docs/art-system/references/critical/ghillie_suit.png",
+    "originalTooltip": "전설 / 옷\n\n레벨 당 공격력 +3~60\n방어력 +18\n공격 속도 +20%\n치명타 확률 +34%\n\n<b><color=yellow>예열</color></b>\n적 실험체에게 기본 공격을 적중할 때마다 5초 동안 공격 속도가 <color=white>4%</color> 증가하는 중첩을 얻습니다. (최대 5중첩)",
+    "output": "Assets/Resources/Lumia/SystemIcons/ghillie_suit.png",
+    "kind": "gear",
+    "referenceRole": "original Eternal Return equipment silhouette and color"
+  },
+  {
+    "id": "alexandros",
+    "name": "알렉산드로스",
+    "originalId": 204504,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_204504.png",
+    "referencePath": "docs/art-system/references/critical/alexandros.png",
+    "originalTooltip": "전설 / 다리\n\n공격력 +14\n이동 속도 +0.25\n치명타 확률 +33%\n\n만약 그가 신이 되고 싶다면, 우리는 그저 신이라고 불러주는 수밖에.",
+    "output": "Assets/Resources/Lumia/SystemIcons/alexandros.png",
+    "kind": "gear",
+    "referenceRole": "original Eternal Return equipment silhouette and color"
+  }
+]

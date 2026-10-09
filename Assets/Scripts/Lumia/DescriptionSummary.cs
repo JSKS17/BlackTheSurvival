@@ -84,7 +84,7 @@ namespace Lumia
                 lines.Add("대상 카드가 손패에 없으면 덱·버린 카드에서 가져옵니다(덱에 보유한 카드만).");
             }
             if (card.exhaust) lines.Add("사용 후 이번 전투에서 소멸합니다.");
-            if (card.id == "basic_attack") lines.Add("장비 공격력과 기본 공격 강화가 적용됩니다.");
+            if (card.id == "basic_attack") lines.Add("장비 공격력과 기본 공격 강화가 적용되며, 치명타 적중 시 공격 피해가 1.5배가 됩니다.");
             if (lines.Count == 0) lines.Add("추가 효과 없이 행동합니다.");
             return string.Join("\n", GroupConditions(CleanLines(lines)));
         }
@@ -199,7 +199,7 @@ namespace Lumia
                 case "tia_w":return "붓을 노랑·빨강·파랑 순으로 바꿉니다.";
                 case "silvia_r":return "연료가 있으면 바이크에 타고 탑승 중이면 내립니다. 연료를 1 소모합니다.";
                 case "coraline_w":return "백색 거울과 흑색 거울을 교대로 설치합니다.";
-                case "basic_attack":return "기본 공격 강화와 장비 공격력이 적용됩니다.";
+                case "basic_attack":return "일반 공격 강화가 적용되며 치명타 시 피해가 1.5배가 됩니다.";
                 default:return null;
             }
         }
@@ -317,6 +317,7 @@ namespace Lumia
             if (gear.block > 0) stats.Add(CardPresentation.WithParticle("매 턴 방어도 " + gear.block,"를","을")+" 얻습니다");
             if (gear.health > 0) stats.Add("최대 체력이 " + gear.health + " 증가합니다");
             if (gear.evasion > 0) stats.Add("회피율이 " + gear.evasion + "% 증가합니다");
+            if (gear.critChance > 0) stats.Add("일반 공격의 치명타 확률이 " + gear.critChance + "% 증가합니다");
             if (stats.Count > 0) lines.Add(string.Join(". ", stats) + ".");
             if (gear.mechanics?.rules?.Length > 0) lines.Add(Trait(gear.mechanics));
             if (gear.controlResistance > 0) lines.Add("군중 제어로 줄어드는 코스트를 " + gear.controlResistance + " 줄입니다.");

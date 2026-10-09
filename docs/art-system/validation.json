@@ -4,11 +4,11 @@
   "complete": true,
   "allowIncomplete": false,
   "expected": {
-    "icons": 70,
+    "icons": 78,
     "portraits": 92
   },
   "counts": {
-    "icons": 70,
+    "icons": 78,
     "portraits": 92
   },
   "missing": [],
@@ -55,6 +55,35 @@
       "kind": "icon",
       "path": "Assets/Resources/Lumia/SystemIcons/akelte.png",
       "fileSha256": "befd467aa29d15d8d37fd159cd299b211d82395d9399e566f4cf054a84f70258",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2500,
+      "visiblePixels": 1596,
+      "partialAlphaPixels": 1580,
+      "visibleColors": 388,
+      "alphaBounds": [
+        4,
+        4,
+        60,
+        60
+      ],
+      "strongAlphaBounds": [
+        4,
+        4,
+        60,
+        60
+      ],
+      "id": "alexandros",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/alexandros.png",
+      "fileSha256": "69442721a802966f09e2e17814dc1524274327857c1160415040b92e1111d39d",
       "nearest2x2": true
     },
     {
@@ -557,26 +586,26 @@
         64,
         64
       ],
-      "transparentPixels": 3028,
-      "visiblePixels": 1068,
-      "partialAlphaPixels": 1060,
-      "visibleColors": 255,
+      "transparentPixels": 2636,
+      "visiblePixels": 1460,
+      "partialAlphaPixels": 1448,
+      "visibleColors": 342,
       "alphaBounds": [
-        10,
-        10,
-        56,
-        56
+        4,
+        4,
+        60,
+        60
       ],
       "strongAlphaBounds": [
-        10,
-        10,
-        54,
-        56
+        4,
+        4,
+        60,
+        60
       ],
       "id": "death_book",
       "kind": "icon",
       "path": "Assets/Resources/Lumia/SystemIcons/death_book.png",
-      "fileSha256": "2829e57c03d508754f79255d576045b4688369a1f484695c9c29a62227ba8b4e",
+      "fileSha256": "cb38fa9b446e6d3befebfa640e55a64baf20cb9aeb1728c2a4819c3bf1d5433a",
       "nearest2x2": true
     },
     {
@@ -731,26 +760,55 @@
         64,
         64
       ],
-      "transparentPixels": 2924,
-      "visiblePixels": 1172,
-      "partialAlphaPixels": 1164,
-      "visibleColors": 279,
+      "transparentPixels": 2124,
+      "visiblePixels": 1972,
+      "partialAlphaPixels": 1960,
+      "visibleColors": 451,
       "alphaBounds": [
-        12,
-        10,
-        54,
+        4,
+        6,
+        60,
         58
       ],
       "strongAlphaBounds": [
-        12,
-        10,
-        54,
+        4,
+        6,
+        60,
         58
       ],
       "id": "empress",
       "kind": "icon",
       "path": "Assets/Resources/Lumia/SystemIcons/empress.png",
-      "fileSha256": "9f21f9963c34b325fdfa71439980cbe24571537b0c185a8db81894b41d21db27",
+      "fileSha256": "64b0c9c080e067efd0e6812d61de7692ec0d5b0ecd4b860056cce5ab78f10d87",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2324,
+      "visiblePixels": 1772,
+      "partialAlphaPixels": 1756,
+      "visibleColors": 198,
+      "alphaBounds": [
+        4,
+        8,
+        60,
+        54
+      ],
+      "strongAlphaBounds": [
+        4,
+        8,
+        60,
+        54
+      ],
+      "id": "encounter",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/encounter.png",
+      "fileSha256": "0f2e19207a1718e6b24b03a094acd150e345358fce45264e3edf908fe4eb8cc2",
       "nearest2x2": true
     },
     {
@@ -925,6 +983,35 @@
       "kind": "icon",
       "path": "Assets/Resources/Lumia/SystemIcons/galaxy_step.png",
       "fileSha256": "3fb57f9794992176b1d65b3e0937fce06bdf4f8e11fbe84fe616853bc6ba65d8",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2304,
+      "visiblePixels": 1792,
+      "partialAlphaPixels": 1784,
+      "visibleColors": 429,
+      "alphaBounds": [
+        4,
+        6,
+        60,
+        58
+      ],
+      "strongAlphaBounds": [
+        4,
+        6,
+        60,
+        58
+      ],
+      "id": "ghillie_suit",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/ghillie_suit.png",
+      "fileSha256": "c183adc0c39a928878d471480ed8d44f4ad189f155402e4a4a7764e0d4e4c7ea",
       "nearest2x2": true
     },
     {
@@ -1166,6 +1253,35 @@
         64,
         64
       ],
+      "transparentPixels": 1640,
+      "visiblePixels": 2456,
+      "partialAlphaPixels": 2456,
+      "visibleColors": 413,
+      "alphaBounds": [
+        4,
+        4,
+        58,
+        60
+      ],
+      "strongAlphaBounds": [
+        4,
+        4,
+        58,
+        60
+      ],
+      "id": "kiosk",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/kiosk.png",
+      "fileSha256": "60a494cc1a95004da678193ecf520252deeb5d1e0ece5fe3f9da3670b3da3531",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
       "transparentPixels": 3256,
       "visiblePixels": 840,
       "partialAlphaPixels": 832,
@@ -1186,6 +1302,35 @@
       "kind": "icon",
       "path": "Assets/Resources/Lumia/SystemIcons/laevateinn.png",
       "fileSha256": "3cefd547895ecd3ceb931fe1bb309e23c98cfb771756ded50ee98a46efae063b",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3176,
+      "visiblePixels": 920,
+      "partialAlphaPixels": 912,
+      "visibleColors": 220,
+      "alphaBounds": [
+        4,
+        12,
+        60,
+        50
+      ],
+      "strongAlphaBounds": [
+        4,
+        12,
+        60,
+        50
+      ],
+      "id": "light_insignia",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/light_insignia.png",
+      "fileSha256": "6c1e6ea3d75c7c14c4dba4478096b35ebddfd3ac7f1a968b70dd024fcdd142fa",
       "nearest2x2": true
     },
     {
@@ -1244,6 +1389,35 @@
       "kind": "icon",
       "path": "Assets/Resources/Lumia/SystemIcons/loigor.png",
       "fileSha256": "21b31bdf33a2879752b2099778ddce772df767ef1df2e1fbcaa33ff4a64089fa",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3840,
+      "visiblePixels": 256,
+      "partialAlphaPixels": 256,
+      "visibleColors": 58,
+      "alphaBounds": [
+        4,
+        4,
+        60,
+        60
+      ],
+      "strongAlphaBounds": [
+        4,
+        4,
+        60,
+        60
+      ],
+      "id": "meteor_sword",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/meteor_sword.png",
+      "fileSha256": "d89b6687717e2ad6c08d12b76669b9b2170c8472a7c188cf98774e6849170a64",
       "nearest2x2": true
     },
     {
@@ -1746,6 +1920,35 @@
         64,
         64
       ],
+      "transparentPixels": 2412,
+      "visiblePixels": 1684,
+      "partialAlphaPixels": 1672,
+      "visibleColors": 292,
+      "alphaBounds": [
+        4,
+        6,
+        60,
+        56
+      ],
+      "strongAlphaBounds": [
+        4,
+        6,
+        60,
+        56
+      ],
+      "id": "subject",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/subject.png",
+      "fileSha256": "6600973a676dd31ffdd45b033b37874ea7efd30d76bf0d9dadfe00967d89689a",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
       "transparentPixels": 3112,
       "visiblePixels": 984,
       "partialAlphaPixels": 984,
@@ -2027,6 +2230,35 @@
       "kind": "icon",
       "path": "Assets/Resources/Lumia/SystemIcons/wilderness_star.png",
       "fileSha256": "518159ad0cc64f7efd4b29c470be37dc47ed7350383feb9747eb276d255cea35",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2228,
+      "visiblePixels": 1868,
+      "partialAlphaPixels": 1868,
+      "visibleColors": 301,
+      "alphaBounds": [
+        8,
+        4,
+        56,
+        60
+      ],
+      "strongAlphaBounds": [
+        8,
+        4,
+        56,
+        60
+      ],
+      "id": "wildlife",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/wildlife.png",
+      "fileSha256": "2cd8e0f375c29546e992fe8234486931cd7c862f0571b333ef33d9660a8ab360",
       "nearest2x2": true
     },
     {

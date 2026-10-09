@@ -1,0 +1,19 @@
+{
+  "id": "kiosk",
+  "name": "키오스크",
+  "kind": "map",
+  "referencePath": "docs/art-system/references/map-critical/kiosk-minimap-original.png",
+  "referenceUrl": "https://support.playeternalreturn.com/hc/article_attachments/43409459849369",
+  "referenceRole": "original Eternal Return minimap kiosk C-arrow marker",
+  "output": "Assets/Resources/Lumia/SystemIcons/kiosk.png",
+  "prompt": "Use case: style-transfer. Asset type: transparent pixel-art MAP NODE icon for Black The Survival. Input image 1 shows Eternal Return kiosk location marks: use ONLY the original little gold/yellow C-shaped currency arrow mark inside a dark green hexagonal/circular rim, ignoring the large yellow dashed explanatory circles and map. Input image 2 is UI style reference. Create ONE clean kiosk map node symbol matching that original mark: a thick amber-gold hexagonal coin rim with a squared C-shaped clockwise currency/return-arrow glyph centered inside, dark navy center, small pale mint edge highlights. Easy to distinguish at 36px displayed size. Exact low-resolution 32x32 logical grid displayed enlarged: broad simple 1-3 pixel strokes, chunky square pixels, limited navy/gold/cream/mint palette. No machine, shop facade, text, added question mark, scene, UI border or smooth gradients. Transparent background outside the coin. Centered symmetric icon filling 85 percent of square canvas.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-1ccf8944-2e41-429f-996f-26fdb7661460.png",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "generatedSource": "docs/art-system/map-critical-generated/kiosk.png",
+  "referenceInputs": [
+    "docs/art-system/references/map-critical/kiosk-minimap-original.png",
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ]
+}

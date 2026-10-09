@@ -65,8 +65,9 @@ namespace Lumia
                 else Ring(b.action.damage > 0 ? target : source, 28 + p * 20, tint, 4, b.seed % 3);
                 if (b.action.block > 0) Shield(source, p, new Color(.57f, .87f, .74f, tint.a), b.seed);
                 if (b.action.heal > 0) Heal(source, p, new Color(.65f, .91f, .57f, tint.a), b.seed);
-                if (b.action.damage > 0) Number(font, target + new Vector2(0, -84 - p * 46), "−" + b.action.damage, new Color(1f, .58f, .51f, tint.a));
-                if (b.card != null && b.card.damage > 0 && b.action.damage == 0 && b.action.avoided == 0) Number(font, target + new Vector2(0, -84 - p * 46), "막힘", tint, 16);
+                if (b.action.damage > 0) Number(font, target + new Vector2(0, -84 - p * 46), (b.action.critical ? "치명타! −" : "−") + b.action.damage, b.action.critical ? new Color(1f, .82f, .39f, tint.a) : new Color(1f, .58f, .51f, tint.a), b.action.critical ? 25 : 20);
+                if (b.action.critical && !reduced) Cross(target, 24 * (1 - p), new Color(1f, .84f, .46f, tint.a));
+                if (!status && b.passive == null && b.rune == null && b.gear == null && b.card != null && b.card.damage > 0 && b.action.damage == 0 && b.action.avoided == 0) Number(font, target + new Vector2(0, -84 - p * 46), "막힘", tint, 16);
                 if (b.action.avoided > 0) Number(font, target + new Vector2(0, -40 - p * 30), "회피!" + (b.action.avoided > 1 ? " ×" + b.action.avoided : ""), new Color(.56f, .84f, .96f, tint.a));
                 if (b.action.heal > 0) Number(font, source + new Vector2(0, -112 - p * 30), "+" + b.action.heal, new Color(.65f, .91f, .57f, tint.a));
                 if (b.action.block > 0) Number(font, source + new Vector2(0, 45 - p * 20), "방어 +" + b.action.block, tint);

@@ -27,9 +27,14 @@ namespace Lumia
             string[] views = { "lobby", "starting_passives", "preparation", "map", "long_map", "combat", "rewards", "rewards_cancelled", "combo", "detail", "fx_player", "fx_enemy", "fx_recover", "kiosk", "campfire", "encounter", "encounter_card", "encounter_detail", "encounter_trade", "encounter_risky", "encounter_long", "catalog", "inventory", "gear_inventory", "passive_inventory", "passive_replacement", "mechanic_blocks", "mechanic_discount", "mechanic_field", "mechanic_detail", "trait_basic", "trait_third", "trait_detail", "rune_buff", "rune_healing", "rune_inventory", "rune_detail", "rune_selection", "kiosk_coupon", "trait_revive", "enemy_detail", "combo_field", "status_cost", "status_lock", "status_field", "status_detail" };
             views=views.Concat(new[]{"preparation_pinned","detail_full","mechanic_detail_full","trait_detail_full","rune_detail_full","player_status","enemy_loadout","enemy_field","alex_weapon_deck","gear_detail","gear_detail_full"}).ToArray();
             views=views.Concat(new[]{"preview_hand","irem_detail","irem_detail_full","irem_field","irem_reverted"}).ToArray();
+            views=views.Concat(new[]{"kiosk_unlocked","campfire_critical","campfire_tagged","campfire_empty","critical_detail","fx_critical","encounter_energy","help"}).ToArray();
             foreach (string view in views)
             {
                 LumiaGame.Instance.VerificationView(view);
+                if (view == "kiosk" && LumiaGame.Instance.Engine.IsKioskObjectUnlocked("blood"))
+                    throw new System.InvalidOperationException("VF blood sample was unlocked before two bosses.");
+                if (view == "kiosk_unlocked" && !LumiaGame.Instance.Engine.IsKioskObjectUnlocked("blood"))
+                    throw new System.InvalidOperationException("VF blood sample remained locked after two bosses.");
                 if(view=="mechanic_discount")
                 {
                     var engine=LumiaGame.Instance.Engine;

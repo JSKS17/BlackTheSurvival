@@ -25,6 +25,8 @@ namespace Lumia
         public string traitId;
         public bool enemy;
         public int damage, block, heal, avoided;
+        public bool critical;
+        public int criticalHits;
     }
 
     [Serializable] public class SkillHistory
@@ -87,6 +89,7 @@ namespace Lumia
         // Zero marks an older saved draft whose displayed offers must remain intact.
         public int draftSeed;
         public int weaponGrantVersion;
+        public int energyGrowthVersion, maxEnergyBonus, bossVictories;
         public string draftBiasPassive;
         public bool runeChangePending;
         public List<string> deck = new List<string>(), passives = new List<string>(), gear = new List<string>(), foods = new List<string>(), objects = new List<string>();
@@ -104,12 +107,18 @@ namespace Lumia
     {
         public const int RowsPerAct = 12;
         public const float PassiveSkillOfferMultiplier = 1.5f;
+        public const int StartingMaxEnergy = 5;
+        public const int CriticalChanceCap = 30;
         public RunState State { get; private set; }
         public readonly List<CombatAction> CombatActions = new List<CombatAction>();
         private int actionSerial;
         private bool resolvingTraits;
         public int RewardRemainingBudget { get { return State.rewards == null ? 0 : Math.Max(0, State.rewards.cardBudget - State.rewards.taken.Sum(RewardCardPrice)); } }
-        public int MaxEnergy { get { return EnergyForLevel(State.level) + (State.stage==RunStage.Combat && State.combat!=null ? TraitMechanics.EnergyBonus(State.combat.playerTraits) : 0); } }
+        public int PlayerBaseEnergy { get { return StartingMaxEnergy + Math.Max(0, State.maxEnergyBonus); } }
+        public int MaxEnergy { get { return PlayerBaseEnergy + (State.stage==RunStage.Combat && State.combat!=null ? TraitMechanics.EnergyBonus(State.combat.playerTraits) : 0); } }
+        public int DefeatedBossCount { get { return State.bossVictories; } }
+        public int CritChance { get { return Math.Min(CriticalChanceCap, Math.Max(0, EquipmentSum(g => g.critChance))); } }
+        public int EnemyCritChance { get { return State.combat == null || !string.IsNullOrEmpty(State.combat.animal) ? 0 : Math.Min(CriticalChanceCap, Math.Max(0, EnemyEquipmentSum(g => g.critChance))); } }
         public int NextLevelXp { get { return 50 + State.level * 12; } }
         public int TotalAttack { get { return EquipmentSum(g => g.attack); } }
         public int TotalBlock { get { return EquipmentSum(g => g.block); } }
@@ -129,7 +138,7 @@ namespace Lumia
 
         public GameEngine(int seed)
         {
-            State = new RunState { seed = seed, rngState = seed == 0 ? 1831565813 : seed, weaponGrantVersion=1 };
+            State = new RunState { seed = seed, rngState = seed == 0 ? 1831565813 : seed, weaponGrantVersion=1, energyGrowthVersion=1 };
             GenerateMap();
             State.passiveOffers = Offer(GameDatabase.Passives.Select(x => x.id), 3);
             RollStartingDraft();
@@ -145,6 +154,15 @@ namespace Lumia
             State.persistentTraits=TraitMechanics.Ensure(State.persistentTraits);
             if (State.rngState == 0) State.rngState = 1831565813;
             if (State.level < 1 || State.level > 20 || State.map == null || State.deck == null) throw new ArgumentException("손상된 저장 데이터입니다.");
+            if (State.defeatedBosses == null) State.defeatedBosses = new List<string>();
+            if (State.energyGrowthVersion == 0)
+            {
+                // Existing victories grant the new permanent boss bonus once; levels grant no energy.
+                State.bossVictories = Math.Max(State.defeatedBosses.Count, Math.Max(0, State.act - 1));
+                State.maxEnergyBonus = State.bossVictories;
+                State.energyGrowthVersion = 1;
+            }
+            RefreshMapProximity();
             State.mapRows = State.map.Count > 0 ? State.map.Max(n => n.row) + 1 : RowsPerAct;
             if (State.version == 1)
             {
@@ -269,6 +287,7 @@ namespace Lumia
 
         public bool EnterNode(int lane)
         {
+            RefreshMapProximity();
             var node = AvailableNodes().FirstOrDefault(n => n.lane == lane);
             if (node == null) return Fail("연결된 다음 구역만 이동할 수 있습니다.");
             State.activeNodeId = node.id; State.combat = null; State.rewards = null;
@@ -317,7 +336,17 @@ namespace Lumia
             return SkillMechanics.Summary(State.combat == null ? (SkillActorState)null : enemy ? State.combat.enemySkills : State.combat.playerSkills);
         }
         public List<int> PredictedEnemyCosts { get { return State.combat == null ? new List<int>() : State.combat.enemyPlanCosts.ToList(); } }
-        public string EnemyMechanicAssumptions { get { return State.combat == null || !State.combat.enemyPlan.Any(id => GameDatabase.Card(id)?.mechanics?.rules.Any(r => r.onHit) == true) ? "" : "추가 피해와 적중 연계는 명중을 가정합니다."; } }
+        public string EnemyMechanicAssumptions
+        {
+            get
+            {
+                var c = State.combat;
+                if (c == null) return "";
+                string text = c.enemyPlan.Any(id => GameDatabase.Card(id)?.mechanics?.rules.Any(r => r.onHit) == true) ? "추가 피해와 적중 연계는 명중을 가정합니다." : "";
+                if (EnemyCritChance > 0 && c.enemyPlan.Contains("basic_attack")) text += (text.Length > 0 ? " " : "") + "피해 예측은 일반 적중 기준이며, 기본 공격 치명타 확률은 " + EnemyCritChance + "%입니다.";
+                return text;
+            }
+        }
 
         public bool CanPlayCard(int handIndex)
         {
@@ -369,7 +398,7 @@ namespace Lumia
             int traitHpBefore=State.hp;
             c.energy -= price; c.hand.RemoveAt(handIndex);
             if (card.exhaust) c.exhaustPile.Add(id); else c.discardPile.Add(id);
-            int hits = Math.Max(1, card.hits), dealt = 0, avoided = 0;
+            int hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0;
             int bonusDamage = PlayerBonusDamage(id);
             var incoming=card.damage>0 || bonusDamage>0 ? TraitEvent(true,"before_incoming",card,true) : new TraitResult();int incomingReduction=incoming.damageReduction,defenderBlock=c.enemyBlock;
             bool landed = card.damage == 0 && bonusDamage == 0, bonusUsed = false;
@@ -377,7 +406,11 @@ namespace Lumia
             {
                 if (card.damage <= 0 && bonusDamage <= 0) break;
                 if (Roll(EnemyEvasion)) { avoided++; Say(c.enemyName + "이(가) 공격을 회피했습니다."); continue; }
-                landed = true; int damage = Math.Max(0,CardDamage(id) + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.enemyBlock, damage);
+                landed = true;
+                int baseDamage = CardDamage(id);
+                // Only the universal basic attack's own hit is multiplied. Skill/passive bonus pulses remain separate.
+                if (id == "basic_attack" && baseDamage > 0 && Roll(CritChance)) { baseDamage = CriticalBaseDamage(baseDamage); criticalHits++; }
+                int damage = Math.Max(0,baseDamage + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.enemyBlock, damage);
                 bonusUsed = true;
                 c.enemyBlock -= absorbed; damage -= absorbed; dealt += TakeHealthDamage(true,damage);
             }
@@ -400,13 +433,13 @@ namespace Lumia
             if (!card.freeCastOnHit || landed) GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills, card.owner));
             RefreshEnemyIntent();
             int cardHeal=State.hp-beforeHp;
-            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = id, enemy = false, damage = dealt, block = block, heal = cardHeal, avoided = avoided });
+            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = id, enemy = false, damage = dealt, block = block, heal = cardHeal, avoided = avoided, critical = criticalHits > 0, criticalHits = criticalHits });
             bool attackAttempt=card.damage>0 || bonusDamage>0;
             ApplyBeforeTraits(false,card,landed && attackAttempt,skillBefore,traitHpBefore);
             AfterCardTraits(false,card,landed,dealt,block,cardHeal,avoided,attackAttempt);
             if(statusControl)TraitEvent(false,"control",card,true,dealt);
             if(defenderBlock>0 && c.enemyBlock==0) TraitEvent(true,"block_break",card,landed,dealt);
-            Say(card.name + " 사용" + (card.damage > 0 ? " · 피해 " + dealt : "") + (block > 0 ? " · 방어 +" + block : ""));
+            Say(card.name + " 사용" + (criticalHits > 0 ? " · 치명타!" : "") + (card.damage > 0 ? " · 피해 " + dealt : "") + (block > 0 ? " · 방어 +" + block : ""));
             if (landed && (card.damage > 0 || bonusDamage > 0)) ResolveCounters(true);
             CheckBattleEnd();
             return true;
@@ -482,14 +515,17 @@ namespace Lumia
             var skillBefore = SkillMechanics.Clone(c.enemySkills);
             int traitHpBefore=c.enemyHp;
             c.enemyAvailableEnergy -= price; c.enemyAvailableEnergy += card.energy;
-            int damagePerHit = EnemyCardDamage(card), bonusDamage = EnemyTotalBonusDamage(card,c.enemySkills,c.enemyTraits,c.vulnerable), hits = Math.Max(1, card.hits), dealt = 0, avoided = 0;
+            int damagePerHit = EnemyCardDamage(card), bonusDamage = EnemyTotalBonusDamage(card,c.enemySkills,c.enemyTraits,c.vulnerable), hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0;
             var incoming=damagePerHit>0 || bonusDamage>0 ? TraitEvent(false,"before_incoming",card,true) : new TraitResult();int incomingReduction=incoming.damageReduction,defenderBlock=c.block;
             bool landed = damagePerHit == 0 && bonusDamage == 0, bonusUsed = false;
             for (int i = 0; i < hits && State.hp > 0; ++i)
             {
                 if (damagePerHit == 0 && bonusDamage == 0) break;
                 if (Roll(Evasion)) { avoided++; Say("하나가 " + card.name + "을(를) 회피했습니다."); continue; }
-                landed = true; int damage = Math.Max(0,damagePerHit + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.block, damage); c.block -= absorbed;
+                landed = true;
+                int baseDamage = damagePerHit;
+                if (id == "basic_attack" && baseDamage > 0 && Roll(EnemyCritChance)) { baseDamage = CriticalBaseDamage(baseDamage); criticalHits++; }
+                int damage = Math.Max(0,baseDamage + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.block, damage); c.block -= absorbed;
                 bonusUsed = true;
                 dealt += TakeHealthDamage(false,damage-absorbed);
             }
@@ -508,13 +544,13 @@ namespace Lumia
             RecordLastSkill(c.enemyLastSkills, card);
             if (!card.freeCastOnHit || landed) GrantFreeCasts(card, c.enemyDeck, c.enemyFreeCasts, c.enemyFreeCastSources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, false, LastSkill(c.enemyLastSkills, card.owner));
             int cardHeal=c.enemyHp-beforeHp;
-            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = id, enemy = true, damage = dealt, block = addedBlock, heal = cardHeal, avoided = avoided });
+            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = id, enemy = true, damage = dealt, block = addedBlock, heal = cardHeal, avoided = avoided, critical = criticalHits > 0, criticalHits = criticalHits });
             bool attackAttempt=damagePerHit>0 || bonusDamage>0;
             ApplyBeforeTraits(true,card,landed && attackAttempt,skillBefore,traitHpBefore);
             AfterCardTraits(true,card,landed,dealt,addedBlock,cardHeal,avoided,attackAttempt);
             if(statusControl)TraitEvent(true,"control",card,true,dealt);
             if(defenderBlock>0 && c.block==0) TraitEvent(false,"block_break",card,landed,dealt);
-            Say(c.enemyName + " · " + card.name + (card.damage > 0 ? " · 피해 " + dealt : ""));
+            Say(c.enemyName + " · " + card.name + (criticalHits > 0 ? " · 치명타!" : "") + (card.damage > 0 ? " · 피해 " + dealt : ""));
             if (landed && (damagePerHit > 0 || bonusDamage > 0)) ResolveCounters(false);
             CheckBattleEnd();
             return true;
@@ -526,6 +562,8 @@ namespace Lumia
             while (State.stage == RunStage.Combat && State.combat.enemyTurn) AdvanceEnemyAction();
             return true;
         }
+
+        public static int CriticalBaseDamage(int damage) { return Math.Max(0, damage) * 3 / 2; }
 
         private static string LastSkill(List<SkillHistory> history, string owner)
         {
@@ -609,11 +647,22 @@ namespace Lumia
         }
         public int ObjectPrice(string id) { var item=GameDatabase.Object(id);return item==null?int.MaxValue:ShopPrice(item.price); }
         public int FoodPrice(string id) { var item=GameDatabase.Food(id);return item==null?int.MaxValue:ShopPrice(item.price); }
+        public bool IsKioskObjectUnlocked(string id) { return GameDatabase.Object(id) != null && (id != "blood" || DefeatedBossCount >= 2); }
+        public bool CanBuyObject(string id) { return State.stage == RunStage.Kiosk && IsKioskObjectUnlocked(id) && State.credits >= ObjectPrice(id); }
+        public bool IsKioskFood(string id)
+        {
+            var food = GameDatabase.Food(id);
+            // Stock is ingredients and raw food. Finished meals are obtained by cooking and encounters.
+            return food != null && !food.fullHeal && (id == "watermelon" || GameDatabase.Food(food.upgradeTo) != null);
+        }
+        public IEnumerable<FoodDef> KioskFoods { get { return GameDatabase.Foods.Where(food => IsKioskFood(food.id)); } }
+        public bool CanBuyFood(string id) { return State.stage == RunStage.Kiosk && IsKioskFood(id) && State.credits >= FoodPrice(id); }
         public bool BuyObject(string id)
         {
             var item = GameDatabase.Object(id);
             int price=ObjectPrice(id);
-            if (State.stage != RunStage.Kiosk || item == null || State.credits < price) return Fail("오브젝트를 구매할 크레딧이 부족합니다.");
+            if (id == "blood" && !IsKioskObjectUnlocked(id)) return Fail("VF혈액샘플은 두 번째 보스를 이긴 뒤 키오스크에서 구매할 수 있습니다.");
+            if (!CanBuyObject(id)) return Fail("오브젝트를 구매할 크레딧이 부족하거나 키오스크에 있지 않습니다.");
             State.credits -= price; State.objects.Add(id);
             return Say(item.name + " 구매 · " + price + " 크레딧");
         }
@@ -622,7 +671,8 @@ namespace Lumia
         {
             var item = GameDatabase.Food(id);
             int price=FoodPrice(id);
-            if (State.stage != RunStage.Kiosk || item == null || State.credits < price) return Fail("음식을 구매할 크레딧이 부족합니다.");
+            if (!IsKioskFood(id)) return Fail("만년 스프와 완성 요리는 키오스크에서 판매하지 않습니다.");
+            if (!CanBuyFood(id)) return Fail("음식을 구매할 크레딧이 부족하거나 키오스크에 있지 않습니다.");
             State.credits -= price; State.foods.Add(id);
             return Say(item.name + " 구매 · " + price + " 크레딧");
         }
@@ -712,6 +762,7 @@ namespace Lumia
                 case "credits": State.credits = Math.Max(0, State.credits + o.amount); break;
                 case "damage": State.hp = Math.Max(0, State.hp - Math.Max(0, o.amount)); break;
                 case "max_health": State.maxHealthBonus += o.amount; RecalculateHealth(false); break;
+                case "max_energy": case "energy": State.maxEnergyBonus += Math.Max(0, o.amount); break;
                 case "card": if (GameDatabase.Card(o.cardId) != null) State.deck.Add(o.cardId); break;
                 case "object": if (GameDatabase.Object(o.objectId) != null) State.objects.Add(o.objectId); break;
                 case "food": if(GameDatabase.Food(o.objectId)!=null) State.foods.Add(o.objectId);break;
@@ -781,8 +832,18 @@ namespace Lumia
                     for (int lane = 0; lane < 3; ++lane) State.map.Add(new MapNode { id = State.map.Count, act = act, row = row, lane = lane, kind = kinds[lane] });
                 }
             }
-            foreach (var n in State.map)
-                n.nearKiosk = State.map.Any(k => k.act == n.act && k.kind == ZoneKind.Kiosk && Math.Abs(k.row - n.row) <= 1 && Math.Abs(k.lane - n.lane) <= 1);
+            RefreshMapProximity();
+        }
+
+        public bool IsNearKiosk(MapNode node)
+        {
+            return node != null && (node.kind == ZoneKind.Subject || node.kind == ZoneKind.Wildlife)
+                && State.map.Any(k => k.act == node.act && k.kind == ZoneKind.Kiosk
+                    && Math.Abs(k.row - node.row) == 1 && Math.Abs(k.lane - node.lane) <= 1);
+        }
+        public void RefreshMapProximity()
+        {
+            foreach (var node in State.map) node.nearKiosk = IsNearKiosk(node);
         }
 
         private MapNode ActiveNode() { return State.map.FirstOrDefault(n => n.id == State.activeNodeId); }
@@ -1428,15 +1489,17 @@ namespace Lumia
                 if (boss)
                 {
                     State.defeatedBosses.Add(c.enemyId);
+                    State.bossVictories++;
+                    State.maxEnergyBonus++;
                     if (character != null && !State.passives.Contains(character.passiveId)) State.pendingPassive = character.passiveId;
                     r.objectId = RandomObject(4);
                 }
-                else if (node.nearKiosk && Roll(25)) r.objectId = RandomObject(4);
+                else if (IsNearKiosk(node) && Roll(25)) r.objectId = RandomObject(4);
             }
             State.rewards = r; State.stage = RunStage.Rewards; State.credits += r.credits;
             if (!string.IsNullOrEmpty(r.objectId)) State.objects.Add(r.objectId);
             GainXp(r.xp); Heal(Modifier("kill_heal"));
-            Say("전투 승리 · 경험치 +" + r.xp + " · 크레딧 +" + r.credits + (r.objectId == null ? "" : " · " + GameDatabase.Object(r.objectId).name));
+            Say("전투 승리 · 경험치 +" + r.xp + " · 크레딧 +" + r.credits + (boss ? " · 최대 코스트 +1 (" + PlayerBaseEnergy + ")" : "") + (r.objectId == null ? "" : " · " + GameDatabase.Object(r.objectId).name));
         }
 
         private string RandomObject(int count) { return GameDatabase.Objects.Take(count).ElementAt(Next(Math.Min(count, GameDatabase.Objects.Count))).id; }
@@ -1446,7 +1509,7 @@ namespace Lumia
             while (State.level < 20 && State.xp >= NextLevelXp)
             {
                 State.xp -= NextLevelXp; State.level++; RecalculateHealth(false); Heal(8);
-                Say("레벨 업! Lv." + State.level + " · 최대 코스트 " + MaxEnergy);
+                Say("레벨 업! Lv." + State.level + " · 최대 체력 " + State.maxHp);
             }
             if (State.level == 20) State.xp = 0;
         }

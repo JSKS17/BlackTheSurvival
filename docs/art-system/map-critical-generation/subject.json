@@ -1,0 +1,18 @@
+{
+  "id": "subject",
+  "name": "실험체 전투",
+  "kind": "map",
+  "referencePath": "Assets/Resources/Lumia/SystemIcons/radar.png",
+  "referenceUrl": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Assets/Resources/Lumia/SystemIcons/radar.png",
+  "referenceRole": "existing project pixel UI palette and shape language; new map symbol",
+  "output": "Assets/Resources/Lumia/SystemIcons/subject.png",
+  "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art MAP NODE icon for Black The Survival, subject combat node. Input image is only palette and UI style reference. Create exactly ONE readable SUBJECT BATTLE emblem: two crossed compact modern knives/blades behind a simple navy human-head-and-shoulders bust. The human bust is solid pale mint with dark navy outline, tiny amber visor across eyes and short pointed hair, not a detailed portrait. Crossed blade handles use amber/magenta accents and pale steel blades. Must be distinguishable from wildlife, speech bubbles and a shop at small size. Authentic chunky 32x32 logical pixels shown enlarged, 1-3-pixel-wide steps and coherent clusters, navy outline, mint/steel/amber highlights. No text, circular coin rim, scene, UI border, anti-aliasing or smooth shading. Isolated centered emblem with genuine transparent outside margin.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-a6fe65ca-db16-4ea9-b4d2-cb0c8b683964.png",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "generatedSource": "docs/art-system/map-critical-generated/subject.png",
+  "referenceInputs": [
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ]
+}

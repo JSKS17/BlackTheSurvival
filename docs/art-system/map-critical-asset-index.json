@@ -1,0 +1,332 @@
+[
+  {
+    "id": "empress",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/empress.png",
+    "source": "docs/art-system/map-critical-generated/empress.png",
+    "promptRecord": "docs/art-system/map-critical-generation/empress.json",
+    "fileSha256": "64b0c9c080e067efd0e6812d61de7692ec0d5b0ecd4b860056cce5ab78f10d87",
+    "sourceSha256": "f808348deb1848f3c55eec6bf3899886757cd950cc3d67c0459e3749b9f2de4f",
+    "referenceSha256": "a401d2071a49eaddc83a2edd28e6f7c54f0f7666dca5b0dd12fbefd823e724c4",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      79,
+      107,
+      1176,
+      1145
+    ],
+    "contentSize": [
+      28,
+      26
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "death_book",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/death_book.png",
+    "source": "docs/art-system/map-critical-generated/death_book.png",
+    "promptRecord": "docs/art-system/map-critical-generation/death_book.json",
+    "fileSha256": "cb38fa9b446e6d3befebfa640e55a64baf20cb9aeb1728c2a4819c3bf1d5433a",
+    "sourceSha256": "c81bd74bff7307122d4458e1fa3d377a373698738cfc7e7983a813f4ce13bd9a",
+    "referenceSha256": "b97e9e51d3691d1976287d3edda2cb77005df88080104559b1ea855af98d505c",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1402,
+      1122
+    ],
+    "cropBox": [
+      281,
+      158,
+      1139,
+      1002
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "kiosk",
+    "kind": "map",
+    "path": "Assets/Resources/Lumia/SystemIcons/kiosk.png",
+    "source": "docs/art-system/map-critical-generated/kiosk.png",
+    "promptRecord": "docs/art-system/map-critical-generation/kiosk.json",
+    "fileSha256": "60a494cc1a95004da678193ecf520252deeb5d1e0ece5fe3f9da3670b3da3531",
+    "sourceSha256": "8129791fdd6d2e78af003f4f6bddf05ebcf7ca8fa9fe64f90e5a83151ca6ea3a",
+    "referenceSha256": "74b916adf179ee9c4d2a114ec7eb95e8aa5b4b559414cabcfbb1abec2f758250",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      144,
+      119,
+      1110,
+      1111
+    ],
+    "contentSize": [
+      27,
+      28
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "encounter",
+    "kind": "map",
+    "path": "Assets/Resources/Lumia/SystemIcons/encounter.png",
+    "source": "docs/art-system/map-critical-generated/encounter.png",
+    "promptRecord": "docs/art-system/map-critical-generation/encounter.json",
+    "fileSha256": "0f2e19207a1718e6b24b03a094acd150e345358fce45264e3edf908fe4eb8cc2",
+    "sourceSha256": "11ed017dc8fb872131896d95e039cd35dc237be9b9471562e267379e4d9bcf2a",
+    "referenceSha256": "79cd640e796b99c82494846c6b21a7deb6ed58d4ba8922ddaab6fcabd0fa8d72",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      200,
+      262,
+      1081,
+      996
+    ],
+    "contentSize": [
+      28,
+      23
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "subject",
+    "kind": "map",
+    "path": "Assets/Resources/Lumia/SystemIcons/subject.png",
+    "source": "docs/art-system/map-critical-generated/subject.png",
+    "promptRecord": "docs/art-system/map-critical-generation/subject.json",
+    "fileSha256": "6600973a676dd31ffdd45b033b37874ea7efd30d76bf0d9dadfe00967d89689a",
+    "sourceSha256": "7ca2a4b8707a01dab3aaa1f2fdee360d8a8d330069bebb26d9910101def6614f",
+    "referenceSha256": "79cd640e796b99c82494846c6b21a7deb6ed58d4ba8922ddaab6fcabd0fa8d72",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      235,
+      284,
+      1020,
+      974
+    ],
+    "contentSize": [
+      28,
+      25
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "wildlife",
+    "kind": "map",
+    "path": "Assets/Resources/Lumia/SystemIcons/wildlife.png",
+    "source": "docs/art-system/map-critical-generated/wildlife.png",
+    "promptRecord": "docs/art-system/map-critical-generation/wildlife.json",
+    "fileSha256": "2cd8e0f375c29546e992fe8234486931cd7c862f0571b333ef33d9660a8ab360",
+    "sourceSha256": "902e0e7c87ff11d87903d07babb5dbeb62ed8e70111b4d56d1659e8b60ac1559",
+    "referenceSha256": "79cd640e796b99c82494846c6b21a7deb6ed58d4ba8922ddaab6fcabd0fa8d72",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      134,
+      58,
+      1121,
+      1195
+    ],
+    "contentSize": [
+      24,
+      28
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "meteor_sword",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/meteor_sword.png",
+    "source": "docs/art-system/map-critical-generated/meteor_sword.png",
+    "promptRecord": "docs/art-system/map-critical-generation/meteor_sword.json",
+    "fileSha256": "d89b6687717e2ad6c08d12b76669b9b2170c8472a7c188cf98774e6849170a64",
+    "sourceSha256": "9011c20c509ee72896afc8a11623c520b66e7c462834ebbb67ee49f8b31821c6",
+    "referenceSha256": "740125c0414196d489cc9aafa5245637348ae33346b5f8ceab7a4a32fcde3aca",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      54,
+      66,
+      1203,
+      1201
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "light_insignia",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/light_insignia.png",
+    "source": "docs/art-system/map-critical-generated/light_insignia.png",
+    "promptRecord": "docs/art-system/map-critical-generation/light_insignia.json",
+    "fileSha256": "6c1e6ea3d75c7c14c4dba4478096b35ebddfd3ac7f1a968b70dd024fcdd142fa",
+    "sourceSha256": "faa4917a69ba0bd98e0524c3e0e719f8d4cc1359f26c426b84f02be8ed90e3e5",
+    "referenceSha256": "9733a0780bf0bb16f5dc75fe2c2802a77d3fc7ced0c4d55b633f2d4610dc423d",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      47,
+      223,
+      1224,
+      1019
+    ],
+    "contentSize": [
+      28,
+      19
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "ghillie_suit",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/ghillie_suit.png",
+    "source": "docs/art-system/map-critical-generated/ghillie_suit.png",
+    "promptRecord": "docs/art-system/map-critical-generation/ghillie_suit.json",
+    "fileSha256": "c183adc0c39a928878d471480ed8d44f4ad189f155402e4a4a7764e0d4e4c7ea",
+    "sourceSha256": "0c8eb7da764e2d27465da8560e63cc7434ee682aee159ca6b996711b9525e3fa",
+    "referenceSha256": "0ceb031b46b740bba9bacfb170fe6e3eb69a875db6a2265d2ed0109cebb71fc6",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      99,
+      140,
+      1158,
+      1111
+    ],
+    "contentSize": [
+      28,
+      26
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "alexandros",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/alexandros.png",
+    "source": "docs/art-system/map-critical-generated/alexandros.png",
+    "promptRecord": "docs/art-system/map-critical-generation/alexandros.json",
+    "fileSha256": "69442721a802966f09e2e17814dc1524274327857c1160415040b92e1111d39d",
+    "sourceSha256": "39bb9bb23b927fb2a041c2d00b40c399f4f1cb31c171f919dab7b6fd09cabbfc",
+    "referenceSha256": "89ceb57e93f13afe8e405f0f4cb29f4ffc39ab73cb44b99f4dd5899db722d236",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      57,
+      53,
+      1234,
+      1223
+    ],
+    "contentSize": [
+      28,
+      28
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  }
+]

@@ -17,7 +17,8 @@ namespace Lumia
         GUIStyle label, centered, wrapped, button, field;
         bool initialized, lobby = true, settings, catalog, inventory, help, fieldInfo, fieldEnemy, inspectEnemyCard, summaryMode = true, enemyLoadout;
         int prepStep, inventoryTab, catalogPage;
-        string catalogQuery = "", craftPending = "", inspectCard = "", inspectTrait = "", inspectGear = "";
+        string catalogQuery = "", craftQuery = "", craftPending = "", inspectCard = "", inspectTrait = "", inspectGear = "";
+        readonly HashSet<string> craftTags = new HashSet<string>();
         readonly Dictionary<string, Vector2> summaryScroll = new Dictionary<string, Vector2>();
         int currentLayer, topLayer;
         GearSlot craftSlot;
@@ -427,7 +428,7 @@ namespace Lumia
                     Tex(icon, PixelArt.SkillIcon(planned[i]), ScaleMode.ScaleToFit);
                     if (Hit(icon)) { inspectCard = planned[i]; inspectEnemyCard=true; detailScroll = Vector2.zero; }
                 }
-                Para(new Rect(454, 176, 371, 25), "예정 피해 " + c.intentDamage + " · 방어 " + c.intentBlock + "  / 적중 시 연계·턴 종료 포함", 10, Text);
+                Para(new Rect(454, 176, 371, 25), "예정 피해 " + c.intentDamage + " · 방어 " + c.intentBlock + (Engine.EnemyCritChance > 0 ? "  / 일반 공격 치명타 " + Engine.EnemyCritChance + "%" : "  / 적중 시 연계·턴 종료 포함"), 10, Text);
             }
             else Para(new Rect(454, 148, 371, 40), intent, 11, Text);
             float bob = reduceMotion ? 0 : Mathf.Floor(Mathf.Sin(Time.unscaledTime * 2) * 2) * 2;
@@ -513,7 +514,7 @@ namespace Lumia
         void DrawRewards()
         {
             var s = Engine.State; var r = s.rewards; if (r == null) return;
-            Header("실험 기록 확보", "전투 승리  /  보상은 한 번만 지급됩니다.");
+            Header("실험 기록 확보", r.boss ? "보스 승리  /  영구 최대 코스트 +1  ·  현재 " + Engine.PlayerBaseEnergy : "전투 승리  /  보상은 한 번만 지급됩니다.");
             Txt(new Rect(40, 108, 1198, 40), "VICTORY", 33, Mint);
             string obj = string.IsNullOrEmpty(r.objectId) ? "" : "  +  " + GameDatabase.Object(r.objectId).name;
             Txt(new Rect(40, 165, 1198, 28), "+ " + r.xp + " 경험치    + " + r.credits + " 크레딧" + obj, 20, Gold);
@@ -549,10 +550,12 @@ namespace Lumia
                 Box(r, Panel, Line); Tex(new Rect(r.x + 81, r.y + 13, 64, 64), PixelArt.Icon(d.id), ScaleMode.ScaleToFit);
                 Txt(new Rect(r.x + 10, r.y + 84, r.width - 20, 24), d.name, 16, Text, true);
                 int price=Engine.ObjectPrice(d.id);
-                if (Btn(new Rect(r.x + 15, r.y + 122, r.width - 30, 34), price + " CR  ·  구매", false, Gold, Engine.State.credits >= price)) Act(() => Engine.BuyObject(d.id));
+                bool unlocked = Engine.IsKioskObjectUnlocked(d.id);
+                if (!unlocked) Txt(new Rect(r.x + 8, r.y + 108, r.width - 16, 16), "두 번째 보스 승리 후 해금", 10, Muted, true);
+                if (Btn(new Rect(r.x + 15, r.y + (unlocked ? 122 : 129), r.width - 30, unlocked ? 34 : 27), unlocked ? price + " CR  ·  구매" : "구매 잠김", false, Gold, Engine.CanBuyObject(d.id))) Act(() => Engine.BuyObject(d.id));
             }
             Txt(new Rect(36, 349, 1160, 28), "FOOD / 회복 아이템 · 모닥불 요리 재료", 20, Mint);
-            var foods = GameDatabase.Foods.Where(x => x.price > 0).ToArray();
+            var foods = Engine.KioskFoods.ToArray();
             scroll = GUI.BeginScrollView(new Rect(35, 397, 1206, 200), scroll, new Rect(0, 0, 1180, Mathf.Ceil(foods.Length / 4f) * 81));
             for (int i = 0; i < foods.Length; i++)
             {
@@ -560,7 +563,7 @@ namespace Lumia
                 Box(r, Panel, Line); Tex(new Rect(r.x + 10, r.y + 14, 43, 43), PixelArt.Icon(d.id), ScaleMode.ScaleToFit);
                 Txt(new Rect(r.x + 67, r.y + 10, 194, 22), d.name, 14, Text);
                 int price=Engine.FoodPrice(d.id);
-                if (Btn(new Rect(r.x + 67, r.y + 36, 193, 25), price + " CR  /  " + (d.fullHeal ? "완전 회복" : "회복 " + d.heal), false, Mint, Engine.State.credits >= price)) Act(() => Engine.BuyFood(d.id));
+                if (Btn(new Rect(r.x + 67, r.y + 36, 193, 25), price + " CR  /  " + (d.fullHeal ? "완전 회복" : "회복 " + d.heal), false, Mint, Engine.CanBuyFood(d.id))) Act(() => Engine.BuyFood(d.id));
             }
             GUI.EndScrollView();
             if (Btn(new Rect(999, 626, 241, 48), "상점 나가기  >", true, Mint)) Act(Engine.LeaveKiosk);
@@ -587,8 +590,20 @@ namespace Lumia
             Txt(new Rect(36, 102, 1100, 30), "남은 작업 횟수  " + s.campActions + " / 3", 20, Gold);
             for (int i = 0; i < 5; i++) if (Btn(new Rect(36 + i * 175, 152, 161, 38), SlotName((GearSlot)i), craftSlot == (GearSlot)i, Mint)) { craftSlot = (GearSlot)i; scroll = Vector2.zero; }
             if (Btn(new Rect(933, 152, 305, 38), "가방에서 요리 / 회복", false, Gold)) { inventory = true; inventoryTab = 2; inventoryScroll = Vector2.zero; }
-            var gear = GameDatabase.Gear.Where(x => x.slot == craftSlot).ToArray();
-            scroll = GUI.BeginScrollView(new Rect(36, 211, 1202, 366), scroll, new Rect(0, 0, 1174, Mathf.Ceil(gear.Length / 3f) * 151));
+            Txt(new Rect(36, 202, 95, 28), "장비 검색", 12, Muted);
+            string query = GUI.TextField(new Rect(133, 198, 322, 34), craftQuery, field);
+            if (query != craftQuery) { craftQuery = query; scroll = Vector2.zero; }
+            if (Btn(new Rect(471, 198, 100, 34), "초기화", false, Muted)) { craftQuery = ""; craftTags.Clear(); scroll = Vector2.zero; }
+            Txt(new Rect(590, 203, 645, 24), "태그를 여러 개 고르면 모든 옵션을 가진 장비를 찾습니다.", 11, Muted);
+            var tags = GameDatabase.Gear.SelectMany(g => g.optionTags ?? new string[0]).Distinct().ToArray();
+            float tagWidth = Math.Min(115, (1202f - Math.Max(0, tags.Length - 1) * 7) / Math.Max(1, tags.Length));
+            for (int i = 0; i < tags.Length; i++)
+                if (Btn(new Rect(36 + i * (tagWidth + 7), 243, tagWidth, 29), tags[i], craftTags.Contains(tags[i]), Gold))
+                { if (!craftTags.Add(tags[i])) craftTags.Remove(tags[i]); scroll = Vector2.zero; }
+            var gear = FilterCraftGear().ToArray();
+            Txt(new Rect(36, 283, 1202, 20), "검색 결과 " + gear.Length + "개" + (craftTags.Count > 0 ? "  /  " + string.Join(" · ", craftTags) : ""), 11, Muted);
+            scroll = GUI.BeginScrollView(new Rect(36, 310, 1202, 284), scroll, new Rect(0, 0, 1174, Mathf.Ceil(gear.Length / 3f) * 151));
+            if (gear.Length == 0) Para(new Rect(15, 16, 1130, 55), "조건에 맞는 장비가 없습니다. 다른 슬롯을 선택하거나 검색어와 태그를 줄여보세요.", 15, Muted);
             for (int i = 0; i < gear.Length; i++)
             {
                 var g = gear[i]; Rect r = new Rect(i % 3 * 393, i / 3 * 151, 378, 136);
@@ -609,6 +624,14 @@ namespace Lumia
             if (Btn(new Rect(999, 626, 241, 48), "불을 떠나기  >", true, Mint)) Act(Engine.LeaveCamp);
             Txt(new Rect(36, 625, 925, 45), "각 슬롯은 최대 2개. 무기 제작 시 무기군 스킬이 덱에 추가됩니다. 슬롯이 가득 차면 교체할 장비를 선택합니다.", 11, Muted);
             if (!string.IsNullOrEmpty(craftPending)) DrawCraftReplacement();
+        }
+
+        IEnumerable<GearDef> FilterCraftGear()
+        {
+            string query = (craftQuery ?? "").Trim();
+            return GameDatabase.Gear.Where(g => g.slot == craftSlot
+                && craftTags.All(tag => (g.optionTags ?? new string[0]).Contains(tag))
+                && (query.Length == 0 || (g.name + " " + g.weaponClass + " " + g.description + " " + string.Join(" ", g.optionTags ?? new string[0])).IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0));
         }
 
         void DrawCraftReplacement()
@@ -919,11 +942,12 @@ namespace Lumia
             Txt(new Rect(480, 163, 560, 28), d.owner + "  /  " + d.key + "  /  코스트 " + d.cost + (currentCost != d.cost ? " → 현재 " + currentCost : ""), 16, Gold);
             DescriptionTabs(new Rect(480,201,559,32));
             if(inBattle && inspectEnemyCard) Txt(new Rect(480,240,560,16),"상대의 기본 효과 · 패시브와 장비 보정은 행동 예고에 반영됩니다.",10,Muted);
-            if(combat && Engine.CardTotalDamage(d.id)>0) Txt(new Rect(480,240,560,16),"현재 연계 포함 예상 공격 피해 " + Engine.CardTotalDamage(d.id) + " · 상대 방어·회피에 따라 달라집니다.",10,Mint);
+            if(combat && Engine.CardTotalDamage(d.id)>0) Txt(new Rect(480,240,560,16),"일반 적중 예상 피해 " + Engine.CardTotalDamage(d.id) + " · 방어·회피" + (d.id == "basic_attack" ? "·치명타" : "") + "에 따라 달라집니다.",10,Mint);
             bool upgraded = combat && Engine.State.upgrades.Contains(d.id);
             string description = combat ? CardPresentation.Describe(d, GameDatabase.Cards, Engine.CardDamage(d.id), d.block > 0 ? d.block + (upgraded ? 3 : 0) : 0, d.heal > 0 ? d.heal + (upgraded ? 2 : 0) : 0) : d.description;
             string rules = CardPresentation.Rules(d);
             string fullText = summaryMode ? CardSummary(d,combat) : DescriptionSummary.Normalize(description + (string.IsNullOrEmpty(rules) ? "" : "\n\n" + rules));
+            if (!summaryMode && d.id == "basic_attack") fullText += "\n\n현재 치명타 확률: " + (inspectEnemyCard ? Engine.EnemyCritChance : Engine.CritChance) + "%. 장비의 치명타 확률은 합산하여 최대 30%까지 적용합니다. 1.5배 계산에서 생기는 소수점은 버립니다.";
             if(combat && !StatusMechanics.CanUse(Engine.State.combat.playerStatuses,d))
                 fullText="현재 상태이상으로 이 카드를 사용할 수 없습니다. 나의 필드에서 발동한 상태와 남은 턴을 확인하세요.\n\n"+fullText;
             wrapped.fontSize = 16;
@@ -947,6 +971,7 @@ namespace Lumia
             if(!summaryMode)
             {
                 var material=GameDatabase.Object(g.objectId);
+                if (g.critChance > 0) text += "\n일반 공격의 치명타 확률이 " + g.critChance + "% 증가합니다. 치명타는 일반 공격 피해를 1.5배로 만들며, 합산 확률은 최대 30%입니다.";
                 text+="\n\n모닥불에서 "+(material?.name??g.objectId)+" 1개를 소모하여 제작합니다.";
                 if(g.slot==GearSlot.Weapon) text+="\n무기를 교체하면 장비로 추가된 D 카드도 교체됩니다. 보상이나 이벤트로 얻은 카드는 유지됩니다.\n알렉스 패시브가 있으면 무기마다 다른 무기군의 D 1장을 추가로 얻습니다.";
                 text+="\n각 장비 슬롯에는 최대 2개를 장착할 수 있습니다.";
@@ -1054,7 +1079,7 @@ namespace Lumia
             Modal(new Rect(206, 85, 868, 550));
             Txt(new Rect(233, 109, 813, 37), (fieldEnemy ? "상대" : "나") + "의 필드 · 상태이상 · 회피율", 25, fieldEnemy ? Pink : Mint);
             var tokens=FieldTokens(fieldEnemy);
-            Txt(new Rect(233, 156, 813, 26), "현재 회피율 " + (fieldEnemy?Engine.EnemyEvasion:Engine.Evasion) + "%  /  아이콘을 눌러 효과의 출처를 확인할 수 있습니다.", 14, Muted);
+            Txt(new Rect(233, 156, 813, 26), "회피 " + (fieldEnemy?Engine.EnemyEvasion:Engine.Evasion) + "% · 일반 공격 치명타 " + (fieldEnemy?Engine.EnemyCritChance:Engine.CritChance) + "%  /  아이콘으로 출처 확인", 14, Muted);
             fieldScroll=GUI.BeginScrollView(new Rect(233, 195, 813, 344), fieldScroll, new Rect(0, 0, 788, Math.Max(330,tokens.Count*72)));
             if (tokens.Count == 0) Txt(new Rect(15, 35, 756, 40), "현재 설치물이나 남아 있는 연계 효과가 없습니다.", 16, Muted, true);
             for (int i=0;i<tokens.Count;i++)
@@ -1117,7 +1142,7 @@ namespace Lumia
         {
             Modal(new Rect(150, 100, 980, 530));
             Txt(new Rect(185, 124, 900, 39), "실험 가이드", 25, Mint);
-            Para(new Rect(185, 181, 900, 356), "01  새 지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 기존 저장 지도의 길이는 그대로 이어집니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 카드 코스트는 0~7이며, 최대 코스트는 레벨에 따라 5~8입니다. 방어도는 다음 내 턴에 사라집니다.\n\n03  스택·표식·설치물은 필드 창에서 확인하세요. 다음 카드 할인과 이번 턴 무료 사용권은 대상 기술에 적용됩니다. 0코스트가 되면 에너지 없이 사용할 수 있습니다.\n\n04  승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다.\n\n05  키오스크에서 재료·음식을 구입하세요. 모닥불은 완전 회복 후 만년 스프 또는 제작·요리 3회를 제공합니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.", 16, Text);
+            Para(new Rect(185, 181, 900, 356), "01  지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 키오스크 주변은 앞뒤 한 단계로 연결된 전투 구역입니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 카드 코스트는 0~7입니다. 최대 코스트는 5로 시작하며 보스 승리마다 1 증가합니다. 일부 조우에서도 올릴 수 있고 레벨 상승으로는 증가하지 않습니다. 방어도는 다음 내 턴에 사라집니다.\n\n03  수치·상태·표식·설치물은 필드 창에서 확인하세요. 할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하여 최대 30%까지 적용합니다.\n\n04  승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다.\n\n05  VF혈액샘플은 두 번째 보스 승리 후 구매합니다. 만년 스프와 완성 요리는 모닥불에서 얻습니다. 모닥불 제작은 이름·옵션 태그로 검색할 수 있고 요리와 합쳐 최대 3회입니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.", 15, Text);
             if (Btn(new Rect(185, 550, 900, 45), "기록 확인", true, Mint)) help = false;
         }
 
@@ -1202,6 +1227,7 @@ namespace Lumia
             if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0) return;
             lobby = catalog = inventory = settings = help = fieldInfo = enemyLoadout = false;
             inspectCard = inspectTrait = inspectGear = craftPending = ""; inspectEnemyCard=false; summaryMode=true; scroll = inventoryScroll = encounterStoryScroll = detailScroll = Vector2.zero;summaryScroll.Clear();
+            craftQuery = ""; craftTags.Clear(); craftSlot = GearSlot.Weapon;
             if (view == "lobby") { lobby = true; return; }
             bool showFull=view.EndsWith("_full",StringComparison.Ordinal);
             if(showFull)view=view.Substring(0,view.Length-5);
@@ -1215,6 +1241,7 @@ namespace Lumia
             foreach (string id in Engine.State.draftOffers.Take(3).ToArray()) Engine.ToggleDraft(id);
             if (view == "preparation") { prepStep = 2; return; }
             Engine.BeginJourney();
+            if (view == "help") { help = true; return; }
             if(view=="enemy_loadout" || view=="enemy_field")
             {
                 Engine.State.act=3;Engine.State.row=Engine.State.mapRows-2;Engine.State.lane=1;Engine.State.level=20;
@@ -1230,16 +1257,17 @@ namespace Lumia
                 Engine=new GameEngine(Engine.State);inventory=true;inventoryTab=0;return;
             }
             if(view=="gear_detail") {inspectGear="death_book";summaryMode=!showFull;return;}
-            if (view == "combat" || view == "player_status" || view == "preview_hand" || view.StartsWith("irem_") || view == "combo" || view=="combo_field" || view=="enemy_detail" || view.StartsWith("fx_") || view.StartsWith("mechanic_") || view.StartsWith("trait_") || view.StartsWith("status_") || view=="rune_buff" || view=="rune_healing")
+            if (view == "combat" || view == "critical_detail" || view == "player_status" || view == "preview_hand" || view.StartsWith("irem_") || view == "combo" || view=="combo_field" || view=="enemy_detail" || view.StartsWith("fx_") || view.StartsWith("mechanic_") || view.StartsWith("trait_") || view.StartsWith("status_") || view=="rune_buff" || view=="rune_healing")
             {
                 if(view.StartsWith("trait_")) Engine.State.passives=new List<string>{"isaac_p"};
                 if(view=="trait_revive") Engine.State.passives=new List<string>{"jenny_p"};
-                if(view=="rune_buff") { Engine.State.level=20; Engine.State.mainRune="amplification_drone";Engine.State.supportRune="coupon";Engine.State.passives.Clear(); }
+                if(view=="rune_buff") { Engine.State.level=20; Engine.State.maxEnergyBonus=3; Engine.State.mainRune="amplification_drone";Engine.State.supportRune="coupon";Engine.State.passives.Clear(); }
                 if(view.StartsWith("mechanic_")) { Engine.State.passives.Clear();Engine.State.mainRune="diamond";Engine.State.supportRune="tempering"; }
                 if(view.StartsWith("status_") || view=="rune_healing") { Engine.State.passives.Clear();Engine.State.mainRune=view=="rune_healing"?"healing_drone":"diamond";Engine.State.supportRune="coupon"; }
                 Engine.EnterNode(Engine.AvailableNodes().First().lane);
                 var c = Engine.State.combat;
                 c.enemyHp = c.enemyMaxHp = 600;
+                if (view == "rune_buff") c.energy = 8;
                 if(view=="preview_hand" || view.StartsWith("irem_"))
                 {
                     Engine.State.passives.Clear();
@@ -1317,6 +1345,20 @@ namespace Lumia
                     c.enemySkills.discounts.Add(new SkillCostDiscount{sourceCard="aya_e",targetCard="aya_w",amount=2});
                     inspectCard="aya_w";inspectEnemyCard=true;detailScroll=Vector2.zero;
                 }
+                else if (view == "critical_detail" || view == "fx_critical")
+                {
+                    Engine.State.passives.Clear();Engine.State.gear = new List<string>{"radar", "cube_watch", "cerberus", "meteor_sword", "light_insignia"};
+                    c.enemyEvasion = c.enemyBlock = 0;
+                    c.hand = Enumerable.Repeat("basic_attack", 25).ToList(); c.energy = Engine.MaxEnergy;
+                    if (view == "critical_detail") { inspectCard = "basic_attack"; summaryMode = false; return; }
+                    for (int i = 0; i < 25; i++)
+                    {
+                        c.energy = Engine.MaxEnergy; Engine.CombatActions.Clear(); Engine.PlayCard(0);
+                        if (Engine.CombatActions.Any(action => action.critical)) break;
+                    }
+                    if (!Engine.CombatActions.Any(action => action.critical)) throw new InvalidOperationException("Native critical-hit fixture did not trigger.");
+                    ConsumeCombatActions();
+                }
                 else if (view == "fx_player")
                 {
                     c.hand.Insert(0, "nia_q"); Engine.PlayCard(0); ConsumeCombatActions();
@@ -1343,16 +1385,23 @@ namespace Lumia
                 Engine.State.act = 2; Engine.State.row = 8; Engine.State.lane = 1;
                 foreach (var n in Engine.State.map.Where(n => n.act == 2 && n.row <= 8 && n.lane == 1)) n.visited = true;
             }
-            else if (view == "kiosk" || view=="kiosk_coupon")
+            else if (view == "kiosk" || view=="kiosk_coupon" || view=="kiosk_unlocked")
             {
                 Engine.State.stage = RunStage.Kiosk; Engine.State.credits = 570;
+                if (view == "kiosk_unlocked") { Engine.State.defeatedBosses = new List<string>{"jackie", "aya"}; Engine.State.bossVictories=2; Engine.State.maxEnergyBonus=2; }
                 if(view=="kiosk_coupon") {Engine.State.mainRune="amplification_drone";Engine.State.supportRune="coupon";Engine.State.passives.Clear();}
             }
-            else if (view == "campfire")
+            else if (view == "campfire" || view.StartsWith("campfire_"))
             {
                 Engine.State.stage = RunStage.Campfire; Engine.State.campChoice = 0; Engine.State.campActions = 3;
                 Engine.ChooseCamp(true); Engine.State.objects.AddRange(GameDatabase.Objects.Select(x => x.id));
                 Engine.State.foods.Add(GameDatabase.Foods.First(x => !string.IsNullOrEmpty(x.upgradeTo)).id);
+                if (view == "campfire_critical") { craftSlot=GearSlot.Head; craftTags.Add("치명타"); }
+                if (view == "campfire_tagged") { craftSlot=GearSlot.Arm; craftTags.Add("치명타"); craftTags.Add("일반 공격"); craftQuery="레이더"; }
+                if (view == "campfire_empty") { craftTags.Add("치명타"); craftQuery="없는 장비"; }
+                if (view == "campfire_critical" && (!FilterCraftGear().Any() || FilterCraftGear().Any(g => g.critChance <= 0))) throw new InvalidOperationException("Critical equipment tag filter failed.");
+                if (view == "campfire_tagged" && !FilterCraftGear().Select(g => g.id).SequenceEqual(new[]{"radar"})) throw new InvalidOperationException("Combined name and option-tag filter failed.");
+                if (view == "campfire_empty" && FilterCraftGear().Any()) throw new InvalidOperationException("Empty equipment search was not empty.");
             }
             else if (view == "encounter" || view.StartsWith("encounter_"))
             {
@@ -1362,6 +1411,7 @@ namespace Lumia
                 {
                     string owner=GameDatabase.Characters.First(x=>x.id==(view=="encounter_long"?"debi_marlene":view=="encounter_trade"?"blair":view=="encounter_risky"?"craver":"nia")).name;
                     var encounter=GameDatabase.Events.First(x=>x.owner==owner);
+                    if (view == "encounter_energy") encounter = GameDatabase.Events.First(x => x.options.Any(option => option.effect == "max_energy"));
                     Engine.State.encounterOffers.Add(encounter.id);Engine.SelectEncounter(encounter.id);
                     if(view=="encounter_trade") Engine.State.credits=0;
                     if(view=="encounter_risky") Engine.State.hp=8;

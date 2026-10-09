@@ -1,0 +1,18 @@
+{
+  "id": "encounter",
+  "name": "실험체 조우",
+  "kind": "map",
+  "referencePath": "Assets/Resources/Lumia/SystemIcons/radar.png",
+  "referenceUrl": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Assets/Resources/Lumia/SystemIcons/radar.png",
+  "referenceRole": "existing project pixel UI palette and shape language; new map symbol",
+  "output": "Assets/Resources/Lumia/SystemIcons/encounter.png",
+  "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art MAP NODE icon for Black The Survival, subject encounter / character event node. Input image is a palette and hard pixel UI style reference only. Create exactly ONE instantly readable EVENT/CONVERSATION icon: two small overlapping speech bubbles, pale mint bubble in front with three dark navy square dots, small amber bubble behind on upper-right with tiny magenta sparkle. Both bubbles have thick dark navy stepped pixel outlines, rounded-through-square corners and distinct triangular speech tails. No letters, faces, full characters, weapon, scene, card frame or smooth gradient. Authentic chunky 32x32 logical pixels, enlarged without smoothing, flat limited mint/amber/navy/magenta palette. Center composition, large simple silhouette, clear genuinely transparent margins.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-170871ef-7a6b-40a0-8741-c6d113bf2b0a.png",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "generatedSource": "docs/art-system/map-critical-generated/encounter.png",
+  "referenceInputs": [
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ]
+}

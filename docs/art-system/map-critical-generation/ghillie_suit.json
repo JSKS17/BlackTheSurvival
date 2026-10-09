@@ -1,0 +1,21 @@
+{
+  "id": "ghillie_suit",
+  "name": "길리 슈트",
+  "originalId": 202523,
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_202523.png",
+  "referencePath": "docs/art-system/references/critical/ghillie_suit.png",
+  "originalTooltip": "전설 / 옷\n\n레벨 당 공격력 +3~60\n방어력 +18\n공격 속도 +20%\n치명타 확률 +34%\n\n<b><color=yellow>예열</color></b>\n적 실험체에게 기본 공격을 적중할 때마다 5초 동안 공격 속도가 <color=white>4%</color> 증가하는 중첩을 얻습니다. (최대 5중첩)",
+  "output": "Assets/Resources/Lumia/SystemIcons/ghillie_suit.png",
+  "kind": "gear",
+  "referenceRole": "original Eternal Return equipment silhouette and color",
+  "prompt": "Use case: style-transfer. Asset type: transparent pixel-art equipment icon for Black The Survival. Input image 1 is the ORIGINAL Eternal Return Ghillie Suit (길리 슈트) identity reference. Image 2 is only pixel UI style reference. Create ONE shaggy CAMOUFLAGE VEST with two sleeves and hood/collar angled slightly to upper-right, densely covered in broad olive-green and ochre leaf/tassel clusters, a dark charcoal shoulder/chest armored panel in upper center. Preserve the original bushy green-brown camouflage clothing silhouette. Do not include the original yellow rarity BACKGROUND: outside the suit must be transparent. Not a living bush, tree, character head, pants, animal or hat. Authentic chunky 32x32 logical pixels enlarged, limited olive/ochre/khaki/navy palette, deliberate 1-3-pixel leaf clumps and dark navy stepped outline. Centered isolated garment with clear transparent margin, no scene, text, frame, anti-aliasing or smooth shading.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-311b0c34-28d4-4a3f-a588-3490d3663cd9.png",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "generatedSource": "docs/art-system/map-critical-generated/ghillie_suit.png",
+  "referenceInputs": [
+    "docs/art-system/references/critical/ghillie_suit.png",
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ]
+}

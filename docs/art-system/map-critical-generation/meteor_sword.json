@@ -1,0 +1,21 @@
+{
+  "id": "meteor_sword",
+  "name": "유성검",
+  "originalId": 120404,
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_120404.png",
+  "referencePath": "docs/art-system/references/critical/meteor_sword.png",
+  "originalTooltip": "전설 / 레이피어\n\n공격력 +62\n치명타 확률 +22%\n치명타 피해량 +9%\n\n<b><color=yellow>충전 - 섬광</color></b>\n다음에 가하는 기본 공격이 <color=green>캐릭터 레벨 * 11</color>의 추가 스킬 피해를 입히고 1.5초 동안 이동 속도를 20%만큼 감소시킵니다. (쿨다운: 5초)\n\n운철 중 일부는 드물게 은회색 빛을 띄는 것이 있는데 이를 가공하면 엄청난 강도를 가지는 검을 만들 수 있다. 대신 그만큼 제작하기도 쉽지 않아 양날만 세우고 직도로 가공하는게 보편적이다.",
+  "output": "Assets/Resources/Lumia/SystemIcons/meteor_sword.png",
+  "kind": "gear",
+  "referenceRole": "original Eternal Return equipment silhouette and color",
+  "prompt": "Use case: style-transfer. Asset type: transparent pixel-art equipment icon for Black The Survival. Input image 1 is the ORIGINAL Eternal Return Meteor Sword (유성검), identity reference. Image 2 is only pixel UI style reference. Create ONE slender SILVER RAPIER with very long narrow straight triangular blade angled from lower-left tip to upper-right handle. A dark grey short cylindrical grip, small silver round pommel and thin straight crossguard near upper-right. Bright steel edge and dark navy backside make the long needlelike sword readable. It must look like the original unadorned elegant silver rapier, NOT a broad fantasy sword, flaming meteor, gun, axe or dagger. Exact low-resolution 32x32 logical pixels displayed enlarged: chunky coherent clusters, crisp stepped navy outline and silver/light mint highlights. Isolated centered object filling 85 percent of square with genuinely transparent background, no tile, border, text, scene, antialiasing or smooth shading.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-39e94d68-6199-4e8e-96e7-18ec376d9d14.png",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "generatedSource": "docs/art-system/map-critical-generated/meteor_sword.png",
+  "referenceInputs": [
+    "docs/art-system/references/critical/meteor_sword.png",
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ]
+}

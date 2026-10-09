@@ -1,0 +1,82 @@
+[
+  {
+    "id": "empress",
+    "prompt": "Use case: style-transfer. Asset type: transparent pixel-art equipment icon for Black The Survival. Input image 1 is the ORIGINAL Eternal Return Empress (여제) icon: use it as identity and silhouette reference. Image 2 is only existing UI style reference, not the desired subject. Create exactly ONE recognizable blue arcana Empress icon matching image 1: a dark circular ring surrounding a pale luminous blue lotus flower, silver curved frame sweeping around it with a small crystal near upper-left. The main mass is a CIRCULAR BLUE ARCANA, not a paper card, book, banknote, or wand. Authentic tiny 32x32 logical-pixel sprite shown enlarged with crisp square pixels, limited navy/silver/blue/ice-white palette, hard stepped outline, chunky coherent pixel clusters, sparse magenta glint at most. Isolated centered object taking about 85 percent of square canvas with even transparent margin. Preserve key circular ring and lotus petals. No border, no text, no scene, no anti-aliasing or smooth painterly shading. Actually transparent background.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-ab87f433-09b4-41a3-99cd-efbc27373e68.png",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in image_gen",
+    "transparent_background": true
+  },
+  {
+    "id": "death_book",
+    "prompt": "Use case: style-transfer. Asset type: transparent pixel-art equipment icon for Black The Survival. Input image 1 is the original Eternal Return Death Book (생사부) identity reference. Image 2 is only a UI pixel style reference. Create exactly one GREEN PAPER TALISMAN, a thin long rectangular green banknote/scroll card tilted diagonally upward to the right. Deep jade green printed frame, pale mint paper center with an abstract sharp white talisman brush silhouette and a couple of geometric strokes, curled small silver upper-left edge. Preserve original green flat paper silhouette and pale center; do not make a blue orb, ring, flower, thick book or crown. Style: authentic low-resolution 32x32 logical-pixel sprite shown enlarged, clear chunky square pixel clusters, navy outline, green/mint highlights, tiny amber accent if needed. Isolated centered object with generous clear transparent margin. No readable text, watermark, frame, scene, smooth rendering, or anti-aliasing. Actually transparent background.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-d8500e89-a6b8-4288-b660-8dcabc8c5e82.png",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in image_gen",
+    "transparent_background": true
+  },
+  {
+    "id": "kiosk",
+    "prompt": "Use case: style-transfer. Asset type: transparent pixel-art MAP NODE icon for Black The Survival. Input image 1 shows Eternal Return kiosk location marks: use ONLY the original little gold/yellow C-shaped currency arrow mark inside a dark green hexagonal/circular rim, ignoring the large yellow dashed explanatory circles and map. Input image 2 is UI style reference. Create ONE clean kiosk map node symbol matching that original mark: a thick amber-gold hexagonal coin rim with a squared C-shaped clockwise currency/return-arrow glyph centered inside, dark navy center, small pale mint edge highlights. Easy to distinguish at 36px displayed size. Exact low-resolution 32x32 logical grid displayed enlarged: broad simple 1-3 pixel strokes, chunky square pixels, limited navy/gold/cream/mint palette. No machine, shop facade, text, added question mark, scene, UI border or smooth gradients. Transparent background outside the coin. Centered symmetric icon filling 85 percent of square canvas.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-1ccf8944-2e41-429f-996f-26fdb7661460.png",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in image_gen",
+    "transparent_background": true
+  },
+  {
+    "id": "encounter",
+    "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art MAP NODE icon for Black The Survival, subject encounter / character event node. Input image is a palette and hard pixel UI style reference only. Create exactly ONE instantly readable EVENT/CONVERSATION icon: two small overlapping speech bubbles, pale mint bubble in front with three dark navy square dots, small amber bubble behind on upper-right with tiny magenta sparkle. Both bubbles have thick dark navy stepped pixel outlines, rounded-through-square corners and distinct triangular speech tails. No letters, faces, full characters, weapon, scene, card frame or smooth gradient. Authentic chunky 32x32 logical pixels, enlarged without smoothing, flat limited mint/amber/navy/magenta palette. Center composition, large simple silhouette, clear genuinely transparent margins.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-170871ef-7a6b-40a0-8741-c6d113bf2b0a.png",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in image_gen",
+    "transparent_background": true
+  },
+  {
+    "id": "subject",
+    "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art MAP NODE icon for Black The Survival, subject combat node. Input image is only palette and UI style reference. Create exactly ONE readable SUBJECT BATTLE emblem: two crossed compact modern knives/blades behind a simple navy human-head-and-shoulders bust. The human bust is solid pale mint with dark navy outline, tiny amber visor across eyes and short pointed hair, not a detailed portrait. Crossed blade handles use amber/magenta accents and pale steel blades. Must be distinguishable from wildlife, speech bubbles and a shop at small size. Authentic chunky 32x32 logical pixels shown enlarged, 1-3-pixel-wide steps and coherent clusters, navy outline, mint/steel/amber highlights. No text, circular coin rim, scene, UI border, anti-aliasing or smooth shading. Isolated centered emblem with genuine transparent outside margin.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-a6fe65ca-db16-4ea9-b4d2-cb0c8b683964.png",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in image_gen",
+    "transparent_background": true
+  },
+  {
+    "id": "wildlife",
+    "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art MAP NODE icon for Black The Survival, wildlife combat node. Input image is only palette and pixel UI style reference. Create exactly ONE recognizable WILD WOLF HEAD emblem facing forward with tall sharp ears, broad cheek tufts, pale mint/grey muzzle, dark navy nose and focused amber eyes. Compact symmetric animal silhouette, slightly cute stylized pixel game look but clear feral wolf distinction from human encounter. Thick navy stepped outline, three restrained grey/mint shades, amber eyes; few magenta pixels at most. Authentic chunky 32x32 logical-pixel art enlarged with hard square pixels, generous clear transparent margin, centered filling 85 percent of canvas. No extra paws, weapons, letters, text, scene, UI border, gradients or anti-aliasing.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-b4b7086e-0740-45e0-a814-1099ba924ba3.png",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in image_gen",
+    "transparent_background": true
+  },
+  {
+    "id": "meteor_sword",
+    "prompt": "Use case: style-transfer. Asset type: transparent pixel-art equipment icon for Black The Survival. Input image 1 is the ORIGINAL Eternal Return Meteor Sword (유성검), identity reference. Image 2 is only pixel UI style reference. Create ONE slender SILVER RAPIER with very long narrow straight triangular blade angled from lower-left tip to upper-right handle. A dark grey short cylindrical grip, small silver round pommel and thin straight crossguard near upper-right. Bright steel edge and dark navy backside make the long needlelike sword readable. It must look like the original unadorned elegant silver rapier, NOT a broad fantasy sword, flaming meteor, gun, axe or dagger. Exact low-resolution 32x32 logical pixels displayed enlarged: chunky coherent clusters, crisp stepped navy outline and silver/light mint highlights. Isolated centered object filling 85 percent of square with genuinely transparent background, no tile, border, text, scene, antialiasing or smooth shading.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-39e94d68-6199-4e8e-96e7-18ec376d9d14.png",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in image_gen",
+    "transparent_background": true
+  },
+  {
+    "id": "light_insignia",
+    "prompt": "Use case: style-transfer. Asset type: transparent pixel-art equipment icon for Black The Survival. Input image 1 is the ORIGINAL Eternal Return Light Insignia (빛의 증표) identity reference. Image 2 is only pixel UI style reference. Create ONE gold filigree circlet/tiara: a sweeping thin golden circular arc on upper-left, downward hollow triangular center with a radiant red-orange diamond gemstone hanging near lower-left, and a small wing/flame cluster of gold feathers fanning to upper-right. Preserve the original asymmetric golden curved headpiece and bright central red diamond, NOT a full crown with many points, sun disk, helmet, coin or necklace. Authentic coarse 32x32 logical pixel-art shown enlarged, bright amber/cream/gold/red palette with dark navy outlines, clear clustered pixels and stepped edges. Centered isolated object occupying about 85 percent of canvas. True transparent background, no square backing, frame, text, scene, antialiasing or smooth rendering.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-b3fb99f8-a13a-4982-b836-7b6e4234176f.png",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in image_gen",
+    "transparent_background": true
+  },
+  {
+    "id": "ghillie_suit",
+    "prompt": "Use case: style-transfer. Asset type: transparent pixel-art equipment icon for Black The Survival. Input image 1 is the ORIGINAL Eternal Return Ghillie Suit (길리 슈트) identity reference. Image 2 is only pixel UI style reference. Create ONE shaggy CAMOUFLAGE VEST with two sleeves and hood/collar angled slightly to upper-right, densely covered in broad olive-green and ochre leaf/tassel clusters, a dark charcoal shoulder/chest armored panel in upper center. Preserve the original bushy green-brown camouflage clothing silhouette. Do not include the original yellow rarity BACKGROUND: outside the suit must be transparent. Not a living bush, tree, character head, pants, animal or hat. Authentic chunky 32x32 logical pixels enlarged, limited olive/ochre/khaki/navy palette, deliberate 1-3-pixel leaf clumps and dark navy stepped outline. Centered isolated garment with clear transparent margin, no scene, text, frame, anti-aliasing or smooth shading.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-311b0c34-28d4-4a3f-a588-3490d3663cd9.png",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in image_gen",
+    "transparent_background": true
+  },
+  {
+    "id": "alexandros",
+    "prompt": "Use case: style-transfer. Asset type: transparent pixel-art equipment icon for Black The Survival. Input image 1 is the ORIGINAL Eternal Return Alexandros (알렉산드로스) identity reference. Image 2 is only pixel UI style reference. Create ONE pair of ornate antique GOLD GREAVES/BOOTS leaning diagonally, long metallic golden shin plates, heavy bronze feet facing lower-left and two small pale silver wing decorations sweeping up/right at the knees. Silver wrapped trim and gold segmented shin plates must remain recognizable. Preserve original ornate gold leg armor with pale wing accents, not sandals, a helmet, gun, crown, full person or simple modern shoes. Authentic chunky 32x32 logical pixel-art enlarged, limited bronze/amber/gold/cream/silver/navy palette, stepped hard outline and coherent square clusters. Centered isolated object filling about 85 percent of canvas. Genuine transparent background, no text, tile, border, scene, antialiasing or smooth rendering.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-1cd77c24-edcf-481f-beb8-9196dc460b46.png",
+    "tool": "image_gen.imagegen",
+    "mode": "built-in image_gen",
+    "transparent_background": true
+  }
+]

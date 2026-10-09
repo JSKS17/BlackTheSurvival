@@ -1,0 +1,21 @@
+{
+  "id": "alexandros",
+  "name": "알렉산드로스",
+  "originalId": 204504,
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_204504.png",
+  "referencePath": "docs/art-system/references/critical/alexandros.png",
+  "originalTooltip": "전설 / 다리\n\n공격력 +14\n이동 속도 +0.25\n치명타 확률 +33%\n\n만약 그가 신이 되고 싶다면, 우리는 그저 신이라고 불러주는 수밖에.",
+  "output": "Assets/Resources/Lumia/SystemIcons/alexandros.png",
+  "kind": "gear",
+  "referenceRole": "original Eternal Return equipment silhouette and color",
+  "prompt": "Use case: style-transfer. Asset type: transparent pixel-art equipment icon for Black The Survival. Input image 1 is the ORIGINAL Eternal Return Alexandros (알렉산드로스) identity reference. Image 2 is only pixel UI style reference. Create ONE pair of ornate antique GOLD GREAVES/BOOTS leaning diagonally, long metallic golden shin plates, heavy bronze feet facing lower-left and two small pale silver wing decorations sweeping up/right at the knees. Silver wrapped trim and gold segmented shin plates must remain recognizable. Preserve original ornate gold leg armor with pale wing accents, not sandals, a helmet, gun, crown, full person or simple modern shoes. Authentic chunky 32x32 logical pixel-art enlarged, limited bronze/amber/gold/cream/silver/navy palette, stepped hard outline and coherent square clusters. Centered isolated object filling about 85 percent of canvas. Genuine transparent background, no text, tile, border, scene, antialiasing or smooth rendering.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-1cd77c24-edcf-481f-beb8-9196dc460b46.png",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "generatedSource": "docs/art-system/map-critical-generated/alexandros.png",
+  "referenceInputs": [
+    "docs/art-system/references/critical/alexandros.png",
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ]
+}

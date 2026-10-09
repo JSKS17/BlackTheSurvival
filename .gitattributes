@@ -1,0 +1,6 @@
+# Windows text line endings are valid; Markdown uses two spaces for hard breaks.
+* whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.md whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Preserve Unity's generated empty YAML fields and diagnostic logs verbatim.
+*.meta whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.log whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

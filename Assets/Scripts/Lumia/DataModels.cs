@@ -42,6 +42,8 @@ namespace Lumia
         public GearSlot slot;
         public int attack, block, health, evasion, amount;
         public int controlResistance, damageDeferral;
+        public int critChance;
+        public string[] optionTags = new string[0];
         public TraitMechanicProfile mechanics;
     }
     [Serializable] public class FoodDef

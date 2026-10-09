@@ -1,0 +1,18 @@
+{
+  "id": "wildlife",
+  "name": "야생동물 전투",
+  "kind": "map",
+  "referencePath": "Assets/Resources/Lumia/SystemIcons/radar.png",
+  "referenceUrl": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Assets/Resources/Lumia/SystemIcons/radar.png",
+  "referenceRole": "existing project pixel UI palette and shape language; new map symbol",
+  "output": "Assets/Resources/Lumia/SystemIcons/wildlife.png",
+  "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art MAP NODE icon for Black The Survival, wildlife combat node. Input image is only palette and pixel UI style reference. Create exactly ONE recognizable WILD WOLF HEAD emblem facing forward with tall sharp ears, broad cheek tufts, pale mint/grey muzzle, dark navy nose and focused amber eyes. Compact symmetric animal silhouette, slightly cute stylized pixel game look but clear feral wolf distinction from human encounter. Thick navy stepped outline, three restrained grey/mint shades, amber eyes; few magenta pixels at most. Authentic chunky 32x32 logical-pixel art enlarged with hard square pixels, generous clear transparent margin, centered filling 85 percent of canvas. No extra paws, weapons, letters, text, scene, UI border, gradients or anti-aliasing.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-b4b7086e-0740-45e0-a814-1099ba924ba3.png",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "generatedSource": "docs/art-system/map-critical-generated/wildlife.png",
+  "referenceInputs": [
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ]
+}

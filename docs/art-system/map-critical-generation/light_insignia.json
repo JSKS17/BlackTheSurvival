@@ -1,0 +1,21 @@
+{
+  "id": "light_insignia",
+  "name": "빛의 증표",
+  "originalId": 201502,
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_201502.png",
+  "referencePath": "docs/art-system/references/critical/light_insignia.png",
+  "originalTooltip": "전설 / 머리\n\n공격력 +20\n공격 속도 +25%\n치명타 확률 +35%\n치명타 피해량 +4%\n\n<b><color=yellow>치유 감소</color></b>\n상대에게 피해를 입히면 피격된 대상의 치유 효과가 4초 동안 <color=white>20%</color> 감소합니다.\n\n어둠의 세력을 무찌를 힘이 샘솟는 것 같다. 물론 다 무찌르고 난 후에는 팔아서 노후 생활을 대비하자.",
+  "output": "Assets/Resources/Lumia/SystemIcons/light_insignia.png",
+  "kind": "gear",
+  "referenceRole": "original Eternal Return equipment silhouette and color",
+  "prompt": "Use case: style-transfer. Asset type: transparent pixel-art equipment icon for Black The Survival. Input image 1 is the ORIGINAL Eternal Return Light Insignia (빛의 증표) identity reference. Image 2 is only pixel UI style reference. Create ONE gold filigree circlet/tiara: a sweeping thin golden circular arc on upper-left, downward hollow triangular center with a radiant red-orange diamond gemstone hanging near lower-left, and a small wing/flame cluster of gold feathers fanning to upper-right. Preserve the original asymmetric golden curved headpiece and bright central red diamond, NOT a full crown with many points, sun disk, helmet, coin or necklace. Authentic coarse 32x32 logical pixel-art shown enlarged, bright amber/cream/gold/red palette with dark navy outlines, clear clustered pixels and stepped edges. Centered isolated object occupying about 85 percent of canvas. True transparent background, no square backing, frame, text, scene, antialiasing or smooth rendering.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11f03-cc0e-7741-8c94-d622f4d23e1e\\exec-b3fb99f8-a13a-4982-b836-7b6e4234176f.png",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "generatedSource": "docs/art-system/map-critical-generated/light_insignia.png",
+  "referenceInputs": [
+    "docs/art-system/references/critical/light_insignia.png",
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ]
+}

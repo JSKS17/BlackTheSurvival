@@ -16,7 +16,7 @@ public static class BalanceSimulation
             var e = new GameEngine(seed);
             e.SetRunes("diamond", "tempering");
             e.SelectStartingPassive(e.State.passiveOffers.OrderBy(id => PassiveScore(GameDatabase.Passive(id))).Last());
-            foreach (var id in e.State.draftOffers.OrderByDescending(id => DraftScore(GameDatabase.Card(id))).Take(3).ToArray()) e.ToggleDraft(id);
+            foreach (var id in e.State.draftOffers.Where(id => CanAcquireCard(e,GameDatabase.Card(id))).OrderByDescending(id => DraftScore(GameDatabase.Card(id))).Take(3).ToArray()) e.ToggleDraft(id);
             e.BeginJourney(); int steps = 0, turns = 0, fights = 0;
             while (e.State.stage != RunStage.Won && e.State.stage != RunStage.Lost && steps++ < 2000)
             {
@@ -26,10 +26,10 @@ public static class BalanceSimulation
                         e.EnterNode(e.AvailableNodes().OrderBy(n => ZoneScore(e, n)).Last().lane); if (e.State.stage == RunStage.Combat) fights++;
                         break;
                     case RunStage.Combat:
-                        if (e.State.hp <= e.State.maxHp * 0.40 && e.State.foods.Count > 0)
+                        while (e.State.hp <= e.State.maxHp * 0.40 && e.State.foods.Count > 0)
                         {
-                            int foodIndex = e.State.foods.FindIndex(id => GameDatabase.Food(id).fullHeal);
-                            if (foodIndex < 0) foodIndex = 0; e.UseFood(foodIndex);
+                            int foodIndex = Enumerable.Range(0,e.State.foods.Count).OrderBy(i => GameDatabase.Food(e.State.foods[i]).fullHeal ? e.State.maxHp : GameDatabase.Food(e.State.foods[i]).heal).Last();
+                            if (!e.UseFood(foodIndex)) break;
                         }
                         int plays = 0;
                         while (e.State.stage == RunStage.Combat && plays++ < 30)
@@ -44,7 +44,7 @@ public static class BalanceSimulation
                     case RunStage.Rewards:
                         foreach (var id in e.State.rewards.choices.OrderByDescending(x => DraftScore(GameDatabase.Card(x))).ToArray())
                         {
-                            if (e.RewardRemainingBudget < e.RewardCardPrice(id)) continue;
+                            if (e.RewardRemainingBudget < e.RewardCardPrice(id) || !CanAcquireCard(e,GameDatabase.Card(id))) continue;
                             if (DraftScore(GameDatabase.Card(id)) >= 7 && e.State.deck.Count < 20) e.ClaimCard(id);
                         }
                         e.FinishRewards(); break;
@@ -58,7 +58,14 @@ public static class BalanceSimulation
                             if (owned > 0 || e.State.gear.Count(x => GameDatabase.Equipment(x).slot == gear.slot) >= 2) continue;
                             if (!e.State.objects.Contains(gear.objectId) && e.State.credits >= GameDatabase.Object(gear.objectId).price + 75) e.BuyObject(gear.objectId);
                         }
-                        if (e.State.foods.Count < 2 && e.State.credits >= 150) e.BuyFood("soup");
+                        // Buy only actual stock. Value cooking ingredients at their recipe output only
+                        // when a visible nearby camp and spare combined actions make cooking plausible.
+                        bool canCookSoon = CanReachCampSoon(e) && e.State.objects.Count < 3 && e.State.hp > e.State.maxHp * .40;
+                        while (e.State.foods.Count < 2)
+                        {
+                            var food = e.KioskFoods.Where(x => e.CanBuyFood(x.id)).OrderByDescending(x => FoodValue(e,x,canCookSoon)).FirstOrDefault();
+                            if (food == null || !e.BuyFood(food.id)) break;
+                        }
                         e.LeaveKiosk(); break;
                     case RunStage.Campfire:
                         var craftable = CraftPlan(e);
@@ -71,11 +78,19 @@ public static class BalanceSimulation
                                 var choice = CraftPlan(e).FirstOrDefault(); if (choice == null) break;
                                 e.Craft(choice.id);
                             }
+                            while (e.State.campActions > 0)
+                            {
+                                int foodIndex = Enumerable.Range(0,e.State.foods.Count).Where(i => GameDatabase.Food(GameDatabase.Food(e.State.foods[i]).upgradeTo) != null)
+                                    .OrderByDescending(i => GameDatabase.Food(GameDatabase.Food(e.State.foods[i]).upgradeTo).heal - GameDatabase.Food(e.State.foods[i]).heal).DefaultIfEmpty(-1).First();
+                                if (foodIndex < 0 || !e.Cook(foodIndex)) break;
+                            }
                             e.LeaveCamp();
                         }
                         break;
                     case RunStage.Encounter:
-                        if (string.IsNullOrEmpty(e.State.chosenEventId)) e.SelectEncounter(e.State.encounterOffers[0]);
+                        // The three authored offers and their rewards are public definitions; no RNG is inspected.
+                        if (string.IsNullOrEmpty(e.State.chosenEventId)) e.SelectEncounter(e.State.encounterOffers
+                            .OrderBy(id => GameDatabase.Event(id).options.Where(o => AffordableOption(e,o)).Select(o => EventScore(e,o)).DefaultIfEmpty(float.NegativeInfinity).Max()).Last());
                         var ev = GameDatabase.Event(e.State.chosenEventId);
                         var options = Enumerable.Range(0, ev.options.Length).Where(e.CanChooseEventOption).OrderBy(i => EventScore(e, ev.options[i]));
                         e.ChooseEventOption(options.Last());
@@ -134,13 +149,39 @@ public static class BalanceSimulation
     }
     private static float EventScore(GameEngine e, EventOption o)
     {
+        // Permanent energy is useful every remaining turn. Favor it over one material while capacity
+        // still limits the card pool; healing can outrank it when the player is badly wounded.
+        if(o.effect=="max_energy" || o.effect=="energy")return Math.Max(0,o.amount)*(e.PlayerBaseEnergy<GameDatabase.Cards.Max(c=>c.cost)?80:40);
         return o.effect == "heal" ? Math.Min(o.amount, e.State.maxHp - e.State.hp) : o.effect == "credits" ? o.amount / 3 : o.effect == "object" ? 70 : o.effect == "max_health" ? o.amount * 3
-            : o.effect == "card" ? DraftScore(GameDatabase.Card(o.cardId)) : o.effect == "upgrade_card" ? 15
-            : o.effect=="trade_card"?DraftScore(GameDatabase.Card(o.cardId))-o.amount/20f
-            : o.effect=="risky_card"?DraftScore(GameDatabase.Card(o.cardId))-o.amount*.5f
+            : o.effect == "card" ? RewardCardScore(e,o.cardId) : o.effect == "upgrade_card" ? 15
+            : o.effect=="trade_card"?RewardCardScore(e,o.cardId)-o.amount/20f
+            : o.effect=="risky_card"?RewardCardScore(e,o.cardId)-o.amount*.5f
             : o.effect=="trade_object"?45-o.amount/15f
             : o.effect=="risky_object"?50-o.amount*.5f
             : o.effect=="food"?10:0;
+    }
+    private static bool CanAcquireCard(GameEngine e,CardDef card)
+    {
+        return card!=null && (card.cost<=e.PlayerBaseEnergy || e.State.deck.Select(GameDatabase.Card).Any(source=>source!=null && source.freeCastCount>0 && (source.freeCastTargets ?? new string[0]).Contains(card.id)));
+    }
+    private static float RewardCardScore(GameEngine e,string id) { var card=GameDatabase.Card(id);return CanAcquireCard(e,card)?DraftScore(card):0; }
+    private static bool AffordableOption(GameEngine e,EventOption option)
+    {
+        if(option.effect=="trade_card" || option.effect=="trade_object")return e.State.credits>=Math.Max(0,option.amount);
+        if(option.effect=="risky_card" || option.effect=="risky_object")return e.State.hp>Math.Max(0,option.amount);
+        if(option.effect=="remove_card")return e.State.deck.Count>5 && e.State.deck.Any(id=>GameDatabase.Card(id)?.category!="weapon");
+        if(option.effect=="upgrade_card")return e.State.deck.Any(id=>GameDatabase.Card(id)?.category!="weapon" && !e.State.upgrades.Contains(id));
+        return true;
+    }
+    private static bool CanReachCampSoon(GameEngine e)
+    {
+        var here=e.State.map.FirstOrDefault(n=>n.id==e.State.activeNodeId);
+        return here!=null && e.State.map.Any(n=>n.act==here.act && n.kind==ZoneKind.Campfire && n.row>here.row && n.row<=here.row+2 && Math.Abs(n.lane-here.lane)<=n.row-here.row);
+    }
+    private static float FoodValue(GameEngine e,FoodDef food,bool canCookSoon)
+    {
+        var cooked=canCookSoon?GameDatabase.Food(food.upgradeTo):null;
+        return (cooked==null?food.heal:cooked.heal)/(float)Math.Max(1,e.FoodPrice(food.id));
     }
 }
 #endif
