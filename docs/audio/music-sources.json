@@ -1,0 +1,44 @@
+[
+  {
+    "id": "music_red_heart",
+    "title": "Red Heart",
+    "performer": "Haesoo",
+    "path": "Lumia/Audio/Music/music_red_heart",
+    "file": "Assets/Resources/Lumia/Audio/Music/music_red_heart.mp3",
+    "sourcePage": "https://event.playeternalreturn.com/S10/OST/RedHeart?hl=ko-KR",
+    "sourceUrl": "https://cdn.playeternalreturn.com/event/season10/redheart/UwBxA/ERS10_Red_Heart.mp3",
+    "sourceName": "ERS10_Red_Heart.mp3",
+    "origin": "official_original_music",
+    "alteration": "None; official MP3 bytes preserved. Unity imports streaming Vorbis.",
+    "bytes": 4823506,
+    "sha256": "85f2bd29fdf3417ea3d537bd851cb7fd475e0a32981e97af2bdfc3285c1017c8"
+  },
+  {
+    "id": "music_golden_willow",
+    "title": "Golden Willow",
+    "performer": "Byeol Eun",
+    "path": "Lumia/Audio/Music/music_golden_willow",
+    "file": "Assets/Resources/Lumia/Audio/Music/music_golden_willow.mp3",
+    "sourcePage": "https://event.playeternalreturn.com/S9/GoldenWillow?hl=ko-KR",
+    "sourceUrl": "https://cdn.playeternalreturn.com/event/season9/willow/ERS9_Golden_Williow_KR.mp3",
+    "sourceName": "ERS9_Golden_Williow_KR.mp3",
+    "origin": "official_original_music",
+    "alteration": "None; official MP3 bytes preserved. Unity imports streaming Vorbis.",
+    "bytes": 4733084,
+    "sha256": "ad4764b705eb6c6e71d832a4b64e67ecaac581ea8c7b38e8f9463fa2b2186ffb"
+  },
+  {
+    "id": "music_summertime",
+    "title": "Summertime",
+    "performer": "Eternal Return OST",
+    "path": "Lumia/Audio/Music/music_summertime",
+    "file": "Assets/Resources/Lumia/Audio/Music/music_summertime.mp3",
+    "sourcePage": "https://event.playeternalreturn.com/S8/SummertimeMelody?hl=ko-KR",
+    "sourceUrl": "https://cdn.playeternalreturn.com/event/season8/melody/summertime.mp3",
+    "sourceName": "summertime.mp3",
+    "origin": "official_original_music",
+    "alteration": "None; official MP3 bytes preserved. Unity imports streaming Vorbis.",
+    "bytes": 5286645,
+    "sha256": "4a160940b4541883947d76406ed70f0659efa1d8ffae00ec8b101b6838f0eb29"
+  }
+]

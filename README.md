@@ -4,7 +4,7 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.9](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.9)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.10](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.10)에 있습니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
 - 완성된 Windows 빌드가 있으면 `Build/Windows/BlackTheSurvival.exe`를 실행하세요. 같은 폴더의 `BlackTheSurvival_Data`, `MonoBleedingEdge`, `UnityPlayer.dll`도 함께 있어야 합니다.
@@ -67,6 +67,12 @@ Q/W/E/R 364종은 실험체별 스택·표식·설치물·소환·지연 공격�
 장착한 무기마다 해당 D가 덱에 들어갑니다. 알렉스 패시브가 있으면 무기마다 다른 무기군 D도 1장씩 받습니다. 장비 지급 카드를 별도로 추적하여 교체 후에도 다른 경로로 얻은 D는 남습니다. [장비와 적 구성](docs/EQUIPMENT_LOADOUTS.md)에 원본 효과 변환을 기록했습니다. 오브젝트 드롭률은 늑대 25%, 곰 35%, 키오스크 주변 실험체 25%입니다. 추가 장비·D 아이콘 32개는 [개별 제작 기록](docs/art-system/loadout-asset-index.json)을 보관합니다.
 
 캐시 Q는 이번 적중으로 상처가 최대치 3에 도달해야 무료 재사용을 얻습니다. 쇼이치·셀린·얀·칼라·비앙카도 단검·폭탄·강화·작살·혈액 준비가 필요합니다. 조건과 횟수는 카드 요약·전체 설명에 표시하며, [기술 연계 조건](docs/CONDITIONAL_RECASTS.md)에 정리했습니다.
+
+## 사운드
+
+공식 공개 OST **Summertime·Golden Willow·Red Heart**를 로비·탐험·전투 등 상황에 맞춰 재생합니다. 원본 한국어 스킬 보이스 339개, 니아 상황 보이스 10개, 아나운서 보이스 4개도 포함합니다. 공개 팬키트에 원본이 없는 매칭·야생동물·키오스크·제작·요리 등은 이 프로젝트에서 제작한 효과음 65개로 보완했습니다. 원본 로비 테마나 모든 기술의 원본 효과음을 가져온 것은 아닙니다. [음원 구성과 출처](docs/AUDIO.md)를 확인할 수 있습니다.
+
+환경 설정에서 **전체 음량·음악·효과음 및 보이스**를 각각 조절하고 소리 전체를 끌 수 있습니다. 화면을 바꿀 때 음악이 부드럽게 전환되고, 같은 곡을 쓰는 화면에서는 재시작하지 않습니다. 카드·상태이상·패시브가 동시에 발동해도 중복 효과음과 보이스가 과도하게 겹치지 않도록 제한합니다.
 
 ## 저장과 설정
 

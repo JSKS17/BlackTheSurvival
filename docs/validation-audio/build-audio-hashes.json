@@ -1,0 +1,4757 @@
+[
+  {
+    "file": "Assets/Resources/Lumia/Audio/catalog.json",
+    "sha256": "95cea0f6d0047c2f11394fa6c10a8734efda54dacc69cb2892e59f955d791188",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/catalog.json.meta",
+    "sha256": "d594c95528ba92351c3ef23869b3f29be4226054bc84d875b3baf38779bd47bb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/cook_sizzle.wav",
+    "sha256": "419142904a6d96185cf9c97f51f84a8e97f6d0860ea4d5ddf380d24fd5454bab",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/cook_sizzle.wav.meta",
+    "sha256": "473a8dc635833bf98cdf818ae118eaec8bf00356de421a8f5ee0125558fb9d3b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/craft_complete.wav",
+    "sha256": "9afe3e572645a21766a3991588807c21d7bdabe4b00b874959c12e358ab49bb3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/craft_complete.wav.meta",
+    "sha256": "6ca257dc3c806c8955baa28a8adf938dac3bb6ba8e621def7ddf88431e4053ae",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/craft_metal.wav",
+    "sha256": "d3ec84ef80af03695bcdc8e7282f690cbb9e0d05612f7a938c6092ac338ef38b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/craft_metal.wav.meta",
+    "sha256": "3eed7300ed3f1c5788d56ccf77b7bdeee5744517df88cf72215bd0e48182b433",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/eat.wav",
+    "sha256": "f2bc823416ac57ceb990931b7bacd43ac829b710d350bbc038ae628308f418b4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/eat.wav.meta",
+    "sha256": "0db2e0e3d93a2dcfd4c4c45fb5906a2bff1b5338dab853af93087bb45696ccf4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/enter.wav",
+    "sha256": "eda3c1450afe879daa5a5af1641f72ba74c8d33db81cd7c6d247e7c6cc325eda",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/enter.wav.meta",
+    "sha256": "42ec7ac6680c561f50577a6c6004327c8f887222b21401d17e065274406377d2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/fire_loop.wav",
+    "sha256": "61f91b9a6d4f3180d754f25490d56bb3801173d7bb2333cd3187e8257041fceb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/fire_loop.wav.meta",
+    "sha256": "4577c62778867ac7059c97f3da4f35518df6ab5384c0b179af937dbc274dab3c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/rest.wav",
+    "sha256": "ba209564681fc8b0430fb4ddbfc3a28251b4d5e595b86487f34068fef9bda6d2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp/rest.wav.meta",
+    "sha256": "d39243771837cac4015a714f4c6d25f0213ae64db45cf4ac1784f8ff76639a67",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Camp.meta",
+    "sha256": "5c32d39976f4086251b51c23b4c5d42338298b1e1db220aa2752a04c7681834c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Combat/boss_start.wav",
+    "sha256": "cc364c3526d8132940dc0f08ebaf763dce4c8326a728c4c8f7061fc4330cff64",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Combat/boss_start.wav.meta",
+    "sha256": "f1f7950c9e6873e2e41653684f375a5e796c7179a82bea4b464f7193334714f4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Combat/critical.wav",
+    "sha256": "d9b7bc50452bec6f8d21eadbedb7eaf42e57b9605a39baecda7eaff16c7b9c06",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Combat/critical.wav.meta",
+    "sha256": "2ce041709d06c0c23538ee25787e2dd0fc84d011c060a7315ebb805ac55622c6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Combat/start.wav",
+    "sha256": "0af1df562bd5073b19ead14dc2efd6ca1907983761348bac7472410417039b57",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Combat/start.wav.meta",
+    "sha256": "a9d665d5c015f1a2712bc28ff4a319556aefb31022f12330b9d42e4d99e58bc2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Combat/turn_end.wav",
+    "sha256": "3b2de9dbf0a12ba31c211e365ce39ae54a4a9c42f26302539fd84485ebbf2a12",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Combat/turn_end.wav.meta",
+    "sha256": "bf0de9d028146c42f69225e7c0226396b0532ac1521d6948085ee9a04f7b6c2b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Combat/win.wav",
+    "sha256": "2f2413cc3715e5c026aec3396ef7f5e2fedad9b5ddb988ad69664e3be8fa21f7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Combat/win.wav.meta",
+    "sha256": "f7fe858bf7528c05174f7f6f495f91b2cc3a0db8c6e1a2e092fe79e28efd2f2e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Combat.meta",
+    "sha256": "8e8db7ea3191c01f9ba36ec7ca0f96c74c70bd5053f7e4089f28f8ed18abdff7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Encounter/choose.wav",
+    "sha256": "c24aab7a8ab279e68048a0ac75a43f30a053c64994df4e331981887ec76774d0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Encounter/choose.wav.meta",
+    "sha256": "56cc7dfa0f28928208d3a70ef4158a1069b93f2cfec88b6c513925a399f1d5ca",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Encounter/enter.wav",
+    "sha256": "3f2c07cd50f6b6199239d7c5a4c2b05ea6ddd94cce44948c5a1594fa0fe3c20f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Encounter/enter.wav.meta",
+    "sha256": "9afc13af8e2b72980c4c72702088abccea3015594c873401c0100b903c6622d4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Encounter.meta",
+    "sha256": "161affaf1226178b0b4109b8b60347239c3e02ec2976842d42c591aff4b7e645",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game/level_up.wav",
+    "sha256": "1cfc60a48704452f3254b564401dd76144a12804d43f47455628d44c683cd465",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game/level_up.wav.meta",
+    "sha256": "190f48cfbe13058be00d539ac382caf223f3813e23d4a3af744148784943113b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game/lose.wav",
+    "sha256": "386ca7e8384285939926fc6c7775de5724af284acf95b0a9b27b036953f0c4cb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game/lose.wav.meta",
+    "sha256": "a43a53c683a56b926059ca8cd01ea7eaabf6badfe1fd04c8195a8f428af27d7b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game/match_found.wav",
+    "sha256": "13c6c11f9dd8587212ad9edc49dd8311d6de4dc27d578c2cb26dcaa823b320d3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game/match_found.wav.meta",
+    "sha256": "703f356b74ac06f56bd566d921e647e530cb5555404f48d33fd01b937be66c60",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game/resume.wav",
+    "sha256": "8ddc879d44cad01efa5754976419a8c827157b02f36117bd689e2d6e89b41d4e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game/resume.wav.meta",
+    "sha256": "6001260f002bea65796b06adb586fb07b8eea8ab845fa66b79767bb20df09a4c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game/revive.wav",
+    "sha256": "3ee334cabb1f612e75347240beb15ed73b8d942c57275698767329df950aeb0d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game/revive.wav.meta",
+    "sha256": "d78e65862bf02e9ca1782f91f20ca9a9ef32a1d907d78d3a97043bce3b61ca64",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game/win.wav",
+    "sha256": "326786c3dc12e2abf499cbe2f3632516ebed616afaf3b27b32ebb3858e1e0e23",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game/win.wav.meta",
+    "sha256": "a138887e8d688dbf608018ceb7d655991a3596d325aa40b923b00ac2ee96fc05",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Game.meta",
+    "sha256": "20877ebfd1c74a4d191726c69cda5f24c4d72c97be29f3d25f9bd4d1194ed749",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Kiosk/enter.wav",
+    "sha256": "fc30ab973e786b83dc4b63af6daf05811294a6bdcc6317097510bff073b90c9b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Kiosk/enter.wav.meta",
+    "sha256": "8948230714ba955b4d28d73c74292434527643047c7bb05c0ee035e9cd925126",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Kiosk/purchase.wav",
+    "sha256": "5a6b0493506269bb539a3cc5c5c8bbafa27d11fee79e36e8eb5c96fa625f04ec",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Kiosk/purchase.wav.meta",
+    "sha256": "4867f53f71ff4103b0e502b93b78ff6805a3ccd30b30216ac94d0ec9fb5c9869",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Kiosk.meta",
+    "sha256": "0b909cd2732b199aeca4463a7bf5c7a33e43419b9f97b953fa4dc0898dcf0a74",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Map/travel.wav",
+    "sha256": "0dd6480e0aa97d36cc7dd65ed8cb067239935f4a0967adb6fa0aa38a7ec24f02",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Map/travel.wav.meta",
+    "sha256": "72a059b95f946a6d556b87c13e786b309a3fc06215325b9d7b3dd3c4722ea0da",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Map.meta",
+    "sha256": "edc717fb31d920fc91f96b09b442daa7feab1d9738be7594a733dc7e5e5bcc4e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Reward/confirm.wav",
+    "sha256": "baf32bcebc2584088544ef86fe0d9a4499e616fd85ae90fb28fe1d808cb42a41",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Reward/confirm.wav.meta",
+    "sha256": "893743f679c9535837f48e7f873c9ce1cf26ffa2734057631d73df6c747d86b6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Reward/select.wav",
+    "sha256": "0ea24357840a4aefdb1825f59ce2ba2ad872e704aebe75985af4da28fa630fad",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Reward/select.wav.meta",
+    "sha256": "59db70881707542a52686caac96462b37ad5556ba6a9336f0208162a38713570",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Reward.meta",
+    "sha256": "aaa4fb0e885893901af1e7b50a363662d2f65ba0f65b9cfcf4a5fd90d7003335",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/arcade.wav",
+    "sha256": "1b0e175ea8e7970dcfadea8ea45c405f3cfdb9d6027bf36f1c4a1efe459d0dad",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/arcade.wav.meta",
+    "sha256": "97a19d60cc480305fbcd6fdd130a723894f451474e7bbcb7f71b4fe3edf45b9c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/arcane.wav",
+    "sha256": "6ad42b4f59303b309e7d6e97a870405b7aff765bb8552f56456ed841b378a9ce",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/arcane.wav.meta",
+    "sha256": "53cf6c6d566bdd4b8573af4c95e62f6145968d04e359fe94245d9a3d4e3a9661",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/bowed_music.wav",
+    "sha256": "307a1b97b79a7fe44836b47adac603e266ed3ddaf97ca820ce0a3199707e6614",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/bowed_music.wav.meta",
+    "sha256": "a2734deae3e490a845a748f123a5a53d34490afd7e6e04ab7a299adcef5da858",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/dash.wav",
+    "sha256": "7f07843ab7d65a1fe5c43ee907f8ee41bef50ad28ed6119552b2ad4eb510c5e0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/dash.wav.meta",
+    "sha256": "46fc54e4c04f67e9b2218bc6cd2279d1998bf3e2fc057d5aaf4b55317c13f368",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/explosion.wav",
+    "sha256": "e2a4d1fd0ae7d33d16de5c84530d019b21750c37f5bab1da2808beb0bc0495cf",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/explosion.wav.meta",
+    "sha256": "1b9ba5d7d5d22ee11a5c75ef3b9aa31659c9428e067aec5e8178b2c381a0a58e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/flame.wav",
+    "sha256": "dac59e683310a1c0ca18cab1ba3f5018801f81fd64e086164a99860b74766a07",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/flame.wav.meta",
+    "sha256": "69417374c74f8d1bab9e7a19286d9dd11843361cb9e23453ac340d067ad18483",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/heal.wav",
+    "sha256": "1bed4e2bb0cf82ab8aee46ceee2c7ca460c47a3f08b21815f8daa3d78b820e84",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/heal.wav.meta",
+    "sha256": "0cd81b793af2e1272c07a21514714a4e71f1335c4bfec011b88d5b6a32e7f4ba",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/ice.wav",
+    "sha256": "f3e4b0e64665ba5068fe4b48a14a8f90165ad90d5fc9b9a672e7e3dd1a0e7891",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/ice.wav.meta",
+    "sha256": "5df20962838e0a03109ff62f380080d649ab3cc475a0faea21cd1fdae68a9c41",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/lightning.wav",
+    "sha256": "f82775b2e67d6cc0aaefcee32d16d6be3920bf93a3cceef688f83c11ebea3f9e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/lightning.wav.meta",
+    "sha256": "11236be00e4593820bfa23d7ca2b19ce51e3578fd2fcbe57f461d4178a83fad8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/multi.wav",
+    "sha256": "9833333b44fa3294216c8b8900b94b2ef5421cbf8665ed286e50fbdaf856d3f2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/multi.wav.meta",
+    "sha256": "5435c67327135107dc6c9fcd19075728c557da30ce75b087347644c6dc859676",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/poison.wav",
+    "sha256": "f38e1d070e337a68e2defad4386f7393e36adfe2abedb5a44c718adda58555f8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/poison.wav.meta",
+    "sha256": "951817495906c897665ac59139b572bfedb5a3d76fbd1707b9ad8b370316a40d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/projectile.wav",
+    "sha256": "037cba48344a65a645476a061ce92f1dff08fb389f24a39f7077944ccc487588",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/projectile.wav.meta",
+    "sha256": "a49471036c7474162cd45811c53ba9c707f4e5438f06aa57adaac1ad8077f25f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/shield.wav",
+    "sha256": "10673040a7e392dc971c5c542e0c22fdca6dca6ddb26ba3d5168e3592767e9db",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/shield.wav.meta",
+    "sha256": "ebb518f129b90ec36b5c6681d64eb7b9eb8aef10f32cd6a5d9059a8d242c59e0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/slash.wav",
+    "sha256": "2bf9f61038b407099b3b4426c3cefd11ac42b63136fc2dccf6b4f83a82fc519d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/slash.wav.meta",
+    "sha256": "91995503b120ef401a771f9320d30f7102f0b5a03da295eee92af10143eedb0f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/trap.wav",
+    "sha256": "f7d0b0a8f5566ddc19cca5fc9cfe1ac07009f4ba328de6fa5d89f9f0c4092643",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/trap.wav.meta",
+    "sha256": "1091a867cab8c4e65c6d821602e4225a5967335a8d87e595708b3fd44b5d06a9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/water.wav",
+    "sha256": "0233e9ce7aac07179656696f3a8b2a4b3cb995ac142483511b376f2317050cec",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill/water.wav.meta",
+    "sha256": "1d40025a1fd502c28ae465b18217d9e9c76d8ece4ed58fb6a9a1291c93ee8975",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Skill.meta",
+    "sha256": "880b62309f865a615e39babb654295fc4dcc72e869d83e90521b49b3de7fd981",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Tactical/blink.wav",
+    "sha256": "439262c698b6bd6e5f06e9d8e74173a79dcca424bb95a0f68cc14902d47693cb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Tactical/blink.wav.meta",
+    "sha256": "c54d00571a0192b0038895309554c61f21a0c2765ba2a230b26d6898d714773c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Tactical/plasma.wav",
+    "sha256": "d21870e138d670b6b52eecb4e005803c4ec84b14cd1d0b2b83f9eba049314dd6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Tactical/plasma.wav.meta",
+    "sha256": "26d00d6dcff9c69eefbd2ebe56fb112f34ded5306631aac9c17e0a05d3fbcb8e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Tactical/wind.wav",
+    "sha256": "5e6e3e49bb7d792102a58ded602ae82888e78eb6133f70ad2e50812faefa8695",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Tactical/wind.wav.meta",
+    "sha256": "a64a5afa4349e4224dbbe34dac5222b00653bff71bb7dbfeb9624a871e6851af",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Tactical.meta",
+    "sha256": "441e042b889a87ad4bf00ff26f4da34041cb5a5afc62e15fe7e122a9e4da4830",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/UI/cancel.wav",
+    "sha256": "b942410f7ea48b56c256f97f3524a90b3bb972da6eb66c4d39c17289c65fdcf3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/UI/cancel.wav.meta",
+    "sha256": "7be7f3c1916ddbe31b23ff43eb131f567eb26d0002d353069578a2af44e6d8e9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/UI/click.wav",
+    "sha256": "c37ab95bca6ee5dadad00e60dafb8e3a6e08eeb6c8f6985ed8418568497602c0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/UI/click.wav.meta",
+    "sha256": "b167ca6f3d99393d7d71ecca3da6208efd1d0ee84d5aa304bd79b366b79daf8f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/UI/error.wav",
+    "sha256": "9d8999a59f857ca472adb2bd068abbab2c30d6e46c0f47ed90e975e6f625f30a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/UI/error.wav.meta",
+    "sha256": "cb346892264852c1a74a14c877d55ef6de08a37c81e49d8d2c7d8dac8fdf677e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/UI/reroll.wav",
+    "sha256": "e8bb16198ab8a4a5767884b07081844e244a9380c669da74ad280c4a3b3a017b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/UI/reroll.wav.meta",
+    "sha256": "44680f5859d2ac65f07ac7bc019310fca014c66c9f24a2c989264277be664d77",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/UI/select.wav",
+    "sha256": "e98d3995c1f1d68f54ed4df009ca0c7d3fb517ee757de32256961cd038e03043",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/UI/select.wav.meta",
+    "sha256": "ec1f64c40b11f19615ae987bed624aa5207defa620879746fa71140ec1f42db4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/UI.meta",
+    "sha256": "a3d59f3c8c1191add9a403bd41343193e0c6137b6515fd16dba91b0b5918ae2b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon/arcana.wav",
+    "sha256": "292bacf489ee7b15063ed970ac4c64bd1311c79a02e1343d4aac004304503f24",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon/arcana.wav.meta",
+    "sha256": "546cec4743eec0adc60417591a946cd14f1600f6f135f979ab6cc36895645a50",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon/blade.wav",
+    "sha256": "78629819322433a250fa0b3e472eb6a98b95e5bd9657894b7ff44d3eb5ac734b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon/blade.wav.meta",
+    "sha256": "1e520e650c5a9a26c91175f3de41b7d222899d024e5bc7e13941848cd7e04ea1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon/blunt.wav",
+    "sha256": "49a60c73bcaaf3007e3399cede561bb6082235a61773a2eff3677441b9ed50ff",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon/blunt.wav.meta",
+    "sha256": "f7493cbddd091773eeb8881d4d781fa26a3b6cb0dce12d560bd029938ff58ad0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon/bow.wav",
+    "sha256": "7462e4fe35b36e1ae2c75ea79ae1bcc784df75d5e9391953d93943a237388a3c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon/bow.wav.meta",
+    "sha256": "15e04d8a72f044791490e0755e946fce994b1c7e7e0814872025a3833545cdb4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon/guitar.wav",
+    "sha256": "66c0918e8d281b80fb682c79c1adac0c7e8c62c6fa76d203ecf94ff81991d4e0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon/guitar.wav.meta",
+    "sha256": "1e1086ad38a5b2d96dc656016c4d1c6e3e67a561aef0c162c802317598eb05aa",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon/gun.wav",
+    "sha256": "58b5dc029a73ac93849d8bae6d525714d11af20807301b990e846fad3dfdc5c5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon/gun.wav.meta",
+    "sha256": "3864d27479227bb27bb1141cfc94d9e9a71e40a91b8124d4662390ab0e9c873f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Weapon.meta",
+    "sha256": "2047d139afd1411b68ad254c569eff1fb9d44822edcfcce768e93feed9ee0c3d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/bear_attack.wav",
+    "sha256": "073f60ac34880f6b70c3106ef99647e5c06de2b1976fa7b8f0232070cfae418c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/bear_attack.wav.meta",
+    "sha256": "d5872f2829fc7f6bde7b90d2acd10031b43384fcdf36e194eb060cdfbbcedda2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/bear_enter.wav",
+    "sha256": "4da9fd48e393844091b71aa491430f60833f895143f48b129d0f0fcca9b3b1ca",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/bear_enter.wav.meta",
+    "sha256": "736bad0dd19bb487fc5f95a06f860885d661b5ac6a0f712af3232d4918f5b1d8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/boar_attack.wav",
+    "sha256": "0cbb0e5bf31eac9e9c9a398d7986d7af758375ff730ce4e454e2c833ef85b3b7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/boar_attack.wav.meta",
+    "sha256": "0594247f7800c9e08278c51998f289dad98191f0ba8e01c785fc674efa2c5cd7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/boar_enter.wav",
+    "sha256": "5e4be1f50714a8a3d287bdf9f89628eeb98da73bdf7b4f451c4c690d46cc5302",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/boar_enter.wav.meta",
+    "sha256": "c559396eb2c99a112c9194ddd067ad806282b86fc9bd66e49665115d4174f542",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/chicken_attack.wav",
+    "sha256": "ac0a9b2da7f5cb52bb473ee6080b98c55d9e2dfad2a25394cff87e6193bd484a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/chicken_attack.wav.meta",
+    "sha256": "8b399de82e9d5ddfb851a3a7ef176c93f1bc511ec6467d70c44daa78edf3d7e6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/chicken_enter.wav",
+    "sha256": "a38aa4a9efc29a79c71b7ca173eb91d9722c24fd85a69264496ffdc9e3fcc608",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/chicken_enter.wav.meta",
+    "sha256": "7d08ba52bcc0d148b088bc530e6ba4308f8df94f3d10a3ee007f317f78788753",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/dog_attack.wav",
+    "sha256": "77d5340ae9389a6916355f2dbd588a91390fb576af7154cf62c2b0fdf1b0845f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/dog_attack.wav.meta",
+    "sha256": "aa289bbad4a9123a68d9d09491f1bbff4bbd16ee7af5f4fc7e9296dfb933ed4f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/dog_enter.wav",
+    "sha256": "34beb36199c12d44fd093cf22b7506b93d2f7f86d59bdee88ff1fbe5747085d4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/dog_enter.wav.meta",
+    "sha256": "18aa5793f26f5d536cfa0de5a35c915e1bcd436fb65040b76d98b25f3fec49ab",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/wolf_attack.wav",
+    "sha256": "9c605b86164e94acf0887a0d22831449104e01e056a8a28ecb89f03eb62f3512",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/wolf_attack.wav.meta",
+    "sha256": "368c13c9a78da60f97eb69bacee64f02b0c808657224c20886282bdcf46f9484",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/wolf_enter.wav",
+    "sha256": "2a2765a0a8abaad5386c6071efbef9d179980c27784ceca21e23b2173e989064",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife/wolf_enter.wav.meta",
+    "sha256": "917b658382ba49c31c9973e7e091d50312e603e20d945c2e4af43255d4cc29ab",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed/Wildlife.meta",
+    "sha256": "76bff04f18404a72eda450480fe69342214ff3b4a2a88e1cdf8803eb6500b3d4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Designed.meta",
+    "sha256": "ef4fad8acb3efe3649aa1125004e5dd9270f08ebf54cdce191288f488cc6797f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Music/music_golden_willow.mp3",
+    "sha256": "ad4764b705eb6c6e71d832a4b64e67ecaac581ea8c7b38e8f9463fa2b2186ffb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Music/music_golden_willow.mp3.meta",
+    "sha256": "d3fc8dcc17a28918c1d53050f45143dca6b1bec1f1783c27f4dc131a2c45d19f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Music/music_red_heart.mp3",
+    "sha256": "85f2bd29fdf3417ea3d537bd851cb7fd475e0a32981e97af2bdfc3285c1017c8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Music/music_red_heart.mp3.meta",
+    "sha256": "cd2854829c82f94b926ad788509afbe2cdcf0cd6ffc9f613c620ee4b8ee2848a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Music/music_summertime.mp3",
+    "sha256": "4a160940b4541883947d76406ed70f0659efa1d8ffae00ec8b101b6838f0eb29",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Music/music_summertime.mp3.meta",
+    "sha256": "5a472bd5efbd94910297f22ebb123c6b96ad8cf57471f357455e771266d71ba4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Music.meta",
+    "sha256": "b9e437512b90b9fdee695bcccb9cded9b8a12cd2c89c4fdfe0e6c5434509b1d1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/abigail/e.wav",
+    "sha256": "37491ebc82f842135c468558a63053d0790c9fce6f60775511fd71934b7d165b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/abigail/e.wav.meta",
+    "sha256": "80dfa109104900030adb0b192c43a4df2666f68d9c7b0501a9dfa09ee854466b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/abigail/q.wav",
+    "sha256": "8a82b342107133bbcd48d577d9cf79b0941badb17edac611e36aff86e4c0406b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/abigail/q.wav.meta",
+    "sha256": "4325951d38917d70b21f20b48195fdd19d7e7d46925f147f7387403d910427e1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/abigail/r.wav",
+    "sha256": "c6e653b6c436dd3197eb8508259e0712ccc8e94ad98e575f3726818d72b91709",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/abigail/r.wav.meta",
+    "sha256": "d8b55d2734d7605e067cf72e9bc8cb6433c1dd64196793c52ad6f9a1b4e63f01",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/abigail/w.wav",
+    "sha256": "c4a6e2f0d07e37aa36fa929b2287f16e1cec4ef8f942269a96f017a80ce43d30",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/abigail/w.wav.meta",
+    "sha256": "1e64428a923c6bda3c3fdaac317e825338d05eb717f1664a91a3c16846ebeb5f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/abigail.meta",
+    "sha256": "32b4b846ffa9132526ae33ae39a98ab9c008b16800ce8747e151090789e1a57c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adela/e.wav",
+    "sha256": "ed0a3cda7346b821ec24a5959bfcafdac68c7d5d3e7eeb6bfd9feb850ce239f6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adela/e.wav.meta",
+    "sha256": "d65d96c8cb4cd72e70dd457ad6e7bc184cea3b8a1a7978273f4995dbee12d11c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adela/q.wav",
+    "sha256": "de118818295682c04a52457461a5f6b168020114e84f9c8835dea8801be685c0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adela/q.wav.meta",
+    "sha256": "817a91c738647c1c689375ac1e217b345a0d3f7dc51398c9faa34a0ed9264d11",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adela/r.wav",
+    "sha256": "e0acb8c10a5ec1675b805744801ce44dd5593e40a264d5fbfc8c5b6de1d4abeb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adela/r.wav.meta",
+    "sha256": "eca37f6f4f046ba5fadc5896e041a2385018edb61fd9b04e202e67b6386e7a93",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adela/w.wav",
+    "sha256": "263ae05c3b8abb79d7de5ff3f7209e34e22b86706714245f3fe4850c4f1be24e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adela/w.wav.meta",
+    "sha256": "59bbd8f6022d99797e6089ccd2b39d731e3f2f3800defade7ebad5c39cfe6cde",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adela.meta",
+    "sha256": "01d43480d3dfffe15acb64fd432a5c855dc418abb2e38ab112df137fc0507e76",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adina/e.wav",
+    "sha256": "82ea917b23cb8e730816d499c85e95d9eb033329cc4a0d0d865e37ad6decfee6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adina/e.wav.meta",
+    "sha256": "2439e38fddec2742829700a12db1b33534f98989b4fc2ecd3130550756c99038",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adina/q.wav",
+    "sha256": "adf89db4d5bb99991281866abc2c8a3407f18703201432775349a1b07038d397",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adina/q.wav.meta",
+    "sha256": "08e282d31d8056d62516af45398a90a509029ce168d1f84f916704e3ddfcbd17",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adina/r.wav",
+    "sha256": "5378c268d6cbaa2d9652a29756ef73fc0dc98068375e3976f6c431f3ec60ade5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adina/r.wav.meta",
+    "sha256": "0dd1d50b09618a5de8b6586359ee4ce2944737d04fb66a4d455f3f95894976fc",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adina/w.wav",
+    "sha256": "471d0bbdcb874ae8d290c09f87d64d3929f822be166c518d296a21061893fc69",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adina/w.wav.meta",
+    "sha256": "96cc7cb97f0ec8992af2fe409230980446138b5891f67f31ed1a0d3390801c47",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adina.meta",
+    "sha256": "76265c39fce497e85a1ce3355f19041a5884946b236d4201573dad5253469e80",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adriana/e.wav",
+    "sha256": "4ad4b5d50e470fe23e6831e7b2d54e93e832eeb0c42c2a857b66ef0001f1ae02",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adriana/e.wav.meta",
+    "sha256": "0d9e381042a2baa458bb6bd571a68b703056236310ab8c0078a8015f6feaea5c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adriana/q.wav",
+    "sha256": "6e5203a9559a3b773fae640f565f9809446c8b7df50acee2fcd135df3fa66440",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adriana/q.wav.meta",
+    "sha256": "cbf05d8e1d149254115dd04507c07dff26b8b7a283797d95e49a2536ca56cb1d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adriana/r.wav",
+    "sha256": "09c7853bd050a4c71260ada2f34abd14897b54cb3a9688102502e79417ea00de",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adriana/r.wav.meta",
+    "sha256": "ebb5c08082236bf7c55c639aa871bba907656afdb9533735c34cae36ab300112",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adriana/w.wav",
+    "sha256": "051094f67ac98df2abb2ddc400b0b5fe2cd195c524bfd3cda6a5d0e184fdd91d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adriana/w.wav.meta",
+    "sha256": "b435714f6adf3de74d72bb2a3286f2b5faadb7ee4f654e140185dc653fb84fda",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/adriana.meta",
+    "sha256": "9cc93b071e8dfcf41c78d79f90d008b87c8c989c2699a46b7c1dcbd48e936029",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aiden/e.wav",
+    "sha256": "b547fecc523f6169302679d99accea812676a2a7fa98c60a2ac27d072f4a2fbd",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aiden/e.wav.meta",
+    "sha256": "beca439dd599cba038f0cb55d5b38f03d0302edca6d5d98d463340a2211dbf09",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aiden/r.wav",
+    "sha256": "c150b56892477c6cb123db9780105ef72415c48865f17fed5ed66c764cd245a1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aiden/r.wav.meta",
+    "sha256": "31005ab2a2982ae45bfee50b12648043c48835d63b5860d1b4ecbb32af1b77f9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aiden/w.wav",
+    "sha256": "7f7320d1294691df5c4c460fa0f4badbc4e638c98f1462e7b52586f348570b1b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aiden/w.wav.meta",
+    "sha256": "2eaf38496d409cf869002e47408119b4437d8921ca270cc6507cc7fc1b7cc696",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aiden.meta",
+    "sha256": "52e85a289b6c7eb38ee8509a759323ae602b1b14e687314f69efee5a236ee59a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alex/e.wav",
+    "sha256": "efb4dcfcde0803b714852a3d9f6ad4b5947d51d174a2b29cd01f43b14f28ef73",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alex/e.wav.meta",
+    "sha256": "c96300557f1e41e069c47c4387b1d3da4a0a92b58ae35881656a35c922824f2b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alex/q.wav",
+    "sha256": "a7d3a8b03da3f86fa4a2f0800c70bff73d662fee3e69d4b84c52b175f80dc75f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alex/q.wav.meta",
+    "sha256": "e855b8fefc39b98914b3cf1f88e6f66a319f6fabf92c0e5eef79cee29404b8a0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alex/r.wav",
+    "sha256": "a2daa9f798945482612f063a9c39ade880a678e8dd630e9c8066f25dd1177108",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alex/r.wav.meta",
+    "sha256": "e58e96d958d6220c04902670f43208bc098a61091315967bc11cce21430b408c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alex/w.wav",
+    "sha256": "540ecbed91aded4ceac1ef9b601f6e3ff9a09b30bed7b33e00f6e93f1ff0eee7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alex/w.wav.meta",
+    "sha256": "3e1ea4210d9de85055e73d1abdb20d015c8385f605741e04abd4ca92838902f2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alex.meta",
+    "sha256": "242164947db70a339488a90a8a50907c810c2b6540972f71d924dbfa774a78ef",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alonso/e.wav",
+    "sha256": "c8fab54c498c369aed961e033304a7e5071951d2b4cbf7be6106c07925e5bea0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alonso/e.wav.meta",
+    "sha256": "0ae3f5015f8c10e14559bba5f2f8a0d1f542ac23153ae6123bfa4054fe291f26",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alonso/q.wav",
+    "sha256": "bbc20c861782b75f3a4eda29166aa043f645a4413ce50c2fed1984476876062c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alonso/q.wav.meta",
+    "sha256": "79ef646bc49fd576a258ec3e170e1097c95e5811f88852f2c299bf4289c21599",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alonso/r.wav",
+    "sha256": "22ffe9bf18cdf15834e864529c461042d4b5264e52ae26ed6ab91fc31430205f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alonso/r.wav.meta",
+    "sha256": "c397a5cd97a28678d684da47a471a0c4735389cbd79f8c805c1c1eac502e7e58",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alonso/w.wav",
+    "sha256": "d4657799bb1c8ca1c52cc6f10fef06d5fa26828367df0410648f9f544abcb178",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alonso/w.wav.meta",
+    "sha256": "ef122d619933e9468a4a54875f160cdd5aa392e48b06adc042b7df2d59357427",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/alonso.meta",
+    "sha256": "fbbe39a4659570b63c1d44d20888c867a820ece58405fadb297a6f63dba9d0ec",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/announcer/end1.wav",
+    "sha256": "a7d13eaa0eefa19302472fb41772d9639c3f64072b0b2a2d9856df5778044ac2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/announcer/end1.wav.meta",
+    "sha256": "855c63e2a411e6a749b7a7bece650e3359c88446e91876ab60408a5369f0fbb4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/announcer/end2.wav",
+    "sha256": "6ae05428631533f3d7cc8e999c60ad1921cdc52ddd143f29f8ca7d707122fcdc",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/announcer/end2.wav.meta",
+    "sha256": "984aa833f28d59c3af4c696acde78667294f48e00acae35289351f14f1f267a5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/announcer/start1.wav",
+    "sha256": "d6d921de97b351a5c7d06dca21f769b97eb74d42b0b9468363b787f30cdbdb91",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/announcer/start1.wav.meta",
+    "sha256": "e46bc8961d15ad1d95dbd53f5902bbb09a4e27a7cea8b065565f0bb58407df5c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/announcer/start2.wav",
+    "sha256": "8d807307196fe6ff84707d569bb4b16600cae5b042c718b5bdb42a3e46ca0643",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/announcer/start2.wav.meta",
+    "sha256": "6ca5c3b0222e6d0c8b7fdcbf45ddc7c4b126ab2eadfe0fd2d8cb42365e1c181f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/announcer.meta",
+    "sha256": "d83e4784e4f514428b6cda4a02862f747885425c3cca85f2affaf1abb009f6c5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/arda/e.wav",
+    "sha256": "bc2cdfcf8bdce72f0c62f443d97ef50fed4fe3bcccb294aead4fa0caaac87a26",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/arda/e.wav.meta",
+    "sha256": "7579f4ada478a1f66a2a5d980e4b885299be99a865a0bd701899d19d88f09ae9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/arda/q.wav",
+    "sha256": "54ae22b449eb2c0d4459e2e793b91662e0822f5e92d779a74d0deb84bbadb824",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/arda/q.wav.meta",
+    "sha256": "f5fc5e66108a042d9caab84d5b46f43c63d4e0bf11d5f9aa535aa96c3350f93a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/arda/w.wav",
+    "sha256": "1ee353428a962f2a2c5b7f82cf853f9ec70302bd3e9fc01a30c46fe5d092bf42",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/arda/w.wav.meta",
+    "sha256": "c8b03f7933f09877344f8a9e0c9702d2e8f3a379eebb87b6275cabccbd576b9b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/arda.meta",
+    "sha256": "5636f77176c0e203007b186b823f8569720143affda9f1f16bc322730e67d0ed",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aya/e.wav",
+    "sha256": "081142494c5f21882696ac1a6463873ff40c0793d272f0909de4dd5253f9f37a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aya/e.wav.meta",
+    "sha256": "3b643ea645c8ad411c69c2a5f3970bcbc68e6192bf76e9a485c5daf2fd8d2392",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aya/q.wav",
+    "sha256": "91c067221d80e9db8ef10b99b5be48c5f4a19334f552290b6623942bb239f89f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aya/q.wav.meta",
+    "sha256": "9028f762bd6a673fecfb78be08232ad09e47a39a49d348927630ac7b864b9ec6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aya/r.wav",
+    "sha256": "3e890774522f60c8eeae24ac8371dfae5e73a519365604cc26e6f680356fa2d4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aya/r.wav.meta",
+    "sha256": "8a787b968b2bc909faddea68cd11a4fe01b4198affacc5ec4988736be2e0e63c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aya/w.wav",
+    "sha256": "d290f8685f4be321fa468c654e61bfaf085add685d57958c8850d791115443a1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aya/w.wav.meta",
+    "sha256": "fa76aee9e3203b17574bf5085064268de12bc11ff4cc6f07b44955dbc4061ae0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/aya.meta",
+    "sha256": "97ddfe9570a7a379c5d8d52a9ba058bdca90105416a20310735fadd1f22eca31",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/barbara/e.wav",
+    "sha256": "05770f6b7d25a92e430cb652d3fe8404890418850cbb90638605fe4c08ea3ad3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/barbara/e.wav.meta",
+    "sha256": "ff373f6591cd1389ff98b0024ef209fb3e765e319412ecb8d50cfc7c75f2e749",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/barbara/q.wav",
+    "sha256": "772e7ac9e823fe650aee2ef578a7cb91831c31660a7ec2fdfc3026193eb49f15",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/barbara/q.wav.meta",
+    "sha256": "a3558e51b9ec74232f328c8363b0f792452281e76a4954eeec7ca5f2566303df",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/barbara/r.wav",
+    "sha256": "9fcfd05299d999ba7516cdc2cd315fc316d91cd2eb257f67b91540c6f2683a1c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/barbara/r.wav.meta",
+    "sha256": "4cbaf9ecbdc82fff609169d19625ae5d008de51491763d918ebba136cba5c337",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/barbara/w.wav",
+    "sha256": "5ead575ae0e88cb008ac98703a524ffe4ab59e81bda930bc81a37adb8f467ede",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/barbara/w.wav.meta",
+    "sha256": "58b6b835eb6ba41d307865b2e1c4b8acf7dbf5ba10c5f669e079a11d0e8fa3b9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/barbara.meta",
+    "sha256": "d00a9f64d1a04d6518a254df3d635dd5207ff52501314c1d7806b69f6aa92d67",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bernice/e.wav",
+    "sha256": "067709b98de91b2a9b24c4bcdc0e1b554c2dea2c54f53fa8734c25d690211aa7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bernice/e.wav.meta",
+    "sha256": "54794adb91dbf329f1ccae2038560d359b40a280a06b6a47fc0804aff6b9cd2c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bernice/q.wav",
+    "sha256": "4ea00dcd9365ced8beb8e98296a1a8ea2dcf6d33acdeeae8461df49564883628",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bernice/q.wav.meta",
+    "sha256": "e763620ccae6acfd264c5fce89daedeeafad165c0738254d23d2bf4277804e6a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bernice/r.wav",
+    "sha256": "398de110c4df1749cdfa51cf1c8ed76aea3434ea34d602e2aacfae2a508c8751",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bernice/r.wav.meta",
+    "sha256": "0d1b59b1bd2d310fb40bfe9fd85c24b949e948a43dc33e8360bb98ca9b08d441",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bernice/w.wav",
+    "sha256": "c16a8b37e11947209f80818189b738fba6333cacd9b57a1170f4625240e6fc57",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bernice/w.wav.meta",
+    "sha256": "8b40f7022a9a0329518a7ab353e2a7fe1b9215bee0b4ce5f9aaa8997b6d11bc8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bernice.meta",
+    "sha256": "4a2c4178b9b9f2178de50b6f33606948c873a449895cd328c847ec693673850f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bianca/e.wav",
+    "sha256": "87580a4df1cc5f92c0daf8a50af6a749657a4019bdf43cdc04cce4aafdb2a72c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bianca/e.wav.meta",
+    "sha256": "396e6cfe39f90c95eb3c05dd6350068de3c4fcdb557ce125400e4029e00f69bf",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bianca/q.wav",
+    "sha256": "ebc55eedd3bcfc2d0496a7acf7a3f439fd20d38a27c02b280a4135e0dad8977a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bianca/q.wav.meta",
+    "sha256": "ae02479d43ba14e153e65f4037cf678421ac67376ebfda168029dbcb69dd0f32",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bianca/r.wav",
+    "sha256": "1e284e0406edff0f18b6961e11b9155e05c5c6fb96e4ad1f41ef98c6b4b68003",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bianca/r.wav.meta",
+    "sha256": "c1b3a51748ceb49d12fcac8675173d07db8dceb4bee0bcb5e56362433b651708",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bianca/w.wav",
+    "sha256": "3b7bbb9748ca989ce64d9eebbfe1ff74e263db5eb54d01b2c80a743f426711b6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bianca/w.wav.meta",
+    "sha256": "095c0e8b2ce206f7f754a6479c5b4b47fac2b66584904b118366563e4f982e4e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bianca.meta",
+    "sha256": "9ca82a0fb1abfb7e48a5b7e2d2cbe484dc408e04cdaee27a12b734b32b5c1f08",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bihyung/e.wav",
+    "sha256": "e6ec77007381796a6b212c5c312cdd80e749d8c0e1d2ff59019f9cc3f247eaa3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bihyung/e.wav.meta",
+    "sha256": "2093f9375d19b9bf3f8a47ec20e149ff33dcfe872b455af6870db694689c17e5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bihyung/q.wav",
+    "sha256": "9429492383aa13496a7bd4c0c6820cf93e58898b6be025816b90142ca03c11e5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bihyung/q.wav.meta",
+    "sha256": "6d38a043bf5497dc025eb7fea633882b6f70f506108e9262d22a2f3a8fff7f85",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bihyung/r.wav",
+    "sha256": "4a744b4fc926d13f40c85959063fd9c33502d8213b45210308833be9b64e703c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bihyung/r.wav.meta",
+    "sha256": "a0e78ea2c86aa2470840d7800060813f98bf54f5b65a92add148863d5af4050f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bihyung/w.wav",
+    "sha256": "0856981963fc3316e6b4493fad90ea476be028b9e5b91843c7d940e13a1ec3d6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bihyung/w.wav.meta",
+    "sha256": "e60781dcc49838d4c9db77a15eba029bd5e817df24dcf7e65808a94fe95f5a4d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/bihyung.meta",
+    "sha256": "cdabaa784dac3cdcce958b70a1db273b1983f783b63b09b0b41dcc0f348caa6a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/blair/e.wav",
+    "sha256": "eace2b6a30602e10eb783a82a7eee8186cd4d36611cec71c76915c11038bcfa6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/blair/e.wav.meta",
+    "sha256": "40ba055a254945d7d7119988b5acd6449d4e625698568b1e525f291e2b0bdb34",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/blair/q.wav",
+    "sha256": "b6bde0c7413c9daa4c420223c5a61da1871055263497845ee05a9373d518fd77",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/blair/q.wav.meta",
+    "sha256": "55cf1299557186bbdf27ae101e018dbf6a380ed4f061f7bc0990d540c4ef07ba",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/blair/r.wav",
+    "sha256": "f4d463c0a2c662d02365814771ea6a00c27feb4a3f4618e3a1f4a427a32f4941",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/blair/r.wav.meta",
+    "sha256": "2564872a47422d6e98c5fcafb473f0ee6c5035fbf1a256dfa7d8effe7648ecf7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/blair/w.wav",
+    "sha256": "853a6038d9500737f56afae692c0cac42adc04a0572d31c792c2857e0360ac8a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/blair/w.wav.meta",
+    "sha256": "fe4f96845f201f58840979c6eac3aed5a51db3c492fe7f8d002f25de821afde4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/blair.meta",
+    "sha256": "86a9ac5cdf901bd85ffb408e4adeb6f5c6b4609bb08f7f376f9b1ce7fa812d27",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/camilo/e.wav",
+    "sha256": "3b85fde6bcbf2a8a38e3256c0c40476b61dcf150f976332326a0c8ece9d2c63d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/camilo/e.wav.meta",
+    "sha256": "54a42528b6bfbe55fdd294a20614c9baf67a2e420ce2746b854e1008b923f2ca",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/camilo/q.wav",
+    "sha256": "2fa5298612089441077301a21d7d167b4dd712b27fed2950d104e9cd567b67fb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/camilo/q.wav.meta",
+    "sha256": "088842fe4c7c589244b8fedd633a9eeb9507f8bb9ba58a7bb992d542d5f09bc1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/camilo/r.wav",
+    "sha256": "9703ec82b632a2dd3a0719c3cf2e6d008a3d6c0c10c1d9dc1c79a1fbdb95dee1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/camilo/r.wav.meta",
+    "sha256": "b72d77ad7c98f6bf3c033b267eb64f67c36d8b9b5947babe454b1eab1184d568",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/camilo/w.wav",
+    "sha256": "cefdb4d55a51e941827ea4cc1f5e012702281353bf75581a2898d355361efd41",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/camilo/w.wav.meta",
+    "sha256": "1a9bab6bcba301d818d7fddf25863230c066ae54eb2c727396d7d7060f4af2d2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/camilo.meta",
+    "sha256": "9c159de8d4f40d42f79081af43e3329e336be5fdf77f02d45d5f36e503c9a0b6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/cathy/e.wav",
+    "sha256": "f50da13476bcfab4be37a97434a2e5d05fb53116599047363231dc262d52f418",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/cathy/e.wav.meta",
+    "sha256": "8b8fe4ae5ba88ab7f6518104969313532d3c33dabb6d4ad7a18c587f40555bbd",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/cathy/q.wav",
+    "sha256": "896c02212964b3537c434f268702ce4806a5c50ecc1e09d8b0a7e352e419d173",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/cathy/q.wav.meta",
+    "sha256": "d003e1fc1bfba27a7b33227fe3a0450b80208509af2a500cc7243ddd2a1043e3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/cathy/r.wav",
+    "sha256": "d8baa01f2cb228c99acac0d7c27982d047d13264f83079477af892a908a53e30",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/cathy/r.wav.meta",
+    "sha256": "532362cf5f7da7333ed44f1bcfb3f8360992deb424e01bead1a219291ab9409a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/cathy/w.wav",
+    "sha256": "1e6ec06db3034e0e7e8c86fe39348c7cafc5535e2aa34d7ba25f252973502197",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/cathy/w.wav.meta",
+    "sha256": "93835ad75f1aea4ce5d0dff7ab2758d9363d4cb0d81a5000386890e5d89b7de0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/cathy.meta",
+    "sha256": "d53b99d34622837cebd6f0756c6941bf34bdf14c4bbb3a9cf7f4dcf503102d3f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/celine/e.wav",
+    "sha256": "34d3323441aeb60832c44e6053da2774000d39fd875942337a7c11250c307794",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/celine/e.wav.meta",
+    "sha256": "c0491a14e24421ceecad41222f61790468f971e1f0eedcf7e85415372aaae820",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/celine/q.wav",
+    "sha256": "4ec2e9f366e2b19439a08a915ca0834f007bca295a257f0a6a61c851f60a3207",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/celine/q.wav.meta",
+    "sha256": "04356ce254e029c35ce5a24e8b49e1aa7f35c74d9d2e367eb0673d4adbf370a7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/celine/r.wav",
+    "sha256": "69ded0ad6375ea237e3ec0f6a26e5c3ea35048a1957ce4b0f010539e2ca2bc38",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/celine/r.wav.meta",
+    "sha256": "4a9151709ab78ad89a98e942a5e17fd2b87edca504f1e878cdbba82cbc3c2538",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/celine/w.wav",
+    "sha256": "6b131d1b46b18500408413a7773d06de5a063d511eb23fdc43a1a962117606a8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/celine/w.wav.meta",
+    "sha256": "e8da17d9ca158f91f969588dfa30fc70abc0df19b0cf8e404598e48b312de091",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/celine.meta",
+    "sha256": "644014102e77d55e473af4dce73f8442125a20a42c5eddee8fb060a2786828c5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/charlotte/e.wav",
+    "sha256": "0234c3604c5e61b8cc90632ee2be742bc7568a4f905b4c930a0bf774aa1f755f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/charlotte/e.wav.meta",
+    "sha256": "6b3134b7071ce55e7e7e5a68f6374f9032f2e1ddc7ee57ba1c633cd8a97eab06",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/charlotte/q.wav",
+    "sha256": "8fe153f31e1c7db924acf134fa255c3824590dbbf250bb6dffcc0af451a4db84",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/charlotte/q.wav.meta",
+    "sha256": "1484ec288b1834d330492832c4a5814e174707c1f928fd2baa21692a721f5010",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/charlotte/r.wav",
+    "sha256": "893cc89559d15d9c603fcba484bd3586bc081c49d00912349c8b6f0bc64fabd2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/charlotte/r.wav.meta",
+    "sha256": "12eda84d9d5c8babb014b14782307050162fb253bff4019ded76324c55bc6f08",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/charlotte/w.wav",
+    "sha256": "536131e0f3a4919bd4e1383600088a2e0d7345b1148509693a628e3483f0ed76",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/charlotte/w.wav.meta",
+    "sha256": "281abdae3e6c9e46db17d8e1878244564fe18d6e502b7ceb48778f4fec28d154",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/charlotte.meta",
+    "sha256": "1dd8458adb3d6d16aa2bed0b4f8625467dab350f7f7f5efe34ae2a421bb64fdc",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chiara/e.wav",
+    "sha256": "356375e195c6bfea489fe552e2b50785ea2df61da03a4ce39fe53b53bc3cc1a1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chiara/e.wav.meta",
+    "sha256": "3af8665d9d8317b1bbcc95b19a5f20c3776e8b41990e8bb30a6a1bdf599f09c0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chiara/q.wav",
+    "sha256": "700ee18e5c320896dee07ad4f2ebd1ce3a6fdd849f7353d1be3851acf73ee48f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chiara/q.wav.meta",
+    "sha256": "f9a077736676e8ac9caeeb9d46af850837aa2c8fc22885116162c822da0a599a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chiara/r.wav",
+    "sha256": "214be0b0d81a5bd6b8f3913b1c45a4ef0f62667c6b26e9e5c15ead717c17bb6c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chiara/r.wav.meta",
+    "sha256": "1212342e48be276e89a5c7cc3ff97883da7b5e81053d07a2b7600f703e0c30e8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chiara/w.wav",
+    "sha256": "ca861ca0146078104e50a27b55a04ceed6924e03a11b6462dbc9826094b8b06c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chiara/w.wav.meta",
+    "sha256": "36c2ae64b61aa901cd30ac0725dfd348420f3e7bc25b4eef554f1a034f5ba98e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chiara.meta",
+    "sha256": "d1da9d225ce42c794c8148927375fbc00d543f6366662d10a90e2dd46a7204c7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chloe/e.wav",
+    "sha256": "8d26fff685f5ca3fe55beab6dd9f5202ad6c2339e1f6ff4826a9f7c693d70df7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chloe/e.wav.meta",
+    "sha256": "8ba1e1a0456bdc4ce3e26ca836684f173c781eb6b150dc0e7e8648a312a52a18",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chloe/q.wav",
+    "sha256": "9fa1bbc2dde8170a87c4b2889b8d5d2300f87fd43298cb576ae1577434f4e7be",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chloe/q.wav.meta",
+    "sha256": "86cf7ec761ec3bbbef6471b6a4585bf253e4290d1ff118933157277e168fae02",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chloe/r.wav",
+    "sha256": "a0ea17efcb06d84bd8ee97fe752e86d78735d100d3d06d136545c3da23019dc2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chloe/r.wav.meta",
+    "sha256": "3e578336a24dffc816949f5f3026c345a6926a700dae8abfad58d8f37241a22e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chloe/w.wav",
+    "sha256": "67a8d928668e360476e495d3c9e320648cbeade2d5dec93db99bc7bc7ba44bab",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chloe/w.wav.meta",
+    "sha256": "67df123baab1817a9567f026a0b2bee4c0934ae6732c1c292c513ef884358e4b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/chloe.meta",
+    "sha256": "361bff476a95f88e5d615f22be1f1ab754cd40d5ee1bb3bafd72c39b808e35d2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/coraline/e.wav",
+    "sha256": "74262623ae5ea8971e60698b382cb24de0d2f40a60afa5d8226424a8e306b320",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/coraline/e.wav.meta",
+    "sha256": "82a4d831f7b658252427ada2734a8aded2f6b3fb9576b18877f09fb3e376c1ab",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/coraline/q.wav",
+    "sha256": "22b2e3439442d7c57ef97601042f0f62c76a2f924f9852cfee9c866d59e73bd0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/coraline/q.wav.meta",
+    "sha256": "069453b6d89e09172fffe91ffaf6ea7b6b91d47ab50d92195054011b9ae6daf9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/coraline/r.wav",
+    "sha256": "c5d894d80c1fa6bfa298a62feee00d8f65260d234c6acdb4fa3d931b8bc30246",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/coraline/r.wav.meta",
+    "sha256": "70b1383f97f03b5874c873dfb30edc278b66c1b6b83160b8cb6b797501f4bb3b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/coraline/w.wav",
+    "sha256": "9e669423d018ef214be9a61238bd6fd1206d4c4870236465a7e792079b9396b9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/coraline/w.wav.meta",
+    "sha256": "9055958d81b63991cdf8b8e4cc6044946d115c62aac7ffb9b9153d07348187a8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/coraline.meta",
+    "sha256": "596509eacb8c696f6fe27d1dbfdd841233f3744d01fd3f94a9c7dd97e68dc69d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/craver/e.wav",
+    "sha256": "ab042cf38e78672c9be1b9ac7f70299c2f5fa53c32844684b5155054bb019931",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/craver/e.wav.meta",
+    "sha256": "9b9125fde10a586298b0ad7af79a69c855ad3ee8cbb0dd758bc740204d247f9c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/craver/q.wav",
+    "sha256": "4284e86d37b17fede0f050d800cee84e5578e0c92f3ffaf056dbe0d4a31b8571",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/craver/q.wav.meta",
+    "sha256": "ac0883e856cda2902c4237c7e914558b661ac78118895631b4267d6f51c69812",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/craver/r.wav",
+    "sha256": "b5247a7b0f172a9372b1f7c2bfc390af435ef3ad0ae68a54cb83e7bb8ef844c3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/craver/r.wav.meta",
+    "sha256": "4e5f1aaa5a5ef45e0b3bcbb057ca26e59da01470d7adf0268889bf14a332e4c3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/craver/w.wav",
+    "sha256": "d47f733c5805864eabc89c43a63fb16e4183be57e350b9167da27746bc0e0fae",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/craver/w.wav.meta",
+    "sha256": "1587017c025e132c83f0176cff0a28d90320db5d9a6731c1f9512d6893e1d6a5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/craver.meta",
+    "sha256": "67836f96c36a308d1a354f614ce7d421796548e2d9a188e1403784f1efadc074",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/dailin/e.wav",
+    "sha256": "f2e20d2f4fd1fbc11ac76e249bb31663a59a601ec2c5ca0562467adec981ff97",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/dailin/e.wav.meta",
+    "sha256": "7bfb1e80bc507e8241d9ffd349f985ae57c2a77d33e7f7e83cfb07cd72211c76",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/dailin/q.wav",
+    "sha256": "d74309b04f42c1b977f5645bc10d30d7de3ec49f07829228e61dbcbea838dd6b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/dailin/q.wav.meta",
+    "sha256": "3c88e480785b75fa69caae89354b9da0b246ad1fefd41b9ebb3bff8c645dda41",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/dailin/r.wav",
+    "sha256": "46752a5b77725483e3a6306ade2e2d18308d76d04ed3e27d49a2c550eb0a4396",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/dailin/r.wav.meta",
+    "sha256": "1045528759189c38857685287bc6f549ae776dc5e23781f0d9d9fe71a58938db",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/dailin/w.wav",
+    "sha256": "2b45d1e31a96ff7f60a460337a4f5cc86d568635958dcc53cae5a437e0884d3a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/dailin/w.wav.meta",
+    "sha256": "20d15a9f19ecf84c100be8ed7f6c0ff06b67f0fca465aaae77a01a2632c15940",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/dailin.meta",
+    "sha256": "b039f7bbc7c79e1b6a7cab6b876ab1c7b8b27bb4c57567ba5e9e566d166f9be1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/daniel/e.wav",
+    "sha256": "2694c4e4de78b5518feb22339d6e6b430837004446cdb061e4ab1e2828379d13",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/daniel/e.wav.meta",
+    "sha256": "eaa79fb93ccce055d947b16aaef3a43d5f608a8fa297644856212d816f5fe40b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/daniel/q.wav",
+    "sha256": "b62b4b1e0ac2b7bd770c502f10d28af3c96c645a1b777140213b8eec6052687d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/daniel/q.wav.meta",
+    "sha256": "6f3d04fdc4b36fd4906fc9b3d33babffd3de7511beec9666a4cc750993338e87",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/daniel/r.wav",
+    "sha256": "af06624ce8e6b4fe41f5fb43de4a23d2d201be2cdfbe67a0d46d17501c2f9aad",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/daniel/r.wav.meta",
+    "sha256": "6d9d5d8a2dbd5272cf069456286b5e77dc4519109429170f80aa5a8a25ef576d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/daniel/w.wav",
+    "sha256": "467d7c1a2806a096aa7f803571dbec5d3443c3f87f77132d65f313baf535565b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/daniel/w.wav.meta",
+    "sha256": "72a51cfbc4d95880f34b8ffd45465a14a9afbc1f104849b75e0e62bd6740d753",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/daniel.meta",
+    "sha256": "be8504a054404563681f1dbc16620ef6932fc73703bc025b10db5bee625a244c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/darko/e.wav",
+    "sha256": "bb10b20516d027895cf8fd4c4d5ad5b142f0d4acca2ff88e23288fa8391a6b37",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/darko/e.wav.meta",
+    "sha256": "48e41782737568415df9d20c0b64f167e1683cf79b8d7a2972befc757ea863a1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/darko/q.wav",
+    "sha256": "b943f1913a7012a3bce3ac236dff8096da31c7666551bb61d507764b5db3e790",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/darko/q.wav.meta",
+    "sha256": "c916e1e1da92541e4604499c0dec6185a36d1eaf52443e63df2fa1e9d59a86a6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/darko/r.wav",
+    "sha256": "c6dae70f14a7406b615bfed066c758309a1fb6e9920aa078ed96820816509315",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/darko/r.wav.meta",
+    "sha256": "10762d0bf584069bbaaae21082f66ef6edef0a8df69848f30b90a17014c74aed",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/darko/w.wav",
+    "sha256": "9b207403693eed15976511ab2195ddbe3c307e00a9bcd403503c0ca1262aa3e7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/darko/w.wav.meta",
+    "sha256": "d6dbf52d0333645b013a9035362f2f67ffa9ad25ce16efd976081f0ba122d3c4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/darko.meta",
+    "sha256": "9238806bfe2a3399f473d169d41a4bc80eefe0b0677462671220d96a76be3261",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/debi_marlene/e.wav",
+    "sha256": "52360a3a1ccdfea36c53187a76f453de61991a9c5b8eeaa4e05e807d2f6e0e02",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/debi_marlene/e.wav.meta",
+    "sha256": "656ba32aa517959db166160750d8ced7946d0526d7d085dfe5a2e99278cb67a2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/debi_marlene/q.wav",
+    "sha256": "4ced5e01865c66462c004d641a70b2185ca5dcf2fc5be476a23b681eb3b15b53",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/debi_marlene/q.wav.meta",
+    "sha256": "cdcd21206deda48313762a2a825736313943cb779fddfff4982f635d7dc858a4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/debi_marlene/r.wav",
+    "sha256": "108787e9df23011576de6182aa6e8518a1feb9b5f039b0e1454f47d4c3f88890",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/debi_marlene/r.wav.meta",
+    "sha256": "aedb47a46228038f839f8983b4a8cd47ecf39ce27fe31cab09c9b470a63ac361",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/debi_marlene/w.wav",
+    "sha256": "7442cf52418048fc4c93dc62c954eec85b7c8c76d79618556d44877ded00cb39",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/debi_marlene/w.wav.meta",
+    "sha256": "cc50843e7abe4f5d5806db72f0bfd41adf7467ce1193120376167fcbfd2f7a6a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/debi_marlene.meta",
+    "sha256": "12ff31dd43d350697c70a00464dbd60ddeb35f6362931bfa4e1e57594ee4ce06",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/echion/e.wav",
+    "sha256": "2a181ec9a4446d76cd12f9e62b16aa5eea8fabb9ccb577f361be75c860484b92",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/echion/e.wav.meta",
+    "sha256": "7c503d65208fb51cc10fe9bfcc7ebcb6546cd05aa3f36f1afa40fd45cf1cf4e5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/echion/q.wav",
+    "sha256": "08a7c4290f000afe98c159b529a55f693a4dfcae93f6d6a6fe91ef02eeaa0b5e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/echion/q.wav.meta",
+    "sha256": "fcf6cde7f25127e7b45e4c9fe3df6fe30c9ddedfe03b593d6a90d4fde46369ba",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/echion/r.wav",
+    "sha256": "97b7a2e35eba2770691edc9d0d6d29301c8626f59e3cc1b4d4ccabf810f4f210",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/echion/r.wav.meta",
+    "sha256": "5d8842e80acc8635c20241c4eaec48fca52a8fd2922b02c36adb76d5de81f89b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/echion/w.wav",
+    "sha256": "220bbde90389183dd97770d4cb6f1b8485a1fa935ce16b6cb81a4e1f9c3e82c9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/echion/w.wav.meta",
+    "sha256": "89984227199b455741492db140122f8137b7a0987b5cc50927bbc84e77f3c016",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/echion.meta",
+    "sha256": "fe9f8fdba7255d1f686f304de0bcbde62d8c30a0b54faf01c3005756887c7d48",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/elena/e.wav",
+    "sha256": "21cecc40f9c5950dc02f80b15498d5c57a39ede86e5f830613df2d2e4f2629b4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/elena/e.wav.meta",
+    "sha256": "6cf2755e311f9e76b1a1c1bb3da65481b03709cc5fd40c1d7bedd6eef868b946",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/elena/q.wav",
+    "sha256": "65f3faa044bfade2cb3322029f87bec6d925a398f75da8091730bfadecab2c9b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/elena/q.wav.meta",
+    "sha256": "f2e09b7a3d48db0c617cb4a1b6bee01ab23d16fb16809e112f234cf01b786bc0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/elena/r.wav",
+    "sha256": "c0b2670e0f6ab770b557558e9fa96a63eb10964cf4a6a4dd3b8478840ede365e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/elena/r.wav.meta",
+    "sha256": "bfe97a30340b4f7587dcfaf6aca3a4192326ab860593eb95d2c4e1311e3e209e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/elena/w.wav",
+    "sha256": "e0f37953186ca86c0260f9287fa9c9b0284e9728b40fa9359cc6a69bb93ed9fd",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/elena/w.wav.meta",
+    "sha256": "8b72f6f955727178c708fbb0f33e6827fbab457eba07a3f4628120be09c49f98",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/elena.meta",
+    "sha256": "1421e8ff4458aa1f843617ebc8982a0354b6a1ccc77cae6df4fd8cfb0f39abc3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eleven/e.wav",
+    "sha256": "143bb153f50eb424bfafd8108f05dfb44d53e83cf5394dcde954ecea641b7577",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eleven/e.wav.meta",
+    "sha256": "5194f3d0dcb5ed3af9460c66b913af4082cd280678acb99b6f808f3f407faf4d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eleven/q.wav",
+    "sha256": "2f05557f5abba176bd28994fa1a366680365dacbbed2a94ff71f194756437229",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eleven/q.wav.meta",
+    "sha256": "85908a676462c59060de23e6648d434c1b8e14e8892a7df5b109f8145c3404bf",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eleven/r.wav",
+    "sha256": "6a5833fb017f1e7accc6947d080c2cffaee0925049e678f8267eb42b4c53bd04",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eleven/r.wav.meta",
+    "sha256": "42b0b6f63ad0b6c2f2b6c3a479c17c504309a424bb18200207aab3bc1f692f6a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eleven/w.wav",
+    "sha256": "7270a22fe1ae5818f02a06779fa7bf2b26b6cce0ae91d18430c4de0b9d970751",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eleven/w.wav.meta",
+    "sha256": "229f1484ae89f98bbc7ecca56ffc69d90ae3b611e26bbe2cdc81b8c490942ef2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eleven.meta",
+    "sha256": "33aa123f2ab2a1a416850a4a166f5f693624d619c272a9be6ddb37a05ad1ef8a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/emma/e.wav",
+    "sha256": "f269013a828e7d8591ad9b56aab12e627fb45da35081de3826672cad5e9b621c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/emma/e.wav.meta",
+    "sha256": "a0d82cf3753a5690a3414c7cf100d2ef59bb84c6bc14f654cfbe687d0a3f9e14",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/emma/q.wav",
+    "sha256": "e4abc9a68181d80761b0011926d00fb933a181c17e1e3f66c69c2a22bd3bd44e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/emma/q.wav.meta",
+    "sha256": "479e29d915a67cc14c7b5a3e8f8721709304a66a52baaa6f34ac7ac06f988261",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/emma/r.wav",
+    "sha256": "fdb90f17a61d47d0ff4aa7430e6009c222a0ef5c1bb862bae18abc00a7eecb7d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/emma/r.wav.meta",
+    "sha256": "322acb3d81ad5737dfbcfae778ef1ffbfa5e7a527e42fd49aa56a46501fa36f5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/emma/w.wav",
+    "sha256": "1645304b1bf747c049a7810f8a3656c0ea94f0d31b97cc14f2708f1a181b7d02",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/emma/w.wav.meta",
+    "sha256": "a00d74c8b5a3ea2e37ad3bcc4f6f051f87db3639c0ca70c6a5a9a2d98b82e8d6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/emma.meta",
+    "sha256": "460f9cdd348e61cd928b2054b09732a3a700b23679cc2950fee33711d1043807",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/estelle/e.wav",
+    "sha256": "59be042ce1097f8bf37406665a03f06da57530cb4289ea941609d637a4376499",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/estelle/e.wav.meta",
+    "sha256": "e673d7b7010d2d978e0f6d975bd2efb072ea9a907eeb90f61c3262c64562926f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/estelle/q.wav",
+    "sha256": "fb5b413eef1a25d2d7f6cbff3eb68bec1820b24b542b133a182dc865be8595aa",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/estelle/q.wav.meta",
+    "sha256": "0eb898257920fd866f748387dc5bcfff5b4b6325d83b39bfa7baf1e65880fa9b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/estelle/r.wav",
+    "sha256": "552eac62035568ddd1708b7047998661bddb93e5532b7b08db3bc7e6512dabe0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/estelle/r.wav.meta",
+    "sha256": "b3368d985d94ca4ccca0d57e028649f3e39da912c5d17f51f57cf5b01d307672",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/estelle/w.wav",
+    "sha256": "121c18736c23bb195c233ff316abe0352f40d0500267917003e9a9168eda8666",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/estelle/w.wav.meta",
+    "sha256": "4cd1b587330350cb98bba251a5aa9b98c96458feebede66c4127d4dc530dece5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/estelle.meta",
+    "sha256": "6dd37a0328c0d43968e39e8ef62154c84022a549eabbc6c582b0ca125bb8711f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eva/e.wav",
+    "sha256": "22e2a3bafe39c767811381f3a983bdbd536617977283a9276a83d19ef9f03557",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eva/e.wav.meta",
+    "sha256": "4b335b5ab48b40f60c4bc356998fbc4f9922c29f78a216fc80b849f28707bf36",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eva/q.wav",
+    "sha256": "2c124234efd6d44cb5f27172dd8309e9065b2e3c1c4fb3049a2c365e7a5b975f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eva/q.wav.meta",
+    "sha256": "7db2a800328a297a8f3079dfd067763df5612281e72d9546a997f38709a2e21e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eva/r.wav",
+    "sha256": "2d449fbc44e17bf1958f4089b5bef1853b612e1e4e716756751c918b92108bf8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eva/r.wav.meta",
+    "sha256": "b238482e12ef32b4cffbd4ec7127d1a083791e149525c5a3242b1e03a25433d9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eva/w.wav",
+    "sha256": "0a87c23fb80dcefa8346d10bb2508d694796b6616f72df85b4f03a64d370a93e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eva/w.wav.meta",
+    "sha256": "b6b067a731e289a75b27638f505e4570ca0e822b1ee6e098c914c2e2683a3a25",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/eva.meta",
+    "sha256": "28a62e149e61a87617ecc6b3eca28ee6f0a71cf8855b7df2aa5c2b6a3bcd4d77",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/felix/e.wav",
+    "sha256": "91f90902589c670287258041970ec3c0ff6e557e1711d6b5749a97ec3e6ee16e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/felix/e.wav.meta",
+    "sha256": "da9f40a42688520a82a4ce4d563243c6dbaff821dd510057bfe85d2957dff9e5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/felix/q.wav",
+    "sha256": "656fc8596ef9e31edac5bdb39cdb858b6c336ba27af36278db912e1632fbb25c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/felix/q.wav.meta",
+    "sha256": "985de91c74c2536646381b093b7aeb67eeeeac5824f06fa22d3fe30e9938f890",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/felix/r.wav",
+    "sha256": "b2dca8f160619c9b8e0d0c5479f927a45d15dcb2425f866e3bd956e16df2750a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/felix/r.wav.meta",
+    "sha256": "1de0a0f6b578fc51245e1bdde774a67d80cfb9940b230926d4a536adff39eb2d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/felix/w.wav",
+    "sha256": "b9e5fe1230ab1f622e44a02f5fcb7eeb85e19a3df8ac01ad537079fe01713605",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/felix/w.wav.meta",
+    "sha256": "0ddc1b58323d7bd8fd6798959fdc5ee7f26b294fa860e3f405d36cf5587dfe0a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/felix.meta",
+    "sha256": "141aec34cf0a048cb001aacc878bc14fb31bdf61d85a56d1a7082f800d674202",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fenrir/e.wav",
+    "sha256": "0e1a27b93b45f397805ff7dc8eeaaec2b64dc04c5ed6896862f0114aafe80110",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fenrir/e.wav.meta",
+    "sha256": "047d9317fa1ec32478ee040b94f8bb95281bff8f5a9f612352a136df1b5f18d2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fenrir/q.wav",
+    "sha256": "2d919a96a10a00c0d2a26b5cb5f43c80611d5cbc17d45ddf8607bb146b51f5c1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fenrir/q.wav.meta",
+    "sha256": "6bf39deddbe30db22747dbdc74f121285776707ed094a2c4b6ca30a970ac49a6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fenrir/r.wav",
+    "sha256": "5f47988c674f7a8f2378f1592e3aa88e248399a8825edc2e9f0798f06dc53e78",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fenrir/r.wav.meta",
+    "sha256": "85dc1b52d2c646af57f4a7aaf63162aaff687f6deda960cf1d77584a7e69acba",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fenrir/w.wav",
+    "sha256": "db7c2741ce6d2243d6a1fd071c9d1d4e0c771d37c6ad5256049414da87615aad",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fenrir/w.wav.meta",
+    "sha256": "6ffc9b9f86879773f8d96aa36f4931bfb760555d8e4793a5132f2d590acf40ae",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fenrir.meta",
+    "sha256": "9373cb0cfa32dbf1eacbb13f8f8542854ca0e331c3b7f6b18e00b3238323eb80",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fiora/e.wav",
+    "sha256": "59ee6d73faf57c18c86a3760940b0ba5d5e1c6fdf0e76f469b332d760cfcdc00",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fiora/e.wav.meta",
+    "sha256": "db7ef198075d4fc716d43f98de27416942b154065f3ca8816b18412765561e05",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fiora/q.wav",
+    "sha256": "4b3e3a40b3d95caa2d61138501e128757bb4df4b44e2ff499b820e000d2fe696",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fiora/q.wav.meta",
+    "sha256": "6631af987e276233b17cf8b19ba5a16b19b5cce2bf6048cfe79a007fea9c54b5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fiora/r.wav",
+    "sha256": "4b3e3a40b3d95caa2d61138501e128757bb4df4b44e2ff499b820e000d2fe696",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fiora/r.wav.meta",
+    "sha256": "93494190338082664eae085af72f1c15741b78a7a1e172104979e9bd2fe0af1c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fiora/w.wav",
+    "sha256": "59ee6d73faf57c18c86a3760940b0ba5d5e1c6fdf0e76f469b332d760cfcdc00",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fiora/w.wav.meta",
+    "sha256": "b357b8b72983a00d4d39f7860751f7023ecd434658ea3ce0dd0e6ed7c8950f72",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/fiora.meta",
+    "sha256": "211215b86b271ee058bb3afd34549a190af2ed78c1e169e09c3c42442266ab5f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/garnet/e.wav",
+    "sha256": "477aa0404afadff1d23b2c6172191696cc09469f41eaf812b1e4336d828ab3c5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/garnet/e.wav.meta",
+    "sha256": "064c6d5deb38cadfa2fc467f3b0c042bb01224e2df403e7e6859ca8283f07b81",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/garnet/q.wav",
+    "sha256": "271ab1d1865eb709b80744f552f6c72a25130a0fa70a96fc6faab96b59fc6daa",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/garnet/q.wav.meta",
+    "sha256": "295809063a370183d4881e8e6a311b31fa9f4f75c44460c5263e2f5a7f18fa38",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/garnet/r.wav",
+    "sha256": "bad0f8b39f09f37468ef653c974fe67e52ff2e8b962a92c70ecd05b4daf3d6a1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/garnet/r.wav.meta",
+    "sha256": "fec6a430a27b10dea4ef2c68faa9a6c26d84b5a7f5855f7d149bdf1b07c54b19",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/garnet/w.wav",
+    "sha256": "3f8449dba652fbde8edd7008979e89e0463359c6060a1c6be2a44321393e8463",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/garnet/w.wav.meta",
+    "sha256": "b59ecc9a14d733bcdf36bf30376d6ed1338f72dc25016da43b618548fc414687",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/garnet.meta",
+    "sha256": "feb226e4f885e5300932de2398b4b93368fe4004be0cae4bbef125e52ef41e59",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hart/e.wav",
+    "sha256": "6df2880a498775104d2e2001eaed90e62a4c86c9ad0d5f35ebec8460953bc23b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hart/e.wav.meta",
+    "sha256": "4ec0cf8b89b01e66ceb8329ed988f2d2b842ecbda5559b65734c65eca1dac5d0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hart/q.wav",
+    "sha256": "ac8849b1b24f0d092fdca2a6cdb93bc0948da992851dc2e40ec8d19bcddbe9ac",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hart/q.wav.meta",
+    "sha256": "e1c0333c2f94ce2d0ce637f2411a0e9602b306ea6e6b06d268a0efcbaed92fbe",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hart/r.wav",
+    "sha256": "44cf0621209afa4c423300a5f80586b326543d4a58915d0934b86f8ea5253ca7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hart/r.wav.meta",
+    "sha256": "97b58e220661f3c9e8328d6b24ae35e8f1ed5833334768b71897f60cf69ebe1c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hart/w.wav",
+    "sha256": "1ae2d4f2287ec38bdc010f695013ddc21c18439071c550cf694ac8913ef21a4e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hart/w.wav.meta",
+    "sha256": "4c42a6da89bc8f62efcb39d5578ae949ea07a207ea02cd22c4b62e94a5201d9c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hart.meta",
+    "sha256": "46efba66a5f8c7a4a4bb3a773c5c4ebe7d0b1765b0e6be294b09b0236622fbfa",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/haze/e.wav",
+    "sha256": "909ca3ea57d49d344bbf7c16ba3a19f190b250bea53d41658ad0bfd81c9628a1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/haze/e.wav.meta",
+    "sha256": "0859f269e8c9f5677fa9bd9e4d99e8915d2f207509a2931bc27f5347247772e7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/haze/q.wav",
+    "sha256": "44f0f6bd59406ea809586a5fdc80c10b8dec123b55da8fc4c0a953d3e8e74505",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/haze/q.wav.meta",
+    "sha256": "5fe19145401c332a17e7e8e28285ecf410777d306b85f1c41e9887808c4064dd",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/haze/r.wav",
+    "sha256": "4defbfe0ff7eec78ff324a5d24179f849e90acb90ec6429cc227616883b1d2b2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/haze/r.wav.meta",
+    "sha256": "2fd849936a1363eff8f52d544b97f11682d395a2f9e068b030ca9b5c34a3dd7c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/haze/w.wav",
+    "sha256": "23e385eb7cf0c77ca03f4912daf135c6d79292028ca2eff23072cfe1c1620474",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/haze/w.wav.meta",
+    "sha256": "ab0d1bdffbab5fcd42519046c2071d695ac3b328aa7353946908d503127e72b2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/haze.meta",
+    "sha256": "8277f0b3cf717107496697c6608eb4a2d7f356015bf70cb8ad51f2a40a237ec3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/henry/e.wav",
+    "sha256": "fe9526bd30e265535509d0eeed4adeb22a491d547f71482bd0d87c8030e56041",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/henry/e.wav.meta",
+    "sha256": "786135602f51ce0c568ef4e20b00e26b1879ac02bd95d126c7d418335f5da2c4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/henry/q.wav",
+    "sha256": "4a75856ea64f1e651bd2575aa0c2a53d2ed3f8dc78b1a6b3771e4f2f9342ab6d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/henry/q.wav.meta",
+    "sha256": "5f483d903fb42951fc831b967251f9174f539f0661da1816e8be1c2abec10fd5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/henry/r.wav",
+    "sha256": "db6700f9c5f1b55c58d520dee08c03dc5262a446caed0b965c1132822a38e33f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/henry/r.wav.meta",
+    "sha256": "39fd7c349275f0d4a7819d25611d460f42f91d2f07942dca263c0ba048868724",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/henry/w.wav",
+    "sha256": "35cc0b7e341ff4bac305fbaa88bd1e3f80b6308228acff6ce99c0b52971ae0ed",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/henry/w.wav.meta",
+    "sha256": "115d4865de09ef328195572c989168738c0bd616e00a23ee304e3a86500f1401",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/henry.meta",
+    "sha256": "d81f3142288081516392c08d1ecdf010f72aa44b99db01daaa37a9ba0ccc08ef",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hisui/e.wav",
+    "sha256": "754ebb6e477ec448f9648f4574cae4ee00bc6ebcdc1506c4c33c5ecf0d846eab",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hisui/e.wav.meta",
+    "sha256": "422e6754747e725633091649f63b79b81634afda36a229b380833701d15cb57c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hisui/q.wav",
+    "sha256": "fb43360c86d1250a80d367ed4d5d4a00a55ea3d21751f0f73bb50eb5e3963e7b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hisui/q.wav.meta",
+    "sha256": "4ae3b3206de443600ad70230858d73870dcaaa4756d63988759f221ff3ba65cf",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hisui/r.wav",
+    "sha256": "a90b8c76d22d89fe2463d38f8113f8dfadfcd5109e5b27be744c66ec53db5d9a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hisui/r.wav.meta",
+    "sha256": "2df439625713409dbdcd0bb0b6e8cc58f9965f2834a01d60772a6cfd96da67a2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hisui/w.wav",
+    "sha256": "46bde01a38c073ae5b6f0126ae2b35e4aff34dbdb9a637caf4d3a4315c26e275",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hisui/w.wav.meta",
+    "sha256": "7a2c8e0ab2d097b70a575fa6d12ed2b220038261c9dbbb98066ac2349b4dd99f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hisui.meta",
+    "sha256": "0e0f3d1cf89f910b34069ca10081c784ccba4862ee5a1df6c50b68a0b3baa115",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyejin/q.wav",
+    "sha256": "3279f874bb5338f3dad600290ef8d7f55618899652b99d9f4cf3b92530ea1cf5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyejin/q.wav.meta",
+    "sha256": "1113c7c09277c64b64b76fa770757d959262fbcb24e920962668bc2bc0db509e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyejin/r.wav",
+    "sha256": "991ad49b929fe00aeaeeea4b6a0d63b19908cabc4950550e85c61057ec0b15ec",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyejin/r.wav.meta",
+    "sha256": "6305e38ebe03c6469bd9eb2bb748ee3b46f4a74d947a54d89df4987f87f3dd7d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyejin.meta",
+    "sha256": "8268c7ed2f5a47c26fa05f4dfd81667888ac6c9108bb11fbfe5d842ebad8bf75",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyunwoo/e.wav",
+    "sha256": "c4fa2413a003e6d4832f4e9f50eda5c04518ab30ccfb8e384f2be43e7cd3cf7f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyunwoo/e.wav.meta",
+    "sha256": "9df8c2b6de931fd911c322063361cbfe376c2b88e77db90122d3a18775ee79e5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyunwoo/q.wav",
+    "sha256": "b44b48c2762ffcc9c7a91d2b86385a9a763cb2887dffbd62cb421433f3a30424",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyunwoo/q.wav.meta",
+    "sha256": "d56f6821f7d051237849b37692d41f14acc78409bdb7f7422c90dd56ee0667ad",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyunwoo/r.wav",
+    "sha256": "804822d48ce727310aa6ea5338bab18e64bf247d952d8c3ab15e5cea87c6a1c7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyunwoo/r.wav.meta",
+    "sha256": "063cf57daaa70d2c52b4595fb00507064a759eb3308f21e1bf621c9f23de3211",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyunwoo/w.wav",
+    "sha256": "753bc0c12cdb2269a117a048ad1de74edc785a6a257ebd029ac2e34389d1b5a7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyunwoo/w.wav.meta",
+    "sha256": "aa98be84a4b51f3b9def05495e250f1a0179c07eca9472c3084c241dd5b79c67",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/hyunwoo.meta",
+    "sha256": "42916f96dc48067088050f40b648b48e0193d8346fd2f8423d4179b4ad85609b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/ian/e.wav",
+    "sha256": "4da2952682e93cd143abbbf4c5515b54dd07ae62be3cb9710433b57b76b741e4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/ian/e.wav.meta",
+    "sha256": "f3ae6c71383fc01d6d8124771cc47dcfff98104a2a46d0ee1693e995f14f7c01",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/ian/q.wav",
+    "sha256": "31cb8cc6807c3a6c34300a4115c2cb62c147caddfdca1b9eb3e5cdb3575a8a10",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/ian/q.wav.meta",
+    "sha256": "2a6c0b46fc3592dee10b07cecec5da9397aa69911677082024a4737786d4c00b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/ian/r.wav",
+    "sha256": "7a9a8e90628dfe544bea03a854d83dc86418109dd5cd6619b4b2ce4d59758faa",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/ian/r.wav.meta",
+    "sha256": "5204853a8d9be53c27491fa65ec34c3b406791d4f12c4fee0dec01446f00adf9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/ian/w.wav",
+    "sha256": "ad2f55f8763959f9c2247f56f4e3f1a188e3b7de5de367f2cb4040ed8608db7e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/ian/w.wav.meta",
+    "sha256": "0805752be714fbc13ddf743fb8609a8010db17467ed7385ef25148e4b6fb9b17",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/ian.meta",
+    "sha256": "14889e9361d825d61976c97d5c11eb3e6b38c0cd42a620fdb4d6b9f9268cdcee",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/irem/e.wav",
+    "sha256": "128e2619b765220e137d039fa0d8073f3990f8c268a5650a058fbf9a72d2773b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/irem/e.wav.meta",
+    "sha256": "c424b2285da2d437352c083dda415e1abf5d25e8f453b4a04d9dd4c0f5347eb9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/irem/q.wav",
+    "sha256": "52dbfba0e1ca72bbd098b33413f8961423321e1a20be0c621bfbf3c32d0ed005",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/irem/q.wav.meta",
+    "sha256": "fc37f527511f1e4e65a10f1773ba31cba1142eeb66d77ef8c18ef7c4b4acd814",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/irem/r.wav",
+    "sha256": "d2cad49d142d96149709099f723b286ed416373f8cf0a516611dd804c324ede4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/irem/r.wav.meta",
+    "sha256": "7493970de092ea74832c527ce899b90910ef9d2f18495dd922cb7af023ee56a3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/irem/w.wav",
+    "sha256": "57601f10c2ffec0f8e1676cd39865566a99f681beeab0d4b7b241a8437d2715b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/irem/w.wav.meta",
+    "sha256": "8db9a7911809119c02a9797eb342d87ea076d537dcd040c64c899b348d32dfe9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/irem.meta",
+    "sha256": "bfde7300db1218a852d3ff45b3a4185abd1f6218bec647167110bf5f6f50bee7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isaac/e.wav",
+    "sha256": "6286f9197f9c9c90a5226768ff081458fadb4382dc9a3395d8d114c281aead7c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isaac/e.wav.meta",
+    "sha256": "827281136ba04ef0a6661845b7f923a8ab86222c00286e614c3be3f6ed5e775c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isaac/q.wav",
+    "sha256": "bb4f13b349fb2d89c2fbe3d6bb8a0cb856632f7a46ca1f51e0b34b585664e241",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isaac/q.wav.meta",
+    "sha256": "a9dd957201da5029c1a57bb73f0c9ae1878bc79f922bce302420bfcbde204426",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isaac/r.wav",
+    "sha256": "c0f6dbb70977f7921327498eeb8f93bc400304dda4e65cace3d977e056f33878",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isaac/r.wav.meta",
+    "sha256": "45b2c07a240ca5ed84644e934fc9f71f0beab4031e5d2396ca8cf96ba5858b11",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isaac/w.wav",
+    "sha256": "f363872a263744117df9223c6121223fbe1739df4309b08ccc61279f48a41605",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isaac/w.wav.meta",
+    "sha256": "808d38c6eb0f5c7f14ab6fec376cd5aad3885fd92cc69b074d0b5a34e6fc0da7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isaac.meta",
+    "sha256": "2c263a50f6bb8592cf8b6c0f41dbb9d1adaecb6df0c3efcc0e040afaccda73ae",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isol/e.wav",
+    "sha256": "caa74f62663329641b8dad14d026a58f6f8c2c1849c545849b4ef88721a0a418",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isol/e.wav.meta",
+    "sha256": "989de828c0c2afdedff3742ca58d9a338b05dd79f3a0cbc717ecf7bd3d06ad9f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isol/q.wav",
+    "sha256": "4e2a95303330c213b06ad6d2bcd318d0871c5e507e4a68d862b72682df6a96dd",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isol/q.wav.meta",
+    "sha256": "280941491e8871ac1722e27c66e2b57ae6d42c6d9a2e85039103453567502813",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isol/r.wav",
+    "sha256": "cd69911b445767e3631a79f80bb56a1b209d19928ee0a13fe59992dc03cb8898",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isol/r.wav.meta",
+    "sha256": "b6e481b3954334a745698739e5f20d156432f2083944dbedb94ea9e5b49b7221",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isol/w.wav",
+    "sha256": "e6ce9d6d7f96726ee42110ce29e0f55f9153ef278c6a07f341121f2c388f3288",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isol/w.wav.meta",
+    "sha256": "10b8ffae9617b72d10efa3b181a9a6c12a599fb7b23071ed59cb643611b0cea9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/isol.meta",
+    "sha256": "55af4fb7b959fb91c29b901be333f512c065679158068ff7152afac15d8d5e43",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/istvan/e.wav",
+    "sha256": "d98ff3dbefeb6b2fd803d471bbed80ee4617cd00e336acf6872a0d98bac1fde9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/istvan/e.wav.meta",
+    "sha256": "9df36e12bd7baaeb926232fb50226a3644ce6ce27e97b599b740249a72f3160e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/istvan/q.wav",
+    "sha256": "85f904229d950da4b1bde23c8569099ca75b1cbab27324bb661b6bbd4ce7417d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/istvan/q.wav.meta",
+    "sha256": "04979d4497fa48f247e10acd56018e7d29fef5e03ff60bffde5d27093a4cdae1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/istvan/r.wav",
+    "sha256": "f7786aa34e67793b6c4e6501d468075083b96d1d73a42589df990289808efd3e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/istvan/r.wav.meta",
+    "sha256": "040eb0a3922c296d5831e4066cc76783bef60e61033ab18280177df7bacbf32c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/istvan/w.wav",
+    "sha256": "49df49933b98fa523224fa0e898b83d15d06097a6eef120ac2d440ff4a29ce7a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/istvan/w.wav.meta",
+    "sha256": "1cef706c89ae729866088929cf4ec9f6d64026eee5cbabc5ff0d239cdc75f91c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/istvan.meta",
+    "sha256": "c7208b6f381b437ca0513007ba1adc36961eb5ba0b1c423b23e26a044b608921",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jackie/e.wav",
+    "sha256": "f8a61a0769e2530f8a852b074d906636686852ea33cd933090eda4ae7fdc9ac9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jackie/e.wav.meta",
+    "sha256": "4fe756cba2a947917f6f6668d3de0253b56042d19cac116a4000790f686e305f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jackie/q.wav",
+    "sha256": "1baf9b5117059083b57a68b8014682bf17c79d27f0990d76adc9e1556864aab1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jackie/q.wav.meta",
+    "sha256": "9a838c9ac95093819f4aec40ac3cbbbb8b6d6ad35672056507bb6bc814e58537",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jackie/r.wav",
+    "sha256": "53f29b26959adfd22c4057356a8fc508e0817bb4409108e1a20a62b58aeb34b8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jackie/r.wav.meta",
+    "sha256": "23f9f02216c99097162b40d98c90e1a8c5089ea6a2b94dd1fa7b82558d4d2e73",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jackie/w.wav",
+    "sha256": "9d467a456f4873cc623415c3212e6fbce84639cfd1a3e6cbe2066696011f3b51",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jackie/w.wav.meta",
+    "sha256": "d9f3ea6b768cf13aa0e0bf5b19b51ed722100b056bbc965b28433c94c8fcd8ef",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jackie.meta",
+    "sha256": "e5b2376d0078f9eb503733ab344264342e47f1a72d68328e2a639cfb7a20b664",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jan/e.wav",
+    "sha256": "16f2d4f42503dbafd1e78358092a0e5e44d7228f2144f39b382ef0f40128a1fd",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jan/e.wav.meta",
+    "sha256": "e2f61609ce0eeabc960ff87e4647afb5f93b3f0a896e5e73a55e4cc5f20185fa",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jan/q.wav",
+    "sha256": "24eaf9adcc75a609d6e417dc5da7f5406bfc2c8dd297ea891225534a127f40a3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jan/q.wav.meta",
+    "sha256": "1bdf9e442dd3c95ecf0a995743b78c53c1b22f89c416fd1b4786789d8dac26d4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jan/r.wav",
+    "sha256": "8963a2814b444951156fd72e5eb05a91f67fe9099264120446434a622ff42cc1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jan/r.wav.meta",
+    "sha256": "3bdc63081b17952aec572d84c491537da8b8f489950b1563d0b8d99ad3346d6e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jan/w.wav",
+    "sha256": "4180f558b2f801cce518ef3116dc9230927289e387b958b65ea3b72ec102f26d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jan/w.wav.meta",
+    "sha256": "a2589f04d7bc815f73ff2f22f2f78a580162e341497d11962fefd58934adf2b0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jan.meta",
+    "sha256": "08b266a99d054342a3914a9948b718433d183040b192888e1cc2dacd350f10be",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jenny/e.wav",
+    "sha256": "a14a120a826247c2f193114bf14a15807dc44833d8ae914950bc95709295f58c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jenny/e.wav.meta",
+    "sha256": "ebeee409c23a7571dbc4c361811e9ab643ecfcb38a576cc4a207d9f4c4bd5ca7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jenny/q.wav",
+    "sha256": "914bf69f1ec70a8288349dd2c6bbda3d4dea4c80519164fcc540ae0f03bd0873",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jenny/q.wav.meta",
+    "sha256": "fe33ef0c96098624136fdaafadd0dc8f20db2a93794ae5fa5083c6532af577ca",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jenny/r.wav",
+    "sha256": "a3755055a30d44a6b680a3dd34e09ce03b305da19fb569da7ee6b4920f339dc1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jenny/r.wav.meta",
+    "sha256": "f06e649f3680705cc626e17dd64921f99d5e87133c12b326ebf55b7b3a5ecc86",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jenny/w.wav",
+    "sha256": "c07312c6fc57639c61972b36d995676aab6272d7b8b709aa4ad3aaf409e279e0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jenny/w.wav.meta",
+    "sha256": "683ed25beb8232848fc74c0a154a4d3cae3e4f5690965235aae67e2919132503",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/jenny.meta",
+    "sha256": "5c6258189d928f88b446e64f56d0dcbfcb4e2bb25b40f538bbc101aad8cde83b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/johann/e.wav",
+    "sha256": "93572076686f9fe505c1508aa2a6b49066e460e50bde39a51f7dfeec2be14c67",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/johann/e.wav.meta",
+    "sha256": "59148a278b7b87c2160f5dc2a55b86148a57bbe929e1284f9b4f8441b4922662",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/johann/q.wav",
+    "sha256": "3d0213ddd9fc63d1ff87a0e2af2bb40598cfd63f6b2289d7b854efb8874fad46",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/johann/q.wav.meta",
+    "sha256": "233bf3445cd1a58db1f28ecfad4df67fe5cf473fa296b5670fb24612db6dd96c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/johann/r.wav",
+    "sha256": "4e21542f5a6a1d19c23819dc873a8cbe2b59709526943a0e147d789ada2205db",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/johann/r.wav.meta",
+    "sha256": "b09d4fb8bab50b2dd290746fda3cd40edd7b1d5251f02befbed8af5b50e17672",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/johann/w.wav",
+    "sha256": "b4a71a68acd6b65f70b69744355e2a3f413207fcd6743a24a4f73ee4261018b1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/johann/w.wav.meta",
+    "sha256": "18669877fa7bbbea48f1c96da2696da5505f2e207b5788afff97b402bdca4b0d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/johann.meta",
+    "sha256": "0ec079a075f6d5bbf5580594fbb26bdd3e939dd1b6f49ab358017f51ecfe6a5c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/justyna/e.wav",
+    "sha256": "fadc0bbf8635bf21a4ac34f19a8ecdb751b824a869b5e61676942146dfcc1b5d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/justyna/e.wav.meta",
+    "sha256": "f76aebf4ed350e42121d3e1ef0255ed10f989ed9410c0a00f1da0a64d0c40d49",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/justyna/q.wav",
+    "sha256": "66ba57c3e783b55a61e5ca1b88168c86463523d841538bd878d24fee589b7128",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/justyna/q.wav.meta",
+    "sha256": "d44e1143fcb4e9099eeb9b24104c2c7db12b064f3ba2a0b2f19e7daf281e4266",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/justyna/r.wav",
+    "sha256": "35a6c7e5c71af7d7fc5df36531762edbcac9ae71f03bac93ee4bf8fae3f9bc95",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/justyna/r.wav.meta",
+    "sha256": "de9558dc56943db05d421b69e979b935f16a2b40c52d4eb7868bc8b174d92a1a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/justyna/w.wav",
+    "sha256": "608ebb1d75bd0f94a830412bf9abc7dafef26c0c371081fb1a6e3c5e6e10f62f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/justyna/w.wav.meta",
+    "sha256": "0aa3f9577ddafdfa84f62c167d85bf62f11b01010be5b2837554708068756b5c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/justyna.meta",
+    "sha256": "1756a0cbf5cd15102db24830f9d3c3dc8fc7797bac11412d6f857b35518d7e8c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/karla/e.wav",
+    "sha256": "7b489536b58452fc948b971f4baa46ab5e42914ddb1d9fc91e270ed40281a344",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/karla/e.wav.meta",
+    "sha256": "b86a5050649165bb5c7859bf48c49062a3037ae7502e89382a0465762522658a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/karla/q.wav",
+    "sha256": "d8656d16e4ea5460007d8ed4d4badc75201ecbd8164af2ef2c1b379122205f7a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/karla/q.wav.meta",
+    "sha256": "6ef3a597a875e73c2dfef0551b1e653615852fe692190d0f65f6da37a39e4b65",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/karla/r.wav",
+    "sha256": "38622be95ca65cf7bb7fc660dd7faa22200daaa3c7ec5dabe97579491fa09ddc",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/karla/r.wav.meta",
+    "sha256": "1b8cab5be202987c84920cb4495f8d0504a106f16b9caa3909c9e4e1f4a5882b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/karla/w.wav",
+    "sha256": "c7ae0ca50dc249cd4f79f36810873f2385fa6b3f042444676eb57e4fe560b4a6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/karla/w.wav.meta",
+    "sha256": "80d5f8b61da16b6dd1f4edc39917bcbc8e0cfd46d1a506e0affc966d5a0d4a44",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/karla.meta",
+    "sha256": "cf11177fdb91b5946cc07911a403795fd5e7d0f02521af4a5d1dbfffe0dd46fc",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/katja/e.wav",
+    "sha256": "36079b4399d1e7cf6a68b5cf9b3746ff62d5932959807addf7e62d80bf226743",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/katja/e.wav.meta",
+    "sha256": "073e84c5cbc7a83bdfa25583718921c06aacd01bab681d64cafe5f5c693cf247",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/katja/q.wav",
+    "sha256": "a10b9964c1f0ed2876a9cabb48c127c223a72feaff7b746aa2aaa4efbd293bc1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/katja/q.wav.meta",
+    "sha256": "6d57caedf58b309fcce75258a6d9ac5fc17591526288ffa9df3c722e550a5c58",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/katja/r.wav",
+    "sha256": "b05a203c46b156471c9092f3d0cc42f1784d16e7597a9256dee3b646a25926cb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/katja/r.wav.meta",
+    "sha256": "4002412d79118fd63d509f18dc91c931877c901680273f6389ff6c915a98952b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/katja/w.wav",
+    "sha256": "a0703f556406daa28311e91ac9053313424d9be4db65c4d9255c18aa8449cc0a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/katja/w.wav.meta",
+    "sha256": "78c55a5c662652d52bf9b27f8821a63a3c4edba0edbd3e7007e146850f2e8ce8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/katja.meta",
+    "sha256": "84279488babb1979f386914ce2b956e5c14926700e4c3f88a3cde568b5e7007e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/kenneth/e.wav",
+    "sha256": "ada2106106420e3f876e0163259c3ed1b291a0ed76b0831dfcd562d9f070727e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/kenneth/e.wav.meta",
+    "sha256": "d0c89445d25a14f993f56d8cde843fdcde22cdc63f5e0195a7eaa4cb1df339af",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/kenneth/q.wav",
+    "sha256": "605ae1800c84ffcf090307218d1aa98d46a11eb70e5f038bae88b91d4bc9df4c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/kenneth/q.wav.meta",
+    "sha256": "61a3260edd94b1564bbb161e5e74d8d601b3763eb46632c6b6895b002b87cfd4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/kenneth/r.wav",
+    "sha256": "691be0f1557ced718786e9a7d08955899bb3ba9d6855292b846fd73dbec31f1f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/kenneth/r.wav.meta",
+    "sha256": "4d2f21f0bd6bde9a31eeaa4905536f2b79882b5c848eeba85e4a6f5ee491342a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/kenneth/w.wav",
+    "sha256": "422c03cf9991e6722270b99d7f36461d2a20b82eaccd381472543afe400966ef",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/kenneth/w.wav.meta",
+    "sha256": "898f389d16d4c22f2a4ebd8766b8eb95ce51fba4044763c7d868faf218ae0039",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/kenneth.meta",
+    "sha256": "c42105332186aefe71bd435c46f16b4f417eca631fbae07252de681a51afd3b0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/laura/e.wav",
+    "sha256": "26c8fbaa558adea51a1a48c8c9409732b9da3862c277ffefcf2a3552dc54aeeb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/laura/e.wav.meta",
+    "sha256": "da9d4bdfa281a04f2a85cad6937f139ca22c176ddb0b7a622c6c0288dc3ae6b2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/laura/q.wav",
+    "sha256": "d2af79b6d4e0f09911220d685829df1bbcd7b4abe773cfd60d2ece73b7ba5799",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/laura/q.wav.meta",
+    "sha256": "d57f41c61dc5497936c97fc6bcf520b89c21a77b2257478cc7dca0ab48bc79ce",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/laura/r.wav",
+    "sha256": "32ad5cd1ddc730d2c0fd49dd4da6c241aeaede0fd9da26668f16bc4b886df118",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/laura/r.wav.meta",
+    "sha256": "bc45539fc441b32723987f34999922d055b6fdc557e918cdd12fc8fb7cf9811b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/laura/w.wav",
+    "sha256": "d7c7adbafa9e1763a2eb96897bf4622b1e55a99d60308bd0f974fb1b9c306bd4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/laura/w.wav.meta",
+    "sha256": "c651b0c943585c4392c9751c618eaa97dd953badc46d9269896952d40673041f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/laura.meta",
+    "sha256": "e4bee4b4555b981edd7545b0bbf373403e18ce3a46cc155b5631d219e641d81b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leni/e.wav",
+    "sha256": "f856397560dae42fb7a43099e5460ecd7bb3a14ca15d71eef96a7c3422042b48",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leni/e.wav.meta",
+    "sha256": "0664334df7b318b69c200f7a65eba2e2902cbfa32919aa5bf2f536b880d9bace",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leni/q.wav",
+    "sha256": "27e24d2f0f2706e34382ef226d1fe530a16e9bccd8bf741a7f36cf828f255b94",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leni/q.wav.meta",
+    "sha256": "938460f7af1dcc4965c0c976a1877236512a9b284857cb2fa526cc4a5e0f4e38",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leni/r.wav",
+    "sha256": "e901d031130da33fb7444f85be19367c764562759351401c0b0840c4d80a120a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leni/r.wav.meta",
+    "sha256": "e1d7d59585b2defcad07e83fb826d7887c18885f7516cb3e56680fc8c53ad6a0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leni/w.wav",
+    "sha256": "d0e2621d1eed58f604bb6b15bf201dc374f48c852a7bef205b15c3379755f406",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leni/w.wav.meta",
+    "sha256": "c37606bfe8b5ae056e7f8da6e33778b82d165dbf6d4e8b19c194de8fafdae4f2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leni.meta",
+    "sha256": "4f1b5a5a498eb0439af003fcb58ba78d329f41a8c7006666e26fdf903e8dfe45",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenore/e.wav",
+    "sha256": "0e2d6bea598fc568c6fb1ff1ac93228c14f02d92fd8159573ca78dae608d9221",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenore/e.wav.meta",
+    "sha256": "27eeb3ebf1233cdebf1a79376e6edbdd2bdcf0fcf372dccb85d17b9e988612b1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenore/q.wav",
+    "sha256": "718db3b3264ed6bd184eaa3effda977e845dad331e3532f10e9a90e180714767",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenore/q.wav.meta",
+    "sha256": "effa7b63cd4ac63886d1a1917cd001232c9289316a8d3b5ba0eae73e25c048aa",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenore/r.wav",
+    "sha256": "296d5c668a2dc906686339f6eebfdce5b10fa92da55651606274e00681f577ed",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenore/r.wav.meta",
+    "sha256": "c5b24765f7d524e8c1ec86f14e960c9a2ce8ba25da86c88b9a554d107ab951ab",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenore/w.wav",
+    "sha256": "f1f0052c7c80ab9ff377218193f6dd9060c04aad071c2b8f441bbf1cc1759f15",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenore/w.wav.meta",
+    "sha256": "bfd8930d2109318a34d068f03069f018a4eb1acc0ca7e4d687a562ea2a7c98ac",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenore.meta",
+    "sha256": "3b6191d38546d2918164d05361ca572ac46c7a1a68c41dbca6b2e907c3881b09",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenox/e.wav",
+    "sha256": "3e74752f1006c5c585d3ee8b4bb3091fb058a45914ac8652a51c7821334ad8bd",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenox/e.wav.meta",
+    "sha256": "041a4d654913b300ae0faa6c3c375d69727c3659b8825737a4265727193a006b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenox/q.wav",
+    "sha256": "33fb0b19fe20afe38a9e8326bf419f5ced54ec1866467af637ae68842a6b4086",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenox/q.wav.meta",
+    "sha256": "0e1fe09d641390ed94bbc4a847b839b2179e310f0fa356ac35a26080c4f0fdab",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenox/r.wav",
+    "sha256": "faff6024ebd2b848281947ff9da3a9c77fb5f5c330821d80ece6cab7e13268ac",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenox/r.wav.meta",
+    "sha256": "2ec15af5b419343fed60b4c725b6c3709e64011f0cf5ff8d0d59298569ea37be",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenox/w.wav",
+    "sha256": "365e2eae64e62a3774379945a6dadef86ea05f1e299202775d3b397ad220adc1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenox/w.wav.meta",
+    "sha256": "1171c511df1b599c1e69ad535e8df282713746e983bc678fca326ca0aba3bc55",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/lenox.meta",
+    "sha256": "0f380e2c9329b1ab9a36b1b39a49137b339e55c6b4ccbc787565491acadd5d2c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leon/e.wav",
+    "sha256": "a00edbb6d4f9be1c584ceeca4c712280a468998769ae57d7ef87615ced3c7ae1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leon/e.wav.meta",
+    "sha256": "5e33ab128c79d3d68c5d25d6c0c371eea29eebf0e7252614bce18674ec3ed0c8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leon/q.wav",
+    "sha256": "883f9d49aa9293190109967a6528db0cc313532bbe41cc46bf86e12e5a9fb8d8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leon/q.wav.meta",
+    "sha256": "1e0450e10621791a5a13c60338e92632ade59e4d7c0899a9753bb55d042edd63",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leon/r.wav",
+    "sha256": "e93e03430cb26ce1c94c1b63c07a9c5d08882e8dcc29cb6d073cc3a714ac6fa1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leon/r.wav.meta",
+    "sha256": "199b5b39c43b4c2fe6533b6f0f5e23e198b1949d20800d16524b119fac6fb7c2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leon/w.wav",
+    "sha256": "b529d0187cbc3e9793ce1a99cdd2478ae356f2df9a03048628a5139719f3cb75",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leon/w.wav.meta",
+    "sha256": "83e1fc1573f29b5e125afa628d7b61e730ae030e95a72d482339058f1c345706",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/leon.meta",
+    "sha256": "b99901033ff479f8f5bacd3cecf926403d624bf552d7fefc09f659498fa558ce",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/luke/e.wav",
+    "sha256": "2fa0fd4c94f814a48314b6256e72417d81b0dcdf7c19951d5a29b17c8a466158",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/luke/e.wav.meta",
+    "sha256": "0c28ed51dd702c874d5482ccbb602e650611ed1f1d5f9c4752aed81bbb20c778",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/luke/q.wav",
+    "sha256": "8f32c45369aede7d368426304472564e05634d7c6bb045ae613393a701510b90",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/luke/q.wav.meta",
+    "sha256": "c1cbb69d12b566fe3dbe9edbb84fb35cb9429417935db7edd8fba24f19327971",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/luke/r.wav",
+    "sha256": "ce5602651138a8a9f1e2f24f0f381cca18fd62f325001bc454162357796a9084",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/luke/r.wav.meta",
+    "sha256": "bf448effc9afeed6e12185fa92fbb0629e60475e6bc1a9ef945a923c7660b28a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/luke/w.wav",
+    "sha256": "15defb265b127ee849063984b68779b09418e86118357836efe37baf8f96584d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/luke/w.wav.meta",
+    "sha256": "8f8abb628451187f9ac223543b7b8d3cce97c18465a865273b98f426b0d808c5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/luke.meta",
+    "sha256": "7c237bfdcf719cf3abfd62b87aa00cd6b86d8225314ccd2563b2a127977179ac",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/magnus/e.wav",
+    "sha256": "dfd9a1bdc7b8f2b619f4379f332adb5fc819ffddfb616ec3f174dae0fbb3d25d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/magnus/e.wav.meta",
+    "sha256": "4344893b43144916ceb171b6d21ac5763bbcbd20aacae1fccc528aadc99fdffc",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/magnus/q.wav",
+    "sha256": "e0e51f1603727544647a77d8d1b02043e93d7f9197d5514a5fee9c194342b8f0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/magnus/q.wav.meta",
+    "sha256": "26615b4bdcada000a9697a521aa0f4d97bb8aea53ef390153a7eafaa27665d78",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/magnus/r.wav",
+    "sha256": "e6f8f434722008a5929d595e84c05f45cc12e2c6d6b8878586356b644ee26047",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/magnus/r.wav.meta",
+    "sha256": "bc7e2a0c7f5ab01f4f560264e80d968945eccaef8e5a83b39f5bd72add3aef52",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/magnus/w.wav",
+    "sha256": "00374936409d0b701aa67348cf8260441517f148edb5b20644203468c1f0181f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/magnus/w.wav.meta",
+    "sha256": "4ee2080f4d09aeb74638d4198c2a378a75d0d92c2d868a0240b55a3c5f493e65",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/magnus.meta",
+    "sha256": "b0812d7fee088cb50d86e56921c7d97d48a0f1eb74612c4c2a5d26993495e58c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mai/e.wav",
+    "sha256": "574a20df80bf6c7d2710554332e1395b735d6680e34d36eccf4a8ebce81f10e9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mai/e.wav.meta",
+    "sha256": "762d1379582fdcaca0085b53225e53fa2e07af47fb17c529a69b4e47ba958a41",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mai/q.wav",
+    "sha256": "e7638174f0b726e101a688902e1068218b8904b86343125a3c9ccc48ae3fbc37",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mai/q.wav.meta",
+    "sha256": "2a3e90cb3d496196513f6b76cc933cf598777bb4005322b045c82da7001fe4fa",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mai/r.wav",
+    "sha256": "e8059ea6d1ec1c0d192128f9a13581b88df99734151053f5fc525d8efa0aae27",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mai/r.wav.meta",
+    "sha256": "999d7289c77b341cbfc6f26cdc2e0a51423f4866f17697463dcf71341375edb9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mai/w.wav",
+    "sha256": "4a05cec7c548ec40ddf5b6007fa84f1da9514482560d3d070aba415b319110ae",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mai/w.wav.meta",
+    "sha256": "7f4ff0b588069237681cb157458577a4dae3d6c972c3bd39ea2f98de4b0c8173",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mai.meta",
+    "sha256": "008de56171bd021443c4af6f1f61ea5ec962a7ce020599104877299ce3b21566",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/markus/e.wav",
+    "sha256": "2c03da594b29cb5f5cfe01bceefee5d6aeb0de63c80f0001e7f604fbc82a0ad0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/markus/e.wav.meta",
+    "sha256": "6d8f73cae456128522cd4942d5acebcc1387ffaaa260c19f92bbfb7d56e1f9d1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/markus/q.wav",
+    "sha256": "d3a75ede43aeea484655c85f40c9403a08e526e47702eb4ef051b98c85cda4b6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/markus/q.wav.meta",
+    "sha256": "2ba3ddf0c00e3718947b01b4eff20f2932dd5daac91fba47b47c89aa16fe5389",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/markus/r.wav",
+    "sha256": "e96e8abcb16a092435017287aad39561a044d482e52a95a51fddb2a2d5bdbfcf",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/markus/r.wav.meta",
+    "sha256": "aae2631fa152562dab0c7e7451bed299d98e0ad5065709bc9d4b39d037eac0bf",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/markus/w.wav",
+    "sha256": "063378f15a24eea9d3c2485da2c20a23c8448fa9107a902c1cd031794a4b9a8f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/markus/w.wav.meta",
+    "sha256": "cf3d8927abae760bde773adfc51d627758f20dff40c2997c8102b0ef9400bafe",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/markus.meta",
+    "sha256": "1667459ab9f9d65cf450ba8a673b8d801c521b5f495d525f07518ec1a80df6cf",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/martina/e.wav",
+    "sha256": "5192899f54e75865bb3ae5a891c7519b811967515ce2eb0034bac5d78afa363a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/martina/e.wav.meta",
+    "sha256": "6833c68971e8551fbeacd2538641b2c1671b4acaa0de2687c0dae7286fada631",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/martina/q.wav",
+    "sha256": "dae936e5a8340b6aab0fe3d9dae413d4b0249757d1474279c9bf68f193269e7c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/martina/q.wav.meta",
+    "sha256": "be1f35a8ce81c6b77c5a8185c337ecd3cad08fe863cc1400712042a8e865e73f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/martina/r.wav",
+    "sha256": "1382a28dd6411710b26c9e8d8a77c994f4b39a48f93cad9d7b5c5bfa4b127767",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/martina/r.wav.meta",
+    "sha256": "ca65e0aef7dc64d9625bb595616eb720caf6312a91509b376ce503a75299e4fb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/martina/w.wav",
+    "sha256": "60859b3b3f5a52fd4415838835ff54743f80ff3fd07752df0bf1dc02567ead55",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/martina/w.wav.meta",
+    "sha256": "07854b3f42157b48be39c7fee414d610c39a4950902f72e9cb0d96baf4c647b4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/martina.meta",
+    "sha256": "97913280e24b6c43fe945ea8c3ef9db8c18f8b995dc84274bf3fdebe1b86bd36",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mirka/e.wav",
+    "sha256": "f7dbc8f0d6bd04585d66aa7699c6f27277ffcb77c3552439b28e5a948be919ce",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mirka/e.wav.meta",
+    "sha256": "9f01bb1a8e3c98684f03aa0f7ea9a0eaeed7d4725cf74a6831f05a03075588e1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mirka/q.wav",
+    "sha256": "1e4a0f54b87872f1372dc44140e7bae9db1c7231e16447cde671f3b7768ac607",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mirka/q.wav.meta",
+    "sha256": "ec8426de286ed253f0a6fc18d16fa5b0d77e5e49d42eeaa89276956a400cf986",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mirka/r.wav",
+    "sha256": "786735b2d1f42aa21007cdcfcc71c1fa0acefdffa82ba8bc31d56e204ecfb703",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mirka/r.wav.meta",
+    "sha256": "88f0d0c70dc90b05b21c2598891688172b2dbf084d2c4d9eb3d7523ab9072c4e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mirka/w.wav",
+    "sha256": "6f3d7448de4d190771782d237b05b6d11af6c4686d326603cbbbe2666a1084d5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mirka/w.wav.meta",
+    "sha256": "b290056cc1196da6d988da6b7771d1b59b91ef16f0922377f9b3e1fb8cebd829",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/mirka.meta",
+    "sha256": "5c29a579cf14c8643e56e781eee7d56201bd6e7e27834c19bad07b121d81c34b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nadine/e.wav",
+    "sha256": "50b88f630e41098c60f8ef7d0ba4a5ebb4ed5d192cfb415c89651c6064536fe0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nadine/e.wav.meta",
+    "sha256": "58764547ba7e27436f07ff24b36e66e7f9924b894ffe59bc6154178a96d99d11",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nadine/q.wav",
+    "sha256": "ffdcae6998690a4c0968a59b5c869306fad6e129ece1bdfd7638c64f193aad8c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nadine/q.wav.meta",
+    "sha256": "53adfc3b039847546305413833f4a04839bb8213b89c85321a383a4e2cc656e0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nadine/w.wav",
+    "sha256": "af23b9cdd1efc473cfdfd9ec280c9dbf6209e21ad108f1b479671a51428a8317",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nadine/w.wav.meta",
+    "sha256": "317ad4f705ce4f814c4f389c2ae18203b54746b59ed78795733cc3f4704c2ee2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nadine.meta",
+    "sha256": "44b513b537ffdf96f7d1221be9ea15379d8f4f58cc6cb432cf98e08ed6319a09",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nathapon/e.wav",
+    "sha256": "a7ce315b65aee4ab178d37f0e2c5d6c8a3dc5f925e0f24af715ac41e42cc1a38",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nathapon/e.wav.meta",
+    "sha256": "e718914a5777d88011e5740fabbb56e76555abde493a9226cf50cd0ff831e177",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nathapon/q.wav",
+    "sha256": "aac2a59e129a4f77db623224b735f0dc63ab4524156a5dd8d44dd4bdb1e10ac8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nathapon/q.wav.meta",
+    "sha256": "1e258a6d389a8ac8afab113b01d3ad2607b2d88a10591fb66a9f715c6c717486",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nathapon/r.wav",
+    "sha256": "2ef6f1b4ae3d853927f830b10226a63f050732245bd2c1188361ed93a673ad4c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nathapon/r.wav.meta",
+    "sha256": "ec32fc89e27b55670164534192271b3e8b80c266327f28dba16c027b52f4301d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nathapon/w.wav",
+    "sha256": "79625b8c245be1187c790cbddbc7422a85da9fabdf1c73bd6445f26791d94bfe",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nathapon/w.wav.meta",
+    "sha256": "9791ff9d3fd9476c94bc916abb0c5733f73b54f1ce18909d86021e98204f9bac",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nathapon.meta",
+    "sha256": "b8393d506799fdcab34a4067809f8f45c5c5990a9a642b168acb29c7feda694f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/camp.wav",
+    "sha256": "429562bd349c6438ee5976bdbd65d3cec5a45aec83a795eb0631b70c2601dd29",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/camp.wav.meta",
+    "sha256": "538578c47046e1d5cd44fb902a5112a7892393aefe2fe39597017942cc6032c6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/cook.wav",
+    "sha256": "e7976b250996551afb03850898c33062b4515fd0a440a9984a6ceaf3d4ad3a42",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/cook.wav.meta",
+    "sha256": "17b3fc4b9e24e43b28260cdf3b93d9c09dd7186dd9a69c1025fa391f0d9d7751",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/craft.wav",
+    "sha256": "42cec3584a74def8bf4d6807989a21f53f23bb78a464534176884edb02a08396",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/craft.wav.meta",
+    "sha256": "f0dfa6ef6264060be644d2d13de83705f6b081f9aacdf6287401812e58f5c311",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/e.wav",
+    "sha256": "04bc129f4e368ccb0ca5e9b682503adf336e59069fdfed67e0640efbd0a1724f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/e.wav.meta",
+    "sha256": "0fe35c0b7ba31fa09a2f243d0696c8c761f91a818a46dc005bc0c578891552a1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/hunt.wav",
+    "sha256": "d543274a78e76c0ca34ef6c96a376be3c8769cbd14b0750ec56bb464b72534f5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/hunt.wav.meta",
+    "sha256": "24dcaf7c96de8b13cf89db926e9d631a904d0d40473f2ffa816347e0cc5a9190",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/kiosk.wav",
+    "sha256": "54f3f91b2230336b0529db1ff34a29a48d47bbfe6f599dd8b12a39369567727e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/kiosk.wav.meta",
+    "sha256": "8ff2c160dbe3cae3bc89e2ca0ff30ee4889b03d9b8cc2bdfc2995440f8a36abb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/lobby.wav",
+    "sha256": "3c60b704e12b720cbc4f60e14714a60c092a04f4faa1abf822cb30420f6018e5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/lobby.wav.meta",
+    "sha256": "682c4b4d048afe209a40bdd8eb9a9e79293233691d1586a2b10c3a14a54607d5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/lose.wav",
+    "sha256": "9ff50b38111f30fedc9c0e1e1defd76cf13905008e8fc947947dd86d791c36ec",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/lose.wav.meta",
+    "sha256": "7db2889389c14768353c327c468484bb2375397d9ba4817fdad1c5b25bf81390",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/q.wav",
+    "sha256": "9c496ddc8db81a1cb4a3e2c03598b7386dbd2cdc082dd7691390523b40aae4bb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/q.wav.meta",
+    "sha256": "01248942786485c3f20a37a91c90399832314017853204eaac04f7af05c29e77",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/r.wav",
+    "sha256": "a35e7b0c1844f3ebdfb3b998e481c1b8d7a039514af5dbfd9b1672634fa09c21",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/r.wav.meta",
+    "sha256": "abdf120ba1e9683b0d9492684e19294a841b60e07e475f3d50c37b558a7a8b5f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/rest.wav",
+    "sha256": "b8f2450116ed667d52476ea487e0e895d2d22425da6548078eaa4fab6780ee3a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/rest.wav.meta",
+    "sha256": "ff4c7dbd27d98998427a0b8617be81fed349d591e8633a82dd6a1b8b21f8f816",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/start.wav",
+    "sha256": "c830cfbe9b6e26e58d81edb46dac635df6569d7e35139220f2b40695845cc146",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/start.wav.meta",
+    "sha256": "9d2092261ffeec3fab514031c8cbd7895ba46a4d7c63fa807093f88db7771c95",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/w.wav",
+    "sha256": "1d359c79d38a91e4f1b0d5020bcd2af4db6a62ca19f5ad1e6752d175907e7d24",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/w.wav.meta",
+    "sha256": "e964143a9a1c0e8b51338f6fc2e41195a11970e886e45002516d1937e541598d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/win.wav",
+    "sha256": "fc1f827966d7db83da2a00ef58b134ef5bfbbd32dea512652b24fb67842e9706",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia/win.wav.meta",
+    "sha256": "08cc463516c3200469740861d1938c3210d033fc51af3612a171aae888958bac",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nia.meta",
+    "sha256": "2b9e6c94165a5d97186de618220efdb008fe4f59020f8dc1df7570a38586a60b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nicky/e.wav",
+    "sha256": "c79beb36777a9499741dd80b9cab45503a2d8094729f6471abcae054efc0f9a4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nicky/e.wav.meta",
+    "sha256": "4b0a059378c0335d834769a414ff37ebf4d5ba3079bdbee0c95a04e09d7e84c4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nicky/q.wav",
+    "sha256": "eb3c31753b18444856af9e730e3930cfb2016642a3ade35268ee51442d76d78a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nicky/q.wav.meta",
+    "sha256": "f88a3fbc93cd887acfce77e81ee10ed99be6226820b45b2a1e1f8419e40431c7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nicky/r.wav",
+    "sha256": "53149e8ea8b1561b00126fc9b11a8ad1d8960b202b8499166501ebe55630dc47",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nicky/r.wav.meta",
+    "sha256": "e4af6ca32e428e548ae6fe7e2267364eb3c0148cbd19b12f630c364dd8fd26c9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nicky/w.wav",
+    "sha256": "9910f2aef7b147f54420d07fdec9f67b8b88c595d45d544cb7d6d7a914af4f99",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nicky/w.wav.meta",
+    "sha256": "d6398c28ddf2e0f775725a1322c40c67b7667c4e797748dc1cfc90d420f1e629",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/nicky.meta",
+    "sha256": "7d26e32a1a02f0727417569c824925176b8ba46d6720613c80f5e5b6bdb4758a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/piolo/e.wav",
+    "sha256": "ba29bd2298b386e28cadd15acf56970c4aa1d2856f24c00fc66ae24cddef6788",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/piolo/e.wav.meta",
+    "sha256": "f3c2d3d7d612e6a1e8d2c7fd16561b3bb8cdb6ef5b5bf0d14fd27524d18d414c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/piolo/q.wav",
+    "sha256": "198c4af64703d9186fbe44afc1228619d96859a4b17fecea7e165e55cc1fb9a5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/piolo/q.wav.meta",
+    "sha256": "4259f8cd4011cfeb46c6b26a6672e38874abc1b7d45da48440c561601caceb69",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/piolo/r.wav",
+    "sha256": "e48710c7ec1d0717c219516125eb386a690f83fcc18567ed94f2ace86d7c5cea",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/piolo/r.wav.meta",
+    "sha256": "2370660f8313d1b10af489c169fae80dd9723a2408e1f07cc16bbc66ba83e79b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/piolo/w.wav",
+    "sha256": "b644a6ef8010a37eaeb39d67b4447a6516e4abb0631d9fc9f22c03f811e13758",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/piolo/w.wav.meta",
+    "sha256": "2019f847ab051fbd573f373b1a84c06e9eb5855ffa35d6569663e0a22de6b5c9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/piolo.meta",
+    "sha256": "9b188451411ed06156cf1f602e01fafa60387d598f6741b6ad082239202529e1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/priya/e.wav",
+    "sha256": "6ac7e083e34c0dda38f9f15b5c6c1754b7513ebf8fe3fb541e08cecefb95d82f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/priya/e.wav.meta",
+    "sha256": "f1c1ddf43884fc5c7830a4ff2239b16e147940c5f5b0bdc896b3a4cb3ed12f63",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/priya/q.wav",
+    "sha256": "96f7ad4da7654510919cc0a8781af4b002b6f091abd433c841983eea45b725e4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/priya/q.wav.meta",
+    "sha256": "8bd85478ccbb0b876c5524dd1477b77e76495ced12930d80ef951134c86a6315",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/priya/r.wav",
+    "sha256": "9e4ad9730123581f63f756da080188a6b01c1855fa0ed9cc8b86a4a268d48f25",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/priya/r.wav.meta",
+    "sha256": "d1810f1f594c5b62c55e6786858720ac2bee21fc1235c5c0f0ebe84a7c1f1c34",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/priya/w.wav",
+    "sha256": "36f9ea35a632070c235943806b686c811a0f97ab2d63777569f726874127dbd0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/priya/w.wav.meta",
+    "sha256": "e4a883e880dafa7fdea12c2a25db99958a261a6dd79fa5c96167f7476684bf51",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/priya.meta",
+    "sha256": "fb756b0306683c680718dcc379752eca0518c7826873d49fd2f5d7ba090eba78",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/rio/e.wav",
+    "sha256": "7f12968beb01562c952618c69c95e34bc2ddf077596b183ad49a63b2bcfb40d3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/rio/e.wav.meta",
+    "sha256": "7d20ba3cd72fc2d7168b322ea9c154478f52d681e11cef2e50e45c47e5912f32",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/rio/r.wav",
+    "sha256": "a714e2a10d84b43131b2bda8fd6f06c4932127d2a4de85ac881cab96e6a1a9bf",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/rio/r.wav.meta",
+    "sha256": "6cc4ee0f38d878d043e7fc3b7c9815b532b135c12af910a1588f3007bf8007f3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/rio/w.wav",
+    "sha256": "8fbe3e2b3ac2d29b74fbeb374fa0d35a541a8ccf32ea2789a0e2742efa5c794f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/rio/w.wav.meta",
+    "sha256": "83ca1a97d92ebbb85b139350b75332bc983629dada4b02b1c258e61e31ff0ed2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/rio.meta",
+    "sha256": "39285af7f8a9c0dd015b027e0904d54d6cc972a55241779b0b8320f40c58c8c3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/rozzi/r.wav",
+    "sha256": "772b7a4f48bbbf731e5ff7e767235001ed7b174a167adebf4b42525e73ed7512",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/rozzi/r.wav.meta",
+    "sha256": "a04c9ba5b4258094ffad292e258cfface6acc21810b4ec89b6a0fc48ad21e47e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/rozzi.meta",
+    "sha256": "a7bba1f3030e1dc6a3c45243372a4c7989e8d3e9c0a432f9b4ccb57fa5f91dc3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sho/e.wav",
+    "sha256": "73c4528d845b610c9771f3c96d1404e4c6aebe334abf78a2065d8c37f6887d5c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sho/e.wav.meta",
+    "sha256": "cbc9d80a66bd7ce3b373c8347519e68f915cee237c608e124106cc5f0f6238ad",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sho/q.wav",
+    "sha256": "7e3322d0a810705c125a4a66b08f16023eb72db5b4f0d52e98a525401b9ec2e7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sho/q.wav.meta",
+    "sha256": "15ea45dfbb113a094dba30cd306a22b5dcf28290285da2ff40acb69313bdd3cc",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sho/r.wav",
+    "sha256": "b44347e96aafcd01cfc4405fe05e1e5b5dc889dddd5633fea2abed34eddd2829",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sho/r.wav.meta",
+    "sha256": "da9f21a922c46fcdf8c103c2bb2f93e7558d168598df3e135fc021b19088dcd6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sho/w.wav",
+    "sha256": "d2ebfcc1c79fcf05fe9614bfdd926d617cc1e1b521a6d2fdecedc5c32b798ea8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sho/w.wav.meta",
+    "sha256": "e03c92ddad7153cdf8539650e8a34a74f21e1cf9faffd70f4b508a5bb6ba4694",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sho.meta",
+    "sha256": "7523d872df39918f8a860e5846072657406778d34c74bf495d83669f5c7fc554",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/shoichi.meta",
+    "sha256": "64a1ae94280911d62780c597ee73149254635a595236abb459130874ec39cff4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/silvia/e.wav",
+    "sha256": "a205f74883e073bf8d6c2f4abbcf918f1ef446ef24b2483f8deda92593304d15",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/silvia/e.wav.meta",
+    "sha256": "10132c32c12f9ab5bac735c4db453f07bef3a1283630236b400043e10d908b1a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/silvia/q.wav",
+    "sha256": "b5c7fbf18251383e59b03b72a8728836372ab2ca71deb1f7eae4e9f48852100d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/silvia/q.wav.meta",
+    "sha256": "57b6235424e43e6daee15d2efb57fec650c9fb7d1648e646d9290f7c19478f86",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/silvia/r.wav",
+    "sha256": "0c24ba4eb10cbcd909952b01a55f1ad96d2481da24c16a003f19fa7d59bc3859",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/silvia/r.wav.meta",
+    "sha256": "e6a0efda91221439093d77a969d03e6cff10fc256e07ad927f61b33e4aeaf80e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/silvia/w.wav",
+    "sha256": "b359f899853dd01c4a3ca66f08cbf2a87eabd0f734d58f51229b0952537cfe37",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/silvia/w.wav.meta",
+    "sha256": "c0da7d164c3f35ec98928819d04319b155388f3e62eaa609679b25b570d47066",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/silvia.meta",
+    "sha256": "753d2e4d3496578def1443728b56cdbb44c91ebc4905e185dfcc1d93988a444c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sissela.meta",
+    "sha256": "d804dc69c72e3aeb65d05e093c966f24f0d11d612c5c2671378bda90456fc16b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sua/e.wav",
+    "sha256": "6878f80f6e10a8c669a9295e1129656444b742912fb1e38265200c507632ba71",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sua/e.wav.meta",
+    "sha256": "ecd7bd5e8483a75eff18d88afeb48ee8711534e18edccf0850a9faa9f874e097",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sua/q.wav",
+    "sha256": "6924f6fa5f6652befe0745bee7b23487e83b1356401bfba2014e1501a2660525",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sua/q.wav.meta",
+    "sha256": "68e7af4831877705dc71e868b6038484b4509796f178174f4011a39760f27abf",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sua/r.wav",
+    "sha256": "cafa1352548236ac2c8fe15fb99425b4949981d7677cb66970a8ff16e3bcd2b7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sua/r.wav.meta",
+    "sha256": "fde12056ae5f139639ff0e7f5d0679ea88d8067f3fa81d122994441d45935c5f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sua/w.wav",
+    "sha256": "0a6b59770ee2504a4e728e182d33364ecbde4d2621bc3587f5185498c1a0793c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sua/w.wav.meta",
+    "sha256": "391b692accfc44d96b94e197f18c2c2f18f4d08f67b2b5e1759140df1edd110f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/sua.meta",
+    "sha256": "b44b94745cf52d640d010aea346f10b83e4b73c9ff6dd80b2bc7c1d267d5ade4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tazia/e.wav",
+    "sha256": "e9b18209f0386d9431545d050181e851fd02d6e203236778755950f75edafb96",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tazia/e.wav.meta",
+    "sha256": "087d2f20e5f2a6752ccabb37bc3a4a35afafac5cc01d790ba6811b437ae5a09f",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tazia/q.wav",
+    "sha256": "6074cd8bfbc39ade492450f7ab017407cdfac4ca936deb0a304c6db42f695d12",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tazia/q.wav.meta",
+    "sha256": "46461276452d27a6a22c383f237a70387318f8a469fe7cf1707536556193ccf2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tazia/r.wav",
+    "sha256": "73441e5d1a980e0597ef8c12f1624ca27f66bf8d0ee634b3f645a73b5bbca980",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tazia/r.wav.meta",
+    "sha256": "ba6a491739cc14138bfc3db4e7c5620eb74d981e82484b5ca93da93203de1e30",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tazia/w.wav",
+    "sha256": "546b4416d6e98511ea0228c83a9900a5aeebfec82a586b964c9de60957d53442",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tazia/w.wav.meta",
+    "sha256": "9fc6946bbfaa184832095cac59a5acd5e163a5229db706f528a00c12d5aec8c4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tazia.meta",
+    "sha256": "a2a769aa5305ddff2110648ff138d2cd067c71309e64a7541bd2a3587d267385",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/theodore/e.wav",
+    "sha256": "c50e573980dcbbd7596544dbe903b7325600b53e65e8cfb4fcd86d76985910a7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/theodore/e.wav.meta",
+    "sha256": "363699ef66e19d71b16cf564afe741ceb3821fc0efea2c5f0936e03a9b3bb5f5",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/theodore/q.wav",
+    "sha256": "d19b5966a2cf7485a880aa620975f8f21f7ad1260c473d4a48bbf857911aa9e7",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/theodore/q.wav.meta",
+    "sha256": "cecb50b87461eba374828c3231083d3e785a676f2eb87c3e8484a1fb068aa017",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/theodore/r.wav",
+    "sha256": "73bd401ffe58314c2674bd4ec12956b8dbc78b4d9fe770c87278fe3034596d83",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/theodore/r.wav.meta",
+    "sha256": "f61aa5fd8e5b294e4ead33b6215eaea911e2ae2ce39c8ad2712913a90c4391d9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/theodore/w.wav",
+    "sha256": "5b29de38fbd5e72ef8e7e5e52b7b3b24eff75333d1720931741df53e35ffecba",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/theodore/w.wav.meta",
+    "sha256": "dda6beea49e7fe872120fc830c18dcb8515ba90b91dd4b0a42727e49172bfb2a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/theodore.meta",
+    "sha256": "a5b5d878a6431f71f8219c54549390a5c9b1287790eed4012b696fef7e3e9559",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tia/e.wav",
+    "sha256": "04518c9c80ea959e377ad214d209f41ae2bb3706170a32117d8b4c07dd84fb0b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tia/e.wav.meta",
+    "sha256": "a75e4753d298e156c8e6837629f830a20e4b79e35b040210128802220aaadbef",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tia/q.wav",
+    "sha256": "24dc10d1b2bd214ebb0a2653f9c58fd0d6e7675184c3a5af6b746ba4659da058",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tia/q.wav.meta",
+    "sha256": "5a67a6a1b742c62f98ab57d0d3e290e62d9cec8028b70551e539aae5ab560219",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tia/r.wav",
+    "sha256": "07135db74e0f1fc1da44483d31da5be3383c4d26bd1ad4a7ba912a23d7f69e73",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tia/r.wav.meta",
+    "sha256": "a296ce834070e96eff75c35193e401ac3d6f7043b342caac75cd2f04ed488ffe",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tia/w.wav",
+    "sha256": "1372fe6e51018a491965307d8ce30ab469c6344a8fc1d6f24f10639456e9a6bd",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tia/w.wav.meta",
+    "sha256": "676251b86b3b22a9f946394e16f03d433be909b4edec963759fd86a67907fe87",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tia.meta",
+    "sha256": "6555abc45b20517da20b18a567acc7943c8203d2322b8647c79da9ca7028ea8c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tsubame/e.wav",
+    "sha256": "38373fdde78c8e104751a1fa110ce8d48b97e61902161efb7e8dad8af62518c0",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tsubame/e.wav.meta",
+    "sha256": "b09f8d44dc0b6c6badf624549ec4d9466d01ff5fb95fcd1e55fadec31d26699a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tsubame/q.wav",
+    "sha256": "6d0c1d82ee29a114941bfcb3930be7785a1c93c0f046f748ff8ec538a44c22f4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tsubame/q.wav.meta",
+    "sha256": "25cfb5e68f6cf5c1a80145d3f8c6a2a40284a885f54216a025de596be778a803",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tsubame/r.wav",
+    "sha256": "cb7408dea090a3c5247f55bb10f62d89f1e995fb17a29d27838a03a67e0cff24",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tsubame/r.wav.meta",
+    "sha256": "a4694929565ac0129619f3432c8b5a60eb1c24e32aa9f4150ea8d11245572d6a",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tsubame/w.wav",
+    "sha256": "769fa478fee4d11073dd3e1048577db9d6f54fe62abc0da782c484371f473586",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tsubame/w.wav.meta",
+    "sha256": "6de9aae918be2a5cfcd59dc4e26717efb5d4f50fbfaa7efe583f2ba136a856bd",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/tsubame.meta",
+    "sha256": "93cf3be23ca287d282ce3be4411cbd74be2f5158cdfc10c022c40918f13d2817",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/vanya/e.wav",
+    "sha256": "e0a1de8d8ec96651aaac9cc4464fe8b22ddaebbcc1ca8f61a9ea9cbc6921cce9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/vanya/e.wav.meta",
+    "sha256": "5b1a49e0b36e9f74ecf66f2aaabce236c6648866fd4d2d47ba662f0a59b7df03",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/vanya/q.wav",
+    "sha256": "12ae72b6379adf8e98b941f49e76aed0c3cf4e43f9c4f258a43d21aa1cf3378b",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/vanya/q.wav.meta",
+    "sha256": "997b0d1fc2e9445e35e9845fd437f3e313c34f41f4611ef44a1ef1259d8cccfb",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/vanya/r.wav",
+    "sha256": "af833061e63fce02603130bedad10f2f168c4b22634f20f32d74a06e05a6d1d4",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/vanya/r.wav.meta",
+    "sha256": "6d768b6a0eb2459d74fc2675347a1029ce5af4e8e19474ad04230206874ec754",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/vanya/w.wav",
+    "sha256": "2bdad634898587f6592f5b8304e85c52390c5462b3a9dc507be87547accf27c2",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/vanya/w.wav.meta",
+    "sha256": "e9600e6d6e9e73354d53965cc701cfb0898420a3f917d12da9c9d9c81b602b78",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/vanya.meta",
+    "sha256": "bc7aae78cdfab9965c4c236d9568088e6e9fad0074a9387de13f18721b84c052",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/william/e.wav",
+    "sha256": "92855f4545ad279807e508826a3f070466c4899c8996ff4b09896ed01c25ce20",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/william/e.wav.meta",
+    "sha256": "f81d573ed7b8b5e9323acdd7f8fbe1e500ec951d272b9d0a328c2916643351a8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/william/q.wav",
+    "sha256": "283c3bbf80889cee14369f974dc7e8648dc18bea6d147ed4e119e0a330a9d425",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/william/q.wav.meta",
+    "sha256": "dacec88a272675315dca5d9bcb070c34dc22acd275f2a562319f29ce0eb793ba",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/william/r.wav",
+    "sha256": "5b6c1b7e9a40a15eefc8ec68e400fb21735f3ad8d65a9f405c554754470e21a9",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/william/r.wav.meta",
+    "sha256": "5ba669b6bd2ac1591e6668df6d7653f9649cb86888416bf75abdd382ed673528",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/william/w.wav",
+    "sha256": "aac1dfcc319c0007d39d124f369775edc3836cefaee5716d892a5b83f644bfac",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/william/w.wav.meta",
+    "sha256": "7adf22152d0d3110318cc2b01fe01d558e9ee1e361f42d351a7086d3b4869158",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/william.meta",
+    "sha256": "2e142f670b43477b62254321ed8bf6ba2ede4c6ee17f8d1ff5cb4cbe648f0100",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/xuelin/e.wav",
+    "sha256": "952dbb2fa89e7a14101f58c4aa98bb5fe09fe749723ca09ea39247a070d34e2e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/xuelin/e.wav.meta",
+    "sha256": "367754570cecb103be76e25b8693cb6e62dc701b4643612a7f1ebbb345f65e43",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/xuelin/q.wav",
+    "sha256": "585b731e27c462875e8eb9994b70943a5082da09901d5f72271912adb42f85bc",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/xuelin/q.wav.meta",
+    "sha256": "831e70e0724ffea67ad59d3e44e58c39ed467cc131d6375c948a0a4c2ff93bab",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/xuelin/r.wav",
+    "sha256": "440c544cadb5b70bb540b02a789a54d283a8198cff5fe01cb63d69537d418729",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/xuelin/r.wav.meta",
+    "sha256": "223ff95f13a49fe0a49c53dcc3593f1720dc27da4ad0f5c923f3a92591c51d88",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/xuelin/w.wav",
+    "sha256": "7d7aff3334725c36b405e73599748861350cfec4645a83d19b365a79fc670769",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/xuelin/w.wav.meta",
+    "sha256": "eacd6c4425db3050ab74d60dcadc6d4db54de20b24c8eb632cdf60463ca687c6",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/xuelin.meta",
+    "sha256": "8bfd78367d42f73d0a4292a534c054d489549bf8c382de0bbca6372f345a2459",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yuki/e.wav",
+    "sha256": "7b5372ff685831b5dfd0cea843400745b459490c23709a73af3b153e3427e551",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yuki/e.wav.meta",
+    "sha256": "f6af4b01ef05f94bb29608eb746db81f9a23f8f1ea189c536c2e0cd747e7e8d8",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yuki/q.wav",
+    "sha256": "57c3befa75e05faeab39ad2c6eb66cfdcae3cd41f9f8b5dd15b985a13bb38368",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yuki/q.wav.meta",
+    "sha256": "c8375b800ee359dfc8bb151f047348d338d3e3c290fec15997cf4bf532200e68",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yuki/r.wav",
+    "sha256": "e621238fb88cd40cdc7113ea6976c5f2d15b9696d8fb308bb87740687c161d1e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yuki/r.wav.meta",
+    "sha256": "d2d36636692a9590d6176717c8d5b0e088978cd2a9065d4db2342b74973994e1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yuki/w.wav",
+    "sha256": "f6b0eacdfd01f373982051b4994a4bba03ffef9dc4195851a67988ed9e76dc63",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yuki/w.wav.meta",
+    "sha256": "512f5a1e2e51962e7ea20b192fe5e29dc0c216e22755f4d9a1b172434c5eb512",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yuki.meta",
+    "sha256": "c26f686443ef84fb60926e351d1018565b6e8657d15f67d6ed81d2927c295773",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yumin/e.wav",
+    "sha256": "fb401c73f015274fcdf6ad4fc710c198a21015e32459abd9edbee6fe5c8fab3e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yumin/e.wav.meta",
+    "sha256": "74696cfab7503d53404d208de13a825ed766503231be7924a383a63b6d82ab46",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yumin/q.wav",
+    "sha256": "be18ac3351c194372b68b2365d82b25abae6b36b28960fcb3a6a1fad48b6d323",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yumin/q.wav.meta",
+    "sha256": "f3d8901e7832f6b843100b17f220466a068e623948858c14d6237a8728232c8e",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yumin/r.wav",
+    "sha256": "121add612795755994246c72dc5f8f8b4b009d664a2d9289bfb4e3a57acd0f4d",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yumin/r.wav.meta",
+    "sha256": "6e4346998417c0a9aaf299cb37a464910a0f282cd741f8b9816bed8aaf2018ea",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yumin/w.wav",
+    "sha256": "dad13080b5f2951f2e1a6385a138da6e4380dcd7bb6c80cc0927585b16037d06",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yumin/w.wav.meta",
+    "sha256": "02cc22f09f2db027f197028cac2e532c46a7c776b1a8b1ff8df7627a7d379a1c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/yumin.meta",
+    "sha256": "566904674040a754b566361b3d63b0d59b7bd57b95ede535a192d2b6c7928377",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/zahir/e.wav",
+    "sha256": "baf33587f3629f1644c6c0cba32f741449d66726461963badc45065e7607c33c",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/zahir/e.wav.meta",
+    "sha256": "bd4a0f985be0979496377697a3a0ea50664c30481ad9256b4adcb1ded9b5e524",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/zahir/q.wav",
+    "sha256": "d4d99a56fd8a03d820c3174d41413df2bd634af6bc851610d9e04a444d789653",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/zahir/q.wav.meta",
+    "sha256": "e4afd5cc4239486cf81bb0cee45d0f4631e17830f76ae9b380265533612390e3",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/zahir/r.wav",
+    "sha256": "ebea6b3b5dd0a647bbbd42c754e7e73589d8aa6e0051190c61db83a941a81f72",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/zahir/r.wav.meta",
+    "sha256": "3b15ec3a6ce558ad575afe9a10ac9332262945b85d267f10b2619628412e59c1",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/zahir/w.wav",
+    "sha256": "29361189d6d6fa481ce9756b279ffa3a4984ef48ef562b2827f5ab3920b08bee",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/zahir/w.wav.meta",
+    "sha256": "3a8f824fe838523542e046cd9a4debe18b9b3520dd0249231eb2272f06e33e78",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice/zahir.meta",
+    "sha256": "319b151fcd8947de6d50b2f437b2e1cd8fac75ed204b87d8de93052f0f33b958",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/voice-sources.json",
+    "sha256": "979174388c20f7be70a06079ea91b2faa05632c09d91fd37227d3e005c5e1884",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/voice-sources.json.meta",
+    "sha256": "3a88ee3669a946bc80144720b396fa7c015aea89e4490a4c05651fcb7dc5e040",
+    "match": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/Audio/Voice.meta",
+    "sha256": "e6136514e78c13b97387d426152d45ca6e5e7c60caf8d4e542cbb818e42bf79c",
+    "match": true
+  }
+]

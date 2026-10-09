@@ -11,6 +11,7 @@ namespace Lumia
     {
         public static LumiaGame Instance;
         public GameEngine Engine { get; private set; }
+        public GameAudio Audio { get; private set; }
         const float W = 1280, H = 720;
         static readonly Color Ink = C("0b1421"), Panel = C("142233"), Line = C("33465b"), Text = C("dce8e1"), Muted = C("acbdc8"), Mint = C("91dfbd"), Gold = C("efc979"), Pink = C("dd88ae");
         Font font;
@@ -29,9 +30,9 @@ namespace Lumia
         readonly Dictionary<string, AudioClip> skillSounds = new Dictionary<string, AudioClip>();
         float nextEnemyActionAt, nextPlayerActionAt;
         float volume = .4f;
-        bool sound = true, reduceMotion;
+        float musicVolume = .65f, effectsVolume = .8f;
+        bool sound = true, reduceMotion, audioVerification;
         AudioSource audioSource;
-        AudioClip click;
         string savePath;
         string toast = "";
         float toastUntil;
@@ -49,19 +50,23 @@ namespace Lumia
             Instance = this;
             DontDestroyOnLoad(gameObject);
             Application.targetFrameRate = 60;
-            bool verify = Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
+            audioVerification = Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-audio-verify") >= 0;
+            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
             savePath = Path.Combine(Application.persistentDataPath, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
             font = Resources.Load<Font>("Lumia/Galmuri11");
             if (!font) font = Font.CreateDynamicFontFromOSFont(new[] { "Gulim", "Malgun Gothic", "Arial" }, 16);
-            volume = PlayerPrefs.GetFloat("lumia.volume", .4f);
-            sound = PlayerPrefs.GetInt("lumia.sound", 1) != 0;
+            string audioPrefix = audioVerification ? "bts.audio.verify." : "";
+            volume = Mathf.Clamp01(PlayerPrefs.GetFloat(audioPrefix + "lumia.volume", .4f));
+            musicVolume = Mathf.Clamp01(PlayerPrefs.GetFloat(audioPrefix + "lumia.musicVolume", .65f));
+            effectsVolume = Mathf.Clamp01(PlayerPrefs.GetFloat(audioPrefix + "lumia.effectsVolume", .8f));
+            sound = PlayerPrefs.GetInt(audioPrefix + "lumia.sound", 1) != 0;
             reduceMotion = PlayerPrefs.GetInt("lumia.reduceMotion", 0) != 0;
             audioSource = gameObject.AddComponent<AudioSource>();
-            click = AudioClip.Create("pixel select", 1600, 1, 22050, false);
-            float[] wave = new float[1600];
-            for (int i = 0; i < wave.Length; i++) wave[i] = (i % 42 < 21 ? .12f : -.12f) * (1f - (float)i / wave.Length);
-            click.SetData(wave, 0);
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 0;
+            Audio = GameAudio.Attach(gameObject);
+            Audio.Configure(!audioVerification && sound, volume, musicVolume, effectsVolume);
             PixelArt.Ensure();
             if (font && font.material && font.material.mainTexture) font.material.mainTexture.filterMode = FilterMode.Point;
             Font.textureRebuilt += PixelFont;
@@ -93,13 +98,19 @@ namespace Lumia
 
         void Update()
         {
+            if (!audioVerification && Audio)
+            {
+                Audio.Configure(sound, volume, musicVolume, effectsVolume);
+                Audio.Tick(lobby, Engine?.State);
+            }
             if (Engine == null || lobby) return;
             ConsumeCombatActions();
             var c = Engine.State.combat;
             if (Engine.State.stage == RunStage.Combat && c != null && c.enemyTurn && !effects.Busy && Time.unscaledTime >= nextEnemyActionAt
                 && !settings && !inventory && !catalog && !help && !fieldInfo && !enemyLoadout && string.IsNullOrEmpty(inspectGear) && string.IsNullOrEmpty(inspectCard) && string.IsNullOrEmpty(inspectTrait))
             {
-                if (Engine.AdvanceEnemyAction()) Save();
+                var previousStage = Engine.State.stage; int previousLevel = Engine.State.level;
+                if (Engine.AdvanceEnemyAction()) { AudioTransition(previousStage, previousLevel); Save(); }
                 ConsumeCombatActions();
                 nextEnemyActionAt = Time.unscaledTime + (reduceMotion ? .08f : .18f);
             }
@@ -111,14 +122,15 @@ namespace Lumia
             foreach (var action in Engine.CombatActions)
             {
                 effects.Add(action, reduceMotion);
-                if (sound && audioSource)
+                bool handled = Audio && Audio.PlayCombatAction(action, Engine.State.combat);
+                if (!handled && !audioVerification && sound && audioSource)
                 {
                     AudioClip clip;
                     if (!skillSounds.TryGetValue(action.cardId, out clip))
                     {
                         clip = CombatEffects.SoundFor(GameDatabase.Card(action.cardId)); skillSounds[action.cardId] = clip;
                     }
-                    audioSource.PlayOneShot(clip, volume);
+                    audioSource.PlayOneShot(clip, volume * effectsVolume);
                 }
             }
             Engine.CombatActions.Clear();
@@ -271,7 +283,7 @@ namespace Lumia
                     Para(new Rect(r.x + 25, r.y + 254, 338, 36), PassiveAffinity(p), 13, Mint);
                     if (Hit(r)) Act(() => Engine.SelectStartingPassive(p.id));
                 }
-                if (Btn(new Rect(39, 547, 240, 43), "다시 뽑기  ·  " + Engine.State.passiveRerolls, false, Gold, Engine.State.passiveRerolls > 0)) Act(Engine.RerollPassives);
+                if (Btn(new Rect(39, 547, 240, 43), "다시 뽑기  ·  " + Engine.State.passiveRerolls, false, Gold, Engine.State.passiveRerolls > 0)) Act(Engine.RerollPassives, "ui.reroll");
                 if (Btn(new Rect(999, 626, 241, 48), "카드 선택으로  >", true, Mint, !string.IsNullOrEmpty(Engine.State.chosenPassive))) prepStep = 2;
             }
             else
@@ -283,10 +295,10 @@ namespace Lumia
                 {
                     Rect r = new Rect(36 + i * 205, 247, 188, 276);
                     DrawCard(r, offers[i], Engine.State.draftSelected.Contains(offers[i]));
-                    if (Hit(r)) Act(() => Engine.ToggleDraft(offers[i]));
+                    if (Hit(r)) Act(() => Engine.ToggleDraft(offers[i]), Engine.State.draftSelected.Contains(offers[i]) ? "ui.cancel" : "ui.select");
                 }
-                if (Btn(new Rect(36, 546, 242, 43), "다시 뽑기  ·  " + Engine.State.draftRerolls, false, Gold, Engine.State.draftRerolls > 0)) Act(Engine.RerollDraft);
-                if (Btn(new Rect(999, 626, 241, 48), "루미아로 진입  >", true, Mint, Engine.State.draftSelected.Count == 3)) Act(Engine.BeginJourney);
+                if (Btn(new Rect(36, 546, 242, 43), "다시 뽑기  ·  " + Engine.State.draftRerolls, false, Gold, Engine.State.draftRerolls > 0)) Act(Engine.RerollDraft, "ui.reroll");
+                if (Btn(new Rect(999, 626, 241, 48), "루미아로 진입  >", true, Mint, Engine.State.draftSelected.Count == 3)) Act(Engine.BeginJourney, "game.start");
             }
             if (prepStep > 0 && Btn(new Rect(36, 626, 162, 48), "<  이전", false, Muted)) prepStep--;
         }
@@ -375,7 +387,7 @@ namespace Lumia
             }
             for (int i = 0; i < s.mapRows; i++) Txt(new Rect(8 + i * 119, 8, 94, 24), (i + 1).ToString("00"), 11, Muted, true);
             GUI.EndScrollView();
-            if (selectedLane >= 0) { Act(() => Engine.EnterNode(selectedLane)); return; }
+            if (selectedLane >= 0) { Act(() => Engine.EnterNode(selectedLane), "map.enter"); return; }
             Sidebar(921, 103);
             for (int act = 1; act <= 3; ++act)
             {
@@ -474,7 +486,7 @@ namespace Lumia
             }
             GUI.EndScrollView();
             if (cardUsed) return;
-            if (Btn(new Rect(1070, 515, 186, 71), c.enemyTurn ? "상대 행동 중" : "턴 종료  >", true, Gold, !c.enemyTurn && Time.unscaledTime >= nextPlayerActionAt)) { Act(Engine.BeginEndTurn); return; }
+            if (Btn(new Rect(1070, 515, 186, 71), c.enemyTurn ? "상대 행동 중" : "턴 종료  >", true, Gold, !c.enemyTurn && Time.unscaledTime >= nextPlayerActionAt)) { Act(Engine.BeginEndTurn, "turn.end"); return; }
             if (Btn(new Rect(1070, 601, 186, 38), "회복 아이템", false, Mint, !c.enemyTurn)) { inventory = true; inventoryTab = 2; inventoryScroll = Vector2.zero; }
             if (s.log.Count > 0) Para(new Rect(1070, 653, 186, 43), s.log[s.log.Count - 1], 11, Muted);
         }
@@ -548,9 +560,9 @@ namespace Lumia
                 bool selectable = taken || d != null && Engine.RewardCardPrice(choices[i]) <= Engine.RewardRemainingBudget;
                 DrawCard(cr, choices[i], taken, selectable);
                 if (d != null && Engine.RewardCardPrice(choices[i]) != d.cost) Txt(new Rect(cr.x + 7, cr.y + 36, cr.width - 14, 15), "획득 코스트 " + Engine.RewardCardPrice(choices[i]), 9, Gold, true);
-                if (Hit(cr, selectable)) { Act(() => Engine.ClaimCard(choices[i])); return; }
+                if (Hit(cr, selectable)) { Act(() => Engine.ClaimCard(choices[i]), r.taken.Contains(choices[i]) ? "ui.cancel" : "reward.select"); return; }
             }
-            if (Btn(new Rect(999, 626, 241, 48), r.taken.Count == 0 ? "카드 없이 진행  >" : "선택 확정  >", true, Mint)) Act(Engine.FinishRewards);
+            if (Btn(new Rect(999, 626, 241, 48), r.taken.Count == 0 ? "카드 없이 진행  >" : "선택 확정  >", true, Mint)) Act(Engine.FinishRewards, "reward.confirm");
             Txt(new Rect(40, 633, 820, 40), "확정하면 선택한 " + r.taken.Count + "장이 덱에 들어갑니다. 확정 전에는 선택을 자유롭게 변경할 수 있습니다.", 11, Muted);
             if (r.boss && !string.IsNullOrEmpty(s.pendingPassive))
             {
@@ -572,7 +584,7 @@ namespace Lumia
                 int price=Engine.ObjectPrice(d.id);
                 bool unlocked = Engine.IsKioskObjectUnlocked(d.id);
                 if (!unlocked) Txt(new Rect(r.x + 8, r.y + 108, r.width - 16, 16), "두 번째 보스 승리 후 해금", 10, Muted, true);
-                if (Btn(new Rect(r.x + 15, r.y + (unlocked ? 122 : 129), r.width - 30, unlocked ? 34 : 27), unlocked ? price + " CR  ·  구매" : "구매 잠김", false, Gold, Engine.CanBuyObject(d.id))) Act(() => Engine.BuyObject(d.id));
+                if (Btn(new Rect(r.x + 15, r.y + (unlocked ? 122 : 129), r.width - 30, unlocked ? 34 : 27), unlocked ? price + " CR  ·  구매" : "구매 잠김", false, Gold, Engine.CanBuyObject(d.id))) Act(() => Engine.BuyObject(d.id), "kiosk.purchase");
             }
             Txt(new Rect(36, 349, 1160, 28), "FOOD / 회복 아이템 · 모닥불 요리 재료", 20, Mint);
             var foods = Engine.KioskFoods.ToArray();
@@ -583,7 +595,7 @@ namespace Lumia
                 Box(r, Panel, Line); Tex(new Rect(r.x + 10, r.y + 14, 43, 43), PixelArt.Icon(d.id), ScaleMode.ScaleToFit);
                 Txt(new Rect(r.x + 67, r.y + 10, 194, 22), d.name, 14, Text);
                 int price=Engine.FoodPrice(d.id);
-                if (Btn(new Rect(r.x + 67, r.y + 36, 193, 25), price + " CR  /  " + (d.fullHeal ? "완전 회복" : "회복 " + d.heal), false, Mint, Engine.CanBuyFood(d.id))) Act(() => Engine.BuyFood(d.id));
+                if (Btn(new Rect(r.x + 67, r.y + 36, 193, 25), price + " CR  /  " + (d.fullHeal ? "완전 회복" : "회복 " + d.heal), false, Mint, Engine.CanBuyFood(d.id))) Act(() => Engine.BuyFood(d.id), "kiosk.purchase");
             }
             GUI.EndScrollView();
             if (Btn(new Rect(999, 626, 241, 48), "상점 나가기  >", true, Mint)) Act(Engine.LeaveKiosk);
@@ -600,11 +612,11 @@ namespace Lumia
                 Box(new Rect(453, 155, 783, 195), Panel, Mint);
                 Txt(new Rect(478, 179, 722, 28), "01  휴식과 만년 스프", 25, Mint);
                 Para(new Rect(478, 228, 722, 49), "최대 체력까지 회복하고, 한 번 사용하면 모든 체력을 회복하는 만년 스프를 1개 받습니다.", 16, Text);
-                if (Btn(new Rect(478, 291, 722, 39), "휴식하기", true, Mint)) Act(() => Engine.ChooseCamp(false));
+                if (Btn(new Rect(478, 291, 722, 39), "휴식하기", true, Mint)) Act(() => Engine.ChooseCamp(false), "camp.rest");
                 Box(new Rect(453, 385, 783, 195), Panel, Gold);
                 Txt(new Rect(478, 408, 722, 28), "02  제작과 요리", 25, Gold);
                 Para(new Rect(478, 456, 722, 50), "최대 체력까지 회복하고, 보유 오브젝트로 장비를 제작하거나 재료로 요리합니다. 둘을 합쳐 최대 3회.", 16, Text);
-                if (Btn(new Rect(478, 519, 722, 39), "작업 시작", true, Gold)) Act(() => Engine.ChooseCamp(true));
+                if (Btn(new Rect(478, 519, 722, 39), "작업 시작", true, Gold)) Act(() => Engine.ChooseCamp(true), "camp.rest");
                 return;
             }
             Txt(new Rect(36, 102, 1100, 30), "남은 작업 횟수  " + s.campActions + " / 3", 20, Gold);
@@ -637,7 +649,7 @@ namespace Lumia
                 if (Btn(new Rect(r.x + 52, r.y + 93, 307, 29), (o == null ? g.objectId : o.name) + " 1개  ·  제작", false, Mint, s.campActions > 0 && s.objects.Contains(g.objectId)))
                 {
                     if (s.gear.Count(id => GameDatabase.Equipment(id).slot == g.slot) >= 2) craftPending = g.id;
-                    else Act(() => Engine.Craft(g.id));
+                    else Act(() => Engine.Craft(g.id), "camp.craft");
                 }
             }
             GUI.EndScrollView();
@@ -666,7 +678,7 @@ namespace Lumia
             {
                 var g = GameDatabase.Equipment(gear[i]); if (g.slot != pending.slot) continue;
                 int replace = i;
-                if (Btn(new Rect(280, y, 720, 74), g.name + "\n" + g.description, false, Text)) { Act(() => Engine.Craft(craftPending, replace)); craftPending = ""; return; }
+                if (Btn(new Rect(280, y, 720, 74), g.name + "\n" + g.description, false, Text)) { Act(() => Engine.Craft(craftPending, replace), "camp.craft"); craftPending = ""; return; }
                 y += 90;
             }
             if (Btn(new Rect(280, 493, 720, 35), "취소", false, Muted)) craftPending = "";
@@ -720,7 +732,7 @@ namespace Lumia
                         if(Hit(new Rect(r.xMax-90,r.y+5,84,94))) {inspectCard=reward.id;inspectEnemyCard=false;detailScroll=Vector2.zero;return;}
                     }
                     else FitText(new Rect(r.x+19,r.y+76,r.width-38,28),summary,12,Mint);
-                    if (Hit(r,canChoose)) { int index = i; Act(() => Engine.ChooseEventOption(index)); return; }
+                    if (Hit(r,canChoose)) { int index = i; Act(() => Engine.ChooseEventOption(index), "encounter.choose"); return; }
                 }
             }
         }
@@ -825,9 +837,9 @@ namespace Lumia
                     Txt(new Rect(82, r.y + 10, 547, 25), f.name + (f.fullHeal ? "  /  완전 회복" : "  /  회복 " + f.heal), 16, Mint);
                     Txt(new Rect(82, r.y + 41, 547, 24), f.description, 11, Muted);
                     bool usable = Engine.State.combat == null || !Engine.State.combat.enemyTurn;
-                    if (Btn(new Rect(692, r.y + 20, 176, 33), "먹기", false, Mint, usable)) { Act(() => Engine.UseFood(index)); break; }
+                    if (Btn(new Rect(692, r.y + 20, 176, 33), "먹기", false, Mint, usable)) { Act(() => Engine.UseFood(index), "item.heal"); break; }
                     bool canCook = s.stage == RunStage.Campfire && s.campChoice == 2 && s.campActions > 0 && !string.IsNullOrEmpty(f.upgradeTo);
-                    if (Btn(new Rect(885, r.y + 20, 176, 33), canCook ? "요리하기" : "요리 불가", false, Gold, canCook)) { Act(() => Engine.Cook(index)); break; }
+                    if (Btn(new Rect(885, r.y + 20, 176, 33), canCook ? "요리하기" : "요리 불가", false, Gold, canCook)) { Act(() => Engine.Cook(index), "camp.cook"); break; }
                 }
                 GUI.EndScrollView();
             }
@@ -1156,21 +1168,42 @@ namespace Lumia
 
         void DrawSettings()
         {
-            Modal(new Rect(279, 123, 722, 469));
-            Txt(new Rect(311, 150, 625, 38), "환경 설정", 25, Mint);
-            Txt(new Rect(311, 219, 260, 28), "효과음 음량", 20, Text);
-            volume = GUI.HorizontalSlider(new Rect(574, 225, 345, 25), volume, 0, 1);
-            Txt(new Rect(311, 280, 280, 28), "효과음", 20, Text);
-            if (Btn(new Rect(705, 278, 241, 36), sound ? "켜짐" : "꺼짐", sound, Mint)) sound = !sound;
-            Txt(new Rect(311, 343, 370, 28), "움직임 최소화", 20, Text);
-            if (Btn(new Rect(705, 342, 241, 36), reduceMotion ? "켜짐" : "꺼짐", reduceMotion, Mint)) reduceMotion = !reduceMotion;
-            Txt(new Rect(311, 407, 340, 27), "화면 모드", 20, Text);
-            if (Btn(new Rect(705, 405, 241, 36), Screen.fullScreen ? "전체 화면" : "창 모드", false, Gold)) Screen.fullScreen = !Screen.fullScreen;
-            if (Btn(new Rect(311, 501, 635, 49), "설정 저장 / 닫기", true, Mint))
+            Modal(new Rect(279, 88, 722, 570));
+            Txt(new Rect(311, 113, 625, 38), "환경 설정", 25, Mint);
+            AudioSlider("전체 음량", 180, ref volume);
+            AudioSlider("배경음악", 240, ref musicVolume);
+            AudioSlider("효과음 · 보이스", 300, ref effectsVolume);
+            Txt(new Rect(311, 363, 280, 28), "전체 소리", 20, Text);
+            if (Btn(new Rect(705, 360, 241, 36), sound ? "켜짐" : "꺼짐", sound, Mint)) sound = !sound;
+            Txt(new Rect(311, 423, 370, 28), "움직임 최소화", 20, Text);
+            if (Btn(new Rect(705, 420, 241, 36), reduceMotion ? "켜짐" : "꺼짐", reduceMotion, Mint)) reduceMotion = !reduceMotion;
+            Txt(new Rect(311, 483, 340, 27), "화면 모드", 20, Text);
+            if (Btn(new Rect(705, 480, 241, 36), Screen.fullScreen ? "전체 화면" : "창 모드", false, Gold)) Screen.fullScreen = !Screen.fullScreen;
+            if (Btn(new Rect(311, 570, 635, 49), "설정 저장 / 닫기", true, Mint))
             {
-                PlayerPrefs.SetFloat("lumia.volume", volume); PlayerPrefs.SetInt("lumia.sound", sound ? 1 : 0); PlayerPrefs.SetInt("lumia.reduceMotion", reduceMotion ? 1 : 0); PlayerPrefs.Save(); settings = false;
+                SaveAudioSettings();
+                if (!audioVerification) PlayerPrefs.SetInt("lumia.reduceMotion", reduceMotion ? 1 : 0);
+                PlayerPrefs.Save(); settings = false;
             }
         }
+
+        void AudioSlider(string title, float y, ref float value)
+        {
+            Txt(new Rect(311, y, 260, 28), title, 20, Text);
+            value = GUI.HorizontalSlider(new Rect(574, y + 6, 307, 25), value, 0, 1);
+            Txt(new Rect(893, y + 3, 55, 25), Mathf.RoundToInt(value * 100) + "%", 13, Muted, true);
+        }
+
+        public void SaveAudioSettings()
+        {
+            string prefix = audioVerification ? "bts.audio.verify." : "";
+            PlayerPrefs.SetFloat(prefix + "lumia.volume", volume);
+            PlayerPrefs.SetFloat(prefix + "lumia.musicVolume", musicVolume);
+            PlayerPrefs.SetFloat(prefix + "lumia.effectsVolume", effectsVolume);
+            PlayerPrefs.SetInt(prefix + "lumia.sound", sound ? 1 : 0);
+        }
+
+        public void VerificationAudioSettings() { VerificationView("lobby"); settings = true; }
 
         void DrawHelp()
         {
@@ -1180,12 +1213,60 @@ namespace Lumia
             if (Btn(new Rect(185, 550, 900, 45), "기록 확인", true, Mint)) help = false;
         }
 
-        bool Act(Func<bool> action)
+        bool Act(Func<bool> action, string cue = null)
         {
+            var previousStage = Engine.State.stage; int previousLevel = Engine.State.level;
             bool success = action();
-            if (success) { ConsumeCombatActions(); Save(); }
-            else Notify(Engine.State.message);
+            if (success)
+            {
+                ConsumeCombatActions();
+                if (!string.IsNullOrEmpty(cue)) AudioCue(cue);
+                AudioTransition(previousStage, previousLevel);
+                Save();
+            }
+            else { AudioCue("ui.error"); Notify(Engine.State.message); }
             return success;
+        }
+
+        void AudioCue(string cue)
+        {
+            if (audioVerification || !Audio) return;
+            Audio.PlayCue(cue);
+            string voice = null;
+            switch (cue)
+            {
+                case "game.start": voice = "voice.announcer.start"; break;
+                case "game.win": voice = "voice.nia.win"; break;
+                case "game.lose": voice = "voice.nia.lose"; break;
+                case "kiosk.enter": voice = "voice.nia.kiosk"; break;
+                case "camp.enter": voice = "voice.nia.camp"; break;
+                case "camp.rest": voice = "voice.nia.rest"; break;
+                case "camp.craft": voice = "voice.nia.craft"; break;
+                case "camp.cook": voice = "voice.nia.cook"; break;
+            }
+            if (voice != null && Audio.Catalog.ResolveCue(voice) != null) Audio.PlayCue(voice, .8f);
+        }
+
+        void AudioTransition(RunStage previous, int previousLevel)
+        {
+            if (Engine == null) return;
+            var s = Engine.State;
+            if (s.level > previousLevel) AudioCue("level.up");
+            if (s.stage == previous) return;
+            switch (s.stage)
+            {
+                case RunStage.Combat:
+                    bool boss = s.map.Any(n => n.id == s.activeNodeId && n.kind == ZoneKind.Boss);
+                    AudioCue(boss ? "boss.start" : "combat.start");
+                    if (!string.IsNullOrEmpty(s.combat?.animal)) AudioCue("wild." + s.combat.animal + ".enter");
+                    break;
+                case RunStage.Kiosk: AudioCue("kiosk.enter"); break;
+                case RunStage.Campfire: AudioCue("camp.enter"); break;
+                case RunStage.Encounter: AudioCue("encounter.enter"); break;
+                case RunStage.Rewards: AudioCue("combat.win"); break;
+                case RunStage.Won: AudioCue("game.win"); break;
+                case RunStage.Lost: AudioCue("game.lose"); break;
+            }
         }
         void Notify(string message) { if (string.IsNullOrEmpty(message)) return; toast = message; toastUntil = Time.unscaledTime + 4; }
         public void Save()
@@ -1209,6 +1290,7 @@ namespace Lumia
                 if (state == null || state.level < 1 || state.level > 20 || state.deck == null || state.map == null || !Enum.IsDefined(typeof(RunStage), state.stage)) throw new InvalidDataException("저장 기록 형식이 올바르지 않습니다.");
                 Engine = new GameEngine(state); lobby = false;
                 prepStep = state.stage == RunStage.Preparation ? string.IsNullOrEmpty(state.chosenPassive) ? 0 : 2 : 0;
+                AudioCue("game.resume");
             }
             catch (Exception e) { Notify("기록을 불러올 수 없습니다: " + e.Message); }
         }
@@ -1262,7 +1344,7 @@ namespace Lumia
             lobby = catalog = inventory = settings = help = fieldInfo = enemyLoadout = false;
             inspectCard = inspectTrait = inspectGear = craftPending = ""; inspectEnemyCard=false; summaryMode=true; scroll = inventoryScroll = encounterStoryScroll = detailScroll = Vector2.zero;summaryScroll.Clear();
             craftQuery = ""; craftTags.Clear(); craftSlot = GearSlot.Weapon;
-            if (view == "lobby") { lobby = true; return; }
+            if (view == "lobby" || view == "audio_settings") { lobby = true; settings = view == "audio_settings"; return; }
             bool showFull=view.EndsWith("_full",StringComparison.Ordinal);
             if(showFull)view=view.Substring(0,view.Length-5);
             NewRun();
@@ -1717,7 +1799,7 @@ namespace Lumia
         bool Hit(Rect r, bool enabled = true)
         {
             if (currentLayer != topLayer || !GUI.enabled || !enabled || !GUI.Button(r, GUIContent.none, GUIStyle.none)) return false;
-            if (sound && audioSource && click) audioSource.PlayOneShot(click, volume); return true;
+            AudioCue("ui.click"); return true;
         }
         void Tex(Rect r, Texture texture, ScaleMode mode, Color? tint = null)
         {

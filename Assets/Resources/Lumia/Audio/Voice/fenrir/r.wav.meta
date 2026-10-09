@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: f098fde8045a5c3492ded0ef6be2f33e
+AudioImporter:
+  externalObjects: {}
+  serializedVersion: 7
+  defaultSettings:
+    serializedVersion: 2
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 1
+    quality: 0.7
+    conversionMode: 0
+    preloadAudioData: 0
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 1
+  ambisonic: 0
+  loadInBackground: 1
+  m_OriginalIsTrackerFormat: 0
+  userData: Original Eternal Return Korean voice line from official fan kit.
+  assetBundleName: 
+  assetBundleVariant: 

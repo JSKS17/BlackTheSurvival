@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "uiScreens": 131,
+  "newScreensSaved": 1,
+  "runtimeErrors": 0,
+  "recastActionChecks": 9,
+  "synergyLayoutChecks": 26,
+  "cards": 392,
+  "nativePreviewMeasurements": 4704,
+  "previewOverflows": 0,
+  "innerCardScrolls": 0,
+  "screens": [
+    {
+      "file": "native-ui/audio_settings.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ]
+}
