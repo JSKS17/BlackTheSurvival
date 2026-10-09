@@ -93,16 +93,69 @@ namespace Lumia
         {
             var lines = new List<string>();
             if (c.block > 0) lines.Add("방어도는 피해를 먼저 막고 다음 내 턴이 시작될 때 사라집니다.");
-            if (c.poison > 0) lines.Add("중독은 대상의 턴이 시작될 때 방어도를 무시하는 피해를 주고 1 감소합니다.");
-            if (c.weak > 0) lines.Add("약화는 공격 피해를 25% 줄입니다.");
-            if (c.vulnerable > 0) lines.Add("취약은 받는 공격 피해를 50% 늘립니다.");
             if (c.strength > 0) lines.Add("힘은 각 공격의 피해를 높입니다.");
             if (c.evasion > 0) lines.Add("카드의 회피 보너스는 가장 높은 값만 적용되며, 최종 회피율은 65%를 넘지 않습니다.");
             if (c.freeCastCount > 0) lines.Add("연계 사용권은 이번 턴에만 유효하며, 같은 스킬에서 받는 횟수에는 턴별 제한이 있습니다. 소멸한 카드는 돌아오지 않습니다.");
             string mechanics = SkillMechanics.Rules(c);
             if (!string.IsNullOrEmpty(mechanics)) lines.Add(mechanics);
-            string statuses=StatusMechanics.Rules(c);if(!string.IsNullOrEmpty(statuses))lines.Add(statuses);
             if(c.movement)lines.Add("이 카드는 이동 기술이므로 속박의 사용 제한과 둔화의 추가 코스트가 적용됩니다.");
+            string debuffs = DebuffRules(c);
+            if (!string.IsNullOrEmpty(debuffs)) lines.Add(debuffs);
+            return string.Join("\n", lines);
+        }
+
+        // Read the actual application paths instead of searching prose: conditional control,
+        // next-basic preparations and installation-triggered control all retain their definitions.
+        public static string DebuffRules(CardDef c)
+        {
+            if (c == null) return "";
+            var kinds = new List<string>();
+            if (c.poison > 0) kinds.Add("poison");
+            if (c.weak > 0) kinds.Add("weak");
+            if (c.vulnerable > 0) kinds.Add("vulnerable");
+            var statuses = (c.statuses ?? new CardStatusRule[0])
+                .Where(x => x != null && !string.IsNullOrEmpty(x.key)).ToArray();
+            kinds.AddRange(statuses.Select(x => x.key));
+            var mechanics = c.mechanics?.rules ?? new SkillRule[0];
+            kinds.AddRange(mechanics.Where(x => x != null && x.amount > 0 && (x.op == "bleed" || x.op == "burn"))
+                .Select(x => x.op));
+            kinds = kinds.Distinct().ToList();
+            if (kinds.Count == 0) return "";
+
+            var lines = new List<string> { "디버프 설명" };
+            foreach (string kind in kinds)
+            {
+                string name, explanation;
+                switch (kind)
+                {
+                    case "poison":
+                        name = "중독";
+                        explanation = "대상의 턴 시작에 중독 수치만큼 방어도를 무시하는 피해를 주고 수치가 1 줄어듭니다. 다시 부여하면 수치가 더해집니다.";
+                        break;
+                    case "weak":
+                        name = "약화";
+                        explanation = "공격 피해가 25% 감소합니다. 대상의 턴 종료마다 남은 턴이 1 줄어들며, 다시 부여해도 기간은 더해지지 않고 남은 턴 중 큰 값을 유지합니다.";
+                        break;
+                    case "vulnerable":
+                        name = "취약";
+                        explanation = "받는 공격 피해가 50% 증가합니다. 대상의 턴 종료마다 남은 턴이 1 줄어들며, 다시 부여해도 기간은 더해지지 않고 남은 턴 중 큰 값을 유지합니다.";
+                        break;
+                    case "bleed":
+                    case "burn":
+                        name = kind == "bleed" ? "출혈" : "화상";
+                        explanation = "시전자의 턴 종료마다 적에게 방어도를 무시하는 피해를 주고 남은 적용 횟수가 1 줄어듭니다.";
+                        break;
+                    default:
+                        name = StatusMechanics.Name(kind);
+                        explanation = StatusMechanics.Explain(kind);
+                        break;
+                }
+                lines.Add(name + ": " + explanation);
+            }
+            if (statuses.Length > 0)
+                lines.Add("상태이상의 남은 턴은 대상의 턴 종료마다 1 줄어듭니다. 같은 상태는 중첩되지 않으며, 다시 부여하면 남은 턴 중 큰 값을 유지합니다. 다음 기본 공격이나 설치물로 부여하는 상태는 해당 효과가 발동한 뒤부터 적용됩니다.");
+            if (kinds.Contains("bleed") || kinds.Contains("burn"))
+                lines.Add("같은 실험체의 같은 지속 피해 효과를 다시 부여하면 피해와 남은 적용 횟수 중 각각 큰 값을 유지합니다. 기술·패시브·룬을 합친 시전자의 턴 종료 피해는 총 40까지 적용됩니다.");
             return string.Join("\n", lines);
         }
 

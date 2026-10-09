@@ -946,8 +946,8 @@ namespace Lumia
             bool upgraded = combat && Engine.State.upgrades.Contains(d.id);
             string description = combat ? CardPresentation.Describe(d, GameDatabase.Cards, Engine.CardDamage(d.id), d.block > 0 ? d.block + (upgraded ? 3 : 0) : 0, d.heal > 0 ? d.heal + (upgraded ? 2 : 0) : 0) : d.description;
             string rules = CardPresentation.Rules(d);
-            string fullText = summaryMode ? CardSummary(d,combat) : DescriptionSummary.Normalize(description + (string.IsNullOrEmpty(rules) ? "" : "\n\n" + rules));
-            if (!summaryMode && d.id == "basic_attack") fullText += "\n\n현재 치명타 확률: " + (inspectEnemyCard ? Engine.EnemyCritChance : Engine.CritChance) + "%. 장비의 치명타 확률은 합산하여 최대 30%까지 적용합니다. 1.5배 계산에서 생기는 소수점은 버립니다.";
+            string extra = d.id == "basic_attack" ? "\n\n현재 치명타 확률: " + (inspectEnemyCard ? Engine.EnemyCritChance : Engine.CritChance) + "%. 장비의 치명타 확률은 합산하여 최대 30%까지 적용합니다. 1.5배 계산에서 생기는 소수점은 버립니다." : "";
+            string fullText = summaryMode ? CardSummary(d,combat) : DescriptionSummary.Normalize(description + extra + (string.IsNullOrEmpty(rules) ? "" : "\n\n" + rules));
             if(combat && !StatusMechanics.CanUse(Engine.State.combat.playerStatuses,d))
                 fullText="현재 상태이상으로 이 카드를 사용할 수 없습니다. 나의 필드에서 발동한 상태와 남은 턴을 확인하세요.\n\n"+fullText;
             wrapped.fontSize = 16;
@@ -1242,6 +1242,25 @@ namespace Lumia
             if (view == "preparation") { prepStep = 2; return; }
             Engine.BeginJourney();
             if (view == "help") { help = true; return; }
+            if (view.StartsWith("debuff_", StringComparison.Ordinal))
+            {
+                string cardId = view == "debuff_bleed" ? "jackie_q" : view == "debuff_burn" ? "kenneth_w"
+                    : view == "debuff_next_basic" ? "jackie_w" : view == "debuff_delayed" ? "isol_q"
+                    : view == "debuff_multiple" ? "rozzi_w" : view == "debuff_conditional" ? "rio_r"
+                    : view == "debuff_enemy" ? "lenore_r" : view == "debuff_none" ? "basic_guard" : "nia_w";
+                if (view == "debuff_enemy")
+                {
+                    Engine.EnterNode(Engine.AvailableNodes().First().lane);
+                    Engine.State.combat.enemyId = "lenore"; Engine.State.combat.enemyName = "르노어"; Engine.State.combat.animal = "";
+                    inspectEnemyCard = true;
+                }
+                inspectCard = cardId; summaryMode = view == "debuff_summary";
+                detailScroll = summaryMode ? Vector2.zero : new Vector2(0, 100000);
+                string footer = CardPresentation.DebuffRules(GameDatabase.Card(cardId));
+                if (view != "debuff_none" && string.IsNullOrEmpty(footer)) throw new InvalidOperationException("Native debuff fixture has no definitions: " + cardId);
+                if (view == "debuff_none" && !string.IsNullOrEmpty(footer)) throw new InvalidOperationException("Buff-only card has debuff definitions.");
+                return;
+            }
             if(view=="enemy_loadout" || view=="enemy_field")
             {
                 Engine.State.act=3;Engine.State.row=Engine.State.mapRows-2;Engine.State.lane=1;Engine.State.level=20;

@@ -135,8 +135,8 @@ namespace Lumia
         {
             switch(kind)
             {
-                case "stun":case "airborne":case "knockback":case "sleep":return "다음 자신의 턴에 사용할 코스트가 1 줄어듭니다. 하드 제어의 감소량은 가장 큰 값만 적용되며 최소 1 코스트는 유지됩니다."+(kind=="sleep"?" 피해를 받으면 수면이 해제됩니다.":"");
-                case "freeze":case "suppression":case "stasis":return "다음 자신의 턴에 사용할 코스트가 2 줄어듭니다. 하드 제어의 감소량은 가장 큰 값만 적용되며 최소 1 코스트는 유지됩니다."+(kind=="freeze"?" 피해를 받으면 빙결이 해제됩니다.":"");
+                case "stun":case "airborne":case "knockback":case "sleep":return "다음 자신의 턴에 사용할 코스트가 1 줄어듭니다. 하드 제어의 감소량은 가장 큰 값만 적용되며 최소 1 코스트는 유지됩니다."+(kind=="sleep"?" 공격 카드나 카드의 필드 효과로 체력 피해를 받으면 수면이 해제됩니다.":"");
+                case "freeze":case "suppression":case "stasis":return "다음 자신의 턴에 사용할 코스트가 2 줄어듭니다. 하드 제어의 감소량은 가장 큰 값만 적용되며 최소 1 코스트는 유지됩니다."+(kind=="freeze"?" 공격 카드나 카드의 필드 효과로 체력 피해를 받으면 빙결이 해제됩니다.":"");
                 case "root":return "이동·돌진·순간 이동을 포함한 카드를 사용할 수 없습니다.";
                 case "silence":return "실험체의 Q·W·E·R 카드를 사용할 수 없습니다. 기본·무기·전술 카드는 사용할 수 있습니다.";
                 case "blind":return "공격의 명중률이 25% 감소합니다. 각 적중마다 대상의 회피율과 합산한 판정을 한 번 합니다.";

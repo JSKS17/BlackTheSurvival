@@ -58,6 +58,145 @@ public static class DescriptionAudit
         var keys=additive.Select(rule=>string.Join("|",rule.GetType().GetFields().Where(f=>f.Name!="label").OrderBy(f=>f.Name).Select(f=>f.Name+"="+f.GetValue(rule)))).ToArray();
         Check(keys.Length==keys.Distinct().Count(),id+": no identical data rules were hidden by prose deduplication");
     }
+    // Independent expectations come from the engine's three storage paths, rather than
+    // from the presentation collector that these checks are meant to validate.
+    static readonly Dictionary<string,string> DebuffNames=new Dictionary<string,string>(StringComparer.Ordinal)
+    {
+        {"poison","중독"},{"weak","약화"},{"vulnerable","취약"},{"bleed","출혈"},{"burn","화상"},
+        {"stun","기절"},{"root","속박"},{"silence","침묵"},{"blind","실명"},{"slow","둔화"},
+        {"fear","공포"},{"charm","매혹"},{"taunt","도발"},{"disarm","무장 해제"},{"suppression","제압"},
+        {"airborne","에어본"},{"knockback","넉백"},{"pull","끌어당김"},{"polymorph","변이"},
+        {"freeze","빙결"},{"sleep","수면"},{"berserk","광란"},{"stasis","정지"},{"dance","춤"},
+        {"heal_reduction","치유 감소"},{"armor_break","방어력 감소"},{"attack_down","공격력 감소"}
+    };
+    static HashSet<string> ExpectedDebuffs(CardDef card)
+    {
+        var result=new HashSet<string>(StringComparer.Ordinal);
+        if(card.poison>0)result.Add("poison");
+        if(card.weak>0)result.Add("weak");
+        if(card.vulnerable>0)result.Add("vulnerable");
+        foreach(var status in card.statuses ?? new CardStatusRule[0])result.Add(status.key);
+        foreach(var effect in card.mechanics?.rules ?? new SkillRule[0])
+            if(effect.amount>0 && (effect.op=="bleed" || effect.op=="burn"))result.Add(effect.op);
+        return result;
+    }
+    static void DebuffFooter(CardDef card)
+    {
+        string id=card.id,footer=CardPresentation.DebuffRules(card),rules=CardPresentation.Rules(card);
+        string body=CardPresentation.Describe(card,GameDatabase.Cards);
+        var expected=ExpectedDebuffs(card);
+        Check(expected.All(DebuffNames.ContainsKey),id+": newly added debuff kinds require an explicit glossary review");
+        Check(string.IsNullOrEmpty(footer)==(expected.Count==0),id+": only cards that actually apply debuffs have a glossary");
+        Check(!body.Contains("디버프 설명"),id+": skill application text stays separate from reference rules");
+        string preview=DescriptionSummary.CardPreview(card,GameDatabase.Cards);
+        Check(!preview.Contains("디버프 설명")&&!preview.Contains(": "),id+": compact preview has no glossary footer");
+        if(expected.Count==0)
+        {
+            Check(!rules.Contains("디버프 설명"),id+": beneficial effects and marks do not create a debuff glossary");
+            return;
+        }
+        Text(id+"/debuff-footer",footer);
+        Check(footer.StartsWith("디버프 설명\n",StringComparison.Ordinal),id+": glossary has a clear final-section label");
+        Check(rules.EndsWith(footer,StringComparison.Ordinal),id+": glossary is the very last part of the full rules");
+        Check(rules.IndexOf("디버프 설명",StringComparison.Ordinal)==rules.LastIndexOf("디버프 설명",StringComparison.Ordinal),id+": glossary is appended once");
+        var lines=footer.Split('\n');
+        var actual=lines.Where(line=>line.Contains(": ")).ToArray();
+        Check(actual.Length==expected.Count,id+": each debuff has exactly one explanation, including repeated or conditional applications");
+        foreach(var entry in DebuffNames)
+        {
+            string prefix=entry.Value+": ";
+            Check(actual.Count(line=>line.StartsWith(prefix,StringComparison.Ordinal))==(expected.Contains(entry.Key)?1:0),id+": glossary coverage for "+entry.Key);
+            Check(!preview.Contains(prefix),id+": "+entry.Key+" reference explanation never appears in compact preview");
+        }
+        string beforeFooter=rules.Substring(0,rules.Length-footer.Length);
+        Check(actual.All(line=>!beforeFooter.Contains(line)),id+": definitions are not repeated before the glossary");
+        Check(actual.All(line=>line.EndsWith(".",StringComparison.Ordinal)),id+": glossary entries are complete sentences");
+    }
+    static void DebuffEdgeCases()
+    {
+        // A delayed effect and a next-attack preparation must retain their definitions
+        // even when the card itself has no immediate attack damage or on-cast status.
+        var conditional=new CardDef {id="audit_delayed_control",owner="검토",name="지연 제어",category="skill",key="Q",statuses=new[] {
+            new CardStatusRule {op="status",key="root",timing="trap",duration=1,onHit=true},
+            new CardStatusRule {op="status",key="slow",timing="next_basic",duration=1,onHit=true},
+            new CardStatusRule {op="status",key="slow",conditionKey="counter",conditionAmount=3,duration=2,onHit=true}
+        }};
+        DebuffFooter(conditional);
+        var combined=new CardDef {id="audit_combined_debuff",owner="검토",name="복합 제어",category="skill",key="Q",poison=2,weak=1,vulnerable=1,mechanics=new SkillMechanicProfile {rules=new[] {
+            new SkillRule {op="bleed",amount=3,label="피흘림",duration=2,onHit=true},
+            new SkillRule {op="bleed",amount=2,label="다른 출혈",duration=1,onHit=true,conditionKey="mark"},
+            new SkillRule {op="burn",amount=4,label="발화",duration=2,onHit=true},
+            new SkillRule {op="summon",amount=4,label="포탑",duration=2}
+        }}};
+        DebuffFooter(combined);
+        string combinedFooter=CardPresentation.DebuffRules(combined);
+        Check(combinedFooter.Contains("25%")&&combinedFooter.Contains("50%"),"Legacy weakness and vulnerability reference their actual damage multipliers");
+        Check(combinedFooter.Contains("방어도")&&combinedFooter.Contains("시전자")&&combinedFooter.Contains("턴 종료"),"Bleed/burn reference shield bypass and the caster's ticking clock");
+        Check(!combinedFooter.Contains("포탑:"),"Summons deal persistent attacks without being mislabeled as debuffs");
+        var noDebuff=new CardDef {id="audit_zero_dot",owner="검토",name="가드",category="skill",key="W",block=8,mechanics=new SkillMechanicProfile {rules=new[] {
+            new SkillRule {op="bleed",amount=0,label="빈 출혈"},new SkillRule {op="burn",amount=0,label="빈 화상"},
+            new SkillRule {op="guard",amount=3,label="방패",duration=2},new SkillRule {op="hot",amount=3,label="치유",duration=2},
+            new SkillRule {op="gain",key="mark",amount=1,cap=1,label="준비"}
+        }}};
+        DebuffFooter(noDebuff);
+        // Explicit numerical and interaction checks keep the explanatory text anchored
+        // to the rules the engine implements, rather than merely checking its presence.
+        var statusDetails=new Dictionary<string,string[]> {
+            {"stun",new[]{"코스트가 1","최소 1"}},{"airborne",new[]{"코스트가 1","최소 1"}},
+            {"knockback",new[]{"코스트가 1","최소 1"}},{"sleep",new[]{"코스트가 1","피해를 받으면"}},
+            {"freeze",new[]{"코스트가 2","피해를 받으면"}},{"suppression",new[]{"코스트가 2","최소 1"}},
+            {"stasis",new[]{"코스트가 2","최소 1"}},{"blind",new[]{"25%"}},
+            {"slow",new[]{"코스트가 1 증가","중첩되지"}},{"pull",new[]{"코스트가 1 증가","중첩되지"}},
+            {"fear",new[]{"20%","중첩되지"}},{"charm",new[]{"20%","중첩되지"}},
+            {"attack_down",new[]{"20%","중첩되지"}},{"heal_reduction",new[]{"20%","가장 큰 값"}},
+            {"armor_break",new[]{"10%"}},{"silence",new[]{"Q·W·E·R","기본·무기·전술"}},
+            {"root",new[]{"이동·돌진·순간 이동","사용할 수 없습니다"}},{"disarm",new[]{"기본 공격","사용할 수 없습니다"}},
+            {"taunt",new[]{"실험체 기술","기본·무기·전술"}},{"berserk",new[]{"실험체 기술","기본·무기·전술"}},
+            {"polymorph",new[]{"실험체 기술과 기본 공격","경계·무기·전술"}},{"dance",new[]{"실험체 기술과 기본 공격","경계·무기·전술"}}
+        };
+        foreach(var entry in statusDetails)
+        {
+            var card=new CardDef {id="audit_status_"+entry.Key,owner="검토",name="상태 설명",category="skill",key="Q",statuses=new[] {new CardStatusRule {op="status",key=entry.Key,duration=1}}};
+            DebuffFooter(card);
+            string footer=CardPresentation.DebuffRules(card);
+            Check(entry.Value.All(footer.Contains),entry.Key+": exact numerical effect and restrictions are explained");
+            Check(footer.Contains("대상의 턴 종료")&&footer.Contains("중첩되지"),entry.Key+": glossary retains the affected actor's duration and reapplication rules");
+        }
+        foreach(string kind in new[]{"stun","airborne","knockback","sleep","freeze","suppression","stasis"})
+        {
+            var actor=new StatusActorState();StatusMechanics.Add(actor,kind,"audit",1);
+            int expected=kind=="freeze"||kind=="suppression"||kind=="stasis"?2:1;
+            Check(StatusMechanics.EnergyPenalty(actor)==expected,kind+": the described maximum-cost penalty matches the engine");
+        }
+        var afflicted=new StatusActorState();
+        StatusMechanics.Add(afflicted,"blind","audit",1);
+        Check(StatusMechanics.AccuracyPenalty(afflicted)==25,"The blindness explanation matches the engine's 25-point accuracy penalty");
+        StatusMechanics.Add(afflicted,"heal_reduction","audit",1);
+        Check(StatusMechanics.HealingReduction(afflicted)==20,"The healing reduction explanation matches the engine's 20-percent reduction");
+        foreach(string kind in new[]{"fear","charm","attack_down"})StatusMechanics.Add(afflicted,kind,"audit",1);
+        Check(StatusMechanics.Damage(afflicted,new StatusActorState(),100)==80,"Fear, charm and attack reduction apply one shared 20-percent reduction");
+        var broken=new StatusActorState();StatusMechanics.Add(broken,"armor_break","audit",1);
+        Check(StatusMechanics.Damage(new StatusActorState(),broken,100)==110,"The armor break explanation matches the engine's 10-percent damage increase");
+        var duration=new StatusActorState();
+        StatusMechanics.Add(duration,"slow","first",1);StatusMechanics.Add(duration,"slow","second",2);StatusMechanics.Add(duration,"slow","third",1);
+        Check(duration.effects.Count==1&&duration.effects[0].remaining==2,"Reapplying a named status keeps the longest remaining duration without addition");
+        StatusMechanics.EndTurn(duration);
+        Check(duration.effects[0].remaining==1,"Status duration falls once at the affected actor's turn end");
+        StatusMechanics.EndTurn(duration);
+        Check(duration.effects.Count==0,"A status expires when its remaining duration reaches zero");
+        foreach(string kind in new[]{"bleed","burn"})
+        {
+            var dot=new CardDef {id="audit_tick_"+kind,owner="검토",name="지속 피해",category="skill",key="Q",mechanics=new SkillMechanicProfile {rules=new[] {new SkillRule {op=kind,amount=3,duration=2}}}};
+            var actor=new SkillActorState();SkillMechanics.AfterCard(actor,SkillMechanics.Clone(actor),dot,true);
+            dot.mechanics.rules[0].amount=5;dot.mechanics.rules[0].duration=1;
+            SkillMechanics.AfterCard(actor,SkillMechanics.Clone(actor),dot,true);
+            Check(actor.effects.Count==1&&actor.effects[0].amount==5&&actor.effects[0].remaining==2,kind+": repeat casts keep the larger damage and longer duration rather than adding either");
+            var pulse=SkillMechanics.Tick(actor);
+            Check(pulse.Count==1&&pulse[0].amount==5&&actor.effects[0].remaining==1,kind+": each caster-end tick applies the advertised damage and consumes one application");
+            SkillMechanics.Tick(actor);
+            Check(actor.effects.Count==0,kind+": the advertised number of applications expires the effect");
+        }
+    }
     public static int Main(string[] args)
     {
         try
@@ -67,6 +206,7 @@ public static class DescriptionAudit
             {
                 string summary=DescriptionSummary.Card(c,GameDatabase.Cards),full=CardPresentation.Describe(c,GameDatabase.Cards);
                 string preview=DescriptionSummary.CardPreview(c,GameDatabase.Cards);
+                DebuffFooter(c);
                 Text(c.id+"/summary",summary);Text(c.id+"/full",full);
                 Text(c.id+"/preview",preview);
                 Check(DescriptionSummary.PreviewWidth(preview)<=66,c.id+": preview fits the compact pixel-card budget ("+DescriptionSummary.PreviewWidth(preview)+"): "+preview);
@@ -102,6 +242,8 @@ public static class DescriptionAudit
                 if(c.exhaust)Check(summary.Contains("소멸"),c.id+": exhaust retained");
                 if(c.freeCastCount>0)Check(summary.Contains("코스트 없이"),c.id+": recall retained");
                 output.Append("## "+c.owner+" · "+c.name+" ["+c.key+"] · "+c.cost+"코스트\n\n**미리보기·요약**\n\n"+preview.Replace("\n","  \n")+"\n\n**전체 효과 정리**\n\n"+summary.Replace("\n","  \n")+"\n\n");
+                string debuffFooter=CardPresentation.DebuffRules(c);
+                if(!string.IsNullOrEmpty(debuffFooter))output.Append(debuffFooter.Replace("\n","  \n")+"\n\n");
             }
             foreach(var p in GameDatabase.Passives)
             {
@@ -178,8 +320,12 @@ public static class DescriptionAudit
             Check(DescriptionSummary.Normalize("자원을 1로 만듭니다.")=="자원을 1로 만듭니다.","Rieul-final numerical directional particle stays 1로");
             Check(DescriptionSummary.Normalize("자원을 3로 만듭니다.")=="자원을 3으로 만듭니다.","Consonant-final numerical directional particle becomes 3으로");
             Check(DescriptionSummary.Normalize("자원을 8로 만듭니다.")=="자원을 8로 만듭니다.","Rieul-final numerical directional particle stays 8로");
+            DebuffEdgeCases();
             if(args.Length>0)File.WriteAllText(args[0],output.ToString(),new UTF8Encoding(false));
             Console.WriteLine("PASS: "+assertions+" readability/effect assertions; cards="+GameDatabase.Cards.Count+", passives="+GameDatabase.Passives.Count+", runes="+GameDatabase.Runes.Count+", equipment="+GameDatabase.Gear.Count+".");
+            var debuffCards=GameDatabase.Cards.Where(c=>ExpectedDebuffs(c).Count>0).ToArray();
+            Console.WriteLine("Debuff footer coverage: "+debuffCards.Length+" cards; "+string.Join(", ",debuffCards.SelectMany(c=>ExpectedDebuffs(c)).GroupBy(k=>k).OrderBy(g=>g.Key).Select(g=>g.Key+"="+g.Count())));
+            Console.WriteLine("Direct legacy debuffs: "+string.Join(", ",GameDatabase.Cards.Where(c=>c.poison>0||c.weak>0||c.vulnerable>0).Select(c=>c.id+" (poison="+c.poison+", weak="+c.weak+", vulnerable="+c.vulnerable+")")));
             foreach(string id in new[]{"nia_w","nia_r","jackie_q"})Console.WriteLine("\n"+id+"\n"+DescriptionSummary.Card(GameDatabase.Card(id),GameDatabase.Cards));
             foreach(string id in new[]{"isaac_p","alex_p"})Console.WriteLine("\n"+id+"\n"+DescriptionSummary.Passive(GameDatabase.Passive(id)));
             Console.WriteLine("\nhealing_drone\n"+drone);

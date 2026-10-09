@@ -28,6 +28,7 @@ namespace Lumia
             views=views.Concat(new[]{"preparation_pinned","detail_full","mechanic_detail_full","trait_detail_full","rune_detail_full","player_status","enemy_loadout","enemy_field","alex_weapon_deck","gear_detail","gear_detail_full"}).ToArray();
             views=views.Concat(new[]{"preview_hand","irem_detail","irem_detail_full","irem_field","irem_reverted"}).ToArray();
             views=views.Concat(new[]{"kiosk_unlocked","campfire_critical","campfire_tagged","campfire_empty","critical_detail","fx_critical","encounter_energy","help"}).ToArray();
+            views=views.Concat(new[]{"debuff_status","debuff_bleed","debuff_burn","debuff_next_basic","debuff_delayed","debuff_multiple","debuff_conditional","debuff_enemy","debuff_summary","debuff_none"}).ToArray();
             foreach (string view in views)
             {
                 LumiaGame.Instance.VerificationView(view);
