@@ -6,7 +6,7 @@ namespace Lumia
 {
     public sealed class TraitMechanicProfile
     {
-        public string summary;
+        public string summary, stateOwner;
         public bool replaceLegacy = true;
         public TraitRule[] rules = new TraitRule[0];
     }
@@ -78,6 +78,8 @@ namespace Lumia
                 TraitMechanicProfile profile;
                 if (!profiles.TryGetValue(passive.id, out profile)) continue;
                 profile.summary = DescriptionSummary.Normalize(profile.summary);
+                profile.stateOwner = "trait:" + passive.id;
+                SkillMechanics.ConfigureStates(profile.stateOwner, profile.rules);
                 passive.mechanics = profile;
                 passive.description = Describe(profile);
             }

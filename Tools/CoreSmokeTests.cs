@@ -19,10 +19,10 @@ public static class CoreSmokeTests
             EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); WildlifeDropTables(); SubjectDropTables();
             ShopEconomy(); CampAndEquipment(); FoodAndCooking(); PassiveCapacity(); EventEffects();
             StarterLocksAndCeiling(); FullEnemyLoadouts(); EquipmentIdentityAndAlex();
-            SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
+            SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();
             OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates(); HealingDroneHealthTrigger(); RevisedEconomyAndEncounters();
-            Console.WriteLine("PASS: " + checks + " assertions across 44 game-rule scenarios.");
+            Console.WriteLine("PASS: " + checks + " assertions across 45 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -629,6 +629,76 @@ public static class CoreSmokeTests
             Check(SkillMechanics.Resource(actor, "아야", "alternation") == 0, "foreign skills never satisfy another owner's history condition");
         }
         finally { guard.mechanics=oldGuard; attack.mechanics=oldAttack; attack.hits=oldHits; }
+    }
+    private static void BinarySkillStates()
+    {
+        var actor = new SkillActorState(); var r = GameDatabase.Card("irem_r");
+        Check(r.mechanics.rules.Count(x=>x.op=="state_toggle" && x.key=="cat")==1 && !r.mechanics.rules.Any(x=>x.key=="cat" && new[]{"gain","set"}.Contains(x.op)), "Irem R has one explicit form toggle instead of a numerical increment/reset pair");
+        for (int use=1;use<=6;++use)
+        {
+            SkillMechanics.AfterCard(actor,SkillMechanics.Clone(actor),r,true);
+            bool cat=use%2==1;
+            Check(SkillMechanics.Resource(actor,"이렘","cat")== (cat ? 1 : 0), "Irem transformation reverses on use " + use);
+            Check(SkillMechanics.Bonuses(actor,GameDatabase.Card("irem_q")).damage== (cat ? 4 : 0) && SkillMechanics.Bonuses(actor,GameDatabase.Card("irem_w")).block== (cat ? 6 : 0), "Irem Q and W retain their form-dependent effects on use " + use);
+            var visible=SkillMechanics.Snapshot(actor).Where(x=>x.key=="cat").ToArray();
+            Check(cat ? visible.Length==1 && visible[0].kind=="state" && visible[0].label=="고양이 상태" : visible.Length==0, "only active cat state is visible without a numerical stack token");
+        }
+        foreach (var id in new[]{"rio_q","estelle_e","jenny_e"})
+        {
+            var card=GameDatabase.Card(id); var toggle=card.mechanics.rules.First(x=>x.op=="state_toggle");
+            var isolated=new SkillActorState();
+            SkillMechanics.AfterCard(isolated,SkillMechanics.Clone(isolated),card,true);
+            Check(SkillMechanics.Resource(isolated,card.owner,toggle.key)==1,"enter explicit form: "+id);
+            SkillMechanics.AfterCard(isolated,SkillMechanics.Clone(isolated),card,true);
+            Check(SkillMechanics.Resource(isolated,card.owner,toggle.key)==0,"leave explicit form: "+id);
+        }
+        var old=new SkillActorState{resources=new List<SkillResource>{new SkillResource{owner="이렘",key="cat",label="고양이",amount=1,cap=1}}};
+        SkillMechanics.Ensure(old);
+        Check(old.resources[0].isState && old.resources[0].amount==1 && old.resources[0].label=="고양이 상태", "existing ongoing saves migrate active forms without changing values or keys");
+        var copy=SkillMechanics.Clone(old); SkillMechanics.AfterCard(copy,SkillMechanics.Clone(copy),r,true);
+        Check(old.resources[0].amount==1 && copy.resources[0].amount==0 && copy.resources[0].isState, "enemy planning and save clones preserve state metadata and never mutate live forms");
+        Check(!SkillMechanics.Summary(old).Contains("1/1") && !SkillMechanics.Summary(old).Contains("0턴"), "state summary has no stack denominator or fabricated duration");
+        actor=new SkillActorState(); var guard=GameDatabase.Card("nicky_w");
+        for(int use=0;use<3;++use)SkillMechanics.AfterCard(actor,SkillMechanics.Clone(actor),guard,true);
+        Check(actor.resources.Single(x=>x.key=="guard_ready").amount==1 && actor.resources.Single(x=>x.key=="guard_ready").isState, "reapplying a preparation activates a state rather than accumulating stacks");
+        var legacyPhysical=new SkillActorState();
+        foreach(var cardId in new[]{"tsubame_e","adela_w","lucia_w"})
+        {
+            var card=GameDatabase.Card(cardId);SkillMechanics.AfterCard(legacyPhysical,SkillMechanics.Clone(legacyPhysical),card,true);
+        }
+        foreach(var key in new[]{"wooden_log","knight","crystal"})Check(SkillMechanics.Snapshot(legacyPhysical).Any(x=>x.key==key && x.kind=="resource" && x.cap==1), "physical single-unit resource stays numerical: "+key);
+        var e=MechanicsFixture("sua_p");var combat=e.State.combat;combat.hand=new List<string>{"nia_q","basic_attack"};
+        Check(e.PlayCard(0) && e.SkillStateSnapshot().Any(x=>x.owner=="trait:sua_p" && x.key=="book" && x.kind=="state"), "another owner's skill can activate a passive preparation state");
+        Check(e.PlayCard(0) && !e.SkillStateSnapshot().Any(x=>x.owner=="trait:sua_p" && x.key=="book"), "basic attack releases the preparation state once");
+        string description=string.Join(" ",SkillMechanics.Describe(r));
+        Check(description.Contains("고양이 상태로 진입합니다") && description.Contains("고양이 상태인 경우에는 고양이 상태를 해제합니다") && !description.Contains("고양이를 1"), "full Irem R description explains reversible transformation");
+        foreach(var card in GameDatabase.Cards.Where(x=>x.mechanics!=null))
+        {
+            foreach(var rule in card.mechanics.rules.Where(x=>x.isState))Check(rule.cap==1 && new[]{"state_on","state_off","state_toggle"}.Contains(rule.op), "every classified skill state uses a binary state operation: "+card.id+"/"+rule.key);
+            foreach(var rule in card.mechanics.rules.Where(x=>new[]{"gain","set","damage_resource"}.Contains(x.op)))Check(!SkillMechanics.IsState(card,rule.key), "state classification never masks a multi-value skill resource: "+card.id+"/"+rule.key);
+        }
+        foreach(var passive in GameDatabase.Passives)
+            foreach(var rule in passive.mechanics.rules.Where(x=>new[]{"gain","set","damage_resource"}.Contains(x.op)))Check(!SkillMechanics.IsState("trait:"+passive.id,rule.key), "state classification never masks a multi-value passive resource: "+passive.id+"/"+rule.key);
+        Check(!GameDatabase.Passive("camilo_p").description.Contains("스텝을 1로") && GameDatabase.Passive("aiden_p").description.Contains("과전하 완료 상태"), "one-use alternating and overcharged passive preparations are named states");
+        int namedStatusConditions=0;
+        foreach(var card in GameDatabase.Cards)
+        {
+            string statusDescription=string.Join(" ",StatusMechanics.Describe(card));
+            foreach(var status in card.statuses ?? new CardStatusRule[0])
+            {
+                if(SkillMechanics.IsState(card,status.conditionKey))
+                {
+                    ++namedStatusConditions;
+                    Check(statusDescription.Contains(SkillMechanics.StateCondition(card,status.conditionKey,status.conditionAmount,status.conditionExact)), "full control description uses named active/inactive state: "+card.id+"/"+status.conditionKey);
+                    Check(!statusDescription.Contains(SkillMechanics.StateName(card,status.conditionKey)+"가 "+status.conditionAmount) && !statusDescription.Contains(SkillMechanics.StateName(card,status.conditionKey)+"이 "+status.conditionAmount), "full control description omits numerical state condition: "+card.id+"/"+status.conditionKey);
+                }
+                if(SkillMechanics.IsState(card,status.conditionKey2))Check(statusDescription.Contains(SkillMechanics.StateCondition(card,status.conditionKey2,status.conditionAmount2,status.conditionExact2)), "secondary control condition uses named state: "+card.id);
+            }
+        }
+        Check(namedStatusConditions==8, "all eight authored control rules that depend on binary states are covered");
+        string rioStatus=string.Join(" ",StatusMechanics.Describe(GameDatabase.Card("rio_r")));
+        Check(rioStatus.Contains("장궁 자세 상태이면") && rioStatus.Contains("장궁 자세 상태가 아니면"), "Rio control descriptions distinguish longbow active and inactive without 0/1 values");
+        Check(string.Join(" ",StatusMechanics.Describe(GameDatabase.Card("nia_w"))).Contains("아케이드 블록이 1 이상이면"), "numerical resource control conditions retain their actual threshold");
     }
     private static void SkillTimedEffects()
     {

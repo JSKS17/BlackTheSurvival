@@ -26,6 +26,7 @@ namespace Lumia
             Debug.Log("LUMIA IDENTITY skills="+skills+" passives="+passives+" runes="+runes);
             string[] views = { "lobby", "starting_passives", "preparation", "map", "long_map", "combat", "rewards", "rewards_cancelled", "combo", "detail", "fx_player", "fx_enemy", "fx_recover", "kiosk", "campfire", "encounter", "encounter_card", "encounter_detail", "encounter_trade", "encounter_risky", "encounter_long", "catalog", "inventory", "gear_inventory", "passive_inventory", "passive_replacement", "mechanic_blocks", "mechanic_discount", "mechanic_field", "mechanic_detail", "trait_basic", "trait_third", "trait_detail", "rune_buff", "rune_healing", "rune_inventory", "rune_detail", "rune_selection", "kiosk_coupon", "trait_revive", "enemy_detail", "combo_field", "status_cost", "status_lock", "status_field", "status_detail" };
             views=views.Concat(new[]{"preparation_pinned","detail_full","mechanic_detail_full","trait_detail_full","rune_detail_full","player_status","enemy_loadout","enemy_field","alex_weapon_deck","gear_detail","gear_detail_full"}).ToArray();
+            views=views.Concat(new[]{"preview_hand","irem_detail","irem_detail_full","irem_field","irem_reverted"}).ToArray();
             foreach (string view in views)
             {
                 LumiaGame.Instance.VerificationView(view);
@@ -52,6 +53,11 @@ namespace Lumia
                 if(view=="alex_weapon_deck" && LumiaGame.Instance.Engine.State.deck.Count(id=>GameDatabase.Card(id).category=="weapon")<4)
                     throw new System.InvalidOperationException("Alex's weapon-sourced additional D cards missing in native UI.");
                 yield return new WaitForSecondsRealtime(view.StartsWith("fx_") || view=="trait_third" ? .25f : .6f);
+                if(view=="lobby")LumiaGame.Instance.ExportPreviewLayoutAudit(Path.Combine(output,"preview-layout.json"));
+                if(view=="irem_field" && !LumiaGame.Instance.Engine.SkillStateSnapshot(false).Any(t=>t.kind=="state" && t.label.Contains("고양이")))
+                    throw new System.InvalidOperationException("Irem's cat state was not shown as a native state token.");
+                if(view=="irem_reverted" && LumiaGame.Instance.Engine.SkillStateSnapshot(false).Any(t=>t.kind=="state" && t.label.Contains("고양이")))
+                    throw new System.InvalidOperationException("Irem's cat state was not cleared by her second R use.");
                 ScreenCapture.CaptureScreenshot(Path.Combine(output, view + ".png"));
                 yield return new WaitForSecondsRealtime(.6f);
                 Debug.Log("LUMIA CAPTURE " + view);

@@ -487,8 +487,8 @@ namespace Lumia
             float nameY = r.y + 43 + artHeight;
             float nameHeight=r.height>=250?31:26;
             Para(new Rect(r.x + 9, nameY, r.width - 18, nameHeight), d.name + (selected ? " ✓" : ""), r.width < 130 || d.name.Length > 13 ? 11 : 13, tone);
-            Rect body = new Rect(r.x + 11, nameY + nameHeight + 3, r.width - 22, Math.Max(22, r.yMax - nameY - nameHeight - 31));
-            SummaryText(body, CardSummary(d, combat), 11, enabled ? Text : Muted,"card/"+id+"/"+r.width+"/"+r.height);
+            // A card face is a brief overview. Complete rules belong to the detail panel.
+            Para(CardPreviewRect(r), CardSummary(d, combat), 11, enabled ? Text : Muted);
             if (inspectCard != id)
             {
                 Rect info = new Rect(r.x + 7, r.yMax - 25, r.width - 14, 19);
@@ -500,7 +500,14 @@ namespace Lumia
         string CardSummary(CardDef d, bool combat)
         {
             bool upgraded = combat && Engine.State.upgrades.Contains(d.id);
-            return DescriptionSummary.Card(d, GameDatabase.Cards, combat ? Engine.CardDamage(d.id) : d.damage, d.block > 0 ? d.block + (upgraded ? 3 : 0) : 0, d.heal > 0 ? d.heal + (upgraded ? 2 : 0) : 0);
+            return DescriptionSummary.CardPreview(d, GameDatabase.Cards, combat ? Engine.CardDamage(d.id) : d.damage, d.block > 0 ? d.block + (upgraded ? 3 : 0) : 0, d.heal > 0 ? d.heal + (upgraded ? 2 : 0) : 0);
+        }
+
+        static Rect CardPreviewRect(Rect r)
+        {
+            float artHeight=r.height>=350?84:r.height>=250?56:36;
+            float nameY=r.y+43+artHeight, nameHeight=r.height>=250?31:26;
+            return new Rect(r.x+11,nameY+nameHeight+3,r.width-22,Math.Max(22,r.yMax-nameY-nameHeight-31));
         }
 
         void DrawRewards()
@@ -1031,6 +1038,7 @@ namespace Lumia
             if((token.kind??"").StartsWith("status_")) return token.label+" · "+token.remaining+"턴";
             if (token.kind == "free_cast") return token.label + " 무료 " + token.amount + "회";
             if (token.kind == "revive" && token.persistent) return token.label + " 사용될 때까지";
+            if (token.kind == "state") return token.label + " · 활성";
             if (token.kind == "resource") return token.label + " " + token.amount + "/" + token.cap;
             if (token.kind == "discount") return token.label + " −" + token.amount;
             if (token.kind == "delayed_damage") return token.label + " " + token.delay + "회 후";
@@ -1057,7 +1065,7 @@ namespace Lumia
                 var passive=GameDatabase.Passive(traitId);var rune=GameDatabase.Rune(traitId);
                 var gear=traitId.StartsWith("gear:")?GameDatabase.Equipment(traitId.Substring(5)):null;
                 string source=t.sourceCard;
-                if (string.IsNullOrEmpty(source)) source=GameDatabase.Cards.FirstOrDefault(x=>x.owner==t.owner && x.mechanics!=null && x.mechanics.rules.Any(a=>a.key==t.key && (a.op=="gain" || a.op=="set")))?.id;
+                if (string.IsNullOrEmpty(source)) source=GameDatabase.Cards.FirstOrDefault(x=>x.owner==t.owner && x.mechanics!=null && x.mechanics.rules.Any(a=>a.key==t.key && (a.op=="gain" || a.op=="set" || a.op=="state_on" || a.op=="state_toggle")))?.id;
                 if(passive!=null || rune!=null || gear!=null)
                 {
                     Rect icon=new Rect(10,y+10,44,44);
@@ -1073,13 +1081,14 @@ namespace Lumia
                 Txt(new Rect(67,y+9,706,23),TokenShort(t),15,fieldEnemy?Pink:Mint);
                 string detail=t.kind=="resource" ? (passive!=null || rune!=null ? "공통 행동에 반응하는 " + (passive!=null?passive.name:rune.name) + "의 누적 상태입니다." : t.owner + "의 연계 기술로 소비하거나 강화합니다.") : t.kind=="discount" ? "대상 카드를 한 번 사용하면 사라집니다. 코스트가 0이면 에너지 없이 사용할 수 있습니다." : t.kind=="counter" ? "적의 공격이 적중하면 턴당 한 번 " + t.amount + "의 피해로 반격합니다." : t.kind=="revive" ? "치명상을 한 번 막고 체력을 " + t.amount + " 회복합니다." : t.kind=="empower_basic" ? "다음 기본 공격의 첫 적중 피해를 " + t.amount + " 늘립니다." : t.kind=="hot" ? "자신의 턴 종료마다 체력을 " + t.amount + " 회복합니다." : t.kind=="guard" ? "자신의 턴 종료마다 방어도를 " + t.amount + " 얻습니다." : t.kind=="energy_buff" ? "최대 코스트가 " + t.amount + " 증가합니다. 이미 얻은 에너지는 즉시 회수하지 않습니다." : t.kind=="damage_buff" ? "각 공격 카드의 첫 적중 피해가 " + t.amount + " 증가합니다." : t.kind=="evasion_buff" ? "회피율이 " + t.amount + "% 증가합니다." : t.kind=="exposure" ? "받는 공격 피해가 " + t.amount + "% 증가합니다." : t.kind=="heal_reduction" ? "받는 회복량이 " + t.amount + "% 감소합니다." : t.kind=="delayed_damage" ? "자신의 턴 종료 " + t.delay + "회 후 " + t.amount + "의 피해를 줍니다." : "자신의 턴 종료마다 " + t.amount + "의 피해를 줍니다.";
                 if(t.kind=="free_cast") detail="이번 턴에 대상 카드 한 장을 코스트 없이 사용할 수 있습니다. 턴이 끝나면 사라집니다.";
+                if(t.kind=="state") detail="현재 "+t.label+"입니다. 관련 기술의 상태 조건이 적용되며, 해제 조건을 충족하면 사라집니다.";
                 if(t.kind=="resource" && gear!=null) detail=gear.name+"의 장비 효과에 사용하는 누적 수치입니다. 장비 아이콘에서 발동 조건을 확인하세요.";
                 if(t.kind=="deferred_damage") detail="아오자이로 미룬 체력 피해입니다. 남은 피해 "+t.amount+"을 "+t.remaining+"턴에 나누어 자신의 턴 시작마다 받습니다.";
                 if(t.kind=="legacy_poison") detail="자신의 턴 시작에 피해 "+t.amount+"을 받고 중독 수치가 1 감소합니다.";
                 if(t.kind=="legacy_weak") detail="공격 피해가 25% 감소합니다. 자신의 턴 종료에 남은 턴이 감소합니다.";
                 if(t.kind=="legacy_vulnerable") detail="받는 공격 피해가 50% 증가합니다. 자신의 턴 종료에 남은 턴이 감소합니다.";
                 if((t.kind??"").StartsWith("status_")) detail=StatusMechanics.Explain(t.kind.Substring(7));
-                if(t.kind=="resource" && t.persistent) detail+=" 다음 전투에도 유지됩니다.";
+                if((t.kind=="resource" || t.kind=="state") && t.persistent) detail+=" 다음 전투에도 유지됩니다.";
                 Para(new Rect(67,y+35,706,24),detail,11,Text);
             }
             GUI.EndScrollView();
@@ -1149,6 +1158,45 @@ namespace Lumia
         void PixelFont(Font rebuilt) { if (rebuilt == font && rebuilt.material && rebuilt.material.mainTexture) rebuilt.material.mainTexture.filterMode = FilterMode.Point; }
         void OnDestroy() { Font.textureRebuilt -= PixelFont; foreach (var clip in skillSounds.Values) if (clip) Destroy(clip); }
 
+        [Serializable] public sealed class PreviewMeasurement
+        {
+            public string card,layout,text;
+            public bool dynamicNumbers;
+            public float width,availableHeight,requiredHeight;
+        }
+        [Serializable] public sealed class PreviewLayoutAudit
+        {
+            public int cards,fontSize=11,measurements;
+            public List<PreviewMeasurement> overflows=new List<PreviewMeasurement>();
+            public List<PreviewMeasurement> samples=new List<PreviewMeasurement>();
+        }
+
+        public void ExportPreviewLayoutAudit(string path)
+        {
+            if(!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(),"-lumia-verify")<0)return;
+            if(!initialized)throw new InvalidOperationException("Preview audit requires initialized native GUI styles.");
+            var audit=new PreviewLayoutAudit{cards=GameDatabase.Cards.Count};
+            Rect[] layouts={new Rect(0,0,168,212),new Rect(0,0,166,226),new Rect(0,0,181,215),new Rect(0,0,188,276),new Rect(0,0,208,279),new Rect(0,0,215,400)};
+            string[] names={"hand","inventory","catalog","draft","reward","detail-card"};
+            var style=new GUIStyle(wrapped){fontSize=11};
+            foreach(var card in GameDatabase.Cards)
+            for(int variant=0;variant<2;variant++)
+            {
+                string text=variant==0?DescriptionSummary.CardPreview(card,GameDatabase.Cards):DescriptionSummary.CardPreview(card,GameDatabase.Cards,card.damage>0?99:0,card.block>0?99:0,card.heal>0?99:0);
+                font.RequestCharactersInTexture(text,11,FontStyle.Normal);
+                for(int index=0;index<layouts.Length;index++)
+                {
+                    Rect body=CardPreviewRect(layouts[index]);
+                    var sample=new PreviewMeasurement{card=card.id,layout=names[index],text=text,dynamicNumbers=variant>0,width=body.width,availableHeight=body.height,requiredHeight=style.CalcHeight(new GUIContent(text),body.width)};
+                    audit.samples.Add(sample);audit.measurements++;
+                    if(sample.requiredHeight>sample.availableHeight+.1f)audit.overflows.Add(sample);
+                }
+            }
+            File.WriteAllText(path,JsonUtility.ToJson(audit,true));
+            if(audit.overflows.Count>0)throw new InvalidOperationException("Card previews overflowed "+audit.overflows.Count+" native layouts; see "+path);
+            Debug.Log("LUMIA PREVIEW "+audit.cards+" cards / "+audit.measurements+" native layouts / overflow=0 / font=11 / innerScroll=0");
+        }
+
         public void VerificationView(string view)
         {
             if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0) return;
@@ -1182,7 +1230,7 @@ namespace Lumia
                 Engine=new GameEngine(Engine.State);inventory=true;inventoryTab=0;return;
             }
             if(view=="gear_detail") {inspectGear="death_book";summaryMode=!showFull;return;}
-            if (view == "combat" || view == "player_status" || view == "combo" || view=="combo_field" || view=="enemy_detail" || view.StartsWith("fx_") || view.StartsWith("mechanic_") || view.StartsWith("trait_") || view.StartsWith("status_") || view=="rune_buff" || view=="rune_healing")
+            if (view == "combat" || view == "player_status" || view == "preview_hand" || view.StartsWith("irem_") || view == "combo" || view=="combo_field" || view=="enemy_detail" || view.StartsWith("fx_") || view.StartsWith("mechanic_") || view.StartsWith("trait_") || view.StartsWith("status_") || view=="rune_buff" || view=="rune_healing")
             {
                 if(view.StartsWith("trait_")) Engine.State.passives=new List<string>{"isaac_p"};
                 if(view=="trait_revive") Engine.State.passives=new List<string>{"jenny_p"};
@@ -1192,7 +1240,21 @@ namespace Lumia
                 Engine.EnterNode(Engine.AvailableNodes().First().lane);
                 var c = Engine.State.combat;
                 c.enemyHp = c.enemyMaxHp = 600;
-                if(view=="player_status")
+                if(view=="preview_hand" || view.StartsWith("irem_"))
+                {
+                    Engine.State.passives.Clear();
+                    c.hand=new List<string>{"irem_r","irem_r","nia_w","adina_r","sua_r","basic_attack"};
+                    c.drawPile.Clear();c.discardPile.Clear();c.energy=5;
+                    if(view=="irem_field" || view=="irem_reverted")
+                    {
+                        Engine.PlayCard(0);
+                        if(view=="irem_reverted")Engine.PlayCard(0);
+                        fieldInfo=true;fieldEnemy=false;fieldScroll=Vector2.zero;
+                    }
+                    if(view=="irem_detail")inspectCard="irem_r";
+                    ConsumeCombatActions();effects.Clear();
+                }
+                else if(view=="player_status")
                 {
                     c.evasion=18;c.evasionTurns=2;c.poison=2;c.weak=2;c.vulnerable=1;
                     StatusMechanics.Add(c.playerStatuses,"blind","isaac_e");fieldInfo=true;fieldEnemy=false;

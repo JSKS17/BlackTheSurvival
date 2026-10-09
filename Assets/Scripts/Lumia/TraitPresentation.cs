@@ -32,21 +32,22 @@ namespace Lumia
         {
             var rules = (profile.rules ?? new TraitRule[0]).Where(r => r != null).ToArray();
             var labels = new Dictionary<string, string>(StringComparer.Ordinal);
-            foreach (var r in rules.OrderBy(r => r.op == "gain" || r.op == "set" || r.op == "damage_resource" ? 0 : 1))
+            foreach (var r in rules.OrderBy(r => r.op == "gain" || r.op == "set" || r.op.StartsWith("state_",StringComparison.Ordinal) || r.op == "damage_resource" ? 0 : 1))
                 if (!string.IsNullOrEmpty(r.key) && !string.IsNullOrEmpty(r.label) && !labels.ContainsKey(r.key)) labels[r.key] = r.label;
             Func<string, string> label = key => !string.IsNullOrEmpty(key) && labels.ContainsKey(key) ? labels[key] : string.IsNullOrEmpty(key) ? "자원" : key;
+            var stateCard = new CardDef { owner=profile.stateOwner };
             var groups = new List<EffectGroup>();
             foreach (var r in rules)
             {
                 var conditions = new List<string>();
-                if (!string.IsNullOrEmpty(r.conditionKey)) conditions.Add(Condition(label(r.conditionKey), r.conditionAmount, r.conditionExact));
-                if (!string.IsNullOrEmpty(r.conditionKey2)) conditions.Add(Condition(label(r.conditionKey2), r.conditionAmount2, r.conditionExact2));
+                if (!string.IsNullOrEmpty(r.conditionKey)) conditions.Add(SkillMechanics.IsState(stateCard,r.conditionKey) ? SkillMechanics.StateCondition(stateCard,r.conditionKey,r.conditionAmount,r.conditionExact) : Condition(label(r.conditionKey), r.conditionAmount, r.conditionExact));
+                if (!string.IsNullOrEmpty(r.conditionKey2)) conditions.Add(SkillMechanics.IsState(stateCard,r.conditionKey2) ? SkillMechanics.StateCondition(stateCard,r.conditionKey2,r.conditionAmount2,r.conditionExact2) : Condition(label(r.conditionKey2), r.conditionAmount2, r.conditionExact2));
                 if (!string.IsNullOrEmpty(r.conditionPrevious)) conditions.Add("직전에 사용한 기술이 " + (GameDatabase.Card(r.conditionPrevious)?.name ?? r.conditionPrevious) + "이면");
                 if (!string.IsNullOrEmpty(r.conditionCategory)) conditions.Add(Category(r.conditionCategory) + "일 때");
                 if (r.hpBelowPercent > 0) conditions.Add("체력이 최대 체력의 " + SkillMechanics.Clamp(r.hpBelowPercent, 1, 100) + "% 이하이면");
                 if(r.hpBelowDenominator>0)conditions.Add("체력이 최대 체력의 "+r.hpBelowNumerator+"/"+r.hpBelowDenominator+" 이하이면");
                 if (r.onHit && !IsHitTrigger(r.trigger)) conditions.Add("그 공격이 적중했으면");
-                string effect = Effect(r, label);
+                string effect = Effect(r, label, stateCard);
                 if (string.IsNullOrEmpty(effect)) continue;
                 string timing = Trigger(r.trigger);
                 int every = SkillMechanics.Clamp(r.every, 1, 8);
@@ -148,7 +149,7 @@ namespace Lumia
             int amount = Math.Max(0, r.amount), maximum = Math.Min(Cap(r.op), amount * SkillMechanics.Clamp(r.cap, 1, 8));
             return string.IsNullOrEmpty(r.scaleKey) ? Math.Min(Cap(r.op), amount).ToString() : label(r.scaleKey) + " × " + amount + "(최대 " + maximum + ")";
         }
-        private static string Effect(TraitRule r, Func<string, string> label)
+        private static string Effect(TraitRule r, Func<string, string> label, CardDef stateCard)
         {
             string n = Amount(r, label), name = string.IsNullOrEmpty(r.label) ? label(r.key) : r.label;
             string obj = CardPresentation.WithParticle(name, "를", "을"); int turns = SkillMechanics.Clamp(r.duration, 1, 3);
@@ -157,6 +158,9 @@ namespace Lumia
                 case "gain": return obj + " " + Math.Max(0, r.amount) + " 증가시킵니다(최대 " + SkillMechanics.Clamp(r.cap, 1, 8) + ")";
                 case "set": return obj + " " + SkillMechanics.Clamp(r.amount, 0, SkillMechanics.Clamp(r.cap, 1, 8)) + "로 만듭니다";
                 case "consume": return obj + (r.amount <= 0 ? " 모두" : " 최대 " + r.amount) + " 소모합니다";
+                case "state_on": return SkillMechanics.StateEnterText(stateCard,r.key);
+                case "state_off": return SkillMechanics.StateExitText(stateCard,r.key);
+                case "state_toggle": return name + "로 진입하거나 해제합니다";
                 case "bonus_damage": return "첫 적중에 추가 피해를 " + n + "만큼 줍니다";
                 case "bonus_block": case "block": return "방어도를 " + n + "만큼 얻습니다";
                 case "bonus_heal": case "heal": return "체력을 " + n + "만큼 회복합니다";
@@ -194,7 +198,7 @@ namespace Lumia
             if (r.cooldown > 0) limits.Add(compact ? "쿨다운 " + SkillMechanics.Clamp(r.cooldown, 0, 6) + "턴" : "발동 후 자신의 턴 기준 " + SkillMechanics.Clamp(r.cooldown, 0, 6) + "턴의 쿨다운이 적용됩니다");
             if (r.maxPerTurn > 0) limits.Add(compact ? "턴당 " + r.maxPerTurn + "회" : "자신의 한 턴에 최대 " + r.maxPerTurn + "회 발동합니다");
             if (r.maxPerBattle > 0) limits.Add(compact ? "전투당 " + r.maxPerBattle + "회" : "전투마다 최대 " + r.maxPerBattle + "회 발동합니다");
-            if (r.persistent && r.op != "revive") limits.Add((new[] { "gain", "set", "consume", "damage_resource" }.Contains(r.op) ? "이 자원과 누적 횟수는" : "이 효과의 누적 횟수는") + " 다음 전투에도 유지됩니다");
+            if (r.persistent && r.op != "revive") limits.Add((r.isState ? "이 상태와 누적 횟수는" : new[] { "gain", "set", "consume", "damage_resource" }.Contains(r.op) ? "이 자원과 누적 횟수는" : "이 효과의 누적 횟수는") + " 다음 전투에도 유지됩니다");
             return limits.Count == 0 ? "" : compact ? " (" + string.Join(" · ", limits) + ")." : " " + string.Join(". ", limits) + ".";
         }
     }

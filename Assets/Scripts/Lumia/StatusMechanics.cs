@@ -158,13 +158,13 @@ namespace Lumia
             {
                 var conditions = new List<string>();
                 if(!string.IsNullOrEmpty(rule.conditionKey))
-                    conditions.Add(CardPresentation.WithParticle(SkillMechanics.ResourceName(card, rule.conditionKey),"가","이")+" "+rule.conditionAmount+(rule.conditionExact?"":" 이상"));
-                if(!string.IsNullOrEmpty(rule.conditionPrevious))conditions.Add("직전 기술이 "+(GameDatabase.Card(rule.conditionPrevious)?.name ?? rule.conditionPrevious));
+                    conditions.Add(SkillMechanics.StateCondition(card,rule.conditionKey,rule.conditionAmount,rule.conditionExact));
+                if(!string.IsNullOrEmpty(rule.conditionPrevious))conditions.Add("직전 기술이 "+(GameDatabase.Card(rule.conditionPrevious)?.name ?? rule.conditionPrevious)+"이면");
                 if(!string.IsNullOrEmpty(rule.conditionKey2))
-                    conditions.Add(CardPresentation.WithParticle(SkillMechanics.ResourceName(card, rule.conditionKey2),"가","이")+" "+rule.conditionAmount2+(rule.conditionExact2?"":" 이상"));
+                    conditions.Add(SkillMechanics.StateCondition(card,rule.conditionKey2,rule.conditionAmount2,rule.conditionExact2));
                 bool hitCondition = rule.timing=="next_basic" || rule.timing!="cast" || rule.onHit;
-                if (hitCondition) conditions.Add(rule.timing=="next_basic" ? "다음 기본 공격이 적중" : rule.timing!="cast" ? "해당 설치물·추가 효과가 적중" : "공격이 적중");
-                string condition = conditions.Count == 0 ? "" : string.Join("이고 ", conditions)+(hitCondition?"하면 ":"이면 ");
+                if (hitCondition) conditions.Add(rule.timing=="next_basic" ? "다음 기본 공격이 적중하면" : rule.timing!="cast" ? "해당 설치물·추가 효과가 적중하면" : "공격이 적중하면");
+                string condition = conditions.Count == 0 ? "" : string.Join(", ", conditions)+" ";
                 result.Add(condition+"적에게 "+CardPresentation.WithParticle(Name(rule.key),"를","을")+" "+rule.duration+"턴 부여합니다."+(rule.timing=="next_basic"?" 다음 기본 공격이 빗나가도 준비 효과는 소모됩니다.":""));
             }
             return DescriptionSummary.CleanLines(result);

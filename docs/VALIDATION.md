@@ -1,5 +1,19 @@
 # 아트·전투·카드·지도 검증
 
+## 짧은 카드 미리보기·이진 상태
+
+검증일: 2026-10-09. Windows, Unity 6000.3.11f1. 이 절이 최신 카드 설명 및 상태 처리 결과다.
+
+카드 392종의 작은 본문과 상세 화면의 요약 탭은 같은 `DescriptionSummary.CardPreview`를 사용한다. 즉시 행동과 핵심 효과를 최대 두 문장 묶음으로 선택하며, 문장 중간을 자르거나 글꼴을 줄이지 않는다. 카드 본문은 11픽셀 글꼴로 직접 표시하며 내부 스크롤이 없다. 전체 설명에는 보조 효과·상한·기간·소모·정화·상태 조건과 공통 규칙을 모두 남긴다. [전체 미리보기와 효과 목록](DESCRIPTION_SUMMARIES.md), [설명 원칙](DESCRIPTION_READABILITY.md)에 기록했다.
+
+실제 Galmuri11 글꼴과 손패·가방·도감·시작 선택·보상·상세 왼쪽 카드의 여섯 크기에서 392종을 기본 수치와 두 자리 전투 수치로 측정했다. **4,704개 측정 모두 본문 높이 안에 들어간다.** 초기 측정에서 긴 문장이 남은 카드를 발견해 보조 효과를 전체 설명으로 옮기고 줄바꿈 여유를 반영한 뒤 최종 재검증했다. 스크롤이나 말줄임표로 부족한 공간을 가리지 않는다. [실제 글꼴 측정](validation-summary-states/preview-layout.json)에 모든 문자열·크기·필요 높이를 보존한다.
+
+59종의 변신·준비·표식·필드 효과를 활성/비활성 상태로 구분했다. `state_on`, `state_off`, `state_toggle`은 수치 증가·설정과 별도 동작이다. 이렘 R은 고양이 상태로 진입하고 다시 사용하면 해제하며, 리오 Q·에스텔 E·제니 E도 명시적인 전환을 사용한다. 필드에는 ‘고양이 상태 · 활성’처럼 표시하고 1/1을 표시하지 않는다. 공격 조건도 ‘고양이 상태이면’·‘장궁 자세 상태가 아니면’으로 설명한다. 통나무·수정·체스말 같은 물리적 자원 및 다중 수치는 유지한다. 기존 저장의 활성 상태, 적 행동 예측용 복제, 전투 초기화와 공통 패시브 발동을 검사했다. [상태 분류와 호환성](BINARY_STATE_MECHANICS.md)에 기록했다.
+
+[핵심 규칙](validation-summary-states/core-tests.log) **45개 시나리오·17,528개 단언**, [설명 감사](validation-summary-states/description-audit.log) **16,400개 단언**이 통과했다. 상태를 숫자나 배율로 표현하는 설명도 없다. 최종 실제 개발 플레이어에서 [게임 화면 62개](validation-summary-states/native-screens.json)를 캡처했고 실행 오류 0개·본문 넘침 0개다. 손패·도감·준비·보상 카드, 이렘의 요약/전체 설명과 상태 진입/해제 화면을 직접 확인했다. 검증은 개인 저장과 다른 전용 슬롯을 사용한다.
+
+최종 [개발 빌드](validation-summary-states/development-build.log)와 [배포 빌드](validation-summary-states/release-build.log)는 오류 0개로 성공했다. 설치된 실행 파일·Unity 런타임·게임 어셈블리·리소스 4개의 해시는 [배포 출력과 같다](validation-summary-states/release-hashes.json). [실제 실행 창과 로그](validation-summary-states/release-startup.json)는 정상이며 개인 이어하기 저장의 설치 전후 해시도 같다. [배포 ZIP](validation-summary-states/archive-validation.json)은 런타임 180개 파일의 CRC·SHA-256 및 누락 검사를 통과했다. 배포 버전은 `v0.1.1`이며 기존 `v0.1.0`도 보존한다.
+
 ## 얼굴 개성·설명 요약·상대 장비와 무기 스킬
 
 검증일: 2026-10-09. Windows, Unity 6000.3.11f1. 아래의 과거 기록보다 이 절의 결과가 최신이다.

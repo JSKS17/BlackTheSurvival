@@ -69,7 +69,7 @@ namespace Lumia
             P(p, "dailin_r", 18, B("bonus_damage", 5, scale:"bac", cap:4), Spend("bac", "취기"));
 
             // Bow stance is reversible; Soar and the ultimate fill Flow.
-            P(p, "rio_q", 0, G("bow", "장궁 자세", 1, 1), S("bow", "장궁 자세", 0, 1, need:"bow"), Fx("empower_basic", "flow", "흐름", 6, need:"flow", min:3), Spend("flow", "흐름", need:"flow", min:3)).exhaust = 0;
+            P(p, "rio_q", 0, Toggle("bow", "장궁 자세"), Fx("empower_basic", "flow", "흐름", 6, need:"flow", min:3), Spend("flow", "흐름", need:"flow", min:3)).exhaust = 0;
             P(p, "rio_w", 8, B("bonus_damage", 4, need:"bow"), Fx("empower_basic", "hankyu", "단궁 연사", 4, need:"bow", min:0, exact:true));
             P(p, "rio_e", 9, S("flow", "흐름", 3), Fx("empower_basic", "soar", "비상", 5));
             P(p, "rio_r", 17, B("bonus_damage", 7, need:"bow"), Fx("delayed_damage", "hankyu_end", "마지막 화살", 7, need:"bow", min:0, exact:true), S("flow", "흐름", 3));
@@ -191,7 +191,7 @@ namespace Lumia
             // Hazard Shield changes First Response, then the helicopter arrives later.
             P(p, "estelle_q", 0, Fx("empower_basic", "suppression", "진압", 7));
             P(p, "estelle_w", 9, Fx("summon", "extinguisher", "소화기 분사", 4, 2, need:"hazard"));
-            P(p, "estelle_e", 0, S("hazard", "방패방어", 1, 1), S("hazard", "방패방어", 0, 1, need:"hazard"), B("bonus_damage", 9, need:"hazard"), Fx("counter", "hazard", "방패 반격", 3, 2));
+            P(p, "estelle_e", 0, Toggle("hazard", "방패방어"), B("bonus_damage", 9, need:"hazard"), Fx("counter", "hazard", "방패 반격", 3, 2));
             P(p, "estelle_r", 0, Fx("delayed_damage", "helitack", "헬기 물폭탄", 18), Fx("hot", "rescue", "구조 지원", 4, 2)).heal = 5;
 
             // Ampere -> backstep converts charge, a charged ring and two thunderbolts.
@@ -228,7 +228,7 @@ namespace Lumia
             P(p, "irem_q", 8, S("fish", "생선 표식", 1, 1), B("bonus_damage", 4, need:"cat"));
             P(p, "irem_w", 8, B("bonus_block", 6, need:"cat"));
             P(p, "irem_e", 0, S("fish", "생선 표식", 1, 1), Fx("empower_basic", "cat_bell", "고양이 방울", 7, need:"cat"));
-            P(p, "irem_r", 0, G("cat", "고양이", 1, 1), S("cat", "고양이", 0, 1, need:"cat"), Fx("empower_basic", "fish", "생선 사냥", 8, need:"fish"), Spend("fish", "생선 표식")).exhaust = 0;
+            P(p, "irem_r", 0, Toggle("cat", "고양이"), Fx("empower_basic", "fish", "생선 사냥", 8, need:"fish"), Spend("fish", "생선 표식")).exhaust = 0;
 
             // Vital Force is gathered independently of Eruption's dissonance.
             P(p, "eva_q", 7, G("vital", "생명력", 1, 4, hit:true), Fx("delayed_damage", "triad", "빛 구체 폭발", 5));
@@ -257,7 +257,7 @@ namespace Lumia
             // Red Wine/Black Tea remain reversible; the carpet is a recast install.
             P(p, "jenny_q", 7, Fx("empower_basic", "red_wine", "레드 와인", 5, need:"role", min:0, exact:true), B("bonus_block", 6, need:"role"));
             P(p, "jenny_w", 8, S("carpet", "레드 카펫", 1, 1), B("bonus_damage", 7, need:"carpet"), Spend("carpet", "레드 카펫", need:"carpet"));
-            P(p, "jenny_e", 0, G("role", "블랙 티 배역", 1, 1), S("role", "블랙 티 배역", 0, 1, need:"role"), Fx("empower_basic", "persona", "페르소나", 5));
+            P(p, "jenny_e", 0, Toggle("role", "블랙 티 배역"), Fx("empower_basic", "persona", "페르소나", 5));
             P(p, "jenny_r", 14, Fx("delayed_damage", "stage", "시상식 무대", 13), D("jenny_e", 3));
 
             // Paso enhances the next sweep; two-step E and returning Duende are distinct.
@@ -363,6 +363,7 @@ namespace Lumia
             => R("gain", key, label, amount, cap, need:need, min:min, exact:exact, previous:previous, hit:hit);
         static SkillRule S(string key, string label, int amount, int cap=3, string need=null, int min=1, bool exact=false, bool hit=false)
             => R("set", key, label, amount, cap, need:need, min:min, exact:exact, hit:hit);
+        static SkillRule Toggle(string key, string label) => R("state_toggle", key, label, 1, 1);
         static SkillRule Spend(string key, string label, int amount=0, string need=null, int min=1, bool hit=false)
             => R("consume", key, label, amount, need:need, min:min, hit:hit);
         static SkillRule B(string op, int amount, string scale=null, int cap=3, string need=null, int min=1, bool exact=false, string previous=null)
