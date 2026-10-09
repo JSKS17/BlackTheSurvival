@@ -31,6 +31,7 @@ namespace Lumia
             views=views.Concat(new[]{"debuff_status","debuff_bleed","debuff_burn","debuff_next_basic","debuff_delayed","debuff_multiple","debuff_conditional","debuff_enemy","debuff_summary","debuff_none"}).ToArray();
             views=views.Concat(new[]{"rewards_wildlife","rewards_wildlife_cancelled","wildlife_food_bag","encounter_basic","encounter_basic_detail"}).ToArray();
             views=views.Concat(new[]{"grouped_fiora","grouped_fiora_full","grouped_nia_full","grouped_rozzi_full","grouped_counter_full","grouped_rune_full"}).ToArray();
+            views=views.Concat(new[]{"boss_preview_new","boss_preview_legacy","boss_preview_act2","jenny_passive_full"}).ToArray();
             foreach (string view in views)
             {
                 LumiaGame.Instance.VerificationView(view);

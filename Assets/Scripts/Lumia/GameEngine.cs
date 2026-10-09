@@ -96,6 +96,8 @@ namespace Lumia
         public List<string> weaponGrantedCards = new List<string>();
         public List<string> passiveOffers = new List<string>(), draftOffers = new List<string>(), draftSelected = new List<string>(), upgrades = new List<string>();
         public List<string> encounterOffers = new List<string>(), defeatedBosses = new List<string>(), log = new List<string>();
+        // One revealed boss per act; all lanes lead to the same saved opponent.
+        public List<string> actBosses = new List<string>();
         public List<MapNode> map = new List<MapNode>();
         public CombatState combat;
         public RewardState rewards;
@@ -142,6 +144,7 @@ namespace Lumia
         {
             State = new RunState { seed = seed, rngState = seed == 0 ? 1831565813 : seed, weaponGrantVersion=1, energyGrowthVersion=1 };
             GenerateMap();
+            EnsureBossAssignments();
             State.passiveOffers = Offer(GameDatabase.Passives.Select(x => x.id), 3);
             RollStartingDraft();
             for (int i = 0; i < 5; ++i) State.deck.Add("basic_attack");
@@ -166,6 +169,7 @@ namespace Lumia
             }
             RefreshMapProximity();
             State.mapRows = State.map.Count > 0 ? State.map.Max(n => n.row) + 1 : RowsPerAct;
+            EnsureBossAssignments();
             if (State.version == 1)
             {
                 // Old saves committed rewards on click. Preserve the choice, but undo only those appended copies.
@@ -837,6 +841,43 @@ namespace Lumia
             RefreshMapProximity();
         }
 
+        public CharacterDef BossForAct(int act)
+        {
+            return act >= 1 && act <= 3 && State.actBosses != null && State.actBosses.Count >= act
+                ? GameDatabase.Character(State.actBosses[act - 1]) : null;
+        }
+
+        private void EnsureBossAssignments()
+        {
+            var roster = GameDatabase.Characters.Where(x => x.cards != null && x.cards.Length > 0 && GameDatabase.Passive(x.passiveId) != null).ToList();
+            var valid = new HashSet<string>(roster.Select(x => x.id));
+            var previous = State.actBosses ?? new List<string>();
+            var bosses = new string[3];
+            for (int index = 0; index < bosses.Length; ++index)
+            {
+                if (index < previous.Count && valid.Contains(previous[index])) bosses[index] = previous[index];
+                // Old saves already know defeated bosses, in victory order. Keep their history visible.
+                if (index < State.defeatedBosses.Count && valid.Contains(State.defeatedBosses[index])) bosses[index] = State.defeatedBosses[index];
+            }
+            var active = ActiveNode();
+            if (State.act >= 1 && State.act <= 3 && active != null && active.kind == ZoneKind.Boss
+                && State.combat != null && valid.Contains(State.combat.enemyId))
+                bosses[State.act - 1] = State.combat.enemyId;
+            if (string.IsNullOrEmpty(bosses[2])) bosses[2] = "nia";
+
+            // Use an independent seed so revealing bosses does not reroll maps, drafts or combat RNG.
+            int bossRandom = unchecked(State.seed ^ (int)0xB055A17D);
+            if (bossRandom == 0) bossRandom = 1831565813;
+            for (int index = 0; index < bosses.Length; ++index)
+            {
+                if (!string.IsNullOrEmpty(bosses[index])) continue;
+                var candidates = roster.Where(x => x.id != "nia" && !bosses.Contains(x.id)).ToList();
+                if (candidates.Count == 0) candidates = roster.Where(x => x.id != "nia").ToList();
+                bosses[index] = candidates[Next(ref bossRandom, candidates.Count)].id;
+            }
+            State.actBosses = bosses.ToList();
+        }
+
         public bool IsNearKiosk(MapNode node)
         {
             return node != null && (node.kind == ZoneKind.Subject || node.kind == ZoneKind.Wildlife)
@@ -869,10 +910,8 @@ namespace Lumia
             }
             else
             {
-                var combatRoster = GameDatabase.Characters.Where(x => x.cards != null && x.cards.Length > 0 && (!boss || GameDatabase.Passive(x.passiveId) != null)).ToList();
-                var candidates = combatRoster.Where(x => !boss || (x.id != "nia" && !State.defeatedBosses.Contains(x.id))).ToList();
-                if (candidates.Count == 0) candidates = combatRoster;
-                var character = boss && State.act == 3 ? GameDatabase.Character("nia") : candidates[Next(candidates.Count)];
+                var combatRoster = GameDatabase.Characters.Where(x => x.cards != null && x.cards.Length > 0).ToList();
+                var character = boss ? BossForAct(State.act) : combatRoster[Next(combatRoster.Count)];
                 c.enemyId = character.id; c.enemyName = (boss ? "보스 · " : "") + character.name;
                 c.enemyMaxHp = (int)Math.Ceiling((boss ? 80 + level * 8 : 35 + level * 6) * (boss ? 1.40f + (State.act-1)*.40f : 1.15f + (State.act-1)*.30f) + (State.act-1)*15);
                 foreach (var id in character.cards)

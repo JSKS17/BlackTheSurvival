@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "uiScreens": 95,
+  "newScreensSaved": 5,
+  "runtimeErrors": 0,
+  "cards": 392,
+  "nativePreviewMeasurements": 4704,
+  "previewOverflows": 0,
+  "innerCardScrolls": 0,
+  "screens": [
+    {
+      "file": "native-ui/long_map.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_preview_new.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_preview_legacy.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_preview_act2.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/jenny_passive_full.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ]
+}

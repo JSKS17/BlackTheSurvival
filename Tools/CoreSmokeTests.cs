@@ -15,7 +15,7 @@ public static class CoreSmokeTests
         try
         {
             if (args.Contains("--balance")) return BalanceSimulation.Run();
-            KioskUnlockAndStock(); MapKioskProximity(); PermanentEnergyGrowth(); CriticalBasicAttacks();
+            KioskUnlockAndStock(); MapKioskProximity(); BossMapPreview(); PermanentEnergyGrowth(); CriticalBasicAttacks();
             DatabaseIntegrity(); PreparationAndLocks(); RouteProgression(); CombatPilesAndEnergy();
             EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); WildlifeDropTables(); WildlifeSupplyRewards(); SubjectDropTables();
             ShopEconomy(); CampAndEquipment(); FoodAndCooking(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
@@ -23,7 +23,7 @@ public static class CoreSmokeTests
             SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();
             OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates(); HealingDroneHealthTrigger(); RevisedEconomyAndEncounters();
-            Console.WriteLine("PASS: " + checks + " assertions across 51 game-rule scenarios.");
+            Console.WriteLine("PASS: " + checks + " assertions across 52 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -1325,6 +1325,61 @@ public static class CoreSmokeTests
             foreach(var node in generated.State.map)
                 Check(node.nearKiosk==((node.kind==ZoneKind.Subject || node.kind==ZoneKind.Wildlife) && generated.State.map.Any(k=>k.kind==ZoneKind.Kiosk && k.act==node.act && Math.Abs(k.row-node.row)==1 && Math.Abs(k.lane-node.lane)<=1)),"generated proximity uses same connections drawn on map");
         }
+    }
+
+    private static void BossMapPreview()
+    {
+        var bosses = new HashSet<string>();
+        for (int seed = 1; seed <= 12; ++seed)
+        {
+            var e = Ready(seed);
+            Check(e.State.actBosses.Count == 3 && e.State.actBosses.Distinct().Count() == 3, "a new journey reveals three distinct saved bosses before entering any node");
+            Check(e.BossForAct(1).id != "nia" && e.BossForAct(2).id != "nia" && e.BossForAct(3).id == "nia", "final boss remains Nia while earlier bosses vary");
+            int rng = e.State.rngState;
+            var revealed = e.State.actBosses.ToArray();
+            var repeated = new GameEngine(seed);
+            Check(repeated.State.actBosses.SequenceEqual(revealed), "same seed reveals the same bosses");
+            for (int act = 1; act <= 3; ++act)
+            {
+                var preview = e.BossForAct(act); bosses.Add(preview.id);
+                Check(preview != null && GameDatabase.Passive(preview.passiveId) != null && preview.cards.Length == 4, "boss preview uses a playable combat-ready subject");
+                Check(e.BossForAct(act).id == preview.id && e.State.rngState == rng, "repeated preview reads never consume gameplay RNG");
+                for (int lane = 0; lane < 3; ++lane)
+                {
+                    var battle = new GameEngine((RunState)Clone(e.State));
+                    battle.State.act = act; battle.State.row = battle.State.mapRows - 2; battle.State.lane = 1;
+                    // Changed gameplay RNG must not reroll a publicly revealed boss.
+                    battle.State.rngState = seed * 7919 + lane + 1;
+                    Check(battle.EnterNode(lane) && battle.State.combat.enemyId == preview.id, "every boss lane fights the exact subject shown on the map");
+                    var resumed = new GameEngine((RunState)Clone(battle.State));
+                    Check(resumed.BossForAct(act).id == preview.id && resumed.State.combat.enemyId == preview.id && resumed.State.actBosses.SequenceEqual(revealed), "saving during boss combat keeps preview, current battle and future bosses aligned");
+                }
+            }
+            var loaded = new GameEngine((RunState)Clone(e.State));
+            Check(loaded.State.actBosses.SequenceEqual(revealed) && loaded.State.rngState == rng, "saved map load preserves revealed bosses and RNG");
+            Check(e.BossForAct(0) == null && e.BossForAct(4) == null, "invalid act preview is empty without changing the run");
+        }
+        Check(bosses.Count > 5, "different journey seeds retain varied early boss identities");
+
+        var legacy = Ready(1949);
+        legacy.State.act = 2; legacy.State.defeatedBosses = new List<string> { "jackie" };
+        legacy.State.bossVictories = 1; legacy.State.maxEnergyBonus = 1;
+        legacy.State.actBosses = null;
+        int legacyRng = legacy.State.rngState;
+        var migrated = new GameEngine((RunState)Clone(legacy.State));
+        Check(migrated.BossForAct(1).id == "jackie" && migrated.BossForAct(2).id != "jackie" && migrated.BossForAct(3).id == "nia", "old maps preserve defeated boss history and reveal distinct remaining bosses");
+        Check(migrated.State.rngState == legacyRng && migrated.State.row == legacy.State.row && migrated.State.deck.SequenceEqual(legacy.State.deck), "migration reveals old-map bosses without consuming RNG or altering progression and cards");
+        var migratedAgain = new GameEngine((RunState)Clone(migrated.State));
+        Check(migratedAgain.State.actBosses.SequenceEqual(migrated.State.actBosses), "migrated boss assignments become persistent save data");
+
+        migrated.State.row = migrated.State.mapRows - 2; migrated.State.lane = 1;
+        Check(migrated.EnterNode(1), "legacy boss combat fixture enters the boss");
+        migrated.State.combat.enemyId = "aya";
+        migrated.State.actBosses.Clear();
+        legacyRng = migrated.State.rngState;
+        var ongoing = new GameEngine((RunState)Clone(migrated.State));
+        Check(ongoing.BossForAct(1).id == "jackie" && ongoing.BossForAct(2).id == "aya" && ongoing.BossForAct(3).id == "nia", "old saves in a boss battle preserve the already spawned enemy and prior victory");
+        Check(ongoing.State.combat.enemyId == "aya" && ongoing.State.rngState == legacyRng, "migrating an ongoing boss never replaces its opponent or rerolls combat");
     }
 
     private static void PermanentEnergyGrowth()

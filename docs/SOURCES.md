@@ -130,3 +130,5 @@
 | 세레스 | [공식 신규 캐릭터 소개와 2026-10-01 출시 이벤트](https://event.playeternalreturn.com/ER/CHARACTER%26SKIN?hl=ko-KR) |
 
 위클라인 같은 NPC는 플레이 가능한 실험체 91명 명단에 섞지 않는다. 조우의 카드 보상은 해당 실험체 자신의 원본 스킬에서 변환한 카드를 사용한다.
+
+2026-10-09 재확인: 제니의 공식 패시브 이름은 **죽음의 연기(P)**다. [공식 11.3 패치노트의 제니 항목](https://playeternalreturn.com/posts/news/3606?hl=ko-KR)에 같은 이름이 기재되어 있다. 현재 `ClassicRoster`의 `jenny_p`도 이 이름을 사용하며, 실제 패시브 상세 화면을 별도로 검증한다.

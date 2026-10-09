@@ -362,8 +362,14 @@ namespace Lumia
                 bool available = reachable.Any(x => x.id == n.id);
                 Color tone = n.kind == ZoneKind.Boss ? Pink : n.kind == ZoneKind.Kiosk ? Gold : n.kind == ZoneKind.Campfire ? C("dfac7d") : Mint;
                 Box(r, n.visited ? C("2b4540") : available ? C("20394a") : C("142231"), available ? tone : n.visited ? Mint : Line);
-                Tex(new Rect(r.x + 12, r.y + 9, 36, 36), PixelArt.Icon(n.kind.ToString()), ScaleMode.ScaleToFit, available || n.visited ? Color.white : Muted);
-                Txt(new Rect(r.x - 22, r.y + 65, 106, 22), ZoneName(n.kind), 11, available ? tone : Muted, true);
+                var boss = n.kind == ZoneKind.Boss ? Engine.BossForAct(n.act) : null;
+                if (boss != null)
+                {
+                    Tex(new Rect(r.x + 8, r.y + 3, 44, 54), PixelArt.Portrait(boss.id), ScaleMode.ScaleToFit, available || n.visited ? Color.white : Muted);
+                    Txt(new Rect(r.x - 22, r.y - 20, 106, 20), "보스", 10, tone, true);
+                }
+                else Tex(new Rect(r.x + 12, r.y + 9, 36, 36), PixelArt.Icon(n.kind.ToString()), ScaleMode.ScaleToFit, available || n.visited ? Color.white : Muted);
+                Txt(new Rect(r.x - 22, r.y + 65, 106, 22), boss == null ? ZoneName(n.kind) : boss.name, 11, available ? tone : Muted, true);
                 if (n.nearKiosk && n.kind == ZoneKind.Subject) Txt(new Rect(r.x - 14, r.y - 22, 92, 20), "키오스크 주변", 9, Gold, true);
                 if (Hit(r, available)) selectedLane = n.lane;
             }
@@ -371,9 +377,19 @@ namespace Lumia
             GUI.EndScrollView();
             if (selectedLane >= 0) { Act(() => Engine.EnterNode(selectedLane)); return; }
             Sidebar(921, 103);
-            Box(new Rect(27, 613, 843, 69), Panel, Line);
-            Txt(new Rect(43, 625, 811, 23), "야생동물  /  실험체  /  키오스크  /  모닥불  /  조우  /  보스", 11, Text);
-            Txt(new Rect(43, 650, 811, 20), "늑대·곰은 희귀 오브젝트를 드롭합니다. 키오스크 주변 실험체도 오브젝트를 보유할 수 있습니다.", 11, Muted);
+            for (int act = 1; act <= 3; ++act)
+            {
+                var boss = Engine.BossForAct(act);
+                if (boss == null) continue;
+                bool defeated = act <= Engine.DefeatedBossCount;
+                Color tone = defeated ? Mint : act == s.act ? Pink : Muted;
+                Rect r = new Rect(27 + (act - 1) * 284, 613, 275, 69);
+                Box(r, Panel, act == s.act ? Pink : defeated ? Mint : Line);
+                Tex(new Rect(r.x + 9, r.y + 5, 44, 59), PixelArt.Portrait(boss.id), ScaleMode.ScaleToFit);
+                Txt(new Rect(r.x + 64, r.y + 8, 129, 19), "ACT 0" + act + "  /  보스", 11, tone);
+                Txt(new Rect(r.x + 64, r.y + 30, 200, 29), boss.name, 18, Text);
+                Txt(new Rect(r.x + 192, r.y + 8, 70, 19), defeated ? "처치 완료" : act == s.act ? "현재 구역" : "대기", 10, tone, true);
+            }
         }
         Rect NodeRect(MapNode n) { return new Rect(25 + n.row * 119, 53 + n.lane * 102, 60, 60); }
 
@@ -1243,6 +1259,32 @@ namespace Lumia
             if (view == "preparation") { prepStep = 2; return; }
             Engine.BeginJourney();
             if (view == "help") { help = true; return; }
+            if (view == "jenny_passive")
+            {
+                var jenny = GameDatabase.Passive("jenny_p");
+                if (jenny == null || jenny.owner != "제니" || jenny.name != "죽음의 연기")
+                    throw new InvalidOperationException("Jenny's passive must use its official Korean name.");
+                inspectTrait = jenny.id; summaryMode = !showFull; return;
+            }
+            if (view.StartsWith("boss_preview_", StringComparison.Ordinal))
+            {
+                if (view == "boss_preview_legacy")
+                {
+                    Engine.State.act = 2; Engine.State.actBosses = null;
+                    Engine.State.defeatedBosses = new List<string> { "jenny" };
+                    Engine.State.bossVictories = 1;
+                    Engine.State.maxEnergyBonus = 1;
+                    Engine = new GameEngine(Engine.State);
+                }
+                else if (view == "boss_preview_act2")
+                {
+                    Engine.State.act = 2; Engine.State.bossVictories = 1; Engine.State.maxEnergyBonus = 1;
+                    Engine.State.defeatedBosses = new List<string> { Engine.BossForAct(1).id };
+                }
+                for (int act = 1; act <= 3; ++act)
+                    if (Engine.BossForAct(act) == null) throw new InvalidOperationException("Native map has no fixed boss for act " + act);
+                mapAct = -1; mapRow = -99; return;
+            }
             if (view.StartsWith("grouped_", StringComparison.Ordinal))
             {
                 summaryMode = !showFull;
