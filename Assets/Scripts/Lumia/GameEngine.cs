@@ -430,7 +430,7 @@ namespace Lumia
             if (card.evasion > 0) { c.evasion = Math.Max(c.evasion, card.evasion); c.evasionTurns = Math.Max(c.evasionTurns, card.duration); }
             c.energy += card.energy;
             DrawCards(card.draw);
-            SkillMechanics.AfterCard(c.playerSkills, skillBefore, card, landed);
+            SkillMechanics.AfterCard(c.playerSkills, skillBefore, card, landed, paidCost: price);
             StatusMechanics.CancelMissingInstallations(c.enemyStatuses,c.playerSkills);
             StatusMechanics.DamageTaken(c.enemyStatuses,dealt);
             bool statusControl=ApplyCardStatuses(false,skillBefore,card,landed);
@@ -543,7 +543,7 @@ namespace Lumia
             c.enemyStrength += card.strength;
             if (landed) { c.poison += card.poison; c.vulnerable = Math.Max(c.vulnerable, card.vulnerable); c.weak = Math.Max(c.weak, card.weak); }
             if (card.evasion > 0 && string.IsNullOrEmpty(c.animal)) { c.enemyEvasion = Math.Max(BaseEnemyEvasion(), card.evasion); c.enemyEvasionTurns = Math.Max(c.enemyEvasionTurns, card.duration); }
-            SkillMechanics.AfterCard(c.enemySkills, skillBefore, card, landed);
+            SkillMechanics.AfterCard(c.enemySkills, skillBefore, card, landed, paidCost: price);
             StatusMechanics.CancelMissingInstallations(c.playerStatuses,c.enemySkills);
             StatusMechanics.DamageTaken(c.playerStatuses,dealt);
             bool statusControl=ApplyCardStatuses(true,skillBefore,card,landed);
@@ -1066,7 +1066,7 @@ namespace Lumia
                     if (card.exhaust) c.enemyExhaustPile.Add(id); else c.enemyDiscardPile.Add(id);
                     DrawInto(c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, card.draw);
                     RecordLastSkill(history, card);
-                    SkillMechanics.AfterCard(skillPlan, before, card, true);
+                    SkillMechanics.AfterCard(skillPlan, before, card, true, paidCost: price);
                     var afterTraits=SimulateAfterTraits(traitPlan,true,card,before,actualDamage,EnemyAuxiliaryValue(card,card.block)+bonuses.block,healed,planHp,planTargetHp,planTargetBlock);
                     available+=afterTraits.pulses.Where(x=>x.kind=="energy").Sum(x=>x.amount);
                     foreach(var pulse in beforeTraits.pulses.Concat(afterTraits.pulses)){if(pulse.kind=="strength")planStrength+=pulse.amount;if(pulse.kind=="heal" || pulse.kind=="bonus_heal")planHp=Math.Min(c.enemyMaxHp,planHp+pulse.amount*(100-TraitMechanics.HealingReduction(traitPlan))/100);}
@@ -1170,7 +1170,7 @@ namespace Lumia
                 int cardHeal=Math.Min(c.enemyMaxHp-actorHp,(EnemyAuxiliaryValue(card,card.heal)+bonuses.heal)*(100-Math.Max(TraitMechanics.HealingReduction(traitPreview),StatusMechanics.HealingReduction(attackerStatuses)))/100);actorHp+=cardHeal;
                 strength += card.strength;
                 SkillMechanics.ConsumeDiscount(skillPreview, id);
-                SkillMechanics.AfterCard(skillPreview,skillBefore,card,true);
+                SkillMechanics.AfterCard(skillPreview,skillBefore,card,true,paidCost:price);
                 StatusMechanics.Apply(defenderStatuses,skillBefore,card,true);
                 if(card.category=="basic" && card.key=="ATK")StatusMechanics.Activate(defenderStatuses,card.id,"next_basic");
                 var after=SimulateAfterTraits(traitPreview,true,card,skillBefore,actualDamage,EnemyAuxiliaryValue(card,card.block)+bonuses.block,cardHeal,actorHp,defenderHp,defenderBlock);

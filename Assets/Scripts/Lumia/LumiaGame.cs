@@ -509,7 +509,10 @@ namespace Lumia
             if (inspectCard != id)
             {
                 Rect info = new Rect(r.x + 7, r.yMax - 25, r.width - 14, 19);
-                Fill(info, C("203343")); Txt(info, selected ? "선택됨 · 상세 설명" : d.freeCastCount > 0 ? "무료 연계 · 상세 설명 +" : "상세 설명  +", 9, selected ? Gold : Muted, true);
+                bool cooperation=CrossSubjectSynergies.FullDescription(d).Any();
+                string hint=selected ? cooperation?"선택됨 · 실험체 연계":"선택됨 · 상세 설명"
+                    : cooperation?"실험체 연계 · 상세 설명 +":d.freeCastCount>0?"무료 연계 · 상세 설명 +":"상세 설명  +";
+                Fill(info, C("203343")); Txt(info, hint, 9, selected ? Gold : cooperation?Mint:Muted, true);
                 if (Hit(info)) { inspectCard = id; inspectEnemyCard=false; summaryMode=true; detailScroll = Vector2.zero; }
             }
         }
@@ -964,7 +967,10 @@ namespace Lumia
             string description = combat ? CardPresentation.Describe(d, GameDatabase.Cards, Engine.CardDamage(d.id), d.block > 0 ? d.block + (upgraded ? 3 : 0) : 0, d.heal > 0 ? d.heal + (upgraded ? 2 : 0) : 0) : d.description;
             string rules = CardPresentation.Rules(d);
             string extra = d.id == "basic_attack" ? "\n\n현재 치명타 확률: " + (inspectEnemyCard ? Engine.EnemyCritChance : Engine.CritChance) + "%. 장비의 치명타 확률은 합산하여 최대 30%까지 적용합니다. 1.5배 계산에서 생기는 소수점은 버립니다." : "";
-            string fullText = summaryMode ? CardSummary(d,combat) : DescriptionSummary.Normalize(description + extra + (string.IsNullOrEmpty(rules) ? "" : "\n\n" + rules));
+            string summary=CardSummary(d,combat),cooperation=CrossSubjectSynergies.BriefDescription(d);
+            if(!string.IsNullOrEmpty(cooperation))
+                summary=string.Join("\n",DescriptionSummary.CleanLines(new[]{summary,cooperation,"각 외부 연계는 자신의 턴당 1회 발동합니다."}));
+            string fullText = summaryMode ? summary : DescriptionSummary.Normalize(description + extra + (string.IsNullOrEmpty(rules) ? "" : "\n\n" + rules));
             if(combat && !StatusMechanics.CanUse(Engine.State.combat.playerStatuses,d))
                 fullText="현재 상태이상으로 이 카드를 사용할 수 없습니다. 나의 필드에서 발동한 상태와 남은 턴을 확인하세요.\n\n"+fullText;
             wrapped.fontSize = 16;
@@ -1069,11 +1075,16 @@ namespace Lumia
                 var card=GameDatabase.Card(grant.cardId);
                 tokens.Add(new SkillMechanicToken { owner=card?.owner,key=grant.cardId,sourceCard=grant.cardId,targetCard=grant.cardId,label=card?.name ?? grant.cardId,kind="free_cast",amount=grant.uses });
             }
-            return tokens;
+            // Show control and actionable cooperation first, followed by the remaining
+            // cooperation limits. All original resources retain their own entries below.
+            return tokens.OrderBy(t=>(t.kind??"").StartsWith("status_",StringComparison.Ordinal)?0
+                : t.kind=="synergy_ready"?1:t.kind=="synergy_limit"?2:t.kind=="synergy_budget"?3
+                : t.kind=="synergy_generation"?4:5).ToList();
         }
 
         static string TokenShort(SkillMechanicToken token)
         {
+            if((token.kind??"").StartsWith("synergy_",StringComparison.Ordinal)) return CrossSubjectSynergies.TokenSummary(token);
             if(token.kind=="legacy_poison") return "중독 " + token.amount;
             if(token.kind=="legacy_weak" || token.kind=="legacy_vulnerable") return token.label+" · "+token.remaining+"턴";
             if(token.kind=="deferred_damage") return "유예 피해 "+token.amount+" · 남은 "+token.remaining+"턴";
@@ -1097,12 +1108,16 @@ namespace Lumia
             Txt(new Rect(233, 109, 813, 37), (fieldEnemy ? "상대" : "나") + "의 필드 · 상태이상 · 회피율", 25, fieldEnemy ? Pink : Mint);
             var tokens=FieldTokens(fieldEnemy);
             Txt(new Rect(233, 156, 813, 26), "회피 " + (fieldEnemy?Engine.EnemyEvasion:Engine.Evasion) + "% · 일반 공격 치명타 " + (fieldEnemy?Engine.EnemyCritChance:Engine.CritChance) + "%  /  아이콘으로 출처 확인", 14, Muted);
-            fieldScroll=GUI.BeginScrollView(new Rect(233, 195, 813, 344), fieldScroll, new Rect(0, 0, 788, Math.Max(330,tokens.Count*72)));
+            float contentHeight=tokens.Sum(t=>(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)?84:72);
+            fieldScroll=GUI.BeginScrollView(new Rect(233, 195, 813, 344), fieldScroll, new Rect(0, 0, 788, Math.Max(330,contentHeight)));
             if (tokens.Count == 0) Txt(new Rect(15, 35, 756, 40), "현재 설치물이나 남아 있는 연계 효과가 없습니다.", 16, Muted, true);
+            float nextY=0;
             for (int i=0;i<tokens.Count;i++)
             {
-                var t=tokens[i]; float y=i*72;
-                Box(new Rect(0,y,788,64),Panel,Line);
+                var t=tokens[i]; float y=nextY;
+                float rowHeight=(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)?84:72;
+                nextY+=rowHeight;
+                Box(new Rect(0,y,788,rowHeight-8),Panel,Line);
                 string traitId=(t.owner??"").Replace("trait:","");
                 var passive=GameDatabase.Passive(traitId);var rune=GameDatabase.Rune(traitId);
                 var gear=traitId.StartsWith("gear:")?GameDatabase.Equipment(traitId.Substring(5)):null;
@@ -1130,8 +1145,9 @@ namespace Lumia
                 if(t.kind=="legacy_weak") detail="공격 피해가 25% 감소합니다. 자신의 턴 종료에 남은 턴이 감소합니다.";
                 if(t.kind=="legacy_vulnerable") detail="받는 공격 피해가 50% 증가합니다. 자신의 턴 종료에 남은 턴이 감소합니다.";
                 if((t.kind??"").StartsWith("status_")) detail=StatusMechanics.Explain(t.kind.Substring(7));
+                if((t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)) detail=CrossSubjectSynergies.TokenDescription(t);
                 if((t.kind=="resource" || t.kind=="state") && t.persistent) detail+=" 다음 전투에도 유지됩니다.";
-                Para(new Rect(67,y+35,706,24),detail,11,Text);
+                Para(new Rect(67,y+35,706,rowHeight-43),detail,11,Text);
             }
             GUI.EndScrollView();
             if(Btn(new Rect(233,565,813,42),"필드 닫기",true,Mint)) fieldInfo=false;
@@ -1291,6 +1307,11 @@ namespace Lumia
                 if (view == "grouped_fiora") inspectTrait = "fiora_p";
                 else if (view == "grouped_rune") inspectTrait = "amplification_drone";
                 else inspectCard = view == "grouped_rozzi" ? "rozzi_w" : view == "grouped_counter" ? "nicky_w" : "nia_w";
+                return;
+            }
+            if (view.StartsWith("synergy_",StringComparison.Ordinal))
+            {
+                VerificationSynergyView(view,showFull);
                 return;
             }
             if (view.StartsWith("debuff_", StringComparison.Ordinal))
@@ -1517,6 +1538,75 @@ namespace Lumia
                 Engine.State.stage = RunStage.PassiveChoice;
             }
             summaryMode=!showFull;
+        }
+
+        void VerificationSynergyView(string view,bool showFull)
+        {
+            string family=view.Substring("synergy_".Length).Split('_')[0];
+            string[] cards;
+            switch(family)
+            {
+                case "vf":cards=new[]{"echion_q","blair_e","blair_w"};break;
+                case "bomb":cards=new[]{"isol_q","celine_q"};break;
+                case "oil":cards=new[]{"adriana_w","kenneth_w"};break;
+                case "wound":cards=new[]{"jackie_q","cathy_w"};break;
+                case "displace":cards=new[]{"hyunwoo_e","magnus_e"};break;
+                case "mobility":cards=new[]{"leon_e","rozzi_q"};break;
+                case "bloom":cards=new[]{"priya_e","vanya_q"};break;
+                case "support":cards=new[]{"johann_w","charlotte_w"};break;
+                default:throw new InvalidOperationException("Unknown native cooperation fixture: "+view);
+            }
+            Engine.State.passives.Clear();Engine.State.gear.Clear();
+            Engine.State.mainRune="diamond";Engine.State.supportRune="tempering";
+            Engine.State.maxEnergyBonus=3;Engine.State.maxHp=100;Engine.State.hp=60;
+            Engine.State.deck=cards.Concat(new[]{"basic_attack","basic_guard"}).ToList();
+            if(!Engine.EnterNode(Engine.AvailableNodes().First().lane)) throw new InvalidOperationException("Cannot enter native cooperation fixture: "+view);
+            var c=Engine.State.combat;
+            c.enemyId="magnus";c.enemyName="매그너스";c.animal="";
+            c.enemyMaxHp=c.enemyHp=2000;c.enemyBlock=c.enemyEvasion=0;
+            c.enemyTraits=new TraitActorState();c.enemyGear.Clear();c.enemyPassiveId="";
+            c.hand=Engine.State.deck.ToList();c.drawPile.Clear();c.discardPile.Clear();c.exhaustPile.Clear();
+            bool used=view.EndsWith("_used",StringComparison.Ordinal);
+            int playCount=used?cards.Length:cards.Length-1;
+            for(int i=0;i<playCount;i++)
+            {
+                c.energy=Engine.MaxEnergy;
+                if(!Engine.PlayCard(c.hand.IndexOf(cards[i]))) throw new InvalidOperationException("Native cooperation card failed: "+cards[i]+" / "+view);
+            }
+            c.energy=Engine.MaxEnergy;
+            ConsumeCombatActions();effects.Clear();
+            if(view.EndsWith("_ready",StringComparison.Ordinal) || used)
+            {
+                string expected=used?"synergy_limit":"synergy_ready";
+                if(!Engine.SkillStateSnapshot(false).Any(t=>t.key==family && t.kind==expected))
+                    throw new InvalidOperationException("Native cooperation "+expected+" token missing: "+view);
+                fieldInfo=true;fieldEnemy=false;fieldScroll=Vector2.zero;
+            }
+            else
+            {
+                inspectCard=cards[cards.Length-1];summaryMode=!showFull;detailScroll=Vector2.zero;
+                if(!CrossSubjectSynergies.FullDescription(GameDatabase.Card(inspectCard)).Any())
+                    throw new InvalidOperationException("Native cooperation description missing: "+inspectCard);
+            }
+        }
+
+        public void VerifySynergyFieldLayout(string view)
+        {
+            if(!Debug.isDebugBuild || !view.StartsWith("synergy_",StringComparison.Ordinal)) return;
+            var tokens=FieldTokens(false).Where(t=>(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)).ToArray();
+            var detailStyle=new GUIStyle(wrapped){fontSize=11};
+            var titleStyle=new GUIStyle(label){fontSize=15};
+            foreach(var token in tokens)
+            {
+                string title=TokenShort(token),detail=CrossSubjectSynergies.TokenDescription(token);
+                font.RequestCharactersInTexture(title,15,FontStyle.Normal);
+                font.RequestCharactersInTexture(detail,11,FontStyle.Normal);
+                if(titleStyle.CalcSize(new GUIContent(title)).x>706 || detailStyle.CalcHeight(new GUIContent(detail),706)>41.1f)
+                    throw new InvalidOperationException("Native cooperation field text does not fit: "+view+" / "+token.key);
+                if(GameDatabase.Card(token.sourceCard)==null)
+                    throw new InvalidOperationException("Native cooperation field has no valid source icon: "+view+" / "+token.key);
+            }
+            Debug.Log("LUMIA SYNERGY UI "+view+" / tokens="+tokens.Length+" / overflow=0 / sourceIcons=PASS");
         }
 
         static Color C(string hex) { Color c; ColorUtility.TryParseHtmlString("#" + hex, out c); return c; }

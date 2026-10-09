@@ -86,6 +86,7 @@ namespace Lumia
             }
             lines.AddRange(DescriptionSummary.GroupEffects(effects));
             if (freeCastNote.Length > 0) lines.Add(freeCastNote);
+            lines.AddRange(CrossSubjectSynergies.FullDescription(c));
             if (c.exhaust) lines.Add("사용한 카드는 이번 전투에서 소멸합니다.");
             if (c.id == "basic_attack") lines.Add("장비의 공격력과 기본 공격 강화 효과를 받습니다. 치명타 적중 시 이 공격의 피해가 1.5배가 됩니다. 별도로 발동하는 추가 피해에는 치명타가 적용되지 않습니다.");
             if (lines.Count == 0) lines.Add("턴을 준비하며 행동 기회를 얻습니다.");

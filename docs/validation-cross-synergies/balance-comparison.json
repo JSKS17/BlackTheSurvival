@@ -1,0 +1,28 @@
+{
+  "beforeVersion": "0.1.6",
+  "beforeSourceCommit": "23b75eca75a1516c7bbd607261b08ba83082566d",
+  "afterVersion": "0.1.7",
+  "seeds": 40,
+  "samePolicy": true,
+  "policySha256": "9805b498aacefbb1343465a7261f19e608c98db79aafb58c8d2b9404b909ebdb",
+  "counts": {
+    "before": {
+      "Won": 1,
+      "Lost": 39,
+      "Stalled": 0
+    },
+    "after": {
+      "Won": 2,
+      "Lost": 38,
+      "Stalled": 0
+    }
+  },
+  "changedOutcomes": [
+    {
+      "seed": 20,
+      "before": "Lost",
+      "after": "Won"
+    }
+  ],
+  "limitation": "Fixed policy comparison; not an estimate of human win rates or every deck."
+}

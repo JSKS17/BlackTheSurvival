@@ -33,6 +33,8 @@ namespace Lumia
         public string owner, key, label, kind, sourceCard;
         public int amount, remaining, delay, uses;
         public bool persistent;
+        public bool synergyBoosted;
+        public int synergyBoostAmount;
     }
     [Serializable] public sealed class SkillCostDiscount
     {
@@ -50,6 +52,7 @@ namespace Lumia
         public List<SkillCostDiscount> discounts = new List<SkillCostDiscount>();
         public List<SkillOwnerHistory> history = new List<SkillOwnerHistory>();
         public List<string> discountSources = new List<string>();
+        public SynergyState synergy = new SynergyState();
     }
     public sealed class SkillMechanicToken
     {
@@ -190,6 +193,7 @@ namespace Lumia
             if (actor.discounts == null) actor.discounts = new List<SkillCostDiscount>();
             if (actor.history == null) actor.history = new List<SkillOwnerHistory>();
             if (actor.discountSources == null) actor.discountSources = new List<string>();
+            CrossSubjectSynergies.Ensure(actor);
             // Keep the owner/key/value layout used by existing saves, but restore binary semantics.
             foreach (var resource in actor.resources.Where(x => x.cap == 1 && IsState(x.owner, x.key)))
             {
@@ -203,10 +207,11 @@ namespace Lumia
             actor = Ensure(actor);
             return new SkillActorState {
                 resources = actor.resources.Select(x => new SkillResource { owner=x.owner, key=x.key, label=x.label, amount=x.amount, cap=x.cap, fraction=x.fraction,persistent=x.persistent,isState=x.isState }).ToList(),
-                effects = actor.effects.Select(x => new SkillTimedEffect { owner=x.owner, key=x.key, label=x.label, kind=x.kind, sourceCard=x.sourceCard, amount=x.amount, remaining=x.remaining, delay=x.delay, uses=x.uses,persistent=x.persistent }).ToList(),
+                effects = actor.effects.Select(x => new SkillTimedEffect { owner=x.owner, key=x.key, label=x.label, kind=x.kind, sourceCard=x.sourceCard, amount=x.amount, remaining=x.remaining, delay=x.delay, uses=x.uses,persistent=x.persistent,synergyBoosted=x.synergyBoosted,synergyBoostAmount=x.synergyBoostAmount }).ToList(),
                 discounts = actor.discounts.Select(x => new SkillCostDiscount { sourceCard=x.sourceCard, targetCard=x.targetCard, amount=x.amount }).ToList(),
                 history = actor.history.Select(x => new SkillOwnerHistory { owner=x.owner, cardId=x.cardId }).ToList(),
-                discountSources = actor.discountSources.ToList()
+                discountSources = actor.discountSources.ToList(),
+                synergy = CrossSubjectSynergies.Clone(actor.synergy)
             };
         }
         public static int Resource(SkillActorState actor, string owner, string key)
@@ -249,6 +254,8 @@ namespace Lumia
                     if (rule.op == "bonus_heal") bonus.heal += Amount(rule, actor, card, 20);
                 }
             if (card.category == "basic" && card.key == "ATK") bonus.damage += actor.effects.Where(x => x.kind == "empower_basic").Sum(x => x.amount);
+            var cross=CrossSubjectSynergies.Bonuses(actor,card,landed);
+            bonus.damage+=cross.damage;bonus.block+=cross.block;bonus.heal+=cross.heal;
             bonus.damage = Clamp(bonus.damage, 0, 24); bonus.block = Clamp(bonus.block, 0, 24); bonus.heal = Clamp(bonus.heal, 0, 20);
             return bonus;
         }
@@ -260,7 +267,7 @@ namespace Lumia
         {
             if (actor != null) actor.discounts.RemoveAll(x => x.targetCard == cardId);
         }
-        public static void AfterCard(SkillActorState actor, SkillActorState before, CardDef card, bool landed, bool recordHistory = true)
+        public static void AfterCard(SkillActorState actor, SkillActorState before, CardDef card, bool landed, bool recordHistory = true, int paidCost = -1)
         {
             if (card.category == "basic" && card.key == "ATK") actor.effects.RemoveAll(x => x.kind == "empower_basic");
             if (card.mechanics != null)
@@ -310,6 +317,7 @@ namespace Lumia
                         effect.delay = rule.op == "delayed_damage" ? Clamp(rule.delay, 1, 3) : 0;
                     }
                 }
+            if (recordHistory) CrossSubjectSynergies.AfterCard(actor,before,card,landed,paidCost<0?card.cost:paidCost);
             if (recordHistory && card.category == "skill")
             {
                 var history = actor.history.FirstOrDefault(x => x.owner == card.owner);
@@ -319,6 +327,7 @@ namespace Lumia
         }
         public static void StartTurn(SkillActorState actor)
         {
+            CrossSubjectSynergies.StartTurn(actor);
             actor.discountSources.Clear();
             foreach (var effect in actor.effects)
             {
@@ -365,6 +374,7 @@ namespace Lumia
             result.AddRange(actor.resources.Where(x => x.amount > 0).Select(x => new SkillMechanicToken { owner=x.owner, key=x.key, label=x.isState || (x.cap == 1 && IsState(x.owner,x.key)) ? StateName(x.owner,x.key,x.label) : x.label, kind=x.isState || (x.cap == 1 && IsState(x.owner,x.key)) ? "state" : "resource", amount=x.amount, cap=x.cap,persistent=x.persistent }));
             result.AddRange(actor.effects.Select(x => new SkillMechanicToken { owner=x.owner, key=x.key, label=x.label, kind=x.kind, sourceCard=x.sourceCard, amount=x.amount, remaining=x.remaining, delay=x.delay,persistent=x.persistent }));
             result.AddRange(actor.discounts.Select(x => new SkillMechanicToken { label=(GameDatabase.Card(x.targetCard)?.name ?? x.targetCard) + " 할인", kind="discount", sourceCard=x.sourceCard, targetCard=x.targetCard, amount=x.amount }));
+            result.AddRange(CrossSubjectSynergies.Snapshot(actor));
             return result;
         }
         public static string Summary(SkillActorState actor)

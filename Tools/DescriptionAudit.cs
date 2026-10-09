@@ -392,6 +392,60 @@ public static class DescriptionAudit
             Check(actor.effects.Count==0,kind+": the advertised number of applications expires the effect");
         }
     }
+    static void CrossSubjectDescriptions()
+    {
+        var supported=CrossSubjectSynergies.SupportedCardIds.ToArray();
+        Check(supported.Length>0&&supported.Distinct().Count()==supported.Length,"Cross-subject support exposes a nonempty unique supported-card catalog");
+        foreach(var card in GameDatabase.Cards)
+        {
+            string before=DataSnapshot(card);var lines=CrossSubjectSynergies.FullDescription(card).ToArray();
+            string brief=CrossSubjectSynergies.BriefDescription(card);
+            Check(supported.Contains(card.id)==(lines.Length>0),card.id+": the support catalog matches its actual full explanation");
+            if(lines.Length==0)
+                Check(string.IsNullOrEmpty(brief),card.id+": a card without a supported interaction cannot promise a compact synergy bonus");
+            else
+            {
+                Check(card.category=="skill",card.id+": cross-subject rules are attached to subject skills only");
+                Check(lines.Distinct().Count()==lines.Length&&lines.All(line=>line.EndsWith(".",StringComparison.Ordinal)),card.id+": synergy roles and limits are distinct complete sentences");
+                Check(!string.IsNullOrEmpty(brief)&&brief.EndsWith(".",StringComparison.Ordinal),card.id+": every supported role has a complete compact explanation");
+                string full=CardPresentation.Describe(card,GameDatabase.Cards),digest=DescriptionSummary.Card(card,GameDatabase.Cards);
+                foreach(string line in lines)
+                {
+                    string normalized=DescriptionSummary.Normalize(line);
+                    Check(Occurrences(full,normalized)==1,card.id+": detailed card rules include each exact synergy condition and limit once");
+                    Check(Occurrences(digest,normalized)==1,card.id+": effect digest includes each exact synergy condition and limit once");
+                }
+                string rules=string.Join("\n",lines);
+                Check(rules.Contains("1회")&&rules.Contains("2회")&&rules.Contains("턴"),card.id+": own-turn activation, preparation generation and expiry limits remain visible");
+                Check(rules.Contains("피해")&&rules.Contains("6")&&rules.Contains("방어도")&&rules.Contains("회복")&&rules.Contains("4"),card.id+": immediate shared damage/shield/heal budgets remain visible");
+                Check(rules.Contains("무료")&&rules.Contains("0코스트")&&rules.Contains("준비")&&rules.Contains("소모"),card.id+": zero-price generation restriction and existing-preparation consumption are explained");
+                string preview=DescriptionSummary.CardPreview(card,GameDatabase.Cards);
+                Check(DescriptionSummary.PreviewLines(preview)<=5&&DescriptionSummary.PreviewWidth(preview)<=66,card.id+": card summary remains bounded when optional cooperation is present");
+                Check(!preview.Contains("턴당 2회까지")&&!preview.Contains("피해 합계 6"),card.id+": full shared limits do not crowd the compact preview");
+            }
+            Check(DataSnapshot(card)==before,card.id+": synergy role selection, catalog and rendering never rewrite original skill data");
+        }
+        foreach(string id in new[]{"basic_attack","basic_guard","nia_q","nia_w","nia_e","nia_r","weapon_glove","tactical_blink"})
+            Check(!CrossSubjectSynergies.FullDescription(GameDatabase.Card(id)).Any(),id+": unsupported basics, D/F and Nia's independent VF battery do not advertise Echion/Blair's shared support");
+        var expected=new Dictionary<string,string[]> {
+            {"blair_w",new[]{"에키온","블레어","VF","방어도","3"}},
+            {"celine_q",new[]{"아이솔","로지","셀린","테오도르","폭탄","1"}},
+            {"kenneth_w",new[]{"아드리아나","기름","3","2회"}},
+            {"cathy_w",new[]{"출혈","상처","1","중상","소급"}},
+            {"magnus_e",new[]{"밀려난 위치","벽 압박","4","중복"}},
+            {"rozzi_q",new[]{"라우라","레온","로지","실비아","2","기본 공격"}},
+            {"vanya_q",new[]{"프리야","바냐","꽃","꿈","2"}},
+            {"charlotte_w",new[]{"수아","요한","레니","샬럿","회복","2"}}
+        };
+        foreach(var pair in expected)
+        {
+            var card=GameDatabase.Card(pair.Key);
+            string text=card.owner+"\n"+string.Join("\n",CrossSubjectSynergies.FullDescription(card));
+            Check(pair.Value.All(text.Contains),pair.Key+": actual family partners, source resources and characteristic effect are named");
+        }
+        foreach(string id in new[]{"isol_q","rozzi_r","celine_q","theodore_w","adriana_w","kenneth_w"})
+            Check(string.Join("\n",CrossSubjectSynergies.FullDescription(GameDatabase.Card(id))).Contains("40"),id+": scheduled bomb/fire support retains the existing turn-end damage ceiling");
+    }
     public static int Main(string[] args)
     {
         try
@@ -527,6 +581,7 @@ public static class DescriptionAudit
             Check(CardPresentation.Describe(GameDatabase.Card("yuki_w"),GameDatabase.Cards).Contains("3으로 만들고"),"Yuki's actual three-button reset retains its correct particle in a grouped effect sentence");
             DebuffEdgeCases();
             GroupedEffectCases();
+            CrossSubjectDescriptions();
             if(args.Length>0)File.WriteAllText(args[0],output.ToString(),new UTF8Encoding(false));
             Console.WriteLine("PASS: "+assertions+" readability/effect assertions; cards="+GameDatabase.Cards.Count+", passives="+GameDatabase.Passives.Count+", runes="+GameDatabase.Runes.Count+", equipment="+GameDatabase.Gear.Count+".");
             var debuffCards=GameDatabase.Cards.Where(c=>ExpectedDebuffs(c).Count>0).ToArray();

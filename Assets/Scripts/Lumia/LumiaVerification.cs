@@ -32,6 +32,9 @@ namespace Lumia
             views=views.Concat(new[]{"rewards_wildlife","rewards_wildlife_cancelled","wildlife_food_bag","encounter_basic","encounter_basic_detail"}).ToArray();
             views=views.Concat(new[]{"grouped_fiora","grouped_fiora_full","grouped_nia_full","grouped_rozzi_full","grouped_counter_full","grouped_rune_full"}).ToArray();
             views=views.Concat(new[]{"boss_preview_new","boss_preview_legacy","boss_preview_act2","jenny_passive_full"}).ToArray();
+            views=views.Concat(new[]{"vf","bomb","oil","wound","displace","mobility","bloom","support"}
+                .SelectMany(family=>new[]{"synergy_"+family+"_ready","synergy_"+family+"_used","synergy_"+family+"_full"}))
+                .Concat(new[]{"synergy_vf_summary","synergy_bomb_summary"}).ToArray();
             foreach (string view in views)
             {
                 LumiaGame.Instance.VerificationView(view);
@@ -81,6 +84,7 @@ namespace Lumia
                     throw new System.InvalidOperationException("Irem's cat state was not shown as a native state token.");
                 if(view=="irem_reverted" && LumiaGame.Instance.Engine.SkillStateSnapshot(false).Any(t=>t.kind=="state" && t.label.Contains("고양이")))
                     throw new System.InvalidOperationException("Irem's cat state was not cleared by her second R use.");
+                if(view.StartsWith("synergy_",System.StringComparison.Ordinal)) LumiaGame.Instance.VerifySynergyFieldLayout(view);
                 ScreenCapture.CaptureScreenshot(Path.Combine(output, view + ".png"));
                 yield return new WaitForSecondsRealtime(.6f);
                 Debug.Log("LUMIA CAPTURE " + view);

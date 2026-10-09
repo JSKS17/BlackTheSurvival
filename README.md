@@ -4,7 +4,7 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.6](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.6)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.7](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.7)에 있습니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
 - 완성된 Windows 빌드가 있으면 `Build/Windows/BlackTheSurvival.exe`를 실행하세요. 같은 폴더의 `BlackTheSurvival_Data`, `MonoBleedingEdge`, `UnityPlayer.dll`도 함께 있어야 합니다.
@@ -23,7 +23,7 @@
 
 지도 하단에서 1~3막의 보스 이름·도트 스프라이트·처치 여부를 미리 확인할 수 있습니다. 각 막의 보스 노드에도 실험체가 표시됩니다. 원정 시작 시 확정하여 저장하며 지도 확인·불러오기로 다시 뽑지 않습니다. 이전 저장은 처치한 보스와 진행 중인 보스전을 보존하여 보완합니다.
 
-다른 실험체의 카드가 서로 보완하도록 하는 [교차 시너지 설계안](docs/CROSS_SUBJECT_SYNERGY_PLAN.md)을 정리했습니다. 이 문서의 신규 연계는 검토용 제안이며 현재 전투에는 아직 적용하지 않았습니다.
+다른 실험체의 카드가 서로 보완하는 [8종 교차 연계](docs/CROSS_SUBJECT_SYNERGY_PLAN.md)를 적용했습니다. 에키온·블레어의 VF 공명, 아이솔·로지·셀린·테오도르의 폭파 연계와 기름 점화·상처·넉백·기동·꽃과 나비·보호 지원을 사용할 수 있습니다. 고유 자원을 유지하며 외부 효과에 턴당 횟수와 추가량 제한을 적용합니다. 무료 카드는 준비를 소비할 수 있지만 새 외부 준비를 만들지 않습니다. 조건은 카드 상세에서, 준비와 이번 턴 제한은 필드 효과에서 확인하세요.
 
 ## 구현 범위
 
@@ -89,6 +89,7 @@ Unity의 `Application.persistentDataPath` 아래 `lumia-vf-loop-v1.json`에 저�
 - `StatusIdentity.cs`, `StatusMechanics.cs`: 원본 기술별 상태·조건·지연 발동과 턴제 행동 제한·코스트·명중·회복 보정.
 - `EventIdentity.cs`, `EventPresentation.cs`: 91명의 고유 조우·273개 행동과 정확한 고정 보상·거래 대가 표시.
 - `CombatEffects.cs`: 카드별 도트 애니메이션·피해 숫자·8비트 음향.
+- `CrossSubjectSynergies.cs`: 서로 다른 실험체 사이의 8종 연계·유료 준비·턴당 제한·공통 설명. 플레이어·적·예고에 같은 판정을 사용합니다.
 - `GameEngine.cs`: Unity UI와 독립된 규칙·결정론적 난수·진행 상태.
 - `GameIdentity.cs`: 제품 이름과 이전 제품 저장·환경 설정의 자동 이전.
 - `LumiaGame.cs`: 로비 및 전체 플레이 화면·저장.
@@ -99,7 +100,7 @@ Unity의 `Application.persistentDataPath` 아래 `lumia-vf-loop-v1.json`에 저�
 - `Tools/RunCoreTests.ps1`: 순수 C# 규칙 검증. `-Balance`로 실제 행동만 사용하는 40회 자동 플레이도 실행합니다.
 - `Tools/VerifyRuntime.ps1`: Unity 런타임 소스 컴파일 검증.
 - `Tools/BuildVerification.ps1`: 현재 열려 있는 프로젝트를 유지하며 검증용 복사본에서 Windows 개발 빌드. `-Release`는 개발 표시를 끈 빌드입니다. `-DisableBurst`는 해당 빌드 프로세스의 선택적 Burst 컴파일을 건너뛰며 프로젝트 설정은 바꾸지 않습니다. 이 게임의 규칙·UI 코드는 Burst를 사용하지 않습니다.
-- 개발 빌드에 `-lumia-verify`를 전달하면 보상 선택·취소, 무료 연계, 전투 효과, 니아 블록·할인, 패시브 누적·부활 준비, 상대 기술 상세, 룬 버프·저체력 치유·상점 할인, 조우 고정 카드·거래·체력 대가, 장비 아이콘·상태이상·기본 공격 조우·야생동물 추가 카드·고기 보상과 같은 조건의 효과 설명·보스 사전 표시·제니 패시브를 포함한 95개 화면을 실행 파일 옆 `Verification` 폴더에 캡처하고 종료합니다. 화면 캡처는 실제 창을 표시한 상태로 실행하세요.
+- 개발 빌드에 `-lumia-verify`를 전달하면 보상 선택·취소, 무료 연계, 전투 효과, 니아 블록·할인, 패시브 누적·부활 준비, 상대 기술 상세, 룬 버프·저체력 치유·상점 할인, 조우 고정 카드·거래·체력 대가, 장비 아이콘·상태이상·기본 공격 조우·야생동물 추가 카드·고기 보상과 같은 조건의 효과 설명·보스 사전 표시·제니 패시브·8종 교차 연계를 포함한 121개 화면을 실행 파일 옆 `Verification` 폴더에 캡처하고 종료합니다. 화면 캡처는 실제 창을 표시한 상태로 실행하세요.
 - 개발 빌드의 `-bts-identity-verify`는 작업 폴더의 합성 저장과 설정 값으로 이전 동작 27개를 검증하고 `IdentityVerification/results.json`을 기록합니다. 개인 저장·레지스트리 설정은 변경하지 않습니다.
 - 개발 빌드의 `-lumia-art-verify`는 모든 전용 아트를 실제 Unity 리소스로 읽고 `ArtVerification` 폴더에 스프라이트 8페이지·기술 및 패시브 아이콘 13페이지·시스템 아이콘 2페이지를 캡처합니다. `-lumia-portrait-verify`는 스프라이트만 확인합니다. 일반 플레이 저장 슬롯을 변경하지 않습니다.
 

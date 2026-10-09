@@ -20,10 +20,10 @@ public static class CoreSmokeTests
             EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); WildlifeDropTables(); WildlifeSupplyRewards(); SubjectDropTables();
             ShopEconomy(); CampAndEquipment(); FoodAndCooking(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
             StarterLocksAndCeiling(); FullEnemyLoadouts(); EquipmentIdentityAndAlex();
-            SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
+            SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); CrossSubjectRules(); CrossSubjectCombatAndSave(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();
             OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates(); HealingDroneHealthTrigger(); RevisedEconomyAndEncounters();
-            Console.WriteLine("PASS: " + checks + " assertions across 52 game-rule scenarios.");
+            Console.WriteLine("PASS: " + checks + " assertions across 54 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -895,6 +895,257 @@ public static class CoreSmokeTests
         c.hand.Clear();c.drawPile.Clear();c.discardPile.Clear();c.exhaustPile.Clear();e.CombatActions.Clear();return e;
     }
 
+    private static string FieldSnapshot(object value)
+    {
+        if(value==null)return "null";
+        if(value is string)return "s:"+(string)value;
+        var type=value.GetType();
+        if(type.IsPrimitive||type.IsEnum||value is decimal)return type.Name+":"+Convert.ToString(value,System.Globalization.CultureInfo.InvariantCulture);
+        if(value is IEnumerable)return "["+string.Join(",",((IEnumerable)value).Cast<object>().Select(FieldSnapshot))+"]";
+        return type.Name+"{"+string.Join("|",type.GetFields().OrderBy(f=>f.Name).Select(f=>f.Name+"="+FieldSnapshot(f.GetValue(value))))+"}";
+    }
+    private static string OriginalSkillState(SkillActorState actor)
+    {
+        return FieldSnapshot(actor.resources)+FieldSnapshot(actor.effects)+FieldSnapshot(actor.discounts)+FieldSnapshot(actor.discountSources);
+    }
+    private static SkillInstantBonus CrossCast(SkillActorState actor,string id,int paidCost=1,bool landed=true)
+    {
+        var card=GameDatabase.Card(id);var before=SkillMechanics.Clone(actor);
+        var bonus=CrossSubjectSynergies.Bonuses(before,card,landed);
+        SkillMechanics.AfterCard(actor,before,card,landed,paidCost:paidCost);
+        return bonus;
+    }
+    private static int CrossReady(SkillActorState actor,string family)
+    {
+        return (actor.synergy?.charges??new List<SynergyCharge>()).Where(x=>x.family==family&&x.remaining>0).Sum(x=>Math.Max(0,x.amount));
+    }
+    private static string SubjectOwner(string id) => GameDatabase.Character(id).name;
+    private static void CrossSubjectRules()
+    {
+        Check(CrossSubjectSynergies.Families.Distinct().Count()==8,"eight distinct cross-subject families are implemented");
+        foreach(var character in GameDatabase.Characters)
+        {
+            var solo=new SkillActorState();var original=new SkillActorState();
+            foreach(string id in character.cards)
+            {
+                var card=GameDatabase.Card(id);var cross=CrossSubjectSynergies.Bonuses(solo,card,true);
+                Check(cross.damage==0&&cross.block==0&&cross.heal==0,"one subject's own QWER never fabricates another subject's support: "+id);
+                var soloBefore=SkillMechanics.Clone(solo);var baseline=SkillMechanics.Clone(original);
+                SkillMechanics.AfterCard(solo,soloBefore,card,true,paidCost:1);
+                // Trait resolution skips cross-subject hooks. Keeping the same owner history
+                // gives an independent execution of the original authored card rules.
+                SkillMechanics.AfterCard(original,baseline,card,true,false,paidCost:1);
+                original.history=SkillMechanics.Clone(solo).history;
+                Check(OriginalSkillState(solo)==OriginalSkillState(original),"cross-subject support preserves the original owner resources, costs and timed effects in a solo QWER sequence: "+id);
+            }
+        }
+        var actor=new SkillActorState();CrossCast(actor,"echion_q");CrossCast(actor,"blair_e");
+        Check(CrossReady(actor,"vf")==2&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("echion_w")).block==3&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("blair_r")).damage==6,"actual Korean-owner Echion and Blair cards prepare each other's VF resonance");
+        Check(SkillMechanics.Resource(actor,SubjectOwner("echion"),"vf")==1&&SkillMechanics.Resource(actor,SubjectOwner("blair"),"vp")==1,"VF resonance preserves each subject's original independent resource");
+        CrossCast(actor,"blair_r",0);
+        Check(CrossReady(actor,"vf")==0&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("echion_r")).damage==0,"a free VF consumer spends an existing resonance once without creating a new one");
+        actor=new SkillActorState();CrossCast(actor,"nia_q");CrossCast(actor,"nia_w");CrossCast(actor,"blair_e");
+        Check(CrossReady(actor,"vf")==1&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("echion_r")).damage==0,"Nia's VF-labelled battery is excluded from Echion/Blair resonance");
+        actor=new SkillActorState();CrossCast(actor,"echion_q",0);CrossCast(actor,"blair_e",0);
+        Check(CrossReady(actor,"vf")==0&&SkillMechanics.Resource(actor,SubjectOwner("echion"),"vf")==1,"free actions preserve original VF gains but never generate shared resonance");
+        actor=new SkillActorState();CrossCast(actor,"echion_q",1,false);CrossCast(actor,"blair_q",1,false);
+        Check(CrossReady(actor,"vf")==0,"missed hit-dependent VF gains cannot prepare resonance");
+
+        foreach(var pair in new[]{new[]{"isol_q","celine_w"},new[]{"rozzi_r","isol_w"},new[]{"celine_q","theodore_e"}})
+        {
+            actor=new SkillActorState();CrossCast(actor,pair[0]);
+            Check(CrossReady(actor,"bomb")==1&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card(pair[1])).damage==2,"each original bomb owner contributes foreign support: "+pair[0]+" -> "+pair[1]);
+            CrossCast(actor,pair[1],0);
+            Check(CrossReady(actor,"bomb")==0&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card(pair[1])).damage==0,"a zero-cost bomb consumer cannot reuse the same support: "+pair[1]);
+        }
+        actor=new SkillActorState();CrossCast(actor,"theodore_w");CrossCast(actor,"rozzi_r");
+        Check(actor.effects.Single(x=>x.sourceCard=="rozzi_r"&&x.kind=="delayed_damage").amount==18,"Theodore's paid screen adds three to Rozzi's native 15-damage fuse");
+        actor=new SkillActorState();CrossCast(actor,"isol_q");CrossCast(actor,"celine_q");
+        Check(SkillMechanics.Resource(actor,SubjectOwner("celine"),"bomb")==2&&!actor.resources.Any(x=>x.owner=="celine"),"foreign bomb support adds one plasma to Celine's actual owner resource after her normal gain");
+        actor=new SkillActorState();CrossCast(actor,"celine_q",0);
+        Check(CrossReady(actor,"bomb")==0&&SkillMechanics.Resource(actor,SubjectOwner("celine"),"bomb")==1,"a free setup cannot create bomb support while its original plasma still works");
+        actor=new SkillActorState();CrossCast(actor,"isol_q");
+        Check(CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("isol_w")).damage==0,"a subject cannot consume its own bomb setup as foreign support");
+        var pending=FieldSnapshot(actor.synergy);CrossCast(actor,"celine_w",0,false);
+        Check(FieldSnapshot(actor.synergy)==pending,"a missed foreign bomb attack leaves the preparation and turn limit untouched");
+
+        actor=new SkillActorState();CrossCast(actor,"adriana_w");CrossCast(actor,"kenneth_w");
+        Check(SkillMechanics.Resource(actor,SubjectOwner("adriana"),"oil")==0&&actor.effects.Any(x=>x.owner=="synergy:oil"&&x.kind=="burn"&&x.amount==3&&x.remaining==2),"Kenneth's native flame ignites one actual Adriana oil into bounded shared burn");
+        int used=actor.synergy.uses.Count;var pulses=SkillMechanics.Tick(actor);
+        Check(pulses.Any(x=>x.sourceCard=="kenneth_w"&&x.kind=="burn"&&x.amount==3)&&actor.synergy.uses.Count==used&&CrossReady(actor,"oil")==0,"burn ticks apply the prepared damage without preparing or triggering another ignition");
+        actor=new SkillActorState();CrossCast(actor,"adriana_w",0);CrossCast(actor,"kenneth_w");
+        Check(!actor.effects.Any(x=>x.owner=="synergy:oil")&&SkillMechanics.Resource(actor,SubjectOwner("adriana"),"oil")==1,"unpaid oil remains usable by Adriana but does not unlock foreign ignition");
+        actor=new SkillActorState();CrossCast(actor,"adriana_w");CrossCast(actor,"adriana_q");
+        Check(!actor.effects.Any(x=>x.owner=="synergy:oil")&&actor.effects.Any(x=>x.owner==SubjectOwner("adriana")&&x.key=="oil_fire"),"Adriana's own ignition remains her original effect, without duplicate external burn");
+
+        foreach(int ownWounds in new[]{1,2})
+        {
+            actor=new SkillActorState();CrossCast(actor,"jackie_q");actor.resources.Add(new SkillResource{owner=SubjectOwner("cathy"),key="wounded",amount=ownWounds,cap=3,label="상처"});
+            CrossCast(actor,"cathy_q");
+            Check(SkillMechanics.Resource(actor,SubjectOwner("cathy"),"wounded")== (ownWounds==1?3:1),"foreign bleeding adds Cathy's wound only after native gain and native consumption: start="+ownWounds);
+            Check(SkillMechanics.Resource(actor,SubjectOwner("cathy"),"severe")== (ownWounds==1?0:1),"the extra wound cannot retroactively satisfy this cast's severe-wound threshold: start="+ownWounds);
+        }
+        actor=new SkillActorState();CrossCast(actor,"jackie_q");actor.effects.RemoveAll(x=>x.kind=="bleed");CrossCast(actor,"cathy_q");
+        Check(SkillMechanics.Resource(actor,SubjectOwner("cathy"),"wounded")==1,"expired or removed bleeding cannot provide Cathy's foreign extra wound");
+
+        actor=new SkillActorState();CrossCast(actor,"hyunwoo_e");
+        Check(CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("magnus_e")).damage==4,"an actually eligible foreign knockback prepares Magnus's extra impact");
+        actor.resources.Add(new SkillResource{owner=SubjectOwner("magnus"),key="wall_pressure",amount=1,cap=1,isState=true});
+        Check(CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("magnus_e")).damage==0,"Magnus's own wall pressure suppresses duplicate foreign impact");
+        CrossCast(actor,"magnus_e");
+        Check(CrossReady(actor,"displace")>0,"the suppressed foreign impact is not consumed by the native wall-pressure cast");
+        actor=new SkillActorState();CrossCast(actor,"hyunwoo_e",1,false);
+        Check(CrossReady(actor,"displace")==0,"a missed knockback does not prepare a false wall position");
+
+        actor=new SkillActorState();CrossCast(actor,"leon_e");
+        Check(CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("rozzi_q")).damage==2&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("nia_q")).damage==0&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("basic_attack")).damage==0,"paid movement supports another of the four mobility subjects, while unrelated skills and basics cannot consume it");
+        CrossCast(actor,"rozzi_q",0);
+        Check(CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("rozzi_q")).damage==0,"free movement follow-up spends existing support exactly once");
+        actor=new SkillActorState();CrossCast(actor,"priya_q");
+        Check(CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("vanya_q")).damage==2&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("vanya_w")).block==2,"Priya's real flower increase supports Vanya damage or W protection");
+        actor=new SkillActorState();CrossCast(actor,"vanya_q");
+        Check(CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("priya_r")).heal==2,"Vanya's real dream increase supports Priya's healing ultimate");
+        actor=new SkillActorState();CrossCast(actor,"sua_w");
+        Check(GameDatabase.Card("johann_w").heal==3&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("johann_w")).heal==2&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("charlotte_w")).heal==2,"Sua's foreign protection supports Johann's authored immediate healing and Charlotte's recovery");
+        Check(CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("sua_w")).block==0,"support cannot amplify its own subject");
+        actor=new SkillActorState();CrossCast(actor,"johann_w");
+        Check(GameDatabase.Card("sua_w").block==10&&GameDatabase.Card("sua_w").heal==0&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("sua_w")).block==2,"Johann's foreign support adds two protection to Sua's authored ten-shield card");
+
+        actor=new SkillActorState();for(int i=0;i<6;++i)CrossCast(actor,"echion_q");
+        Check(actor.synergy.generations.Single(x=>x.family=="vf").count==2&&CrossReady(actor,"vf")==1,"repeated same-card casts cannot exceed the two paid generations per family and single-owner charge cap");
+        SkillMechanics.StartTurn(actor);
+        Check(CrossReady(actor,"vf")==1&&actor.synergy.generations.Count==0,"a preparation survives the next own turn while generation limits reset");
+        SkillMechanics.StartTurn(actor);
+        Check(CrossReady(actor,"vf")==0,"unspent preparations expire at the second own turn start");
+        actor=new SkillActorState();CrossCast(actor,"hyunwoo_e");CrossCast(actor,"leon_e");
+        Check(CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("magnus_e")).damage==4,"foreign displacement grants four immediate damage");
+        CrossCast(actor,"magnus_e",0);Check(CrossCast(actor,"rozzi_q",0).damage==2,"a second compatible family can use the remaining two-damage budget");
+        actor.synergy.charges.Add(new SynergyCharge{family="bomb",owner=SubjectOwner("isol"),sourceCard="isol_q"});
+        Check(actor.synergy.damageUsed==6&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("theodore_e")).damage==0,"later families cannot bypass the spent shared damage ceiling");
+        actor=new SkillActorState();CrossCast(actor,"theodore_w");CrossCast(actor,"rozzi_r");
+        var fuse=actor.effects.Single(x=>x.sourceCard=="rozzi_r"&&x.kind=="delayed_damage");
+        Check(fuse.synergyBoosted&&fuse.amount==18,"the first external fuse enhancement is recorded on the original timed effect");
+        var resumed=SkillMechanics.Clone(actor);Check(resumed.effects.Single(x=>x.sourceCard=="rozzi_r").synergyBoosted,"the fuse enhancement flag survives preview/save copies");
+        SkillMechanics.StartTurn(actor);
+        // Remove Rozzi's own pending setup so Celine prepares fresh foreign
+        // support without first spending this turn's bomb activation on it.
+        actor.synergy.charges.RemoveAll(x=>x.family=="bomb"&&x.owner==SubjectOwner("rozzi"));
+        CrossCast(actor,"celine_q");CrossCast(actor,"rozzi_r");
+        Check(fuse.amount==18&&actor.synergy.uses.All(x=>x.family!="bomb")&&CrossReady(actor,"bomb")>0,"refreshing the same live fuse does not accumulate another external multiplier or consume another preparation");
+        foreach(string id in new[]{"rozzi_q","rozzi_w","rozzi_e"})
+        {
+            actor=new SkillActorState();CrossCast(actor,"theodore_w");CrossCast(actor,"rozzi_r");
+            Check(SkillMechanics.Bonuses(actor,GameDatabase.Card(id)).damage==18,id+": early detonation retains the three damage already attached to the first blast");
+            int bombUses=actor.synergy.uses.Where(x=>x.family=="bomb").Sum(x=>x.count);
+            CrossCast(actor,id,0);
+            Check(!actor.effects.Any(x=>x.key=="semtex_fuse")&&SkillMechanics.Resource(actor,SubjectOwner("rozzi"),"semtex")==0&&actor.synergy.uses.Where(x=>x.family=="bomb").Sum(x=>x.count)==bombUses,id+": early detonation consumes the fuse without triggering the bomb family a second time");
+            Check(!SkillMechanics.Tick(actor).Any(x=>x.sourceCard=="rozzi_r"),id+": an early blast cannot explode again on a later scheduled tick");
+        }
+        actor=new SkillActorState();CrossCast(actor,"theodore_w");CrossCast(actor,"rozzi_r");actor.synergy.damageUsed=5;
+        Check(SkillMechanics.Bonuses(actor,GameDatabase.Card("rozzi_q")).damage==16,"early detonation transfers only the one remaining immediate-support damage under the shared six-damage ceiling");
+        CrossCast(actor,"rozzi_q",0);Check(actor.synergy.damageUsed==6,"early detonation accounts for its transferred support in the shared immediate budget");
+        var conditional=new CardDef{id="isol_q",owner=SubjectOwner("isol"),category="skill",key="Q",cost=2,mechanics=new SkillMechanicProfile{rules=new[]{new SkillRule{op="delayed_damage",key="conditional_fuse",amount=8,conditionKey="fixture_ready"}}}};
+        actor=new SkillActorState();CrossCast(actor,"celine_q");var before=SkillMechanics.Clone(actor);pending=FieldSnapshot(actor.synergy);
+        SkillMechanics.AfterCard(actor,before,conditional,true,paidCost:2);
+        Check(!actor.effects.Any(x=>x.sourceCard=="isol_q")&&FieldSnapshot(actor.synergy)==pending,"a paid card whose original fuse condition fails never spends foreign bomb support or its activation cap");
+        actor=new SkillActorState();CrossCast(actor,"celine_q");
+        for(int i=0;i<12;++i)actor.effects.Add(new SkillTimedEffect{owner="fixture",key="full"+i,sourceCard="basic_guard",kind="guard",amount=1,remaining=2});
+        pending=FieldSnapshot(actor.synergy);CrossCast(actor,"isol_q");
+        Check(!actor.effects.Any(x=>x.sourceCard=="isol_q")&&FieldSnapshot(actor.synergy)==pending,"a rejected thirteenth timed installation cannot spend a preparation without installing its promised blast");
+    }
+    private static void CrossSubjectCombatAndSave()
+    {
+        var e=MechanicsFixture();var c=e.State.combat;
+        foreach(string id in new[]{"echion_q","blair_e"})
+        {
+            c.hand=new List<string>{id};c.freeCasts.Add(new FreeCastGrant{cardId=id,uses=1});
+            int energy=c.energy;
+            Check(e.EffectiveCardCost(id)==0&&e.PlayCard(0)&&c.energy==energy,"actual free grants pay zero without granting shared VF preparation: "+id);
+        }
+        Check(CrossReady(c.playerSkills,"vf")==0&&SkillMechanics.Resource(c.playerSkills,SubjectOwner("echion"),"vf")==1,"engine forwards the paid zero price while retaining native VF gains");
+        c.hand=new List<string>{"leon_e"};c.playerSkills.discounts.Add(new SkillCostDiscount{targetCard="leon_e",amount=7});
+        Check(e.EffectiveCardCost("leon_e")==0&&e.PlayCard(0)&&CrossReady(c.playerSkills,"mobility")==0,"a full-cost discount cannot masquerade as a paid mobility preparation");
+        e=MechanicsFixture();c=e.State.combat;CastSkill(e,"leon_e");
+        int damage=e.CardTotalDamage("rozzi_q");c.freeCasts.Add(new FreeCastGrant{cardId="rozzi_q",uses=2});c.energy=0;
+        c.hand=new List<string>{"rozzi_q","rozzi_q"};int hp=c.enemyHp;
+        Check(e.PlayCard(0)&&hp-c.enemyHp==damage&&c.energy==0&&c.playerSkills.synergy.damageUsed==2,"a granted free attack consumes existing mobility and applies its damage at zero energy");
+        hp=c.enemyHp;int ordinary=e.CardTotalDamage("rozzi_q");
+        Check(e.PlayCard(0)&&hp-c.enemyHp==ordinary&&c.playerSkills.synergy.damageUsed==2&&CrossReady(c.playerSkills,"mobility")==0,"a repeated free consumer neither repeats the external bonus nor prepares its own movement");
+        e=MechanicsFixture();c=e.State.combat;CrossCast(c.playerSkills,"hyunwoo_e");c.playerSkills.synergy.damageUsed=5;
+        damage=e.CardTotalDamage("magnus_e");hp=c.enemyHp;CastSkill(e,"magnus_e");
+        Check(hp-c.enemyHp==damage&&c.playerSkills.synergy.damageUsed==6,"a partial one-damage remainder gives the same player preview and actual hit under the shared ceiling");
+        e=MechanicsFixture();c=e.State.combat;CastSkill(e,"theodore_w");CastSkill(e,"rozzi_r");
+        damage=e.CardTotalDamage("rozzi_q");hp=c.enemyHp;CastSkill(e,"rozzi_q");
+        Check(hp-c.enemyHp==damage&&c.playerSkills.synergy.damageUsed==3&&!c.playerSkills.effects.Any(x=>x.key=="semtex_fuse"),"the actual early Semtex blast preserves Theodore's attached three damage, its preview and its one-time fuse consumption");
+
+        // Every family gets a real-engine save/continue check. These are original
+        // authored cards, not synthetic rules that merely mirror the module.
+        var pairs=new[]{
+            new[]{"vf","echion_q","blair_e","blair_w"},new[]{"bomb","isol_q","celine_q"},
+            new[]{"oil","adriana_w","kenneth_w"},new[]{"wound","jackie_q","cathy_w"},
+            new[]{"displace","hyunwoo_e","magnus_e"},new[]{"mobility","leon_e","rozzi_q"},
+            new[]{"bloom","priya_e","vanya_q"},new[]{"support","johann_w","charlotte_w"}
+        };
+        foreach(var pair in pairs)
+        {
+            e=MechanicsFixture();c=e.State.combat;e.State.hp=40;
+            foreach(string id in pair.Skip(1).Take(pair.Length-2))CastSkill(e,id);
+            string family=pair[0],consumer=pair.Last();
+            Check(CrossReady(c.playerSkills,family)>0&&CrossReady(c.enemySkills,family)==0,family+": a player's actual setup prepares only the player's field");
+            string state=FieldSnapshot(c.playerSkills),tokens=FieldSnapshot(e.SkillStateSnapshot());int rng=e.State.rngState;
+            var loaded=new GameEngine((RunState)Clone(e.State));
+            Check(FieldSnapshot(loaded.State.combat.playerSkills)==state&&FieldSnapshot(loaded.SkillStateSnapshot())==tokens&&loaded.State.rngState==rng,family+": save/continue retains resources, preparation, counters, lifetimes and RNG");
+            for(int i=0;i<5;++i){int preview=e.CardTotalDamage(consumer);var snapshot=e.SkillStateSnapshot();}
+            Check(FieldSnapshot(c.playerSkills)==state&&e.State.rngState==rng,family+": damage and field previews never spend preparations or mutate RNG");
+            CastSkill(e,consumer);CastSkill(loaded,consumer);
+            Check(FieldSnapshot(e.State.combat.playerSkills)==FieldSnapshot(loaded.State.combat.playerSkills)&&e.State.hp==loaded.State.hp&&c.enemyHp==loaded.State.combat.enemyHp&&c.block==loaded.State.combat.block&&e.State.rngState==loaded.State.rngState,family+": resumed consumer applies exactly the same damage, recovery, shielding and state");
+            Check(c.playerSkills.synergy.uses.Any(x=>x.family==family&&x.count==1)&&!c.enemySkills.synergy.uses.Any(),family+": actual consumption updates one actor's own-turn limit");
+            loaded=new GameEngine((RunState)Clone(e.State));
+            Check(FieldSnapshot(loaded.State.combat.playerSkills.synergy)==FieldSnapshot(c.playerSkills.synergy),family+": reloading a consumed effect cannot restore its turn use or pending preparation");
+            // Preview a two/three-card enemy sequence against no armor/evasion.
+            // Intent includes the enemy's scheduled end-of-turn effects, so finish
+            // that phase before comparing actual damage and shielding.
+            e=MechanicsFixture();c=e.State.combat;e.State.hp=e.State.maxHp=9999;c.enemyLevel=20;c.enemyHp=500;c.enemyMaxHp=9999;
+            c.enemyPlan=pair.Skip(1).ToList();c.enemyPlanCosts=c.enemyPlan.Select(e.CardCost).ToList();c.enemyPlanFreeCast=c.enemyPlan.Select(_=>false).ToList();
+            Check(c.enemyPlanCosts.Sum()<=GameEngine.EnergyForLevel(c.enemyLevel),family+": the original enemy combo fits the actual late-game energy budget");
+            state=FieldSnapshot(c.enemySkills);rng=e.State.rngState;string intent=e.EnemyIntent;int expected=c.intentDamage,expectedBlock=c.intentBlock;
+            for(int i=0;i<5;++i){intent=e.EnemyIntent;var snapshot=e.SkillStateSnapshot(true);}
+            Check(FieldSnapshot(c.enemySkills)==state&&e.State.rngState==rng,family+": repeated enemy forecasts retain original live state and RNG");
+            hp=e.State.hp;Check(e.BeginEndTurn(),family+": begin actual enemy combo");
+            for(int i=0;i<c.enemyPlan.Count;++i)Check(e.AdvanceEnemyAction(),family+": execute original enemy card "+i);
+            Check(e.AdvanceEnemyAction(),family+": resolve enemy scheduled effects");
+            Check(hp-e.State.hp==expected&&c.enemyBlock==expectedBlock,family+": actual enemy card/tick damage and shield equal the displayed sequential intent");
+            Check(c.enemySkills.synergy.uses.Any(x=>x.family==family)&&!c.playerSkills.synergy.uses.Any()&&CrossReady(c.playerSkills,family)==0,family+": enemy combo uses the same cross rules without borrowing player preparations");
+        }
+        e=MechanicsFixture();c=e.State.combat;e.State.hp=e.State.maxHp=9999;c.enemyLevel=20;
+        CrossCast(c.enemySkills,"hyunwoo_e");CrossCast(c.enemySkills,"leon_e");
+        // Rozzi cannot spend its own bomb preparation. Mobility therefore gets
+        // the final two damage, leaving that bomb for Theodore after the cap.
+        c.enemySkills.synergy.charges.Add(new SynergyCharge{family="bomb",owner=SubjectOwner("rozzi"),sourceCard="rozzi_r"});
+        c.enemyPlan=new List<string>{"magnus_e","rozzi_q","theodore_e"};c.enemyPlanCosts=c.enemyPlan.Select(e.CardCost).ToList();c.enemyPlanFreeCast=c.enemyPlan.Select(_=>false).ToList();
+        string budgetIntent=e.EnemyIntent;int budgetDamage=c.intentDamage;hp=e.State.hp;
+        Check(e.BeginEndTurn()&&e.AdvanceEnemyAction(),"enemy begins a mixed-family turn with displacement support");
+        var continued=new GameEngine((RunState)Clone(e.State));
+        Check(e.AdvanceEnemyAction()&&e.AdvanceEnemyAction()&&e.AdvanceEnemyAction()&&continued.AdvanceEnemyAction()&&continued.AdvanceEnemyAction()&&continued.AdvanceEnemyAction(),"both copies complete the saved paced enemy turn");
+        Check(hp-e.State.hp==budgetDamage&&c.enemySkills.synergy.damageUsed==6&&!c.enemySkills.synergy.uses.Any(x=>x.family=="bomb"),"enemy intent and actual resolution apply the same combined six-damage budget and keep the blocked later bomb preparation: forecast="+budgetDamage+", actual="+(hp-e.State.hp)+", budget="+c.enemySkills.synergy.damageUsed+", used="+string.Join(",",c.enemySkills.synergy.uses.Select(x=>x.family))+", remaining="+CrossReady(c.enemySkills,"bomb"));
+        Check(e.State.hp==continued.State.hp&&e.State.rngState==continued.State.rngState&&FieldSnapshot(c.enemySkills)==FieldSnapshot(continued.State.combat.enemySkills),"saving between enemy actions retains spent budgets and exact remaining cross-family behavior");
+        var actor=new SkillActorState();CrossCast(actor,"echion_q");CrossCast(actor,"blair_e");CrossCast(actor,"blair_w");CrossCast(actor,"leon_e");
+        var copy=SkillMechanics.Clone(actor);string untouched=FieldSnapshot(actor);
+        copy.synergy.charges[0].remaining=0;copy.synergy.uses[0].count=9;copy.synergy.generations[0].count=9;copy.synergy.damageUsed=9;copy.synergy.blockUsed=9;copy.synergy.healUsed=9;
+        Check(FieldSnapshot(actor)==untouched&&!ReferenceEquals(copy.synergy,actor.synergy),"preview clones own all cross-family lists, entries, per-turn budgets and counters");
+        var malformed=new SkillActorState{synergy=null};var baseline=FieldSnapshot(malformed);
+        Check(CrossSubjectSynergies.Bonuses(malformed,GameDatabase.Card("blair_r")).damage==0&&FieldSnapshot(malformed)==baseline,"read-only bonuses tolerate missing legacy synergy state without initializing the live actor");
+        foreach(bool partial in new[]{false,true})
+        {
+            e=MechanicsFixture();c=e.State.combat;CastSkill(e,"nia_q");var old=(RunState)Clone(e.State);
+            old.combat.playerSkills.synergy=partial?new SynergyState{charges=null,uses=null,generations=null}:null;old.combat.enemySkills.synergy=null;
+            int originalHp=old.hp;string originalResources=OriginalSkillState(old.combat.playerSkills);int rng=old.rngState;
+            var migrated=new GameEngine(old);
+            Check(migrated.State.hp==originalHp&&migrated.State.rngState==rng&&OriginalSkillState(migrated.State.combat.playerSkills)==originalResources,"legacy/partial synergy migration preserves ongoing health, original skill resources and RNG: "+partial);
+            Check(migrated.State.combat.playerSkills.synergy.charges!=null&&migrated.State.combat.playerSkills.synergy.uses!=null&&migrated.State.combat.playerSkills.synergy.generations!=null&&migrated.State.combat.enemySkills.synergy!=null,"legacy/partial synergy migration initializes only missing containers: "+partial);
+        }
+    }
+
     private static void TraitCoverageAndDescriptions()
     {
         Check(GameDatabase.Passives.Count==91 && GameDatabase.Runes.Count==16,"complete authored passive and rune rosters");
@@ -1505,4 +1756,3 @@ public static class CoreSmokeTests
     }
 }
 #endif
-

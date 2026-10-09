@@ -136,6 +136,7 @@ namespace Lumia
             }
             lines.AddRange(GroupEffects(effects));
             if (freeCastNote.Length > 0) lines.Add(freeCastNote);
+            lines.AddRange(CrossSubjectSynergies.FullDescription(card));
             if (card.exhaust) lines.Add("사용 후 이번 전투에서 소멸합니다.");
             if (card.id == "basic_attack") lines.Add("장비 공격력과 기본 공격 강화가 적용되며, 치명타 적중 시 공격 피해가 1.5배가 됩니다.");
             if (lines.Count == 0) lines.Add("추가 효과 없이 행동합니다.");
@@ -204,6 +205,14 @@ namespace Lumia
                 if (selected.Count == 0 || PreviewFits(PreviewText(selected.Concat(new[]{part}))))
                     selected.Add(part);
                 if (selected.Count >= 2) break;
+            }
+            // Mixed-subject support never displaces the card's own defining action.
+            // Add its whole sentence only when the existing five-line preview can hold it.
+            string synergy = CrossSubjectSynergies.BriefDescription(card);
+            if (!string.IsNullOrEmpty(synergy))
+            {
+                var extra = new PreviewPart { text=synergy };
+                if (PreviewFits(PreviewText(selected.Concat(new[]{extra})))) selected.Add(extra);
             }
             return selected.Count == 0 ? "추가 효과 없이 행동합니다." : PreviewText(selected);
         }
