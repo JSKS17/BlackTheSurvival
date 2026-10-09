@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "uiScreens": 91,
+  "newScreensSaved": 6,
+  "runtimeErrors": 0,
+  "cards": 392,
+  "nativePreviewMeasurements": 4704,
+  "previewOverflows": 0,
+  "innerCardScrolls": 0,
+  "screens": [
+    {
+      "file": "native-ui/grouped_fiora.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/grouped_fiora_full.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/grouped_nia_full.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/grouped_rozzi_full.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/grouped_counter_full.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/grouped_rune_full.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ]
+}

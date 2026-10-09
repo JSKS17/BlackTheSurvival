@@ -24,8 +24,13 @@ namespace Lumia
 
         sealed class EffectGroup
         {
-            public string key, when, limit;
-            public List<string> effects = new List<string>();
+            public string key, when;
+            public List<EffectClause> effects = new List<EffectClause>();
+        }
+
+        sealed class EffectClause
+        {
+            public string text, limit;
         }
 
         static List<string> EffectLines(TraitMechanicProfile profile, bool compact)
@@ -51,27 +56,76 @@ namespace Lumia
                 if (string.IsNullOrEmpty(effect)) continue;
                 string timing = Trigger(r.trigger);
                 int every = SkillMechanics.Clamp(r.every, 1, 8);
-                if (every > 1) timing = Event(r.trigger) + " " + every + "회마다";
+                if (every > 1) timing = Event(r.trigger) + " " + every + "회마다" +
+                    (r.trigger == "before_incoming" ? ", 적의 공격을 받기 직전에" :
+                    (r.trigger ?? "").StartsWith("before_", StringComparison.Ordinal) ? ", 사용 직전에" :
+                    (r.trigger ?? "").StartsWith("after_", StringComparison.Ordinal) ? ", 사용을 마친 후" : "");
                 if (r.op == "shop_discount") timing = "";
                 if (compact) timing = timing.Replace("어느 실험체의 기술 카드든", "기술을")
                     .Replace("어느 실험체의 기술 카드", "기술 카드").Replace("어느 실험체의 기술이든", "기술이").Replace("어느 실험체의 R 카드든", "R 카드를")
                     .Replace("사용을 마친 후", "사용 후").Replace("자신의 ", "").Replace("전투가 시작될 때", "전투 시작 시")
-                    .Replace("체력 피해를 받아 체력이 낮아질 때", "피해를 받은 후").Replace("체력 피해를 받을 때", "피해를 받을 때");
-                string when = timing + (conditions.Count == 0 ? "" : (timing.Length == 0 ? "" : ", ") + string.Join(", ", conditions));
+                    .Replace("체력 피해를 받아 체력이 낮아질 때", "피해를 받은 후").Replace("체력 피해를 받을 때", "피해를 받을 때")
+                    .Replace("기술을 사용 후", "기술 사용 후").Replace("R 카드를 사용 후", "R 카드 사용 후");
+                string when = timing + (conditions.Count == 0 ? "" : (timing.Length == 0 ? "" : ", ") + JoinConditions(conditions));
                 string limit = Limits(r, compact);
-                string key = when + "|" + limit;
+                // Conditions are evaluated against one snapshot before this trigger. Per-rule
+                // counters can differ, so their limits belong to effects, not the grouping key.
+                string key = ActivationKey(r);
                 var group = groups.FirstOrDefault(g => g.key == key);
-                if (group == null) { group = new EffectGroup { key=key, when=when, limit=limit }; groups.Add(group); }
-                if (!group.effects.Contains(effect)) group.effects.Add(effect);
+                if (group == null) { group = new EffectGroup { key=key, when=when }; groups.Add(group); }
+                if (!group.effects.Any(e => e.text == effect && e.limit == limit))
+                    group.effects.Add(new EffectClause { text=effect, limit=limit });
             }
             var lines = new List<string>();
             foreach (var group in groups)
-                lines.Add((group.when.Length == 0 ? "" : group.when + ": ") + string.Join(". ", group.effects) + (compact && group.limit.Length > 0 ? group.limit : "." + group.limit));
+            {
+                bool sharedLimit = group.effects.Select(e => e.limit).Distinct(StringComparer.Ordinal).Count() == 1;
+                string joined = DescriptionSummary.JoinEffects(group.effects.Select(e => e.text +
+                    (!sharedLimit && e.limit.Length > 0 ? " (" + e.limit + ")" : "")));
+                string common = sharedLimit && group.effects[0].limit.Length > 0 ? " (" + group.effects[0].limit + ")" : "";
+                lines.Add((group.when.Length == 0 ? "" : group.when + ": ") + joined + common + ".");
+            }
             // This equipment-dependent Alex rule is resolved by the engine outside the trigger table.
             if ((profile.summary ?? "").Contains("장착한 무기마다"))
                 lines.Add("장착한 무기마다 해당 무기군과 다른 D 스킬 카드 1장을 추가로 받습니다. 장비·패시브를 바꾸면 자동으로 갱신됩니다.");
             if (rules.Length == 0 && !string.IsNullOrWhiteSpace(profile.summary)) lines.Add(profile.summary);
             return lines;
+        }
+
+        static string JoinConditions(List<string> conditions)
+        {
+            return string.Join(" ", conditions.Select((condition, index) =>
+            {
+                if (index == conditions.Count - 1) return condition;
+                if (condition.EndsWith("아니면", StringComparison.Ordinal)) return condition.Substring(0, condition.Length - 3) + "아니고";
+                if (condition.EndsWith("했으면", StringComparison.Ordinal)) return condition.Substring(0, condition.Length - 3) + "했고";
+                if (condition.EndsWith("이면", StringComparison.Ordinal)) return condition.Substring(0, condition.Length - 2) + "이고";
+                if (condition.EndsWith("일 때", StringComparison.Ordinal)) return condition.Substring(0, condition.Length - 3) + "이고";
+                return condition + ",";
+            }));
+        }
+
+        static string ActivationKey(TraitRule rule)
+        {
+            var resources = new List<string>();
+            if (!string.IsNullOrEmpty(rule.conditionKey)) resources.Add(ResourceConditionKey(rule.conditionKey, rule.conditionAmount, rule.conditionExact));
+            if (!string.IsNullOrEmpty(rule.conditionKey2)) resources.Add(ResourceConditionKey(rule.conditionKey2, rule.conditionAmount2, rule.conditionExact2));
+            resources = resources.Distinct(StringComparer.Ordinal).OrderBy(s => s, StringComparer.Ordinal).ToList();
+            // Keep the raw trigger: "before" and "after" may display similar prose but are
+            // separate engine events. Shop discounts are applied outside combat triggers.
+            return string.Join("|", new[] {
+                rule.op == "shop_discount" ? "shop_discount" : rule.trigger ?? "",
+                SkillMechanics.Clamp(rule.every, 1, 8).ToString(),
+                string.Join("&", resources), rule.conditionPrevious ?? "", rule.conditionCategory ?? "",
+                Math.Max(0, rule.hpBelowPercent) > 0 ? SkillMechanics.Clamp(rule.hpBelowPercent, 1, 100).ToString() : "",
+                rule.hpBelowDenominator > 0 ? rule.hpBelowNumerator + "/" + rule.hpBelowDenominator : "",
+                rule.onHit ? "hit" : ""
+            });
+        }
+
+        static string ResourceConditionKey(string key, int amount, bool exact)
+        {
+            return key.Length + ":" + key + (exact ? "=" : ">=") + amount;
         }
 
         private static string Condition(string label, int amount, bool exact)
@@ -178,28 +232,28 @@ namespace Lumia
                 case "exposure": return SkillMechanics.Clamp(r.duration, 1, 2) + "턴 동안 적이 받는 공격 피해를 " + n + "% 늘립니다";
                 case "shop_discount": return "키오스크 구매 가격을 10% 줄입니다(중첩되지 않음)";
                 case "damage_resource": return "실제로 준 피해의 " + SkillMechanics.Clamp(r.amount, 0, 25) + "%를 " + name + "에 축적합니다(최대 " + SkillMechanics.Clamp(r.cap, 1, 12) + ")";
-                case "execute": return "적의 체력과 방어도의 합이 " + label(r.conditionKey ?? r.key) + " 이하이면 적을 처형합니다";
+                case "execute": return "체력과 방어도의 합이 " + label(r.conditionKey ?? r.key) + " 이하인 적을 처형합니다";
                 case "discount": return "다음 " + (GameDatabase.Card(r.targetCard)?.name ?? r.targetCard) + "의 코스트를 " + n + " 줄입니다(1회)";
                 case "discount_last": return "마지막으로 사용한 Q·W·E 카드의 다음 코스트를 " + n + " 줄입니다(1회)";
-                case "bleed": case "burn": return name + " 효과로 자신의 턴 종료마다 방어도를 무시하고 " + n + "의 피해를 " + turns + "회 줍니다";
-                case "summon": return name + " 효과로 자신의 턴 종료마다 " + n + "의 피해를 " + turns + "회 줍니다";
-                case "hot": return name + " 효과로 자신의 턴 종료마다 체력을 " + n + "씩 " + turns + "회 회복합니다";
-                case "guard": return name + " 효과로 자신의 턴 종료마다 방어도를 " + n + "씩 " + turns + "회 얻습니다";
-                case "delayed_damage": return obj + " 설치하여 자신의 턴 종료 " + SkillMechanics.Clamp(r.delay, 1, 3) + "회 후 " + n + "의 피해를 줍니다";
-                case "counter": return turns + "턴 동안 적의 공격이 자신에게 적중하면 " + n + "의 피해로 반격합니다(자신의 턴마다 1회)";
+                case "bleed": case "burn": return "자신의 턴 종료마다 방어도를 무시하는 " + n + "의 피해를 " + turns + "회 주는 " + name + " 효과를 남깁니다";
+                case "summon": return "자신의 턴 종료마다 " + n + "의 피해를 " + turns + "회 주는 " + name + " 효과를 남깁니다";
+                case "hot": return "자신의 턴 종료마다 체력을 " + n + "씩 " + turns + "회 회복하는 " + name + " 효과를 얻습니다";
+                case "guard": return "자신의 턴 종료마다 방어도를 " + n + "씩 " + turns + "회 얻는 " + name + " 효과를 얻습니다";
+                case "delayed_damage": return "자신의 턴 종료 " + SkillMechanics.Clamp(r.delay, 1, 3) + "회 후 " + n + "의 피해를 주는 " + obj + " 설치합니다";
+                case "counter": return turns + "턴 동안 적의 공격이 자신에게 적중하면 " + n + "의 피해로 반격하는 효과를 얻습니다(자신의 턴마다 1회)";
                 case "empower_basic": return "다음 기본 공격 한 번을 강화하여 첫 적중에 " + n + "의 추가 피해를 줍니다";
-                case "revive": return (r.persistent ? "이 전투에서 사용될 때까지" : turns + "턴 동안") + " 치명적인 피해를 한 번 막고 체력을 " + n + " 회복합니다";
+                case "revive": return (r.persistent ? "이 전투에서 사용될 때까지" : turns + "턴 동안") + " 치명적인 피해를 한 번 막고 체력을 " + n + " 회복하는 효과를 얻습니다";
                 case "clear_effect": return name + "의 남은 지속 효과를 회수합니다"; default: return "";
             }
         }
         private static string Limits(TraitRule r, bool compact)
         {
             var limits = new List<string>();
-            if (r.cooldown > 0) limits.Add(compact ? "쿨다운 " + SkillMechanics.Clamp(r.cooldown, 0, 6) + "턴" : "발동 후 자신의 턴 기준 " + SkillMechanics.Clamp(r.cooldown, 0, 6) + "턴의 쿨다운이 적용됩니다");
-            if (r.maxPerTurn > 0) limits.Add(compact ? "턴당 " + r.maxPerTurn + "회" : "자신의 한 턴에 최대 " + r.maxPerTurn + "회 발동합니다");
-            if (r.maxPerBattle > 0) limits.Add(compact ? "전투당 " + r.maxPerBattle + "회" : "전투마다 최대 " + r.maxPerBattle + "회 발동합니다");
+            if (r.cooldown > 0) limits.Add(compact ? "쿨다운 " + SkillMechanics.Clamp(r.cooldown, 0, 6) + "턴" : "발동 후 자신의 턴 기준 " + SkillMechanics.Clamp(r.cooldown, 0, 6) + "턴 쿨다운");
+            if (r.maxPerTurn > 0) limits.Add(compact ? "턴당 " + r.maxPerTurn + "회" : "자신의 한 턴에 최대 " + r.maxPerTurn + "회");
+            if (r.maxPerBattle > 0) limits.Add(compact ? "전투당 " + r.maxPerBattle + "회" : "전투마다 최대 " + r.maxPerBattle + "회");
             if (r.persistent && r.op != "revive") limits.Add((r.isState ? "이 상태와 누적 횟수는" : new[] { "gain", "set", "consume", "damage_resource" }.Contains(r.op) ? "이 자원과 누적 횟수는" : "이 효과의 누적 횟수는") + " 다음 전투에도 유지됩니다");
-            return limits.Count == 0 ? "" : compact ? " (" + string.Join(" · ", limits) + ")." : " " + string.Join(". ", limits) + ".";
+            return string.Join(" · ", limits);
         }
     }
 }

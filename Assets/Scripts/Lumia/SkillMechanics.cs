@@ -381,7 +381,11 @@ namespace Lumia
         }
         public static List<string> Describe(CardDef card)
         {
-            var result = new List<string>();
+            return DescriptionSummary.GroupEffects(DescriptionEffects(card));
+        }
+        public static List<ConditionEffect> DescriptionEffects(CardDef card)
+        {
+            var result = new List<ConditionEffect>();
             if (card == null || card.mechanics == null) return result;
             foreach (var rule in card.mechanics.rules ?? new SkillRule[0])
             {
@@ -392,7 +396,7 @@ namespace Lumia
                     int maximum=rule.op=="bonus_damage" || rule.op=="bonus_block" || rule.op=="delayed_damage"?24:rule.op=="bonus_heal"?20:rule.op=="counter"?8:rule.op=="discount"?7:rule.op=="revive"?40:rule.op=="empower_basic"?16:10;
                     amount+="(최대 "+Math.Min(maximum,rule.amount*rule.cap)+")";
                 }
-                string text;
+                string text, note = "";
                 switch (rule.op)
                 {
                     case "gain": text = CardPresentation.WithParticle(label,"를","을") + " " + rule.amount + " 증가시킵니다(최대 " + Clamp(rule.cap, 1, 8) + ")"; break;
@@ -400,18 +404,21 @@ namespace Lumia
                     case "consume": text = CardPresentation.WithParticle(label,"를","을") + " " + (rule.amount <= 0 ? "모두" : rule.amount.ToString()) + " 소모합니다"; break;
                     case "state_on": text = StateEnterText(card,rule.key); break;
                     case "state_off": text = StateExitText(card,rule.key); break;
-                    case "state_toggle": text = StateName(card, rule.key) + "로 진입합니다. " + StateName(card, rule.key) + "인 경우에는 " + CardPresentation.WithParticle(StateName(card, rule.key),"를","을") + " 해제합니다"; break;
+                    case "state_toggle":
+                        text = CardPresentation.WithParticle(StateName(card, rule.key),"를","을") + " 전환합니다";
+                        note = StateName(card, rule.key) + "가 아니면 " + StateName(card, rule.key) + "로 진입합니다. " + StateName(card, rule.key) + "인 경우에는 " + CardPresentation.WithParticle(StateName(card, rule.key),"를","을") + " 해제합니다.";
+                        break;
                     case "bonus_damage": text = "첫 적중에 추가 피해를 " + amount + "만큼 줍니다"; break;
                     case "bonus_block": text = "방어도를 " + amount + "만큼 추가로 얻습니다"; break;
                     case "bonus_heal": text = "체력을 " + amount + "만큼 추가로 회복합니다"; break;
-                    case "discount": text = "다음 " + (GameDatabase.Card(rule.targetCard)?.name ?? rule.targetCard) + "의 코스트를 " + amount + " 줄입니다(1회, 중첩되지 않음)"; break;
-                    case "bleed": case "burn": case "summon": text = label + " 효과로 자신의 턴 종료마다 " + amount + "의 피해를 " + Clamp(rule.duration, 1, 3) + "회 줍니다"+(rule.op=="summon"?"":"(방어도 무시)"); break;
-                    case "hot": text = label + " 효과로 자신의 턴 종료마다 체력을 " + amount + "씩 " + Clamp(rule.duration, 1, 3) + "회 회복합니다"; break;
-                    case "guard": text = label + " 효과로 자신의 턴 종료마다 방어도를 " + amount + "씩 " + Clamp(rule.duration, 1, 3) + "회 얻습니다"; break;
-                    case "delayed_damage": text = CardPresentation.WithParticle(label,"를","을") + " 설치해 자신의 턴 종료 " + Clamp(rule.delay, 1, 3) + "회 후 " + amount + "의 피해를 줍니다"; break;
-                    case "counter": text = Clamp(rule.duration, 1, 3) + "턴 동안 공격이 적중하면 " + amount + "의 피해로 반격합니다(턴당 1회)"; break;
-                    case "empower_basic": text = "다음 기본 공격의 첫 적중 피해를 " + amount + " 늘립니다(1회)"; break;
-                    case "revive": text = Clamp(rule.duration, 1, 3) + "턴 동안 치명적인 피해를 1회 막고 체력을 " + amount + " 회복합니다"; break;
+                    case "discount": text = "다음 " + (GameDatabase.Card(rule.targetCard)?.name ?? rule.targetCard) + "의 코스트를 " + amount + " 줄이는 할인을 얻습니다(1회, 중첩되지 않음)"; break;
+                    case "bleed": case "burn": case "summon": text = "자신의 턴 종료마다 " + amount + "의 피해를 " + Clamp(rule.duration, 1, 3) + "회 주는 " + label + " 효과를 남깁니다"+(rule.op=="summon"?"":"(방어도 무시)"); break;
+                    case "hot": text = "자신의 턴 종료마다 체력을 " + amount + "씩 " + Clamp(rule.duration, 1, 3) + "회 회복하는 " + label + " 효과를 얻습니다"; break;
+                    case "guard": text = "자신의 턴 종료마다 방어도를 " + amount + "씩 " + Clamp(rule.duration, 1, 3) + "회 얻는 " + label + " 효과를 얻습니다"; break;
+                    case "delayed_damage": text = "자신의 턴 종료 " + Clamp(rule.delay, 1, 3) + "회 후 " + amount + "의 피해를 주는 " + CardPresentation.WithParticle(label,"를","을") + " 설치합니다"; break;
+                    case "counter": text = Clamp(rule.duration, 1, 3) + "턴 동안 적의 공격에 맞으면 " + amount + "의 피해로 반격하는 효과를 얻습니다(턴당 1회)"; break;
+                    case "empower_basic": text = "다음 기본 공격의 첫 적중 피해를 " + amount + " 늘리는 강화 효과를 얻습니다(1회)"; break;
+                    case "revive": text = Clamp(rule.duration, 1, 3) + "턴 동안 치명적인 피해를 1회 막고 체력을 " + amount + " 회복하는 효과를 얻습니다"; break;
                     case "clear_effect": text = label + "의 남은 지속 효과를 회수합니다"; break;
                     default: continue;
                 }
@@ -420,10 +427,9 @@ namespace Lumia
                 if (!string.IsNullOrEmpty(rule.conditionKey2)) conditions.Add(StateCondition(card, rule.conditionKey2, rule.conditionAmount2, rule.conditionExact2));
                 if (!string.IsNullOrEmpty(rule.conditionPrevious)) conditions.Add("같은 실험체의 직전 기술이 " + (GameDatabase.Card(rule.conditionPrevious)?.name ?? rule.conditionPrevious) + "이면");
                 if (rule.onHit) conditions.Add("공격이 적중하면");
-                if (conditions.Count > 0) text = string.Join(", ", conditions) + " " + text;
-                result.Add(text + ".");
+                result.Add(new ConditionEffect { key=DescriptionSummary.ConditionKey(rule), condition=DescriptionSummary.JoinConditions(conditions), effect=text, note=note });
             }
-            return DescriptionSummary.CleanLines(result);
+            return result;
         }
         public static string Rules(CardDef card)
         {

@@ -153,7 +153,12 @@ namespace Lumia
         }
         public static List<string> Describe(CardDef card)
         {
-            var result=new List<string>();
+            return DescriptionSummary.GroupEffects(DescriptionEffects(card));
+        }
+        public static List<ConditionEffect> DescriptionEffects(CardDef card)
+        {
+            var result=new List<ConditionEffect>();
+            if (card == null) return result;
             foreach(var rule in card.statuses ?? new CardStatusRule[0])
             {
                 var conditions = new List<string>();
@@ -163,11 +168,14 @@ namespace Lumia
                 if(!string.IsNullOrEmpty(rule.conditionKey2))
                     conditions.Add(SkillMechanics.StateCondition(card,rule.conditionKey2,rule.conditionAmount2,rule.conditionExact2));
                 bool hitCondition = rule.timing=="next_basic" || rule.timing!="cast" || rule.onHit;
+                if (rule.timing != "cast" && rule.onHit) conditions.Add("이 카드의 공격이 적중했으며");
                 if (hitCondition) conditions.Add(rule.timing=="next_basic" ? "다음 기본 공격이 적중하면" : rule.timing!="cast" ? "해당 설치물·추가 효과가 적중하면" : "공격이 적중하면");
-                string condition = conditions.Count == 0 ? "" : string.Join(", ", conditions)+" ";
-                result.Add(condition+"적에게 "+CardPresentation.WithParticle(Name(rule.key),"를","을")+" "+rule.duration+"턴 부여합니다."+(rule.timing=="next_basic"?" 다음 기본 공격이 빗나가도 준비 효과는 소모됩니다.":""));
+                result.Add(new ConditionEffect { key=DescriptionSummary.ConditionKey(rule,rule.timing=="cast"?"cast":rule.timing+"|castHit:"+rule.onHit,hitCondition),
+                    condition=DescriptionSummary.JoinConditions(conditions),
+                    effect="적에게 "+CardPresentation.WithParticle(Name(rule.key),"를","을")+" "+rule.duration+"턴 부여합니다",
+                    note=rule.timing=="next_basic"?"다음 기본 공격이 빗나가도 준비 효과는 소모됩니다.":"" });
             }
-            return DescriptionSummary.CleanLines(result);
+            return result;
         }
         public static string Rules(CardDef card)
         {

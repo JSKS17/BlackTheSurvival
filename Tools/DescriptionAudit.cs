@@ -24,7 +24,7 @@ public static class DescriptionAudit
     {
         switch(op)
         {
-            case "gain":return "증가시킵니다";case "set":return "만듭니다";case "consume":return "소모";
+            case "gain":return "증가";case "set":return "만듭";case "consume":return "소모";
             case "state_on":return "상태";case "state_off":return "해제";case "state_toggle":return "진입";
             case "bonus_damage":case "damage_buff":case "delayed_damage":case "burn":case "bleed":case "summon":case "counter":case "empower_basic":case "reduce_damage":return "피해";
             case "bonus_block":case "block":case "guard":return "방어도";case "bonus_heal":case "heal":case "hot":case "revive":return "회복";
@@ -36,12 +36,17 @@ public static class DescriptionAudit
             case "clear_effect":return "회수";default:throw new Exception("Unknown description operation: "+op);
         }
     }
+    static bool EffectRetained(string text,string op)
+    {
+        // Connecting Korean verbs change the stem of '만듭니다' to '만들고'.
+        return op=="set" ? text.Contains("만듭")||text.Contains("만들") : text.Contains(EffectWord(op));
+    }
     static void TraitEffects(string id,TraitMechanicProfile profile,string summary)
     {
         foreach(var rule in profile?.rules ?? new TraitRule[0])
         {
             Check(!SkillMechanics.IsState(id,rule.scaleKey),id+": a binary state is not multiplied as a resource");
-            Check(summary.Contains(EffectWord(rule.op)),id+": "+rule.op+" effect retained");
+            Check(EffectRetained(summary,rule.op),id+": "+rule.op+" effect retained");
             if(rule.every>1)Check(summary.Contains(SkillMechanics.Clamp(rule.every,1,8)+"회마다"),id+": trigger frequency retained");
             if(rule.cooldown>0)Check(summary.Contains("쿨다운 "+SkillMechanics.Clamp(rule.cooldown,0,6)+"턴"),id+": cooldown retained");
             if(rule.maxPerTurn>0)Check(summary.Contains("턴당 "+rule.maxPerTurn+"회"),id+": per-turn cap retained");
@@ -57,6 +62,196 @@ public static class DescriptionAudit
         var additive=(rules ?? Enumerable.Empty<SkillRule>()).Where(rule=>!new[]{"set","state_on","state_off","discount","clear_effect","counter","revive","empower_basic","burn","bleed","summon","hot","guard","delayed_damage"}.Contains(rule.op) && !(rule.op=="consume"&&rule.amount<=0));
         var keys=additive.Select(rule=>string.Join("|",rule.GetType().GetFields().Where(f=>f.Name!="label").OrderBy(f=>f.Name).Select(f=>f.Name+"="+f.GetValue(rule)))).ToArray();
         Check(keys.Length==keys.Distinct().Count(),id+": no identical data rules were hidden by prose deduplication");
+    }
+    static string DataSnapshot(object value)
+    {
+        if(value==null)return "null";
+        if(value is string)return "s:"+(string)value;
+        var type=value.GetType();
+        if(type.IsPrimitive||type.IsEnum||value is decimal)return type.Name+":"+Convert.ToString(value,System.Globalization.CultureInfo.InvariantCulture);
+        if(value is System.Collections.IEnumerable)return "["+string.Join(",",((System.Collections.IEnumerable)value).Cast<object>().Select(DataSnapshot))+"]";
+        return type.Name+"{"+string.Join("|",type.GetFields().OrderBy(f=>f.Name).Select(f=>f.Name+"="+DataSnapshot(f.GetValue(value))))+"}";
+    }
+    static int Occurrences(string text,string value)
+    {
+        int count=0,index=0;
+        while((index=(text??"").IndexOf(value,index,StringComparison.Ordinal))>=0){++count;index+=value.Length;}
+        return count;
+    }
+    static string SharedLine(string text,string id,params string[] terms)
+    {
+        var lines=text.Split('\n').Where(line=>terms.All(line.Contains)).ToArray();
+        Check(lines.Length==1,id+": related effects share exactly one condition line ("+string.Join(", ",terms)+"): "+text);
+        return lines[0];
+    }
+    static void OneSentence(string text,string id)
+    {
+        Check(text.EndsWith(".",StringComparison.Ordinal),id+": grouped action is a complete sentence");
+        Check(!Regex.IsMatch(text,@"(?:합니다|줍니다|얻습니다|만듭니다|높입니다|늘립니다)\.\s+"),id+": shared actions use connecting verbs instead of separate effect sentences");
+    }
+    static void GroupedEffectCases()
+    {
+        var structural=DescriptionSummary.GroupEffects(new[] {
+            new ConditionEffect {key="cast|hit",condition="공격이 적중하면",effect="체력을 3만큼 회복합니다"},
+            new ConditionEffect {key="cast|hit",condition="공격이 적중하면",effect="사용 가능한 코스트를 1 회복합니다"},
+            new ConditionEffect {key="next_basic|hit",condition="공격이 적중하면",effect="적에게 실명을 1턴 부여합니다"}
+        });
+        Check(structural.Count==2,"Structural grouping: identical printed conditions with different activation phases stay separate");
+        string structuralCast=SharedLine(string.Join("\n",structural),"Structural grouping","체력","코스트");
+        Check(!structuralCast.Contains("실명")&&Occurrences(structuralCast,"공격이 적중하면")==1,"Structural grouping: key, not the first condition phrase, determines shared activation");
+        OneSentence(structuralCast,"Structural grouping");
+        // These fixtures use distinct effect names/values, so merging only the first
+        // textual '이면' would lose a condition or incorrectly join two activations.
+        var card=new CardDef {id="audit_shared_cast",owner="검토",category="skill",key="Q",mechanics=new SkillMechanicProfile {rules=new[] {
+            new SkillRule {op="gain",key="충전",label="충전",amount=2,cap=4,onHit=true,conditionKey="mark",conditionAmount=2,conditionKey2="tempo",conditionAmount2=3},
+            new SkillRule {op="discount",targetCard="nia_q",amount=1,onHit=true,conditionKey="tempo",conditionAmount=3,conditionKey2="mark",conditionAmount2=2},
+            new SkillRule {op="consume",key="mark",label="표식",amount=0,onHit=true,conditionKey="mark",conditionAmount=2,conditionKey2="tempo",conditionAmount2=3}
+        }},statuses=new[] {new CardStatusRule {op="status",key="slow",duration=2,onHit=true,conditionKey="tempo",conditionAmount=3,conditionKey2="mark",conditionAmount2=2}}};
+        foreach(string text in new[]{CardPresentation.Describe(card,GameDatabase.Cards),DescriptionSummary.Card(card,GameDatabase.Cards)})
+        {
+            string line=SharedLine(text,card.id,"충전","코스트","소모","둔화");
+            Check(Occurrences(line,"적중")==1,card.id+": an identical hit requirement is printed once across mechanics and status paths");
+            Check(Occurrences(line," 2 이상")==1&&Occurrences(line," 3 이상")==1,card.id+": reordered AND conditions are printed once with both thresholds");
+            Check(line.Contains("최대 4")&&line.Contains("2턴"),card.id+": resource cap and debuff duration survive grouping");
+            OneSentence(line,card.id);
+        }
+        var separate=new CardDef {id="audit_distinct_conditions",owner="검토",category="skill",key="Q",mechanics=new SkillMechanicProfile {rules=new[] {
+            new SkillRule {op="gain",key="알파",label="알파",amount=1,conditionKey="mark",conditionAmount=2},
+            new SkillRule {op="gain",key="베타",label="베타",amount=1,conditionKey="mark",conditionAmount=3},
+            new SkillRule {op="gain",key="감마",label="감마",amount=1,conditionKey="mark",conditionAmount=2,onHit=true},
+            new SkillRule {op="gain",key="델타",label="델타",amount=1,conditionKey="mark",conditionAmount=2,conditionExact=true},
+            new SkillRule {op="gain",key="엡실론",label="엡실론",amount=1,conditionKey="mark",conditionAmount=2,conditionPrevious="nia_q"}
+        }}};
+        foreach(string text in new[]{CardPresentation.Describe(separate,GameDatabase.Cards),DescriptionSummary.Card(separate,GameDatabase.Cards)})
+        {
+            foreach(string name in new[]{"알파","베타","감마","델타","엡실론"})
+            {
+                string line=SharedLine(text,separate.id,name);
+                Check(new[]{"알파","베타","감마","델타","엡실론"}.Count(line.Contains)==1,separate.id+": different threshold/hit/exact/history conditions stay separate");
+            }
+        }
+        var phases=new CardDef {id="audit_status_phases",owner="검토",category="skill",key="Q",statuses=new[] {
+            new CardStatusRule {op="status",key="root",duration=1,onHit=true},
+            new CardStatusRule {op="status",key="slow",duration=2,onHit=true},
+            new CardStatusRule {op="status",key="blind",duration=1,timing="next_basic"},
+            new CardStatusRule {op="status",key="silence",duration=2,timing="trap"}
+        }};
+        foreach(string text in new[]{CardPresentation.Describe(phases,GameDatabase.Cards),DescriptionSummary.Card(phases,GameDatabase.Cards)})
+        {
+            string cast=SharedLine(text,phases.id,"속박","둔화");
+            Check(!cast.Contains("실명")&&!cast.Contains("침묵"),phases.id+": immediate status does not imply next-basic or installation control is immediate");
+            Check(SharedLine(text,phases.id,"실명").Contains("다음 기본 공격"),phases.id+": next-basic timing remains explicit");
+            Check(SharedLine(text,phases.id,"침묵").Contains("설치"),phases.id+": delayed/installation timing remains explicit");
+        }
+        var preparation=new CardDef {id="audit_next_basic_eligibility",owner="검토",category="skill",key="W",statuses=new[] {
+            new CardStatusRule {op="status",key="root",duration=1,timing="next_basic",onHit=false},
+            new CardStatusRule {op="status",key="slow",duration=2,timing="next_basic",onHit=true}
+        }};
+        foreach(string text in new[]{CardPresentation.Describe(preparation,GameDatabase.Cards),DescriptionSummary.Card(preparation,GameDatabase.Cards)})
+        {
+            string ungated=SharedLine(text,preparation.id,"속박"),gated=SharedLine(text,preparation.id,"둔화");
+            Check(!ungated.Contains("둔화")&&!gated.Contains("속박"),preparation.id+": both apply on the next basic attack but only one requires this card to hit");
+            Check(!ungated.Contains("이 카드의 공격")&&gated.Contains("이 카드의 공격"),preparation.id+": preparatory hit eligibility remains visible independently of the future hit trigger");
+        }
+        foreach(string text in new[]{CardPresentation.Describe(GameDatabase.Card("irem_r"),GameDatabase.Cards),DescriptionSummary.Card(GameDatabase.Card("irem_r"),GameDatabase.Cards)})
+            Check(!Regex.IsMatch(text,@"고양이 상태인 경우에는 [^\n]*생선"),"Irem R: entering/leaving a form never moves unconditional fish-mark clearing into only the cat-form exit branch");
+        var future=new CardDef {id="audit_future_setup",owner="검토",category="skill",key="W",mechanics=new SkillMechanicProfile {rules=new[] {
+            new SkillRule {op="counter",amount=4,duration=2},
+            new SkillRule {op="gain",key="충전",label="충전",amount=1,cap=3}
+        }}};
+        foreach(string text in new[]{CardPresentation.Describe(future,GameDatabase.Cards),DescriptionSummary.Card(future,GameDatabase.Cards)})
+        {
+            string line=SharedLine(text,future.id,"반격","충전");
+            int triggerAt=line.IndexOf("적중",StringComparison.Ordinal);if(triggerAt<0)triggerAt=line.IndexOf("맞으면",StringComparison.Ordinal);
+            int setupAt=line.IndexOf("효과",StringComparison.Ordinal),gainAt=line.IndexOf("충전",StringComparison.Ordinal);
+            Check(triggerAt>=0&&setupAt>triggerAt&&gainAt>setupAt,future.id+": an explicit future retaliation trigger ends inside an effect being granted, before the immediate resource gain");
+            Check(line.Contains("2턴")&&line.Contains("1회"),future.id+": future counter duration and once-per-turn limit survive grouping");
+        }
+        var futureTrait=new TraitMechanicProfile {rules=new[] {
+            new TraitRule {trigger="battle_start",op="counter",amount=4,duration=2},
+            new TraitRule {trigger="battle_start",op="gain",key="charge",label="충전",amount=1,cap=3}
+        }};
+        foreach(string text in new[]{TraitPresentation.Describe(futureTrait),TraitPresentation.Summary(futureTrait)})
+        {
+            string line=SharedLine(text,"future-trait","반격","충전");
+            int triggerAt=line.IndexOf("적중",StringComparison.Ordinal);if(triggerAt<0)triggerAt=line.IndexOf("맞으면",StringComparison.Ordinal);
+            int setupAt=line.IndexOf("효과",StringComparison.Ordinal),gainAt=line.IndexOf("충전",StringComparison.Ordinal);
+            Check(triggerAt>=0&&setupAt>triggerAt&&gainAt>setupAt,"future-trait: an explicit enemy-hit retaliation trigger never gates the resource gained when battle starts");
+        }
+        var limits=new TraitMechanicProfile {rules=new[] {
+            new TraitRule {trigger="after_skill",op="heal",amount=3,onHit=true,conditionKey="mark",conditionAmount=2,conditionKey2="tempo",conditionAmount2=3,maxPerTurn=1},
+            new TraitRule {trigger="after_skill",op="energy",amount=1,onHit=true,conditionKey="tempo",conditionAmount=3,conditionKey2="mark",conditionAmount2=2,cooldown=2,maxPerTurn=1},
+            new TraitRule {trigger="after_skill",op="consume",key="mark",label="표식",amount=0,onHit=true,conditionKey="mark",conditionAmount=2,conditionKey2="tempo",conditionAmount2=3},
+            new TraitRule {trigger="before_skill",op="bonus_damage",amount=4,onHit=true,conditionKey="mark",conditionAmount=2,conditionKey2="tempo",conditionAmount2=3}
+        }};
+        foreach(string text in new[]{TraitPresentation.Describe(limits),TraitPresentation.Summary(limits)})
+        {
+            string after=SharedLine(text,"mixed-limits","체력","코스트","소모");
+            Check(Occurrences(after,"적중")==1&&Occurrences(after," 2 이상")==1&&Occurrences(after," 3 이상")==1,"mixed-limits: shared trigger and reordered conditions are stated once");
+            Check(after.Contains("2턴")&&after.Contains("1회"),"mixed-limits: cooldown and per-turn limits are retained");
+            int healAt=after.IndexOf("체력",StringComparison.Ordinal),energyAt=after.IndexOf("코스트",StringComparison.Ordinal),consumeAt=after.LastIndexOf("소모",StringComparison.Ordinal);
+            Check(after.Substring(healAt,energyAt-healAt).Contains("1회"),"mixed-limits: heal's own per-turn limit stays attached to healing");
+            Check(after.Substring(energyAt,consumeAt-energyAt).Contains("2턴"),"mixed-limits: energy's cooldown stays attached to energy recovery");
+            Check(!Regex.IsMatch(after.Substring(consumeAt),@"쿨다운|턴당|한 턴에|전투당|전투마다"),"mixed-limits: unlimited consumption is not governed by another effect's cap");
+            Check(!after.Contains("추가 피해"),"mixed-limits: pre-card bonus does not merge into post-card recovery");
+            SharedLine(text,"mixed-limits","추가 피해");OneSentence(after,"mixed-limits");
+        }
+        var limited=new TraitMechanicProfile {rules=new[] {
+            new TraitRule {trigger="hit",op="heal",amount=2,every=3,cooldown=2,maxPerTurn=1,maxPerBattle=2},
+            new TraitRule {trigger="hit",op="energy",amount=1,every=3,cooldown=2,maxPerTurn=1,maxPerBattle=2}
+        }};
+        foreach(string text in new[]{TraitPresentation.Describe(limited),TraitPresentation.Summary(limited)})
+        {
+            string line=SharedLine(text,"shared-limits","체력","코스트");
+            Check(Occurrences(line,"3회마다")==1&&Occurrences(line,"2턴")==1,"shared-limits: trigger frequency and common cooldown appear once");
+            Check(line.Contains("1회")&&line.Contains("2회"),"shared-limits: both per-turn and per-battle limits remain visible");
+            OneSentence(line,"shared-limits");
+        }
+        var frequencies=new TraitMechanicProfile {rules=new[] {
+            new TraitRule {trigger="after_basic",op="heal",amount=2,every=2},
+            new TraitRule {trigger="after_basic",op="energy",amount=1,every=3},
+            new TraitRule {trigger="hit",op="block",amount=3,every=2}
+        }};
+        foreach(string text in new[]{TraitPresentation.Describe(frequencies),TraitPresentation.Summary(frequencies)})
+        {
+            Check(SharedLine(text,"frequency","체력").Contains("2회마다"),"frequency: two-use healing stays separate");
+            Check(SharedLine(text,"frequency","코스트").Contains("3회마다"),"frequency: three-use energy stays separate");
+            Check(!SharedLine(text,"frequency","방어도").Contains("체력"),"frequency: hits are distinct from post-basic uses even with equal frequency");
+        }
+        var fiora=GameDatabase.Passive("fiora_p");
+        foreach(string text in new[]{TraitPresentation.Describe(fiora.mechanics),DescriptionSummary.Passive(fiora)})
+        {
+            string line=SharedLine(text,"fiora_p","체력","코스트","모두 소모");
+            Check(Occurrences(line,"뚜셰가 3 이상")==1&&Occurrences(line,"적중")==1,"Fiora: the full shared threshold/hit condition is stated once");
+            Check(line.Contains("2턴")&&line.Contains("1회"),"Fiora: energy cooldown and recovery caps remain visible");
+            Check(!Regex.IsMatch(line.Substring(line.LastIndexOf("모두 소모",StringComparison.Ordinal)),@"쿨다운|턴당|한 턴에"),"Fiora: consumption remains uncapped, as implemented");
+            Check(!line.Contains("추가 피해"),"Fiora: before-skill bonus remains separate from after-skill recovery");
+            OneSentence(line,"fiora_p");
+        }
+        var amp=GameDatabase.Rune("amplification_drone");
+        foreach(string text in new[]{TraitPresentation.Describe(amp.mechanics),DescriptionSummary.Rune(amp)})
+        {
+            string line=SharedLine(text,"amplification_drone","최대 코스트","첫 적중 피해");
+            Check(Occurrences(line,"R 카드")==1&&Occurrences(line,"3턴")==1,"Amplification Drone: R activation and common cooldown are stated once");
+            Check(line.Contains("2턴")&&line.Contains("1"),"Amplification Drone: buff duration and value remain visible");
+            OneSentence(line,"amplification_drone");
+        }
+        // Compare independently limited effects to their actual resolver. In particular,
+        // Fiora still spends Touche on a second same-turn proc while healing/energy are capped.
+        var actor=new TraitActorState();
+        var source=new TraitSource {id=fiora.id,name=fiora.name,owner=fiora.owner,profile=fiora.mechanics};
+        var sources=new[]{source};
+        var touche=new SkillResource {owner="trait:fiora_p",key="touche",label="뚜셰",amount=3,cap=3};actor.skills.resources.Add(touche);
+        var context=new TraitContext {card=GameDatabase.Card("nia_q"),landed=true,hp=40,maxHp=80,skillActor=new SkillActorState()};
+        Check(TraitMechanics.Resolve(actor,sources,"before_skill",context).bonus.damage==4,"Fiora pre-skill damage remains a separate engine phase");
+        var first=TraitMechanics.Resolve(actor,sources,"after_skill",context);
+        Check(first.pulses.Any(p=>p.kind=="heal"&&p.amount==3)&&first.pulses.Any(p=>p.kind=="energy"&&p.amount==1)&&touche.amount==0,"Fiora first activation still heals 3, recovers 1 cost, and consumes Touche");
+        touche.amount=3;
+        var second=TraitMechanics.Resolve(actor,sources,"after_skill",context);
+        Check(!second.pulses.Any(p=>p.kind=="heal"||p.kind=="energy")&&touche.amount==0,"Fiora resource consumption remains independent of healing/energy's turn and cooldown caps");
+        TraitMechanics.StartTurn(actor);touche.amount=3;
+        var next=TraitMechanics.Resolve(actor,sources,"after_skill",context);
+        Check(next.pulses.Any(p=>p.kind=="heal")&&!next.pulses.Any(p=>p.kind=="energy")&&touche.amount==0,"Fiora healing resets next turn while cost recovery keeps its two-turn cooldown");
     }
     // Independent expectations come from the engine's three storage paths, rather than
     // from the presentation collector that these checks are meant to validate.
@@ -89,7 +284,7 @@ public static class DescriptionAudit
         Check(string.IsNullOrEmpty(footer)==(expected.Count==0),id+": only cards that actually apply debuffs have a glossary");
         Check(!body.Contains("디버프 설명"),id+": skill application text stays separate from reference rules");
         string preview=DescriptionSummary.CardPreview(card,GameDatabase.Cards);
-        Check(!preview.Contains("디버프 설명")&&!preview.Contains(": "),id+": compact preview has no glossary footer");
+        Check(!preview.Contains("디버프 설명")&&!DebuffNames.Values.Any(name=>preview.Split('\n').Any(line=>line.StartsWith(name+": ",StringComparison.Ordinal))),id+": compact preview has no glossary footer");
         if(expected.Count==0)
         {
             Check(!rules.Contains("디버프 설명"),id+": beneficial effects and marks do not create a debuff glossary");
@@ -204,6 +399,7 @@ public static class DescriptionAudit
             var output=new StringBuilder("# 카드 미리보기와 효과 설명 검토\n\n작은 카드와 상세 화면의 요약 모드는 `CardPreview`를 사용합니다. 즉시 행동과 핵심 연계를 짧은 완결 문장으로 표시하며 스크롤하지 않습니다. 아래 효과 정리에는 부가 효과까지 빠짐없이 기록합니다. 전체 설명에는 공통 규칙도 추가됩니다.\n\n");
             foreach(var c in GameDatabase.Cards)
             {
+                string sourceBefore=DataSnapshot(c);
                 string summary=DescriptionSummary.Card(c,GameDatabase.Cards),full=CardPresentation.Describe(c,GameDatabase.Cards);
                 string preview=DescriptionSummary.CardPreview(c,GameDatabase.Cards);
                 DebuffFooter(c);
@@ -232,7 +428,7 @@ public static class DescriptionAudit
                 foreach(var r in c.mechanics?.rules ?? new SkillRule[0])
                 {
                     Check(!SkillMechanics.IsState(c,r.scaleKey),c.id+": a binary state is not multiplied as a resource");
-                    Check(summary.Contains(EffectWord(r.op)),c.id+": "+r.op+" effect retained");
+                    Check(EffectRetained(summary,r.op),c.id+": "+r.op+" effect retained");
                     if(r.op=="gain")Check(summary.Contains("최대 "+SkillMechanics.Clamp(r.cap,1,8)),c.id+": resource maximum retained");
                     if(!string.IsNullOrEmpty(r.conditionKey))Check(SkillMechanics.IsState(c,r.conditionKey)?summary.Contains(SkillMechanics.StateName(c,r.conditionKey)):summary.Contains(r.conditionAmount.ToString()),c.id+": condition value or semantic state retained");
                     if(!string.IsNullOrEmpty(r.scaleKey))Check(summary.Contains("× "+r.amount),c.id+": resource scaling retained");
@@ -241,24 +437,30 @@ public static class DescriptionAudit
                     Check(summary.Contains(StatusMechanics.Name(r.key))&&summary.Contains(r.duration+"턴"),c.id+": named status and duration retained");
                 if(c.exhaust)Check(summary.Contains("소멸"),c.id+": exhaust retained");
                 if(c.freeCastCount>0)Check(summary.Contains("코스트 없이"),c.id+": recall retained");
+                Check(DataSnapshot(c)==sourceBefore,c.id+": rendering grouped descriptions does not mutate card stats, conditions, timings or effects");
                 output.Append("## "+c.owner+" · "+c.name+" ["+c.key+"] · "+c.cost+"코스트\n\n**미리보기·요약**\n\n"+preview.Replace("\n","  \n")+"\n\n**전체 효과 정리**\n\n"+summary.Replace("\n","  \n")+"\n\n");
                 string debuffFooter=CardPresentation.DebuffRules(c);
                 if(!string.IsNullOrEmpty(debuffFooter))output.Append(debuffFooter.Replace("\n","  \n")+"\n\n");
             }
             foreach(var p in GameDatabase.Passives)
             {
+                string sourceBefore=DataSnapshot(p);
                 string summary=DescriptionSummary.Passive(p);Text(p.id+"/summary",summary);Text(p.id+"/full",p.description);
                 NoDuplicateDataRules(p.id,p.mechanics?.rules);TraitEffects(p.id,p.mechanics,summary);
+                Check(DataSnapshot(p)==sourceBefore,p.id+": grouping keeps independent passive trigger/cooldown/cap rule data intact");
                 output.Append("## 패시브 · "+p.owner+" · "+p.name+"\n\n"+summary.Replace("\n","  \n")+"\n\n");
             }
             foreach(var r in GameDatabase.Runes)
             {
+                string sourceBefore=DataSnapshot(r);
                 string summary=DescriptionSummary.Rune(r);Text(r.id+"/summary",summary);Text(r.id+"/full",r.description);
                 NoDuplicateDataRules(r.id,r.mechanics?.rules);TraitEffects(r.id,r.mechanics,summary);
+                Check(DataSnapshot(r)==sourceBefore,r.id+": grouping keeps independent rune trigger/cooldown/cap rule data intact");
                 output.Append("## 룬 · "+r.name+"\n\n"+summary.Replace("\n","  \n")+"\n\n");
             }
             foreach(var gear in GameDatabase.Gear)
             {
+                string sourceBefore=DataSnapshot(gear);
                 string summary=DescriptionSummary.Gear(gear);Text(gear.id+"/summary",summary);Text(gear.id+"/full",gear.description);
                 string[] allowedTags={"공격","방어","체력","회복","회피","일반 공격","치명타","스킬","상태이상","코스트"};
                 Check(gear.optionTags!=null&&gear.optionTags.Length>0,gear.id+": searchable equipment options are present");
@@ -274,12 +476,13 @@ public static class DescriptionAudit
                 NoDuplicateDataRules(gear.id,gear.mechanics?.rules);TraitEffects(gear.id,gear.mechanics,summary);
                 foreach(var r in gear.mechanics?.rules ?? new TraitRule[0])
                 {
-                    Check(summary.Contains(EffectWord(r.op)),gear.id+": "+r.op+" effect retained");
+                    Check(EffectRetained(summary,r.op),gear.id+": "+r.op+" effect retained");
                     if(r.trigger=="after_movement")Check(summary.Contains("이동 기술 사용 후"),gear.id+": movement trigger is distinct from a generic card trigger");
                 }
                 if(gear.controlResistance>0)Check(summary.Contains("군중 제어")&&summary.Contains(gear.controlResistance.ToString()),gear.id+": resistance retained");
                 if(gear.damageDeferral>0)Check(summary.Contains(gear.damageDeferral+"%")&&summary.Contains("3턴"),gear.id+": precise deferred damage retained");
                 if(gear.slot==GearSlot.Weapon)Check(summary.Contains(GameDatabase.Card(gear.cardId).name)&&summary.Contains("D 카드 1장"),gear.id+": automatic weapon skill grant retained");
+                Check(DataSnapshot(gear)==sourceBefore,gear.id+": grouping does not mutate equipment or independent effect rules");
                 output.Append("## 장비 · "+gear.name+"\n\n"+summary.Replace("\n","  \n")+"\n\n");
             }
             var criticalGear=GameDatabase.Gear.Where(g=>g.critChance>0).ToArray();
@@ -320,7 +523,10 @@ public static class DescriptionAudit
             Check(DescriptionSummary.Normalize("자원을 1로 만듭니다.")=="자원을 1로 만듭니다.","Rieul-final numerical directional particle stays 1로");
             Check(DescriptionSummary.Normalize("자원을 3로 만듭니다.")=="자원을 3으로 만듭니다.","Consonant-final numerical directional particle becomes 3으로");
             Check(DescriptionSummary.Normalize("자원을 8로 만듭니다.")=="자원을 8로 만듭니다.","Rieul-final numerical directional particle stays 8로");
+            Check(DescriptionSummary.Normalize("자원을 3로 만들고, 충전을 0로 만듭니다.")=="자원을 3으로 만들고, 충전을 0으로 만듭니다.","Directional particles remain correct after effect verbs are joined");
+            Check(CardPresentation.Describe(GameDatabase.Card("yuki_w"),GameDatabase.Cards).Contains("3으로 만들고"),"Yuki's actual three-button reset retains its correct particle in a grouped effect sentence");
             DebuffEdgeCases();
+            GroupedEffectCases();
             if(args.Length>0)File.WriteAllText(args[0],output.ToString(),new UTF8Encoding(false));
             Console.WriteLine("PASS: "+assertions+" readability/effect assertions; cards="+GameDatabase.Cards.Count+", passives="+GameDatabase.Passives.Count+", runes="+GameDatabase.Runes.Count+", equipment="+GameDatabase.Gear.Count+".");
             var debuffCards=GameDatabase.Cards.Where(c=>ExpectedDebuffs(c).Count>0).ToArray();

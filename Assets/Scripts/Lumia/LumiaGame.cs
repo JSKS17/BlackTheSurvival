@@ -1243,6 +1243,14 @@ namespace Lumia
             if (view == "preparation") { prepStep = 2; return; }
             Engine.BeginJourney();
             if (view == "help") { help = true; return; }
+            if (view.StartsWith("grouped_", StringComparison.Ordinal))
+            {
+                summaryMode = !showFull;
+                if (view == "grouped_fiora") inspectTrait = "fiora_p";
+                else if (view == "grouped_rune") inspectTrait = "amplification_drone";
+                else inspectCard = view == "grouped_rozzi" ? "rozzi_w" : view == "grouped_counter" ? "nicky_w" : "nia_w";
+                return;
+            }
             if (view.StartsWith("debuff_", StringComparison.Ordinal))
             {
                 string cardId = view == "debuff_bleed" ? "jackie_q" : view == "debuff_burn" ? "kenneth_w"

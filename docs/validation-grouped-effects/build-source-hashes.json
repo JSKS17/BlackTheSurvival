@@ -1,0 +1,182 @@
+[
+  {
+    "file": "Assets/Scripts/Lumia/CardPresentation.cs",
+    "source": "5d0505f305210c6b5fe8c000440d98b84a99cc13b21582c735015e5aefba66ac",
+    "build": "5d0505f305210c6b5fe8c000440d98b84a99cc13b21582c735015e5aefba66ac",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/ClassicRoster.cs",
+    "source": "64fd30549a97cc428f1376d63b6bb21b21350c36474609b1401aac61d03a7349",
+    "build": "64fd30549a97cc428f1376d63b6bb21b21350c36474609b1401aac61d03a7349",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/CombatEffects.cs",
+    "source": "1190720b506a50787bf0f3657f855694682a84ec4036b7c1ff895fa497d118a6",
+    "build": "1190720b506a50787bf0f3657f855694682a84ec4036b7c1ff895fa497d118a6",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/DataModels.cs",
+    "source": "d748145ae31b752c5d96505830448ef1f85ea39a975e6886dc7dea27eeac9cab",
+    "build": "d748145ae31b752c5d96505830448ef1f85ea39a975e6886dc7dea27eeac9cab",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/DescriptionSummary.cs",
+    "source": "be0ac56d2caad7cb17a5ec278d1195caeb3d4676371fddd26f4f27e86cbd200c",
+    "build": "be0ac56d2caad7cb17a5ec278d1195caeb3d4676371fddd26f4f27e86cbd200c",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EquipmentIdentity.cs",
+    "source": "541fe7187a077265859980c313ee1d6675b9a930b1294038f52f45b74d4705e2",
+    "build": "541fe7187a077265859980c313ee1d6675b9a930b1294038f52f45b74d4705e2",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EventIdentity.cs",
+    "source": "f8899cc081910151a7c8b1991fcb970c2c725b937a385d35e7db3ae85a1f73a8",
+    "build": "f8899cc081910151a7c8b1991fcb970c2c725b937a385d35e7db3ae85a1f73a8",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EventPresentation.cs",
+    "source": "ca118b96023b94d8dea2a964aebb02215b3abae5cbb739eec94056d8f92cb691",
+    "build": "ca118b96023b94d8dea2a964aebb02215b3abae5cbb739eec94056d8f92cb691",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameDatabase.cs",
+    "source": "34d2d27bb5d31165db2312a6a2d2009aa3182a8fad0b03b09d68b7339877f03f",
+    "build": "34d2d27bb5d31165db2312a6a2d2009aa3182a8fad0b03b09d68b7339877f03f",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameEngine.cs",
+    "source": "872330b206ee964b27a2e2d8578f2c05f29ae84d6596c3807469dcaa097a2a0e",
+    "build": "872330b206ee964b27a2e2d8578f2c05f29ae84d6596c3807469dcaa097a2a0e",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameIdentity.cs",
+    "source": "f535e2e78ff286f48936046d3ce8d03e982f782e725a01a3d4dce6b355d04a89",
+    "build": "f535e2e78ff286f48936046d3ce8d03e982f782e725a01a3d4dce6b355d04a89",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameIdentityVerification.cs",
+    "source": "23122f980042c345b9db53463ec41b2902ff2fcb35fa21d7a3cdffc492ee4624",
+    "build": "23122f980042c345b9db53463ec41b2902ff2fcb35fa21d7a3cdffc492ee4624",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaArtVerification.cs",
+    "source": "740b9dece425f3b7ed41b825a5415ae89a802c3d16371bb27f84565b151b70f4",
+    "build": "740b9dece425f3b7ed41b825a5415ae89a802c3d16371bb27f84565b151b70f4",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaGame.cs",
+    "source": "79b48c16ee795bf50a640a458aa901056c314b5dd1283896741fc128100f11ea",
+    "build": "79b48c16ee795bf50a640a458aa901056c314b5dd1283896741fc128100f11ea",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaVerification.cs",
+    "source": "03b05d0e7d82e29e71407fca6a5a85baa60064beff9773fee0dd7c1822a5f1a7",
+    "build": "03b05d0e7d82e29e71407fca6a5a85baa60064beff9773fee0dd7c1822a5f1a7",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/PassiveIdentityClassic.cs",
+    "source": "0d39306da051d8cd64555a693a2c5c6ff4df2982441f8edc71aebc51cd7d0279",
+    "build": "0d39306da051d8cd64555a693a2c5c6ff4df2982441f8edc71aebc51cd7d0279",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/PassiveIdentityCore.cs",
+    "source": "81abcdc079d4238332b9d1e96557acd376ca8a4fbcbc746db1a26def24cb2dd7",
+    "build": "81abcdc079d4238332b9d1e96557acd376ca8a4fbcbc746db1a26def24cb2dd7",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/PassiveIdentityRecent.cs",
+    "source": "7661273a200f3801c3ece1f85557a01876d6adc84e3ee18781505fbeba20ea82",
+    "build": "7661273a200f3801c3ece1f85557a01876d6adc84e3ee18781505fbeba20ea82",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/PixelArt.cs",
+    "source": "e8f1bda57ff2c32d311bc21476964d9426bd3032a5c9c04fc9775f7c3f4c77cd",
+    "build": "e8f1bda57ff2c32d311bc21476964d9426bd3032a5c9c04fc9775f7c3f4c77cd",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/RecentRoster.cs",
+    "source": "ec22a2c96319e2442939f2624178d4299a24ae66f77fe5ac55f444f60845385c",
+    "build": "ec22a2c96319e2442939f2624178d4299a24ae66f77fe5ac55f444f60845385c",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/RuneIdentityCore.cs",
+    "source": "c266a06ddecc73e0d3868e05fe9e854bb5a0436bed29ee17e1a732292b9ec09e",
+    "build": "c266a06ddecc73e0d3868e05fe9e854bb5a0436bed29ee17e1a732292b9ec09e",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/SkillIdentityClassic.cs",
+    "source": "3a0f20ae630b960485fe9e98554e212bf55ba9a82702ce75553fb4e468f84eb2",
+    "build": "3a0f20ae630b960485fe9e98554e212bf55ba9a82702ce75553fb4e468f84eb2",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/SkillIdentityCore.cs",
+    "source": "4bc45e7d39c1f060019f410f65ae470567e6c02bc12f790165e98cecbc83c529",
+    "build": "4bc45e7d39c1f060019f410f65ae470567e6c02bc12f790165e98cecbc83c529",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/SkillIdentityRecent.cs",
+    "source": "937d20b8ab5291afbbcad7e0939fae3081fb16679cc1940ec357bb34cebb4533",
+    "build": "937d20b8ab5291afbbcad7e0939fae3081fb16679cc1940ec357bb34cebb4533",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/SkillMechanics.cs",
+    "source": "c623c224b822ff64d8df5173704963ddaddc83a1dab705e459f9513d7a3eac09",
+    "build": "c623c224b822ff64d8df5173704963ddaddc83a1dab705e459f9513d7a3eac09",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/StatusIdentity.cs",
+    "source": "2e5b4db255ee8d3fda398d717d55688b471f39f2582598b3b8ae405fccfab24c",
+    "build": "2e5b4db255ee8d3fda398d717d55688b471f39f2582598b3b8ae405fccfab24c",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/StatusMechanics.cs",
+    "source": "94a5e0cfaaec57da905e1a6d94bf6911c385c6d964753c4e052a7bccacf440d3",
+    "build": "94a5e0cfaaec57da905e1a6d94bf6911c385c6d964753c4e052a7bccacf440d3",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/TraitMechanics.cs",
+    "source": "fcd2eca3fdb34c86f9bff3de37610ed1386b851d9153f3051711c1193657b47f",
+    "build": "fcd2eca3fdb34c86f9bff3de37610ed1386b851d9153f3051711c1193657b47f",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/TraitPresentation.cs",
+    "source": "a168bba56c83cb370ac77d51fb6dfd189247f1c20c1f88a214a4c2316c5ba6b2",
+    "build": "a168bba56c83cb370ac77d51fb6dfd189247f1c20c1f88a214a4c2316c5ba6b2",
+    "match": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/WeaponIdentity.cs",
+    "source": "0a1d5ae3f2fc78646f61c7b8b037f0f29c764c0fa7d3ac763dac9b905a67cac0",
+    "build": "0a1d5ae3f2fc78646f61c7b8b037f0f29c764c0fa7d3ac763dac9b905a67cac0",
+    "match": true
+  }
+]

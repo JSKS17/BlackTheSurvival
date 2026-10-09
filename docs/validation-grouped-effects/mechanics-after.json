@@ -1,0 +1,12 @@
+{
+  "source": "working",
+  "commit": "81028ec952823a22ec40a7660cb85422cd12bf15",
+  "sha256": "7ba5cce7deae8f8df5351d7b5a67d77fc58d474001e792012428f52613e4959b",
+  "counts": "cards=392;passives=91;runes=16;gear=51",
+  "sourceFiles": 23,
+  "excludesOnly": [
+    "description",
+    "summary"
+  ],
+  "matchesBaseline": true
+}

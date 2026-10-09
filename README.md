@@ -4,7 +4,7 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.4](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.4)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.5](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.5)에 있습니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
 - 완성된 Windows 빌드가 있으면 `Build/Windows/BlackTheSurvival.exe`를 실행하세요. 같은 폴더의 `BlackTheSurvival_Data`, `MonoBleedingEdge`, `UnityPlayer.dll`도 함께 있어야 합니다.
@@ -54,6 +54,8 @@ Q/W/E/R 364종은 실험체별 스택·표식·설치물·소환·지연 공격�
 
 카드 미리보기는 상세 창의 요약과 같은 짧은 텍스트를 사용하며 내부 스크롤이 없습니다. 상세 창의 전체 설명에서 모든 효과를 읽을 수 있습니다. [실제 요약](docs/DESCRIPTION_SUMMARIES.md)에 발동 조건과 수치를 기록했습니다. 양측 필드 창에서 상태이상과 현재 회피율·일반 공격 치명타 확률까지 확인합니다.
 
+발동 조건이 같은 카드·패시브·룬·장비 효과는 조건을 한 번만 표시하고 연결된 문장으로 묶습니다. 제한이 모두 같으면 쿨다운·턴당·전투당 횟수를 한 번 표시하며, 제한이 다르면 해당 효과 옆에 표시합니다. 사용 전·후와 현재 공격·다음 기본 공격·설치물 적중처럼 서로 다른 시점은 구분합니다. 효과의 수치와 실제 발동 규칙은 유지합니다.
+
 디버프를 부여하는 카드의 **전체 설명 맨 아래**에는 `디버프 설명`을 표시합니다. 부여하는 각 디버프의 효과·지속·재부여 규칙을 한 번씩 설명하며, 조건부·다음 일반 공격·설치물의 지연 발동도 포함합니다. 요약과 디버프를 부여하지 않는 카드에는 이 설명을 붙이지 않습니다.
 
 치명타는 **일반 공격 카드**에만 적용합니다. 장비의 치명타 확률은 5~6%로 낮게 설정했고 총 상한은 30%입니다. 적중 시 공격 피해가 1.5배가 되며 소수점은 버립니다. 별도로 발동하는 패시브·장비 추가 피해에는 치명타가 적용되지 않습니다. [원작 장비와 변환 수치](docs/CRITICAL_EQUIPMENT.md)를 기록했습니다. 키오스크 주변은 같은 막에서 앞뒤 한 단계로 직접 연결된 전투 구역만 표시합니다.
@@ -89,11 +91,11 @@ Unity의 `Application.persistentDataPath` 아래 `lumia-vf-loop-v1.json`에 저�
 - `PixelArt.cs`: 전용 치비 스프라이트·스킬·패시브 아이콘 로드, 도트 지도와 기존 아틀라스 슬라이스.
 - `Assets/Editor/LumiaProjectSetup.cs`: Point 필터·무압축·밉맵 없음·알파 보존을 적용하는 이미지 임포트 설정.
 - `Tools/VerifyArtAssets.ps1`: 92개 스프라이트·392개 카드·91개 패시브 리소스의 누락·중복·원본 대응 검증.
-- `Tools/ValidateSystemArt.py`: 시스템 아이콘 70개와 굵은 스프라이트 92개의 누락·투명도·크기·픽셀 격자·원본 출처·해시 검증.
+- `Tools/ValidateSystemArt.py`: 시스템 아이콘 78개와 굵은 스프라이트 92개의 누락·투명도·크기·픽셀 격자·원본 출처·해시 검증.
 - `Tools/RunCoreTests.ps1`: 순수 C# 규칙 검증. `-Balance`로 실제 행동만 사용하는 40회 자동 플레이도 실행합니다.
 - `Tools/VerifyRuntime.ps1`: Unity 런타임 소스 컴파일 검증.
 - `Tools/BuildVerification.ps1`: 현재 열려 있는 프로젝트를 유지하며 검증용 복사본에서 Windows 개발 빌드. `-Release`는 개발 표시를 끈 빌드입니다. `-DisableBurst`는 해당 빌드 프로세스의 선택적 Burst 컴파일을 건너뛰며 프로젝트 설정은 바꾸지 않습니다. 이 게임의 규칙·UI 코드는 Burst를 사용하지 않습니다.
-- 개발 빌드에 `-lumia-verify`를 전달하면 보상 선택·취소, 무료 연계, 전투 효과, 니아 블록·할인, 패시브 누적·부활 준비, 상대 기술 상세, 룬 버프·저체력 치유·상점 할인, 조우 고정 카드·거래·체력 대가, 장비 아이콘·상태이상·기본 공격 조우·야생동물 추가 카드·고기 보상을 포함한 85개 화면을 실행 파일 옆 `Verification` 폴더에 캡처하고 종료합니다. 화면 캡처는 실제 창을 표시한 상태로 실행하세요.
+- 개발 빌드에 `-lumia-verify`를 전달하면 보상 선택·취소, 무료 연계, 전투 효과, 니아 블록·할인, 패시브 누적·부활 준비, 상대 기술 상세, 룬 버프·저체력 치유·상점 할인, 조우 고정 카드·거래·체력 대가, 장비 아이콘·상태이상·기본 공격 조우·야생동물 추가 카드·고기 보상과 같은 조건의 효과 설명을 포함한 91개 화면을 실행 파일 옆 `Verification` 폴더에 캡처하고 종료합니다. 화면 캡처는 실제 창을 표시한 상태로 실행하세요.
 - 개발 빌드의 `-bts-identity-verify`는 작업 폴더의 합성 저장과 설정 값으로 이전 동작 27개를 검증하고 `IdentityVerification/results.json`을 기록합니다. 개인 저장·레지스트리 설정은 변경하지 않습니다.
 - 개발 빌드의 `-lumia-art-verify`는 모든 전용 아트를 실제 Unity 리소스로 읽고 `ArtVerification` 폴더에 스프라이트 8페이지·기술 및 패시브 아이콘 13페이지·시스템 아이콘 2페이지를 캡처합니다. `-lumia-portrait-verify`는 스프라이트만 확인합니다. 일반 플레이 저장 슬롯을 변경하지 않습니다.
 

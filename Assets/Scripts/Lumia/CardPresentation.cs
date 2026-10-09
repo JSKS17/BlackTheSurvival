@@ -74,15 +74,18 @@ namespace Lumia
             if (c.weak > 0) lines.Add($"적에게 {c.weak}턴 동안 약화를 부여합니다.");
             if (c.vulnerable > 0) lines.Add($"적에게 {c.vulnerable}턴 동안 취약을 부여합니다.");
             if (c.strength > 0) lines.Add($"이번 전투에서 힘이 {c.strength} 증가합니다.");
-            lines.AddRange(SkillMechanics.Describe(c));
-            lines.AddRange(StatusMechanics.Describe(c));
+            var effects = SkillMechanics.DescriptionEffects(c).Concat(StatusMechanics.DescriptionEffects(c)).ToList();
+            string freeCastNote = "";
             if (c.freeCastCount > 0 && c.freeCastTargets != null && c.freeCastTargets.Length > 0)
             {
                 var names = c.freeCastTargets.Select(id => all == null ? id : all.Find(x => x.id == id)?.name ?? id);
-                if (c.freeCastLastSkill) lines.Add("이번 전투에서 마지막으로 사용한 수아의 Q·W·E 카드 한 장을 이번 턴에 코스트 없이 다시 사용할 수 있습니다.");
-                else lines.Add((c.freeCastOnHit ? "공격이 적중하면 " : "") + "이번 턴에 " + string.Join("·", names) + " 카드를 " + (c.freeCastTargets.Length > 1 ? "각각 " : "") + $"{c.freeCastCount}회 코스트 없이 사용할 수 있습니다.");
-                lines.Add("덱에 보유한 대상 카드가 손패에 없다면 뽑을 카드 또는 버린 카드에서 한 장을 가져옵니다.");
+                effects.Add(new ConditionEffect { key=DescriptionSummary.ConditionKey(new SkillRule { onHit=c.freeCastOnHit }), condition=c.freeCastOnHit?"공격이 적중하면":"",
+                    effect=c.freeCastLastSkill ? "이번 전투에서 마지막으로 사용한 수아의 Q·W·E 카드 한 장을 이번 턴에 코스트 없이 다시 사용할 수 있습니다"
+                    : "이번 턴에 " + string.Join("·", names) + " 카드를 " + (c.freeCastTargets.Length > 1 ? "각각 " : "") + $"{c.freeCastCount}회 코스트 없이 사용할 수 있습니다" });
+                freeCastNote="덱에 보유한 대상 카드가 손패에 없다면 뽑을 카드 또는 버린 카드에서 한 장을 가져옵니다.";
             }
+            lines.AddRange(DescriptionSummary.GroupEffects(effects));
+            if (freeCastNote.Length > 0) lines.Add(freeCastNote);
             if (c.exhaust) lines.Add("사용한 카드는 이번 전투에서 소멸합니다.");
             if (c.id == "basic_attack") lines.Add("장비의 공격력과 기본 공격 강화 효과를 받습니다. 치명타 적중 시 이 공격의 피해가 1.5배가 됩니다. 별도로 발동하는 추가 피해에는 치명타가 적용되지 않습니다.");
             if (lines.Count == 0) lines.Add("턴을 준비하며 행동 기회를 얻습니다.");
