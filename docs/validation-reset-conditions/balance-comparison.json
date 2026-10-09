@@ -1,0 +1,24 @@
+{
+  "policySha256": "9805b498aacefbb1343465a7261f19e608c98db79aafb58c8d2b9404b909ebdb",
+  "seeds": [
+    1,
+    40
+  ],
+  "policyUnchanged": true,
+  "engineStateModified": false,
+  "runs": [
+    {
+      "version": "0.1.8",
+      "escaped": 2,
+      "defeated": 38,
+      "stalled": 0
+    },
+    {
+      "version": "0.1.9",
+      "escaped": 2,
+      "defeated": 38,
+      "stalled": 0
+    }
+  ],
+  "limitation": "A fixed policy over 40 seeds is a regression sample, not a general player win rate or proof of optimal balance."
+}

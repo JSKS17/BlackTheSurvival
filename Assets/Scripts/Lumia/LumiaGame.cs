@@ -1315,6 +1315,11 @@ namespace Lumia
                 VerificationSynergyView(view,showFull);
                 return;
             }
+            if (view.StartsWith("recast_",StringComparison.Ordinal))
+            {
+                VerificationRecastView(view,showFull);
+                return;
+            }
             if (view.StartsWith("debuff_", StringComparison.Ordinal))
             {
                 string cardId = view == "debuff_bleed" ? "jackie_q" : view == "debuff_burn" ? "kenneth_w"
@@ -1539,6 +1544,84 @@ namespace Lumia
                 Engine.State.stage = RunStage.PassiveChoice;
             }
             summaryMode=!showFull;
+        }
+
+        void VerificationRecastView(string view,bool showFull)
+        {
+            string subject=view.Substring("recast_".Length).Split('_')[0];
+            if(subject!="cathy")
+            {
+                inspectCard=view.Substring("recast_".Length);summaryMode=!showFull;detailScroll=Vector2.zero;
+                var card=GameDatabase.Card(inspectCard);
+                if(card==null || card.freeCastCondition==null || string.IsNullOrEmpty(FreeCastMechanics.Effect(card).condition))
+                    throw new InvalidOperationException("Native conditional recast description missing: "+view);
+                string setup=subject=="shoichi"?"shoichi_e":subject=="celine"?"celine_q":"jan_r";
+                var combat=PrepareVerificationRecastCombat(new[]{setup,card.id}.Concat(card.freeCastTargets),view);
+                if(FreeCastMechanics.Eligible(card,combat.playerSkills,true)) throw new InvalidOperationException("Native recast was ready before preparation: "+view);
+                combat.energy=Engine.MaxEnergy;
+                if(!Engine.PlayCard(combat.hand.IndexOf(setup)) || !FreeCastMechanics.Eligible(card,combat.playerSkills,true))
+                    throw new InvalidOperationException("Native conditional recast setup failed: "+view);
+                combat.energy=Engine.MaxEnergy;
+                if(!Engine.PlayCard(combat.hand.IndexOf(card.id)) || !card.freeCastTargets.Any(target=>combat.freeCasts.Any(x=>x.cardId==target && x.uses>0)))
+                    throw new InvalidOperationException("Native conditioned skill did not earn its recast: "+view);
+                ConsumeCombatActions();effects.Clear();
+                Debug.Log("LUMIA RECAST UI "+view+" / condition=PASS / earnedOnly=PASS / detail=PASS");
+                return;
+            }
+            var c=PrepareVerificationRecastCombat(new[]{"cathy_q","cathy_w","cathy_w","cathy_q","basic_attack"},view);
+            var q=GameDatabase.Card("cathy_q");
+            if(FreeCastMechanics.Eligible(q,c.playerSkills,true))
+                throw new InvalidOperationException("Cathy Q recast was ready without wounds: "+view);
+            bool denied=view.EndsWith("_denied",StringComparison.Ordinal);
+            bool prepared=view.EndsWith("_ready",StringComparison.Ordinal) || view.EndsWith("_granted",StringComparison.Ordinal) || view.EndsWith("_spent",StringComparison.Ordinal);
+            if(prepared)
+            {
+                for(int i=0;i<2;++i)
+                {
+                    c.energy=Engine.MaxEnergy;
+                    if(!Engine.PlayCard(c.hand.IndexOf("cathy_w"))) throw new InvalidOperationException("Cathy Q native wound preparation failed: "+view);
+                }
+                if(SkillMechanics.Resource(c.playerSkills,q.owner,"wounded")!=2 || !FreeCastMechanics.Eligible(q,c.playerSkills,true))
+                    throw new InvalidOperationException("Cathy Q native max-wound condition was not prepared: "+view);
+            }
+            if(denied || view.EndsWith("_granted",StringComparison.Ordinal) || view.EndsWith("_spent",StringComparison.Ordinal))
+            {
+                c.energy=Engine.MaxEnergy;
+                if(!Engine.PlayCard(c.hand.IndexOf("cathy_q"))) throw new InvalidOperationException("Native Cathy Q cast failed: "+view);
+                bool granted=c.freeCasts.Any(x=>x.cardId==q.id && x.uses>0);
+                if(granted==denied) throw new InvalidOperationException("Native Cathy Q condition granted the wrong recast: "+view);
+                c.energy=0;
+                if(view.EndsWith("_spent",StringComparison.Ordinal))
+                {
+                    if(!Engine.PlayCard(c.hand.IndexOf(q.id)) || c.energy!=0 || c.freeCasts.Any(x=>x.cardId==q.id && x.uses>0))
+                        throw new InvalidOperationException("Native Cathy Q earned recast did not consume exactly once: "+view);
+                }
+                else if(Engine.CanPlayCard(c.hand.IndexOf(q.id))==denied)
+                    throw new InvalidOperationException("Native Cathy Q zero-energy availability ignored its earned recast: "+view);
+            }
+            else c.energy=Engine.MaxEnergy;
+            ConsumeCombatActions();effects.Clear();
+            if(view.EndsWith("_detail",StringComparison.Ordinal)) {inspectCard=q.id;summaryMode=!showFull;detailScroll=Vector2.zero;}
+            else if(denied || view.EndsWith("_granted",StringComparison.Ordinal) || view.EndsWith("_spent",StringComparison.Ordinal))
+            {
+                fieldInfo=true;fieldEnemy=false;
+                fieldScroll=view.EndsWith("_granted",StringComparison.Ordinal)?new Vector2(0,100000):Vector2.zero;
+            }
+            Debug.Log("LUMIA RECAST UI "+view+" / condition=PASS / earnedOnly=PASS / freeUses="+c.freeCasts.Sum(x=>x.uses)+" / energy="+c.energy);
+        }
+
+        CombatState PrepareVerificationRecastCombat(IEnumerable<string> cards,string view)
+        {
+            Engine.State.passives.Clear();Engine.State.gear.Clear();
+            Engine.State.mainRune="diamond";Engine.State.supportRune="tempering";
+            Engine.State.maxEnergyBonus=3;Engine.State.deck=cards.ToList();
+            if(!Engine.EnterNode(Engine.AvailableNodes().First().lane)) throw new InvalidOperationException("Cannot enter native recast fixture: "+view);
+            var c=Engine.State.combat;
+            c.enemyId="magnus";c.enemyName="매그너스";c.animal="";
+            c.enemyMaxHp=c.enemyHp=2000;c.enemyBlock=c.enemyEvasion=0;
+            c.enemyTraits=new TraitActorState();c.enemyGear.Clear();c.enemyPassiveId="";
+            c.hand=Engine.State.deck.ToList();c.drawPile.Clear();c.discardPile.Clear();c.exhaustPile.Clear();
+            return c;
         }
 
         void VerificationSynergyView(string view,bool showFull)

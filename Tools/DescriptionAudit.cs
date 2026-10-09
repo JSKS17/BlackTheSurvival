@@ -446,6 +446,41 @@ public static class DescriptionAudit
         foreach(string id in new[]{"isol_q","rozzi_r","celine_q","theodore_w","adriana_w","kenneth_w"})
             Check(string.Join("\n",CrossSubjectSynergies.FullDescription(GameDatabase.Card(id))).Contains("40"),id+": scheduled bomb/fire support retains the existing turn-end damage ceiling");
     }
+    static void ConditionalRecastDescriptions()
+    {
+        string[][] gates={new[]{"cathy_q","wounded","2"},new[]{"shoichi_w","dagger","1"},
+            new[]{"celine_w","bomb","1"},new[]{"jan_q","unyielding","3"},
+            new[]{"jan_e","unyielding","3"},new[]{"karla_w","harpoon","1"},new[]{"bianca_w","blood","2"}};
+        foreach(var gate in gates)
+        {
+            var card=GameDatabase.Card(gate[0]);string before=DataSnapshot(card);
+            string summary=DescriptionSummary.Card(card,GameDatabase.Cards),full=CardPresentation.Describe(card,GameDatabase.Cards),preview=DescriptionSummary.CardPreview(card,GameDatabase.Cards);
+            string resource=SkillMechanics.ResourceName(card,gate[1]);int threshold=int.Parse(gate[2]);
+            foreach(string description in new[]{summary,full})
+            {
+                Check(description.Contains(resource)&&description.Contains(threshold.ToString()),card.id+": resource reset description retains its actual pre-cast preparation threshold");
+                Check(description.Contains("코스트 없이")&&description.Contains("이번 턴")&&description.Contains("1회"),card.id+": conditioned free-use duration and amount remain explicit");
+                if(card.freeCastOnHit)Check(description.Contains("적중"),card.id+": reset describes the required landed attack");
+            }
+            if(preview.Contains("무료")||preview.Contains("코스트 없이"))
+                Check(preview.Contains(resource),card.id+": compact preview cannot advertise a free reset while omitting its resource condition");
+            if(card.id=="celine_w")
+            {
+                string fusion=SkillMechanics.ResourceName(card,"fusion");
+                Check(summary.Contains(fusion)&&full.Contains(fusion)&&summary.Contains("또는")&&full.Contains("또는"),"Celine's description states plasma OR fusion eligibility rather than requiring both");
+            }
+            Check(DataSnapshot(card)==before,card.id+": rendering reset conditions does not mutate preparation or grant metadata");
+        }
+        var cathy=GameDatabase.Card("cathy_q");string cathyFull=CardPresentation.Describe(cathy,GameDatabase.Cards);
+        Check(cathyFull.Contains("최대치 3")&&cathyFull.Contains("중상")&&cathyFull.Contains("소모한 뒤"),"Cathy's explanation ties the reset to this cast's maximum-wound transition and preserves the earned grant after consumption");
+        var bianca=GameDatabase.Card("bianca_w");string biancaFull=CardPresentation.Describe(bianca,GameDatabase.Cards);
+        Check(biancaFull.Contains("절반")&&biancaFull.Contains("최대치는 4"),"Bianca explains why blood two opens the half-resource reset");
+        foreach(string id in new[]{"shoichi_e","isaac_w","haze_w","barbara_w","fiora_q","fiora_e"})
+        {
+            var card=GameDatabase.Card(id);
+            Check(!DescriptionSummary.Card(card,GameDatabase.Cards).Contains("코스트 없이")&&!CardPresentation.Describe(card,GameDatabase.Cards).Contains("코스트 없이"),id+": removed reset is not advertised in effect digests or full explanations");
+        }
+    }
     public static int Main(string[] args)
     {
         try
@@ -582,6 +617,7 @@ public static class DescriptionAudit
             DebuffEdgeCases();
             GroupedEffectCases();
             CrossSubjectDescriptions();
+            ConditionalRecastDescriptions();
             if(args.Length>0)File.WriteAllText(args[0],output.ToString(),new UTF8Encoding(false));
             Console.WriteLine("PASS: "+assertions+" readability/effect assertions; cards="+GameDatabase.Cards.Count+", passives="+GameDatabase.Passives.Count+", runes="+GameDatabase.Runes.Count+", equipment="+GameDatabase.Gear.Count+".");
             var debuffCards=GameDatabase.Cards.Where(c=>ExpectedDebuffs(c).Count>0).ToArray();

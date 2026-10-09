@@ -35,6 +35,8 @@ namespace Lumia
             views=views.Concat(new[]{"vf","bomb","oil","wound","displace","mobility","bloom","support"}
                 .SelectMany(family=>new[]{"synergy_"+family+"_ready","synergy_"+family+"_used","synergy_"+family+"_full"}))
                 .Concat(new[]{"synergy_vf_summary","synergy_bomb_summary"}).ToArray();
+            views=views.Concat(new[]{"recast_cathy_cold","recast_cathy_denied","recast_cathy_ready","recast_cathy_granted","recast_cathy_spent","recast_cathy_detail_full",
+                "recast_shoichi_w_full","recast_celine_w_full","recast_jan_e_full"}).ToArray();
             foreach (string view in views)
             {
                 LumiaGame.Instance.VerificationView(view);

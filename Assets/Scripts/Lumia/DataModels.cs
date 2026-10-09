@@ -17,6 +17,9 @@ namespace Lumia
         public int freeCastCount;
         public bool freeCastOnHit;
         public bool freeCastLastSkill;
+        public SkillRule freeCastCondition;
+        public bool freeCastEitherResource;
+        public string freeCastConditionNote;
         public string effect, effectColor;
         public int effectVariant;
         public SkillMechanicProfile mechanics;

@@ -4,7 +4,7 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.8](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.8)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.9](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.9)에 있습니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
 - 완성된 Windows 빌드가 있으면 `Build/Windows/BlackTheSurvival.exe`를 실행하세요. 같은 폴더의 `BlackTheSurvival_Data`, `MonoBleedingEdge`, `UnityPlayer.dll`도 함께 있어야 합니다.
@@ -66,6 +66,8 @@ Q/W/E/R 364종은 실험체별 스택·표식·설치물·소환·지연 공격�
 
 장착한 무기마다 해당 D가 덱에 들어갑니다. 알렉스 패시브가 있으면 무기마다 다른 무기군 D도 1장씩 받습니다. 장비 지급 카드를 별도로 추적하여 교체 후에도 다른 경로로 얻은 D는 남습니다. [장비와 적 구성](docs/EQUIPMENT_LOADOUTS.md)에 원본 효과 변환을 기록했습니다. 오브젝트 드롭률은 늑대 25%, 곰 35%, 키오스크 주변 실험체 25%입니다. 추가 장비·D 아이콘 32개는 [개별 제작 기록](docs/art-system/loadout-asset-index.json)을 보관합니다.
 
+캐시 Q는 이번 적중으로 상처가 최대치 3에 도달해야 무료 재사용을 얻습니다. 쇼이치·셀린·얀·칼라·비앙카도 단검·폭탄·강화·작살·혈액 준비가 필요합니다. 조건과 횟수는 카드 요약·전체 설명에 표시하며, [기술 연계 조건](docs/CONDITIONAL_RECASTS.md)에 정리했습니다.
+
 ## 저장과 설정
 
 Unity의 `Application.persistentDataPath` 아래 `lumia-vf-loop-v1.json`에 저장하며 이전 파일은 `.bak`으로 남깁니다. 설정은 Unity `PlayerPrefs`에 저장됩니다. 새 게임을 시작하면 활성 저장 슬롯을 교체합니다. 자동 화면 검증은 `lumia-verification.json`이라는 별도의 슬롯을 사용합니다.
@@ -100,7 +102,7 @@ Unity의 `Application.persistentDataPath` 아래 `lumia-vf-loop-v1.json`에 저�
 - `Tools/RunCoreTests.ps1`: 순수 C# 규칙 검증. `-Balance`로 실제 행동만 사용하는 40회 자동 플레이도 실행합니다.
 - `Tools/VerifyRuntime.ps1`: Unity 런타임 소스 컴파일 검증.
 - `Tools/BuildVerification.ps1`: 현재 열려 있는 프로젝트를 유지하며 검증용 복사본에서 Windows 개발 빌드. `-Release`는 개발 표시를 끈 빌드입니다. `-DisableBurst`는 해당 빌드 프로세스의 선택적 Burst 컴파일을 건너뛰며 프로젝트 설정은 바꾸지 않습니다. 이 게임의 규칙·UI 코드는 Burst를 사용하지 않습니다.
-- 개발 빌드에 `-lumia-verify`를 전달하면 보상 선택·취소, 무료 연계, 전투 효과, 니아 블록·할인, 패시브 누적·부활 준비, 상대 기술 상세, 룬 버프·저체력 치유·상점 할인, 조우 고정 카드·거래·체력 대가, 장비 아이콘·상태이상·기본 공격 조우·야생동물 추가 카드·고기 보상과 같은 조건의 효과 설명·보스 사전 표시·제니 패시브·8종 교차 연계를 포함한 121개 화면을 실행 파일 옆 `Verification` 폴더에 캡처하고 종료합니다. 화면 캡처는 실제 창을 표시한 상태로 실행하세요.
+- 개발 빌드에 `-lumia-verify`를 전달하면 보상 선택·취소, 무료 연계, 전투 효과, 니아 블록·할인, 패시브 누적·부활 준비, 상대 기술 상세, 룬 버프·저체력 치유·상점 할인, 조우 고정 카드·거래·체력 대가, 장비 아이콘·상태이상·기본 공격 조우·야생동물 추가 카드·고기 보상과 같은 조건의 효과 설명·보스 사전 표시·제니 패시브·8종 교차 연계·조건부 재사용을 포함한 130개 화면을 실행 파일 옆 `Verification` 폴더에 캡처하고 종료합니다. 화면 캡처는 실제 창을 표시한 상태로 실행하세요.
 - 개발 빌드의 `-bts-identity-verify`는 작업 폴더의 합성 저장과 설정 값으로 이전 동작 27개를 검증하고 `IdentityVerification/results.json`을 기록합니다. 개인 저장·레지스트리 설정은 변경하지 않습니다.
 - 개발 빌드의 `-lumia-art-verify`는 모든 전용 아트를 실제 Unity 리소스로 읽고 `ArtVerification` 폴더에 스프라이트 8페이지·기술 및 패시브 아이콘 13페이지·시스템 아이콘 2페이지를 캡처합니다. `-lumia-portrait-verify`는 스프라이트만 확인합니다. 일반 플레이 저장 슬롯을 변경하지 않습니다.
 

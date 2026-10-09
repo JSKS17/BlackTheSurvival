@@ -78,10 +78,7 @@ namespace Lumia
             string freeCastNote = "";
             if (c.freeCastCount > 0 && c.freeCastTargets != null && c.freeCastTargets.Length > 0)
             {
-                var names = c.freeCastTargets.Select(id => all == null ? id : all.Find(x => x.id == id)?.name ?? id);
-                effects.Add(new ConditionEffect { key=DescriptionSummary.ConditionKey(new SkillRule { onHit=c.freeCastOnHit }), condition=c.freeCastOnHit?"공격이 적중하면":"",
-                    effect=c.freeCastLastSkill ? "이번 전투에서 마지막으로 사용한 수아의 Q·W·E 카드 한 장을 이번 턴에 코스트 없이 다시 사용할 수 있습니다"
-                    : "이번 턴에 " + string.Join("·", names) + " 카드를 " + (c.freeCastTargets.Length > 1 ? "각각 " : "") + $"{c.freeCastCount}회 코스트 없이 사용할 수 있습니다" });
+                effects.Add(FreeCastMechanics.Effect(c));
                 freeCastNote="덱에 보유한 대상 카드가 손패에 없다면 뽑을 카드 또는 버린 카드에서 한 장을 가져옵니다.";
             }
             lines.AddRange(DescriptionSummary.GroupEffects(effects));
@@ -99,7 +96,7 @@ namespace Lumia
             if (c.block > 0) lines.Add("방어도는 피해를 먼저 막고 다음 내 턴이 시작될 때 사라집니다.");
             if (c.strength > 0) lines.Add("힘은 각 공격의 피해를 높입니다.");
             if (c.evasion > 0) lines.Add("카드의 회피 보너스는 가장 높은 값만 적용되며, 최종 회피율은 65%를 넘지 않습니다.");
-            if (c.freeCastCount > 0) lines.Add("연계 사용권은 이번 턴에만 유효하며, 같은 스킬에서 받는 횟수에는 턴별 제한이 있습니다. 소멸한 카드는 돌아오지 않습니다.");
+            if (c.freeCastCount > 0) lines.Add("무료 사용권은 이번 턴에만 유효합니다. 같은 스킬로 같은 대상 카드의 무료 사용권을 얻는 횟수는 자신의 턴당 1회입니다. 획득 후 조건이 사라져도 받은 사용권은 유지되며, 소멸한 카드는 돌아오지 않습니다.");
             string mechanics = SkillMechanics.Rules(c);
             if (!string.IsNullOrEmpty(mechanics)) lines.Add(mechanics);
             if(c.movement)lines.Add("이 카드는 이동 기술이므로 속박의 사용 제한과 둔화의 추가 코스트가 적용됩니다.");

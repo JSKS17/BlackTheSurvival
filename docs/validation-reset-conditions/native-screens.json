@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "uiScreens": 130,
+  "newScreensSaved": 9,
+  "runtimeErrors": 0,
+  "recastActionChecks": 9,
+  "synergyLayoutChecks": 26,
+  "cards": 392,
+  "nativePreviewMeasurements": 4704,
+  "previewOverflows": 0,
+  "innerCardScrolls": 0,
+  "screens": [
+    {
+      "file": "native-ui/recast_cathy_cold.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/recast_cathy_denied.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/recast_cathy_ready.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/recast_cathy_granted.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/recast_cathy_spent.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/recast_cathy_detail_full.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/recast_shoichi_w_full.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/recast_celine_w_full.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/recast_jan_e_full.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ]
+}

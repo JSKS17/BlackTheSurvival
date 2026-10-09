@@ -25,6 +25,7 @@ namespace Lumia
             CardPresentation.Configure(Cards);
             SkillMechanics.Configure(Cards);
             WeaponIdentity.Configure(Cards, Characters);
+            ConfigureConditionalCombos();
             foreach (var card in Cards) card.description = CardPresentation.Describe(card, Cards);
             TraitMechanics.Configure(Passives, Runes);
             EquipmentIdentity.Configure(Gear);
@@ -55,6 +56,40 @@ namespace Lumia
         static void Combo(string id, bool onHit, params string[] targets)
         {
             var c = Card(id); c.freeCastTargets = targets; c.freeCastCount = 1; c.freeCastOnHit = onHit;
+        }
+
+        static void ConfigureConditionalCombos()
+        {
+            // A hit may finish and immediately consume a threshold, so acquisition
+            // reads the state before this card (never later cross-subject additions).
+            ResetCondition("cathy_q", "wounded", 2, true,
+                "이번 적중으로 상처가 최대치 3에 도달해 중상을 부여한 경우입니다. 상처를 소모한 뒤에도 획득한 무료 사용권은 유지됩니다.");
+            ResetCondition("shoichi_w", "dagger", 1, true);
+            ResetCondition("celine_w", "bomb", 1, true);
+            Card("celine_w").freeCastCondition.conditionKey2 = "fusion";
+            Card("celine_w").freeCastCondition.conditionAmount2 = 1;
+            Card("celine_w").freeCastEitherResource = true;
+            ResetCondition("jan_q", "unyielding", 3, true);
+            ResetCondition("jan_e", "unyielding", 3, false);
+            ResetCondition("karla_w", "harpoon", 1, true);
+            ResetCondition("bianca_w", "blood", 2, false,
+                "혈액의 최대치는 4입니다. 혈액을 절반 이상 소모한 안식에서만 연계가 열립니다.");
+
+            // These skills retain their native conditional discounts or empowered
+            // attacks rather than generating an immediate, unrelated free action.
+            foreach (string id in new[] { "shoichi_e", "isaac_w", "haze_w", "barbara_w", "fiora_q", "fiora_e" })
+            {
+                Card(id).freeCastCount = 0;
+                Card(id).freeCastTargets = new string[0];
+            }
+        }
+
+        static void ResetCondition(string id, string resource, int amount, bool onHit, string note = null)
+        {
+            var card = Card(id);
+            card.freeCastOnHit = onHit;
+            card.freeCastCondition = new SkillRule { conditionKey=resource, conditionAmount=amount, onHit=onHit };
+            card.freeCastConditionNote = note;
         }
 
         static void BuildCards()

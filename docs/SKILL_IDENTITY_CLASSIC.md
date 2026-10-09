@@ -2,6 +2,8 @@
 
 `Assets/Scripts/Lumia/SkillIdentityClassic.cs`는 `ClassicRoster.cs`의 55명, Q/W/E/R **220장**에 각각 프로필을 등록한다. 카드 ID, 이름, 아이콘 경로, 원래 카드의 쿨다운은 유지한다.
 
+v0.1.9의 무료 재사용·강화 자원 소비·조건부 할인 보완은 [기술 연계 조건](CONDITIONAL_RECASTS.md)에 기록한다. 이 문서의 고유 효과에 더해 해당 조건이 적용된다.
+
 근거는 이미 저장한 [reference-skills.json](art-chibi/reference-skills.json)의 `subject_id`, `slot`, `original_name`, **전체 tooltip**이다. 이 파일의 아이콘 URL에는 `12.5.0`이 포함되어 있다. 아래 내용은 이 스냅샷을 턴제로 해석한 것이며, 현재 서비스 중인 원작의 수치나 최신 동작을 검증했다는 뜻이 아니다. 원문 T는 해당 실험체의 자원·연계 맥락을 이해하기 위한 근거로 사용했다. 별도의 패시브 구현 범위와 구분한다.
 
 ## 공통 규칙

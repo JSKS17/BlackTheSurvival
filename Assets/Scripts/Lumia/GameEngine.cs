@@ -436,7 +436,7 @@ namespace Lumia
             bool statusControl=ApplyCardStatuses(false,skillBefore,card,landed);
             RecallSkillDiscounts(c.playerSkills, skillBefore, State.deck, c.hand, c.drawPile, c.discardPile);
             if (RecordLastSkill(c.lastSkills, card)) c.lastSkillCard = id;
-            if (!card.freeCastOnHit || landed) GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills, card.owner));
+            GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills, card.owner), skillBefore, landed);
             RefreshEnemyIntent();
             int cardHeal=State.hp-beforeHp;
             CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = id, enemy = false, damage = dealt, block = block, heal = cardHeal, avoided = avoided, critical = criticalHits > 0, criticalHits = criticalHits });
@@ -548,7 +548,7 @@ namespace Lumia
             StatusMechanics.DamageTaken(c.playerStatuses,dealt);
             bool statusControl=ApplyCardStatuses(true,skillBefore,card,landed);
             RecordLastSkill(c.enemyLastSkills, card);
-            if (!card.freeCastOnHit || landed) GrantFreeCasts(card, c.enemyDeck, c.enemyFreeCasts, c.enemyFreeCastSources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, false, LastSkill(c.enemyLastSkills, card.owner));
+            GrantFreeCasts(card, c.enemyDeck, c.enemyFreeCasts, c.enemyFreeCastSources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, false, LastSkill(c.enemyLastSkills, card.owner), skillBefore, landed);
             int cardHeal=c.enemyHp-beforeHp;
             CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = id, enemy = true, damage = dealt, block = addedBlock, heal = cardHeal, avoided = avoided, critical = criticalHits > 0, criticalHits = criticalHits });
             bool attackAttempt=damagePerHit>0 || bonusDamage>0;
@@ -592,9 +592,9 @@ namespace Lumia
             if (grant != null) grant.uses--;
         }
 
-        private static void GrantFreeCasts(CardDef card, IEnumerable<string> owned, List<FreeCastGrant> grants, List<string> sources, List<string> hand, List<string> draw, List<string> discard, bool recall = true, string lastSkill = null)
+        private static void GrantFreeCasts(CardDef card, IEnumerable<string> owned, List<FreeCastGrant> grants, List<string> sources, List<string> hand, List<string> draw, List<string> discard, bool recall = true, string lastSkill = null, SkillActorState before = null, bool landed = true)
         {
-            if (card.freeCastTargets == null || card.freeCastCount <= 0) return;
+            if (!FreeCastMechanics.Eligible(card,before,landed)) return;
             var targets = card.freeCastTargets.Distinct().Where(id => !card.freeCastLastSkill || id == lastSkill);
             foreach (var target in targets)
             {
@@ -1072,7 +1072,7 @@ namespace Lumia
                     foreach(var pulse in beforeTraits.pulses.Concat(afterTraits.pulses)){if(pulse.kind=="strength")planStrength+=pulse.amount;if(pulse.kind=="heal" || pulse.kind=="bonus_heal")planHp=Math.Min(c.enemyMaxHp,planHp+pulse.amount*(100-TraitMechanics.HealingReduction(traitPlan))/100);}
                     RecallSkillDiscounts(skillPlan, before, c.enemyDeck, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile);
                     RecallSkillDiscounts(traitPlan.skills,traitBefore,c.enemyDeck,c.enemyHand,c.enemyDrawPile,c.enemyDiscardPile);
-                    GrantFreeCasts(card, c.enemyDeck, grants, sources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, true, LastSkill(history, card.owner));
+                    GrantFreeCasts(card, c.enemyDeck, grants, sources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, true, LastSkill(history, card.owner), before, true);
                 }
                 c.enemyDiscardPile.AddRange(c.enemyHand); c.enemyHand.Clear();
             }
@@ -1129,6 +1129,9 @@ namespace Lumia
             int strength = c.enemyStrength,weak=c.enemyWeak,defenderHp=State.hp,defenderBlock=c.block;
             var skillPreview = SkillMechanics.Clone(c.enemySkills);
             var traitPreview=TraitMechanics.Clone(c.enemyTraits);int actorHp=c.enemyHp;
+            var grants = c.enemyTurn ? c.enemyFreeCasts.Select(x => new FreeCastGrant { cardId=x.cardId, uses=x.uses }).ToList() : new List<FreeCastGrant>();
+            var sources = c.enemyTurn ? c.enemyFreeCastSources.ToList() : new List<string>();
+            var history = c.enemyLastSkills.Select(x => new SkillHistory { owner=x.owner, cardId=x.cardId }).ToList();
             var defenderTraits=TraitMechanics.Clone(c.playerTraits);
             var attackerStatuses=StatusMechanics.Clone(c.enemyStatuses);var defenderStatuses=StatusMechanics.Clone(c.playerStatuses);
             int available=c.enemyTurn?c.enemyAvailableEnergy:EnergyForLevel(c.enemyLevel)+TraitMechanics.EnergyBonus(c.enemyTraits)+c.enemyOpeningEnergy;
@@ -1151,10 +1154,17 @@ namespace Lumia
                 var card = GameDatabase.Card(id);
                 if (card == null) continue;
                 if(!StatusMechanics.CanUse(attackerStatuses,card))continue;
-                int price=c.enemyFreeCasts.Any(x=>x.cardId==id && x.uses>0)?0:Math.Max(0,CardCost(id)+StatusMechanics.CostPenalty(attackerStatuses,card)-Math.Max(SkillMechanics.Discount(skillPreview,id),SkillMechanics.Discount(traitPreview.skills,id)));
-                // Earlier on-hit resets are represented in the saved plan; no new RNG or pile changes occur here.
-                if(intentIndex<c.enemyPlanCosts.Count && c.enemyPlanCosts[intentIndex]==0 && CardCost(id)>0)price=0;
+                bool freeGranted=grants.Any(x=>x.cardId==id && x.uses>0);
+                bool plannedFree=intentIndex<c.enemyPlanFreeCast.Count && c.enemyPlanFreeCast[intentIndex];
+                // Re-evaluate the plan's resets against this cloned state. A new player
+                // action can remove their preparation without changing the saved plan.
+                if(plannedFree && !freeGranted)continue;
+                int price=freeGranted?0:Math.Max(0,CardCost(id)+StatusMechanics.CostPenalty(attackerStatuses,card)-Math.Max(SkillMechanics.Discount(skillPreview,id),SkillMechanics.Discount(traitPreview.skills,id)));
+                if(intentIndex<c.enemyPlanCosts.Count && c.enemyPlanCosts[intentIndex]==0 && CardCost(id)>0 && price>0)continue;
                 if(price>available)continue;available-=price;available+=card.energy;
+                ConsumeFreeCast(grants,id);
+                SkillMechanics.ConsumeDiscount(skillPreview,id);
+                SkillMechanics.ConsumeDiscount(traitPreview.skills,id);
                 var skillBefore=SkillMechanics.Clone(skillPreview);var bonuses=SkillMechanics.Bonuses(skillBefore,card);
                 var beforeTraits=ResolveBeforeTraits(traitPreview,true,card,card.damage>0 || bonuses.damage>0,skillBefore,actorHp);
                 int extra=bonuses.damage;
@@ -1169,8 +1179,9 @@ namespace Lumia
                 StatusMechanics.DamageTaken(defenderStatuses,actualDamage);
                 int cardHeal=Math.Min(c.enemyMaxHp-actorHp,(EnemyAuxiliaryValue(card,card.heal)+bonuses.heal)*(100-Math.Max(TraitMechanics.HealingReduction(traitPreview),StatusMechanics.HealingReduction(attackerStatuses)))/100);actorHp+=cardHeal;
                 strength += card.strength;
-                SkillMechanics.ConsumeDiscount(skillPreview, id);
                 SkillMechanics.AfterCard(skillPreview,skillBefore,card,true,paidCost:price);
+                RecordLastSkill(history,card);
+                GrantFreeCasts(card,c.enemyDeck,grants,sources,null,null,null,false,LastSkill(history,card.owner),skillBefore,true);
                 StatusMechanics.Apply(defenderStatuses,skillBefore,card,true);
                 if(card.category=="basic" && card.key=="ATK")StatusMechanics.Activate(defenderStatuses,card.id,"next_basic");
                 var after=SimulateAfterTraits(traitPreview,true,card,skillBefore,actualDamage,EnemyAuxiliaryValue(card,card.block)+bonuses.block,cardHeal,actorHp,defenderHp,defenderBlock);

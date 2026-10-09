@@ -23,7 +23,8 @@ public static class CoreSmokeTests
             SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); CrossSubjectRules(); CrossSubjectCombatAndSave(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();
             OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates(); HealingDroneHealthTrigger(); RevisedEconomyAndEncounters();
-            Console.WriteLine("PASS: " + checks + " assertions across 54 game-rule scenarios.");
+            ConditionalRecastPreparation(); ConditionalRecastEnemyForecast();
+            Console.WriteLine("PASS: " + checks + " assertions across 56 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -1337,6 +1338,134 @@ public static class CoreSmokeTests
             reducer.freeCastTargets = oldTargets; reducer.freeCastCount = oldCount; reducer.freeCastOnHit = oldHit; reducer.cost = oldReducerCost;
             target.freeCastTargets = targetTargets; target.freeCastCount = targetCount; target.freeCastOnHit = targetHit; target.cost = oldTargetCost; target.hits = oldTargetHits;
         }
+    }
+
+    private static void RecastResource(SkillActorState actor,string cardId,string key,int amount,int cap=4)
+    {
+        string owner=GameDatabase.Card(cardId).owner;
+        actor.resources.RemoveAll(r=>r.owner==owner&&r.key==key);
+        actor.resources.Add(new SkillResource{owner=owner,key=key,label=SkillMechanics.ResourceName(GameDatabase.Card(cardId),key),amount=amount,cap=cap});
+    }
+    private static bool RecastAvailable(CombatState combat,string id) => combat.freeCasts.Any(g=>g.cardId==id&&g.uses>0);
+    private static GameEngine RecastFixture(string source,string target,string resource=null,int amount=0,bool hit=true)
+    {
+        var e=MechanicsFixture();var c=e.State.combat;
+        e.State.deck=new[]{source,target}.Distinct().ToList();c.hand.Add(source);
+        if(source!=target)c.discardPile.Add(target);
+        if(resource!=null)RecastResource(c.playerSkills,source,resource,amount);
+        c.energy=e.CardCost(source);c.enemyEvasion=hit?0:100;e.State.rngState=2;
+        return e;
+    }
+    private static void ConditionalRecastPreparation()
+    {
+        string[][] gates={
+            new[]{"cathy_q","cathy_q","wounded","2"},new[]{"shoichi_w","shoichi_w","dagger","1"},
+            new[]{"celine_w","celine_q","bomb","1"},new[]{"jan_q","jan_e","unyielding","3"},
+            new[]{"jan_e","jan_e","unyielding","3"},new[]{"karla_w","karla_e","harpoon","1"},
+            new[]{"bianca_w","bianca_q","blood","2"}
+        };
+        foreach(var gate in gates)
+        {
+            string id=gate[0],target=gate[1],resource=gate[2];int threshold=int.Parse(gate[3]);
+            foreach(int count in new[]{0,threshold-1,threshold}.Distinct())
+            {
+                var e=RecastFixture(id,target,resource,count);var c=e.State.combat;
+                Check(e.PlayCard(0),id+": conditioned source is still usable without its reset preparation");
+                Check(RecastAvailable(c,target)==(count>=threshold),id+": earned reset agrees with pre-cast "+resource+"="+count);
+                Check(count>=threshold||c.freeCastSources.Count==0,id+": failed condition does not reserve the source's turn limit");
+                if(count>=threshold)
+                {
+                    Check(c.energy==0&&c.hand.Contains(target)&&e.EffectiveCardCost(target)==0,id+": earned owned target can be recalled after spending the last energy");
+                    Check(e.PlayCard(c.hand.IndexOf(target))&&!RecastAvailable(c,target),id+": an earned zero-cost target consumes its finite grant");
+                }
+            }
+            if(GameDatabase.Card(id).freeCastOnHit)
+            {
+                var e=RecastFixture(id,target,resource,threshold,false);var c=e.State.combat;
+                Check(e.PlayCard(0)&&e.CombatActions.Last(a=>!a.enemy).avoided>0&&!RecastAvailable(c,target),id+": prepared attack must actually hit before it earns its reset");
+                if(id=="cathy_q")Check(SkillMechanics.Resource(c.playerSkills,GameDatabase.Card(id).owner,"wounded")==2,"a missed Cathy Q preserves the wound preparation rather than consuming it");
+            }
+        }
+        var success=RecastFixture("cathy_q","cathy_q","wounded",2);var successCombat=success.State.combat;
+        Check(success.PlayCard(0)&&SkillMechanics.Resource(successCombat.playerSkills,"캐시","wounded")==0&&RecastAvailable(successCombat,"cathy_q"),"Cathy's new maximum-wound transition grants Q even though the wound cycle has already consumed the resource");
+        var severe=RecastFixture("cathy_q","cathy_q");RecastResource(severe.State.combat.playerSkills,"cathy_q","severe",1,1);
+        Check(severe.PlayCard(0)&&!RecastAvailable(severe.State.combat,"cathy_q"),"an old severe-wound state alone cannot grant Cathy another free Q");
+        var cross=RecastFixture("cathy_q","cathy_q","wounded",1);var cc=cross.State.combat;
+        CrossCast(cc.playerSkills,"jackie_q");
+        Check(cross.PlayCard(0)&&SkillMechanics.Resource(cc.playerSkills,"캐시","wounded")==3&&!RecastAvailable(cc,"cathy_q"),"a foreign wound added after Cathy Q's native rules cannot retroactively satisfy that Q's reset condition");
+
+        foreach(string id in new[]{"jan_q","jan_e"})
+        {
+            string target="jan_e";var e=RecastFixture(id,target,"unyielding",3);var c=e.State.combat;
+            Check(e.PlayCard(0)&&SkillMechanics.Resource(c.playerSkills,"얀","unyielding")==0&&RecastAvailable(c,target),id+": empowered action consumes maximum heat while retaining its earned reset");
+            Check(e.PlayCard(c.hand.IndexOf(target))&&!RecastAvailable(c,target),id+": empowered reset is spent once");
+            RecastResource(c.playerSkills,id,"unyielding",3,3);
+            c.hand.Add(id);c.energy=10;Check(e.PlayCard(c.hand.Count-1),id+": repeated source remains an ordinary legal action");
+            Check(!RecastAvailable(c,target),id+": repeated prepared source cannot replenish its consumed grant in the same turn");
+        }
+        var fusion=RecastFixture("celine_w","celine_q","fusion",1);
+        Check(fusion.PlayCard(0)&&RecastAvailable(fusion.State.combat,"celine_q"),"Celine can earn Q through a fusion bomb without a plasma bomb");
+        var retry=RecastFixture("celine_w","celine_q");var rc=retry.State.combat;
+        Check(retry.PlayCard(0)&&!RecastAvailable(rc,"celine_q"),"empty detonation never earns a Celine Q");
+        RecastResource(rc.playerSkills,"celine_w","fusion",1);rc.hand.Add("celine_w");
+        Check(retry.PlayCard(rc.hand.Count-1)&&RecastAvailable(rc,"celine_q"),"an earlier empty detonation does not consume the later prepared source's turn allowance");
+        Check(retry.PlayCard(rc.hand.IndexOf("celine_q")),"Celine consumes the earned Q while remaining at zero energy");
+        rc.hand.Add("celine_w");Check(retry.PlayCard(rc.hand.Count-1)&&!RecastAvailable(rc,"celine_q"),"zero-cost detonation and free Q cannot form an unbounded self-feeding loop");
+
+        var unowned=RecastFixture("celine_w","celine_q","bomb",1);var uc=unowned.State.combat;unowned.State.deck.Remove("celine_q");uc.discardPile.Clear();
+        Check(unowned.PlayCard(0)&&!uc.hand.Contains("celine_q")&&!RecastAvailable(uc,"celine_q"),"resource reset cannot invent a target absent from the owned deck");
+        var exhausted=RecastFixture("celine_w","celine_q","bomb",1);var ec=exhausted.State.combat;ec.discardPile.Clear();ec.exhaustPile.Add("celine_q");
+        Check(exhausted.PlayCard(0)&&!ec.hand.Contains("celine_q")&&ec.exhaustPile.Contains("celine_q"),"resource reset cannot retrieve an exhausted target");
+        foreach(string id in new[]{"shoichi_e","isaac_w","haze_w","barbara_w","fiora_q","fiora_e"})
+        {
+            var e=RecastFixture(id,"basic_attack");e.State.combat.energy=99;
+            Check(GameDatabase.Card(id).freeCastCount==0&&e.PlayCard(0)&&e.State.combat.freeCasts.Count==0,id+": obsolete unconditional free grants are removed from data and actual play");
+        }
+        foreach(string id in new[]{"jackie_q","yuki_e"})
+        {
+            var e=RecastFixture(id,id);Check(e.PlayCard(0)&&RecastAvailable(e.State.combat,id),id+": authentic hit-only recast is retained without a new arbitrary stack condition");
+        }
+        var yuki=RecastFixture("yuki_w","yuki_e");Check(yuki.PlayCard(0)&&RecastAvailable(yuki.State.combat,"yuki_e"),"Yuki's authentic W-to-E reset remains usable without pre-existing buttons");
+
+        var sho=RecastFixture("shoichi_w","shoichi_w","dagger",1);RecastResource(sho.State.combat.playerSkills,"shoichi_w","risk",1,1);sho.State.combat.energy=99;
+        Check(sho.PlayCard(0)&&SkillMechanics.Discount(sho.State.combat.playerSkills,"shoichi_e")==1,"recovering a dagger against a marked negotiation target grants the authored small E discount");
+        var shoEmpty=RecastFixture("shoichi_w","shoichi_w");RecastResource(shoEmpty.State.combat.playerSkills,"shoichi_w","risk",1,1);
+        Check(shoEmpty.PlayCard(0)&&SkillMechanics.Discount(shoEmpty.State.combat.playerSkills,"shoichi_e")==0,"a negotiation mark without a recovered dagger does not earn E cooldown reduction");
+        foreach(string id in new[]{"isaac_q","isaac_e"})
+        foreach(int exploit in new[]{1,2})
+        foreach(bool reinforced in new[]{false,true})
+        {
+            var e=RecastFixture(id,id,"exploit",exploit);var c=e.State.combat;c.energy=99;
+            if(reinforced)RecastResource(c.playerSkills,id,"reinforce",1,1);
+            Check(e.PlayCard(0),id+": exploit cooldown test uses the real engine action");
+            foreach(string target in new[]{"isaac_q","isaac_w","isaac_e"})
+                Check(SkillMechanics.Discount(c.playerSkills,target)==(exploit>=2&&reinforced?1:0),id+": only a reinforced exploit detonation grants one-point reduction to "+target);
+        }
+    }
+    private static void ConditionalRecastEnemyForecast()
+    {
+        foreach(int amount in new[]{1,2})
+        {
+            var e=MechanicsFixture();var c=e.State.combat;e.State.hp=e.State.maxHp=999;
+            c.enemyDeck.Add("cathy_q");c.enemyDrawPile.Add("cathy_q");RecastResource(c.enemySkills,"cathy_q","wounded",amount,3);
+            typeof(GameEngine).GetMethod("PlanEnemyTurn",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(e,null);
+            Check(c.enemyPlan.Count==(amount==2?2:1)&&c.enemyPlan.First()=="cathy_q","enemy planner grants the same Cathy reset only at maximum-wound transition: start="+amount);
+            Check(c.enemyPlanFreeCast.Count(x=>x)==(amount==2?1:0),"enemy forecast records only earned recalled copies as free");
+            int forecast=c.intentDamage;Check(e.BeginEndTurn(),"conditional enemy plan starts normally");
+            while(c.enemyTurn)e.AdvanceEnemyAction();
+            Check(e.CombatActions.Count(x=>x.enemy&&x.cardId=="cathy_q"&&string.IsNullOrEmpty(x.kind))== (amount==2?2:1),"enemy actually performs only its earned number of Cathy Q actions");
+            Check(forecast>=e.CombatActions.Where(x=>x.enemy&&x.cardId=="cathy_q"&&string.IsNullOrEmpty(x.kind)).Sum(x=>x.damage),"conditional enemy forecast does not understate the landed native actions");
+        }
+        var cancelled=MechanicsFixture();var live=cancelled.State.combat;cancelled.State.hp=cancelled.State.maxHp=999;
+        live.enemyDeck.Add("cathy_q");live.enemyDrawPile.Add("cathy_q");RecastResource(live.enemySkills,"cathy_q","wounded",2,3);
+        typeof(GameEngine).GetMethod("PlanEnemyTurn",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(cancelled,null);
+        Check(live.enemyPlan.Count==2&&live.enemyPlanFreeCast.Last(),"fixture forecasts an earned enemy self-recast");
+        int prepared=live.intentDamage;RecastResource(live.enemySkills,"cathy_q","wounded",0,3);
+        string before=FieldSnapshot(live.enemySkills);typeof(GameEngine).GetMethod("RefreshEnemyIntent",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(cancelled,null);
+        Check(live.intentDamage<prepared&&FieldSnapshot(live.enemySkills)==before,"removing enemy preparation cancels the predicted free action without mutating live skill state");
+        Check(cancelled.BeginEndTurn(),"cancelled predicted reset still permits the ordinary enemy turn");
+        while(live.enemyTurn)cancelled.AdvanceEnemyAction();
+        Check(cancelled.CombatActions.Count(x=>x.enemy&&x.cardId=="cathy_q"&&string.IsNullOrEmpty(x.kind))==1,"enemy skips a previously predicted recalled copy when its resource prerequisite disappears");
     }
 
     private static void LastOwnSkillReplay()

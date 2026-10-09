@@ -136,7 +136,8 @@ namespace Lumia
 
             // Daggers are collected by Bottom Line, not an arbitrary Q damage stack.
             P(p, "shoichi_q", 8, G("dagger", "바닥 단검", 1, 4, previous:"shoichi_q", hit:true));
-            P(p, "shoichi_w", 8, B("bonus_damage", 4, scale:"dagger", cap:4), D("shoichi_w", 2, need:"dagger"), B("bonus_damage", 4, need:"risk"), Spend("dagger", "바닥 단검"));
+            P(p, "shoichi_w", 8, B("bonus_damage", 4, scale:"dagger", cap:4), D("shoichi_w", 2, need:"dagger"), B("bonus_damage", 4, need:"risk"),
+                R("discount", null, null, 1, need:"risk", need2:"dagger", target:"shoichi_e", hit:true), Spend("dagger", "바닥 단검", hit:true));
             P(p, "shoichi_e", 8, S("risk", "협상 표식", 1, 1), G("dagger", "바닥 단검", 1, 4, hit:true));
             P(p, "shoichi_r", 17, S("dagger", "바닥 단검", 4, 4), D("shoichi_w", 2));
 
@@ -183,9 +184,11 @@ namespace Lumia
             P(p, "alex_r", 12, Fx("summon", "emp", "정밀 폭격", 5, 3), B("bonus_damage", 2, scale:"gauss", cap:3), Spend("gauss", "코일 충전"));
 
             // Ring ropes interact with roundhouse; weaving precedes a healing knee.
-            P(p, "jan_q", 9, B("bonus_heal", 5, need:"weave"), Spend("weave", "위빙"), G("unyielding", "열혈", 1, 3, hit:true));
+            P(p, "jan_q", 9, B("bonus_heal", 5, need:"weave"), Spend("weave", "위빙"),
+                G("unyielding", "열혈", 1, 3, hit:true), Spend("unyielding", "열혈", need:"unyielding", min:3, hit:true));
             P(p, "jan_w", 10, B("bonus_damage", 7, need:"ring"), B("bonus_damage", 3, scale:"unyielding", cap:3), Spend("unyielding", "열혈"), B("bonus_heal", 4, need:"weave"), Spend("weave", "위빙"));
-            P(p, "jan_e", 0, S("weave", "위빙", 1, 1), Fx("empower_basic", "weave", "위빙 일격", 5), D("jan_q", 1));
+            P(p, "jan_e", 0, S("weave", "위빙", 1, 1), Fx("empower_basic", "weave", "위빙 일격", 5), D("jan_q", 1),
+                Spend("unyielding", "열혈", need:"unyielding", min:3));
             P(p, "jan_r", 14, S("ring", "링 로프", 1, 1), S("unyielding", "열혈", 3), Fx("counter", "ring_rope", "링 반동", 4, 2));
 
             // Hazard Shield changes First Response, then the helicopter arrives later.
@@ -423,8 +426,11 @@ namespace Lumia
         static void Exploit(Dictionary<string, SkillMechanicProfile> p, string id, int damage, params SkillRule[] extra)
         {
             var rules = new List<SkillRule> { G("exploit", "착취", 1, 3, hit:true), B("bonus_damage", 6, need:"exploit", min:2),
-                B("bonus_heal", 4, need:"exploit", min:2), Spend("exploit", "착취", need:"exploit", min:2),
-                B("bonus_damage", 5, need:"reinforce"), Spend("reinforce", "경화 준비"), D("isaac_w", 1, need:"exploit", min:2) };
+                B("bonus_heal", 4, need:"exploit", min:2), Spend("exploit", "착취", need:"exploit", min:2, hit:true),
+                B("bonus_damage", 5, need:"reinforce"), Spend("reinforce", "경화 준비", hit:true),
+                R("discount", null, null, 1, need:"exploit", min:2, need2:"reinforce", target:"isaac_q", hit:true),
+                R("discount", null, null, 1, need:"exploit", min:2, need2:"reinforce", target:"isaac_w", hit:true),
+                R("discount", null, null, 1, need:"exploit", min:2, need2:"reinforce", target:"isaac_e", hit:true) };
             rules.AddRange(extra); P(p, id, damage, rules.ToArray());
         }
         static void Chill(Dictionary<string, SkillMechanicProfile> p, string id, int damage, params SkillRule[] extra)
@@ -447,7 +453,7 @@ namespace Lumia
             P(p, id, damage, G("wounded", "상처", 1, 3, hit:true),
                 Fx("bleed", "wound", "상처 출혈", 2, 2, hit:true), S("severe", "중상", 1, 1, need:"wounded", min:2, hit:true),
                 Fx("bleed", "severe", "중상 출혈", 4, 3, need:"wounded", min:2, hit:true),
-                B("bonus_block", 6, need:"wounded", min:2), Spend("wounded", "상처", need:"wounded", min:2),
+                B("bonus_block", 6, need:"wounded", min:2), Spend("wounded", "상처", need:"wounded", min:2, hit:true),
                 D("cathy_q", 1, need:"severe"), Fx("empower_basic", "knife", "외과 절개", 4));
         }
         static void Stigma(Dictionary<string, SkillMechanicProfile> p, string id, int damage, params SkillRule[] extra)

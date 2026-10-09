@@ -128,10 +128,7 @@ namespace Lumia
             string freeCastNote = "";
             if (card.freeCastCount > 0 && card.freeCastTargets != null && card.freeCastTargets.Length > 0)
             {
-                string[] targets = card.freeCastTargets.Select(id => all == null ? GameDatabase.Card(id)?.name ?? id : all.Find(c => c.id == id)?.name ?? id).ToArray();
-                effects.Add(new ConditionEffect { key=ConditionKey(new SkillRule { onHit=card.freeCastOnHit }), condition=card.freeCastOnHit?"공격이 적중하면":"",
-                    effect=card.freeCastLastSkill ? "이번 턴에 마지막으로 사용한 수아의 Q·W·E 중 하나를 코스트 없이 1회 다시 사용합니다"
-                    : "이번 턴에 " + string.Join("·", targets) + (targets.Length > 1 ? " 각각" : "") + $" 코스트 없이 {card.freeCastCount}회 사용권을 얻습니다" });
+                effects.Add(FreeCastMechanics.Effect(card));
                 freeCastNote="대상 카드가 손패에 없으면 덱·버린 카드에서 가져옵니다(덱에 보유한 카드만).";
             }
             lines.AddRange(GroupEffects(effects));
@@ -153,7 +150,8 @@ namespace Lumia
             var parts = new List<PreviewPart>();
             string immediate = PreviewImmediate(card, d, b, h);
             if (immediate.Length > 0) parts.Add(new PreviewPart { text=immediate, priority=1000 });
-            string curated = PreviewIdentity(card);
+            // A curated identity sentence must never hide a newly required recast condition.
+            string curated = card.freeCastCondition == null ? PreviewIdentity(card) : null;
             if (curated != null) parts.Add(new PreviewPart { text=curated, priority=950 });
             else
             {
@@ -167,10 +165,11 @@ namespace Lumia
                 }
                 if (card.freeCastCount > 0)
                 {
-                    string target=card.freeCastLastSkill ? "직전 Q·W·E" : string.Join("·", (card.freeCastTargets ?? new string[0]).Select(id=>PreviewCardKey(id)));
-                    var grouped = new ConditionEffect { key=ConditionKey(new SkillRule { onHit=card.freeCastOnHit }), condition=card.freeCastOnHit?"적중 시":"",
-                        effect=target+(target.EndsWith("R",StringComparison.Ordinal)?"을":"를")+" 이번 턴에 무료로 "+card.freeCastCount+"회 사용할 수 있습니다" };
-                    parts.Add(new PreviewPart { text=(grouped.condition.Length==0?"":grouped.condition+" ")+grouped.effect+".", priority=880, grouped=grouped });
+                    var grouped = FreeCastMechanics.Effect(card,true);
+                    // A conditional recast defines how this card can chain. It takes priority
+                    // over an ordinary resource gain, whose exact amount remains in detail.
+                    int priority = card.freeCastCondition == null ? 880 : 960;
+                    parts.Add(new PreviewPart { text=(grouped.condition.Length==0?"":grouped.condition+" ")+grouped.effect+".", priority=priority, grouped=grouped });
                 }
             }
             foreach (var rule in card.statuses ?? new CardStatusRule[0])
