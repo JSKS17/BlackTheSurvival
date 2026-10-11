@@ -57,7 +57,7 @@ namespace Lumia
             DontDestroyOnLoad(gameObject);
             Application.targetFrameRate = 60;
             audioVerification = Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-audio-verify") >= 0;
-            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
+            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
             savePath = Path.Combine(Application.persistentDataPath, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
             font = Resources.Load<Font>("Lumia/Galmuri11");
@@ -561,15 +561,27 @@ namespace Lumia
         void DrawBossCombatPanel()
         {
             var boss = Engine.CurrentBossView; if (boss == null) return;
-            Rect r = new Rect(440, 303, 399, 127); Box(r, Ink, Pink);
+            Rect r = new Rect(440, 303, 399, 129); Box(r, Ink, Pink);
             string phase = "PHASE " + boss.phase + "  /  " + boss.phaseName;
             if (boss.pendingPhase > boss.phase) phase += "  →  " + boss.pendingPhase + " 대기";
-            Txt(new Rect(r.x + 12, r.y + 7, 375, 20), phase, 12, Pink, true);
-            string progress = boss.challengeActive ? boss.progressText : boss.nextCondition;
-            Para(new Rect(r.x + 12, r.y + 32, 375, 31), progress, 11, boss.interrupted ? Mint : Gold);
-            Para(new Rect(r.x + 12, r.y + 65, 375, 28), boss.nextAction, 11, boss.interrupted ? Mint : Text);
-            if (Btn(new Rect(r.x + 12, r.y + 97, 181, 25), "보스 공략 +", false, Pink)) OpenBossGuide(Engine.State.combat.enemyId);
-            if (Btn(new Rect(r.x + 206, r.y + 97, 181, 25), "상대 정보 · D/F", false, Muted)) { enemyLoadout = true; inventoryScroll = Vector2.zero; }
+            Txt(new Rect(r.x + 12, r.y + 5, 375, 18), phase, 12, Pink, true);
+            Para(new Rect(r.x + 12, r.y + 24, 375, 44), BossProgressText(boss), 11, boss.violated ? Pink : boss.interrupted ? Mint : Gold);
+            Para(new Rect(r.x + 12, r.y + 69, 375, 28), boss.nextAction, 11, boss.interrupted ? Mint : Text);
+            if (Btn(new Rect(r.x + 12, r.y + 99, 181, 25), "보스 공략 +", false, Pink)) OpenBossGuide(Engine.State.combat.enemyId);
+            if (Btn(new Rect(r.x + 206, r.y + 99, 181, 25), "상대 정보 · D/F", false, Muted)) { enemyLoadout = true; inventoryScroll = Vector2.zero; }
+        }
+
+        string BossProgressText(BossCombatView boss)
+        {
+            string text = boss.challengeActive ? boss.progressText : boss.nextCondition;
+            if (boss.restricted && boss.challengeActive && !string.IsNullOrEmpty(boss.restrictionText))
+                text = boss.restrictionText + "\n" + text;
+            if (boss.restricted && boss.violated && !string.IsNullOrEmpty(boss.violationCardId))
+            {
+                text += "\n" + (GameDatabase.Card(boss.violationCardId)?.name ?? boss.violationCardId);
+                if (boss.forbiddenDamageThreshold > 0) text += " · " + boss.violationDamage + " 피해 / 기준 " + boss.forbiddenDamageThreshold;
+            }
+            return text;
         }
 
         void DrawBossGuide()
@@ -1404,7 +1416,7 @@ namespace Lumia
         {
             Modal(new Rect(150, 100, 980, 530));
             Txt(new Rect(185, 124, 900, 39), "실험 가이드", 25, Mint);
-            string text = "01  지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 키오스크 주변은 앞뒤 한 단계로 연결된 전투 구역입니다. 보안 콘솔은 막당 한 번 40크레딧으로 다음 두 단계의 실제 적과 키오스크 재고를 확인합니다. 하이퍼루프는 막당 한 번, 바로 다음 단계의 연결되지 않은 경로로 이동합니다. 목적지 선택을 취소하면 횟수를 쓰지 않습니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 최대 코스트는 5로 시작하며 보스 승리마다 1 증가합니다. 레벨 상승으로는 증가하지 않습니다. 전투마다 두 번, 손패 한 장을 다음 턴까지 보관할 수 있습니다. 보관하면 다음 턴에 새로 뽑는 카드가 한 장 줄어듭니다. 보관 선택은 턴 종료 전까지 변경하거나 해제할 수 있습니다.\n\n03  수치·상태·표식·설치물은 필드 창에서 확인하세요. 할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하여 최대 30%까지 적용합니다.\n\n04  실험체와 보스의 승리 보상에서는 카드 코스트와 무관하게 최대 2장을 고릅니다. 야생동물 보상은 표시된 획득 코스트 안에서 고릅니다. 승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다. 조우에서 카드를 강화할 때에는 대상 카드와 표시된 강화 방향 중 하나를 선택합니다. 같은 카드의 모든 사본에 적용되며 한 방향으로만 강화할 수 있습니다.\n\n05  VF혈액샘플은 두 번째 보스 승리 후 구매합니다. 모닥불 휴식은 전체 회복·만년 스프 1개·카드 최대 2장 제거를 제공합니다. 제작·요리는 회복 없이 합쳐 3회이며, 장비는 이름·태그로 검색합니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.\n\n06  일부 실험체 조우에는 다시 만나기로 약속하는 선택지가 있습니다. 새 약속을 맺은 직후의 실험체 조우에는 그 실험체의 후속 이야기가 세 선택지 중 하나로 80% 확률로 등장합니다. 만나지 못한 약속은 유지됩니다. 여러 약속이 있으면 이후 조우마다 미해결 약속의 등장 우선권이 순환합니다. 비용·보상·약속은 선택 전에 표시됩니다.\n\n07  지도 아래의 보스 카드에서 공략을 미리 읽을 수 있습니다. 보스 체력이 50% 이하가 되면 다음 내 턴에 2페이즈가 적용됩니다. 니아는 25% 이하에서 3페이즈로 전환합니다. 전투 중앙에서 예고와 현재 턴의 대응 진척을 확인하세요. 제시된 대응 조건 중 하나를 달성하면 특수행동이 중단되고 보스가 잠시 취약해집니다.";
+            string text = "01  지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 키오스크 주변은 앞뒤 한 단계로 연결된 전투 구역입니다. 보안 콘솔은 막당 한 번 40크레딧으로 다음 두 단계의 실제 적과 키오스크 재고를 확인합니다. 하이퍼루프는 막당 한 번, 바로 다음 단계의 연결되지 않은 경로로 이동합니다. 목적지 선택을 취소하면 횟수를 쓰지 않습니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 최대 코스트는 5로 시작하며 보스 승리마다 1 증가합니다. 레벨 상승으로는 증가하지 않습니다. 전투마다 두 번, 손패 한 장을 다음 턴까지 보관할 수 있습니다. 보관하면 다음 턴에 새로 뽑는 카드가 한 장 줄어듭니다. 보관 선택은 턴 종료 전까지 변경하거나 해제할 수 있습니다.\n\n03  수치·상태·표식·설치물은 필드 창에서 확인하세요. 할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하여 최대 30%까지 적용합니다.\n\n04  실험체와 보스의 승리 보상에서는 카드 코스트와 무관하게 최대 2장을 고릅니다. 야생동물 보상은 표시된 획득 코스트 안에서 고릅니다. 승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다. 조우에서 카드를 강화할 때에는 대상 카드와 표시된 강화 방향 중 하나를 선택합니다. 같은 카드의 모든 사본에 적용되며 한 방향으로만 강화할 수 있습니다.\n\n05  VF혈액샘플은 두 번째 보스 승리 후 구매합니다. 모닥불 휴식은 전체 회복·만년 스프 1개·카드 최대 2장 제거를 제공합니다. 제작·요리는 회복 없이 합쳐 3회이며, 장비는 이름·태그로 검색합니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.\n\n06  일부 실험체 조우에는 다시 만나기로 약속하는 선택지가 있습니다. 새 약속을 맺은 직후의 실험체 조우에는 그 실험체의 후속 이야기가 세 선택지 중 하나로 80% 확률로 등장합니다. 만나지 못한 약속은 유지됩니다. 여러 약속이 있으면 이후 조우마다 미해결 약속의 등장 우선권이 순환합니다. 비용·보상·약속은 선택 전에 표시됩니다.\n\n07  지도 아래의 보스 카드에서 공략을 미리 읽을 수 있습니다. 보스 체력이 50% 이하가 되면 다음 내 턴에 2페이즈가 적용됩니다. 니아는 25% 이하에서 3페이즈로 전환합니다. 전투 중앙에서 예고와 현재 턴의 대응 진척을 확인하세요. 누적형은 제시된 대응 조건 중 하나를 달성하면 특수행동이 중단됩니다. 금지형은 예고된 턴에 카드를 직접 2장 이상 사용하고 금지 행동을 한 번도 하지 않아야 턴 종료 때 성공합니다. 위반 카드를 사용해도 전투는 계속되지만, 그 턴의 위반은 되돌릴 수 없습니다. 성공하면 보스가 잠시 취약해집니다.";
             wrapped.fontSize = 15; float height = Math.Max(350, wrapped.CalcHeight(new GUIContent(text), 877) + 12);
             helpScroll = GUI.BeginScrollView(new Rect(185, 181, 900, 356), helpScroll, new Rect(0, 0, 877, height));
             Para(new Rect(0, 0, 877, height), text, 15, Text); GUI.EndScrollView();
@@ -1562,7 +1574,7 @@ namespace Lumia
 
         public void VerificationBossRoster()
         {
-            if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0) return;
+            if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") < 0) return;
             int count = 0;
             foreach (var character in GameDatabase.Characters.Where(ch => ch.cards != null && ch.cards.Length > 0))
             {
@@ -1586,9 +1598,9 @@ namespace Lumia
 
         public void VerificationBossHudLayout()
         {
-            if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0) return;
+            if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") < 0) return;
             if (!initialized) throw new InvalidOperationException("Boss layout audit requires native GUI font initialization.");
-            var previous = Engine; int measurements = 0; float maxBody = 0, maxTitle = 0;
+            var previous = Engine; int measurements = 0, restrictionMeasurements = 0; float maxBody = 0, maxTitle = 0, maxRestriction = 0;
             var body = new GUIStyle(wrapped) { fontSize = 11 }; var heading = new GUIStyle(label) { fontSize = 12 };
             foreach (var character in GameDatabase.Characters.Where(ch => ch.cards != null && ch.cards.Length > 0))
             {
@@ -1600,15 +1612,25 @@ namespace Lumia
                     var view = Engine.CurrentBossView;
                     string phase = "PHASE " + view.phase + "  /  " + view.phaseName + (view.pendingPhase > view.phase ? "  →  " + view.pendingPhase + " 대기" : "");
                     float title = heading.CalcSize(new GUIContent(phase)).x;
-                    float progress = body.CalcHeight(new GUIContent(view.progressText), 375), action = body.CalcHeight(new GUIContent(view.nextAction), 375);
+                    float progress = body.CalcHeight(new GUIContent(BossProgressText(view)), 375), action = body.CalcHeight(new GUIContent(view.nextAction), 375);
                     c.boss.challengeActive = false; float condition = body.CalcHeight(new GUIContent(Engine.CurrentBossView.nextCondition), 375);
                     maxBody = Math.Max(maxBody, Math.Max(progress, Math.Max(action, condition))); maxTitle = Math.Max(maxTitle, title); measurements += 4;
-                    if (title > 375.1f || progress > 31.1f || condition > 31.1f || action > 28.1f)
+                    if (title > 375.1f || progress > 44.1f || condition > 44.1f || action > 28.1f)
                         throw new InvalidOperationException("Boss HUD native layout overflow: " + character.id + " phase=" + (index + 1) + " title=" + title + " progress=" + progress + " condition=" + condition + " action=" + action);
+                    if (view.restricted)
+                    {
+                        view.violated = true;
+                        view.violationCardId = GameDatabase.Cards.OrderByDescending(card => card.name.Length).First().id;
+                        view.violationDamage = 999; view.forbiddenDamageThreshold = profile.phases[index].goal == BossGoal.NoHeavyHit ? profile.phases[index].goalAmount : 0;
+                        float violation = body.CalcHeight(new GUIContent(BossProgressText(view)), 375);
+                        maxRestriction = Math.Max(maxRestriction, violation); restrictionMeasurements++;
+                        if (violation > 44.1f) throw new InvalidOperationException("Restriction violation text overflows boss HUD: " + character.id + " phase=" + (index + 1) + " height=" + violation);
+                    }
                 }
             }
             Engine = previous;
             Debug.Log("BTS BOSS LAYOUT PASS / measurements=" + measurements + " / bodyMax=" + maxBody + " / titleMax=" + maxTitle);
+            Debug.Log("BTS BOSS RESTRICTION LAYOUT PASS / measurements=" + restrictionMeasurements + " / bodyMax=" + maxRestriction + " / longestCardName=PASS");
         }
 
         void AdvanceBossVerificationPhase(int desired)
@@ -1722,6 +1744,140 @@ namespace Lumia
                 nextEnemyActionAt = Time.unscaledTime + 60;
             }
             displayedTurn = c.turn; effects.Clear(); Engine.CombatActions.Clear();
+        }
+
+        BossProfile BossVarietyProfile(BossGoal goal)
+        {
+            return GameDatabase.Characters.Select(ch => BossMechanics.Profile(ch.id)).First(profile => profile.phases.Any(phase => phase.goal == goal));
+        }
+
+        CombatState PrepareBossVarietyBattle(BossGoal goal)
+        {
+            var profile = BossVarietyProfile(goal);
+            var c = PrepareBossVerificationBattle(profile.subjectId);
+            AdvanceBossVerificationPhase(Array.FindIndex(profile.phases, phase => phase.goal == goal) + 1);
+            c.enemyHp = c.enemyMaxHp = 9999; c.enemyBlock = c.enemyEvasion = c.enemyWeak = c.enemyVulnerable = 0;
+            c.enemyGear.Clear(); c.enemyPassiveId = ""; c.enemyTraits = new TraitActorState(); c.enemySkills = new SkillActorState(); c.enemyStatuses = new StatusActorState();
+            c.playerTraits = new TraitActorState(); c.playerSkills = new SkillActorState(); c.playerStatuses = new StatusActorState(); Engine.State.persistentTraits = c.playerTraits;
+            c.strength = c.weak = c.vulnerable = 0; c.energy = 200; c.boss.delayedDamage = c.boss.counterDamage = 0;
+            c.boss.preparedResources.Clear(); effects.Clear(); Engine.CombatActions.Clear(); return c;
+        }
+
+        void BossVarietyPlay(string id)
+        {
+            var c = Engine.State.combat; c.hand.Add(id); c.energy = 200;
+            if (!Engine.PlayCard(c.hand.Count - 1)) throw new InvalidOperationException("Native boss variety must exercise an actual playable card: " + id);
+            effects.Clear(); Engine.CombatActions.Clear(); displayedTurn = c.turn;
+        }
+
+        string BossVarietyViolationCard(BossGoal goal)
+        {
+            if (goal == BossGoal.NoMovement) return GameDatabase.Cards.First(card => card.movement && card.category == "skill").id;
+            if (goal == BossGoal.NoDebuffSkill) return GameDatabase.Cards.Where(BossMechanics.IsDebuffSkill).OrderByDescending(card => card.name.Length).First().id;
+            return GameDatabase.Cards.OrderByDescending(card => card.damage * Math.Max(1, card.hits)).First().id;
+        }
+
+        void ReloadBossVarietyVerification()
+        {
+            string before = JsonUtility.ToJson(Engine.State.combat.boss); int rng = Engine.State.rngState;
+            Engine = new GameEngine(JsonUtility.FromJson<RunState>(JsonUtility.ToJson(Engine.State)));
+            if (before != JsonUtility.ToJson(Engine.State.combat.boss) || Engine.State.rngState != rng)
+                throw new InvalidOperationException("Unity JSON must preserve the boss restriction, manual-card count, violation cause, and RNG.");
+        }
+
+        public void VerificationBossVarietyFlows()
+        {
+            if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") < 0) return;
+            if (Path.GetFileName(savePath) != "lumia-verification.json") throw new InvalidOperationException("Boss variety verification must use the isolated save slot.");
+            var previous = Engine; int cases = 0;
+            foreach (var goal in new[] { BossGoal.NoDebuffSkill, BossGoal.NoHeavyHit, BossGoal.NoMovement })
+            {
+                Engine = NewBossVerificationRun(77100 + cases); var c = PrepareBossVarietyBattle(goal);
+                if (!Engine.CurrentBossView.restricted || Engine.CurrentBossView.violated || c.boss.interrupted || Engine.CurrentBossView.progress != 0 || !Engine.CurrentBossView.needsTurnEnd)
+                    throw new InvalidOperationException("A new restriction must be compliant, unfulfilled, and waiting for turn-end judgment.");
+                BossVarietyPlay("basic_guard"); ReloadBossVarietyVerification(); c = Engine.State.combat;
+                if (Engine.CurrentBossView.progress != 1 || c.boss.interrupted || !Engine.BeginEndTurn() || c.boss.interrupted || !BossMechanics.NeedsSpecialAction(c))
+                    throw new InvalidOperationException("One manual card must remain insufficient after Unity reload and turn end.");
+                cases++;
+
+                Engine = NewBossVerificationRun(77100 + cases); c = PrepareBossVarietyBattle(goal);
+                if (!Engine.BeginEndTurn() || c.boss.interrupted || !BossMechanics.NeedsSpecialAction(c))
+                    throw new InvalidOperationException("An empty restriction turn must fail its two-card minimum.");
+                cases++;
+
+                Engine = NewBossVerificationRun(77100 + cases); c = PrepareBossVarietyBattle(goal);
+                BossVarietyPlay("basic_guard"); BossVarietyPlay("basic_guard");
+                if (c.boss.interrupted || c.boss.violated || !Engine.CurrentBossView.needsTurnEnd || !BossMechanics.PreviewAtTurnEnd(c).interrupted)
+                    throw new InvalidOperationException("Two compliant cards may forecast success but cannot interrupt before turn end.");
+                string state = JsonUtility.ToJson(Engine.State);
+                for (int i = 0; i < 3; i++) { var view = Engine.CurrentBossView; var guide = Engine.BossGuideFor(c.enemyId); string intent = Engine.EnemyIntent; }
+                if (state != JsonUtility.ToJson(Engine.State)) throw new InvalidOperationException("Restriction previews must not mutate state or RNG.");
+                ReloadBossVarietyVerification(); c = Engine.State.combat;
+                if (!Engine.BeginEndTurn() || !c.boss.interrupted || !BossMechanics.RewardVulnerable(c) || BossMechanics.NeedsSpecialAction(c))
+                    throw new InvalidOperationException("A compliant two-card restriction succeeds only on real turn end and cancels its new special.");
+                ReloadBossVarietyVerification();
+                if (!Engine.CurrentBossView.interrupted || Engine.CurrentBossView.violated) throw new InvalidOperationException("Completed compliance must survive a save during the enemy turn.");
+                cases++;
+
+                Engine = NewBossVerificationRun(77100 + cases); c = PrepareBossVarietyBattle(goal);
+                string forbidden = BossVarietyViolationCard(goal); BossVarietyPlay(forbidden);
+                BossVarietyPlay("basic_guard"); BossVarietyPlay("basic_guard");
+                var violation = Engine.CurrentBossView;
+                if (!violation.violated || violation.violationCardId != forbidden || c.boss.interrupted || !violation.nextActionDetails.Contains(GameDatabase.Card(forbidden).name)
+                    || goal == BossGoal.NoHeavyHit && violation.violationDamage < violation.forbiddenDamageThreshold)
+                    throw new InvalidOperationException("A forbidden card remains usable but irreversibly records its actual cause and direct damage.");
+                ReloadBossVarietyVerification(); c = Engine.State.combat;
+                if (!Engine.CurrentBossView.violated || Engine.CurrentBossView.violationCardId != forbidden || !Engine.BeginEndTurn() || c.boss.interrupted
+                    || !BossMechanics.NeedsSpecialAction(c) || !Engine.AdvanceEnemyAction() || !c.boss.specialResolved)
+                    throw new InvalidOperationException("A saved violation cannot be repaired with other cards and executes its promised special once.");
+                cases++;
+            }
+            Engine = NewBossVerificationRun(77100 + cases); var debuff = PrepareBossVarietyBattle(BossGoal.DebuffSkill);
+            string debuffCard = GameDatabase.Cards.First(BossMechanics.IsDebuffSkill).id;
+            for (int i = 0; i < 8 && !debuff.boss.interrupted; i++) BossVarietyPlay(debuffCard);
+            if (Engine.CurrentBossView.restricted || !debuff.boss.interrupted || debuff.boss.progress < BossMechanics.Phase(debuff).goalAmount)
+                throw new InvalidOperationException("Debuff-use challenges must make positive progress from real declared harmful skill cards.");
+            cases++;
+            Debug.Log("BTS BOSS VARIETY FLOW PASS / cases=" + cases + " / restrictions=3 / positiveDebuff=PASS / turnEnd=PASS / violations=PASS / UnityJson=PASS / readOnly=PASS / isolatedSave=PASS");
+            Engine = previous;
+        }
+
+        void VerificationBossVarietyView(string view)
+        {
+            if (view.StartsWith("boss_variety_guide_", StringComparison.Ordinal))
+            {
+                BossGoal goal;
+                if (!Enum.TryParse(view.Substring("boss_variety_guide_".Length), true, out goal)) throw new InvalidOperationException("Unknown variety guide goal.");
+                OpenBossGuide(BossVarietyProfile(goal).subjectId); return;
+            }
+            BossGoal type = view == "boss_variety_debuff_used" ? BossGoal.DebuffSkill : view.Contains("debuff") ? BossGoal.NoDebuffSkill
+                : view.Contains("heavy") || view.Contains("reloaded") ? BossGoal.NoHeavyHit : BossGoal.NoMovement;
+            var c = PrepareBossVarietyBattle(type);
+            if (view == "boss_variety_debuff_used")
+            {
+                string id = GameDatabase.Cards.First(BossMechanics.IsDebuffSkill).id;
+                for (int i = 0; i < 8 && !c.boss.interrupted; i++) BossVarietyPlay(id);
+                if (!c.boss.interrupted) throw new InvalidOperationException("Native debuff-use view must actually meet its positive goal.");
+                return;
+            }
+            if (view.Contains("violation"))
+            {
+                string id = BossVarietyViolationCard(type); BossVarietyPlay(id);
+                if (!Engine.CurrentBossView.violated || Engine.CurrentBossView.violationCardId != id) throw new InvalidOperationException("Native restriction view must show a real violated card.");
+                if (view.EndsWith("_reloaded", StringComparison.Ordinal)) { ReloadBossVarietyVerification(); OpenBossGuide(Engine.State.combat.enemyId); }
+                return;
+            }
+            BossVarietyPlay("basic_guard");
+            if (view != "boss_variety_one_card_failed") BossVarietyPlay("basic_guard");
+            if (view == "boss_variety_compliant" && (c.boss.interrupted || c.boss.violated || !Engine.CurrentBossView.needsTurnEnd))
+                throw new InvalidOperationException("Compliant preview must still wait for turn end.");
+            if (view == "boss_variety_turn_end_success" || view == "boss_variety_one_card_failed")
+            {
+                if (!Engine.BeginEndTurn() || c.boss.interrupted != (view == "boss_variety_turn_end_success"))
+                    throw new InvalidOperationException("Native turn-end result must distinguish two cards from one card.");
+                nextEnemyActionAt = Time.unscaledTime + 60;
+            }
+            effects.Clear(); Engine.CombatActions.Clear();
         }
 
         void PrepareRewardVerificationBattle(ZoneKind kind)
@@ -2045,7 +2201,7 @@ namespace Lumia
 
         public void VerificationView(string view)
         {
-            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") < 0)) return;
+            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") < 0)) return;
             lobby = catalog = inventory = settings = help = fieldInfo = enemyLoadout = false;
             inspectCard = inspectTrait = inspectGear = craftPending = ""; inspectEnemyCard=false; summaryMode=true; scroll = inventoryScroll = encounterStoryScroll = detailScroll = Vector2.zero;summaryScroll.Clear();
             craftQuery = ""; craftTags.Clear(); craftSlot = GearSlot.Weapon; campRemovalSelection.Clear(); campSelectionState = null;
@@ -2065,6 +2221,7 @@ namespace Lumia
             Engine.BeginJourney();
             if (view == "help") { help = true; return; }
             if (view.StartsWith("strategy_", StringComparison.Ordinal)) { VerificationStrategyView(view); return; }
+            if (view.StartsWith("boss_variety_", StringComparison.Ordinal)) { VerificationBossVarietyView(view); return; }
             if (view.StartsWith("boss_ui_", StringComparison.Ordinal)) { VerificationBossView(view); return; }
             if (view.StartsWith("reward_ui_", StringComparison.Ordinal)) { VerificationRewardView(view); return; }
             if (view == "jenny_passive")

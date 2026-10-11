@@ -28,13 +28,16 @@ namespace Lumia
         {
             int damage = phase == 1 ? 18 : phase == 2 ? 26 : 30;
             int block = phase == 1 ? 8 : phase == 2 ? 12 : 14;
+            bool prohibition = goal == G.NoHeavyHit || goal == G.NoDebuffSkill || goal == G.NoMovement;
             int target = goal == G.Damage ? damage : goal == G.Block ? block
-                : goal == G.Movement ? 1 : goal == G.CheapCards ? 3 : phase == 1 ? 2 : 3;
+                : goal == G.NoHeavyHit ? (phase == 1 ? 24 : 32)
+                : goal == G.NoDebuffSkill || goal == G.NoMovement ? 2
+                : goal == G.DebuffSkill || goal == G.Movement ? 1 : goal == G.CheapCards ? 3 : phase == 1 ? 2 : 3;
             return new BossPhaseDef {
                 name = name, tell = tell, response = response, signatureCardId = signature,
                 goal = goal, goalAmount = target,
                 fallbackGoal = goal == G.Damage ? G.Block : G.Damage,
-                fallbackAmount = goal == G.Damage ? block : damage,
+                fallbackAmount = prohibition ? 0 : goal == G.Damage ? block : damage,
                 interval = interval > 0 ? interval : phase == 1 ? 3 : 2,
                 effect = effect, effectAmount = amount, secondaryEffect = secondary, secondaryAmount = secondAmount,
                 resourceKey = resource, resourceLabel = label, resourceCap = cap, statusKey = status
@@ -53,8 +56,8 @@ namespace Lumia
             Add("aya", "사선 통제", "연발 준비와 엄호 사격으로 행동을 제한하고 공포탄 뒤의 사선을 노립니다.",
                 P(1,"엄호 사격","연발 사선에 노출됩니다.","방어를 준비해 사격 자세를 무너뜨리세요.","aya_w",G.Block,F.Strike,10,F.ResourcePrepare,1,resource:"rapid",label:"연발 준비",cap:2),
                 P(2,"공포탄 경계","공포탄 뒤에 후속 사격이 준비됩니다.","다른 카드 키를 섞어 예측한 사선을 벗어나세요.","aya_r",G.MixedKeys,F.Status,1,F.DelayedStrike,12,status:"fear"));
-            Add("hyunwoo", "끝까지 버티는 주먹", "허세로 공격을 받아내고 핵펀치의 충격파를 늦게 터뜨립니다.",
-                P(1,"허세의 가드","반격할 주먹을 숨깁니다.","공격으로 가드를 무너뜨리거나 방어로 받아내세요.","hyunwoo_w",G.Damage,F.Counter,5,F.Shield,8),
+            Add("hyunwoo", "끝까지 버티는 주먹", "큰 한 방을 기다리는 허세는 가벼운 행동으로 흘리고, 후반의 핵펀치 충격파는 방어로 받아냅니다.",
+                P(1,"허세의 빈틈","큰 한 방을 받아칠 허세를 세웁니다.","카드를 2장 이상 사용하고, 한 카드의 직접 피해를 24 미만으로 유지해 허세를 흘리세요.","hyunwoo_w",G.NoHeavyHit,F.Counter,5,F.Shield,8),
                 P(2,"충격파 압박","핵펀치의 충격파가 차오릅니다.","방어를 충분히 쌓아 주먹의 위력을 흘리세요.","hyunwoo_r",G.Block,F.DelayedStrike,16,F.Status,1,status:"attack_down"));
             Add("yuki", "마지막 단추의 검", "단추를 정리할 틈을 벌고 검흔과 무장 해제로 검의 간격을 지배합니다.",
                 P(1,"반듯한 옷매무새","단추와 방어를 재정비합니다.","짧은 행동을 이어 옷매무새를 정리할 틈을 빼앗으세요.","yuki_w",G.CheapCards,F.ResourcePrepare,2,F.Shield,6,resource:"cuff",label:"단추",cap:3),

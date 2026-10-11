@@ -19,8 +19,8 @@ namespace Lumia
             Add("abigail", "좌표를 지우는 사냥", "표식을 남긴 좌표로 차원을 베어 접근합니다. 이동으로 좌표를 흔들고, 마지막 차원 베기는 다양한 행동으로 저지할 수 있습니다.",
                 P(1,"지워지지 않는 좌표","다음 베기의 차원 좌표를 고정합니다.","이동 효과 카드를 사용해 좌표에서 벗어나세요.","abigail_w",G.Movement,F.ResourcePrepare,1,F.Strike,6,resource:"coordinates",label:"좌표 표식 상태",cap:1),
                 P(2,"차원 절단","차원 좌표를 따라 마지막 베기가 예약됩니다.","서로 다른 카드 키로 차원 절단의 계산을 흐트러뜨리세요.","abigail_r",G.MixedKeys,F.ResourcePrepare,1,F.DelayedStrike,14,resource:"coordinates",label:"좌표 표식 상태",cap:1));
-            Add("alonso", "벗어날 수 없는 자장", "방패로 공격을 받아내며 자기장을 확장합니다. 후반에는 연구원을 끌어당기고 자신의 상처를 회복합니다.",
-                P(1,"튕기는 방패","방패 뒤에 반격할 자기장을 모읍니다.","공격이나 방어로 방패의 자력을 흔드세요.","alonso_w",G.Damage,F.Counter,4,F.Shield,10),
+            Add("alonso", "벗어날 수 없는 자장", "큰 충격을 기다리는 방패에는 가벼운 행동을 나누고, 후반에는 자기장의 끌어당김과 회복을 다양한 행동으로 끊습니다.",
+                P(1,"파동을 숨긴 방패","큰 충격을 반격할 자기장을 방패 뒤에 모읍니다.","카드를 2장 이상 사용하고, 한 카드의 직접 피해를 24 미만으로 유지해 자력을 흘리세요.","alonso_w",G.NoHeavyHit,F.Counter,4,F.Shield,10),
                 P(2,"집결하는 자기장","확장된 자기장이 퇴로를 닫습니다.","다른 카드 키를 섞어 자기장의 중심을 벗어나세요.","alonso_r",G.MixedKeys,F.Heal,8,F.Status,1,status:"pull"));
             Add("leni", "장난감의 반격", "당근 바주카로 회복할 틈을 벌고 스프링 함정으로 다음 충격을 예약합니다. 정면에서 버티는 대응과 움직이는 대응을 번갈아 요구합니다.",
                 P(1,"당근 응급처치","당근과 장난감 망치로 재정비합니다.","방어를 모아 장난감의 반격을 받아내세요.","leni_q",G.Block,F.Heal,6,F.Counter,3),
@@ -31,8 +31,8 @@ namespace Lumia
             Add("kenneth", "꺼지지 않는 업화", "공격을 받아 분노를 준비하고 업화의 여진을 남깁니다. 후반에는 모은 분노와 회복으로 계속 전진합니다.",
                 P(1,"분노의 불씨","업화 뒤에 분노의 불씨를 남깁니다.","방어를 모아 불씨가 번지는 것을 막으세요.","kenneth_w",G.Block,F.ResourcePrepare,1,F.DelayedStrike,8,resource:"rage",label:"불타는 도끼",cap:4),
                 P(2,"꺼지지 않는 분쇄","분노를 채우며 화염 속에서 버팁니다.","집중 공격이나 충분한 방어로 재정비를 끊으세요.","kenneth_r",G.Damage,F.ResourcePrepare,2,F.Heal,8,resource:"rage",label:"불타는 도끼",cap:4));
-            Add("katja", "한 발을 위한 사선", "거리를 확보한 뒤 정밀 조준으로 다음 탄환을 예약합니다. 접근을 위한 이동과 탄환을 견디는 방어가 서로 다른 대응이 됩니다.",
-                P(1,"접근 금지선","사격 거리를 확보하며 자리를 바꿉니다.","이동 효과 카드를 사용해 사선과 간격을 바꾸세요.","katja_e",G.Movement,F.ResourcePrepare,1,F.Evasion,10,resource:"distance",label:"사격 거리",cap:2),
+            Add("katja", "한 발을 위한 사선", "새 이동 경로를 읽으며 사격 거리를 벌립니다. 제자리의 행동으로 정찰을 흘린 뒤 후반의 정밀 탄환은 방어로 견딥니다.",
+                P(1,"정지선의 사격 거리","이동 경로를 읽고 사격 거리를 벌리려 합니다.","이동 카드 없이 2장 이상 사용해 정찰 사선에 새 경로를 남기지 마세요.","katja_e",G.NoMovement,F.ResourcePrepare,1,F.Evasion,10,resource:"distance",label:"사격 거리",cap:2),
                 P(2,"정밀한 한 발","스캔을 고정하고 정밀 탄환을 예약합니다.","방어를 모아 한 발의 위력을 받아내세요.","katja_r",G.Block,F.ResourcePrepare,1,F.DelayedStrike,14,resource:"scan",label:"드론 스캔 상태",cap:1));
             Add("darko", "강제집행 예고장", "부채를 준비하고 다음 턴의 행동 비용을 압박합니다. 후반에는 강제집행을 위한 방패까지 갖추므로 행동을 나눠 대응해야 합니다.",
                 P(1,"고리대금 청구","부채 장부에 다음 행동을 기록합니다.","저렴한 카드를 나누어 사용해 수금 준비를 방해하세요.","darko_q",G.CheapCards,F.ResourcePrepare,1,F.Drain,1,resource:"debt",label:"채무 표식",cap:3),
@@ -58,9 +58,9 @@ namespace Lumia
             Add("xuelin", "검진의 주인", "날아간 검으로 첫 공격을 받아치고 검진의 검격을 준비합니다. 검의 바깥과 안쪽에서 서로 다른 대응이 필요합니다.",
                 P(1,"돌아오는 비검","비검을 내보내 첫 공격을 기다립니다.","기본 공격을 이어 검을 회수할 호흡을 끊으세요.","xuelin_q",G.Basic,F.ResourcePrepare,1,F.Counter,3,resource:"sword_out",label:"어검 외출 상태",cap:1),
                 P(2,"만검의 중심","검진에 검격을 모아 마지막 칼날을 예약합니다.","서로 다른 카드 키로 검진의 중심을 바꾸세요.","xuelin_r",G.MixedKeys,F.ResourcePrepare,2,F.DelayedStrike,12,resource:"field_strikes",label:"검진 낙검",cap:3));
-            Add("henry", "되감기는 탈출 시각", "시간 제어장치에 지연 타격을 남기고 탈출의 행동 비용을 늦춥니다. 짧은 행동과 다양한 입력으로 시간 재구축을 방해해야 합니다.",
+            Add("henry", "되감기는 탈출 시각", "시간 장치에는 짧은 행동으로 대응하고, 후반에는 새 이동 경로를 남기지 않아 시간 재구축의 기록을 비웁니다.",
                 P(1,"장치의 초침","시간 제어장치에 다음 초침을 기록합니다.","저렴한 행동을 이어 시간 장치의 기록을 흐트러뜨리세요.","henry_w",G.CheapCards,F.ResourcePrepare,1,F.DelayedStrike,10,resource:"chronograph",label:"시간 제어 장치",cap:1),
-                P(2,"재구축 영역","시간을 재구축하며 다음 행동을 늦춥니다.","다른 카드 키를 섞어 기록된 시간표를 벗어나세요.","henry_r",G.MixedKeys,F.Drain,1,F.DelayedStrike,14));
+                P(2,"기록되지 않는 경로","새로운 이동 경로를 시간 영역에 기록하려 합니다.","이동 카드를 쓰지 않고 2장 이상 사용해 재구축할 경로를 남기지 마세요.","henry_r",G.NoMovement,F.Drain,1,F.DelayedStrike,14));
             Add("blair", "전환되는 추적 방식", "무장 전환으로 회복할 틈을 벌고 VP를 준비한 반격으로 추적을 이어갑니다. 한 가지 행동만 반복하면 전환된 칼날에 붙잡힙니다.",
                 P(1,"전환 베기","무장을 전환하며 자세를 재정비합니다.","다른 카드 키를 사용해 전환의 박자를 흔드세요.","blair_e",G.MixedKeys,F.ResourcePrepare,1,F.Heal,6,resource:"shift",label:"시프트 상태",cap:1),
                 P(2,"끝없는 추적","VP를 채우고 반격할 칼날을 겨눕니다.","방어를 모아 추적의 첫 반격을 받아내세요.","blair_r",G.Block,F.ResourcePrepare,2,F.Counter,5,resource:"vp",label:"VF 추적력",cap:3));

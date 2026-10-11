@@ -1,0 +1,6 @@
+Temp\NativeBossPreflight.cs(3,70): warning CS0414: 'NativeBossPreflight.mapAct' 필드가 할당되었지만 사용되지 않았습니다.
+Temp\NativeBossPreflight.cs(3,77): warning CS0414: 'NativeBossPreflight.mapRow' 필드가 할당되었지만 사용되지 않았습니다.
+Temp\NativeBossPreflight.cs(3,45): warning CS0414: 'NativeBossPreflight.lobby' 필드가 할당되었지만 사용되지 않았습니다.
+﻿BTS BOSS ROSTER PASS / entries=91 / guides=91 / readOnly=true / ordinary=PASS
+NATIVE BOSS FIXTURE PREFLIGHT PASS / 120 fixture scenarios / 5 seeds / deep-copy reload; Unity JSON and native font remain player verification.
+﻿

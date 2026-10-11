@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Lumia
 {
-    public enum BossGoal { Damage, Block, Basic, Skill, Movement, MixedKeys, CheapCards }
+    public enum BossGoal { Damage, Block, Basic, Skill, Movement, MixedKeys, CheapCards, DebuffSkill, NoDebuffSkill, NoHeavyHit, NoMovement }
     public enum BossEffect { None, Strike, Shield, Heal, DelayedStrike, Prepare, Status, Counter, Drain, Evasion, ResourcePrepare, Cleanse }
     public sealed class BossPhaseDef
     {
@@ -26,8 +26,10 @@ namespace Lumia
     }
     [Serializable] public sealed class BossBattleState
     {
-        public int version = 1, phase = 1, pendingPhase, nextMechanicTurn = 2, challengeTurn;
-        public bool challengeActive, interrupted, specialResolved;
+        public int version = 2, phase = 1, pendingPhase, nextMechanicTurn = 2, challengeTurn;
+        public bool challengeActive, interrupted, specialResolved, violated;
+        public string violationCardId;
+        public int violationDamage;
         public int progress, fallbackProgress, rewardUntilTurn;
         public int preparedEnergy, pendingDrain, delayedDamage, delayedDueTurn, counterDamage, counterUntilTurn;
         public string delayedSourceCard;
@@ -41,15 +43,17 @@ namespace Lumia
     public sealed class BossCombatView
     {
         public int phase, pendingPhase, progress, goalAmount, fallbackProgress, fallbackAmount, nextTurn;
-        public bool challengeActive, interrupted;
-        public string phaseName, pendingPhaseText, progressText, nextCondition, nextAction, nextActionDetails;
+        public bool challengeActive, interrupted, restricted, violated, needsTurnEnd;
+        public string violationCardId;
+        public int violationDamage, forbiddenDamageThreshold;
+        public string phaseName, pendingPhaseText, progressText, nextCondition, nextAction, nextActionDetails, restrictionText;
         public BossGuideView guide;
     }
 
     // These readable boss challenges are fan-game turn rules, separate from the original skill rules.
     public static class BossMechanics
     {
-        public const int MaxExtraDamage = 20, MaxSupport = 24, MaxCounter = 6;
+        public const int MaxExtraDamage = 20, MaxSupport = 24, MaxCounter = 6, RestrictionMinimumCards = 2;
         public static readonly string[] StatusKeys = { "slow", "blind", "armor_break", "heal_reduction", "root", "disarm", "silence", "fear", "charm", "attack_down", "pull" };
         public static BossProfile Profile(string subjectId) { return BossProfiles.Get(subjectId); }
         public static BossPhaseDef Phase(CombatState combat)
@@ -64,6 +68,33 @@ namespace Lumia
             if (state.preparedResources == null) state.preparedResources = new List<BossPreparedResource>();
             state.phase = Math.Max(1, state.phase); state.nextMechanicTurn = Math.Max(2, state.nextMechanicTurn);
             return state;
+        }
+        public static bool IsRestriction(BossGoal goal) { return goal == BossGoal.NoDebuffSkill || goal == BossGoal.NoHeavyHit || goal == BossGoal.NoMovement; }
+        public static bool IsDebuffSkill(CardDef card)
+        {
+            return card != null && card.category != "basic" && new[] { "Q", "W", "E", "R", "D", "F" }.Contains(card.key)
+                && CardPresentation.DebuffKinds(card).Count > 0;
+        }
+        public static BossBattleState Clone(BossBattleState state)
+        {
+            if (state == null) return null;
+            return new BossBattleState {
+                version = state.version, phase = state.phase, pendingPhase = state.pendingPhase, nextMechanicTurn = state.nextMechanicTurn, challengeTurn = state.challengeTurn,
+                challengeActive = state.challengeActive, interrupted = state.interrupted, specialResolved = state.specialResolved, violated = state.violated,
+                violationCardId = state.violationCardId, violationDamage = state.violationDamage, progress = state.progress, fallbackProgress = state.fallbackProgress,
+                rewardUntilTurn = state.rewardUntilTurn, preparedEnergy = state.preparedEnergy, pendingDrain = state.pendingDrain,
+                delayedDamage = state.delayedDamage, delayedDueTurn = state.delayedDueTurn, delayedSourceCard = state.delayedSourceCard,
+                counterDamage = state.counterDamage, counterUntilTurn = state.counterUntilTurn,
+                playedKeys = state.playedKeys == null ? new List<string>() : state.playedKeys.ToList(),
+                preparedResources = state.preparedResources == null ? new List<BossPreparedResource>() : state.preparedResources.Select(x => new BossPreparedResource { key = x.key, label = x.label, amount = x.amount, cap = x.cap, isState = x.isState }).ToList()
+            };
+        }
+        public static BossBattleState PreviewAtTurnEnd(CombatState combat)
+        {
+            if (combat?.boss == null) return null;
+            var preview = Clone(combat.boss);
+            if (!combat.enemyTurn) FinalizeChallenge(new CombatState { enemyId = combat.enemyId, turn = combat.turn, boss = preview });
+            return preview;
         }
         public static void CheckPhase(CombatState combat)
         {
@@ -89,12 +120,14 @@ namespace Lumia
             var phase = Phase(combat); if (phase == null) return;
             state.challengeActive = true; state.challengeTurn = combat.turn; state.interrupted = false;
             state.progress = state.fallbackProgress = 0; state.playedKeys.Clear();
+            state.violated = false; state.violationCardId = null; state.violationDamage = 0;
             state.nextMechanicTurn = combat.turn + Math.Max(2, Math.Min(3, phase.interval));
         }
         public static bool ObserveDamage(CombatState combat, int amount)
         {
             if (!CanObserve(combat)) return false;
             var phase = Phase(combat);
+            if (IsRestriction(phase.goal)) return false;
             if (phase.goal == BossGoal.Damage) combat.boss.progress += Math.Max(0, amount);
             if (phase.fallbackGoal == BossGoal.Damage) combat.boss.fallbackProgress += Math.Max(0, amount);
             return TryInterrupt(combat);
@@ -103,20 +136,34 @@ namespace Lumia
         {
             if (!CanObserve(combat)) return false;
             var phase = Phase(combat);
+            if (IsRestriction(phase.goal)) return false;
             if (phase.goal == BossGoal.Block) combat.boss.progress += Math.Max(0, amount);
             if (phase.fallbackGoal == BossGoal.Block) combat.boss.fallbackProgress += Math.Max(0, amount);
             return TryInterrupt(combat);
         }
-        public static bool ObserveCard(CombatState combat, CardDef card, int paidCost)
+        public static bool ObserveCard(CombatState combat, CardDef card, int paidCost, int directDamage = 0)
         {
             if (!CanObserve(combat) || card == null) return false;
             var phase = Phase(combat); bool counts = false;
+            if (IsRestriction(phase.goal))
+            {
+                combat.boss.progress++;
+                bool violation = phase.goal == BossGoal.NoDebuffSkill ? IsDebuffSkill(card)
+                    : phase.goal == BossGoal.NoMovement ? card.movement : directDamage >= Math.Max(1, phase.goalAmount);
+                if (violation && !combat.boss.violated)
+                {
+                    combat.boss.violated = true; combat.boss.violationCardId = card.id;
+                    combat.boss.violationDamage = Math.Max(0, directDamage);
+                }
+                return false;
+            }
             switch (phase.goal)
             {
                 case BossGoal.Basic: counts = card.id == "basic_attack"; break;
                 case BossGoal.Skill: counts = card.category == "skill"; break;
                 case BossGoal.Movement: counts = card.movement; break;
                 case BossGoal.CheapCards: counts = paidCost <= 1; break;
+                case BossGoal.DebuffSkill: counts = IsDebuffSkill(card); break;
                 case BossGoal.MixedKeys:
                     if (!combat.boss.playedKeys.Contains(card.key)) combat.boss.playedKeys.Add(card.key);
                     combat.boss.progress = combat.boss.playedKeys.Count; break;
@@ -131,15 +178,28 @@ namespace Lumia
         private static bool TryInterrupt(CombatState combat)
         {
             var phase = Phase(combat); var state = combat.boss;
+            if (IsRestriction(phase.goal)) return false;
             if (state.progress < Math.Max(1, phase.goalAmount) && (phase.fallbackAmount <= 0 || state.fallbackProgress < phase.fallbackAmount)) return false;
+            return Interrupt(combat);
+        }
+        private static bool Interrupt(CombatState combat)
+        {
+            var state = combat.boss;
             state.interrupted = true; state.rewardUntilTurn = Math.Max(state.rewardUntilTurn, combat.turn + 1);
             return true;
         }
-        public static bool RewardVulnerable(CombatState combat) { return combat?.boss != null && combat.turn <= combat.boss.rewardUntilTurn && combat.boss.rewardUntilTurn > 0; }
-        public static bool NeedsSpecialAction(CombatState combat)
+        public static bool FinalizeChallenge(CombatState combat)
         {
-            return combat?.boss != null && !combat.boss.specialResolved &&
-                ((combat.boss.challengeActive && !combat.boss.interrupted) || (combat.boss.delayedDamage > 0 && combat.turn >= combat.boss.delayedDueTurn));
+            if (!CanObserve(combat) || combat.boss.specialResolved || !IsRestriction(Phase(combat).goal)
+                || combat.boss.violated || combat.boss.progress < RestrictionMinimumCards) return false;
+            return Interrupt(combat);
+        }
+        public static bool RewardVulnerable(CombatState combat) { return combat?.boss != null && combat.turn <= combat.boss.rewardUntilTurn && combat.boss.rewardUntilTurn > 0; }
+        public static bool NeedsSpecialAction(CombatState combat, BossBattleState preview = null)
+        {
+            var state = preview ?? combat?.boss;
+            return combat != null && state != null && !state.specialResolved &&
+                ((state.challengeActive && !state.interrupted) || (state.delayedDamage > 0 && combat.turn >= state.delayedDueTurn));
         }
         public static string GoalText(BossGoal goal, int amount)
         {
@@ -151,6 +211,10 @@ namespace Lumia
                 case BossGoal.Skill: return "실험체 기술 " + amount + "회 사용";
                 case BossGoal.Movement: return "이동 기술 " + amount + "회 사용";
                 case BossGoal.MixedKeys: return "서로 다른 카드 키 " + amount + "종 사용";
+                case BossGoal.DebuffSkill: return "해로운 효과를 가진 기술 카드 " + amount + "회 사용";
+                case BossGoal.NoDebuffSkill: return "해로운 효과를 가진 기술 카드 사용 금지";
+                case BossGoal.NoHeavyHit: return "카드 한 번의 직접 피해 합계 " + Math.Max(1, amount) + " 이상 금지";
+                case BossGoal.NoMovement: return "이동 카드 사용 금지";
                 default: return "지불 코스트 0~1 카드 " + amount + "회 사용";
             }
         }
@@ -164,12 +228,22 @@ namespace Lumia
                 case BossGoal.Skill: return "실험체 기술";
                 case BossGoal.Movement: return "이동 기술";
                 case BossGoal.MixedKeys: return "다른 키 사용";
+                case BossGoal.DebuffSkill: return "디버프 기술";
+                case BossGoal.NoDebuffSkill: return "디버프 기술 금지";
+                case BossGoal.NoHeavyHit: return "강한 직접 공격 금지";
+                case BossGoal.NoMovement: return "이동 카드 금지";
                 default: return "코스트 0~1 사용";
             }
         }
         public static string ResponseText(BossPhaseDef phase)
         {
+            if (IsRestriction(phase.goal)) return GoalText(phase.goal, phase.goalAmount) + " · 수동 카드 최소 " + RestrictionMinimumCards + "장 사용 후 턴 종료 시 판정";
             return GoalText(phase.goal, phase.goalAmount) + (phase.fallbackAmount > 0 ? " 또는 " + GoalText(phase.fallbackGoal, phase.fallbackAmount) : "");
+        }
+        public static string ShortResponseText(BossPhaseDef phase)
+        {
+            if (IsRestriction(phase.goal)) return (phase.goal == BossGoal.NoHeavyHit ? "카드당 직접 피해 " + Math.Max(1, phase.goalAmount) + " 미만" : GoalLabel(phase.goal)) + " · 카드 " + RestrictionMinimumCards + "장";
+            return GoalLabel(phase.goal) + " " + phase.goalAmount + (phase.fallbackAmount > 0 ? " 또는 " + GoalLabel(phase.fallbackGoal) + " " + phase.fallbackAmount : "");
         }
         public static int Amount(BossEffect effect, int amount)
         {
@@ -231,10 +305,13 @@ namespace Lumia
             return new BossGuideView
             {
                 title = (character?.name ?? subjectId) + " / " + profile.title,
-                mechanicDescription = profile.overview + "\n2턴부터 특수행동을 준비합니다. 표시된 조건 중 하나를 이번 턴에 달성하면 중단할 수 있습니다.",
+                mechanicDescription = profile.overview + "\n2턴부터 특수행동을 준비합니다. 표시된 대응 조건을 충족하면 중단할 수 있습니다.",
                 phaseRules = string.Join("\n\n", profile.phases.Select((phase, index) => (index + 1) + "페이즈 · " + phase.name + (index == 0 ? " (전투 시작)" : index == 1 ? " (체력 50% 이하에서 다음 내 턴 적용)" : " (체력 25% 이하에서 다음 내 턴 적용)") + "\n" + phase.tell + "\n특수행동 간격: " + Math.Max(2, Math.Min(3, phase.interval)) + "턴 · 우선 기술: " + (GameDatabase.Card(phase.signatureCardId)?.name ?? phase.signatureCardId))),
-                counterplay = string.Join("\n\n", profile.phases.Select((phase, index) => (index + 1) + "페이즈 · " + ResponseText(phase) + "\n" + phase.response)) + "\n\n조건 하나를 달성하면 이번에 준비 중인 특수행동이 중단됩니다. 이미 예약된 폭발과 효과는 유지됩니다. 보스는 다음 플레이어 턴 종료까지 취약해져 공격으로 받는 피해가 1.5배가 됩니다. 일반 취약과 중첩되지 않습니다."
-                    + (profile.phases.Any(phase => phase.goal == BossGoal.MixedKeys) ? "\n서로 다른 키는 ATK·DEF·Q·W·E·R·D·F를 각각 한 종류로 셉니다." : ""),
+                counterplay = string.Join("\n\n", profile.phases.Select((phase, index) => (index + 1) + "페이즈 · " + ResponseText(phase) + "\n" + phase.response)) + "\n\n대응에 성공하면 이번에 준비 중인 특수행동이 중단됩니다. 이미 예약된 폭발과 효과는 유지됩니다. 보스는 다음 플레이어 턴 종료까지 취약해져 공격으로 받는 피해가 1.5배가 됩니다. 일반 취약과 중첩되지 않습니다."
+                    + (profile.phases.Any(phase => phase.goal == BossGoal.MixedKeys) ? "\n서로 다른 키는 ATK·DEF·Q·W·E·R·D·F를 각각 한 종류로 셉니다." : "")
+                    + (profile.phases.Any(phase => IsRestriction(phase.goal)) ? "\n금지 조건은 예고가 활성화된 턴에 수동 카드를 최소 " + RestrictionMinimumCards + "장 사용하고 끝까지 위반하지 않아야 성공합니다. 턴 종료 시 판정하며, 한 번 위반하면 그 턴에는 되돌릴 수 없습니다. 횟수 미달과 위반 모두 표시된 특수행동으로 이어집니다." : "")
+                    + (profile.phases.Any(phase => phase.goal == BossGoal.DebuffSkill || phase.goal == BossGoal.NoDebuffSkill) ? "\n디버프 기술은 해로운 효과가 정의된 Q·W·E·R·D·F 카드입니다. 조건부·예약된 효과도 포함하며, 명중하거나 실제 효과가 발동했는지와 관계없이 수동 사용으로 판정합니다. 기본 공격·경계와 별도로 발동한 패시브·룬·장비 효과는 제외합니다." : "")
+                    + (profile.phases.Any(phase => phase.goal == BossGoal.NoHeavyHit) ? "\n강한 공격 제한은 카드 한 번으로 실제 줄인 적 체력과 흡수된 방어도의 합으로 판정합니다. 다단 공격과 카드 본체에 붙는 보너스는 합산하고, 회피한 타격·초과 피해·지연·설치물·별도 패시브 피해는 제외합니다." : ""),
                 previewEffects = string.Join("\n\n", profile.phases.Select((phase, index) => (index + 1) + "페이즈 실패 시 · " + EffectsText(phase))) + "\n\n특수행동은 적 턴의 첫 행동입니다. 직접·지연 공격 합계는 턴당 기본 피해 20, 방어·회복 합계는 24가 상한입니다. 피해는 약화·취약·상태이상의 영향을 받습니다. 페이즈는 다음 내 턴에 바뀌며 전환 자체는 공격하지 않습니다."
             };
         }

@@ -107,10 +107,10 @@ namespace Lumia
 
         // Read the actual application paths instead of searching prose: conditional control,
         // next-basic preparations and installation-triggered control all retain their definitions.
-        public static string DebuffRules(CardDef c)
+        public static List<string> DebuffKinds(CardDef c)
         {
-            if (c == null) return "";
             var kinds = new List<string>();
+            if (c == null) return kinds;
             if (c.poison > 0) kinds.Add("poison");
             if (c.weak > 0) kinds.Add("weak");
             if (c.vulnerable > 0) kinds.Add("vulnerable");
@@ -120,8 +120,14 @@ namespace Lumia
             var mechanics = c.mechanics?.rules ?? new SkillRule[0];
             kinds.AddRange(mechanics.Where(x => x != null && x.amount > 0 && (x.op == "bleed" || x.op == "burn"))
                 .Select(x => x.op));
-            kinds = kinds.Distinct().ToList();
+            return kinds.Distinct().ToList();
+        }
+
+        public static string DebuffRules(CardDef c)
+        {
+            var kinds = DebuffKinds(c);
             if (kinds.Count == 0) return "";
+            var statuses = (c.statuses ?? new CardStatusRule[0]).Where(x => x != null && !string.IsNullOrEmpty(x.key)).ToArray();
 
             var lines = new List<string> { "디버프 설명" };
             foreach (string kind in kinds)

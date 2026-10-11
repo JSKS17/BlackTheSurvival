@@ -1,0 +1,8 @@
+Temp\NativeBossVarietyPreflight.cs(4,125): warning CS0169: 'NativeBossVarietyPreflight.mapRow' 필드가 사용되지 않았습니다.
+Temp\NativeBossVarietyPreflight.cs(4,118): warning CS0169: 'NativeBossVarietyPreflight.mapAct' 필드가 사용되지 않았습니다.
+Temp\NativeBossVarietyPreflight.cs(4,166): warning CS0169: 'NativeBossVarietyPreflight.bossGuideScroll' 필드가 사용되지 않았습니다.
+Temp\NativeBossVarietyPreflight.cs(4,93): warning CS0414: 'NativeBossVarietyPreflight.lobby' 필드가 할당되었지만 사용되지 않았습니다.
+﻿BTS BOSS ROSTER PASS / entries=91 / guides=91 / readOnly=true / ordinary=PASS
+BTS BOSS VARIETY FLOW PASS / cases=13 / restrictions=3 / positiveDebuff=PASS / turnEnd=PASS / violations=PASS / UnityJson=PASS / readOnly=PASS / isolatedSave=PASS
+NATIVE BOSS VARIETY FIXTURE PREFLIGHT PASS / 60 fixture scenarios / 5 seeds / deep-copy reload; native Unity JSON and font remain player verification.
+﻿

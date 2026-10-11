@@ -11,7 +11,7 @@ namespace Lumia
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void StartVerification()
         {
-            if (Debug.isDebugBuild && (System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0))
+            if (Debug.isDebugBuild && (System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") >= 0))
                 new GameObject("Lumia verification").AddComponent<LumiaVerification>();
         }
         IEnumerator Start()
@@ -61,6 +61,15 @@ namespace Lumia
                 views = new[] { "reward_ui_subject_empty", "reward_ui_subject_two", "reward_ui_subject_replaced", "reward_ui_subject_reloaded", "reward_ui_subject_committed",
                     "reward_ui_boss_two", "reward_ui_boss_reloaded", "reward_ui_wildlife_budget", "help" };
             }
+            bool varietyOnly = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") >= 0;
+            if (varietyOnly)
+            {
+                LumiaGame.Instance.VerificationBossRoster();
+                LumiaGame.Instance.VerificationBossVarietyFlows();
+                views = new[] { "boss_variety_guide_debuffskill", "boss_variety_guide_nodebuffskill", "boss_variety_guide_noheavyhit", "boss_variety_guide_nomovement",
+                    "boss_variety_compliant", "boss_variety_violation_debuff", "boss_variety_violation_heavy", "boss_variety_violation_movement", "boss_variety_violation_reloaded",
+                    "boss_variety_turn_end_success", "boss_variety_one_card_failed", "boss_variety_debuff_used" };
+            }
             foreach (string view in views)
             {
                 LumiaGame.Instance.VerificationView(view);
@@ -106,6 +115,7 @@ namespace Lumia
                     throw new System.InvalidOperationException("Alex's weapon-sourced additional D cards missing in native UI.");
                 yield return new WaitForSecondsRealtime(view.StartsWith("fx_") || view=="trait_third" ? .25f : .6f);
                 if (bossOnly && view == "boss_ui_badges") LumiaGame.Instance.VerificationBossHudLayout();
+                if (varietyOnly && view == "boss_variety_guide_debuffskill") LumiaGame.Instance.VerificationBossHudLayout();
                 if(view=="lobby")LumiaGame.Instance.ExportPreviewLayoutAudit(Path.Combine(output,"preview-layout.json"));
                 if(view=="irem_field" && !LumiaGame.Instance.Engine.SkillStateSnapshot(false).Any(t=>t.kind=="state" && t.label.Contains("고양이")))
                     throw new System.InvalidOperationException("Irem's cat state was not shown as a native state token.");
@@ -118,11 +128,13 @@ namespace Lumia
                 if (strategyOnly) Debug.Log("BTS STRATEGY PASS " + view);
                 if (bossOnly) Debug.Log("BTS BOSS PASS " + view);
                 if (rewardOnly) Debug.Log("BTS REWARD PASS " + view);
+                if (varietyOnly) Debug.Log("BTS BOSS VARIETY PASS " + view);
                 if (campOnly) Debug.Log("BTS CAMP PASS " + view + " / hp=" + LumiaGame.Instance.Engine.State.hp + " / removals=" + LumiaGame.Instance.Engine.State.campRemovalsRemaining);
             }
             if (strategyOnly) Debug.Log("BTS STRATEGY VERIFICATION PASS / views=" + views.Length);
             if (bossOnly) Debug.Log("BTS BOSS VERIFICATION PASS / views=" + views.Length);
             if (rewardOnly) Debug.Log("BTS REWARD VERIFICATION PASS / views=" + views.Length);
+            if (varietyOnly) Debug.Log("BTS BOSS VARIETY VERIFICATION PASS / views=" + views.Length);
             if (campOnly) Debug.Log("BTS CAMP VERIFICATION PASS / views=" + views.Length);
             Application.Quit();
         }

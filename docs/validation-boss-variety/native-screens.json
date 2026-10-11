@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "uiScreens": 12,
+  "flowCases": 13,
+  "nativeBossEntries": 91,
+  "nativeGuides": 91,
+  "hudFontMeasurements": 732,
+  "restrictionFontMeasurements": 12,
+  "runtimeErrors": 0,
+  "coreScenarios": 73,
+  "coreAssertions": 71676,
+  "personalSavePreserved": true,
+  "personalSaveSha256": "27C04BA854B36D7F7151E3FD62CEA86ACBC2F17A56B11B46F825FD60FCC76C73",
+  "screens": [
+    {
+      "file": "native-ui/boss_variety_guide_debuffskill.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_variety_guide_nodebuffskill.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_variety_guide_noheavyhit.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_variety_guide_nomovement.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_variety_compliant.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_variety_violation_debuff.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_variety_violation_heavy.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_variety_violation_movement.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_variety_violation_reloaded.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_variety_turn_end_success.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_variety_one_card_failed.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_variety_debuff_used.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ],
+  "scope": "Four new response guides, safe restrictions, irreversible debuff/heavy/movement violations, Unity JSON restoration, turn-end success and one-card failure, positive debuff use; all 91 native entries and guides; read-only forecasts and native font audit."
+}

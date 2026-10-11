@@ -158,12 +158,25 @@ namespace Lumia
             {
                 var c = State.combat; if (!IsBossCombat) return null;
                 var b = c.boss; var phase = BossMechanics.Phase(c); if (phase == null) return null;
-                string progress = BossMechanics.GoalLabel(phase.goal) + " " + Math.Min(b.progress, Math.Max(1, phase.goalAmount)) + "/" + Math.Max(1, phase.goalAmount);
-                if (phase.fallbackAmount > 0) progress += " 또는 " + BossMechanics.GoalLabel(phase.fallbackGoal) + " " + Math.Min(b.fallbackProgress, phase.fallbackAmount) + "/" + phase.fallbackAmount;
+                bool restricted = BossMechanics.IsRestriction(phase.goal);
+                bool endTurnSuccess = restricted && !b.interrupted && BossMechanics.PreviewAtTurnEnd(c).interrupted;
+                string progress = restricted ? (!b.challengeActive ? "다음 예고 대기" : b.interrupted ? "준수 완료" : b.violated ? "위반" : c.enemyTurn ? "사용 횟수 미달" : "준수 중") + " · 수동 카드 " + Math.Min(b.progress, BossMechanics.RestrictionMinimumCards) + "/" + BossMechanics.RestrictionMinimumCards + (!c.enemyTurn && b.challengeActive && !b.interrupted && !b.violated ? " · 턴 종료 판정" : "")
+                    : BossMechanics.GoalLabel(phase.goal) + " " + Math.Min(b.progress, Math.Max(1, phase.goalAmount)) + "/" + Math.Max(1, phase.goalAmount);
+                if (!restricted && phase.fallbackAmount > 0) progress += " 또는 " + BossMechanics.GoalLabel(phase.fallbackGoal) + " " + Math.Min(b.fallbackProgress, phase.fallbackAmount) + "/" + phase.fallbackAmount;
                 string action = b.challengeActive ? b.interrupted ? "특수행동 중단 · 다음 내 턴까지 보스 취약" : "이번 적 턴 · " + BossMechanics.ShortEffectsText(phase)
                     : b.nextMechanicTurn + "턴에 특수행동 예고";
+                if (b.challengeActive && endTurnSuccess) action = "턴 종료 시 중단 예정 · 제한 유지";
                 if (c.enemyTurn && b.specialResolved && b.challengeTurn == c.turn) action = b.interrupted ? "특수행동 중단 완료 · 다음 내 턴까지 보스 취약" : "이번 특수행동 처리 완료";
                 string details = b.challengeActive && !b.interrupted ? BossMechanics.EffectsText(phase) : "";
+                if (restricted && b.challengeActive && !b.interrupted)
+                {
+                    string condition = b.violated ? "제한 위반: " + (GameDatabase.Card(b.violationCardId)?.name ?? b.violationCardId ?? "카드")
+                        + (phase.goal == BossGoal.NoHeavyHit ? " · 직접 피해 " + b.violationDamage + " / 금지 기준 " + Math.Max(1, phase.goalAmount) : " 사용") + ". 이번 턴에는 되돌릴 수 없습니다."
+                        : endTurnSuccess ? "지금 턴을 종료하면 제한 준수에 성공합니다. 추가로 사용하는 카드도 제한을 지켜야 합니다."
+                        : c.enemyTurn ? "수동 카드 사용 횟수가 " + BossMechanics.RestrictionMinimumCards + "장보다 적어 대응에 실패했습니다."
+                        : "제한을 지키며 수동 카드를 최소 " + BossMechanics.RestrictionMinimumCards + "장 사용해야 합니다. 지금 턴을 종료하면 사용 횟수 미달입니다.";
+                    details = condition + "\n실패 시: " + details;
+                }
                 int attackForecast = BossSpecialDamageForecast();
                 if (attackForecast > 0) details += "\n이번 적 턴의 특수공격 예상 피해: " + attackForecast + " (현재 보정 반영, 방어·회피 전)";
                 if (b.interrupted && b.delayedDamage > 0) details += "\n이번 준비는 중단했지만, 이미 예약된 폭발은 유지됩니다.";
@@ -171,9 +184,13 @@ namespace Lumia
                 if (b.counterDamage > 0 && c.turn <= b.counterUntilTurn) { action += " · 첫 공격 반격 " + b.counterDamage; details += "\n이번 플레이어 턴의 첫 공격 적중에 반격 예상 피해 " + BossStrikeDamage(b.counterDamage, c.enemyWeak, c.vulnerable, c.enemyStatuses, c.playerStatuses) + "가 한 번 발동합니다. 방어할 수 있습니다."; }
                 return new BossCombatView { phase = b.phase, pendingPhase = b.pendingPhase, phaseName = phase.name,
                     pendingPhaseText = b.pendingPhase > b.phase ? b.pendingPhase + "페이즈 전환 예약 · 다음 내 턴에 적용" : "",
-                    challengeActive = b.challengeActive, interrupted = b.interrupted, progress = b.progress, goalAmount = phase.goalAmount,
-                    fallbackProgress = b.fallbackProgress, fallbackAmount = phase.fallbackAmount, nextTurn = b.challengeActive ? c.turn : b.nextMechanicTurn,
-                    progressText = progress, nextCondition = phase.name + " · " + BossMechanics.GoalLabel(phase.goal) + " " + phase.goalAmount + (phase.fallbackAmount > 0 ? " 또는 " + BossMechanics.GoalLabel(phase.fallbackGoal) + " " + phase.fallbackAmount : ""), nextAction = action,
+                    challengeActive = b.challengeActive, interrupted = b.interrupted, restricted = restricted, violated = b.challengeActive && b.violated,
+                    needsTurnEnd = restricted && !c.enemyTurn && b.challengeActive && !b.interrupted, violationCardId = b.challengeActive ? b.violationCardId : null, violationDamage = b.challengeActive ? b.violationDamage : 0,
+                    forbiddenDamageThreshold = phase.goal == BossGoal.NoHeavyHit ? Math.Max(1, phase.goalAmount) : 0,
+                    restrictionText = restricted ? (phase.goal == BossGoal.NoHeavyHit ? "카드당 직접 피해 " + Math.Max(1, phase.goalAmount) + " 이상 금지" : BossMechanics.GoalLabel(phase.goal)) : "",
+                    progress = b.progress, goalAmount = restricted ? BossMechanics.RestrictionMinimumCards : phase.goalAmount,
+                    fallbackProgress = b.fallbackProgress, fallbackAmount = restricted ? 0 : phase.fallbackAmount, nextTurn = b.challengeActive ? c.turn : b.nextMechanicTurn,
+                    progressText = progress, nextCondition = phase.name + " · " + BossMechanics.ShortResponseText(phase), nextAction = action,
                     nextActionDetails = details, guide = BossGuideFor(c.enemyId) };
             }
         }
@@ -187,7 +204,7 @@ namespace Lumia
                 if (c == null) return "";
                 RefreshEnemyIntent();
                 var names = c.enemyPlan.Select(id => GameDatabase.Card(id)).Where(x => x != null).Select(x => x.name);
-                string bossIntent = c.boss != null && BossMechanics.NeedsSpecialAction(c) ? " · 보스 특수행동 포함" : "";
+                string bossIntent = c.boss != null && BossMechanics.NeedsSpecialAction(c, BossMechanics.PreviewAtTurnEnd(c)) ? " · 보스 특수행동 포함" : "";
                 return string.Join(" · ", names) + "  / 피해 " + c.intentDamage + " · 방어 " + c.intentBlock + " · 코스트 " + c.enemyPlanCosts.Sum() + "/" + c.enemyEnergy + (c.enemyPlan.Any(id => GameDatabase.Card(id) != null && GameDatabase.Card(id).freeCastOnHit) ? " · 적중 시 연계 포함" : "") + bossIntent;
             }
         }
@@ -303,8 +320,20 @@ namespace Lumia
                 if (bossNode)
                 {
                     bool legacyBoss = c.boss == null;
+                    bool legacyChallenge = c.boss != null && c.boss.version < 2;
                     c.boss = BossMechanics.Ensure(c.boss);
                     if (legacyBoss) { c.boss.nextMechanicTurn = Math.Max(2, c.turn + 1); c.boss.specialResolved = c.enemyTurn; }
+                    var phase = BossMechanics.Phase(c);
+                    if (legacyChallenge && c.boss.challengeActive && !c.boss.interrupted && phase != null
+                        && (BossMechanics.IsRestriction(phase.goal) || phase.goal == BossGoal.DebuffSkill))
+                    {
+                        // Version 1 did not record these actions. Give a new complete turn
+                        // of warning instead of judging cards played before the update.
+                        c.boss.challengeActive = false; c.boss.nextMechanicTurn = Math.Max(c.turn + 1, c.boss.nextMechanicTurn);
+                        c.boss.progress = c.boss.fallbackProgress = 0; c.boss.playedKeys.Clear();
+                        c.boss.violated = false; c.boss.violationCardId = null; c.boss.violationDamage = 0;
+                    }
+                    c.boss.version = 2;
                     BossMechanics.CheckPhase(c);
                 }
                 else c.boss = null;
@@ -609,7 +638,7 @@ namespace Lumia
             if (c.retainIndex == handIndex) c.retainIndex = -1;
             else if (c.retainIndex > handIndex) c.retainIndex--;
             if (card.exhaust) c.exhaustPile.Add(id); else c.discardPile.Add(id);
-            int hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0;
+            int hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0, directDamage = 0;
             int bonusDamage = PlayerBonusDamage(id);
             var incoming=card.damage>0 || bonusDamage>0 ? TraitEvent(true,"before_incoming",card,true) : new TraitResult();int incomingReduction=incoming.damageReduction,defenderBlock=c.enemyBlock;
                 bool landed = card.damage == 0 && bonusDamage == 0, bonusUsed = false;
@@ -623,7 +652,8 @@ namespace Lumia
                 if (id == "basic_attack" && baseDamage > 0 && Roll(CritChance)) { baseDamage = CriticalBaseDamage(baseDamage); criticalHits++; }
                 int damage = Math.Max(0,baseDamage + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.enemyBlock, damage);
                 bonusUsed = true;
-                c.enemyBlock -= absorbed; damage -= absorbed; dealt += TakeHealthDamage(true,damage);
+                c.enemyBlock -= absorbed; damage -= absorbed;
+                int healthDamage = TakeHealthDamage(true, damage); dealt += healthDamage; directDamage += absorbed + healthDamage;
                 RecordBossProgress(BossMechanics.ObserveDamage(c, absorbed));
             }
             if (card.damage > 0 || bonusDamage > 0) c.attacksPlayed++;
@@ -644,7 +674,6 @@ namespace Lumia
             RecallSkillDiscounts(c.playerSkills, skillBefore, State.deck, c.hand, c.drawPile, c.discardPile, true);
             if (RecordLastSkill(c.lastSkills, card)) c.lastSkillCard = id;
             GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills, card.owner), skillBefore, landed);
-            RefreshEnemyIntent();
             int cardHeal=State.hp-beforeHp;
             CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = id, enemy = false, damage = dealt, block = block, heal = cardHeal, avoided = avoided, critical = criticalHits > 0, criticalHits = criticalHits });
             bool attackAttempt=card.damage>0 || bonusDamage>0;
@@ -654,7 +683,8 @@ namespace Lumia
             if(defenderBlock>0 && c.enemyBlock==0) TraitEvent(true,"block_break",card,landed,dealt);
             Say(card.name + " 사용" + (criticalHits > 0 ? " · 치명타!" : "") + (card.damage > 0 ? " · 피해 " + dealt : "") + (block > 0 ? " · 방어 +" + block : ""));
             if (landed && (card.damage > 0 || bonusDamage > 0)) ResolveCounters(true);
-            RecordBossProgress(BossMechanics.ObserveCard(c, card, price));
+            RecordBossProgress(BossMechanics.ObserveCard(c, card, price, directDamage));
+            if (State.stage == RunStage.Combat) RefreshEnemyIntent();
             CheckBattleEnd();
             return true;
         }
@@ -693,6 +723,7 @@ namespace Lumia
             TraitMechanics.EndTurn(c.playerTraits);
             StatusMechanics.EndTurn(c.playerStatuses);
             if (CheckBattleEnd()) return true;
+            RecordBossProgress(BossMechanics.FinalizeChallenge(c));
             c.enemyBlock = 0;
             if (c.enemyEvasionTurns > 0 && --c.enemyEvasionTurns == 0) c.enemyEvasion = BaseEnemyEvasion();
             c.enemyTurn = true; c.enemyActionIndex = 0; c.enemyFreeCasts.Clear(); c.enemyFreeCastSources.Clear();
@@ -1621,7 +1652,7 @@ namespace Lumia
 
         private int BossSpecialDamageForecast()
         {
-            var c = State.combat; if (!BossMechanics.NeedsSpecialAction(c)) return 0;
+            var c = State.combat; if (!BossMechanics.NeedsSpecialAction(c, BossMechanics.PreviewAtTurnEnd(c))) return 0;
             var phase = BossMechanics.Phase(c); if (phase == null) return 0;
             int weak = c.enemyWeak, vulnerable = c.enemyTurn ? c.vulnerable : Math.Max(0, c.vulnerable - 1), actorHp = c.enemyHp, defenderHp = State.hp, defenderBlock = c.block;
             var attacker = StatusMechanics.Clone(c.enemyStatuses); var defender = StatusMechanics.Clone(c.playerStatuses);
@@ -1699,8 +1730,8 @@ namespace Lumia
             TraitActorState attackerTraits, TraitActorState defenderTraits, StatusActorState attackerStatuses, StatusActorState defenderStatuses, out int addedBlock)
         {
             addedBlock = 0;
-            var c = State.combat; if (!BossMechanics.NeedsSpecialAction(c)) return 0;
-            var b = c.boss; var phase = BossMechanics.Phase(c); if (phase == null) return 0;
+            var c = State.combat; var b = BossMechanics.PreviewAtTurnEnd(c); if (!BossMechanics.NeedsSpecialAction(c, b)) return 0;
+            var phase = BossMechanics.Phase(c); if (phase == null) return 0;
             var effects = new List<KeyValuePair<BossEffect, int>>();
             bool hasDelayed = b.delayedDamage > 0 && c.turn >= b.delayedDueTurn;
             if (hasDelayed) effects.Add(new KeyValuePair<BossEffect, int>(BossEffect.Strike, b.delayedDamage));
