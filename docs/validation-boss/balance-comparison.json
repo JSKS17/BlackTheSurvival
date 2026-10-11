@@ -1,0 +1,20 @@
+{
+  "revision": "b462ede84f42ddf375aa41aacb57989440d9db4a",
+  "seeds": 40,
+  "policyGitDiffEmpty": true,
+  "baselinePolicySha256": "3AC3C4A8A84DC80436FDB0029279F8176C27C17CCE6B3E32FFCC0DC6F50C2A31",
+  "currentPolicySha256": "3AC3C4A8A84DC80436FDB0029279F8176C27C17CCE6B3E32FFCC0DC6F50C2A31",
+  "baseline": {
+    "act3Reached": 17,
+    "stalls": 0,
+    "wins": 3,
+    "losses": 37
+  },
+  "current": {
+    "act3Reached": 17,
+    "stalls": 0,
+    "wins": 1,
+    "losses": 39
+  },
+  "limitation": "Fixed policy does not optimize boss counterplay. Added special-hit RNG changes later trajectories, so paired seed outcomes are not isolated boss comparisons."
+}

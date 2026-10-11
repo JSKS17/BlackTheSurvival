@@ -52,6 +52,7 @@ namespace Lumia
         public int retainIndex = -1, retainUses;
         public string retainedCardId;
         public int retainVersion = 1;
+        public BossBattleState boss;
         public string enemyWeaponClass, enemyWeaponCardId, enemyTacticalCardId, enemyPassiveId;
         public List<string> enemyGear = new List<string>();
         public List<DeferredDamage> playerDeferredDamage = new List<DeferredDamage>(), enemyDeferredDamage = new List<DeferredDamage>();
@@ -143,6 +144,33 @@ namespace Lumia
         public string PendingFollowupDescription { get { var next = NextPromisedEncounter(); return next == null ? "" : "다음 약속: " + next.owner + " · 다음 조우 등장 확률 80% · 남은 약속 " + State.pendingEncounterFollowups.Count + "건. 다른 조우를 선택해도 유지됩니다."; } }
         public bool CanUseSecurityConsole { get { return State.stage == RunStage.Map && State.credits >= SecurityConsolePrice && !State.scoutedActs.Contains(State.act) && ScoutNodes().Any(n => (n.kind == ZoneKind.Subject || n.kind == ZoneKind.Wildlife) && !State.revealedNodeIds.Contains(n.id)); } }
         public bool CanUseHyperloop { get { return State.stage == RunStage.Map && !State.hyperloopActs.Contains(State.act) && AvailableHyperloopNodes().Count > 0; } }
+        public bool IsBossCombat { get { return State.stage == RunStage.Combat && State.combat?.boss != null; } }
+        public BossGuideView BossGuideFor(string subjectId) { return BossMechanics.Guide(subjectId); }
+        public BossCombatView CurrentBossView
+        {
+            get
+            {
+                var c = State.combat; if (!IsBossCombat) return null;
+                var b = c.boss; var phase = BossMechanics.Phase(c); if (phase == null) return null;
+                string progress = BossMechanics.GoalLabel(phase.goal) + " " + Math.Min(b.progress, Math.Max(1, phase.goalAmount)) + "/" + Math.Max(1, phase.goalAmount);
+                if (phase.fallbackAmount > 0) progress += " 또는 " + BossMechanics.GoalLabel(phase.fallbackGoal) + " " + Math.Min(b.fallbackProgress, phase.fallbackAmount) + "/" + phase.fallbackAmount;
+                string action = b.challengeActive ? b.interrupted ? "특수행동 중단 · 다음 내 턴까지 보스 취약" : "이번 적 턴 · " + BossMechanics.ShortEffectsText(phase)
+                    : b.nextMechanicTurn + "턴에 특수행동 예고";
+                if (c.enemyTurn && b.specialResolved && b.challengeTurn == c.turn) action = b.interrupted ? "특수행동 중단 완료 · 다음 내 턴까지 보스 취약" : "이번 특수행동 처리 완료";
+                string details = b.challengeActive && !b.interrupted ? BossMechanics.EffectsText(phase) : "";
+                int attackForecast = BossSpecialDamageForecast();
+                if (attackForecast > 0) details += "\n이번 적 턴의 특수공격 예상 피해: " + attackForecast + " (현재 보정 반영, 방어·회피 전)";
+                if (b.interrupted && b.delayedDamage > 0) details += "\n이번 준비는 중단했지만, 이미 예약된 폭발은 유지됩니다.";
+                if (b.delayedDamage > 0) { action += " · " + b.delayedDueTurn + "턴 폭발 " + b.delayedDamage; details += "\n" + b.delayedDueTurn + "턴 적의 첫 행동에 지연 공격 기본 피해 " + b.delayedDamage + ". 방어·회피로 대응할 수 있습니다."; }
+                if (b.counterDamage > 0 && c.turn <= b.counterUntilTurn) { action += " · 첫 공격 반격 " + b.counterDamage; details += "\n이번 플레이어 턴의 첫 공격 적중에 반격 예상 피해 " + BossStrikeDamage(b.counterDamage, c.enemyWeak, c.vulnerable, c.enemyStatuses, c.playerStatuses) + "가 한 번 발동합니다. 방어할 수 있습니다."; }
+                return new BossCombatView { phase = b.phase, pendingPhase = b.pendingPhase, phaseName = phase.name,
+                    pendingPhaseText = b.pendingPhase > b.phase ? b.pendingPhase + "페이즈 전환 예약 · 다음 내 턴에 적용" : "",
+                    challengeActive = b.challengeActive, interrupted = b.interrupted, progress = b.progress, goalAmount = phase.goalAmount,
+                    fallbackProgress = b.fallbackProgress, fallbackAmount = phase.fallbackAmount, nextTurn = b.challengeActive ? c.turn : b.nextMechanicTurn,
+                    progressText = progress, nextCondition = phase.name + " · " + BossMechanics.GoalLabel(phase.goal) + " " + phase.goalAmount + (phase.fallbackAmount > 0 ? " 또는 " + BossMechanics.GoalLabel(phase.fallbackGoal) + " " + phase.fallbackAmount : ""), nextAction = action,
+                    nextActionDetails = details, guide = BossGuideFor(c.enemyId) };
+            }
+        }
         public int Evasion { get { return Math.Min(90, Math.Min(65, EquipmentSum(g => g.evasion) + Modifier("evade_bonus") + (State.combat == null ? 0 : State.combat.evasion + Modifier("battle_start_evasion") + TraitMechanics.EvasionBonus(State.combat.playerTraits)))+(State.combat==null?0:StatusMechanics.AccuracyPenalty(State.combat.enemyStatuses))); } }
         public int EnemyEvasion { get { var c=State.combat;return c==null?0:c.enemyEvasion>=100?100:Math.Min(90,Math.Min(65,c.enemyEvasion+TraitMechanics.EvasionBonus(c.enemyTraits))+StatusMechanics.AccuracyPenalty(c.playerStatuses)); } }
         public string EnemyIntent
@@ -153,7 +181,8 @@ namespace Lumia
                 if (c == null) return "";
                 RefreshEnemyIntent();
                 var names = c.enemyPlan.Select(id => GameDatabase.Card(id)).Where(x => x != null).Select(x => x.name);
-                return string.Join(" · ", names) + "  / 피해 " + c.intentDamage + " · 방어 " + c.intentBlock + " · 코스트 " + c.enemyPlanCosts.Sum() + "/" + EnergyForLevel(c.enemyLevel) + (c.enemyPlan.Any(id => GameDatabase.Card(id) != null && GameDatabase.Card(id).freeCastOnHit) ? " · 적중 시 연계 포함" : "");
+                string bossIntent = c.boss != null && BossMechanics.NeedsSpecialAction(c) ? " · 보스 특수행동 포함" : "";
+                return string.Join(" · ", names) + "  / 피해 " + c.intentDamage + " · 방어 " + c.intentBlock + " · 코스트 " + c.enemyPlanCosts.Sum() + "/" + c.enemyEnergy + (c.enemyPlan.Any(id => GameDatabase.Card(id) != null && GameDatabase.Card(id).freeCastOnHit) ? " · 적중 시 연계 포함" : "") + bossIntent;
             }
         }
 
@@ -250,6 +279,15 @@ namespace Lumia
                 if(c.playerDeferredDamage==null)c.playerDeferredDamage=new List<DeferredDamage>();
                 if(c.enemyDeferredDamage==null)c.enemyDeferredDamage=new List<DeferredDamage>();
                 State.persistentTraits=c.playerTraits;
+                bool bossNode = ActiveNode()?.kind == ZoneKind.Boss && string.IsNullOrEmpty(c.animal) && BossMechanics.Profile(c.enemyId) != null;
+                if (bossNode)
+                {
+                    bool legacyBoss = c.boss == null;
+                    c.boss = BossMechanics.Ensure(c.boss);
+                    if (legacyBoss) { c.boss.nextMechanicTurn = Math.Max(2, c.turn + 1); c.boss.specialResolved = c.enemyTurn; }
+                    BossMechanics.CheckPhase(c);
+                }
+                else c.boss = null;
             }
             // Do not rewrite an in-progress battle's piles; equipment grants synchronize between nodes.
             if(State.stage!=RunStage.Combat)SyncWeaponCards();
@@ -513,7 +551,7 @@ namespace Lumia
             int value = card.damage + State.level / 3 + TotalAttack + (State.combat == null ? 0 : State.combat.strength);
             value += Modifier(card.category == "basic" ? "attack_bonus" : "skill_bonus");
             if (State.combat != null && State.combat.weak > 0) value = value * 3 / 4;
-            if (State.combat != null && State.combat.enemyVulnerable > 0) value = value * 3 / 2;
+            if (State.combat != null && (State.combat.enemyVulnerable > 0 || BossMechanics.RewardVulnerable(State.combat))) value = value * 3 / 2;
             if (State.combat != null) value=value*(100+TraitMechanics.Exposure(State.combat.enemyTraits))/100;
             if(State.combat!=null)value=StatusMechanics.Damage(State.combat.playerStatuses,State.combat.enemyStatuses,value);
             return Math.Max(0, value);
@@ -526,7 +564,7 @@ namespace Lumia
             if(card.damage<=0 && skillDamage<=0 && empower<=0) return 0;
             int damage = skillDamage + PreviewBeforeTraits(false,card,c.playerSkills).bonus.damage + TraitMechanics.DamageBonus(c.playerTraits) + empower;
             if (c.weak > 0) damage = damage * 3 / 4;
-            if (c.enemyVulnerable > 0) damage = damage * 3 / 2;
+            if (c.enemyVulnerable > 0 || BossMechanics.RewardVulnerable(c)) damage = damage * 3 / 2;
             damage=damage*(100+TraitMechanics.Exposure(c.enemyTraits))/100;
             return StatusMechanics.Damage(c.playerStatuses,c.enemyStatuses,damage);
         }
@@ -554,7 +592,7 @@ namespace Lumia
             int hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0;
             int bonusDamage = PlayerBonusDamage(id);
             var incoming=card.damage>0 || bonusDamage>0 ? TraitEvent(true,"before_incoming",card,true) : new TraitResult();int incomingReduction=incoming.damageReduction,defenderBlock=c.enemyBlock;
-            bool landed = card.damage == 0 && bonusDamage == 0, bonusUsed = false;
+                bool landed = card.damage == 0 && bonusDamage == 0, bonusUsed = false;
             for (int i = 0; i < hits && c.enemyHp > 0; ++i)
             {
                 if (card.damage <= 0 && bonusDamage <= 0) break;
@@ -566,11 +604,13 @@ namespace Lumia
                 int damage = Math.Max(0,baseDamage + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.enemyBlock, damage);
                 bonusUsed = true;
                 c.enemyBlock -= absorbed; damage -= absorbed; dealt += TakeHealthDamage(true,damage);
+                RecordBossProgress(BossMechanics.ObserveDamage(c, absorbed));
             }
             if (card.damage > 0 || bonusDamage > 0) c.attacksPlayed++;
             var bonuses = SkillMechanics.Bonuses(skillBefore, card, landed);
             int block = Math.Max(0, card.block) + bonuses.block, beforeHp = State.hp;
             c.block += block;
+            RecordBossProgress(BossMechanics.ObserveBlock(c, block));
             if (card.heal > 0 || bonuses.heal > 0) Heal(Math.Max(0, card.heal) + bonuses.heal);
             c.strength += card.strength;
             if (landed) { c.enemyPoison += card.poison; c.enemyVulnerable = Math.Max(c.enemyVulnerable, card.vulnerable); c.enemyWeak = Math.Max(c.enemyWeak, card.weak); }
@@ -594,6 +634,7 @@ namespace Lumia
             if(defenderBlock>0 && c.enemyBlock==0) TraitEvent(true,"block_break",card,landed,dealt);
             Say(card.name + " 사용" + (criticalHits > 0 ? " · 치명타!" : "") + (card.damage > 0 ? " · 피해 " + dealt : "") + (block > 0 ? " · 방어 +" + block : ""));
             if (landed && (card.damage > 0 || bonusDamage > 0)) ResolveCounters(true);
+            RecordBossProgress(BossMechanics.ObserveCard(c, card, price));
             CheckBattleEnd();
             return true;
         }
@@ -650,6 +691,8 @@ namespace Lumia
         {
             var c = State.combat;
             if (State.stage != RunStage.Combat || c == null || !c.enemyTurn) return false;
+            if (BossMechanics.NeedsSpecialAction(c)) { ResolveBossSpecial(); CheckBattleEnd(); return true; }
+            if (c.boss != null) { c.boss.specialResolved = true; c.boss.challengeActive = false; }
             if (c.enemyActionIndex >= c.enemyPlan.Count)
             {
                 c.enemyTurn = false; c.enemyPlan.Clear(); c.enemyPlanCosts.Clear(); c.enemyPlanFreeCast.Clear(); c.enemyHand.Clear();
@@ -1142,6 +1185,141 @@ namespace Lumia
 
         private MapNode ActiveNode() { return State.map.FirstOrDefault(n => n.id == State.activeNodeId); }
 
+        private void RecordBossProgress(bool interrupted)
+        {
+            if (!interrupted || State.combat?.boss == null) return;
+            var phase = BossMechanics.Phase(State.combat);
+            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = phase?.signatureCardId, kind = "boss_interrupt", enemy = false });
+            Say("공략 성공 · " + phase?.name + " 중단. 다음 플레이어 턴 종료까지 보스가 취약해집니다.");
+        }
+
+        private void PrioritizeBossSignature(CombatState combat, int available)
+        {
+            if (combat.boss == null || !combat.boss.challengeActive) return;
+            string id = BossMechanics.Phase(combat)?.signatureCardId;
+            if (string.IsNullOrEmpty(id) || !combat.enemyDeck.Contains(id) || CardCost(id) > available) return;
+            int index = combat.enemyHand.IndexOf(id);
+            if (index < 0 && combat.enemyHand.Count > 0)
+            {
+                var source = combat.enemyDrawPile.Contains(id) ? combat.enemyDrawPile : combat.enemyDiscardPile;
+                int sourceIndex = source.LastIndexOf(id); if (sourceIndex < 0) return;
+                source.RemoveAt(sourceIndex);
+                int last = combat.enemyHand.Count - 1;
+                source.Add(combat.enemyHand[last]); combat.enemyHand[last] = id; index = last;
+            }
+            if (index > 0) { combat.enemyHand.RemoveAt(index); combat.enemyHand.Insert(0, id); }
+        }
+
+        private void PrepareBossNextTurn()
+        {
+            var c = State.combat; var b = c?.boss; if (b == null) return;
+            c.enemyOpeningEnergy += Math.Min(1, Math.Max(0, b.preparedEnergy)); b.preparedEnergy = 0;
+            var character = GameDatabase.Character(c.enemyId);
+            foreach (var ready in b.preparedResources)
+            {
+                var resource = c.enemySkills.resources.FirstOrDefault(x => x.owner == character.name && x.key == ready.key);
+                if (resource == null) { resource = new SkillResource { owner = character.name, key = ready.key }; c.enemySkills.resources.Add(resource); }
+                resource.label = ready.label; resource.cap = Math.Max(1, ready.cap); resource.isState = ready.isState;
+                resource.amount = ready.isState ? 1 : Math.Max(resource.amount, Math.Min(resource.cap, resource.amount + Math.Max(0, ready.amount)));
+            }
+            b.preparedResources.Clear();
+            if (c.turn > b.counterUntilTurn) b.counterDamage = 0;
+        }
+
+        private void QueueBossResource(BossPhaseDef phase, int amount)
+        {
+            var c = State.combat; var character = GameDatabase.Character(c.enemyId);
+            if (character == null || string.IsNullOrEmpty(phase.resourceKey)) return;
+            var rules = character.cards.Select(GameDatabase.Card).Where(card => card?.mechanics != null)
+                .SelectMany(card => card.mechanics.rules ?? new SkillRule[0])
+                .Where(rule => rule.key == phase.resourceKey && new[] { "gain", "set", "state_on", "state_toggle" }.Contains(rule.op)).ToList();
+            if (rules.Count == 0) return;
+            bool state = SkillMechanics.IsState(character.name, phase.resourceKey) || rules.Any(rule => rule.isState);
+            int cap = state ? 1 : Math.Max(1, rules.Max(rule => rule.cap));
+            var ready = c.boss.preparedResources.FirstOrDefault(x => x.key == phase.resourceKey);
+            if (ready == null) { ready = new BossPreparedResource { key = phase.resourceKey }; c.boss.preparedResources.Add(ready); }
+            ready.label = state ? SkillMechanics.StateName(character.name, phase.resourceKey, phase.resourceLabel) : phase.resourceLabel ?? phase.resourceKey;
+            ready.isState = state; ready.cap = cap; ready.amount = state ? 1 : Math.Min(2, Math.Max(ready.amount, amount));
+        }
+
+        private void ResolveBossSpecial()
+        {
+            var c = State.combat; var b = c.boss; var phase = BossMechanics.Phase(c);
+            bool failure = b.challengeActive && !b.interrupted;
+            // Commit before applying effects: save/load, retaliation and damage callbacks cannot replay this action.
+            b.specialResolved = true; b.challengeActive = false;
+            int damageBudget = BossMechanics.MaxExtraDamage, supportBudget = BossMechanics.MaxSupport;
+            if (b.delayedDamage > 0 && c.turn >= b.delayedDueTurn)
+            {
+                int amount = Math.Min(damageBudget, b.delayedDamage); damageBudget -= amount;
+                string source = b.delayedSourceCard;
+                b.delayedDamage = b.delayedDueTurn = 0;
+                b.delayedSourceCard = null;
+                ResolveBossStrike(amount, "boss_delayed", source ?? phase?.signatureCardId, true);
+            }
+            if (!failure || State.hp <= 0 || c.enemyHp <= 0 || phase == null) return;
+            ApplyBossEffect(phase.effect, phase.effectAmount, phase, ref damageBudget, ref supportBudget);
+            if (State.hp > 0) ApplyBossEffect(phase.secondaryEffect, phase.secondaryAmount, phase, ref damageBudget, ref supportBudget);
+            Say("보스 특수행동 · " + phase.name + " · " + BossMechanics.ShortEffectsText(phase));
+            RefreshEnemyIntent();
+        }
+
+        private int BossStrikeDamage(int amount, int weak, int vulnerable, StatusActorState attacker, StatusActorState defender)
+        {
+            if (weak > 0) amount = amount * 3 / 4;
+            if (vulnerable > 0) amount = amount * 3 / 2;
+            return StatusMechanics.Damage(attacker, defender, amount);
+        }
+
+        private void ResolveBossStrike(int amount, string kind, string source, bool evadable)
+        {
+            var c = State.combat; var card = GameDatabase.Card(source);
+            // Receiving a boss strike uses the same defensive hooks as a skill hit. It is
+            // not another card use and must not recursively trigger retaliation.
+            var incoming = TraitEvent(false, "before_incoming", card, true);
+            int defenderBlock = c.block, avoided = evadable && Roll(Evasion) ? 1 : 0;
+            int damage = avoided > 0 ? 0 : Math.Max(0, BossStrikeDamage(amount, c.enemyWeak, c.vulnerable, c.enemyStatuses, c.playerStatuses) - incoming.damageReduction);
+            int absorbed = Math.Min(c.block, damage); c.block -= absorbed; damage = TakeHealthDamage(false, damage - absorbed);
+            StatusMechanics.DamageTaken(c.playerStatuses, damage);
+            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = source, kind = kind, enemy = true, damage = damage, avoided = avoided });
+            if (avoided == 0) TraitEvent(false, "incoming_hit", card, true, damage);
+            if (avoided > 0) TraitEvent(false, "evade", card, true, avoided: avoided);
+            if (damage > 0) { TraitEvent(false, "damaged", card, true, damage); TraitEvent(false, "low_health", card, true, damage); }
+            if (defenderBlock > 0 && c.block == 0) TraitEvent(false, "block_break", card, avoided == 0, damage);
+        }
+
+        private void ApplyBossEffect(BossEffect effect, int rawAmount, BossPhaseDef phase, ref int damageBudget, ref int supportBudget)
+        {
+            var c = State.combat; var b = c.boss; int amount = BossMechanics.Amount(effect, rawAmount), healed = 0, block = 0;
+            switch (effect)
+            {
+                case BossEffect.None: return;
+                case BossEffect.Strike:
+                    amount = Math.Min(damageBudget, amount); damageBudget -= amount;
+                    if (amount > 0) ResolveBossStrike(amount, "boss_strike", phase.signatureCardId, true); return;
+                case BossEffect.Shield: block = Math.Min(supportBudget, amount); supportBudget -= block; c.enemyBlock += block; break;
+                case BossEffect.Heal:
+                    amount = Math.Min(supportBudget, amount); supportBudget -= amount;
+                    int before = c.enemyHp; HealEnemy(amount); healed = c.enemyHp - before; break;
+                case BossEffect.DelayedStrike:
+                    b.delayedDamage = Math.Min(16, b.delayedDamage + amount); b.delayedDueTurn = c.turn + 1; b.delayedSourceCard = phase.signatureCardId; break;
+                case BossEffect.Prepare: b.preparedEnergy = 1; break;
+                case BossEffect.ResourcePrepare: QueueBossResource(phase, amount); break;
+                case BossEffect.Status:
+                    if (phase.statusKey == "weak") c.weak = Math.Max(c.weak, 1);
+                    else if (phase.statusKey == "vulnerable") c.vulnerable = Math.Max(c.vulnerable, 1);
+                    else if (BossMechanics.StatusKeys.Contains(phase.statusKey)) StatusMechanics.Add(c.playerStatuses, phase.statusKey, phase.signatureCardId, 1);
+                    break;
+                case BossEffect.Counter: b.counterDamage = amount; b.counterUntilTurn = c.turn + 1; break;
+                case BossEffect.Drain: b.pendingDrain = 1; break;
+                case BossEffect.Evasion: c.enemyEvasion = Math.Max(c.enemyEvasion, Math.Min(65, BaseEnemyEvasion() + amount)); c.enemyEvasionTurns = Math.Max(c.enemyEvasionTurns, 1); break;
+                case BossEffect.Cleanse:
+                    c.enemyPoison = c.enemyWeak = c.enemyVulnerable = 0; c.enemyStatuses.effects.RemoveAll(x => !x.pending);
+                    c.enemyTraits.buffs.RemoveAll(x => x.kind == "heal_reduction" || x.kind == "exposure"); break;
+            }
+            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = phase.signatureCardId, kind = "boss_" + effect.ToString().ToLowerInvariant(), enemy = true, block = block, heal = healed });
+        }
+
         private void StartBattle(bool wildlife, bool boss)
         {
             SyncWeaponCards();
@@ -1167,6 +1345,7 @@ namespace Lumia
                 var character = boss ? BossForAct(State.act) : combatRoster[Next(combatRoster.Count)];
                 if (!boss && !string.IsNullOrEmpty(node.assignedOpponent)) character = combatRoster.FirstOrDefault(x => x.id == node.assignedOpponent) ?? character;
                 c.enemyId = character.id; c.enemyName = (boss ? "보스 · " : "") + character.name;
+                if (boss && BossMechanics.Profile(character.id) != null) c.boss = new BossBattleState();
                 c.enemyMaxHp = (int)Math.Ceiling((boss ? 80 + level * 8 : 35 + level * 6) * (boss ? 1.40f + (State.act-1)*.40f : 1.15f + (State.act-1)*.30f) + (State.act-1)*15);
                 foreach (var id in character.cards)
                 {
@@ -1227,6 +1406,7 @@ namespace Lumia
             if(delayed>0)(enemy?combat.enemyDeferredDamage:combat.playerDeferredDamage).Add(new DeferredDamage{amount=delayed,remaining=3});
             int immediate=Math.Min(hp,Math.Max(0,damage-delayed));
             if(enemy)combat.enemyHp-=immediate;else State.hp-=immediate;
+            if (enemy) { BossMechanics.CheckPhase(combat); RecordBossProgress(BossMechanics.ObserveDamage(combat, immediate)); }
             return immediate;
         }
         private void ResolveDeferredDamage(bool enemy)
@@ -1251,14 +1431,17 @@ namespace Lumia
             if (retained > 0) c.hand.Add(c.retainedCardId);
             c.retainedCardId = null; c.retainIndex = -1;
             c.turn++; c.energy = MaxEnergy + Modifier("turn_energy")+(first?c.playerOpeningEnergy:0); c.playerOpeningEnergy=0; c.attacksPlayed = 0;
+            PrepareBossNextTurn(); BossMechanics.BeginPlayerTurn(c);
             if (!first) SkillMechanics.StartTurn(c.playerSkills);
             TraitMechanics.StartTurn(c.playerTraits);
             c.enemyTurn = false; c.freeCasts.Clear(); c.freeCastSources.Clear();
             if (!first) c.block = 0;
             c.block += TotalBlock + Modifier("turn_block"); Heal(Modifier("turn_heal"));
+            RecordBossProgress(BossMechanics.ObserveBlock(c, TotalBlock + Modifier("turn_block")));
             TraitEvent(false,"turn_start",null,true);
             ResolveDeferredDamage(false);
             c.energy=Math.Max(1,c.energy-ControlEnergyPenalty(false,c.playerStatuses));
+            if (c.boss != null && c.boss.pendingDrain > 0) { c.energy = Math.Max(1, c.energy - Math.Min(1, c.boss.pendingDrain)); c.boss.pendingDrain = 0; }
             if (c.poison > 0)
             {
                 int damage = TakeHealthDamage(false,c.poison);
@@ -1296,6 +1479,7 @@ namespace Lumia
                 foreach(var pulse in opening.pulses){if(pulse.kind=="strength")planStrength+=pulse.amount;if(pulse.kind=="heal")planHp=Math.Min(c.enemyMaxHp,planHp+pulse.amount*(100-TraitMechanics.HealingReduction(traitPlan))/100);if(pulse.kind=="cleanse")planWeak=0;}
                 if(opening.pulses.Any(x=>x.kind=="cleanse"))planStatuses.effects.RemoveAll(x=>!x.pending);
                 available=Math.Max(1,available-ControlEnergyPenalty(true,planStatuses));c.enemyEnergy=available;
+                PrioritizeBossSignature(c, available);
                 // Plan against real piles, including draws and target recalls, so the preview and actual turn agree.
                 // Moving each planned card into a pile now preserves a finite deck even when a reset reuses a copy.
                 while (c.enemyPlan.Count < 40)
@@ -1381,6 +1565,126 @@ namespace Lumia
             return StatusMechanics.Damage(attackerStatuses ?? c.enemyStatuses,defenderStatuses ?? c.playerStatuses,value);
         }
 
+        private int BossSpecialDamageForecast()
+        {
+            var c = State.combat; if (!BossMechanics.NeedsSpecialAction(c)) return 0;
+            var phase = BossMechanics.Phase(c); if (phase == null) return 0;
+            int weak = c.enemyWeak, vulnerable = c.enemyTurn ? c.vulnerable : Math.Max(0, c.vulnerable - 1), actorHp = c.enemyHp, defenderHp = State.hp, defenderBlock = c.block;
+            var attacker = StatusMechanics.Clone(c.enemyStatuses); var defender = StatusMechanics.Clone(c.playerStatuses);
+            var traits = TraitMechanics.Clone(c.enemyTraits); var defenderTraits = TraitMechanics.Clone(c.playerTraits);
+            if (!c.enemyTurn)
+            {
+                StatusMechanics.EndTurn(defender); TraitMechanics.EndTurn(defenderTraits);
+                var skills = SkillMechanics.Clone(c.enemySkills); SkillMechanics.StartTurn(skills);
+                TraitMechanics.StartTurn(traits);
+                var opening = TraitMechanics.Resolve(traits, ActorTraits(true), "turn_start", TraitContextFor(true, null, true, skillActor: skills));
+                if (opening.pulses.Any(pulse => pulse.kind == "cleanse")) { weak = 0; attacker.effects.RemoveAll(x => !x.pending); }
+            }
+            int unusedBlock;
+            return PreviewBossSpecial(ref actorHp, ref defenderHp, ref defenderBlock, ref weak, ref vulnerable, traits, defenderTraits, attacker, defender, out unusedBlock);
+        }
+
+        private int PreviewBossDefenderTrigger(string trigger, CardDef card, int damage, ref int actorHp, ref int defenderHp, ref int defenderBlock,
+            ref int weak, ref int vulnerable, TraitActorState attackerTraits, TraitActorState defenderTraits,
+            SkillActorState defenderSkills, StatusActorState attackerStatuses, StatusActorState defenderStatuses)
+        {
+            var context = TraitContextFor(false, card, true, damage, skillActor: defenderSkills, hp: defenderHp);
+            context.targetHp = actorHp;
+            var result = TraitMechanics.Resolve(defenderTraits, ActorTraits(false), trigger, context);
+            int bonusBlock = result.bonus.block, bonusHeal = result.bonus.heal;
+            foreach (var pulse in result.pulses)
+            {
+                if (pulse.kind.StartsWith("status_", StringComparison.Ordinal)) StatusMechanics.Add(attackerStatuses, pulse.kind.Substring(7), pulse.sourceCard, pulse.duration);
+                switch (pulse.kind)
+                {
+                    case "block": defenderBlock += pulse.amount; break;
+                    case "bonus_block": int block = Math.Min(bonusBlock, pulse.amount); bonusBlock -= block; defenderBlock += block; break;
+                    case "heal":
+                        defenderHp = Math.Min(State.maxHp, defenderHp + pulse.amount * (100 - Math.Max(TraitMechanics.HealingReduction(defenderTraits), StatusMechanics.HealingReduction(defenderStatuses))) / 100); break;
+                    case "bonus_heal":
+                        int heal = Math.Min(bonusHeal, pulse.amount); bonusHeal -= heal;
+                        defenderHp = Math.Min(State.maxHp, defenderHp + heal * (100 - Math.Max(TraitMechanics.HealingReduction(defenderTraits), StatusMechanics.HealingReduction(defenderStatuses))) / 100); break;
+                    case "weak": weak = Math.Max(weak, pulse.amount); break;
+                    case "cleanse":
+                        vulnerable = 0; defenderStatuses.effects.RemoveAll(x => !x.pending);
+                        defenderTraits.buffs.RemoveAll(x => x.kind == "heal_reduction" || x.kind == "exposure"); break;
+                    case "heal_reduction": case "exposure":
+                        var buff = attackerTraits.buffs.FirstOrDefault(x => x.kind == pulse.kind && x.sourceId == pulse.sourceId);
+                        if (buff == null) { buff = new TraitBuff { kind = pulse.kind, sourceId = pulse.sourceId }; attackerTraits.buffs.Add(buff); }
+                        buff.amount = Math.Max(buff.amount, pulse.amount); buff.remaining = Math.Max(buff.remaining, Math.Min(2, pulse.duration)); break;
+                    case "execute": actorHp = 0; break;
+                }
+            }
+            return result.damageReduction;
+        }
+
+        private int PreviewBossStrike(int amount, CardDef card, ref int actorHp, ref int defenderHp, ref int defenderBlock,
+            ref int weak, ref int vulnerable, TraitActorState attackerTraits, TraitActorState defenderTraits,
+            SkillActorState defenderSkills, StatusActorState attackerStatuses, StatusActorState defenderStatuses)
+        {
+            int reduction = PreviewBossDefenderTrigger("before_incoming", card, 0, ref actorHp, ref defenderHp, ref defenderBlock,
+                ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses);
+            int previousBlock = defenderBlock;
+            int raw = Math.Max(0, BossStrikeDamage(amount, weak, vulnerable, attackerStatuses, defenderStatuses) - reduction);
+            int absorbed = Math.Min(defenderBlock, raw); defenderBlock -= absorbed;
+            int afterBlock = raw - absorbed, deferred = afterBlock * Math.Min(20, EquipmentSum(g => g.damageDeferral)) / 100;
+            int damage = Math.Min(defenderHp, afterBlock - deferred); defenderHp -= damage;
+            StatusMechanics.DamageTaken(defenderStatuses, damage);
+            var triggers = new List<string> { "incoming_hit" };
+            if (damage > 0) { triggers.Add("damaged"); triggers.Add("low_health"); }
+            foreach (var trigger in triggers)
+                PreviewBossDefenderTrigger(trigger, card, damage, ref actorHp, ref defenderHp, ref defenderBlock,
+                    ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses);
+            if (previousBlock > 0 && defenderBlock == 0)
+                PreviewBossDefenderTrigger("block_break", card, damage, ref actorHp, ref defenderHp, ref defenderBlock,
+                    ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses);
+            return raw;
+        }
+
+        private int PreviewBossSpecial(ref int actorHp, ref int defenderHp, ref int defenderBlock, ref int weak, ref int vulnerable,
+            TraitActorState attackerTraits, TraitActorState defenderTraits, StatusActorState attackerStatuses, StatusActorState defenderStatuses, out int addedBlock)
+        {
+            addedBlock = 0;
+            var c = State.combat; if (!BossMechanics.NeedsSpecialAction(c)) return 0;
+            var b = c.boss; var phase = BossMechanics.Phase(c); if (phase == null) return 0;
+            var effects = new List<KeyValuePair<BossEffect, int>>();
+            bool hasDelayed = b.delayedDamage > 0 && c.turn >= b.delayedDueTurn;
+            if (hasDelayed) effects.Add(new KeyValuePair<BossEffect, int>(BossEffect.Strike, b.delayedDamage));
+            if (b.challengeActive && !b.interrupted)
+            {
+                effects.Add(new KeyValuePair<BossEffect, int>(phase.effect, phase.effectAmount));
+                effects.Add(new KeyValuePair<BossEffect, int>(phase.secondaryEffect, phase.secondaryAmount));
+            }
+            int damageBudget = BossMechanics.MaxExtraDamage, supportBudget = BossMechanics.MaxSupport, totalDamage = 0;
+            var defenderSkills = SkillMechanics.Clone(c.playerSkills);
+            for (int index = 0; index < effects.Count && defenderHp > 0 && actorHp > 0; ++index)
+            {
+                var entry = effects[index];
+                int amount = BossMechanics.Amount(entry.Key, entry.Value);
+                switch (entry.Key)
+                {
+                    case BossEffect.Strike:
+                        amount = Math.Min(damageBudget, amount); damageBudget -= amount;
+                        string source = hasDelayed && index == 0 ? b.delayedSourceCard ?? phase.signatureCardId : phase.signatureCardId;
+                        if (amount > 0) totalDamage += PreviewBossStrike(amount, GameDatabase.Card(source), ref actorHp, ref defenderHp, ref defenderBlock,
+                            ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses); break;
+                    case BossEffect.Shield:
+                        amount = Math.Min(supportBudget, amount); supportBudget -= amount; addedBlock += amount; break;
+                    case BossEffect.Heal:
+                        amount = Math.Min(supportBudget, amount); supportBudget -= amount;
+                        actorHp = Math.Min(c.enemyMaxHp, actorHp + amount * (100 - Math.Max(TraitMechanics.HealingReduction(attackerTraits), StatusMechanics.HealingReduction(attackerStatuses))) / 100); break;
+                    case BossEffect.Status:
+                        if (phase.statusKey == "vulnerable") vulnerable = Math.Max(vulnerable, 1);
+                        else if (phase.statusKey != "weak" && BossMechanics.StatusKeys.Contains(phase.statusKey)) StatusMechanics.Add(defenderStatuses, phase.statusKey, phase.signatureCardId, 1);
+                        break;
+                    case BossEffect.Cleanse:
+                        weak = 0; attackerStatuses.effects.RemoveAll(x => !x.pending);
+                        attackerTraits.buffs.RemoveAll(x => x.kind == "heal_reduction" || x.kind == "exposure"); break;
+                }
+            }
+            return totalDamage;
+        }
+
         private void RefreshEnemyIntent()
         {
             var c = State.combat;
@@ -1407,6 +1711,9 @@ namespace Lumia
             }
             // Existing player debuffs tick when this player turn ends, before the enemy acts.
             int vulnerable = c.enemyTurn ? c.vulnerable : Math.Max(0, c.vulnerable - 1);
+            int specialBlock;
+            c.intentDamage += PreviewBossSpecial(ref actorHp, ref defenderHp, ref defenderBlock, ref weak, ref vulnerable, traitPreview, defenderTraits, attackerStatuses, defenderStatuses, out specialBlock);
+            c.intentBlock += specialBlock;
             for(int intentIndex=c.enemyTurn?c.enemyActionIndex:0;intentIndex<c.enemyPlan.Count;++intentIndex)
             {
                 var id=c.enemyPlan[intentIndex];
@@ -1637,8 +1944,8 @@ namespace Lumia
                     {
                         case "heal":if(enemy)HealEnemy(pulse.amount);else Heal(pulse.amount);heal=(enemy?c.enemyHp:State.hp)-before;break;
                         case "bonus_heal":int addedHeal=Math.Min(bonusHeal,pulse.amount);bonusHeal-=addedHeal;if(enemy)HealEnemy(addedHeal);else Heal(addedHeal);heal=(enemy?c.enemyHp:State.hp)-before;break;
-                        case "bonus_block":block=Math.Min(bonusBlock,pulse.amount);bonusBlock-=block;if(enemy)c.enemyBlock+=block;else c.block+=block;break;
-                        case "block":block=pulse.amount;if(enemy)c.enemyBlock+=block;else c.block+=block;break;
+                        case "bonus_block":block=Math.Min(bonusBlock,pulse.amount);bonusBlock-=block;if(enemy)c.enemyBlock+=block;else {c.block+=block;RecordBossProgress(BossMechanics.ObserveBlock(c,block));}break;
+                        case "block":block=pulse.amount;if(enemy)c.enemyBlock+=block;else {c.block+=block;RecordBossProgress(BossMechanics.ObserveBlock(c,block));}break;
                         case "energy":if(enemy)c.enemyAvailableEnergy+=pulse.amount;else c.energy+=pulse.amount;break;
                         case "draw":if(!enemy)DrawCards(pulse.amount);break;
                         case "poison":if(enemy)c.poison+=pulse.amount;else c.enemyPoison+=pulse.amount;break;
@@ -1706,6 +2013,12 @@ namespace Lumia
         private void ResolveCounters(bool enemyDefender)
         {
             var c = State.combat;
+            if (enemyDefender && c.boss != null && !c.enemyTurn && c.enemyHp > 0 && c.boss.counterDamage > 0 && c.turn <= c.boss.counterUntilTurn)
+            {
+                int counter = c.boss.counterDamage; c.boss.counterDamage = 0;
+                ResolveBossStrike(counter, "boss_counter", BossMechanics.Phase(c)?.signatureCardId, false);
+                if (CheckBattleEnd()) return;
+            }
             foreach (var pulse in SkillMechanics.Counters(enemyDefender ? c.enemySkills : c.playerSkills).Concat(SkillMechanics.Counters((enemyDefender?c.enemyTraits:c.playerTraits).skills)))
             {
                 // Counter pulses do not trigger additional counters, so retaliation cannot recurse.
@@ -1738,7 +2051,7 @@ namespace Lumia
             if (pulse.kind == "guard")
             {
                 block = pulse.amount;
-                if (enemy) c.enemyBlock += block; else c.block += block;
+                if (enemy) c.enemyBlock += block; else { c.block += block; RecordBossProgress(BossMechanics.ObserveBlock(c, block)); }
             }
             else if (pulse.kind == "hot")
             {
@@ -1753,6 +2066,7 @@ namespace Lumia
                 {
                     int absorbed = Math.Min(enemy ? c.block : c.enemyBlock, amount);
                     if (enemy) c.block -= absorbed; else c.enemyBlock -= absorbed;
+                    if (!enemy) RecordBossProgress(BossMechanics.ObserveDamage(c, absorbed));
                     amount -= absorbed;
                 }
                 damage = TakeHealthDamage(!enemy,amount);

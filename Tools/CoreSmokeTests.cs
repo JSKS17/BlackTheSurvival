@@ -25,7 +25,9 @@ public static partial class CoreSmokeTests
             OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates(); HealingDroneHealthTrigger(); RevisedEconomyAndEncounters();
             ConditionalRecastPreparation(); ConditionalRecastEnemyForecast();
             StrategicUpgradeChoice(); StrategicRetain(); StrategicMapServices(); StrategicEncounterChains();
-            Console.WriteLine("PASS: " + checks + " assertions across 61 game-rule scenarios.");
+            BossProfileCoverage(); BossEntryAndReadOnlyGuides(); BossChallengeGoals(); BossPhaseTransitions();
+            BossFailureEffects(); BossIntentAndSignature(); BossPersistenceAndMigration();
+            Console.WriteLine("PASS: " + checks + " assertions across 68 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
