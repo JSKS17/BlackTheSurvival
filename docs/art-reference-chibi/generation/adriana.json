@@ -1,0 +1,38 @@
+{
+  "id": "adriana",
+  "name": "아드리아나",
+  "tool": "builtin image_gen",
+  "intent": "new illustration with style and identity references",
+  "originalReference": "docs/art-chibi/references/subjects/adriana.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Adriana_S000.png",
+  "referenceSha256": "47c3be40f6a6cb3c917ca517a19cdaf5708b8b3c45fdb3eced8a3d7236656292",
+  "styleReferenceSha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db",
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art character sprite for a cute chibi deckbuilding game.\nInput image 1 is ONLY the official character identity reference: preserve its distinctive hair, eye color, age, face features, outfit, and signature prop. Input image 2 is ONLY a style guide supplied by the user, not their artwork: study its compact proportions and pixel clustering but do NOT trace, copy its pose, reproduce its exact sprite, include its background or watermark, or borrow Rio's bow/clothes for another character.\nDraw a fresh original sprite in this style: very cute compact 2.1 to 2.3 heads tall, head approximately 43 to 47 percent of full character height, broad rounded head, tiny compact torso, very short legs and small hands. Soft muted material colors, clean dark-purple/brown 1-pixel contours and selective colored interior outlines, chunky deliberate square pixel clusters, 3 flat shades per material, small restrained highlights. Pixel craft suitable for an 80 x 80 logical grid with the complete character fitting inside about 72 x 72 pixels. Eyes and mouth stay clearly readable: use distinct upper eyelids and 4-6 pixel irises, restrained cheeks, character-specific eyebrows and expression. Never give everyone identical round shiny eyes. Adult men retain facial hair, mature eye shapes, and defining features while remaining chibi.\nOne full-body character only, three-quarter front view facing slightly right, a fresh balanced idle/battle-ready pose, complete feet and signature prop visible with transparent padding on all sides. Square composition. Genuine transparent background. No text, label, watermark, signature, scenery, floor, cast shadow, glow cloud or frame. No smooth painting, anti-aliasing, gradients, 3D render, realistic anatomy, tall long-legged body, or oversized weapon hiding the face. Keep color clusters economical and edges crisp.\n\nCharacter: 아드리아나 (adriana).\nIdentity/outfit: Bright orange-red ponytail, pipe, gray hooded utility coat, red lining, green bottle and yellow flamethrower tank.\nSignature prop: Carry a yellow flamethrower tank with a short hose and spray nozzle.\nProp constraints: Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here.\nCharacter-specific face from the original: Wry pyromaniac, narrow BROWN smoky half-lidded eyes, arched confident brows, closed knowing smile with pipe at mouth corner. Orange ponytail.\n",
+  "generatedSource": "docs/art-reference-chibi/generated/adriana.png",
+  "generatedSha256": "3455f7821f59745890ed6ae5b356299d38a110f07988330105c115c910023148",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1248,
+    1254
+  ],
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "path": "Assets/Resources/Lumia/PortraitsReference/adriana.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "3063ee0d35f17a755ac15d829f5a54a2c5e371a0a5bb19406a2f1bd0549a5067",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+}

@@ -1,0 +1,830 @@
+[
+  {
+    "id": "hana",
+    "file": "Assets/Resources/Lumia/PortraitsReference/hana.png",
+    "sourceSha256": "7cd4aa95967cf25dedf562f2365cf18285e8ec4ba233f80d8baa12fd1b2f3951",
+    "buildSha256": "7cd4aa95967cf25dedf562f2365cf18285e8ec4ba233f80d8baa12fd1b2f3951",
+    "match": true,
+    "importerSha256": "16d629f096c97930d239305a9568b4117a67b1d67ed50c1f94cb08e85449d95c",
+    "importerMatch": true
+  },
+  {
+    "id": "nia",
+    "file": "Assets/Resources/Lumia/PortraitsReference/nia.png",
+    "sourceSha256": "8213158b05ecff2654cd1fc3c66a9c97d403a0934c413f3a75dc383e20db2813",
+    "buildSha256": "8213158b05ecff2654cd1fc3c66a9c97d403a0934c413f3a75dc383e20db2813",
+    "match": true,
+    "importerSha256": "c9475f8d73a4c0332df133a329c61705ad97311673d89eca2bfdf32ae6c1ad0b",
+    "importerMatch": true
+  },
+  {
+    "id": "jackie",
+    "file": "Assets/Resources/Lumia/PortraitsReference/jackie.png",
+    "sourceSha256": "68c67ef55e18f86b53abff526235bcfa98fafd6992530c5580bf107f256bb79d",
+    "buildSha256": "68c67ef55e18f86b53abff526235bcfa98fafd6992530c5580bf107f256bb79d",
+    "match": true,
+    "importerSha256": "7364a351b96b70a608aa43d095eb52f95a6cdaa9121d2e01af6ffb6bd8d56bf7",
+    "importerMatch": true
+  },
+  {
+    "id": "aya",
+    "file": "Assets/Resources/Lumia/PortraitsReference/aya.png",
+    "sourceSha256": "1bf165bbc45d7c67a0ff76e4c95e6725a37c4faea7ed1757e1e5b65386f4ee21",
+    "buildSha256": "1bf165bbc45d7c67a0ff76e4c95e6725a37c4faea7ed1757e1e5b65386f4ee21",
+    "match": true,
+    "importerSha256": "7c6d116f726839551eeb3a5216e57c1939356b41ddd8dcc1ba213499cd9495f3",
+    "importerMatch": true
+  },
+  {
+    "id": "hyunwoo",
+    "file": "Assets/Resources/Lumia/PortraitsReference/hyunwoo.png",
+    "sourceSha256": "8662dfcc7d77346ba424b17c81d8b2a471536518807751dc8c6bacfef30f1c98",
+    "buildSha256": "8662dfcc7d77346ba424b17c81d8b2a471536518807751dc8c6bacfef30f1c98",
+    "match": true,
+    "importerSha256": "07556269613cafd85d63a4f73f31696b947270158fc4b0962dbdbb0d941359c2",
+    "importerMatch": true
+  },
+  {
+    "id": "yuki",
+    "file": "Assets/Resources/Lumia/PortraitsReference/yuki.png",
+    "sourceSha256": "c2423c235a4e87c261ffdf2aa27b305154e561d0ced657eeae6d097c0af51cd4",
+    "buildSha256": "c2423c235a4e87c261ffdf2aa27b305154e561d0ced657eeae6d097c0af51cd4",
+    "match": true,
+    "importerSha256": "2432cd7080e073bdc1104b7b26340185a34a1d9a06bfe5e7f566f7f848871852",
+    "importerMatch": true
+  },
+  {
+    "id": "hyejin",
+    "file": "Assets/Resources/Lumia/PortraitsReference/hyejin.png",
+    "sourceSha256": "ff4db4e5b7a990f1487c438ffbcac3beecc00c246b3017cd4bdce0042352b8d2",
+    "buildSha256": "ff4db4e5b7a990f1487c438ffbcac3beecc00c246b3017cd4bdce0042352b8d2",
+    "match": true,
+    "importerSha256": "5615d0d4cb52b46745213d070e40fee1684e98a937176d09b674257d493b459c",
+    "importerMatch": true
+  },
+  {
+    "id": "sua",
+    "file": "Assets/Resources/Lumia/PortraitsReference/sua.png",
+    "sourceSha256": "92b0f4ddb21df752cb36c77d1cb1852891a2f03de2203eb21b49504a311ebe43",
+    "buildSha256": "92b0f4ddb21df752cb36c77d1cb1852891a2f03de2203eb21b49504a311ebe43",
+    "match": true,
+    "importerSha256": "e9e16fb0630d3ae627ce7670663d2742ac561afa443f0a7ac675eedcb983b3dc",
+    "importerMatch": true
+  },
+  {
+    "id": "isol",
+    "file": "Assets/Resources/Lumia/PortraitsReference/isol.png",
+    "sourceSha256": "11cafb29ec27ba6724daab9787769aaf73734a496b9a79920283d954f6e7d37e",
+    "buildSha256": "11cafb29ec27ba6724daab9787769aaf73734a496b9a79920283d954f6e7d37e",
+    "match": true,
+    "importerSha256": "a5ab33373bee751ee463c6d0ffcd17d7d02cd3f8470c623774812196d9b2afed",
+    "importerMatch": true
+  },
+  {
+    "id": "nadine",
+    "file": "Assets/Resources/Lumia/PortraitsReference/nadine.png",
+    "sourceSha256": "38b1b8f068657539ad26690ecdbe89193f21de797e3e4ab26c8c4436f94cb538",
+    "buildSha256": "38b1b8f068657539ad26690ecdbe89193f21de797e3e4ab26c8c4436f94cb538",
+    "match": true,
+    "importerSha256": "bd4bb71c745d8b5eefd7191246049f20f9bcfec73a4b9b57322d1fc8e5de6fc5",
+    "importerMatch": true
+  },
+  {
+    "id": "emma",
+    "file": "Assets/Resources/Lumia/PortraitsReference/emma.png",
+    "sourceSha256": "f643c104eee59bcc3289bbc4c13ac381bef09789bb2fb44717d70783ca2a4e42",
+    "buildSha256": "f643c104eee59bcc3289bbc4c13ac381bef09789bb2fb44717d70783ca2a4e42",
+    "match": true,
+    "importerSha256": "75dbf07271836fa5b19a28b3a8812a5e65fa3933525d960f987623fd66b50082",
+    "importerMatch": true
+  },
+  {
+    "id": "charlotte",
+    "file": "Assets/Resources/Lumia/PortraitsReference/charlotte.png",
+    "sourceSha256": "205729ee2c947a79c3fbd4ca2e0007b9e2bba4bd13dd315370ecd0cec3c5b8a4",
+    "buildSha256": "205729ee2c947a79c3fbd4ca2e0007b9e2bba4bd13dd315370ecd0cec3c5b8a4",
+    "match": true,
+    "importerSha256": "05cdd9de072df5271c369780dbd5d4366a871b12612295cfbe97b09e32c1a6c7",
+    "importerMatch": true
+  },
+  {
+    "id": "nathapon",
+    "file": "Assets/Resources/Lumia/PortraitsReference/nathapon.png",
+    "sourceSha256": "5807a88ccf878b8f8bad1e5fa8ee3a933bcfec8317908304f3521da9ff90bffb",
+    "buildSha256": "5807a88ccf878b8f8bad1e5fa8ee3a933bcfec8317908304f3521da9ff90bffb",
+    "match": true,
+    "importerSha256": "e10a281a2167b95a09fc2fe518efe4d344811c312f8bcbed69a114e6c9a1cb3f",
+    "importerMatch": true
+  },
+  {
+    "id": "nicky",
+    "file": "Assets/Resources/Lumia/PortraitsReference/nicky.png",
+    "sourceSha256": "be277ce5372d5b98f9592f0ec603647b635a0672634b23a39ed5b227a709310b",
+    "buildSha256": "be277ce5372d5b98f9592f0ec603647b635a0672634b23a39ed5b227a709310b",
+    "match": true,
+    "importerSha256": "257f075b00abc7321b05032ea61193220e5dc6a2bbcbb09b65e3265ab60cdb36",
+    "importerMatch": true
+  },
+  {
+    "id": "daniel",
+    "file": "Assets/Resources/Lumia/PortraitsReference/daniel.png",
+    "sourceSha256": "746010fd54f2be05b939d582c6e356ce124add084ea0260638fdd0732f2f57a4",
+    "buildSha256": "746010fd54f2be05b939d582c6e356ce124add084ea0260638fdd0732f2f57a4",
+    "match": true,
+    "importerSha256": "31a164a4394f57702626427f94607b83ce6e664c20ceecc9665f363bae685153",
+    "importerMatch": true
+  },
+  {
+    "id": "tia",
+    "file": "Assets/Resources/Lumia/PortraitsReference/tia.png",
+    "sourceSha256": "3670031d8352a584d1497e2f279b9981e33f2a8331d9e768f77d9c61a6240465",
+    "buildSha256": "3670031d8352a584d1497e2f279b9981e33f2a8331d9e768f77d9c61a6240465",
+    "match": true,
+    "importerSha256": "cef6b1332bd17c19bb243323aada442ac167493cbd280fb86552afc728b9eceb",
+    "importerMatch": true
+  },
+  {
+    "id": "laura",
+    "file": "Assets/Resources/Lumia/PortraitsReference/laura.png",
+    "sourceSha256": "cf770605aaf8f57aae60459a59523de4fb2632ca5210063fb6a37d5fa3ac249e",
+    "buildSha256": "cf770605aaf8f57aae60459a59523de4fb2632ca5210063fb6a37d5fa3ac249e",
+    "match": true,
+    "importerSha256": "83ed8da3a3d6f54e8130b2a1b226e7b9f7ffed0ac15634680928b4c24e923cc6",
+    "importerMatch": true
+  },
+  {
+    "id": "lenox",
+    "file": "Assets/Resources/Lumia/PortraitsReference/lenox.png",
+    "sourceSha256": "4c6453e215e88a41219f40e701cb5e332a10cf2128862e860b68556513b8c1d2",
+    "buildSha256": "4c6453e215e88a41219f40e701cb5e332a10cf2128862e860b68556513b8c1d2",
+    "match": true,
+    "importerSha256": "20408db798b23ec2cd0c2bd21f30975b1871627a3dcca1f4d68e35c5a86bc646",
+    "importerMatch": true
+  },
+  {
+    "id": "leon",
+    "file": "Assets/Resources/Lumia/PortraitsReference/leon.png",
+    "sourceSha256": "aad2238ac11cfeddc7fe7dde64b6d5dc7193b46cdacababb40eedb3982cd1652",
+    "buildSha256": "aad2238ac11cfeddc7fe7dde64b6d5dc7193b46cdacababb40eedb3982cd1652",
+    "match": true,
+    "importerSha256": "a60ce789429a08a9f78165d9700535b6e9ba2df8a66bdd1a6ea321a488ec8954",
+    "importerMatch": true
+  },
+  {
+    "id": "rozzi",
+    "file": "Assets/Resources/Lumia/PortraitsReference/rozzi.png",
+    "sourceSha256": "d9e21f53990a1d8db1c490e36c6cb35a9bf3ee30fc46f0d310633a7d01c471f7",
+    "buildSha256": "d9e21f53990a1d8db1c490e36c6cb35a9bf3ee30fc46f0d310633a7d01c471f7",
+    "match": true,
+    "importerSha256": "436e55df7de8a0be15b429c706891c06bc3ce715b07beda37f0d52ddb14691cd",
+    "importerMatch": true
+  },
+  {
+    "id": "luke",
+    "file": "Assets/Resources/Lumia/PortraitsReference/luke.png",
+    "sourceSha256": "548e8887a3abee2aa913a3f2a9da431290e787dd7f006e3704563f0f9170348c",
+    "buildSha256": "548e8887a3abee2aa913a3f2a9da431290e787dd7f006e3704563f0f9170348c",
+    "match": true,
+    "importerSha256": "2744808461e969fffe18197fde54b334e0f851f728ab3c6032becee5d245e790",
+    "importerMatch": true
+  },
+  {
+    "id": "dailin",
+    "file": "Assets/Resources/Lumia/PortraitsReference/dailin.png",
+    "sourceSha256": "b2ec50c573fd3875e3bdf9087f0589c866c47cd2e1baebd9b3b447e51774538e",
+    "buildSha256": "b2ec50c573fd3875e3bdf9087f0589c866c47cd2e1baebd9b3b447e51774538e",
+    "match": true,
+    "importerSha256": "8b97b78a7dbaf420ad280ec72e9584f8eec187d1dc3ce7684265d187c6ed79bc",
+    "importerMatch": true
+  },
+  {
+    "id": "rio",
+    "file": "Assets/Resources/Lumia/PortraitsReference/rio.png",
+    "sourceSha256": "8a1909b16cd5e8d6e23d6614083d078f558b2b083766097844d5cc199800560d",
+    "buildSha256": "8a1909b16cd5e8d6e23d6614083d078f558b2b083766097844d5cc199800560d",
+    "match": true,
+    "importerSha256": "8dfde6504faedfdf00ac84e7b8a32dddbbf8a82b78285b48e0764662eab63a47",
+    "importerMatch": true
+  },
+  {
+    "id": "martina",
+    "file": "Assets/Resources/Lumia/PortraitsReference/martina.png",
+    "sourceSha256": "749f46b26639208a74423656cb7d8d930d5ea583715a2669f51b21556a2838cc",
+    "buildSha256": "749f46b26639208a74423656cb7d8d930d5ea583715a2669f51b21556a2838cc",
+    "match": true,
+    "importerSha256": "31734a778a51a76d8991ba24b81775fe475643f476cc634f8cb0da3e2d6cc38b",
+    "importerMatch": true
+  },
+  {
+    "id": "mai",
+    "file": "Assets/Resources/Lumia/PortraitsReference/mai.png",
+    "sourceSha256": "492be3f8905bf1e6ddcbdb45f980a5b479a34c9dcc2514c0046d486345f76f88",
+    "buildSha256": "492be3f8905bf1e6ddcbdb45f980a5b479a34c9dcc2514c0046d486345f76f88",
+    "match": true,
+    "importerSha256": "d082791970c96e8f01ea6abb7ee633825e34f2b8c25d5d0cde4ae30fe2e4ba7b",
+    "importerMatch": true
+  },
+  {
+    "id": "markus",
+    "file": "Assets/Resources/Lumia/PortraitsReference/markus.png",
+    "sourceSha256": "f2e21cce98c49680b0453d0bfc14cc21f8d94231e1fdfd18b39b25e2506d3221",
+    "buildSha256": "f2e21cce98c49680b0453d0bfc14cc21f8d94231e1fdfd18b39b25e2506d3221",
+    "match": true,
+    "importerSha256": "1bbec63ec2730f32a3ad2ef379238cac28fc6e3411c56b7d8ed6ab72d3a5de5a",
+    "importerMatch": true
+  },
+  {
+    "id": "magnus",
+    "file": "Assets/Resources/Lumia/PortraitsReference/magnus.png",
+    "sourceSha256": "8a23e4fe161e00a5d2d7346ed4d5cdd5ce51eda87b7d6a2aa5b337bff6f13a70",
+    "buildSha256": "8a23e4fe161e00a5d2d7346ed4d5cdd5ce51eda87b7d6a2aa5b337bff6f13a70",
+    "match": true,
+    "importerSha256": "15c5e9a856b3a62c4a1ef29c11cba58b60bfdeabfbbe0ececd9f9ae4d161bead",
+    "importerMatch": true
+  },
+  {
+    "id": "vanya",
+    "file": "Assets/Resources/Lumia/PortraitsReference/vanya.png",
+    "sourceSha256": "1b41dd2e5582acecf9e934bd98f933a941637e7649d74928793481d8bcfb0c09",
+    "buildSha256": "1b41dd2e5582acecf9e934bd98f933a941637e7649d74928793481d8bcfb0c09",
+    "match": true,
+    "importerSha256": "4b16ac6c42325ac1f26832481741c5b55a8495f0b0a748adbfab49dc67225711",
+    "importerMatch": true
+  },
+  {
+    "id": "barbara",
+    "file": "Assets/Resources/Lumia/PortraitsReference/barbara.png",
+    "sourceSha256": "001459ebb4ab10edf6dd7283201699fb8de3da8268608478531a083d1b748bfe",
+    "buildSha256": "001459ebb4ab10edf6dd7283201699fb8de3da8268608478531a083d1b748bfe",
+    "match": true,
+    "importerSha256": "b1e8bfa20e80291c5ff81c9839270f6cabbdeff259dd0caa7ae3b25aee0ba863",
+    "importerMatch": true
+  },
+  {
+    "id": "bernice",
+    "file": "Assets/Resources/Lumia/PortraitsReference/bernice.png",
+    "sourceSha256": "9b8940066a6233f2f72c825a7e932d9d5067ccbc93653c5ac327e020d6c1d6bb",
+    "buildSha256": "9b8940066a6233f2f72c825a7e932d9d5067ccbc93653c5ac327e020d6c1d6bb",
+    "match": true,
+    "importerSha256": "33d85e97cf3c8458bf9bddeff042c3e0b20f71aebb61308d7909c882737618b7",
+    "importerMatch": true
+  },
+  {
+    "id": "bianca",
+    "file": "Assets/Resources/Lumia/PortraitsReference/bianca.png",
+    "sourceSha256": "95040faa755c62423e66b4fc9d9bb516e0f0b3287bc3033b702c7574d5790ad8",
+    "buildSha256": "95040faa755c62423e66b4fc9d9bb516e0f0b3287bc3033b702c7574d5790ad8",
+    "match": true,
+    "importerSha256": "c68267b0da6408447fd39b217f1769871af1a989f0c8e4d949a27fba672fbf3b",
+    "importerMatch": true
+  },
+  {
+    "id": "celine",
+    "file": "Assets/Resources/Lumia/PortraitsReference/celine.png",
+    "sourceSha256": "3155867328605c2def890f1396c39d75d739b9e58b9fa09cacdcf90e23798db6",
+    "buildSha256": "3155867328605c2def890f1396c39d75d739b9e58b9fa09cacdcf90e23798db6",
+    "match": true,
+    "importerSha256": "64e39c3bdc45a6cc3270b19a1f9e579c9bd298b6224b6e4e760e1bcf6770291a",
+    "importerMatch": true
+  },
+  {
+    "id": "sho",
+    "file": "Assets/Resources/Lumia/PortraitsReference/sho.png",
+    "sourceSha256": "20508565c1c6e3e3e54d30e2fd957c544b597275cbc4a802a6c915d01973d9a0",
+    "buildSha256": "20508565c1c6e3e3e54d30e2fd957c544b597275cbc4a802a6c915d01973d9a0",
+    "match": true,
+    "importerSha256": "c985e711a3ee3ffcf60369cc83f43bc1f1093af674dd8ca13b480504d3531140",
+    "importerMatch": true
+  },
+  {
+    "id": "shoichi",
+    "file": "Assets/Resources/Lumia/PortraitsReference/shoichi.png",
+    "sourceSha256": "8aabb72125ef9f1734d2e1dc9219ddcc5b2728f1f4e7e5b2c309723e98cccde5",
+    "buildSha256": "8aabb72125ef9f1734d2e1dc9219ddcc5b2728f1f4e7e5b2c309723e98cccde5",
+    "match": true,
+    "importerSha256": "29c4ec96914cf1f8e71de8ec1993661134f1b4d86d923ded50817335a22c563f",
+    "importerMatch": true
+  },
+  {
+    "id": "sissela",
+    "file": "Assets/Resources/Lumia/PortraitsReference/sissela.png",
+    "sourceSha256": "05cd5dd96721f3374c9b5ff50934965a0cfdd6f260823c59e164772385be153a",
+    "buildSha256": "05cd5dd96721f3374c9b5ff50934965a0cfdd6f260823c59e164772385be153a",
+    "match": true,
+    "importerSha256": "0a052d0f49d9fe9da1c8844021684db4c1111d0f0a031172fa8e67b8ee075946",
+    "importerMatch": true
+  },
+  {
+    "id": "silvia",
+    "file": "Assets/Resources/Lumia/PortraitsReference/silvia.png",
+    "sourceSha256": "a48808f99d8e0cc9fbfcf49b08e8442423400030bca5dd41734139ad9733ed3d",
+    "buildSha256": "a48808f99d8e0cc9fbfcf49b08e8442423400030bca5dd41734139ad9733ed3d",
+    "match": true,
+    "importerSha256": "3fce59de52afa467f4e418eb48423677347f907205464dd5f8b79c7928c6a8ed",
+    "importerMatch": true
+  },
+  {
+    "id": "adela",
+    "file": "Assets/Resources/Lumia/PortraitsReference/adela.png",
+    "sourceSha256": "8e5c23abe28b5c5e933ef78c1c1f3257bc07037d4e037b59c87187066b5ba186",
+    "buildSha256": "8e5c23abe28b5c5e933ef78c1c1f3257bc07037d4e037b59c87187066b5ba186",
+    "match": true,
+    "importerSha256": "8e6ac6b0df99b4a71a9985c93ca6957b096e4ac870406fccb6529540f3af902e",
+    "importerMatch": true
+  },
+  {
+    "id": "adriana",
+    "file": "Assets/Resources/Lumia/PortraitsReference/adriana.png",
+    "sourceSha256": "3063ee0d35f17a755ac15d829f5a54a2c5e371a0a5bb19406a2f1bd0549a5067",
+    "buildSha256": "3063ee0d35f17a755ac15d829f5a54a2c5e371a0a5bb19406a2f1bd0549a5067",
+    "match": true,
+    "importerSha256": "1f032108eb5aa32938a698fe4858389ca05cffaa2066715fcfba89fb31c073f4",
+    "importerMatch": true
+  },
+  {
+    "id": "adina",
+    "file": "Assets/Resources/Lumia/PortraitsReference/adina.png",
+    "sourceSha256": "a23956dc8be51b57537f4128f60542c7a541d0c1bb629691797e9689bb7a9a71",
+    "buildSha256": "a23956dc8be51b57537f4128f60542c7a541d0c1bb629691797e9689bb7a9a71",
+    "match": true,
+    "importerSha256": "093c83dae9873100e50b64e0c48455cc4a3fd1204ceb82eab0090e50f409435a",
+    "importerMatch": true
+  },
+  {
+    "id": "isaac",
+    "file": "Assets/Resources/Lumia/PortraitsReference/isaac.png",
+    "sourceSha256": "f383622750da2f5657ab3c6e42090d90452a6c045bc1a576904cd7298a6c3322",
+    "buildSha256": "f383622750da2f5657ab3c6e42090d90452a6c045bc1a576904cd7298a6c3322",
+    "match": true,
+    "importerSha256": "c9593879493d7665ac2c1ec8893725aa9217cf929ab93089e1fbdadcd40247c4",
+    "importerMatch": true
+  },
+  {
+    "id": "alex",
+    "file": "Assets/Resources/Lumia/PortraitsReference/alex.png",
+    "sourceSha256": "e10344b1493a59150153a45890ce79e13a4a7d8aaf4427f28b54de429770db76",
+    "buildSha256": "e10344b1493a59150153a45890ce79e13a4a7d8aaf4427f28b54de429770db76",
+    "match": true,
+    "importerSha256": "4262ed8dfe2abe053d5eb3d0e161da9732f80df5e53c224775e62aa151228ffd",
+    "importerMatch": true
+  },
+  {
+    "id": "jan",
+    "file": "Assets/Resources/Lumia/PortraitsReference/jan.png",
+    "sourceSha256": "c48ad8150df3d8e08675dba3f0b8457766316f62dcc37ce899062ee894e6fff1",
+    "buildSha256": "c48ad8150df3d8e08675dba3f0b8457766316f62dcc37ce899062ee894e6fff1",
+    "match": true,
+    "importerSha256": "a8cf2b890133d41c53e569773fd116283b02e421b91e99ad0e62287b18f9ead6",
+    "importerMatch": true
+  },
+  {
+    "id": "estelle",
+    "file": "Assets/Resources/Lumia/PortraitsReference/estelle.png",
+    "sourceSha256": "0483cba5b4f2ebd6c901218fec78143f6a0fe16a96e07c1e2644351d79e03b9a",
+    "buildSha256": "0483cba5b4f2ebd6c901218fec78143f6a0fe16a96e07c1e2644351d79e03b9a",
+    "match": true,
+    "importerSha256": "ee4b3b7de667515b06da1c26898a4cc04f2db1c77f22badf97b198e5e3126908",
+    "importerMatch": true
+  },
+  {
+    "id": "aiden",
+    "file": "Assets/Resources/Lumia/PortraitsReference/aiden.png",
+    "sourceSha256": "70bc1e4043aa73fd74c5d92eb5da8af2ec18a84b26e149b22b02279be17b4a9b",
+    "buildSha256": "70bc1e4043aa73fd74c5d92eb5da8af2ec18a84b26e149b22b02279be17b4a9b",
+    "match": true,
+    "importerSha256": "75591e8444b1c02f928db863cd36969e396bab3c14f8ff00262b7a6d5ac3136a",
+    "importerMatch": true
+  },
+  {
+    "id": "echion",
+    "file": "Assets/Resources/Lumia/PortraitsReference/echion.png",
+    "sourceSha256": "75a6bdc18975b7dd467a69937dfe0e6c2c0180fdcf8ebd1de73c4e1b166d77e6",
+    "buildSha256": "75a6bdc18975b7dd467a69937dfe0e6c2c0180fdcf8ebd1de73c4e1b166d77e6",
+    "match": true,
+    "importerSha256": "b19b0c69174577d2794793da41d92fc4c5620928c9db53b04b88b1068ebba26c",
+    "importerMatch": true
+  },
+  {
+    "id": "elena",
+    "file": "Assets/Resources/Lumia/PortraitsReference/elena.png",
+    "sourceSha256": "b2cce4e7a6284d9db488bc6111eda839131e1883adffc37e0cc241666ea73c3c",
+    "buildSha256": "b2cce4e7a6284d9db488bc6111eda839131e1883adffc37e0cc241666ea73c3c",
+    "match": true,
+    "importerSha256": "57f0f4ae8de231ad93859860119ca84c072a8e8c3412656a4986ba6f1a7a5104",
+    "importerMatch": true
+  },
+  {
+    "id": "johann",
+    "file": "Assets/Resources/Lumia/PortraitsReference/johann.png",
+    "sourceSha256": "834a19d15562173c60f3c1af88c12c94fb7a8fd48ff58dcee80506333f60db57",
+    "buildSha256": "834a19d15562173c60f3c1af88c12c94fb7a8fd48ff58dcee80506333f60db57",
+    "match": true,
+    "importerSha256": "957f7976bc221f6c280aa83a344821b2ce7fc6b6d7670250d639ff358a6c3267",
+    "importerMatch": true
+  },
+  {
+    "id": "william",
+    "file": "Assets/Resources/Lumia/PortraitsReference/william.png",
+    "sourceSha256": "8100a99d0a941ef46865940c3397777ae0a3939ae9aee2be52f4d7eb5ac2fcd2",
+    "buildSha256": "8100a99d0a941ef46865940c3397777ae0a3939ae9aee2be52f4d7eb5ac2fcd2",
+    "match": true,
+    "importerSha256": "49bc7720b4dfb0e1a6a4918cf8298e5d10a954f83eef47807c315b41c31ebbc5",
+    "importerMatch": true
+  },
+  {
+    "id": "irem",
+    "file": "Assets/Resources/Lumia/PortraitsReference/irem.png",
+    "sourceSha256": "8e80873ed120cccca2622224b8df91d2d811197ba5058a0f4c2faabdc97f0c4a",
+    "buildSha256": "8e80873ed120cccca2622224b8df91d2d811197ba5058a0f4c2faabdc97f0c4a",
+    "match": true,
+    "importerSha256": "ef2619a99bd852ac7652ecb2ee448888159eca369c212cda664d7c9f6a9b5ed7",
+    "importerMatch": true
+  },
+  {
+    "id": "eva",
+    "file": "Assets/Resources/Lumia/PortraitsReference/eva.png",
+    "sourceSha256": "0dcb3187fb671b7090ac88db3fc09e2eb83921a9ae7854e0bad9ae41b6719adb",
+    "buildSha256": "0dcb3187fb671b7090ac88db3fc09e2eb83921a9ae7854e0bad9ae41b6719adb",
+    "match": true,
+    "importerSha256": "ef6701cee8cc1dc6d431fad669fbfed24f14458f3bbdb81941d8c2abda32734c",
+    "importerMatch": true
+  },
+  {
+    "id": "ian",
+    "file": "Assets/Resources/Lumia/PortraitsReference/ian.png",
+    "sourceSha256": "0d248fb54f552b652bdb8913d9a2e3bb1a93f8ab7ff26350f49ed7ab5cf49220",
+    "buildSha256": "0d248fb54f552b652bdb8913d9a2e3bb1a93f8ab7ff26350f49ed7ab5cf49220",
+    "match": true,
+    "importerSha256": "fef822cf2782ade1e5c19f94b9cffe79f46ac81b267c0cd57f86ccf15be283a7",
+    "importerMatch": true
+  },
+  {
+    "id": "eleven",
+    "file": "Assets/Resources/Lumia/PortraitsReference/eleven.png",
+    "sourceSha256": "e301d207b9ded4f5dc9e2cc6e0f43a06a2d72ec0ac8f0ee34817b3171df96e58",
+    "buildSha256": "e301d207b9ded4f5dc9e2cc6e0f43a06a2d72ec0ac8f0ee34817b3171df96e58",
+    "match": true,
+    "importerSha256": "40ac02dffa54be36e778448547d83f3ded41f11c4c6f68aa92dc533aa3a1079f",
+    "importerMatch": true
+  },
+  {
+    "id": "zahir",
+    "file": "Assets/Resources/Lumia/PortraitsReference/zahir.png",
+    "sourceSha256": "53ed1845f75a73f097879c56921825ca9cf69c1dced5ca3a9b052a8d0f64e2a3",
+    "buildSha256": "53ed1845f75a73f097879c56921825ca9cf69c1dced5ca3a9b052a8d0f64e2a3",
+    "match": true,
+    "importerSha256": "1ae457755a796f6a135df74455b77de648b37d027d0d37a183cc57d29f592691",
+    "importerMatch": true
+  },
+  {
+    "id": "jenny",
+    "file": "Assets/Resources/Lumia/PortraitsReference/jenny.png",
+    "sourceSha256": "55beb6b7c2957608f3bc5a7bff72af08f409c181d13d21a802121c850118a3d6",
+    "buildSha256": "55beb6b7c2957608f3bc5a7bff72af08f409c181d13d21a802121c850118a3d6",
+    "match": true,
+    "importerSha256": "b841946289b98e17431dd794608e651703e558fe2c1e1e43eb48aa404bd0db48",
+    "importerMatch": true
+  },
+  {
+    "id": "camilo",
+    "file": "Assets/Resources/Lumia/PortraitsReference/camilo.png",
+    "sourceSha256": "2ec42e82732c9ce65daae82824beb3b24ad488e3c45f730e86d9bd16b8aa8565",
+    "buildSha256": "2ec42e82732c9ce65daae82824beb3b24ad488e3c45f730e86d9bd16b8aa8565",
+    "match": true,
+    "importerSha256": "b5e3c9d5383debc44f782df2a9941965d861e0e45b24060e8f71fa6c93da56ba",
+    "importerMatch": true
+  },
+  {
+    "id": "karla",
+    "file": "Assets/Resources/Lumia/PortraitsReference/karla.png",
+    "sourceSha256": "caae0d1ec0bfe7180d8b0dcd13f93f087c7de5ad085c5f69a4c43ee2c7847d60",
+    "buildSha256": "caae0d1ec0bfe7180d8b0dcd13f93f087c7de5ad085c5f69a4c43ee2c7847d60",
+    "match": true,
+    "importerSha256": "1a8016f6e98f852689a207639d2a3f8e5e733fe187e8c4efde21490d8eb1df1a",
+    "importerMatch": true
+  },
+  {
+    "id": "cathy",
+    "file": "Assets/Resources/Lumia/PortraitsReference/cathy.png",
+    "sourceSha256": "e6340619936a3ddae39029b6a62887bcd167cc0b4afc36f3d520ea91346a3de6",
+    "buildSha256": "e6340619936a3ddae39029b6a62887bcd167cc0b4afc36f3d520ea91346a3de6",
+    "match": true,
+    "importerSha256": "72a76afecb4928233865ce7d022feae212aa1ec5e943b7f2629595d9f7317e38",
+    "importerMatch": true
+  },
+  {
+    "id": "chloe",
+    "file": "Assets/Resources/Lumia/PortraitsReference/chloe.png",
+    "sourceSha256": "4f6490d3e7f9b28c6767f9b9a54f7549830161f2d6ed9e05faf48fe3e641be40",
+    "buildSha256": "4f6490d3e7f9b28c6767f9b9a54f7549830161f2d6ed9e05faf48fe3e641be40",
+    "match": true,
+    "importerSha256": "40125926f1f0f62f8ed48be7c2e91f818d0163df31a4cc8978455f8bd793c8f8",
+    "importerMatch": true
+  },
+  {
+    "id": "chiara",
+    "file": "Assets/Resources/Lumia/PortraitsReference/chiara.png",
+    "sourceSha256": "5c724898979f7140a3dc6d24137b61d8c8f316c8104d31c1adf87b01612d42c5",
+    "buildSha256": "5c724898979f7140a3dc6d24137b61d8c8f316c8104d31c1adf87b01612d42c5",
+    "match": true,
+    "importerSha256": "c6afd37bb48e39962e483aff1cfe2e28bb2f0043720d444f8a549b757f2ede72",
+    "importerMatch": true
+  },
+  {
+    "id": "tazia",
+    "file": "Assets/Resources/Lumia/PortraitsReference/tazia.png",
+    "sourceSha256": "a2c50c8ac1338ef4c97d8397b988bb0ae9e7d33ac182b281ff2f9ee60cfeaf35",
+    "buildSha256": "a2c50c8ac1338ef4c97d8397b988bb0ae9e7d33ac182b281ff2f9ee60cfeaf35",
+    "match": true,
+    "importerSha256": "0804f0d5a7ee7ab88ad8988bad0ab28d2891670fea2eeb3273ba7d9f53274ba4",
+    "importerMatch": true
+  },
+  {
+    "id": "theodore",
+    "file": "Assets/Resources/Lumia/PortraitsReference/theodore.png",
+    "sourceSha256": "9a450a80461a340062583d33cbd5c5e24a5bbc3f32f31cce861478a28266beff",
+    "buildSha256": "9a450a80461a340062583d33cbd5c5e24a5bbc3f32f31cce861478a28266beff",
+    "match": true,
+    "importerSha256": "a954d80c541dc76c4816c613c3ce4aaefa771266ef3ecab59be167b3f799f8e2",
+    "importerMatch": true
+  },
+  {
+    "id": "felix",
+    "file": "Assets/Resources/Lumia/PortraitsReference/felix.png",
+    "sourceSha256": "ef2824fc84e1d02c6beb71097ff89facb2d5bb057a5ebea8552eda420b374ff3",
+    "buildSha256": "ef2824fc84e1d02c6beb71097ff89facb2d5bb057a5ebea8552eda420b374ff3",
+    "match": true,
+    "importerSha256": "7f5e96d42a6d1c0087417ba090668d9ee7b3b922abe9bbc956533a2404f597b4",
+    "importerMatch": true
+  },
+  {
+    "id": "priya",
+    "file": "Assets/Resources/Lumia/PortraitsReference/priya.png",
+    "sourceSha256": "03116dc37895a09dd4b6866069c66021e14990d646449fa457255dc75562f78e",
+    "buildSha256": "03116dc37895a09dd4b6866069c66021e14990d646449fa457255dc75562f78e",
+    "match": true,
+    "importerSha256": "2f6b2e362ab4faf88f6f43d7080faff6e956912f961482a3d57a779da36dd100",
+    "importerMatch": true
+  },
+  {
+    "id": "fiora",
+    "file": "Assets/Resources/Lumia/PortraitsReference/fiora.png",
+    "sourceSha256": "cbde220d120ad020ce185f2ed30a4e9117d73cb6fed0a9f5346f31c7012e928c",
+    "buildSha256": "cbde220d120ad020ce185f2ed30a4e9117d73cb6fed0a9f5346f31c7012e928c",
+    "match": true,
+    "importerSha256": "14f4abe0cee72863ae036f12e632b1c34a18521d26652add13b0929bd1b1c1cd",
+    "importerMatch": true
+  },
+  {
+    "id": "piolo",
+    "file": "Assets/Resources/Lumia/PortraitsReference/piolo.png",
+    "sourceSha256": "84316ba01710c82bee0e88954b73b76da63f423d2ebd6b0083354ae1256c5e38",
+    "buildSha256": "84316ba01710c82bee0e88954b73b76da63f423d2ebd6b0083354ae1256c5e38",
+    "match": true,
+    "importerSha256": "7a533a93ef401b506bc4fa4dd7fbc782713e0b6fe6f012b4f89ebd0a64b54da8",
+    "importerMatch": true
+  },
+  {
+    "id": "hart",
+    "file": "Assets/Resources/Lumia/PortraitsReference/hart.png",
+    "sourceSha256": "fd65eb13427ed3e7a598ee0a2e5132b3a41c37f82b66cfd79d152f43ff72dbc8",
+    "buildSha256": "fd65eb13427ed3e7a598ee0a2e5132b3a41c37f82b66cfd79d152f43ff72dbc8",
+    "match": true,
+    "importerSha256": "6bfa0410acaa59c58ba9520d2972fd0cd68c029323dbd74343b61c37fa68577b",
+    "importerMatch": true
+  },
+  {
+    "id": "haze",
+    "file": "Assets/Resources/Lumia/PortraitsReference/haze.png",
+    "sourceSha256": "a3aa69ef8fc692d2a292befe4387fc5e8e06948c7df8bc9c83a12fb59404426f",
+    "buildSha256": "a3aa69ef8fc692d2a292befe4387fc5e8e06948c7df8bc9c83a12fb59404426f",
+    "match": true,
+    "importerSha256": "5fead4e3dc8c5c86140c07e64090f39a754dba842c662fa51199e232a1495dab",
+    "importerMatch": true
+  },
+  {
+    "id": "debi_marlene",
+    "file": "Assets/Resources/Lumia/PortraitsReference/debi_marlene.png",
+    "sourceSha256": "df2334e08725d24a75db690201bcae103644e76ae4a333693ef81eb343c16263",
+    "buildSha256": "df2334e08725d24a75db690201bcae103644e76ae4a333693ef81eb343c16263",
+    "match": true,
+    "importerSha256": "4f0cbc11c664cbac957d2f07e939cdbe64636b2640e7ae4c1a47ac36a236e554",
+    "importerMatch": true
+  },
+  {
+    "id": "arda",
+    "file": "Assets/Resources/Lumia/PortraitsReference/arda.png",
+    "sourceSha256": "d7774b19d3ae2e4256075d57eabcefe6b0c04891ee6cdf6b5020efdc713f94c6",
+    "buildSha256": "d7774b19d3ae2e4256075d57eabcefe6b0c04891ee6cdf6b5020efdc713f94c6",
+    "match": true,
+    "importerSha256": "0ca68d4bc5d541b48016fbaba1ed16bac99413829cdef0b9da23876e0c15636d",
+    "importerMatch": true
+  },
+  {
+    "id": "abigail",
+    "file": "Assets/Resources/Lumia/PortraitsReference/abigail.png",
+    "sourceSha256": "89c55545fbca5d2e7c748c4c05b2518b47a4be2cffb85256269a25ec37373f63",
+    "buildSha256": "89c55545fbca5d2e7c748c4c05b2518b47a4be2cffb85256269a25ec37373f63",
+    "match": true,
+    "importerSha256": "496f4bae48ba554540378866ff57e36657e715b6a89243ee8f7a4acb1aa1abc4",
+    "importerMatch": true
+  },
+  {
+    "id": "alonso",
+    "file": "Assets/Resources/Lumia/PortraitsReference/alonso.png",
+    "sourceSha256": "8473ef9cfebfaeb54c705794d1deaccd1c50889eb8b48c1a2780fdeb83b0c60e",
+    "buildSha256": "8473ef9cfebfaeb54c705794d1deaccd1c50889eb8b48c1a2780fdeb83b0c60e",
+    "match": true,
+    "importerSha256": "dc992b9cf7d6e927d89faa288f849551afc3777654ed6a54234657250cff4cfb",
+    "importerMatch": true
+  },
+  {
+    "id": "leni",
+    "file": "Assets/Resources/Lumia/PortraitsReference/leni.png",
+    "sourceSha256": "bd004525967423148b02397a367ce21197d9bd1d192474ad698c3bb0e881e305",
+    "buildSha256": "bd004525967423148b02397a367ce21197d9bd1d192474ad698c3bb0e881e305",
+    "match": true,
+    "importerSha256": "f9a081b72faad41982b33132aea3b7557cef210c6869437aeebbd42e3d45eebc",
+    "importerMatch": true
+  },
+  {
+    "id": "tsubame",
+    "file": "Assets/Resources/Lumia/PortraitsReference/tsubame.png",
+    "sourceSha256": "806876aeefea675ca42a32a75391ec8ee066d84a831b67ea484025045dfc3a2a",
+    "buildSha256": "806876aeefea675ca42a32a75391ec8ee066d84a831b67ea484025045dfc3a2a",
+    "match": true,
+    "importerSha256": "3044da667c97bd59a870f0aa55f14da1916d7cbac54117f03fefbc5a680774b8",
+    "importerMatch": true
+  },
+  {
+    "id": "kenneth",
+    "file": "Assets/Resources/Lumia/PortraitsReference/kenneth.png",
+    "sourceSha256": "df02655c33527b8629ad013fded6d0eceb5f2cafad7659350f4bbe9a056da722",
+    "buildSha256": "df02655c33527b8629ad013fded6d0eceb5f2cafad7659350f4bbe9a056da722",
+    "match": true,
+    "importerSha256": "b37b41d7251171252a0b82dfb458f7a57bd4b760f521e8c81de92dbf69d1f217",
+    "importerMatch": true
+  },
+  {
+    "id": "katja",
+    "file": "Assets/Resources/Lumia/PortraitsReference/katja.png",
+    "sourceSha256": "d936412202600d870cdacb8d59b35c88b8044ab0827d334afb782c70e5e0e91c",
+    "buildSha256": "d936412202600d870cdacb8d59b35c88b8044ab0827d334afb782c70e5e0e91c",
+    "match": true,
+    "importerSha256": "2a3a3c3757b7fc0a73e54563391b76bacf027cdbe1569ddde0cca058ad99ba6c",
+    "importerMatch": true
+  },
+  {
+    "id": "darko",
+    "file": "Assets/Resources/Lumia/PortraitsReference/darko.png",
+    "sourceSha256": "b64e1785b7ce5519b6fb469954c25f3ec521f4f17af9ee6f2621eced2f9f945f",
+    "buildSha256": "b64e1785b7ce5519b6fb469954c25f3ec521f4f17af9ee6f2621eced2f9f945f",
+    "match": true,
+    "importerSha256": "960731b18e9797ba14096997637b18d0a900715e132b45c35af5f06f34f6db49",
+    "importerMatch": true
+  },
+  {
+    "id": "lenore",
+    "file": "Assets/Resources/Lumia/PortraitsReference/lenore.png",
+    "sourceSha256": "c743d164bf778cbf51d13b8a0dfba5d663657aed6cf91d733b460287a8390431",
+    "buildSha256": "c743d164bf778cbf51d13b8a0dfba5d663657aed6cf91d733b460287a8390431",
+    "match": true,
+    "importerSha256": "b273a6baf3aa383e6a6cd5139b75e3224d424bdcb25e95d8fae172436f9b49a3",
+    "importerMatch": true
+  },
+  {
+    "id": "garnet",
+    "file": "Assets/Resources/Lumia/PortraitsReference/garnet.png",
+    "sourceSha256": "950fe220268be735b1b1a29d6b31ca13d2dd0483be38d10c0cf048e5f74025b3",
+    "buildSha256": "950fe220268be735b1b1a29d6b31ca13d2dd0483be38d10c0cf048e5f74025b3",
+    "match": true,
+    "importerSha256": "4b3d323decd02fd60e05e444b9b0dcc77d6d224d96d980366ca1cd3aab2eeb55",
+    "importerMatch": true
+  },
+  {
+    "id": "yumin",
+    "file": "Assets/Resources/Lumia/PortraitsReference/yumin.png",
+    "sourceSha256": "edf2204af02ac2a9b772006ae6fbee39d602e8369250b267aefce42cd2f6d9fd",
+    "buildSha256": "edf2204af02ac2a9b772006ae6fbee39d602e8369250b267aefce42cd2f6d9fd",
+    "match": true,
+    "importerSha256": "04b3d623233ff694dba1973e52e1c5997c076d870c2300f8c86fe45f66643057",
+    "importerMatch": true
+  },
+  {
+    "id": "hisui",
+    "file": "Assets/Resources/Lumia/PortraitsReference/hisui.png",
+    "sourceSha256": "d7005b9af8e94bb1febea480cefa51d5fec08e5a9d8148c37035955206d4f580",
+    "buildSha256": "d7005b9af8e94bb1febea480cefa51d5fec08e5a9d8148c37035955206d4f580",
+    "match": true,
+    "importerSha256": "3161566a2b6c574aae00d4d2c928912de31586082d791c26b8157655e46d81d6",
+    "importerMatch": true
+  },
+  {
+    "id": "justyna",
+    "file": "Assets/Resources/Lumia/PortraitsReference/justyna.png",
+    "sourceSha256": "959d032515daf869648aebd5552fca0a9a78184be36ed10829bc99ee2e0a1070",
+    "buildSha256": "959d032515daf869648aebd5552fca0a9a78184be36ed10829bc99ee2e0a1070",
+    "match": true,
+    "importerSha256": "f849ddfaf4c1664a98cd022da4ecaa7d89ff4746a5159329086a4265271a242e",
+    "importerMatch": true
+  },
+  {
+    "id": "istvan",
+    "file": "Assets/Resources/Lumia/PortraitsReference/istvan.png",
+    "sourceSha256": "3fd1fc2dd613c48d9e658462d73826770fc8823fba471a23c9430021318118aa",
+    "buildSha256": "3fd1fc2dd613c48d9e658462d73826770fc8823fba471a23c9430021318118aa",
+    "match": true,
+    "importerSha256": "67a24f1818737ce512b76cc9fecee15e6cbb38aa8e273915f1fac811514c90c5",
+    "importerMatch": true
+  },
+  {
+    "id": "xuelin",
+    "file": "Assets/Resources/Lumia/PortraitsReference/xuelin.png",
+    "sourceSha256": "762e28350d1caa07430d51d9d273c2644ab03f12e027bf0da1bdfa54c2a0a529",
+    "buildSha256": "762e28350d1caa07430d51d9d273c2644ab03f12e027bf0da1bdfa54c2a0a529",
+    "match": true,
+    "importerSha256": "01368b8f6fff1fee6773e7950260f50944bfc251209384566cb12541f01bf14f",
+    "importerMatch": true
+  },
+  {
+    "id": "henry",
+    "file": "Assets/Resources/Lumia/PortraitsReference/henry.png",
+    "sourceSha256": "c0dc84560c3b684006b5fd399d6c480c709f59ebaedf1b8df2c786112d91d75c",
+    "buildSha256": "c0dc84560c3b684006b5fd399d6c480c709f59ebaedf1b8df2c786112d91d75c",
+    "match": true,
+    "importerSha256": "38f1262ea94331801745f3a70fdf85b8c75394a8931cd76268848bb5532556f2",
+    "importerMatch": true
+  },
+  {
+    "id": "blair",
+    "file": "Assets/Resources/Lumia/PortraitsReference/blair.png",
+    "sourceSha256": "ccbe6a7e3bf2e0e396f4ec4684aa904f69891519859274b0d67399935cd6e832",
+    "buildSha256": "ccbe6a7e3bf2e0e396f4ec4684aa904f69891519859274b0d67399935cd6e832",
+    "match": true,
+    "importerSha256": "c0382cac85c0f21a7c74b55ce136a07c51d14e2218f4fb54613c815722d04514",
+    "importerMatch": true
+  },
+  {
+    "id": "mirka",
+    "file": "Assets/Resources/Lumia/PortraitsReference/mirka.png",
+    "sourceSha256": "6dab9ed0f9212fc7c83587117484e7dd7ae9e31201e8d903d21f2407dbd6c4cb",
+    "buildSha256": "6dab9ed0f9212fc7c83587117484e7dd7ae9e31201e8d903d21f2407dbd6c4cb",
+    "match": true,
+    "importerSha256": "7b2dc5065e91a07802321d8e3ba0fc57f6081f0bcd5d5fc190f4e14f86b3bcf9",
+    "importerMatch": true
+  },
+  {
+    "id": "fenrir",
+    "file": "Assets/Resources/Lumia/PortraitsReference/fenrir.png",
+    "sourceSha256": "a40614e608d3f051c969261ec22fb8dbd19bcd76bd3272d7c7c758773722d977",
+    "buildSha256": "a40614e608d3f051c969261ec22fb8dbd19bcd76bd3272d7c7c758773722d977",
+    "match": true,
+    "importerSha256": "a6ac0a7ae6fe6570681afb7d3191093e107852b385f11bcb328da9ff86d0373c",
+    "importerMatch": true
+  },
+  {
+    "id": "coraline",
+    "file": "Assets/Resources/Lumia/PortraitsReference/coraline.png",
+    "sourceSha256": "406dd1b6f6f7a884634ed42261a815c4f9a9b6a73ce2352e798ff3ee7498fe78",
+    "buildSha256": "406dd1b6f6f7a884634ed42261a815c4f9a9b6a73ce2352e798ff3ee7498fe78",
+    "match": true,
+    "importerSha256": "41411b8f3d1140bdd08b59daeb7cbaf210d744e66283f43766dde0bb537518da",
+    "importerMatch": true
+  },
+  {
+    "id": "bihyung",
+    "file": "Assets/Resources/Lumia/PortraitsReference/bihyung.png",
+    "sourceSha256": "7468c47afcec373be80799679b48499d021fa2f096710f079049bbb131216998",
+    "buildSha256": "7468c47afcec373be80799679b48499d021fa2f096710f079049bbb131216998",
+    "match": true,
+    "importerSha256": "8c8e416b868da03ea0786bea41536ad49c7311c0586c94653a8dc67824a9f699",
+    "importerMatch": true
+  },
+  {
+    "id": "craver",
+    "file": "Assets/Resources/Lumia/PortraitsReference/craver.png",
+    "sourceSha256": "a7c4aaefea8104bbb26094f5f0a2ac6cffd3e08c4045d846dcef4883ca0ecd03",
+    "buildSha256": "a7c4aaefea8104bbb26094f5f0a2ac6cffd3e08c4045d846dcef4883ca0ecd03",
+    "match": true,
+    "importerSha256": "b414e6d26224a55459edbcd509e8f2774c7e36f0cc60dde392fbe41bcf608617",
+    "importerMatch": true
+  },
+  {
+    "id": "lucia",
+    "file": "Assets/Resources/Lumia/PortraitsReference/lucia.png",
+    "sourceSha256": "b477524f080f1018a55460300aa975574b95b56a26002f7112f48f982cf4d8cb",
+    "buildSha256": "b477524f080f1018a55460300aa975574b95b56a26002f7112f48f982cf4d8cb",
+    "match": true,
+    "importerSha256": "44f0749d6bee40bb5309b2ee7600d8b181cd1bcac9da84c2648888b54e5afb30",
+    "importerMatch": true
+  },
+  {
+    "id": "ceres",
+    "file": "Assets/Resources/Lumia/PortraitsReference/ceres.png",
+    "sourceSha256": "3be108fd1a3513455cd826bb085784132a6f2330b0d8da4ef461aea9a55e4b76",
+    "buildSha256": "3be108fd1a3513455cd826bb085784132a6f2330b0d8da4ef461aea9a55e4b76",
+    "match": true,
+    "importerSha256": "cb7ac2ef7d9f94f316e60030852815cff950b840105f597fdb1440af9bf50bd5",
+    "importerMatch": true
+  }
+]

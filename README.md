@@ -4,7 +4,7 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.10](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.10)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.11](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.11)에 있습니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
 - 완성된 Windows 빌드가 있으면 `Build/Windows/BlackTheSurvival.exe`를 실행하세요. 같은 폴더의 `BlackTheSurvival_Data`, `MonoBleedingEdge`, `UnityPlayer.dll`도 함께 있어야 합니다.
@@ -39,7 +39,7 @@
 | 장비 | 전설·초월 51개. 무기·옷·머리·팔/장식·다리 각각 2개까지 착용. 치명타 관련 장비와 10종 옵션 태그 검색 |
 | 음식 | 14종. 원재료 5종의 모닥불 조리와 완전 회복 만년 스프 |
 | 레벨 | 플레이어·상대 최대 20. 플레이어 최대 코스트는 시작 5 + 보스 승리·조우의 영구 보상. 상대의 최대 코스트는 레벨에 따라 5~8 |
-| 그래픽 | 160×160 픽셀의 얼굴·눈매를 구분한 스프라이트 92개. 카드 392종·패시브 91종, 룬 16종·오브젝트 5종·장비 51종·크레딧·모닥불·지도 4종의 전용 도트 아이콘. 니아 로비, 전투 배경, 야생동물·음식 도트 그림과 한글 도트 글꼴 |
+| 그래픽 | 80×80 논리 격자를 160×160으로 확대한 새 치비 스프라이트 92개. 카드 392종·패시브 91종, 룬 16종·오브젝트 5종·장비 51종·크레딧·모닥불·지도 4종의 전용 도트 아이콘. 니아 로비, 전투 배경, 야생동물·음식 도트 그림과 한글 도트 글꼴 |
 | 로비 | 새 게임, 이어하기, 환경 설정, 검색 가능한 카드 도감, 요청한 IP·저작권 문구 |
 | 저장 | 행동마다 자동 저장. 손패·버린 카드·상대 행동·난수 상태까지 복원 |
 | 전투 연출 | 모든 카드에 효과 유형·색·고유 패턴 지정. 도트 탄환·참격·폭발·번개·불꽃·얼음·마법·방어·회복·이동 연출과 8비트 효과음. 적 카드도 순차 재생 |
@@ -50,9 +50,9 @@ Q/W/E/R 364종은 실험체별 스택·표식·설치물·소환·지연 공격�
 
 패시브 91종은 주인의 카드가 없어도 공통 전투 행동으로 발동합니다. 아이작은 기본 공격마다 추가 피해를 주고 세 번째 기본 공격에서 추가 피해와 회복을 얻습니다. 룬 16종에도 원본을 참고한 발동 조건·재사용 대기·횟수 제한을 적용했습니다. 증폭 드론은 어느 실험체의 R이든 사용하면 현재 턴과 다음 턴의 최대 코스트가 1 증가하고 공격 피해가 조금 증가합니다. [패시브 변환 기록](docs/PASSIVE_IDENTITY_CLASSIC.md), [최근 패시브 기록](docs/PASSIVE_IDENTITY_RECENT.md), [룬 변환 기록](docs/RUNE_IDENTITY.md)에서 세부 수치를 확인할 수 있습니다.
 
-그림은 내장 `image_gen`으로 새로 제작했습니다. 최종 리소스는 `Assets/Resources/Lumia/Portraits/{id}.png`, `SkillIcons/{id}.png`, `PassiveIcons/{id}.png`에 있습니다. [아트 설명](docs/ART.md), [치비 아트 제작 방식](docs/ART_CHIBI.md), [실제 생성 프롬프트](docs/art-chibi/prompts.json), [원본 아틀라스 배치](docs/art-chibi/batches.json), [아이콘 배치](docs/art-chibi/icon-batches.json), [최종 파일·원본 좌표·해시](docs/art-chibi/processed-art-index.json), [아트 검증 기록](docs/art-chibi/art-validation.json)을 함께 보관합니다.
+그림은 내장 `image_gen`으로 새로 제작했습니다. 현재 캐릭터 리소스는 `Assets/Resources/Lumia/PortraitsReference/{id}.png`, 스킬과 패시브는 `SkillIcons/{id}.png`, `PassiveIcons/{id}.png`에 있습니다. 이전 세대의 [아트 설명](docs/ART.md), [치비 아트 제작 방식](docs/ART_CHIBI.md), [실제 생성 프롬프트](docs/art-chibi/prompts.json), [원본 아틀라스 배치](docs/art-chibi/batches.json), [아이콘 배치](docs/art-chibi/icon-batches.json), [파일·원본 좌표·해시](docs/art-chibi/processed-art-index.json), [아트 검증 기록](docs/art-chibi/art-validation.json)도 함께 보관합니다.
 
-캐릭터 스프라이트는 `PortraitsIdentity/{id}.png`를 우선 사용하고 80픽셀로 다시 줄이지 않습니다. GBA 포켓몬·모에몬 표현을 참고해 눈매·눈썹·표정·안경·수염을 개별 설계했습니다. [얼굴 설계](docs/art-identity/face-designs.json)와 [개별 생성 원본·프롬프트·해시](docs/art-identity/asset-index.json)를 보존합니다. 시스템 아이콘 78개는 원본의 실루엣과 색을 참고하여 개별 제작했고, `SystemIcons/{id}.png`에서 불러옵니다. 모두 32픽셀 격자를 64픽셀 PNG로 확대해 또렷한 2×2 도트와 투명 배경을 유지합니다. 여제·생사부는 원본 형태에 맞춰 교정했습니다. 참고 이미지·실제 프롬프트·원본 및 출력 해시는 [시스템 아트 제작 기록](docs/art-system/README.md)에 있습니다.
+캐릭터 스프라이트는 `PortraitsReference/{id}.png`를 우선 사용합니다. 첨부된 스타일 참고의 약 2.2등신 비율·차분한 색·굵은 픽셀 군집을 바탕으로 92명을 새로 만들었습니다. 각 얼굴·의상·무기는 공식 캐릭터 이미지에 맞추며, 참고 팬 스프라이트 자체는 배포하지 않습니다. [새 스프라이트·실제 프롬프트·검증](docs/art-reference-chibi/README.md)을 보존합니다. 기존 세대의 [얼굴 설계](docs/art-identity/face-designs.json)와 [개별 생성 원본·프롬프트·해시](docs/art-identity/asset-index.json)를 보존합니다. 시스템 아이콘 78개는 원본의 실루엣과 색을 참고하여 개별 제작했고, `SystemIcons/{id}.png`에서 불러옵니다. 모두 32픽셀 격자를 64픽셀 PNG로 확대해 또렷한 2×2 도트와 투명 배경을 유지합니다. 여제·생사부는 원본 형태에 맞춰 교정했습니다. 참고 이미지·실제 프롬프트·원본 및 출력 해시는 [시스템 아트 제작 기록](docs/art-system/README.md)에 있습니다.
 
 원본 기술에 따라 기절·속박·침묵·실명·둔화·공포·매혹·제압·변이 등의 상태를 부여합니다. 이동 제한과 기술 봉인은 카드 종류에 적용하고, 기절 등 하드 제어는 다음 턴 코스트를 최대 2 줄이되 최소 1을 남깁니다. 같은 상태는 수치가 중첩되지 않으며 대상의 턴 종료에 기간이 줄어듭니다. 카드 상세와 필드 상세에 효과와 기간을 표시합니다. 치유 드론은 피해를 받아 체력이 최대 체력의 1/3 이하가 됐을 때 발동합니다. 중후반·보스 체력을 올리고 전투 크레딧을 줄인 난도 조정도 적용했습니다.
 
@@ -70,7 +70,7 @@ Q/W/E/R 364종은 실험체별 스택·표식·설치물·소환·지연 공격�
 
 ## 사운드
 
-공식 공개 OST **Summertime·Golden Willow·Red Heart**를 로비·탐험·전투 등 상황에 맞춰 재생합니다. 원본 한국어 스킬 보이스 339개, 니아 상황 보이스 10개, 아나운서 보이스 4개도 포함합니다. 공개 팬키트에 원본이 없는 매칭·야생동물·키오스크·제작·요리 등은 이 프로젝트에서 제작한 효과음 65개로 보완했습니다. 원본 로비 테마나 모든 기술의 원본 효과음을 가져온 것은 아닙니다. [음원 구성과 출처](docs/AUDIO.md)를 확인할 수 있습니다.
+로비에는 공식 공개 OST **Summertime**을 사용하고, 게임 시작 후에는 프로젝트에서 새로 작곡한 **무보컬 연주곡 5곡**을 상황에 맞춰 재생합니다. 원본 MR을 확보하지 못해 새 연주곡으로 보완했으며 [곡별 구성](docs/audio/INSTRUMENTAL_MUSIC.md)에 구분해 기록했습니다. 원본 한국어 스킬 보이스 339개, 니아 상황 보이스 10개, 아나운서 보이스 4개도 포함합니다. 공개 팬키트에 원본이 없는 매칭·야생동물·키오스크·제작·요리 등은 이 프로젝트에서 제작한 효과음 65개로 보완했습니다. 원본 로비 테마나 모든 기술의 원본 효과음을 가져온 것은 아닙니다. [음원 구성과 출처](docs/AUDIO.md)를 확인할 수 있습니다.
 
 환경 설정에서 **전체 음량·음악·효과음 및 보이스**를 각각 조절하고 소리 전체를 끌 수 있습니다. 화면을 바꿀 때 음악이 부드럽게 전환되고, 같은 곡을 쓰는 화면에서는 재시작하지 않습니다. 카드·상태이상·패시브가 동시에 발동해도 중복 효과음과 보이스가 과도하게 겹치지 않도록 제한합니다.
 

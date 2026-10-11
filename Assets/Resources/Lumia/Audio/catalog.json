@@ -1570,6 +1570,70 @@
       "loopBoundaryJump": 0
     },
     {
+      "id": "music_break_the_loop",
+      "title": "Break the Loop",
+      "performer": "Black The Survival project composition",
+      "path": "Lumia/Audio/Music/music_break_the_loop",
+      "file": "Assets/Resources/Lumia/Audio/Music/music_break_the_loop.ogg",
+      "sourcePage": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Tools/GenerateInstrumentalMusic.py",
+      "sourceUrl": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Tools/GenerateInstrumentalMusic.py",
+      "sourceName": "GenerateInstrumentalMusic.py: Break the Loop",
+      "origin": "instrumental_generated",
+      "kind": "instrumental_generated",
+      "license": "Project-composed fan-game music; not an original Eternal Return recording or MR.",
+      "channel": "music",
+      "volume": 0.67,
+      "containsVocals": false,
+      "loop": true,
+      "sceneUse": "Wildlife / subject combat",
+      "arrangement": "E minor; 64 bars; analog lead melody, arpeggiated plucks, sustained pad, staccato strings, bass and full electronic drums. Eight-bar intro / A / breakdown / extended B / resolution.",
+      "alteration": "New written score rendered with deterministic DSP instruments. No existing recording, vocal separation, voice model, or music sample is used.",
+      "durationSeconds": 120.0,
+      "sampleRate": 32000,
+      "channels": 2,
+      "tempo": 128,
+      "bars": 64,
+      "peak": 0.70233756,
+      "rms": 0.13541242,
+      "dcOffset": 1.0561e-05,
+      "loopBoundaryJump": 0.000956164,
+      "encoder": "imageio-ffmpeg 0.6.0; FFmpeg libvorbis quality 5; bitexact encoding and metadata stripped",
+      "bytes": 1700595,
+      "sha256": "ea0fd7cdc2ac9103b21520e073856ef97d35b9a40c1e64666925c6db34d6f3fb"
+    },
+    {
+      "id": "music_emberlight",
+      "title": "Emberlight",
+      "performer": "Black The Survival project composition",
+      "path": "Lumia/Audio/Music/music_emberlight",
+      "file": "Assets/Resources/Lumia/Audio/Music/music_emberlight.ogg",
+      "sourcePage": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Tools/GenerateInstrumentalMusic.py",
+      "sourceUrl": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Tools/GenerateInstrumentalMusic.py",
+      "sourceName": "GenerateInstrumentalMusic.py: Emberlight",
+      "origin": "instrumental_generated",
+      "kind": "instrumental_generated",
+      "license": "Project-composed fan-game music; not an original Eternal Return recording or MR.",
+      "channel": "music",
+      "volume": 0.67,
+      "containsVocals": false,
+      "loop": true,
+      "sceneUse": "Campfire / escape",
+      "arrangement": "D major; 32 bars; finger-picked plucks, flute and electric piano over warm pads and sparse hand-percussion-style rhythm. Intro / A / octave B / resolution.",
+      "alteration": "New written score rendered with deterministic DSP instruments. No existing recording, vocal separation, voice model, or music sample is used.",
+      "durationSeconds": 98.461531,
+      "sampleRate": 32000,
+      "channels": 2,
+      "tempo": 78,
+      "bars": 32,
+      "peak": 0.49988902,
+      "rms": 0.1003648,
+      "dcOffset": 8.58e-07,
+      "loopBoundaryJump": 0.000783708,
+      "encoder": "imageio-ffmpeg 0.6.0; FFmpeg libvorbis quality 5; bitexact encoding and metadata stripped",
+      "bytes": 1042838,
+      "sha256": "fe937d3ff083256a1dbf03c9444da8680b5b34cfda6ff05eee55255b8856fc16"
+    },
+    {
       "id": "music_golden_willow",
       "title": "Golden Willow",
       "performer": "Byeol Eun",
@@ -1579,13 +1643,46 @@
       "sourceUrl": "https://cdn.playeternalreturn.com/event/season9/willow/ERS9_Golden_Williow_KR.mp3",
       "sourceName": "ERS9_Golden_Williow_KR.mp3",
       "origin": "official_original_music",
+      "kind": "original_music",
+      "containsVocals": true,
       "alteration": "None; official MP3 bytes preserved. Unity imports streaming Vorbis.",
       "bytes": 4733084,
       "sha256": "ad4764b705eb6c6e71d832a4b64e67ecaac581ea8c7b38e8f9463fa2b2186ffb",
-      "channel": "music",
-      "kind": "original_music",
       "volume": 0.55,
-      "license": "Nimble Neuron IP Usage Policy; Eternal Return fan creation"
+      "license": "Nimble Neuron IP Usage Policy; Eternal Return fan creation",
+      "channel": "music"
+    },
+    {
+      "id": "music_lumia_afterglow",
+      "title": "Lumia Afterglow",
+      "performer": "Black The Survival project composition",
+      "path": "Lumia/Audio/Music/music_lumia_afterglow",
+      "file": "Assets/Resources/Lumia/Audio/Music/music_lumia_afterglow.ogg",
+      "sourcePage": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Tools/GenerateInstrumentalMusic.py",
+      "sourceUrl": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Tools/GenerateInstrumentalMusic.py",
+      "sourceName": "GenerateInstrumentalMusic.py: Lumia Afterglow",
+      "origin": "instrumental_generated",
+      "kind": "instrumental_generated",
+      "license": "Project-composed fan-game music; not an original Eternal Return recording or MR.",
+      "channel": "music",
+      "volume": 0.67,
+      "containsVocals": false,
+      "loop": true,
+      "sceneUse": "Exploration / preparation / encounters",
+      "arrangement": "C minor; 48 bars; bell arpeggio, warm electric piano, pad, flute lead, bass and restrained drums. Intro / A / breakdown / B / resolution.",
+      "alteration": "New written score rendered with deterministic DSP instruments. No existing recording, vocal separation, voice model, or music sample is used.",
+      "durationSeconds": 120.0,
+      "sampleRate": 32000,
+      "channels": 2,
+      "tempo": 96,
+      "bars": 48,
+      "peak": 0.62338859,
+      "rms": 0.11036772,
+      "dcOffset": 2.0863e-05,
+      "loopBoundaryJump": 0.001550631,
+      "encoder": "imageio-ffmpeg 0.6.0; FFmpeg libvorbis quality 5; bitexact encoding and metadata stripped",
+      "bytes": 1352639,
+      "sha256": "df32c18b20730d4f2e52d00c9cc96a2b3ebc70845a3f2301ac236bf540a5e11a"
     },
     {
       "id": "music_red_heart",
@@ -1597,13 +1694,46 @@
       "sourceUrl": "https://cdn.playeternalreturn.com/event/season10/redheart/UwBxA/ERS10_Red_Heart.mp3",
       "sourceName": "ERS10_Red_Heart.mp3",
       "origin": "official_original_music",
+      "kind": "original_music",
+      "containsVocals": true,
       "alteration": "None; official MP3 bytes preserved. Unity imports streaming Vorbis.",
       "bytes": 4823506,
       "sha256": "85f2bd29fdf3417ea3d537bd851cb7fd475e0a32981e97af2bdfc3285c1017c8",
-      "channel": "music",
-      "kind": "original_music",
       "volume": 0.55,
-      "license": "Nimble Neuron IP Usage Policy; Eternal Return fan creation"
+      "license": "Nimble Neuron IP Usage Policy; Eternal Return fan creation",
+      "channel": "music"
+    },
+    {
+      "id": "music_signal_exchange",
+      "title": "Signal Exchange",
+      "performer": "Black The Survival project composition",
+      "path": "Lumia/Audio/Music/music_signal_exchange",
+      "file": "Assets/Resources/Lumia/Audio/Music/music_signal_exchange.ogg",
+      "sourcePage": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Tools/GenerateInstrumentalMusic.py",
+      "sourceUrl": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Tools/GenerateInstrumentalMusic.py",
+      "sourceName": "GenerateInstrumentalMusic.py: Signal Exchange",
+      "origin": "instrumental_generated",
+      "kind": "instrumental_generated",
+      "license": "Project-composed fan-game music; not an original Eternal Return recording or MR.",
+      "channel": "music",
+      "volume": 0.67,
+      "containsVocals": false,
+      "loop": true,
+      "sceneUse": "Kiosk",
+      "arrangement": "A minor; 48 bars; syncopated electric piano, mallets, plucks, moving bass and light rhythm. Intro / A / filtered-feel breakdown / counter-melody B / resolution.",
+      "alteration": "New written score rendered with deterministic DSP instruments. No existing recording, vocal separation, voice model, or music sample is used.",
+      "durationSeconds": 104.727281,
+      "sampleRate": 32000,
+      "channels": 2,
+      "tempo": 110,
+      "bars": 48,
+      "peak": 0.58287346,
+      "rms": 0.12039737,
+      "dcOffset": 0.000163972,
+      "loopBoundaryJump": 0.001514534,
+      "encoder": "imageio-ffmpeg 0.6.0; FFmpeg libvorbis quality 5; bitexact encoding and metadata stripped",
+      "bytes": 1323647,
+      "sha256": "5cbfff95c1f6b768f50316e364f033b046869a5c68b068ef44bc7320440d69ff"
     },
     {
       "id": "music_summertime",
@@ -1615,13 +1745,46 @@
       "sourceUrl": "https://cdn.playeternalreturn.com/event/season8/melody/summertime.mp3",
       "sourceName": "summertime.mp3",
       "origin": "official_original_music",
+      "kind": "original_music",
+      "containsVocals": true,
       "alteration": "None; official MP3 bytes preserved. Unity imports streaming Vorbis.",
       "bytes": 5286645,
       "sha256": "4a160940b4541883947d76406ed70f0659efa1d8ffae00ec8b101b6838f0eb29",
-      "channel": "music",
-      "kind": "original_music",
       "volume": 0.55,
-      "license": "Nimble Neuron IP Usage Policy; Eternal Return fan creation"
+      "license": "Nimble Neuron IP Usage Policy; Eternal Return fan creation",
+      "channel": "music"
+    },
+    {
+      "id": "music_vf_overdrive",
+      "title": "VF Overdrive",
+      "performer": "Black The Survival project composition",
+      "path": "Lumia/Audio/Music/music_vf_overdrive",
+      "file": "Assets/Resources/Lumia/Audio/Music/music_vf_overdrive.ogg",
+      "sourcePage": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Tools/GenerateInstrumentalMusic.py",
+      "sourceUrl": "https://github.com/JSKS17/BlackTheSurvival/blob/main/Tools/GenerateInstrumentalMusic.py",
+      "sourceName": "GenerateInstrumentalMusic.py: VF Overdrive",
+      "origin": "instrumental_generated",
+      "kind": "instrumental_generated",
+      "license": "Project-composed fan-game music; not an original Eternal Return recording or MR.",
+      "channel": "music",
+      "volume": 0.67,
+      "containsVocals": false,
+      "loop": true,
+      "sceneUse": "Boss combat",
+      "arrangement": "D minor; 64 bars; driving low bass, staccato string ostinato, layered analog lead and brighter second-theme octave, full drums and fills. Intro / A / halftime breakdown / B / resolution.",
+      "alteration": "New written score rendered with deterministic DSP instruments. No existing recording, vocal separation, voice model, or music sample is used.",
+      "durationSeconds": 106.666656,
+      "sampleRate": 32000,
+      "channels": 2,
+      "tempo": 144,
+      "bars": 64,
+      "peak": 0.74820793,
+      "rms": 0.14541173,
+      "dcOffset": 4.8623e-05,
+      "loopBoundaryJump": 0.001066342,
+      "encoder": "imageio-ffmpeg 0.6.0; FFmpeg libvorbis quality 5; bitexact encoding and metadata stripped",
+      "bytes": 1573679,
+      "sha256": "e6201d75c49803d85ec385e19f16873b7e0b1bc625146cacb0e85c98cab4970e"
     },
     {
       "id": "voice.abigail.e",
@@ -6857,35 +7020,35 @@
     {
       "cue": "music.boss",
       "clipIds": [
-        "music_red_heart"
+        "music_vf_overdrive"
       ],
       "volume": 1
     },
     {
       "cue": "music.camp",
       "clipIds": [
-        "music_golden_willow"
+        "music_emberlight"
       ],
       "volume": 1
     },
     {
       "cue": "music.combat",
       "clipIds": [
-        "music_red_heart"
+        "music_break_the_loop"
       ],
       "volume": 1
     },
     {
       "cue": "music.encounter",
       "clipIds": [
-        "music_golden_willow"
+        "music_lumia_afterglow"
       ],
       "volume": 1
     },
     {
       "cue": "music.kiosk",
       "clipIds": [
-        "music_summertime"
+        "music_signal_exchange"
       ],
       "volume": 1
     },
@@ -6899,28 +7062,28 @@
     {
       "cue": "music.lose",
       "clipIds": [
-        "music_golden_willow"
+        "music_lumia_afterglow"
       ],
       "volume": 1
     },
     {
       "cue": "music.map",
       "clipIds": [
-        "music_golden_willow"
+        "music_lumia_afterglow"
       ],
       "volume": 1
     },
     {
       "cue": "music.preparation",
       "clipIds": [
-        "music_summertime"
+        "music_lumia_afterglow"
       ],
       "volume": 1
     },
     {
       "cue": "music.win",
       "clipIds": [
-        "music_summertime"
+        "music_emberlight"
       ],
       "volume": 1
     },
@@ -13303,5 +13466,5 @@
       ]
     }
   ],
-  "note": "Official original OST and Korean voices are identified separately from fan-authored nonvoice effects. No game RNG is consumed by audio routing."
+  "note": "Official original OST and Korean voices, project-composed vocal-free instrumental music, and project-authored nonvoice effects are identified separately. Only the lobby uses a vocal OST. No game RNG is consumed by audio routing."
 }

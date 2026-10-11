@@ -1,0 +1,38 @@
+{
+  "id": "garnet",
+  "name": "가넷",
+  "tool": "builtin image_gen",
+  "intent": "new illustration with style and identity references",
+  "originalReference": "docs/art-chibi/references/subjects/garnet.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Garnet_S000.png",
+  "referenceSha256": "5bd908656844a31acedc8842a767ae513e71367a1f089ee85241074ec6c37b35",
+  "styleReferenceSha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db",
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art character sprite for a cute chibi deckbuilding game.\nInput image 1 is ONLY the official character identity reference: preserve its distinctive hair, eye color, age, face features, outfit, and signature prop. Input image 2 is ONLY a style guide supplied by the user, not their artwork: study its compact proportions and pixel clustering but do NOT trace, copy its pose, reproduce its exact sprite, include its background or watermark, or borrow Rio's bow/clothes for another character.\nDraw a fresh original sprite in this style: very cute compact 2.1 to 2.3 heads tall, head approximately 43 to 47 percent of full character height, broad rounded head, tiny compact torso, very short legs and small hands. Soft muted material colors, clean dark-purple/brown 1-pixel contours and selective colored interior outlines, chunky deliberate square pixel clusters, 3 flat shades per material, small restrained highlights. Pixel craft suitable for an 80 x 80 logical grid with the complete character fitting inside about 72 x 72 pixels. Eyes and mouth stay clearly readable: use distinct upper eyelids and 4-6 pixel irises, restrained cheeks, character-specific eyebrows and expression. Never give everyone identical round shiny eyes. Adult men retain facial hair, mature eye shapes, and defining features while remaining chibi.\nOne full-body character only, three-quarter front view facing slightly right, a fresh balanced idle/battle-ready pose, complete feet and signature prop visible with transparent padding on all sides. Square composition. Genuine transparent background. No text, label, watermark, signature, scenery, floor, cast shadow, glow cloud or frame. No smooth painting, anti-aliasing, gradients, 3D render, realistic anatomy, tall long-legged body, or oversized weapon hiding the face. Keep color clusters economical and edges crisp.\n\nCharacter: 가넷 (garnet).\nIdentity/outfit: Shaggy silver-gray hair, red eyes, black strappy crop outfit, dark gauntlets, white accents, spiked metal bat.\nSignature prop: Carry a thick black metal bat covered with silver spikes.\nProp constraints: Use a spiked metal bat, not an axe.\nCharacter-specific face from the original: Fierce pale woman, slanted bright RED eyes, aggressively lowered brow, wide taunting open grin showing teeth. Long gray hair and dark mechanical outfit.\n",
+  "generatedSource": "docs/art-reference-chibi/generated/garnet.png",
+  "generatedSha256": "3c8dc1608d1b4cfd86ce9ea06a85e50f344920f89454db07221cec5ba007902c",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    40,
+    1236,
+    1254
+  ],
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    71
+  ],
+  "integerPixelScale": 2,
+  "path": "Assets/Resources/Lumia/PortraitsReference/garnet.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "950fe220268be735b1b1a29d6b31ca13d2dd0483be38d10c0cf048e5f74025b3",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+}

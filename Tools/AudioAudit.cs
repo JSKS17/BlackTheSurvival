@@ -45,7 +45,7 @@ public static class AudioAudit
                 Uri uri;
                 bool webSource = Uri.TryCreate(clip.sourceUrl, UriKind.Absolute, out uri) && (uri.Scheme == "https" || uri.Scheme == "http");
                 bool designedSource = false;
-                if (clip.kind == "fan_created_effect" && (clip.sourceUrl ?? "").StartsWith("generated:Tools/", StringComparison.Ordinal))
+                if ((clip.kind == "fan_created_effect" || clip.kind == "instrumental_generated") && (clip.sourceUrl ?? "").StartsWith("generated:Tools/", StringComparison.Ordinal))
                 {
                     string script = Path.GetFullPath(Path.Combine(root, clip.sourceUrl.Substring("generated:".Length).Replace('/', Path.DirectorySeparatorChar)));
                     designedSource = script.StartsWith(Path.GetFullPath(Path.Combine(root, "Tools")) + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase) && File.Exists(script);
@@ -65,6 +65,12 @@ public static class AudioAudit
                 Check(declared.ContainsKey("bytes") && Convert.ToInt64(declared["bytes"]) == info.Length, clip.id + ": shipped bytes differ from declared source size.");
                 string origin = declared.ContainsKey("origin") ? Convert.ToString(declared["origin"]) : "unspecified";
                 Check(origin != "unspecified", clip.id + ": original versus designed audio origin must be explicit.");
+                if (clip.kind == "instrumental_generated")
+                {
+                    Check(origin == "instrumental_generated", clip.id + ": generated instrumental origin must be explicit.");
+                    Check(clip.channel == "music", clip.id + ": generated instrumental must be music.");
+                    Check(declared.ContainsKey("containsVocals") && declared["containsVocals"] is bool && !(bool)declared["containsVocals"], clip.id + ": generated instrumental must explicitly contain no vocals.");
+                }
                 var pcm = Path.GetExtension(asset).Equals(".wav", StringComparison.OrdinalIgnoreCase) ? ReadWave(asset) : null;
                 if (pcm != null)
                 {
@@ -85,6 +91,12 @@ public static class AudioAudit
                 var selected = catalog.ResolveCue(cue);
                 Check(selected != null && selected.clip != null, "Missing required gameplay cue: " + cue);
                 Check(selected.volume > 0 && selected.volume <= 2, "Invalid final gain: " + cue);
+                if (cue.StartsWith("music.", StringComparison.Ordinal) && cue != "music.lobby")
+                {
+                    var musicMetadata = metadata[selected.clip.id];
+                    Check(selected.clip.channel == "music", cue + ": post-lobby scene must resolve to music.");
+                    Check(musicMetadata.ContainsKey("containsVocals") && musicMetadata["containsVocals"] is bool && !(bool)musicMetadata["containsVocals"], cue + ": post-lobby music must explicitly contain no vocals.");
+                }
                 cues.Add(new { requested = cue, resolved = selected.cue, clip = selected.clip.id, selected.volume });
             }
             var mapping = new List<object>();

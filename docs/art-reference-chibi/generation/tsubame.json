@@ -1,0 +1,38 @@
+{
+  "id": "tsubame",
+  "name": "츠바메",
+  "tool": "builtin image_gen",
+  "intent": "new illustration with style and identity references",
+  "originalReference": "docs/art-chibi/references/subjects/tsubame.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Tsubame_S000.png",
+  "referenceSha256": "3e27039d0e47fe9a88f3ec58fd5b7a76580cbe8c7b7a54e6811d000bbf95980f",
+  "styleReferenceSha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db",
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art character sprite for a cute chibi deckbuilding game.\nInput image 1 is ONLY the official character identity reference: preserve its distinctive hair, eye color, age, face features, outfit, and signature prop. Input image 2 is ONLY a style guide supplied by the user, not their artwork: study its compact proportions and pixel clustering but do NOT trace, copy its pose, reproduce its exact sprite, include its background or watermark, or borrow Rio's bow/clothes for another character.\nDraw a fresh original sprite in this style: very cute compact 2.1 to 2.3 heads tall, head approximately 43 to 47 percent of full character height, broad rounded head, tiny compact torso, very short legs and small hands. Soft muted material colors, clean dark-purple/brown 1-pixel contours and selective colored interior outlines, chunky deliberate square pixel clusters, 3 flat shades per material, small restrained highlights. Pixel craft suitable for an 80 x 80 logical grid with the complete character fitting inside about 72 x 72 pixels. Eyes and mouth stay clearly readable: use distinct upper eyelids and 4-6 pixel irises, restrained cheeks, character-specific eyebrows and expression. Never give everyone identical round shiny eyes. Adult men retain facial hair, mature eye shapes, and defining features while remaining chibi.\nOne full-body character only, three-quarter front view facing slightly right, a fresh balanced idle/battle-ready pose, complete feet and signature prop visible with transparent padding on all sides. Square composition. Genuine transparent background. No text, label, watermark, signature, scenery, floor, cast shadow, glow cloud or frame. No smooth painting, anti-aliasing, gradients, 3D render, realistic anatomy, tall long-legged body, or oversized weapon hiding the face. Keep color clusters economical and edges crisp.\n\nCharacter: 츠바메 (tsubame).\nIdentity/outfit: Dark purple hair in high knot with long strands, aqua cord, black cropped outfit, purple jacket, throwing darts.\nSignature prop: Hold a few black-and-turquoise shuriken with visible pointed blades.\nProp constraints: Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here.\nCharacter-specific face from the original: Reserved ninja woman, sharp PURPLE almond eyes with dark pointed upper lids, firmly level brows, small unsmiling closed mouth. Black high ponytail with aqua accents.\n",
+  "generatedSource": "docs/art-reference-chibi/generated/tsubame.png",
+  "generatedSha256": "2b83aeea68576d9110e1a1960300fd0ad0d2a7a277ec863d93993378934b5828",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    17,
+    1240,
+    1254
+  ],
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "path": "Assets/Resources/Lumia/PortraitsReference/tsubame.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "806876aeefea675ca42a32a75391ec8ee066d84a831b67ea484025045dfc3a2a",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+}

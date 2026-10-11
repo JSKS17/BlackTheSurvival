@@ -56,10 +56,12 @@ namespace Lumia
             string portraitOutput=Path.Combine(output,"IdentityPortraits");Directory.CreateDirectory(portraitOutput);
             foreach(var item in sprites)
             {
+                if (!PixelArt.HasReferencePortrait(item.id) || item.texture != Resources.Load<Texture2D>("Lumia/PortraitsReference/" + item.id))
+                { missing++; Debug.LogError("BTS MISSING NEW CHIBI " + item.id); }
                 if(item.texture.height>PixelArt.PortraitPixelHeight) {missing++;Debug.LogError("LUMIA PORTRAIT GRID "+item.id);}
                 ExportTexture(item.texture,Path.Combine(portraitOutput,item.id+".png"));
             }
-            File.WriteAllText(Path.Combine(output, "coverage.txt"), "Dedicated sprites: " + sprites.Count + "\nDedicated icons: " + icons.Count + "\nSystem icons: "+systems.Count+"\nPortrait pixel height: "+PixelArt.PortraitPixelHeight+"\nMissing assets: " + missing + "\n");
+            File.WriteAllText(Path.Combine(output, "coverage.txt"), "Dedicated sprites: " + sprites.Count + "\nReference-style sprites: " + sprites.Count + "\nDedicated icons: " + icons.Count + "\nSystem icons: "+systems.Count+"\nPortrait pixel height: "+PixelArt.PortraitPixelHeight+"\nMissing assets: " + missing + "\n");
             for (int kind = 0; kind < 3; kind++)
             {
                 showingSprites = kind == 0;

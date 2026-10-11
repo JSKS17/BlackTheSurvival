@@ -1,0 +1,39 @@
+{
+  "id": "nia",
+  "name": "니아",
+  "tool": "builtin image_gen",
+  "intent": "new illustration with style and identity references",
+  "originalReference": "docs/art-chibi/references/subjects/nia.png",
+  "originalSourceUrl": "https://cdn.playeternalreturn.com/event/season6/roadmap/rd6/img_concept01.png",
+  "referenceSha256": "ed283cf94adffa8761131e992d997db038fecbf6a07ad891c6773da97b2b8618",
+  "styleReferenceSha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db",
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art character sprite for a cute chibi deckbuilding game.\nInput image 1 is ONLY the official character identity reference: preserve its distinctive hair, eye color, age, face features, outfit, and signature prop. Input image 2 is ONLY a style guide supplied by the user, not their artwork: study its compact proportions and pixel clustering but do NOT trace, copy its pose, reproduce its exact sprite, include its background or watermark, or borrow Rio's bow/clothes for another character.\nDraw a fresh original sprite in this style: very cute compact 2.1 to 2.3 heads tall, head approximately 43 to 47 percent of full character height, broad rounded head, tiny compact torso, very short legs and small hands. Soft muted material colors, clean dark-purple/brown 1-pixel contours and selective colored interior outlines, chunky deliberate square pixel clusters, 3 flat shades per material, small restrained highlights. Pixel craft suitable for an 80 x 80 logical grid with the complete character fitting inside about 72 x 72 pixels. Eyes and mouth stay clearly readable: use distinct upper eyelids and 4-6 pixel irises, restrained cheeks, character-specific eyebrows and expression. Never give everyone identical round shiny eyes. Adult men retain facial hair, mature eye shapes, and defining features while remaining chibi.\nOne full-body character only, three-quarter front view facing slightly right, a fresh balanced idle/battle-ready pose, complete feet and signature prop visible with transparent padding on all sides. Square composition. Genuine transparent background. No text, label, watermark, signature, scenery, floor, cast shadow, glow cloud or frame. No smooth painting, anti-aliasing, gradients, 3D render, realistic anatomy, tall long-legged body, or oversized weapon hiding the face. Keep color clusters economical and edges crisp.\n\nCharacter: 니아 (nia).\nIdentity/outfit: Dusty lavender bob with curled side bunches, pink headphones, lilac-pink hooded vest, magenta plaid sleeves, controller.\nSignature prop: Hold a small black-and-pink game controller with visible round buttons.\nProp constraints: Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here.\nCharacter-specific face from the original: Sleepy adolescent gamer, HALF-CLOSED drooping upper eyelids, tiny dark-violet irises, low level eyebrows, unimpressed mouth with pink bubblegum bubble. No wide round eyes.\n",
+  "generatedSource": "docs/art-reference-chibi/generated/nia.png",
+  "generatedSha256": "0ecb0cf4803cb01e3e280915e5a050b737d4d89acd2ad2ce30260a6f4775f552",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    23,
+    1240,
+    1222
+  ],
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    70
+  ],
+  "integerPixelScale": 2,
+  "path": "Assets/Resources/Lumia/PortraitsReference/nia.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "8213158b05ecff2654cd1fc3c66a9c97d403a0934c413f3a75dc383e20db2813",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-78265b20-43dc-44ed-869e-25f0ccaa1159.png"
+}

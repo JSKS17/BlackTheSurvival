@@ -1,0 +1,38 @@
+{
+  "id": "estelle",
+  "name": "에스텔",
+  "tool": "builtin image_gen",
+  "intent": "new illustration with style and identity references",
+  "originalReference": "docs/art-chibi/references/subjects/estelle.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Estelle_S000.png",
+  "referenceSha256": "a27abc1cfeff9687ec65b152f24924d7af6ae08846c0f887ce6d678a7065527a",
+  "styleReferenceSha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db",
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art character sprite for a cute chibi deckbuilding game.\nInput image 1 is ONLY the official character identity reference: preserve its distinctive hair, eye color, age, face features, outfit, and signature prop. Input image 2 is ONLY a style guide supplied by the user, not their artwork: study its compact proportions and pixel clustering but do NOT trace, copy its pose, reproduce its exact sprite, include its background or watermark, or borrow Rio's bow/clothes for another character.\nDraw a fresh original sprite in this style: very cute compact 2.1 to 2.3 heads tall, head approximately 43 to 47 percent of full character height, broad rounded head, tiny compact torso, very short legs and small hands. Soft muted material colors, clean dark-purple/brown 1-pixel contours and selective colored interior outlines, chunky deliberate square pixel clusters, 3 flat shades per material, small restrained highlights. Pixel craft suitable for an 80 x 80 logical grid with the complete character fitting inside about 72 x 72 pixels. Eyes and mouth stay clearly readable: use distinct upper eyelids and 4-6 pixel irises, restrained cheeks, character-specific eyebrows and expression. Never give everyone identical round shiny eyes. Adult men retain facial hair, mature eye shapes, and defining features while remaining chibi.\nOne full-body character only, three-quarter front view facing slightly right, a fresh balanced idle/battle-ready pose, complete feet and signature prop visible with transparent padding on all sides. Square composition. Genuine transparent background. No text, label, watermark, signature, scenery, floor, cast shadow, glow cloud or frame. No smooth painting, anti-aliasing, gradients, 3D render, realistic anatomy, tall long-legged body, or oversized weapon hiding the face. Keep color clusters economical and edges crisp.\n\nCharacter: 에스텔 (estelle).\nIdentity/outfit: Chestnut bob, orange-red firefighter suit, black collar with pale pink quilted lining, neck respirator, axe and shield.\nSignature prop: Hold a red fire axe and a broad gray firefighter shield.\nProp constraints: Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here.\nCharacter-specific face from the original: Reliable firefighter, warm RED-BROWN eyes with relaxed rounded corners, gently arched brows, soft reassuring closed smile. Chestnut bob and respirator at neck.\n",
+  "generatedSource": "docs/art-reference-chibi/generated/estelle.png",
+  "generatedSha256": "98e66f8302b399d9c6b94f90e9b5436c5d5c1747bafa6dd5d77662dfd146b695",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    17,
+    1230,
+    1254
+  ],
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "path": "Assets/Resources/Lumia/PortraitsReference/estelle.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "0483cba5b4f2ebd6c901218fec78143f6a0fe16a96e07c1e2644351d79e03b9a",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+}

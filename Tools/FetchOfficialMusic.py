@@ -1,4 +1,9 @@
-"""Acquire the three public audio sources embedded on official OST event pages."""
+"""Acquire the three public vocal OSTs; preserve the separate instrumental scores.
+
+The public event player files contain vocals. MR download buttons on those pages
+require a platform login; this tool neither guesses MR URLs nor bypasses that
+login. GenerateInstrumentalMusic.py provides the separate post-lobby scores.
+"""
 import hashlib
 import json
 from pathlib import Path
@@ -51,7 +56,7 @@ def main():
     for identity, title, performer, page, url in SOURCES:
         target = OUTPUT / (identity+'.mp3')
         if not target.exists():
-            request = urllib.request.Request(url, headers={'User-Agent': 'BlackTheSurvival-FanGame-Audio/0.1.10'})
+            request = urllib.request.Request(url, headers={'User-Agent': 'BlackTheSurvival-FanGame-Audio'})
             with urllib.request.urlopen(request, timeout=90) as response:
                 data = response.read()
             assert len(data)>100000 and (data.startswith(b'ID3') or data[0]==255), 'Not an MP3: '+url
@@ -62,13 +67,15 @@ def main():
                             path='Lumia/Audio/Music/'+identity,
                             file=target.relative_to(ROOT).as_posix(),
                             sourcePage=page,sourceUrl=url,sourceName=url.rsplit('/',1)[1],
-                            origin='official_original_music',
+                            origin='official_original_music', kind='original_music', containsVocals=True,
                             alteration='None; official MP3 bytes preserved. Unity imports streaming Vorbis.',
                             bytes=len(data),sha256=hashlib.sha256(data).hexdigest()))
         print(identity, len(data), 'bytes')
     manifest = ROOT/'docs/audio/music-sources.json'
     manifest.parent.mkdir(parents=True,exist_ok=True)
-    manifest.write_text(json.dumps(records,ensure_ascii=False,indent=2),encoding='utf-8')
+    existing = json.loads(manifest.read_text(encoding='utf-8')) if manifest.exists() else []
+    generated = [entry for entry in existing if entry.get('origin') == 'instrumental_generated']
+    manifest.write_text(json.dumps(records + generated,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
 if __name__ == '__main__':
     main()

@@ -1,0 +1,17 @@
+{
+  "expected": 92,
+  "actual": 92,
+  "missing": [],
+  "errors": [],
+  "complete": true,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "runtimeCanvas": [
+    160,
+    160
+  ],
+  "integerPixelScale": 2,
+  "styleReferenceRedistributed": false
+}

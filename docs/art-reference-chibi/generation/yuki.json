@@ -1,0 +1,39 @@
+{
+  "id": "yuki",
+  "name": "유키",
+  "tool": "builtin image_gen",
+  "intent": "new illustration with style and identity references",
+  "originalReference": "docs/art-chibi/references/subjects/yuki.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Yuki_S000.png",
+  "referenceSha256": "acca6ed38b29ca6e75f817154033bf73a42a6441414bd9c93bdce5369e157248",
+  "styleReferenceSha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db",
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art character sprite for a cute chibi deckbuilding game.\nInput image 1 is ONLY the official character identity reference: preserve its distinctive hair, eye color, age, face features, outfit, and signature prop. Input image 2 is ONLY a style guide supplied by the user, not their artwork: study its compact proportions and pixel clustering but do NOT trace, copy its pose, reproduce its exact sprite, include its background or watermark, or borrow Rio's bow/clothes for another character.\nDraw a fresh original sprite in this style: very cute compact 2.1 to 2.3 heads tall, head approximately 43 to 47 percent of full character height, broad rounded head, tiny compact torso, very short legs and small hands. Soft muted material colors, clean dark-purple/brown 1-pixel contours and selective colored interior outlines, chunky deliberate square pixel clusters, 3 flat shades per material, small restrained highlights. Pixel craft suitable for an 80 x 80 logical grid with the complete character fitting inside about 72 x 72 pixels. Eyes and mouth stay clearly readable: use distinct upper eyelids and 4-6 pixel irises, restrained cheeks, character-specific eyebrows and expression. Never give everyone identical round shiny eyes. Adult men retain facial hair, mature eye shapes, and defining features while remaining chibi.\nOne full-body character only, three-quarter front view facing slightly right, a fresh balanced idle/battle-ready pose, complete feet and signature prop visible with transparent padding on all sides. Square composition. Genuine transparent background. No text, label, watermark, signature, scenery, floor, cast shadow, glow cloud or frame. No smooth painting, anti-aliasing, gradients, 3D render, realistic anatomy, tall long-legged body, or oversized weapon hiding the face. Keep color clusters economical and edges crisp.\n\nCharacter: 유키 (yuki).\nIdentity/outfit: Blue-black short hair, black Japanese school uniform with gold trim, katana.\nSignature prop: Hold a slender black-and-gold katana in its scabbard.\nProp constraints: Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here.\nCharacter-specific face from the original: Composed handsome schoolboy, slender BLUE almond eyes, tapered upper lids, fine level brows, subtle closed confident mouth.\n",
+  "generatedSource": "docs/art-reference-chibi/generated/yuki.png",
+  "generatedSha256": "c3087055c1d34fcb7eddbfb22074a3a98754ae0c814b97365d0363906f017730",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    17,
+    1240,
+    1254
+  ],
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "path": "Assets/Resources/Lumia/PortraitsReference/yuki.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "c2423c235a4e87c261ffdf2aa27b305154e561d0ced657eeae6d097c0af51cd4",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-7085e9a6-041a-494d-b08a-df95c9de3df2.png"
+}

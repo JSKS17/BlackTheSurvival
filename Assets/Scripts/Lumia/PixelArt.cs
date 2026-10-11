@@ -55,7 +55,7 @@ namespace Lumia
             if (character != null) key = character.id;
             Texture2D result;
             if (Cache.TryGetValue("portrait/" + key, out result)) return result;
-            var identity = Load("PortraitsIdentity/" + key);
+            var identity = Load("PortraitsReference/" + key) ?? Load("PortraitsIdentity/" + key);
             var specific = identity ?? Load("PortraitsCoarse/" + key) ?? Load("Portraits/" + key);
             if (specific != null) result = specific;
             else if (atlas != null && (key == "hana" || key == "nia" || key == "chicken" || key == "dog" || key == "boar" || key == "wolf" || key == "bear" || key == "drone"))
@@ -166,6 +166,7 @@ namespace Lumia
 
         public static bool HasDedicatedPortrait(string characterId) { return Load("PortraitsIdentity/" + characterId) != null || Load("Portraits/" + characterId) != null; }
         public static bool HasIdentityPortrait(string characterId) { return Load("PortraitsIdentity/" + characterId) != null; }
+        public static bool HasReferencePortrait(string characterId) { return Load("PortraitsReference/" + characterId) != null; }
         public static bool HasSkillIcon(string cardId) { return Load("SkillIcons/" + cardId) != null; }
         public static bool HasPassiveIcon(string passiveId) { return Load("PassiveIcons/" + passiveId) != null; }
         public static bool HasSystemIcon(string id) { return Load("SystemIcons/" + id) != null; }

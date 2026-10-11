@@ -1,0 +1,38 @@
+{
+  "id": "sho",
+  "name": "쇼우",
+  "tool": "builtin image_gen",
+  "intent": "new illustration with style and identity references",
+  "originalReference": "docs/art-chibi/references/subjects/sho.png",
+  "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Xiukai_S000.png",
+  "referenceSha256": "b50b8b17a2f512b3d719a1cd84de580d19d22aa5991c33aea28ea395c20c82a3",
+  "styleReferenceSha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db",
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art character sprite for a cute chibi deckbuilding game.\nInput image 1 is ONLY the official character identity reference: preserve its distinctive hair, eye color, age, face features, outfit, and signature prop. Input image 2 is ONLY a style guide supplied by the user, not their artwork: study its compact proportions and pixel clustering but do NOT trace, copy its pose, reproduce its exact sprite, include its background or watermark, or borrow Rio's bow/clothes for another character.\nDraw a fresh original sprite in this style: very cute compact 2.1 to 2.3 heads tall, head approximately 43 to 47 percent of full character height, broad rounded head, tiny compact torso, very short legs and small hands. Soft muted material colors, clean dark-purple/brown 1-pixel contours and selective colored interior outlines, chunky deliberate square pixel clusters, 3 flat shades per material, small restrained highlights. Pixel craft suitable for an 80 x 80 logical grid with the complete character fitting inside about 72 x 72 pixels. Eyes and mouth stay clearly readable: use distinct upper eyelids and 4-6 pixel irises, restrained cheeks, character-specific eyebrows and expression. Never give everyone identical round shiny eyes. Adult men retain facial hair, mature eye shapes, and defining features while remaining chibi.\nOne full-body character only, three-quarter front view facing slightly right, a fresh balanced idle/battle-ready pose, complete feet and signature prop visible with transparent padding on all sides. Square composition. Genuine transparent background. No text, label, watermark, signature, scenery, floor, cast shadow, glow cloud or frame. No smooth painting, anti-aliasing, gradients, 3D render, realistic anatomy, tall long-legged body, or oversized weapon hiding the face. Keep color clusters economical and edges crisp.\n\nCharacter: 쇼우 (sho).\nIdentity/outfit: Round smiling chef, dark topknot, bamboo-rimmed straw hat, white chef coat, red scarf, bamboo cooking tools.\nSignature prop: Hold an oversized steel cooking cleaver and a small dark wok.\nProp constraints: Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here.\nCharacter-specific face from the original: Round cheerful middle-aged chef, soft eyes CLOSED into distinct crescent arcs, thick round short eyebrows, rounded nose, broad content smile, chubby cheeks.\n",
+  "generatedSource": "docs/art-reference-chibi/generated/sho.png",
+  "generatedSha256": "2d1115f56a0fbab7c22499f594da078fa3268da0f2e055f9600eb96eaf3ddba1",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    21,
+    21,
+    1200,
+    1254
+  ],
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    69,
+    72
+  ],
+  "integerPixelScale": 2,
+  "path": "Assets/Resources/Lumia/PortraitsReference/sho.png",
+  "width": 160,
+  "height": 160,
+  "sha256": "20508565c1c6e3e3e54d30e2fd957c544b597275cbc4a802a6c915d01973d9a0",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+}

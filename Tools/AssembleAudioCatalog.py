@@ -149,18 +149,27 @@ def main():
     music_path = ROOT / "docs/audio/music-sources.json"
     music = json.loads(music_path.read_text(encoding="utf8")) if music_path.exists() else []
     for entry in music:
-        clips.append(dict(entry, channel="music", kind="original_music", volume=0.55, license="Nimble Neuron IP Usage Policy; Eternal Return fan creation"))
+        row = dict(entry)
+        row.setdefault("kind", "original_music")
+        row.setdefault("volume", .55)
+        row.setdefault("license", "Nimble Neuron IP Usage Policy; Eternal Return fan creation")
+        row["channel"] = "music"
+        clips.append(row)
     available_music = {row["id"] for row in music}
     music_routes = {
-        "lobby": "music_summertime", "preparation": "music_summertime",
-        "map": "music_golden_willow", "camp": "music_golden_willow",
-        "encounter": "music_golden_willow", "lose": "music_golden_willow",
-        "combat": "music_red_heart", "boss": "music_red_heart",
-        "kiosk": "music_summertime", "win": "music_summertime",
+        "lobby": "music_summertime", "preparation": "music_lumia_afterglow",
+        "map": "music_lumia_afterglow", "camp": "music_emberlight",
+        "encounter": "music_lumia_afterglow", "lose": "music_lumia_afterglow",
+        "combat": "music_break_the_loop", "boss": "music_vf_overdrive",
+        "kiosk": "music_signal_exchange", "win": "music_emberlight",
     }
+    music_by_id = {row["id"]: row for row in music}
     for scene, clip_id in music_routes.items():
-        if clip_id in available_music:
-            bindings.append(dict(cue="music." + scene, clipIds=[clip_id], volume=1))
+        if clip_id not in available_music:
+            raise ValueError("Missing scene music: " + scene + " -> " + clip_id)
+        if scene != "lobby" and music_by_id[clip_id].get("containsVocals") is not False:
+            raise ValueError("Post-lobby music must be explicitly vocal-free: " + scene)
+        bindings.append(dict(cue="music." + scene, clipIds=[clip_id], volume=1))
     designed_path = ROOT / "docs/audio/designed-sources.json"
     if designed_path.exists():
         designed = json.loads(designed_path.read_text(encoding="utf8"))
@@ -194,7 +203,7 @@ def main():
             raise ValueError("Invalid cue reference: " + binding["cue"])
         binding.setdefault("volume", 1)
     routes = card_bindings(ids) if designed_path.exists() else []
-    catalog = dict(schemaVersion=1, sources=sources, clips=sorted(clips, key=lambda row: row["id"]), bindings=sorted(bindings, key=lambda row: row["cue"]), cards=routes, unavailableOriginalVoiceCards=voices["missing"], note="Official original OST and Korean voices are identified separately from fan-authored nonvoice effects. No game RNG is consumed by audio routing.")
+    catalog = dict(schemaVersion=1, sources=sources, clips=sorted(clips, key=lambda row: row["id"]), bindings=sorted(bindings, key=lambda row: row["cue"]), cards=routes, unavailableOriginalVoiceCards=voices["missing"], note="Official original OST and Korean voices, project-composed vocal-free instrumental music, and project-authored nonvoice effects are identified separately. Only the lobby uses a vocal OST. No game RNG is consumed by audio routing.")
     path = OUT / "catalog.json"
     path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf8")
     meta(path)
