@@ -57,7 +57,7 @@ namespace Lumia
             DontDestroyOnLoad(gameObject);
             Application.targetFrameRate = 60;
             audioVerification = Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-audio-verify") >= 0;
-            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
+            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
             savePath = Path.Combine(Application.persistentDataPath, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
             font = Resources.Load<Font>("Lumia/Galmuri11");
@@ -652,16 +652,19 @@ namespace Lumia
             string obj = string.IsNullOrEmpty(r.objectId) ? "" : "  +  " + GameDatabase.Object(r.objectId).name;
             string food = string.IsNullOrEmpty(r.foodId) ? "" : "  +  " + GameDatabase.Food(r.foodId).name + " 1개 (가방에 지급)";
             Txt(new Rect(40, 165, 1198, 28), "+ " + r.xp + " 경험치    + " + r.credits + " 크레딧" + obj + food, 20, Gold);
-            Txt(new Rect(40, 222, 1198, 25), "다시 누르면 선택이 취소됩니다. 남은 획득 코스트: " + Engine.RewardRemainingBudget + " / " + r.cardBudget, 16, Text);
+            string selection = Engine.RewardUsesCardLimit
+                ? "선택 " + r.taken.Count + "/" + Engine.RewardCardLimit + "  ·  카드 코스트와 무관하게 최대 " + Engine.RewardCardLimit + "장  ·  다시 누르면 선택 취소"
+                : "다시 누르면 선택이 취소됩니다. 남은 획득 코스트: " + Engine.RewardRemainingBudget + " / " + r.cardBudget;
+            Txt(new Rect(40, 222, 1198, 25), selection, 16, Text);
             var choices = r.choices.ToArray();
             for (int i = 0; i < choices.Length; i++)
             {
                 float cw = Math.Min(208, 1190f / Math.Max(1, choices.Length) - 14);
                 Rect cr = new Rect(40 + i * (cw + 14), 271, cw, 279);
                 bool taken = r.taken.Contains(choices[i]); var d = GameDatabase.Card(choices[i]);
-                bool selectable = taken || d != null && Engine.RewardCardPrice(choices[i]) <= Engine.RewardRemainingBudget;
+                bool selectable = Engine.CanClaimCard(choices[i]);
                 DrawCard(cr, choices[i], taken, selectable);
-                if (d != null && Engine.RewardCardPrice(choices[i]) != d.cost) Txt(new Rect(cr.x + 7, cr.y + 36, cr.width - 14, 15), "획득 코스트 " + Engine.RewardCardPrice(choices[i]), 9, Gold, true);
+                if (!Engine.RewardUsesCardLimit && d != null && Engine.RewardCardPrice(choices[i]) != d.cost) Txt(new Rect(cr.x + 7, cr.y + 36, cr.width - 14, 15), "획득 코스트 " + Engine.RewardCardPrice(choices[i]), 9, Gold, true);
                 if (Hit(cr, selectable)) { Act(() => Engine.ClaimCard(choices[i]), r.taken.Contains(choices[i]) ? "ui.cancel" : "reward.select"); return; }
             }
             if (Btn(new Rect(999, 626, 241, 48), r.taken.Count == 0 ? "카드 없이 진행  >" : "선택 확정  >", true, Mint)) Act(Engine.FinishRewards, "reward.confirm");
@@ -1401,7 +1404,7 @@ namespace Lumia
         {
             Modal(new Rect(150, 100, 980, 530));
             Txt(new Rect(185, 124, 900, 39), "실험 가이드", 25, Mint);
-            string text = "01  지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 키오스크 주변은 앞뒤 한 단계로 연결된 전투 구역입니다. 보안 콘솔은 막당 한 번 40크레딧으로 다음 두 단계의 실제 적과 키오스크 재고를 확인합니다. 하이퍼루프는 막당 한 번, 바로 다음 단계의 연결되지 않은 경로로 이동합니다. 목적지 선택을 취소하면 횟수를 쓰지 않습니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 최대 코스트는 5로 시작하며 보스 승리마다 1 증가합니다. 레벨 상승으로는 증가하지 않습니다. 전투마다 두 번, 손패 한 장을 다음 턴까지 보관할 수 있습니다. 보관하면 다음 턴에 새로 뽑는 카드가 한 장 줄어듭니다. 보관 선택은 턴 종료 전까지 변경하거나 해제할 수 있습니다.\n\n03  수치·상태·표식·설치물은 필드 창에서 확인하세요. 할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하여 최대 30%까지 적용합니다.\n\n04  승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다. 조우에서 카드를 강화할 때에는 대상 카드와 표시된 강화 방향 중 하나를 선택합니다. 같은 카드의 모든 사본에 적용되며 한 방향으로만 강화할 수 있습니다.\n\n05  VF혈액샘플은 두 번째 보스 승리 후 구매합니다. 모닥불 휴식은 전체 회복·만년 스프 1개·카드 최대 2장 제거를 제공합니다. 제작·요리는 회복 없이 합쳐 3회이며, 장비는 이름·태그로 검색합니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.\n\n06  일부 실험체 조우에는 다시 만나기로 약속하는 선택지가 있습니다. 새 약속을 맺은 직후의 실험체 조우에는 그 실험체의 후속 이야기가 세 선택지 중 하나로 80% 확률로 등장합니다. 만나지 못한 약속은 유지됩니다. 여러 약속이 있으면 이후 조우마다 미해결 약속의 등장 우선권이 순환합니다. 비용·보상·약속은 선택 전에 표시됩니다.\n\n07  지도 아래의 보스 카드에서 공략을 미리 읽을 수 있습니다. 보스 체력이 50% 이하가 되면 다음 내 턴에 2페이즈가 적용됩니다. 니아는 25% 이하에서 3페이즈로 전환합니다. 전투 중앙에서 예고와 현재 턴의 대응 진척을 확인하세요. 제시된 대응 조건 중 하나를 달성하면 특수행동이 중단되고 보스가 잠시 취약해집니다.";
+            string text = "01  지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 키오스크 주변은 앞뒤 한 단계로 연결된 전투 구역입니다. 보안 콘솔은 막당 한 번 40크레딧으로 다음 두 단계의 실제 적과 키오스크 재고를 확인합니다. 하이퍼루프는 막당 한 번, 바로 다음 단계의 연결되지 않은 경로로 이동합니다. 목적지 선택을 취소하면 횟수를 쓰지 않습니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 최대 코스트는 5로 시작하며 보스 승리마다 1 증가합니다. 레벨 상승으로는 증가하지 않습니다. 전투마다 두 번, 손패 한 장을 다음 턴까지 보관할 수 있습니다. 보관하면 다음 턴에 새로 뽑는 카드가 한 장 줄어듭니다. 보관 선택은 턴 종료 전까지 변경하거나 해제할 수 있습니다.\n\n03  수치·상태·표식·설치물은 필드 창에서 확인하세요. 할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하여 최대 30%까지 적용합니다.\n\n04  실험체와 보스의 승리 보상에서는 카드 코스트와 무관하게 최대 2장을 고릅니다. 야생동물 보상은 표시된 획득 코스트 안에서 고릅니다. 승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다. 조우에서 카드를 강화할 때에는 대상 카드와 표시된 강화 방향 중 하나를 선택합니다. 같은 카드의 모든 사본에 적용되며 한 방향으로만 강화할 수 있습니다.\n\n05  VF혈액샘플은 두 번째 보스 승리 후 구매합니다. 모닥불 휴식은 전체 회복·만년 스프 1개·카드 최대 2장 제거를 제공합니다. 제작·요리는 회복 없이 합쳐 3회이며, 장비는 이름·태그로 검색합니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.\n\n06  일부 실험체 조우에는 다시 만나기로 약속하는 선택지가 있습니다. 새 약속을 맺은 직후의 실험체 조우에는 그 실험체의 후속 이야기가 세 선택지 중 하나로 80% 확률로 등장합니다. 만나지 못한 약속은 유지됩니다. 여러 약속이 있으면 이후 조우마다 미해결 약속의 등장 우선권이 순환합니다. 비용·보상·약속은 선택 전에 표시됩니다.\n\n07  지도 아래의 보스 카드에서 공략을 미리 읽을 수 있습니다. 보스 체력이 50% 이하가 되면 다음 내 턴에 2페이즈가 적용됩니다. 니아는 25% 이하에서 3페이즈로 전환합니다. 전투 중앙에서 예고와 현재 턴의 대응 진척을 확인하세요. 제시된 대응 조건 중 하나를 달성하면 특수행동이 중단되고 보스가 잠시 취약해집니다.";
             wrapped.fontSize = 15; float height = Math.Max(350, wrapped.CalcHeight(new GUIContent(text), 877) + 12);
             helpScroll = GUI.BeginScrollView(new Rect(185, 181, 900, 356), helpScroll, new Rect(0, 0, 877, height));
             Para(new Rect(0, 0, 877, height), text, 15, Text); GUI.EndScrollView();
@@ -1721,6 +1724,120 @@ namespace Lumia
             displayedTurn = c.turn; effects.Clear(); Engine.CombatActions.Clear();
         }
 
+        void PrepareRewardVerificationBattle(ZoneKind kind)
+        {
+            var s = Engine.State;
+            var owner = GameDatabase.Characters.Where(ch => ch.cards != null && ch.cards.Length >= 4)
+                .OrderByDescending(ch => ch.cards.Select(Engine.CardCost).OrderByDescending(cost => cost).Take(2).Sum()).First();
+            s.act = 2; s.row = kind == ZoneKind.Boss ? s.mapRows - 2 : 2; s.lane = 1;
+            s.passives.Clear(); s.mainRune = s.supportRune = ""; s.gear.Clear(); s.weaponGrantedCards.Clear();
+            s.deck = new List<string> { "basic_attack", "basic_guard" }; s.hp = s.maxHp = 80;
+            var node = Engine.AvailableNodes().First(); node.kind = kind; node.assignedOpponent = owner.id; node.assignedAnimal = "chicken";
+            if (kind == ZoneKind.Boss) s.actBosses[s.act - 1] = owner.id;
+            if (!Engine.EnterNode(node.lane) || s.activeNodeId != node.id || s.stage != RunStage.Combat)
+                throw new InvalidOperationException("Native reward verification must enter an actual battle node.");
+            var c = s.combat; c.enemyHp = 1; c.enemyBlock = c.enemyEvasion = 0; c.enemyGear.Clear();
+            c.enemyPassiveId = ""; c.enemyTraits = new TraitActorState(); c.enemySkills = new SkillActorState(); c.enemyStatuses = new StatusActorState();
+            c.hand = new List<string> { "basic_attack" }; c.energy = 200;
+            if (!Engine.PlayCard(0) || s.stage != RunStage.Rewards || s.rewards == null || node.visited)
+                throw new InvalidOperationException("Native rewards must come from an actual winning card before completing their node.");
+            effects.Clear(); Engine.CombatActions.Clear();
+        }
+
+        string[] RewardVerificationCards()
+        {
+            return Engine.State.rewards.choices.OrderByDescending(Engine.CardCost).ThenBy(id => id).Take(3).ToArray();
+        }
+
+        void SelectRewardVerificationPair(string[] cards)
+        {
+            var r = Engine.State.rewards;
+            if (cards.Length < 3 || !Engine.ClaimCard(cards[0]) || !Engine.ClaimCard(cards[1]) || r.taken.Count != 2
+                || Engine.RewardRemainingCards != 0 || !Engine.CanClaimCard(cards[0]) || Engine.CanClaimCard(cards[2])
+                || Engine.ClaimCard(cards[2]) || r.taken.Count != 2)
+                throw new InvalidOperationException("Two subject reward cards must disable a third while keeping cancellation available.");
+        }
+
+        void ReplaceRewardVerificationCard(string[] cards)
+        {
+            if (!Engine.ClaimCard(cards[0]) || Engine.RewardRemainingCards != 1 || !Engine.CanClaimCard(cards[2])
+                || !Engine.ClaimCard(cards[2]) || Engine.State.rewards.taken.Contains(cards[0]) || Engine.State.rewards.taken.Count != 2)
+                throw new InvalidOperationException("Cancelling a selected reward must immediately allow its replacement.");
+        }
+
+        void ReloadRewardVerification()
+        {
+            if (Path.GetFileName(savePath) != "lumia-verification.json") throw new InvalidOperationException("Reward verification must use the isolated save slot.");
+            string rewardBefore = JsonUtility.ToJson(Engine.State.rewards);
+            int deckBefore = Engine.State.deck.Count, creditsBefore = Engine.State.credits, rngBefore = Engine.State.rngState;
+            Save(); Engine = new GameEngine(JsonUtility.FromJson<RunState>(File.ReadAllText(savePath)));
+            if (rewardBefore != JsonUtility.ToJson(Engine.State.rewards) || Engine.State.deck.Count != deckBefore
+                || Engine.State.credits != creditsBefore || Engine.State.rngState != rngBefore || !Engine.RewardUsesCardLimit
+                || Engine.RewardCardLimit != 2 || Engine.RewardRemainingCards != 0)
+                throw new InvalidOperationException("Unity save/load must preserve the reward source, two selected cards, deck, credits, and RNG.");
+        }
+
+        void CommitRewardVerification()
+        {
+            var s = Engine.State; var r = s.rewards; int deckBefore = s.deck.Count, creditsBefore = s.credits;
+            var node = s.map.First(n => n.id == s.activeNodeId); string[] chosen = r.taken.ToArray();
+            var before = chosen.ToDictionary(id => id, id => s.deck.Count(card => card == id));
+            if (!Engine.FinishRewards() || s.stage != RunStage.Map || !node.visited || s.activeNodeId != -1 || !r.cardsCommitted
+                || s.deck.Count != deckBefore + chosen.Length || chosen.Any(id => s.deck.Count(card => card == id) != before[id] + 1)
+                || Engine.FinishRewards() || s.deck.Count != deckBefore + chosen.Length || s.credits != creditsBefore)
+                throw new InvalidOperationException("Confirmed reward cards must enter the deck once and complete the actual node once.");
+        }
+
+        void PrepareWildlifeRewardVerification()
+        {
+            PrepareRewardVerificationBattle(ZoneKind.Wildlife);
+            var r = Engine.State.rewards; int budget = r.cardBudget;
+            string costly = GameDatabase.Cards.Where(card => card.category == "skill").OrderByDescending(card => card.cost).First().id;
+            r.choices = new List<string> { "basic_attack", "basic_guard", "nia_q", "aya_q", costly };
+            if (Engine.RewardUsesCardLimit || Engine.RewardCardLimit != 0 || budget != GameEngine.EnergyForLevel(Engine.State.level) - 1
+                || Engine.CanClaimCard(costly) || Engine.ClaimCard(costly))
+                throw new InvalidOperationException("Wildlife must preserve its cost budget and reject an unaffordable card.");
+            foreach (string id in r.choices.Take(3).ToArray())
+                if (!Engine.ClaimCard(id)) throw new InvalidOperationException("Wildlife may still select more than two cards within its budget.");
+            if (r.taken.Count != 3 || Engine.RewardRemainingBudget != budget - r.taken.Sum(Engine.RewardCardPrice))
+                throw new InvalidOperationException("Wildlife selected-card prices must still consume the original budget.");
+        }
+
+        public void VerificationRewardFlows()
+        {
+            if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") < 0) return;
+            var previous = Engine; int cases = 0;
+            foreach (var kind in new[] { ZoneKind.Subject, ZoneKind.Boss })
+            {
+                Engine = NewBossVerificationRun(76100 + cases); PrepareRewardVerificationBattle(kind);
+                var s = Engine.State; var r = s.rewards; int deckBefore = s.deck.Count;
+                if (!Engine.RewardUsesCardLimit || Engine.RewardCardLimit != 2 || Engine.RewardRemainingCards != 2 || Engine.RewardRemainingBudget != 0
+                    || r.taken.Count != 0 || r.source != (kind == ZoneKind.Boss ? RewardSource.Boss : RewardSource.Subject))
+                    throw new InvalidOperationException("Actual subject/boss victories must start with zero of two reward cards selected.");
+                string[] cards = RewardVerificationCards();
+                if (cards.Take(2).Sum(Engine.CardCost) <= GameEngine.EnergyForLevel(s.level) + (kind == ZoneKind.Boss ? 2 : 0))
+                    throw new InvalidOperationException("Native subject reward fixture must exercise two cards beyond the former price budget.");
+                SelectRewardVerificationPair(cards);
+                if (s.deck.Count != deckBefore) throw new InvalidOperationException("Pending reward choices must not enter the deck before confirmation.");
+                ReplaceRewardVerificationCard(cards); ReloadRewardVerification(); CommitRewardVerification(); cases++;
+                Engine = NewBossVerificationRun(76200 + cases); PrepareRewardVerificationBattle(kind); CommitRewardVerification(); cases++;
+            }
+            Engine = NewBossVerificationRun(76300); PrepareWildlifeRewardVerification(); cases++;
+            Debug.Log("BTS REWARD FLOW PASS / cases=" + cases + " / actualWins=5 / subjectBoss=twoCards / cancelReplace=PASS / saveLoad=PASS / commitOnce=PASS / wildlifeBudget=PASS / isolatedSave=PASS");
+            Engine = previous;
+        }
+
+        void VerificationRewardView(string view)
+        {
+            if (view == "reward_ui_wildlife_budget") { PrepareWildlifeRewardVerification(); return; }
+            PrepareRewardVerificationBattle(view.Contains("boss") ? ZoneKind.Boss : ZoneKind.Subject);
+            if (view.EndsWith("_empty", StringComparison.Ordinal)) return;
+            string[] cards = RewardVerificationCards(); SelectRewardVerificationPair(cards);
+            if (view.EndsWith("_replaced", StringComparison.Ordinal) || view.EndsWith("_committed", StringComparison.Ordinal)) ReplaceRewardVerificationCard(cards);
+            if (view.EndsWith("_reloaded", StringComparison.Ordinal)) ReloadRewardVerification();
+            if (view.EndsWith("_committed", StringComparison.Ordinal)) { CommitRewardVerification(); inventory = true; inventoryTab = 0; inventoryScroll = Vector2.zero; }
+        }
+
         void VerificationStrategyView(string view)
         {
             var s = Engine.State;
@@ -1928,7 +2045,7 @@ namespace Lumia
 
         public void VerificationView(string view)
         {
-            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0)) return;
+            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") < 0)) return;
             lobby = catalog = inventory = settings = help = fieldInfo = enemyLoadout = false;
             inspectCard = inspectTrait = inspectGear = craftPending = ""; inspectEnemyCard=false; summaryMode=true; scroll = inventoryScroll = encounterStoryScroll = detailScroll = Vector2.zero;summaryScroll.Clear();
             craftQuery = ""; craftTags.Clear(); craftSlot = GearSlot.Weapon; campRemovalSelection.Clear(); campSelectionState = null;
@@ -1949,6 +2066,7 @@ namespace Lumia
             if (view == "help") { help = true; return; }
             if (view.StartsWith("strategy_", StringComparison.Ordinal)) { VerificationStrategyView(view); return; }
             if (view.StartsWith("boss_ui_", StringComparison.Ordinal)) { VerificationBossView(view); return; }
+            if (view.StartsWith("reward_ui_", StringComparison.Ordinal)) { VerificationRewardView(view); return; }
             if (view == "jenny_passive")
             {
                 var jenny = GameDatabase.Passive("jenny_p");
@@ -2145,7 +2263,7 @@ namespace Lumia
             else if (view == "rewards_wildlife" || view == "rewards_wildlife_cancelled" || view == "wildlife_food_bag")
             {
                 Engine.State.stage = RunStage.Rewards;
-                Engine.State.rewards = new RewardState { xp = 68, credits = 65, cardBudget = 3, objectId = "mithril", foodId = "meat", choices = new List<string> { "nia_q", "aya_q", "hyunwoo_q", "basic_attack" } };
+                Engine.State.rewards = new RewardState { source = RewardSource.Wildlife, xp = 68, credits = 65, cardBudget = 3, objectId = "mithril", foodId = "meat", choices = new List<string> { "nia_q", "aya_q", "hyunwoo_q", "basic_attack" } };
                 Engine.State.objects.Add("mithril"); Engine.State.foods.Add("meat");
                 Engine.ClaimCard("basic_attack");
                 if (view == "rewards_wildlife_cancelled") Engine.ClaimCard("basic_attack");
@@ -2154,7 +2272,7 @@ namespace Lumia
             else if (view == "rewards" || view == "rewards_cancelled")
             {
                 Engine.State.stage = RunStage.Rewards;
-                Engine.State.rewards = new RewardState { xp = 36, credits = 75, cardBudget = 8, choices = new List<string> { "aya_q", "aya_w", "aya_e", "aya_r" } };
+                Engine.State.rewards = new RewardState { source = RewardSource.Subject, xp = 36, credits = 75, cardBudget = 8, choices = new List<string> { "aya_q", "aya_w", "aya_e", "aya_r" } };
                 Engine.ClaimCard("aya_r");
                 if (view == "rewards_cancelled") Engine.ClaimCard("aya_r");
             }

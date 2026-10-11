@@ -1,0 +1,11 @@
+Temp\NativeRewardPreflight.cs(4,225): warning CS0169: 'NativeRewardPreflight.bossGuideScroll' 필드가 사용되지 않았습니다.
+Temp\NativeRewardPreflight.cs(4,198): warning CS0169: 'NativeRewardPreflight.nextEnemyActionAt' 필드가 사용되지 않았습니다.
+Temp\NativeRewardPreflight.cs(4,152): warning CS0169: 'NativeRewardPreflight.lobby' 필드가 사용되지 않았습니다.
+Temp\NativeRewardPreflight.cs(4,177): warning CS0169: 'NativeRewardPreflight.mapAct' 필드가 사용되지 않았습니다.
+Temp\NativeRewardPreflight.cs(4,184): warning CS0169: 'NativeRewardPreflight.mapRow' 필드가 사용되지 않았습니다.
+Temp\NativeRewardPreflight.cs(4,163): warning CS0169: 'NativeRewardPreflight.displayedTurn' 필드가 사용되지 않았습니다.
+Temp\NativeRewardPreflight.cs(4,73): warning CS0414: 'NativeRewardPreflight.inventory' 필드가 할당되었지만 사용되지 않았습니다.
+Temp\NativeRewardPreflight.cs(4,88): warning CS0414: 'NativeRewardPreflight.inventoryTab' 필드가 할당되었지만 사용되지 않았습니다.
+﻿BTS REWARD FLOW PASS / cases=5 / actualWins=5 / subjectBoss=twoCards / cancelReplace=PASS / saveLoad=PASS / commitOnce=PASS / wildlifeBudget=PASS / isolatedSave=PASS
+NATIVE REWARD FIXTURE PREFLIGHT PASS / 40 fixture scenarios / 5 seeds / deep-copy isolated-file reload; native Unity JSON remains player verification.
+﻿

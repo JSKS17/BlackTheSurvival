@@ -11,7 +11,7 @@ namespace Lumia
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void StartVerification()
         {
-            if (Debug.isDebugBuild && (System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0))
+            if (Debug.isDebugBuild && (System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0))
                 new GameObject("Lumia verification").AddComponent<LumiaVerification>();
         }
         IEnumerator Start()
@@ -53,6 +53,13 @@ namespace Lumia
                 views = new[] { "boss_ui_badges", "boss_ui_goal_damage", "boss_ui_goal_block", "boss_ui_goal_basic", "boss_ui_goal_skill", "boss_ui_goal_movement", "boss_ui_goal_mixedkeys", "boss_ui_goal_cheapcards", "boss_ui_guide_bottom",
                     "boss_ui_phase_pending", "boss_ui_phase2", "boss_ui_nia_pending", "boss_ui_nia_phase3", "boss_ui_progress", "boss_ui_interrupted_reload",
                     "boss_ui_effect_strike", "boss_ui_effect_shield", "boss_ui_effect_delayedstrike", "boss_ui_effect_status", "boss_ui_effect_counter", "boss_ui_effect_drain", "boss_ui_effect_resourceprepare", "boss_ui_effect_cleanse", "boss_ui_effect_resolved", "help" };
+            }
+            bool rewardOnly = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0;
+            if (rewardOnly)
+            {
+                LumiaGame.Instance.VerificationRewardFlows();
+                views = new[] { "reward_ui_subject_empty", "reward_ui_subject_two", "reward_ui_subject_replaced", "reward_ui_subject_reloaded", "reward_ui_subject_committed",
+                    "reward_ui_boss_two", "reward_ui_boss_reloaded", "reward_ui_wildlife_budget", "help" };
             }
             foreach (string view in views)
             {
@@ -110,10 +117,12 @@ namespace Lumia
                 Debug.Log("LUMIA CAPTURE " + view);
                 if (strategyOnly) Debug.Log("BTS STRATEGY PASS " + view);
                 if (bossOnly) Debug.Log("BTS BOSS PASS " + view);
+                if (rewardOnly) Debug.Log("BTS REWARD PASS " + view);
                 if (campOnly) Debug.Log("BTS CAMP PASS " + view + " / hp=" + LumiaGame.Instance.Engine.State.hp + " / removals=" + LumiaGame.Instance.Engine.State.campRemovalsRemaining);
             }
             if (strategyOnly) Debug.Log("BTS STRATEGY VERIFICATION PASS / views=" + views.Length);
             if (bossOnly) Debug.Log("BTS BOSS VERIFICATION PASS / views=" + views.Length);
+            if (rewardOnly) Debug.Log("BTS REWARD VERIFICATION PASS / views=" + views.Length);
             if (campOnly) Debug.Log("BTS CAMP VERIFICATION PASS / views=" + views.Length);
             Application.Quit();
         }

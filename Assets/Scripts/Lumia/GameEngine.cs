@@ -74,11 +74,14 @@ namespace Lumia
         public int cost;
     }
 
+    public enum RewardSource { Unknown, Wildlife, Subject, Boss }
+
     [Serializable] public class RewardState
     {
         public int xp, credits, cardBudget;
         public string objectId, foodId;
         public bool boss, cardsCommitted;
+        public RewardSource source;
         public List<string> choices = new List<string>(), taken = new List<string>();
         public List<RewardPrice> legacyPrices = new List<RewardPrice>();
     }
@@ -129,7 +132,10 @@ namespace Lumia
         public readonly List<CombatAction> CombatActions = new List<CombatAction>();
         private int actionSerial;
         private bool resolvingTraits;
-        public int RewardRemainingBudget { get { return State.rewards == null ? 0 : Math.Max(0, State.rewards.cardBudget - State.rewards.taken.Sum(RewardCardPrice)); } }
+        public bool RewardUsesCardLimit { get { return CurrentRewardSource == RewardSource.Subject || CurrentRewardSource == RewardSource.Boss; } }
+        public int RewardCardLimit { get { return RewardUsesCardLimit ? 2 : 0; } }
+        public int RewardRemainingCards { get { return !RewardUsesCardLimit || State.rewards.cardsCommitted ? 0 : Math.Max(0, RewardCardLimit - (State.rewards.taken?.Count ?? 0)); } }
+        public int RewardRemainingBudget { get { return State.rewards == null || RewardUsesCardLimit || State.rewards.cardsCommitted ? 0 : Math.Max(0, State.rewards.cardBudget - (State.rewards.taken == null ? 0 : State.rewards.taken.Sum(RewardCardPrice))); } }
         public int PlayerBaseEnergy { get { return StartingMaxEnergy + Math.Max(0, State.maxEnergyBonus); } }
         public int MaxEnergy { get { return PlayerBaseEnergy + (State.stage==RunStage.Combat && State.combat!=null ? TraitMechanics.EnergyBonus(State.combat.playerTraits) : 0); } }
         public int DefeatedBossCount { get { return State.bossVictories; } }
@@ -202,6 +208,12 @@ namespace Lumia
         {
             if (savedState == null || savedState.version < 1 || savedState.version > 2) throw new ArgumentException("지원하지 않는 저장 데이터입니다.");
             State = savedState;
+            if (State.rewards != null)
+            {
+                if (State.rewards.choices == null) State.rewards.choices = new List<string>();
+                if (State.rewards.taken == null) State.rewards.taken = new List<string>();
+                if (State.rewards.legacyPrices == null) State.rewards.legacyPrices = new List<RewardPrice>();
+            }
             if (State.cardUpgrades == null) State.cardUpgrades = new List<CardUpgradeSelection>();
             if (State.scoutedActs == null) State.scoutedActs = new List<int>();
             if (State.hyperloopActs == null) State.hyperloopActs = new List<int>();
@@ -230,7 +242,7 @@ namespace Lumia
             if (State.version == 1)
             {
                 // Old saves committed rewards on click. Preserve the choice, but undo only those appended copies.
-                if (State.stage == RunStage.Rewards && State.rewards != null)
+                if (State.stage == RunStage.Rewards && State.rewards != null && !State.rewards.cardsCommitted)
                 {
                     var r = State.rewards;
                     r.cardBudget += r.taken.Sum(LegacyRewardCardPrice);
@@ -255,6 +267,14 @@ namespace Lumia
                     c.enemyDiscardPile.AddRange(c.enemyHand); c.enemyHand.Clear();
                 }
                 State.version = 2;
+            }
+            if (State.rewards != null)
+            {
+                // Older saves did not distinguish an animal's budget from a subject's reward.
+                // Recover the actual source before migrating only the unconfirmed selection.
+                State.rewards.source = CurrentRewardSource;
+                if (State.stage == RunStage.Rewards && !State.rewards.cardsCommitted && RewardUsesCardLimit && State.rewards.taken.Count > RewardCardLimit)
+                    State.rewards.taken = State.rewards.taken.Take(RewardCardLimit).ToList();
             }
             if (State.combat != null)
             {
@@ -817,6 +837,27 @@ namespace Lumia
             }
         }
 
+        private RewardSource CurrentRewardSource
+        {
+            get
+            {
+                var r = State.rewards;
+                if (r == null) return RewardSource.Unknown;
+                if (r.source == RewardSource.Wildlife || r.source == RewardSource.Subject || r.source == RewardSource.Boss) return r.source;
+                var node = ActiveNode();
+                if (node != null)
+                {
+                    if (node.kind == ZoneKind.Wildlife) return RewardSource.Wildlife;
+                    if (node.kind == ZoneKind.Subject) return RewardSource.Subject;
+                    if (node.kind == ZoneKind.Boss) return RewardSource.Boss;
+                }
+                // The boss marker also survives older passive-choice screens. Ambiguous
+                // legacy rewards without a combat node retain their existing budget.
+                if (r.boss) return RewardSource.Boss;
+                return !string.IsNullOrEmpty(State.combat?.animal) ? RewardSource.Wildlife : RewardSource.Unknown;
+            }
+        }
+
         private static int LegacyRewardCardPrice(string id)
         {
             // Frozen version 1 prices, verified against its Windows build. Later data revisions cannot change a pending reward's budget.
@@ -832,12 +873,23 @@ namespace Lumia
             return legacy != null ? Math.Max(1, legacy.cost) : Math.Max(1, CardCost(id));
         }
 
+        public bool CanClaimCard(string id)
+        {
+            var r = State.rewards;
+            if (State.stage != RunStage.Rewards || r == null || r.cardsCommitted || string.IsNullOrEmpty(id)
+                || r.choices == null || !r.choices.Contains(id) || GameDatabase.Card(id) == null) return false;
+            if (r.taken != null && r.taken.Contains(id)) return true;
+            return RewardUsesCardLimit ? RewardRemainingCards > 0 : RewardCardPrice(id) <= RewardRemainingBudget;
+        }
+
         public bool ClaimCard(string id)
         {
             var r = State.rewards;
-            if (State.stage != RunStage.Rewards || r == null || r.cardsCommitted || !r.choices.Contains(id)) return Fail("현재 보상에 있는 카드를 선택하세요.");
+            if (State.stage != RunStage.Rewards || r == null || r.cardsCommitted || string.IsNullOrEmpty(id)
+                || r.choices == null || !r.choices.Contains(id) || GameDatabase.Card(id) == null) return Fail("현재 보상에 있는 카드를 선택하세요.");
+            if (r.taken == null) r.taken = new List<string>();
             if (r.taken.Remove(id)) return Say(GameDatabase.Card(id).name + " 카드 선택을 취소했습니다.");
-            if (RewardCardPrice(id) > RewardRemainingBudget) return Fail("보상 카드 선택 코스트가 부족합니다. 선택한 카드를 눌러 취소할 수 있습니다.");
+            if (!CanClaimCard(id)) return Fail(RewardUsesCardLimit ? "보상 카드는 최대 2장까지 선택할 수 있습니다. 선택한 카드를 눌러 취소할 수 있습니다." : "보상 카드 선택 코스트가 부족합니다. 선택한 카드를 눌러 취소할 수 있습니다.");
             r.taken.Add(id);
             return Say(GameDatabase.Card(id).name + " 카드를 선택했습니다. 확정 전까지 변경할 수 있습니다.");
         }
@@ -846,6 +898,8 @@ namespace Lumia
         {
             if (State.stage != RunStage.Rewards || State.rewards == null) return Fail("현재 받을 보상이 없습니다.");
             var r = State.rewards;
+            if (!r.cardsCommitted && RewardUsesCardLimit && r.taken.Count > RewardCardLimit)
+                return Fail("보상 카드는 최대 2장까지 선택할 수 있습니다. 선택한 카드를 눌러 취소한 뒤 확정하세요.");
             if (!r.cardsCommitted) { State.deck.AddRange(r.taken); r.cardsCommitted = true; }
             if (!string.IsNullOrEmpty(State.pendingPassive)) return AcceptPassiveOrChoose();
             CompleteNode(); return true;
@@ -2101,7 +2155,7 @@ namespace Lumia
             var c = State.combat; var node = ActiveNode(); bool boss = node.kind == ZoneKind.Boss;
             TraitEvent(false,"battle_win",null,true);
             int rewardEnergy=EnergyForLevel(State.level);
-            var r = new RewardState { boss = boss, xp = (boss ? 180 : node.kind == ZoneKind.Subject ? 90 : 50) + c.enemyLevel * (boss ? 14 : node.kind == ZoneKind.Subject ? 12 : 9), credits = (boss ? 185 : node.kind == ZoneKind.Subject ? 80 : 48) + c.enemyLevel * 5 + Next(25) + Modifier("reward_credit"), cardBudget = boss ? rewardEnergy + 2 : node.kind == ZoneKind.Subject ? rewardEnergy : rewardEnergy - 1 };
+            var r = new RewardState { boss = boss, source = boss ? RewardSource.Boss : node.kind == ZoneKind.Subject ? RewardSource.Subject : RewardSource.Wildlife, xp = (boss ? 180 : node.kind == ZoneKind.Subject ? 90 : 50) + c.enemyLevel * (boss ? 14 : node.kind == ZoneKind.Subject ? 12 : 9), credits = (boss ? 185 : node.kind == ZoneKind.Subject ? 80 : 48) + c.enemyLevel * 5 + Next(25) + Modifier("reward_credit"), cardBudget = node.kind == ZoneKind.Wildlife ? rewardEnergy - 1 : 0 };
             if (node.kind == ZoneKind.Wildlife)
             {
                 r.choices = CardOffer(RandomCardPool(), 3, ref State.rngState);

@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "uiScreens": 9,
+  "runtimeErrors": 0,
+  "coreScenarios": 70,
+  "coreAssertions": 71282,
+  "personalSavePreserved": true,
+  "personalSaveSha256": "27C04BA854B36D7F7151E3FD62CEA86ACBC2F17A56B11B46F825FD60FCC76C73",
+  "screens": [
+    {
+      "file": "native-ui/reward_ui_subject_empty.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/reward_ui_subject_two.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/reward_ui_subject_replaced.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/reward_ui_subject_reloaded.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/reward_ui_subject_committed.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/reward_ui_boss_two.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/reward_ui_boss_reloaded.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/reward_ui_wildlife_budget.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/help.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ],
+  "scope": "Actual subject and boss victory rewards: cost-independent two-card limit, cancel and replace, Unity JSON restoration, exactly-once commit; wildlife cost budget remains unchanged."
+}

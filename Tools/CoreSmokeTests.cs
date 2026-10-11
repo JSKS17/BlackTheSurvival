@@ -17,7 +17,7 @@ public static partial class CoreSmokeTests
             if (args.Contains("--balance")) return BalanceSimulation.Run();
             KioskUnlockAndStock(); MapKioskProximity(); BossMapPreview(); PermanentEnergyGrowth(); CriticalBasicAttacks();
             DatabaseIntegrity(); PreparationAndLocks(); RouteProgression(); CombatPilesAndEnergy();
-            EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); WildlifeDropTables(); WildlifeSupplyRewards(); SubjectDropTables();
+            EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); SubjectAndBossRewardCardLimits(); PendingSubjectRewardMigration(); WildlifeDropTables(); WildlifeSupplyRewards(); SubjectDropTables();
             ShopEconomy(); CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
             StarterLocksAndCeiling(); FullEnemyLoadouts(); EquipmentIdentityAndAlex();
             SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); CrossSubjectRules(); CrossSubjectCombatAndSave(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
@@ -27,7 +27,7 @@ public static partial class CoreSmokeTests
             StrategicUpgradeChoice(); StrategicRetain(); StrategicMapServices(); StrategicEncounterChains();
             BossProfileCoverage(); BossEntryAndReadOnlyGuides(); BossChallengeGoals(); BossPhaseTransitions();
             BossFailureEffects(); BossIntentAndSignature(); BossPersistenceAndMigration();
-            Console.WriteLine("PASS: " + checks + " assertions across 68 game-rule scenarios.");
+            Console.WriteLine("PASS: " + checks + " assertions across 70 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -270,25 +270,126 @@ public static partial class CoreSmokeTests
     {
         var e = Ready(); Enter(e, ZoneKind.Subject); int beforeCredit = e.State.credits; Win(e);
         Check(e.State.row == -1 && e.State.credits == beforeCredit + e.State.rewards.credits, "rewards awarded once before route resolves");
-        int credit = e.State.credits, budget = e.State.rewards.cardBudget;
+        int credit = e.State.credits;
         Check(!e.EndTurn() && !e.PlayCard(0) && e.State.credits == credit, "combat cannot re-award rewards");
         var id = e.State.rewards.choices.First(); int count = e.State.deck.Count, copies = e.State.deck.Count(x => x == id);
-        if (e.RewardCardPrice(id) <= budget)
-        {
-            Check(e.ClaimCard(id) && e.State.deck.Count == count && e.State.rewards.taken.Contains(id), "selection remains pending before confirm");
-            Check(e.RewardRemainingBudget == budget - e.RewardCardPrice(id) && e.State.rewards.cardBudget == budget, "pending selection computes remaining budget without changing total");
-            Check(e.ClaimCard(id) && e.State.deck.Count == count && e.RewardRemainingBudget == budget, "click selected card cancels and refunds selection budget");
-            Check(e.ClaimCard(id), "cancelled choice can be selected again");
-        }
-        bool selected = e.State.rewards.taken.Contains(id);
+        Check(e.RewardUsesCardLimit && e.RewardCardLimit == 2 && e.RewardRemainingCards == 2 && e.RewardRemainingBudget == 0, "subject reward exposes two card slots rather than a cost budget");
+        Check(e.CanClaimCard(id) && e.ClaimCard(id) && e.State.deck.Count == count && e.State.rewards.taken.Contains(id) && e.RewardRemainingCards == 1, "selection remains pending before confirm and uses one slot");
+        Check(e.CanClaimCard(id) && e.ClaimCard(id) && e.State.deck.Count == count && e.RewardRemainingCards == 2, "click selected card cancels and restores a card slot");
+        Check(e.ClaimCard(id), "cancelled choice can be selected again");
         Check(e.FinishRewards() && e.State.row == 0 && !e.FinishRewards(), "rewards resolve node exactly once");
-        Check(e.State.deck.Count(x => x == id) == copies + (selected ? 1 : 0), "only confirmed reward appended exactly once");
+        Check(e.State.deck.Count(x => x == id) == copies + 1 && !e.CanClaimCard(id), "only confirmed reward appended exactly once and cannot be selected after resolution");
         e = Ready(); Enter(e, ZoneKind.Wildlife); Win(e);
         e.State.rewards.choices = new List<string> { "basic_attack", "basic_guard" }; e.State.rewards.cardBudget = 1;
-        Check(e.ClaimCard("basic_attack") && !e.ClaimCard("basic_guard"), "budget rejects alternate card while full");
-        Check(e.ClaimCard("basic_attack") && e.ClaimCard("basic_guard"), "deselect enables an alternate card at original budget");
+        Check(!e.RewardUsesCardLimit && e.RewardCardLimit == 0 && e.RewardRemainingCards == 0 && e.State.rewards.source == RewardSource.Wildlife, "wildlife keeps its cost budget and does not expose a two-card restriction");
+        Check(e.CanClaimCard("basic_attack") && e.ClaimCard("basic_attack") && !e.CanClaimCard("basic_guard") && !e.ClaimCard("basic_guard"), "wildlife budget rejects alternate card while full");
+        Check(e.CanClaimCard("basic_attack") && e.ClaimCard("basic_attack") && e.CanClaimCard("basic_guard") && e.ClaimCard("basic_guard"), "wildlife deselection enables an alternate card at original budget");
         count = e.State.deck.Count; e.FinishRewards();
         Check(e.State.deck.Count == count + 1 && e.State.deck.Last() == "basic_guard", "changed selection commits only the replacement");
+        e = Ready(); Enter(e, ZoneKind.Wildlife); Win(e);
+        var threeWildlifeChoices = e.State.rewards.choices.Take(3).ToArray();
+        e.State.rewards.cardBudget = threeWildlifeChoices.Sum(e.RewardCardPrice);
+        count = e.State.deck.Count;
+        Check(threeWildlifeChoices.All(e.ClaimCard) && e.State.rewards.taken.Count == 3 && e.RewardRemainingBudget == 0, "wildlife may still select three cards when their total cost fits its budget");
+        Check(e.FinishRewards() && e.State.deck.Count == count + 3, "wildlife confirmation retains its budget-based card count");
+    }
+
+    private static GameEngine SubjectRewardFixture(ZoneKind kind, string subjectId = "nia")
+    {
+        var e = Ready(5401);
+        e.State.act = 2; e.State.row = e.State.mapRows - 2; e.State.lane = 1;
+        e.State.passives.Clear(); e.State.gear.Clear(); e.State.mainRune = e.State.supportRune = null;
+        e.State.hp = e.State.maxHp = 1000;
+        e.State.actBosses[e.State.act - 1] = subjectId;
+        var node = e.AvailableNodes().First(n => n.lane == 1);
+        node.assignedOpponent = subjectId;
+        Enter(e, kind);
+        Check(e.State.combat.enemyId == subjectId && e.State.combat.enemyLevel >= 7, "late actual node unlocks the defeated subject's four skills: " + kind + "/" + subjectId);
+        Win(e);
+        return e;
+    }
+
+    private static void SubjectAndBossRewardCardLimits()
+    {
+        foreach (var character in GameDatabase.Characters.Where(c => c.cards != null && c.cards.Length > 0))
+        foreach (var kind in new[] { ZoneKind.Subject, ZoneKind.Boss })
+        {
+            var e = SubjectRewardFixture(kind, character.id);
+            var source = kind == ZoneKind.Boss ? RewardSource.Boss : RewardSource.Subject;
+            Check(e.State.rewards.source == source && e.RewardUsesCardLimit && e.RewardCardLimit == 2 && e.RewardRemainingCards == 2 && e.RewardRemainingBudget == 0, "all subjects share the two-card rule with their actual victory source: " + kind + "/" + character.id);
+            Check(e.State.rewards.choices.Count == 4 && e.State.rewards.choices.All(character.cards.Contains), "the two-card rule retains all defeated subject skill choices: " + kind + "/" + character.id);
+        }
+
+        foreach (var kind in new[] { ZoneKind.Subject, ZoneKind.Boss })
+        {
+            var e = SubjectRewardFixture(kind); var r = e.State.rewards;
+            var originalDeck = e.State.deck.ToArray(); int credits = e.State.credits, xp = e.State.xp, rng = e.State.rngState;
+            Check(r.choices.Contains("nia_r") && r.choices.Contains("nia_e") && e.CardCost("nia_r") >= 5 && e.CardCost("nia_r") + e.CardCost("nia_e") > e.MaxEnergy, "actual victory offers expensive skills whose combined combat cost exceeds current maximum: " + kind);
+            Check(e.CanClaimCard("nia_r") && e.ClaimCard("nia_r") && e.CanClaimCard("nia_e") && e.ClaimCard("nia_e") && e.RewardRemainingCards == 0, "two expensive reward cards can be selected regardless of combat cost: " + kind);
+            var selected = r.taken.ToArray();
+            for (int read = 0; read < 3; ++read)
+                Check(e.CanClaimCard("nia_r") && !e.CanClaimCard("nia_q"), "full selection still permits cancellation but rejects a third low-cost skill: " + kind);
+            Check(r.taken.SequenceEqual(selected) && e.State.deck.SequenceEqual(originalDeck) && e.State.rngState == rng, "reward availability queries cannot alter selection, deck or RNG: " + kind);
+            Check(!e.ClaimCard("nia_q") && !e.ClaimCard("basic_attack") && r.taken.SequenceEqual(selected), "third card and a card outside the offer are rejected without replacing selected rewards: " + kind);
+            Check(e.ClaimCard("nia_r") && r.taken.SequenceEqual(new[] { "nia_e" }) && e.RewardRemainingCards == 1, "cancellation preserves the other expensive card and restores one slot: " + kind);
+            Check(e.CanClaimCard("nia_q") && e.ClaimCard("nia_q") && e.RewardRemainingCards == 0 && e.ClaimCard("nia_q") && e.ClaimCard("nia_r"), "cancelled slots accept a replacement and can return to the original pair: " + kind);
+            var loaded = new GameEngine((RunState)Clone(e.State));
+            Check(loaded.RewardUsesCardLimit && loaded.RewardRemainingCards == 0 && loaded.State.rewards.taken.SequenceEqual(new[] { "nia_e", "nia_r" }) && loaded.State.deck.SequenceEqual(originalDeck) && loaded.State.rngState == rng, "pending expensive pair survives save and resume without committing or rerolling: " + kind);
+            if (kind == ZoneKind.Boss)
+                loaded.State.passives = GameDatabase.Passives.Where(p => p.id != loaded.State.pendingPassive).Take(3).Select(p => p.id).ToList();
+            Check(loaded.FinishRewards() && loaded.State.deck.SequenceEqual(originalDeck.Concat(new[] { "nia_e", "nia_r" })), "confirm appends exactly the two selected expensive cards: " + kind);
+            Check(!loaded.FinishRewards() && !loaded.ClaimCard("nia_r") && !loaded.CanClaimCard("nia_r") && loaded.State.credits == credits && loaded.State.xp == xp && loaded.State.rngState == rng, "repeated confirmation cannot duplicate cards, credits, experience or RNG: " + kind);
+            var afterConfirm = new GameEngine((RunState)Clone(loaded.State));
+            Check(!afterConfirm.FinishRewards() && afterConfirm.State.deck.SequenceEqual(loaded.State.deck) && afterConfirm.State.credits == credits && afterConfirm.State.xp == xp, "resuming after confirmation cannot grant the reward pair again: " + kind);
+            if (kind == ZoneKind.Boss) Check(afterConfirm.State.stage == RunStage.PassiveChoice && afterConfirm.ReplacePassive(-1) && afterConfirm.State.deck.SequenceEqual(loaded.State.deck), "boss passive decision does not commit the reward pair a second time");
+
+            foreach (int take in new[] { 0, 1 })
+            {
+                var optional = SubjectRewardFixture(kind); var before = optional.State.deck.ToArray();
+                int awardCredits = optional.State.credits, awardXp = optional.State.xp, awardRng = optional.State.rngState;
+                if (take == 1) Check(optional.ClaimCard("nia_r"), "one expensive reward can be selected without filling both slots: " + kind);
+                Check(optional.RewardRemainingCards == 2 - take && optional.FinishRewards() && optional.State.deck.SequenceEqual(take == 0 ? before : before.Concat(new[] { "nia_r" })), "zero or one selected card can be confirmed: " + kind + "/" + take);
+                Check(!optional.FinishRewards() && optional.State.credits == awardCredits && optional.State.xp == awardXp && optional.State.rngState == awardRng, "optional reward confirmation never repeats victory currency or experience: " + kind + "/" + take);
+            }
+
+            var invalid = SubjectRewardFixture(kind); var untouched = invalid.State.deck.ToArray();
+            invalid.State.rewards.taken = new List<string> { "nia_q", "nia_w", "nia_r" };
+            Check(!invalid.FinishRewards() && !invalid.State.rewards.cardsCommitted && invalid.State.deck.SequenceEqual(untouched) && invalid.State.rewards.taken.Count == 3, "final confirmation rejects an invalid live three-card selection without silently changing it: " + kind);
+            Check(invalid.CanClaimCard("nia_q") && invalid.ClaimCard("nia_q") && invalid.RewardRemainingCards == 0 && invalid.FinishRewards() && invalid.State.deck.SequenceEqual(untouched.Concat(new[] { "nia_w", "nia_r" })), "invalid live selection can be corrected by cancellation and then confirmed: " + kind);
+        }
+    }
+
+    private static void PendingSubjectRewardMigration()
+    {
+        foreach (int version in new[] { 1, 2 })
+        foreach (var kind in new[] { ZoneKind.Subject, ZoneKind.Boss })
+        {
+            var e = SubjectRewardFixture(kind); var old = (RunState)Clone(e.State);
+            string[] selected = { "nia_q", "nia_w", "nia_e" };
+            old.version = version; old.level = 20; old.rewards.source = RewardSource.Unknown;
+            old.rewards.taken = selected.ToList(); old.rewards.cardBudget = version == 1 ? 2 : 8;
+            old.rewards.legacyPrices = null;
+            var originalDeck = old.deck.ToArray();
+            if (version == 1) old.deck.AddRange(selected); // Version 1 appended each pending choice immediately.
+            int credits = old.credits, xp = old.xp, rng = old.rngState; var choices = old.rewards.choices.ToArray();
+            var loaded = new GameEngine(old);
+            var source = kind == ZoneKind.Boss ? RewardSource.Boss : RewardSource.Subject;
+            Check(loaded.State.rewards.source == source && loaded.RewardUsesCardLimit && loaded.RewardCardLimit == 2 && loaded.RewardRemainingCards == 0, "legacy pending reward derives its two-card rule from the actual active node: v" + version + "/" + kind);
+            Check(loaded.State.rewards.taken.SequenceEqual(selected.Take(2)) && loaded.State.deck.SequenceEqual(originalDeck), "legacy three-choice selection keeps the first two pending cards and removes only old appended rewards: v" + version + "/" + kind);
+            Check(loaded.State.rewards.choices.SequenceEqual(choices) && loaded.State.credits == credits && loaded.State.xp == xp && loaded.State.rngState == rng, "pending reward migration preserves the offer and does not repeat victory rewards or RNG: v" + version + "/" + kind);
+            var resumed = new GameEngine((RunState)Clone(loaded.State));
+            Check(resumed.State.rewards.taken.SequenceEqual(selected.Take(2)) && resumed.State.deck.SequenceEqual(originalDeck) && resumed.State.rngState == rng, "pending reward migration is idempotent on the second load: v" + version + "/" + kind);
+            Check(resumed.CanClaimCard("nia_q") && resumed.ClaimCard("nia_q") && resumed.CanClaimCard("nia_r") && resumed.ClaimCard("nia_r"), "legacy pending selection can replace a cheap card with an expensive skill: v" + version + "/" + kind);
+            Check(resumed.FinishRewards() && resumed.State.deck.SequenceEqual(originalDeck.Concat(new[] { "nia_w", "nia_r" })) && !resumed.FinishRewards() && resumed.State.credits == credits && resumed.State.xp == xp && resumed.State.rngState == rng, "migrated pending selection confirms exactly its replacement pair: v" + version + "/" + kind);
+
+            var committed = SubjectRewardFixture(kind); var settled = (RunState)Clone(committed.State);
+            settled.version = version; settled.rewards.source = RewardSource.Unknown;
+            settled.rewards.taken = selected.ToList(); settled.rewards.cardsCommitted = true; settled.deck.AddRange(selected);
+            var committedDeck = settled.deck.ToArray();
+            var committedLoad = new GameEngine(settled);
+            Check(committedLoad.State.deck.SequenceEqual(committedDeck) && committedLoad.State.rewards.taken.SequenceEqual(selected) && committedLoad.State.rewards.cardsCommitted, "already committed legacy rewards retain all owned cards even above the new limit: v" + version + "/" + kind);
+            Check(committedLoad.FinishRewards() && committedLoad.State.deck.SequenceEqual(committedDeck) && !committedLoad.FinishRewards(), "already committed legacy reward is never appended again: v" + version + "/" + kind);
+        }
     }
 
     private static void EnemyPreview()
@@ -1587,13 +1688,15 @@ public static partial class CoreSmokeTests
 
     private static void SaveMigration()
     {
-        var e = Ready(); Enter(e, ZoneKind.Subject); Win(e);
+        var e = Ready(); Enter(e, ZoneKind.Wildlife); Win(e);
         string id = "nia_r"; e.State.version = 1;
+        e.State.rewards.source = RewardSource.Unknown;
         e.State.rewards.choices = new List<string> { "nia_q", "hyejin_q", "nia_r" }; e.State.rewards.cardBudget = 0; e.State.rewards.taken = new List<string> { id };
         int beforeCopies = e.State.deck.Count(x => x == id); e.State.deck.Add(id);
         e.State.map.RemoveAll(n => n.row >= 7); int copies = beforeCopies + 1;
         var loaded = new GameEngine((RunState)Clone(e.State));
         Check(loaded.State.version == 2 && loaded.State.mapRows == 7, "legacy seven-row maps keep their original route on load");
+        Check(loaded.State.rewards.source == RewardSource.Wildlife && !loaded.RewardUsesCardLimit && loaded.RewardCardLimit == 0 && loaded.RewardRemainingCards == 0, "legacy wildlife source preserves its original cost-budget rule");
         Check(loaded.State.deck.Count(x => x == id) == beforeCopies && loaded.State.rewards.taken.Contains(id), "legacy migration removes one appended reward and preserves all initial copies");
         Check(loaded.State.rewards.cardBudget == 3 && loaded.RewardCardPrice("nia_q") == 1 && loaded.RewardCardPrice("hyejin_q") == 2 && loaded.RewardCardPrice(id) == 3 && loaded.CardCost(id) == 6, "legacy remaining budget recovers exact original cost ceiling and per-choice prices");
         var reloadedPending = new GameEngine((RunState)Clone(loaded.State));

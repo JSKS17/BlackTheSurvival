@@ -44,7 +44,7 @@ public static class BalanceSimulation
                     case RunStage.Rewards:
                         foreach (var id in e.State.rewards.choices.OrderByDescending(x => DraftScore(GameDatabase.Card(x))).ToArray())
                         {
-                            if (e.RewardRemainingBudget < e.RewardCardPrice(id) || !CanAcquireCard(e,GameDatabase.Card(id))) continue;
+                            if (!e.CanClaimCard(id) || !CanAcquireCard(e,GameDatabase.Card(id))) continue;
                             if (DraftScore(GameDatabase.Card(id)) >= 7 && e.State.deck.Count < 20) e.ClaimCard(id);
                         }
                         e.FinishRewards(); break;
