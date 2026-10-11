@@ -15,7 +15,7 @@ public static partial class CoreSmokeTests
         try
         {
             if (args.Contains("--balance")) return BalanceSimulation.Run();
-            KioskUnlockAndStock(); MapKioskProximity(); BossMapPreview(); PermanentEnergyGrowth(); CriticalBasicAttacks();
+            KioskUnlockAndStock(); MapKioskProximity(); BossMapPreview(); BossPathLegacyMigration(); BossPathRouteRewards(); PermanentEnergyGrowth(); CriticalBasicAttacks();
             DatabaseIntegrity(); PreparationAndLocks(); RouteProgression(); CombatPilesAndEnergy();
             EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); SubjectAndBossRewardCardLimits(); PendingSubjectRewardMigration(); WildlifeDropTables(); WildlifeSupplyRewards(); SubjectDropTables();
             ShopEconomy(); CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
@@ -28,7 +28,7 @@ public static partial class CoreSmokeTests
             BossProfileCoverage(); BossEntryAndReadOnlyGuides(); BossChallengeGoals(); BossPhaseTransitions();
             BossFailureEffects(); BossIntentAndSignature(); BossPersistenceAndMigration();
             BossRestrictionRules(); BossHeavyAttackBoundary(); BossRestrictionPersistence();
-            Console.WriteLine("PASS: " + checks + " assertions across 73 game-rule scenarios.");
+            Console.WriteLine("PASS: " + checks + " assertions across 75 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -55,7 +55,9 @@ public static partial class CoreSmokeTests
     {
         Check(e.State.stage == RunStage.Map, "fixture enters zone from map");
         var node = e.AvailableNodes().First(n => n.lane == lane);
-        node.kind = kind; Check(e.EnterNode(lane), "enter " + kind);
+            node.kind = kind;
+            if (kind == ZoneKind.Boss && string.IsNullOrEmpty(node.assignedOpponent)) node.assignedOpponent = e.BossForAct(e.State.act)?.id ?? "nia";
+            Check(e.EnterNode(lane), "enter " + kind);
     }
 
     private static void Win(GameEngine e)
@@ -1892,59 +1894,140 @@ public static partial class CoreSmokeTests
         }
     }
 
+    private static string BossPathSnapshot(GameEngine e)
+    {
+        return string.Join("|", e.State.map.Where(n => n.kind == ZoneKind.Boss).OrderBy(n => n.act).ThenBy(n => n.row).ThenBy(n => n.lane)
+            .Select(n => n.id + ":" + n.assignedOpponent));
+    }
+    private static MapNode BossPath(GameEngine e, int act, int lane)
+    {
+        return e.State.map.First(n => n.kind == ZoneKind.Boss && n.act == act && n.lane == lane);
+    }
     private static void BossMapPreview()
     {
-        var bosses = new HashSet<string>();
-        for (int seed = 1; seed <= 12; ++seed)
+        var varied = new HashSet<string>();
+        for (int seed = 1; seed <= 16; ++seed)
         {
-            var e = Ready(seed);
-            Check(e.State.actBosses.Count == 3 && e.State.actBosses.Distinct().Count() == 3, "a new journey reveals three distinct saved bosses before entering any node");
-            Check(e.BossForAct(1).id != "nia" && e.BossForAct(2).id != "nia" && e.BossForAct(3).id == "nia", "final boss remains Nia while earlier bosses vary");
-            int rng = e.State.rngState;
-            var revealed = e.State.actBosses.ToArray();
-            var repeated = new GameEngine(seed);
-            Check(repeated.State.actBosses.SequenceEqual(revealed), "same seed reveals the same bosses");
+            var e = Ready(seed); int rng = e.State.rngState;
+            string revealed = BossPathSnapshot(e);
+            Check(e.State.bossAssignmentVersion == 1 && e.State.map.Count(n => n.kind == ZoneKind.Boss) == 9, "all nine boss nodes are assigned before entering any node");
+            var early = e.State.map.Where(n => n.kind == ZoneKind.Boss && n.act < 3).Select(n => n.assignedOpponent).ToArray();
+            Check(early.Length == 6 && early.Distinct().Count() == 6 && !early.Contains("nia"), "the six early boss paths have different subjects and exclude final Nia");
+            Check(e.State.map.Where(n => n.kind == ZoneKind.Boss && n.act == 3).All(n => n.assignedOpponent == "nia"), "every final-act route retains Nia");
+            Check(BossPathSnapshot(new GameEngine(seed)) == revealed, "same seed assigns the same nine boss nodes");
+            string before = FieldSnapshot(e.State);
+            for (int act = 1; act <= 3; ++act)
+            for (int lane = 0; lane < 3; ++lane)
+            {
+                var node = BossPath(e, act, lane); var preview = e.BossForAct(act, lane); varied.Add(preview.id);
+                Check(preview.id == node.assignedOpponent && e.BossForNode(node).id == preview.id
+                    && GameDatabase.Passive(preview.passiveId) != null && preview.cards.Length == 4, "each node preview is a saved combat-ready subject");
+                for (int read = 0; read < 3; ++read) { var guide = e.BossGuideFor(e.BossForAct(act, lane).id); Check(guide.title.Contains(preview.name), "selected path has its own boss guide"); }
+                var battle = new GameEngine((RunState)Clone(e.State));
+                battle.State.act = act; battle.State.row = battle.State.mapRows - 2; battle.State.lane = 1;
+                battle.State.rngState = seed * 7919 + lane + 1;
+                Check(battle.EnterNode(lane) && battle.State.combat.enemyId == preview.id && battle.IsBossCombat,
+                    "actual lane entry uses the revealed node boss despite changed gameplay RNG");
+                int battleRng = battle.State.rngState;
+                var resumed = new GameEngine((RunState)Clone(battle.State));
+                Check(resumed.BossForAct(act, lane).id == preview.id && resumed.BossForAct(act).id == preview.id
+                    && resumed.State.combat.enemyId == preview.id && BossPathSnapshot(resumed) == revealed && resumed.State.rngState == battleRng,
+                    "saving during each actual boss path preserves current battle, all assignments and RNG");
+            }
+            Check(FieldSnapshot(e.State) == before && e.State.rngState == rng, "node, lane and guide previews never change live state or RNG");
+            var loaded = new GameEngine((RunState)Clone(e.State));
+            Check(BossPathSnapshot(loaded) == revealed && loaded.State.rngState == rng, "repeated map load retains all individual boss assignments");
+            Check(e.BossForAct(0) == null && e.BossForAct(4) == null && e.BossForAct(1, -1) == null && e.BossForAct(1, 3) == null
+                && e.BossForNode(null) == null && e.BossForNode(e.State.map.First(n => n.kind != ZoneKind.Boss)) == null,
+                "invalid act, lane and non-boss previews have no subject");
+        }
+        Check(varied.Count > 30, "journey seeds offer a broad range of early boss identities");
+    }
+    private static void BossPathLegacyMigration()
+    {
+        var old = Ready(1949); old.State.act = 2; old.State.defeatedBosses = new List<string> { "jackie" };
+        old.State.bossVictories = old.State.maxEnergyBonus = 1;
+        old.State.actBosses = new List<string> { "jackie", "aya", "nia" }; old.State.bossAssignmentVersion = 0;
+        foreach (var n in old.State.map.Where(n => n.kind == ZoneKind.Boss)) n.assignedOpponent = null;
+        BossPath(old, 1, 0).visited = true;
+        var original = (RunState)Clone(old.State); int rng = old.State.rngState;
+        var migrated = new GameEngine((RunState)Clone(original));
+        Check(migrated.BossForAct(1, 0).id == "jackie" && migrated.BossForAct(1).id == "jackie" && migrated.BossForAct(2, 1).id == "aya",
+            "legacy victories retain their visited lane; an unchosen legacy boss remains on the middle lane");
+        Check(migrated.State.map.Where(n => n.kind == ZoneKind.Boss && n.act < 3).Select(n => n.assignedOpponent).Distinct().Count() == 6
+            && migrated.State.map.Where(n => n.kind == ZoneKind.Boss && n.act == 3).All(n => n.assignedOpponent == "nia"), "legacy empty branches become distinct while final routes stay Nia");
+        Check(migrated.State.rngState == rng && migrated.State.row == original.row && migrated.State.deck.SequenceEqual(original.deck)
+            && migrated.State.hp == original.hp && migrated.State.credits == original.credits, "legacy assignment migration preserves progression, cards, economy, health and RNG");
+        Check(BossPathSnapshot(new GameEngine((RunState)Clone(original))) == BossPathSnapshot(migrated)
+            && BossPathSnapshot(new GameEngine((RunState)Clone(migrated.State))) == BossPathSnapshot(migrated), "legacy expansion is deterministic and idempotent");
+
+        foreach (var stage in new[] { RunStage.Combat, RunStage.Rewards, RunStage.PassiveChoice })
+        {
+            var e = Ready(1951); e.State.act = 2; e.State.row = e.State.mapRows - 2; e.State.lane = 1;
+            e.State.defeatedBosses = new List<string> { "jackie" }; e.State.bossVictories = e.State.maxEnergyBonus = 1;
+            e.State.actBosses = new List<string> { "jackie", "aya", "nia" };
+            e.State.hp = e.State.maxHp = 1000;
+            BossPath(e, 1, 0).visited = true; BossPath(e, 1, 0).assignedOpponent = "jackie";
+            BossPath(e, 2, 2).assignedOpponent = "aya";
+            Check(e.EnterNode(2) && e.State.combat.enemyId == "aya", "legacy active-path fixture enters a real Aya battle");
+            if (stage != RunStage.Combat)
+            {
+                e.State.passives = GameDatabase.Passives.Where(p => p.id != "aya_p").Take(3).Select(p => p.id).ToList();
+                Win(e);
+                if (stage == RunStage.PassiveChoice) Check(e.FinishRewards() && e.State.stage == RunStage.PassiveChoice, "legacy passive-choice fixture really awaits replacement");
+            }
+            e.State.bossAssignmentVersion = 0;
+            foreach (var n in e.State.map.Where(n => n.kind == ZoneKind.Boss)) n.assignedOpponent = null;
+            var saved = (RunState)Clone(e.State); var loaded = new GameEngine((RunState)Clone(saved));
+            Check(loaded.State.stage == stage && loaded.BossForAct(2, 2).id == "aya" && loaded.BossForAct(2).id == "aya"
+                && loaded.BossForAct(1, 0).id == "jackie" && loaded.State.combat.enemyId == "aya", "legacy active combat/reward/passive choice keeps the actual lane opponent: " + stage);
+            Check(loaded.State.rngState == saved.rngState && loaded.State.hp == saved.hp && loaded.State.credits == saved.credits
+                && FieldSnapshot(loaded.State.combat) == FieldSnapshot(saved.combat) && FieldSnapshot(loaded.State.rewards) == FieldSnapshot(saved.rewards),
+                "boss assignment expansion never rewrites active battle or reward contents: " + stage);
+            Check(BossPathSnapshot(new GameEngine((RunState)Clone(loaded.State))) == BossPathSnapshot(loaded), "active legacy migration is stable across another load");
+        }
+
+        var explicitOld = Ready(1963); explicitOld.State.bossAssignmentVersion = 0;
+        explicitOld.State.actBosses = new List<string> { "jackie", "aya", "nia" };
+        string explicitAssignments = BossPathSnapshot(explicitOld); rng = explicitOld.State.rngState;
+        var explicitLoaded = new GameEngine((RunState)Clone(explicitOld.State));
+        Check(BossPathSnapshot(explicitLoaded) == explicitAssignments && explicitLoaded.State.rngState == rng,
+            "valid explicit node assignments take priority over old representative data even before visiting a lane");
+        var damaged = Ready(1959); string retained = BossPath(damaged, 1, 0).assignedOpponent;
+        BossPath(damaged, 1, 1).assignedOpponent = retained; BossPath(damaged, 2, 2).assignedOpponent = "missing"; BossPath(damaged, 3, 0).assignedOpponent = "aya";
+        rng = damaged.State.rngState; var repaired = new GameEngine((RunState)Clone(damaged.State));
+        Check(repaired.BossForAct(1, 0).id == retained && repaired.State.map.Where(n => n.kind == ZoneKind.Boss && n.act < 3).Select(n => n.assignedOpponent).Distinct().Count() == 6
+            && repaired.BossForAct(3, 0).id == "nia" && repaired.State.rngState == rng, "damaged pending assignments repair duplicates and invalid/final IDs without changing valid anchors or RNG");
+        Check(BossPathSnapshot(new GameEngine((RunState)Clone(repaired.State))) == BossPathSnapshot(repaired), "repaired assignments do not reroll on a second load");
+    }
+    private static void BossPathRouteRewards()
+    {
+        for (int lane = 0; lane < 3; ++lane)
+        {
+            var e = Ready(1967 + lane); string revealed = BossPathSnapshot(e);
             for (int act = 1; act <= 3; ++act)
             {
-                var preview = e.BossForAct(act); bosses.Add(preview.id);
-                Check(preview != null && GameDatabase.Passive(preview.passiveId) != null && preview.cards.Length == 4, "boss preview uses a playable combat-ready subject");
-                Check(e.BossForAct(act).id == preview.id && e.State.rngState == rng, "repeated preview reads never consume gameplay RNG");
-                for (int lane = 0; lane < 3; ++lane)
-                {
-                    var battle = new GameEngine((RunState)Clone(e.State));
-                    battle.State.act = act; battle.State.row = battle.State.mapRows - 2; battle.State.lane = 1;
-                    // Changed gameplay RNG must not reroll a publicly revealed boss.
-                    battle.State.rngState = seed * 7919 + lane + 1;
-                    Check(battle.EnterNode(lane) && battle.State.combat.enemyId == preview.id, "every boss lane fights the exact subject shown on the map");
-                    var resumed = new GameEngine((RunState)Clone(battle.State));
-                    Check(resumed.BossForAct(act).id == preview.id && resumed.State.combat.enemyId == preview.id && resumed.State.actBosses.SequenceEqual(revealed), "saving during boss combat keeps preview, current battle and future bosses aligned");
-                }
+                e.State.row = e.State.mapRows - 2; e.State.lane = 1; e.State.hp = e.State.maxHp = 1000; e.State.passives.Clear();
+                string expected = e.BossForAct(act, lane).id; string passive = GameDatabase.Character(expected).passiveId;
+                Check(e.State.act == act && e.EnterNode(lane) && e.State.combat.enemyId == expected, "each selected boss route enters the matching assigned subject");
+                Win(e);
+                Check(e.State.defeatedBosses.Last() == expected && e.State.pendingPassive == passive && e.State.rewards.source == RewardSource.Boss
+                    && e.DefeatedBossCount == act && e.PlayerBaseEnergy == 5 + act, "selected boss yields its own passive, victory history and exactly one permanent energy");
+                var restored = new GameEngine((RunState)Clone(e.State));
+                Check(restored.BossForAct(act, lane).id == expected && BossPathSnapshot(restored) == revealed
+                    && restored.State.rngState == e.State.rngState && restored.State.pendingPassive == passive, "pending victory load preserves all path assignments and the correct boss reward");
+                Check(e.FinishRewards() && restored.FinishRewards() && FieldSnapshot(e.State) == FieldSnapshot(restored.State), "saved and live route rewards complete identically");
+                Check(BossPath(e, act, lane).visited && e.State.map.Where(n => n.kind == ZoneKind.Boss && n.act == act && n.lane != lane).All(n => !n.visited)
+                    && e.State.passives.Contains(passive), "only the chosen boss path is defeated and its passive is granted");
+                Check(BossPathSnapshot(new GameEngine((RunState)Clone(e.State))) == revealed, "completed-route saves retain unchosen and future bosses");
             }
-            var loaded = new GameEngine((RunState)Clone(e.State));
-            Check(loaded.State.actBosses.SequenceEqual(revealed) && loaded.State.rngState == rng, "saved map load preserves revealed bosses and RNG");
-            Check(e.BossForAct(0) == null && e.BossForAct(4) == null, "invalid act preview is empty without changing the run");
+            Check(e.State.stage == RunStage.Won && e.State.defeatedBosses.Count == 3 && e.State.defeatedBosses.Last() == "nia", "every selected lane can finish against fixed final Nia");
         }
-        Check(bosses.Count > 5, "different journey seeds retain varied early boss identities");
-
-        var legacy = Ready(1949);
-        legacy.State.act = 2; legacy.State.defeatedBosses = new List<string> { "jackie" };
-        legacy.State.bossVictories = 1; legacy.State.maxEnergyBonus = 1;
-        legacy.State.actBosses = null;
-        int legacyRng = legacy.State.rngState;
-        var migrated = new GameEngine((RunState)Clone(legacy.State));
-        Check(migrated.BossForAct(1).id == "jackie" && migrated.BossForAct(2).id != "jackie" && migrated.BossForAct(3).id == "nia", "old maps preserve defeated boss history and reveal distinct remaining bosses");
-        Check(migrated.State.rngState == legacyRng && migrated.State.row == legacy.State.row && migrated.State.deck.SequenceEqual(legacy.State.deck), "migration reveals old-map bosses without consuming RNG or altering progression and cards");
-        var migratedAgain = new GameEngine((RunState)Clone(migrated.State));
-        Check(migratedAgain.State.actBosses.SequenceEqual(migrated.State.actBosses), "migrated boss assignments become persistent save data");
-
-        migrated.State.row = migrated.State.mapRows - 2; migrated.State.lane = 1;
-        Check(migrated.EnterNode(1), "legacy boss combat fixture enters the boss");
-        migrated.State.combat.enemyId = "aya";
-        migrated.State.actBosses.Clear();
-        legacyRng = migrated.State.rngState;
-        var ongoing = new GameEngine((RunState)Clone(migrated.State));
-        Check(ongoing.BossForAct(1).id == "jackie" && ongoing.BossForAct(2).id == "aya" && ongoing.BossForAct(3).id == "nia", "old saves in a boss battle preserve the already spawned enemy and prior victory");
-        Check(ongoing.State.combat.enemyId == "aya" && ongoing.State.rngState == legacyRng, "migrating an ongoing boss never replaces its opponent or rerolls combat");
+        var route = Ready(1979); route.State.row = route.State.mapRows - 2; route.State.lane = 0;
+        string other = route.BossForAct(1, 2).id; int rng = route.State.rngState; string assignments = BossPathSnapshot(route);
+        Check(!route.EnterNode(2) && route.State.stage == RunStage.Map && route.State.activeNodeId == -1 && route.State.rngState == rng
+            && BossPathSnapshot(route) == assignments, "previewing a distant boss does not bypass ordinary path connections");
+        Check(route.EnterHyperloopNode(2) && route.State.combat.enemyId == other && route.State.hyperloopActs.Contains(1), "an actual hyperloop can reach the unconnected boss and uses its own identity");
     }
 
     private static void PermanentEnergyGrowth()

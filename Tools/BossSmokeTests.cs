@@ -11,7 +11,8 @@ public static partial class CoreSmokeTests
     {
         var e = Ready(1801); e.State.passives.Clear(); e.State.mainRune = e.State.supportRune = null;
         e.State.gear.Clear(); e.State.actBosses[0] = id; e.State.hp = e.State.maxHp = 999;
-        e.State.row = 10; Enter(e, ZoneKind.Boss); var c = e.State.combat;
+        e.State.row = 10; e.AvailableNodes().First(n => n.lane == 1).assignedOpponent = id;
+        Enter(e, ZoneKind.Boss); var c = e.State.combat;
         c.enemyHp = c.enemyMaxHp = 999; c.enemyBlock = c.enemyStrength = c.enemyEvasion = c.enemyWeak = c.enemyVulnerable = 0;
         c.enemyTraits = new TraitActorState(); c.playerTraits = new TraitActorState();
         e.State.persistentTraits = c.playerTraits;

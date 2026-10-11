@@ -1,0 +1,8 @@
+Temp\NativeBossPathsPreflight.cs(4,197): warning CS0169: 'NativeBossPathsPreflight.nextEnemyActionAt' 필드가 사용되지 않았습니다.
+Temp\NativeBossPathsPreflight.cs(4,151): warning CS0169: 'NativeBossPathsPreflight.lobby' 필드가 사용되지 않았습니다.
+Temp\NativeBossPathsPreflight.cs(4,224): warning CS0169: 'NativeBossPathsPreflight.bossGuideScroll' 필드가 사용되지 않았습니다.
+Temp\NativeBossPathsPreflight.cs(4,176): warning CS0414: 'NativeBossPathsPreflight.mapAct' 필드가 할당되었지만 사용되지 않았습니다.
+Temp\NativeBossPathsPreflight.cs(4,183): warning CS0414: 'NativeBossPathsPreflight.mapRow' 필드가 할당되었지만 사용되지 않았습니다.
+﻿BTS BOSS PATHS FLOW PASS / seeds=5 / entries=45 / previews=45 / reloads=52 / actualWins=4 / uniqueEarly=6 / final=Nia / legacy=PASS / isolatedSave=PASS / readOnlyPreview=PASS
+NATIVE BOSS PATHS FIXTURE PREFLIGHT PASS / 70 fixture scenarios / 5 seeds / deep-copy isolated-file reload; native Unity JSON and font remain player verification.
+﻿

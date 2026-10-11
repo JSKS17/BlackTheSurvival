@@ -109,8 +109,9 @@ namespace Lumia
         public List<string> weaponGrantedCards = new List<string>();
         public List<string> passiveOffers = new List<string>(), draftOffers = new List<string>(), draftSelected = new List<string>(), upgrades = new List<string>();
         public List<string> encounterOffers = new List<string>(), defeatedBosses = new List<string>(), log = new List<string>();
-        // One revealed boss per act; all lanes lead to the same saved opponent.
+        // Legacy representative/selected boss history. Actual opponents live on each boss node.
         public List<string> actBosses = new List<string>();
+        public int bossAssignmentVersion;
         public List<MapNode> map = new List<MapNode>();
         public CombatState combat;
         public RewardState rewards;
@@ -1222,8 +1223,26 @@ namespace Lumia
 
         public CharacterDef BossForAct(int act)
         {
-            return act >= 1 && act <= 3 && State.actBosses != null && State.actBosses.Count >= act
-                ? GameDatabase.Character(State.actBosses[act - 1]) : null;
+            if (act < 1 || act > 3) return null;
+            var nodes = State.map.Where(n => n.kind == ZoneKind.Boss && n.act == act).OrderBy(n => n.lane).ThenBy(n => n.id).ToList();
+            var selected = nodes.FirstOrDefault(n => n.id == State.activeNodeId) ?? nodes.FirstOrDefault(n => n.visited);
+            if (selected != null && BossForNode(selected) != null) return BossForNode(selected);
+            string previous = State.actBosses != null && State.actBosses.Count >= act ? State.actBosses[act - 1] : null;
+            var representative = nodes.FirstOrDefault(n => n.assignedOpponent == previous && BossForNode(n) != null)
+                ?? nodes.FirstOrDefault(n => n.lane == 1 && BossForNode(n) != null) ?? nodes.FirstOrDefault(n => BossForNode(n) != null);
+            return BossForNode(representative);
+        }
+
+        public CharacterDef BossForAct(int act, int lane)
+        {
+            return BossForNode(State.map.FirstOrDefault(n => n.kind == ZoneKind.Boss && n.act == act && n.lane == lane));
+        }
+
+        public CharacterDef BossForNode(MapNode node)
+        {
+            if (node == null || node.kind != ZoneKind.Boss) return null;
+            var character = GameDatabase.Character(node.assignedOpponent);
+            return character?.cards != null && character.cards.Length > 0 && GameDatabase.Passive(character.passiveId) != null ? character : null;
         }
 
         private void EnsureBossAssignments()
@@ -1231,30 +1250,52 @@ namespace Lumia
             var roster = GameDatabase.Characters.Where(x => x.cards != null && x.cards.Length > 0 && GameDatabase.Passive(x.passiveId) != null).ToList();
             var valid = new HashSet<string>(roster.Select(x => x.id));
             var previous = State.actBosses ?? new List<string>();
-            var bosses = new string[3];
-            for (int index = 0; index < bosses.Length; ++index)
-            {
-                if (index < previous.Count && valid.Contains(previous[index])) bosses[index] = previous[index];
-                // Old saves already know defeated bosses, in victory order. Keep their history visible.
-                if (index < State.defeatedBosses.Count && valid.Contains(State.defeatedBosses[index])) bosses[index] = State.defeatedBosses[index];
-            }
+            var nodes = State.map.Where(n => n.kind == ZoneKind.Boss && n.act >= 1 && n.act <= 3).OrderBy(n => n.act).ThenBy(n => n.lane).ThenBy(n => n.id).ToList();
             var active = ActiveNode();
-            if (State.act >= 1 && State.act <= 3 && active != null && active.kind == ZoneKind.Boss
-                && State.combat != null && valid.Contains(State.combat.enemyId))
-                bosses[State.act - 1] = State.combat.enemyId;
-            if (string.IsNullOrEmpty(bosses[2])) bosses[2] = "nia";
+            if (active != null && active.kind == ZoneKind.Boss && State.combat != null && valid.Contains(State.combat.enemyId))
+                active.assignedOpponent = State.combat.enemyId;
 
-            // Use an independent seed so revealing bosses does not reroll maps, drafts or combat RNG.
+            for (int act = 1; act <= 3; ++act)
+            {
+                var actNodes = nodes.Where(n => n.act == act).ToList();
+                var anchor = actNodes.FirstOrDefault(n => n.id == State.activeNodeId) ?? actNodes.FirstOrDefault(n => n.visited)
+                    ?? actNodes.FirstOrDefault(n => n.lane == 1) ?? actNodes.FirstOrDefault();
+                if (anchor == null) continue;
+                string historical = act <= State.defeatedBosses.Count && valid.Contains(State.defeatedBosses[act - 1]) ? State.defeatedBosses[act - 1] : null;
+                string legacy = act <= previous.Count && valid.Contains(previous[act - 1]) ? previous[act - 1] : null;
+                if (State.bossAssignmentVersion == 0)
+                {
+                    // Keep the old revealed opponent on its actual visited/active lane, or the middle path.
+                    // A spawned enemy and an explicitly assigned node remain authoritative.
+                    if (!valid.Contains(anchor.assignedOpponent))
+                        anchor.assignedOpponent = historical ?? legacy ?? anchor.assignedOpponent;
+                }
+                else if (!valid.Contains(anchor.assignedOpponent) && (anchor.visited || anchor.id == State.activeNodeId))
+                    anchor.assignedOpponent = historical ?? legacy;
+            }
+
+            // Preserve completed/in-progress fights even when a damaged or unusual legacy save
+            // contains a duplicate or a former final boss. Only unvisited alternatives are repaired.
+            var preserved = new HashSet<MapNode>(nodes.Where(n => (n.visited || n.id == State.activeNodeId) && valid.Contains(n.assignedOpponent)));
+            var used = new HashSet<string>(preserved.Where(n => n.act < 3).Select(n => n.assignedOpponent));
+            foreach (var node in nodes.Where(n => n.act < 3 && !preserved.Contains(n)))
+            {
+                if (!valid.Contains(node.assignedOpponent) || node.assignedOpponent == "nia" || !used.Add(node.assignedOpponent)) node.assignedOpponent = null;
+            }
+
+            // This independent seed never advances map, draft, encounter or combat RNG.
             int bossRandom = unchecked(State.seed ^ (int)0xB055A17D);
             if (bossRandom == 0) bossRandom = 1831565813;
-            for (int index = 0; index < bosses.Length; ++index)
+            foreach (var node in nodes.Where(n => n.act < 3 && string.IsNullOrEmpty(n.assignedOpponent)))
             {
-                if (!string.IsNullOrEmpty(bosses[index])) continue;
-                var candidates = roster.Where(x => x.id != "nia" && !bosses.Contains(x.id)).ToList();
+                var candidates = roster.Where(x => x.id != "nia" && !used.Contains(x.id)).ToList();
                 if (candidates.Count == 0) candidates = roster.Where(x => x.id != "nia").ToList();
-                bosses[index] = candidates[Next(ref bossRandom, candidates.Count)].id;
+                node.assignedOpponent = candidates[Next(ref bossRandom, candidates.Count)].id;
+                used.Add(node.assignedOpponent);
             }
-            State.actBosses = bosses.ToList();
+            foreach (var node in nodes.Where(n => n.act == 3 && !preserved.Contains(n))) node.assignedOpponent = "nia";
+            State.actBosses = Enumerable.Range(1, 3).Select(act => BossForAct(act)?.id).ToList();
+            State.bossAssignmentVersion = 1;
         }
 
         public bool IsNearKiosk(MapNode node)
@@ -1427,7 +1468,9 @@ namespace Lumia
             else
             {
                 var combatRoster = GameDatabase.Characters.Where(x => x.cards != null && x.cards.Length > 0).ToList();
-                var character = boss ? BossForAct(State.act) : combatRoster[Next(combatRoster.Count)];
+                if (boss && BossForNode(node) == null) EnsureBossAssignments();
+                var character = boss ? BossForNode(node) : combatRoster[Next(combatRoster.Count)];
+                if (boss) State.actBosses[State.act - 1] = character.id;
                 if (!boss && !string.IsNullOrEmpty(node.assignedOpponent)) character = combatRoster.FirstOrDefault(x => x.id == node.assignedOpponent) ?? character;
                 c.enemyId = character.id; c.enemyName = (boss ? "보스 · " : "") + character.name;
                 if (boss && BossMechanics.Profile(character.id) != null) c.boss = new BossBattleState();

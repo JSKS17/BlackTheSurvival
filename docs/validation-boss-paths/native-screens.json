@@ -1,0 +1,126 @@
+{
+  "passed": true,
+  "uiScreens": 14,
+  "runtimeErrors": 0,
+  "coreScenarios": 75,
+  "coreAssertions": 72480,
+  "flow": "BTS BOSS PATHS FLOW PASS / seeds=5 / entries=45 / previews=45 / reloads=52 / actualWins=4 / uniqueEarly=6 / final=Nia / legacy=PASS / isolatedSave=PASS / readOnlyPreview=PASS",
+  "fontLayout": "BTS BOSS PATHS LAYOUT PASS / measurements=207 / nameMax=90.67 / statusMax=99.01 / nativeFont=PASS",
+  "personalSavePreserved": true,
+  "personalSaveSha256": "44C43EEACB98C1DE76B6CDE0EFD4C3A3736732F6D3A0F96D511B1A7CF6A0C8FF",
+  "screens": [
+    {
+      "file": "native-ui/boss_paths_act1_top.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_act1_middle.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_act1_bottom.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_act2_top.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_act2_middle.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_act2_bottom.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_act3_nia.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_guide.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_enter_top.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_enter_middle.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_enter_bottom.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_new_reload.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_legacy_reload.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/boss_paths_cleared_sibling.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ],
+  "scope": "Per-node boss identities, act and lane preview switching, matching guides and actual fights, fixed act-three Nia, distinct first-two-act bosses, individual defeat states, Unity JSON new/legacy restoration, read-only UI and native font audit."
+}

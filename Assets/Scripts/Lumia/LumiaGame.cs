@@ -32,6 +32,7 @@ namespace Lumia
         string upgradeSelected = "", upgradeBranch = "", mapIntel = "", inspectBoss = "";
         Vector2 upgradeCardScroll, upgradePreviewScroll, helpScroll, mapIntelScroll, bossGuideScroll;
         int mapAct = -1, mapRow = -99;
+        readonly int[] bossPreviewLanes = { -1, -1, -1 };
         readonly CombatEffects effects = new CombatEffects();
         readonly Dictionary<string, AudioClip> skillSounds = new Dictionary<string, AudioClip>();
         float nextEnemyActionAt, nextPlayerActionAt;
@@ -57,7 +58,7 @@ namespace Lumia
             DontDestroyOnLoad(gameObject);
             Application.targetFrameRate = 60;
             audioVerification = Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-audio-verify") >= 0;
-            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
+            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
             savePath = Path.Combine(Application.persistentDataPath, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
             font = Resources.Load<Font>("Lumia/Galmuri11");
@@ -236,6 +237,7 @@ namespace Lumia
         void NewRun()
         {
             Engine = new GameEngine(Environment.TickCount & int.MaxValue);
+            ResetBossPreviews();
             campRemovalSelection.Clear(); campSelectionState = null;
             retainSelecting = hyperloopSelecting = false; upgradeSelected = upgradeBranch = mapIntel = inspectBoss = "";
             lobby = false; prepStep = 0; scroll = handScroll = mapScroll = detailScroll = Vector2.zero; displayedTurn = -1;
@@ -388,7 +390,7 @@ namespace Lumia
                 bool available = reachable.Any(x => x.id == n.id);
                 Color tone = n.kind == ZoneKind.Boss ? Pink : n.kind == ZoneKind.Kiosk ? Gold : n.kind == ZoneKind.Campfire ? C("dfac7d") : Mint;
                 Box(r, n.visited ? C("2b4540") : available ? C("20394a") : C("142231"), available ? tone : n.visited ? Mint : Line);
-                var boss = n.kind == ZoneKind.Boss ? Engine.BossForAct(n.act) : null;
+                var boss = n.kind == ZoneKind.Boss ? Engine.BossForNode(n) : null;
                 if (boss != null)
                 {
                     Tex(new Rect(r.x + 8, r.y + 3, 44, 54), PixelArt.Portrait(boss.id), ScaleMode.ScaleToFit, available || n.visited ? Color.white : Muted);
@@ -422,18 +424,57 @@ namespace Lumia
             Sidebar(921, 103);
             for (int act = 1; act <= 3; ++act)
             {
-                var boss = Engine.BossForAct(act);
+                int lane = BossPreviewLane(act);
+                var node = BossPathNode(act, lane);
+                var boss = Engine.BossForAct(act, lane);
                 if (boss == null) continue;
-                bool defeated = act <= Engine.DefeatedBossCount;
+                bool defeated = BossPathDefeated(node);
                 Color tone = defeated ? Mint : act == s.act ? Pink : Muted;
                 Rect r = new Rect(27 + (act - 1) * 284, 613, 275, 69);
                 Box(r, Panel, act == s.act ? Pink : defeated ? Mint : Line);
                 Tex(new Rect(r.x + 9, r.y + 5, 44, 59), PixelArt.Portrait(boss.id), ScaleMode.ScaleToFit);
-                Txt(new Rect(r.x + 64, r.y + 8, 129, 19), "ACT 0" + act + "  /  보스", 11, tone);
-                Txt(new Rect(r.x + 64, r.y + 30, 126, 29), boss.name, boss.name.Length > 6 ? 14 : 18, Text);
+                Txt(new Rect(r.x + 64, r.y + 5, 126, 17), BossPreviewHeading(act, lane), 9, tone);
+                Txt(new Rect(r.x + 64, r.y + 25, 126, 23), boss.name, boss.name.Length > 7 ? 14 : 16, Text);
+                Txt(new Rect(r.x + 64, r.y + 51, 126, 15), BossPathStatus(node), 9, defeated ? Mint : Muted);
+                for (int option = 0; option < 3; option++)
+                {
+                    Rect control = new Rect(r.xMax - 82 + option * 25, r.y + 5, 23, 20);
+                    Box(control, lane == option ? C("3b3525") : Panel, lane == option ? Gold : Line);
+                    Txt(control, BossLaneName(option), 10, lane == option ? Gold : Muted, true);
+                    if (Hit(control)) SelectBossPreview(act, option);
+                }
                 BossGuideButton(new Rect(r.xMax - 82, r.y + 35, 74, 25), boss.id);
-                Txt(new Rect(r.x + 192, r.y + 8, 70, 19), defeated ? "처치 완료" : act == s.act ? "현재 구역" : "대기", 10, tone, true);
             }
+        }
+
+        void ResetBossPreviews() { for (int index = 0; index < bossPreviewLanes.Length; index++) bossPreviewLanes[index] = -1; }
+        static string BossLaneName(int lane) { return lane == 0 ? "상" : lane == 1 ? "중" : "하"; }
+        static string BossPreviewHeading(int act, int lane) { return "ACT 0" + act + " / " + (act == 3 ? "모든 경로 니아" : BossLaneName(lane) + "단 미리보기"); }
+        MapNode BossPathNode(int act, int lane) { return Engine.State.map.FirstOrDefault(node => node.kind == ZoneKind.Boss && node.act == act && node.row == Engine.State.mapRows - 1 && node.lane == lane); }
+        int BossPreviewLane(int act)
+        {
+            if (bossPreviewLanes[act - 1] >= 0) return bossPreviewLanes[act - 1];
+            var active = Engine.State.map.FirstOrDefault(node => node.id == Engine.State.activeNodeId && node.kind == ZoneKind.Boss && node.act == act);
+            var visited = Engine.State.map.FirstOrDefault(node => node.kind == ZoneKind.Boss && node.act == act && node.visited);
+            return active != null ? active.lane : visited != null ? visited.lane : act == Engine.State.act && Engine.State.lane >= 0 ? Engine.State.lane : 1;
+        }
+        void SelectBossPreview(int act, int lane) { if (act >= 1 && act <= 3 && lane >= 0 && lane <= 2) bossPreviewLanes[act - 1] = lane; }
+        bool BossPathDefeated(MapNode node)
+        {
+            return node != null && (node.visited || node.id == Engine.State.activeNodeId
+                && (Engine.State.stage == RunStage.Rewards || Engine.State.stage == RunStage.PassiveChoice) && Engine.State.rewards != null && Engine.State.rewards.boss);
+        }
+        string BossPathStatus(MapNode node)
+        {
+            if (node == null) return "기록 없음";
+            if (BossPathDefeated(node)) return node.visited ? "처치 완료" : Engine.State.stage == RunStage.PassiveChoice ? "처치 완료 · 패시브 선택" : "처치 완료 · 보상 선택";
+            var s = Engine.State;
+            if (node.id == s.activeNodeId) return "전투 중";
+            if (node.act < s.act) return "선택하지 않은 경로";
+            if (node.act > s.act) return "진입 전";
+            bool current = s.lane == node.lane;
+            if (Engine.AvailableNodes().Any(next => next.id == node.id)) return current ? "현재 경로 · 진입 가능" : "진입 가능";
+            return current ? "현재 경로 · 미방문" : "다른 경로 · 미방문";
         }
         void DrawMapIntel()
         {
@@ -1416,7 +1457,7 @@ namespace Lumia
         {
             Modal(new Rect(150, 100, 980, 530));
             Txt(new Rect(185, 124, 900, 39), "실험 가이드", 25, Mint);
-            string text = "01  지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 키오스크 주변은 앞뒤 한 단계로 연결된 전투 구역입니다. 보안 콘솔은 막당 한 번 40크레딧으로 다음 두 단계의 실제 적과 키오스크 재고를 확인합니다. 하이퍼루프는 막당 한 번, 바로 다음 단계의 연결되지 않은 경로로 이동합니다. 목적지 선택을 취소하면 횟수를 쓰지 않습니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 최대 코스트는 5로 시작하며 보스 승리마다 1 증가합니다. 레벨 상승으로는 증가하지 않습니다. 전투마다 두 번, 손패 한 장을 다음 턴까지 보관할 수 있습니다. 보관하면 다음 턴에 새로 뽑는 카드가 한 장 줄어듭니다. 보관 선택은 턴 종료 전까지 변경하거나 해제할 수 있습니다.\n\n03  수치·상태·표식·설치물은 필드 창에서 확인하세요. 할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하여 최대 30%까지 적용합니다.\n\n04  실험체와 보스의 승리 보상에서는 카드 코스트와 무관하게 최대 2장을 고릅니다. 야생동물 보상은 표시된 획득 코스트 안에서 고릅니다. 승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다. 조우에서 카드를 강화할 때에는 대상 카드와 표시된 강화 방향 중 하나를 선택합니다. 같은 카드의 모든 사본에 적용되며 한 방향으로만 강화할 수 있습니다.\n\n05  VF혈액샘플은 두 번째 보스 승리 후 구매합니다. 모닥불 휴식은 전체 회복·만년 스프 1개·카드 최대 2장 제거를 제공합니다. 제작·요리는 회복 없이 합쳐 3회이며, 장비는 이름·태그로 검색합니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.\n\n06  일부 실험체 조우에는 다시 만나기로 약속하는 선택지가 있습니다. 새 약속을 맺은 직후의 실험체 조우에는 그 실험체의 후속 이야기가 세 선택지 중 하나로 80% 확률로 등장합니다. 만나지 못한 약속은 유지됩니다. 여러 약속이 있으면 이후 조우마다 미해결 약속의 등장 우선권이 순환합니다. 비용·보상·약속은 선택 전에 표시됩니다.\n\n07  지도 아래의 보스 카드에서 공략을 미리 읽을 수 있습니다. 보스 체력이 50% 이하가 되면 다음 내 턴에 2페이즈가 적용됩니다. 니아는 25% 이하에서 3페이즈로 전환합니다. 전투 중앙에서 예고와 현재 턴의 대응 진척을 확인하세요. 누적형은 제시된 대응 조건 중 하나를 달성하면 특수행동이 중단됩니다. 금지형은 예고된 턴에 카드를 직접 2장 이상 사용하고 금지 행동을 한 번도 하지 않아야 턴 종료 때 성공합니다. 위반 카드를 사용해도 전투는 계속되지만, 그 턴의 위반은 되돌릴 수 없습니다. 성공하면 보스가 잠시 취약해집니다.";
+            string text = "01  지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 키오스크 주변은 앞뒤 한 단계로 연결된 전투 구역입니다. 보안 콘솔은 막당 한 번 40크레딧으로 다음 두 단계의 실제 적과 키오스크 재고를 확인합니다. 하이퍼루프는 막당 한 번, 바로 다음 단계의 연결되지 않은 경로로 이동합니다. 목적지 선택을 취소하면 횟수를 쓰지 않습니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 최대 코스트는 5로 시작하며 보스 승리마다 1 증가합니다. 레벨 상승으로는 증가하지 않습니다. 전투마다 두 번, 손패 한 장을 다음 턴까지 보관할 수 있습니다. 보관하면 다음 턴에 새로 뽑는 카드가 한 장 줄어듭니다. 보관 선택은 턴 종료 전까지 변경하거나 해제할 수 있습니다.\n\n03  수치·상태·표식·설치물은 필드 창에서 확인하세요. 할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하여 최대 30%까지 적용합니다.\n\n04  실험체와 보스의 승리 보상에서는 카드 코스트와 무관하게 최대 2장을 고릅니다. 야생동물 보상은 표시된 획득 코스트 안에서 고릅니다. 승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다. 조우에서 카드를 강화할 때에는 대상 카드와 표시된 강화 방향 중 하나를 선택합니다. 같은 카드의 모든 사본에 적용되며 한 방향으로만 강화할 수 있습니다.\n\n05  VF혈액샘플은 두 번째 보스 승리 후 구매합니다. 모닥불 휴식은 전체 회복·만년 스프 1개·카드 최대 2장 제거를 제공합니다. 제작·요리는 회복 없이 합쳐 3회이며, 장비는 이름·태그로 검색합니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.\n\n06  일부 실험체 조우에는 다시 만나기로 약속하는 선택지가 있습니다. 새 약속을 맺은 직후의 실험체 조우에는 그 실험체의 후속 이야기가 세 선택지 중 하나로 80% 확률로 등장합니다. 만나지 못한 약속은 유지됩니다. 여러 약속이 있으면 이후 조우마다 미해결 약속의 등장 우선권이 순환합니다. 비용·보상·약속은 선택 전에 표시됩니다.\n\n07  1·2막의 보스는 상·중·하 경로마다 다르며, 3막의 모든 경로에는 니아가 등장합니다. 지도 아래 보스 카드의 상·중·하 버튼으로 후보와 공략을 미리 살펴보세요. 미리보기는 실제 이동 경로를 바꾸지 않습니다. 보스 체력이 50% 이하가 되면 다음 내 턴에 2페이즈가 적용됩니다. 니아는 25% 이하에서 3페이즈로 전환합니다. 전투 중앙에서 예고와 현재 턴의 대응 진척을 확인하세요. 누적형은 제시된 대응 조건 중 하나를 달성하면 특수행동이 중단됩니다. 금지형은 예고된 턴에 카드를 직접 2장 이상 사용하고 금지 행동을 한 번도 하지 않아야 턴 종료 때 성공합니다. 위반 카드를 사용해도 전투는 계속되지만, 그 턴의 위반은 되돌릴 수 없습니다. 성공하면 보스가 잠시 취약해집니다.";
             wrapped.fontSize = 15; float height = Math.Max(350, wrapped.CalcHeight(new GUIContent(text), 877) + 12);
             helpScroll = GUI.BeginScrollView(new Rect(185, 181, 900, 356), helpScroll, new Rect(0, 0, 877, height));
             Para(new Rect(0, 0, 877, height), text, 15, Text); GUI.EndScrollView();
@@ -1498,7 +1539,7 @@ namespace Lumia
             {
                 var state = JsonUtility.FromJson<RunState>(File.ReadAllText(savePath));
                 if (state == null || state.level < 1 || state.level > 20 || state.deck == null || state.map == null || !Enum.IsDefined(typeof(RunStage), state.stage)) throw new InvalidDataException("저장 기록 형식이 올바르지 않습니다.");
-                Engine = new GameEngine(state); lobby = false; retainSelecting = hyperloopSelecting = false; upgradeSelected = upgradeBranch = mapIntel = inspectBoss = "";
+                Engine = new GameEngine(state); ResetBossPreviews(); lobby = false; retainSelecting = hyperloopSelecting = false; upgradeSelected = upgradeBranch = mapIntel = inspectBoss = "";
                 prepStep = state.stage == RunStage.Preparation ? string.IsNullOrEmpty(state.chosenPassive) ? 0 : 2 : 0;
                 AudioCue("game.resume");
             }
@@ -1548,6 +1589,206 @@ namespace Lumia
             Debug.Log("LUMIA PREVIEW "+audit.cards+" cards / "+audit.measurements+" native layouts / overflow=0 / font=11 / innerScroll=0");
         }
 
+        string BossPathsAssignmentSnapshot()
+        {
+            return string.Join("|", Engine.State.map.Where(node => node.kind == ZoneKind.Boss).OrderBy(node => node.id).Select(node => node.id + ":" + node.assignedOpponent));
+        }
+
+        void CheckBossPathsAssignments()
+        {
+            var nodes = Engine.State.map.Where(node => node.kind == ZoneKind.Boss).ToArray();
+            if (nodes.Length != 9 || Engine.State.bossAssignmentVersion != 1
+                || nodes.Where(node => node.act < 3).Select(node => node.assignedOpponent).Distinct().Count() != 6
+                || nodes.Any(node => Engine.BossForNode(node) == null || Engine.BossForNode(node).id != Engine.BossForAct(node.act, node.lane)?.id)
+                || nodes.Where(node => node.act == 3).Any(node => node.assignedOpponent != "nia"))
+                throw new InvalidOperationException("Boss paths require six distinct early bosses and Nia on all three final paths.");
+        }
+
+        void PrepareBossPathsMap(int act, int lane)
+        {
+            var s = Engine.State; s.act = act; s.row = s.mapRows - 2; s.lane = lane;
+            mapAct = -1; mapRow = -99; ResetBossPreviews(); SelectBossPreview(act, lane);
+        }
+
+        MapNode EnterBossPathsBattle(int act, int lane)
+        {
+            PrepareBossPathsMap(act, lane);
+            var s = Engine.State; var node = BossPathNode(act, lane); string expected = node.assignedOpponent;
+            s.passives.Clear(); s.mainRune = s.supportRune = ""; s.gear.Clear(); s.weaponGrantedCards.Clear();
+            s.deck = new List<string> { "basic_attack", "basic_attack", "basic_guard", "basic_guard", "nia_q", "nia_w" };
+            s.hp = s.maxHp = 160;
+            if (!Engine.EnterNode(lane) || s.activeNodeId != node.id || !Engine.IsBossCombat || s.combat.enemyId != expected
+                || BossMechanics.Profile(s.combat.enemyId)?.subjectId != expected || Engine.BossForAct(act).id != expected || BossPathStatus(node) != "전투 중")
+                throw new InvalidOperationException("A selected boss lane must enter its own saved opponent and show its actual active path.");
+            displayedTurn = s.combat.turn; effects.Clear(); Engine.CombatActions.Clear(); return node;
+        }
+
+        MapNode CompleteBossPathsBattle(int act, int lane, bool choosePassive = false)
+        {
+            var node = EnterBossPathsBattle(act, lane); var s = Engine.State; var c = s.combat;
+            if (choosePassive) s.passives = GameDatabase.Passives.Where(passive => passive.id != GameDatabase.Character(c.enemyId).passiveId).Take(3).Select(passive => passive.id).ToList();
+            c.enemyHp = 1; c.enemyBlock = c.enemyEvasion = 0; c.enemyGear.Clear(); c.enemyPassiveId = "";
+            c.enemyTraits = new TraitActorState(); c.enemySkills = new SkillActorState(); c.enemyStatuses = new StatusActorState();
+            c.hand = new List<string> { "basic_attack" }; c.energy = 200;
+            if (!Engine.PlayCard(0) || s.stage != RunStage.Rewards || !BossPathDefeated(node)
+                || s.map.Any(other => other.kind == ZoneKind.Boss && other.act == act && other.lane != lane && BossPathDefeated(other)))
+                throw new InvalidOperationException("A real boss victory must mark only its active path while rewards are pending.");
+            if (choosePassive)
+            {
+                if (!Engine.FinishRewards() || s.stage != RunStage.PassiveChoice || !BossPathDefeated(node)
+                    || s.map.Any(other => other.kind == ZoneKind.Boss && other.act == act && other.lane != lane && BossPathDefeated(other)))
+                    throw new InvalidOperationException("A defeated boss must stay defeated while its passive replacement is pending.");
+                return node;
+            }
+            if (!Engine.FinishRewards() || !node.visited || !BossPathDefeated(node) || s.activeNodeId != -1
+                || s.stage != (act == 3 ? RunStage.Won : RunStage.Map)
+                || s.map.Any(other => other.kind == ZoneKind.Boss && other.act == act && other.lane != lane && BossPathDefeated(other)))
+                throw new InvalidOperationException("Completing one boss path must leave its two unchosen siblings undefeated.");
+            effects.Clear(); Engine.CombatActions.Clear(); return node;
+        }
+
+        void ReloadBossPathsVerification()
+        {
+            if (Path.GetFileName(savePath) != "lumia-verification.json") throw new InvalidOperationException("Boss path verification must use the isolated save slot.");
+            string assignments = BossPathsAssignmentSnapshot(); int rng = Engine.State.rngState;
+            Save(); Engine = new GameEngine(JsonUtility.FromJson<RunState>(File.ReadAllText(savePath))); ResetBossPreviews();
+            if (assignments != BossPathsAssignmentSnapshot() || rng != Engine.State.rngState)
+                throw new InvalidOperationException("Unity file reload must preserve every boss path assignment and the gameplay RNG.");
+        }
+
+        void PrepareBossPathsLegacy()
+        {
+            var s = Engine.State; s.act = 2; s.row = s.mapRows - 2; s.lane = 1; s.bossAssignmentVersion = 0;
+            s.actBosses = new List<string> { "jenny", "cathy", "nia" }; s.defeatedBosses = new List<string> { "jenny" }; s.bossVictories = 1; s.maxEnergyBonus = 1;
+            foreach (var node in s.map.Where(node => node.kind == ZoneKind.Boss)) { node.assignedOpponent = null; node.visited = node.act == 1 && node.lane == 2; }
+            int rng = s.rngState; Engine = new GameEngine(JsonUtility.FromJson<RunState>(JsonUtility.ToJson(s))); ResetBossPreviews();
+            if (Engine.BossForAct(1, 2).id != "jenny" || Engine.BossForAct(2, 1).id != "cathy" || Engine.State.rngState != rng
+                || !BossPathDefeated(BossPathNode(1, 2)) || BossPathDefeated(BossPathNode(1, 0)) || BossPathDefeated(BossPathNode(1, 1)))
+                throw new InvalidOperationException("Legacy boss migration must retain the actual visited lane and the old central future opponent.");
+            CheckBossPathsAssignments();
+        }
+
+        public void VerificationBossPathsFlows()
+        {
+            if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") < 0) return;
+            if (Path.GetFileName(savePath) != "lumia-verification.json") throw new InvalidOperationException("Boss path verification cannot write to a personal save.");
+            string personal = Path.Combine(Application.persistentDataPath, GameIdentity.SaveFileName);
+            string personalBefore = File.Exists(personal) ? File.ReadAllText(personal) : null;
+            var previous = Engine; int entries = 0, previews = 0, reloads = 0, wins = 0;
+            foreach (int seed in new[] { 1, 42, 1711, 9001, 741653 })
+            {
+                Engine = NewBossVerificationRun(seed); ResetBossPreviews(); CheckBossPathsAssignments();
+                string stateBefore = JsonUtility.ToJson(Engine.State);
+                for (int act = 1; act <= 3; act++) for (int lane = 0; lane < 3; lane++)
+                {
+                    SelectBossPreview(act, lane); var node = BossPathNode(act, lane); var boss = Engine.BossForAct(act, lane);
+                    OpenBossGuide(boss.id);
+                    if (BossPreviewLane(act) != lane || inspectBoss != node.assignedOpponent || !Engine.BossGuideFor(inspectBoss).title.Contains(boss.name)
+                        || JsonUtility.ToJson(Engine.State) != stateBefore)
+                        throw new InvalidOperationException("Boss preview controls and guides must leave the run, route, and RNG unchanged.");
+                    previews++;
+                }
+                inspectBoss = "";
+                for (int act = 1; act <= 3; act++) for (int lane = 0; lane < 3; lane++)
+                {
+                    Engine = NewBossVerificationRun(seed); var node = EnterBossPathsBattle(act, lane); string expected = node.assignedOpponent;
+                    string assignments = BossPathsAssignmentSnapshot(), combat = JsonUtility.ToJson(Engine.State.combat); int rng = Engine.State.rngState;
+                    Engine = new GameEngine(JsonUtility.FromJson<RunState>(JsonUtility.ToJson(Engine.State)));
+                    if (assignments != BossPathsAssignmentSnapshot() || combat != JsonUtility.ToJson(Engine.State.combat) || rng != Engine.State.rngState
+                        || Engine.State.combat.enemyId != expected || Engine.BossForNode(BossPathNode(act, lane)).id != expected)
+                        throw new InvalidOperationException("New-format Unity JSON must preserve the active lane, opponent, and combat state without rerolling.");
+                    entries++; reloads++;
+                }
+            }
+            for (int lane = 0; lane < 3; lane++)
+            {
+                Engine = NewBossVerificationRun(78500 + lane); CompleteBossPathsBattle(1, lane); wins++;
+                for (int preview = 0; preview < 3; preview++)
+                {
+                    SelectBossPreview(1, preview);
+                    if (BossPathDefeated(BossPathNode(1, preview)) != (preview == lane)
+                        || BossPathStatus(BossPathNode(1, preview)) != (preview == lane ? "처치 완료" : "선택하지 않은 경로"))
+                        throw new InvalidOperationException("Act clearance cannot label an unchosen preview as defeated.");
+                }
+                ReloadBossPathsVerification(); reloads++;
+                if (BossPreviewLane(1) != lane || !BossPathDefeated(BossPathNode(1, lane)))
+                    throw new InvalidOperationException("Reload must default a cleared act's preview to its actual visited lane.");
+            }
+            Engine = NewBossVerificationRun(78504); CompleteBossPathsBattle(1, 1, true); wins++;
+            Engine = NewBossVerificationRun(78600); PrepareBossPathsLegacy(); ReloadBossPathsVerification(); reloads += 2;
+            Engine = NewBossVerificationRun(78601); var active = EnterBossPathsBattle(2, 0); string activeBoss = active.assignedOpponent;
+            var legacy = Engine.State; legacy.bossAssignmentVersion = 0; legacy.actBosses = new List<string> { "jenny", "cathy", "nia" };
+            foreach (var node in legacy.map.Where(node => node.kind == ZoneKind.Boss)) node.assignedOpponent = null;
+            Engine = new GameEngine(JsonUtility.FromJson<RunState>(JsonUtility.ToJson(legacy))); reloads++;
+            if (Engine.BossForAct(2, 0).id != activeBoss || Engine.State.combat.enemyId != activeBoss || Engine.BossForAct(2).id != activeBoss)
+                throw new InvalidOperationException("Legacy active combat must outrank an act's old representative boss.");
+            Engine = NewBossVerificationRun(78602); PrepareBossPathsMap(2, 1); ReloadBossPathsVerification(); reloads++;
+            string fileBefore = File.ReadAllText(savePath), before = JsonUtility.ToJson(Engine.State);
+            SelectBossPreview(2, 2); OpenBossGuide(Engine.BossForAct(2, 2).id);
+            if (JsonUtility.ToJson(Engine.State) != before || File.ReadAllText(savePath) != fileBefore
+                || (File.Exists(personal) ? File.ReadAllText(personal) : null) != personalBefore)
+                throw new InvalidOperationException("Preview controls must not save data or alter a player's personal save.");
+            inspectBoss = ""; Engine = previous; ResetBossPreviews();
+            Debug.Log("BTS BOSS PATHS FLOW PASS / seeds=5 / entries=" + entries + " / previews=" + previews + " / reloads=" + reloads + " / actualWins=" + wins + " / uniqueEarly=6 / final=Nia / legacy=PASS / isolatedSave=PASS / readOnlyPreview=PASS");
+        }
+
+        public void VerificationBossPathsLayout()
+        {
+            if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") < 0) return;
+            if (!initialized) throw new InvalidOperationException("Boss path layout audit requires the native GUI font.");
+            int measurements = 0; float maxName = 0, maxStatus = 0;
+            Action<string, int, float, float> measure = (text, size, width, height) =>
+            {
+                font.RequestCharactersInTexture(text, size, FontStyle.Normal);
+                var style = new GUIStyle(label) { fontSize = size }; var actual = style.CalcSize(new GUIContent(text)); measurements++;
+                if (actual.x > width + .1f || actual.y > height + .1f)
+                    throw new InvalidOperationException("Boss path text exceeds its native layout: " + text + " / " + actual.x + "x" + actual.y + " > " + width + "x" + height);
+            };
+            foreach (var boss in GameDatabase.Characters.Where(character => character.cards != null && character.cards.Length > 0))
+            {
+                int size = boss.name.Length > 7 ? 14 : 16;
+                measure(boss.name, size, 126, 23); measure(boss.name, 11, 106, 22);
+                maxName = Math.Max(maxName, new GUIStyle(label) { fontSize = size }.CalcSize(new GUIContent(boss.name)).x);
+            }
+            for (int act = 1; act <= 3; act++) for (int lane = 0; lane < 3; lane++) measure(BossPreviewHeading(act, lane), 9, 126, 17);
+            foreach (string status in new[] { "기록 없음", "처치 완료", "처치 완료 · 보상 선택", "처치 완료 · 패시브 선택", "전투 중", "선택하지 않은 경로", "진입 전", "현재 경로 · 진입 가능", "진입 가능", "현재 경로 · 미방문", "다른 경로 · 미방문" })
+            {
+                measure(status, 9, 126, 15); maxStatus = Math.Max(maxStatus, new GUIStyle(label) { fontSize = 9 }.CalcSize(new GUIContent(status)).x);
+            }
+            for (int lane = 0; lane < 3; lane++) measure(BossLaneName(lane), 10, 23, 20);
+            measure("보스", 10, 106, 20); measure("공략 +", 11, 74, 25);
+            Debug.Log("BTS BOSS PATHS LAYOUT PASS / measurements=" + measurements + " / nameMax=" + maxName + " / statusMax=" + maxStatus + " / nativeFont=PASS");
+        }
+
+        void VerificationBossPathsView(string view)
+        {
+            if (view == "boss_paths_legacy_reload")
+            {
+                PrepareBossPathsLegacy(); ReloadBossPathsVerification(); SelectBossPreview(1, 2); SelectBossPreview(2, 1); mapAct = -1; mapRow = -99; return;
+            }
+            if (view == "boss_paths_cleared_sibling")
+            {
+                CompleteBossPathsBattle(1, 0); SelectBossPreview(1, 2); mapAct = -1; mapRow = -99;
+                if (BossPathDefeated(BossPathNode(1, 2)) || BossPathStatus(BossPathNode(1, 2)) != "선택하지 않은 경로")
+                    throw new InvalidOperationException("An unchosen sibling must remain visibly undefeated after act completion.");
+                return;
+            }
+            if (view.StartsWith("boss_paths_enter_", StringComparison.Ordinal))
+            {
+                int lane = view.EndsWith("_top", StringComparison.Ordinal) ? 0 : view.EndsWith("_middle", StringComparison.Ordinal) ? 1 : 2;
+                EnterBossPathsBattle(lane + 1, lane); return;
+            }
+            int act = view.Contains("act1") ? 1 : view.Contains("act3") ? 3 : 2;
+            int selected = view.EndsWith("_top", StringComparison.Ordinal) ? 0 : view.EndsWith("_bottom", StringComparison.Ordinal) ? 2 : 1;
+            PrepareBossPathsMap(act, 1); SelectBossPreview(act, selected); CheckBossPathsAssignments();
+            if (view == "boss_paths_guide") { SelectBossPreview(2, 2); OpenBossGuide(Engine.BossForAct(2, 2).id); }
+            if (view == "boss_paths_new_reload")
+            {
+                SelectBossPreview(2, 0); ReloadBossPathsVerification();
+                if (BossPreviewLane(2) != 1) throw new InvalidOperationException("UI-only preview selection must not overwrite the saved route on reload.");
+            }
+        }
+
         GameEngine NewBossVerificationRun(int seed)
         {
             var engine = new GameEngine(seed);
@@ -1565,7 +1806,7 @@ namespace Lumia
             s.actBosses[s.act - 1] = subjectId; s.passives.Clear(); s.mainRune = s.supportRune = ""; s.gear.Clear(); s.weaponGrantedCards.Clear();
             s.deck = new List<string> { "basic_attack", "basic_attack", "basic_attack", "basic_guard", "basic_guard", "nia_q", "nia_w", "aya_e", "jackie_q" };
             s.hp = s.maxHp = 999;
-            var node = Engine.AvailableNodes().First(); node.kind = ZoneKind.Boss;
+            var node = Engine.AvailableNodes().First(); node.kind = ZoneKind.Boss; node.assignedOpponent = subjectId;
             if (!Engine.EnterNode(node.lane) || !Engine.IsBossCombat || s.combat.enemyId != subjectId || s.activeNodeId != node.id || s.combat.boss.phase != 1)
                 throw new InvalidOperationException("Native boss verification must enter the real assigned boss node: " + subjectId);
             var c = s.combat; c.enemyEvasion = 0; c.energy = 200; displayedTurn = c.turn;
@@ -1889,7 +2130,7 @@ namespace Lumia
             s.passives.Clear(); s.mainRune = s.supportRune = ""; s.gear.Clear(); s.weaponGrantedCards.Clear();
             s.deck = new List<string> { "basic_attack", "basic_guard" }; s.hp = s.maxHp = 80;
             var node = Engine.AvailableNodes().First(); node.kind = kind; node.assignedOpponent = owner.id; node.assignedAnimal = "chicken";
-            if (kind == ZoneKind.Boss) s.actBosses[s.act - 1] = owner.id;
+            if (kind == ZoneKind.Boss) { s.actBosses[s.act - 1] = owner.id; node.assignedOpponent = owner.id; }
             if (!Engine.EnterNode(node.lane) || s.activeNodeId != node.id || s.stage != RunStage.Combat)
                 throw new InvalidOperationException("Native reward verification must enter an actual battle node.");
             var c = s.combat; c.enemyHp = 1; c.enemyBlock = c.enemyEvasion = 0; c.enemyGear.Clear();
@@ -2201,7 +2442,7 @@ namespace Lumia
 
         public void VerificationView(string view)
         {
-            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") < 0)) return;
+            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") < 0)) return;
             lobby = catalog = inventory = settings = help = fieldInfo = enemyLoadout = false;
             inspectCard = inspectTrait = inspectGear = craftPending = ""; inspectEnemyCard=false; summaryMode=true; scroll = inventoryScroll = encounterStoryScroll = detailScroll = Vector2.zero;summaryScroll.Clear();
             craftQuery = ""; craftTags.Clear(); craftSlot = GearSlot.Weapon; campRemovalSelection.Clear(); campSelectionState = null;
@@ -2221,6 +2462,7 @@ namespace Lumia
             Engine.BeginJourney();
             if (view == "help") { help = true; return; }
             if (view.StartsWith("strategy_", StringComparison.Ordinal)) { VerificationStrategyView(view); return; }
+            if (view.StartsWith("boss_paths_", StringComparison.Ordinal)) { VerificationBossPathsView(view); return; }
             if (view.StartsWith("boss_variety_", StringComparison.Ordinal)) { VerificationBossVarietyView(view); return; }
             if (view.StartsWith("boss_ui_", StringComparison.Ordinal)) { VerificationBossView(view); return; }
             if (view.StartsWith("reward_ui_", StringComparison.Ordinal)) { VerificationRewardView(view); return; }
@@ -2236,6 +2478,8 @@ namespace Lumia
                 if (view == "boss_preview_legacy")
                 {
                     Engine.State.act = 2; Engine.State.actBosses = null;
+                    Engine.State.bossAssignmentVersion = 0;
+                    foreach (var node in Engine.State.map.Where(node => node.kind == ZoneKind.Boss)) node.assignedOpponent = null;
                     Engine.State.defeatedBosses = new List<string> { "jenny" };
                     Engine.State.bossVictories = 1;
                     Engine.State.maxEnergyBonus = 1;
