@@ -2844,23 +2844,23 @@
       "id": "katja",
       "name": "카티야",
       "tool": "builtin image_gen",
-      "intent": "new illustration with style and identity references",
+      "intent": "precise-object-edit; correct default character identity while preserving the chibi sprite style",
       "originalReference": "docs/art-chibi/references/subjects/katja.png",
       "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Katja_S000.png",
       "referenceSha256": "e656f8b867b96153a3270daa234abbe255c3b63f589b5f8c12907119613b9014",
       "styleReferenceSha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db",
       "styleReferenceCopied": false,
-      "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art character sprite for a cute chibi deckbuilding game.\nInput image 1 is ONLY the official character identity reference: preserve its distinctive hair, eye color, age, face features, outfit, and signature prop. Input image 2 is ONLY a style guide supplied by the user, not their artwork: study its compact proportions and pixel clustering but do NOT trace, copy its pose, reproduce its exact sprite, include its background or watermark, or borrow Rio's bow/clothes for another character.\nDraw a fresh original sprite in this style: very cute compact 2.1 to 2.3 heads tall, head approximately 43 to 47 percent of full character height, broad rounded head, tiny compact torso, very short legs and small hands. Soft muted material colors, clean dark-purple/brown 1-pixel contours and selective colored interior outlines, chunky deliberate square pixel clusters, 3 flat shades per material, small restrained highlights. Pixel craft suitable for an 80 x 80 logical grid with the complete character fitting inside about 72 x 72 pixels. Eyes and mouth stay clearly readable: use distinct upper eyelids and 4-6 pixel irises, restrained cheeks, character-specific eyebrows and expression. Never give everyone identical round shiny eyes. Adult men retain facial hair, mature eye shapes, and defining features while remaining chibi.\nOne full-body character only, three-quarter front view facing slightly right, a fresh balanced idle/battle-ready pose, complete feet and signature prop visible with transparent padding on all sides. Square composition. Genuine transparent background. No text, label, watermark, signature, scenery, floor, cast shadow, glow cloud or frame. No smooth painting, anti-aliasing, gradients, 3D render, realistic anatomy, tall long-legged body, or oversized weapon hiding the face. Keep color clusters economical and edges crisp.\n\nCharacter: 카티야 (katja).\nIdentity/outfit: Gray hair with long side ponytail, teal eyes, round glasses, dark gray-cyan tech sniper outfit, oversized rifle.\nSignature prop: Hold an oversized black-and-teal sniper rifle with a scope.\nProp constraints: Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here.\nCharacter-specific face from the original: Timid young sniper girl, very LARGE pale CYAN round eyes through ROUND THIN GLASSES, upward worried inner brow, tiny hesitant parted lips. Gray pigtails.\n",
+      "prompt": "Use case: precise-object-edit.\nAsset type: corrected transparent pixel-art game sprite of 카티야 (katja).\nInput image 1 is the existing sprite to EDIT. Input image 2 is the official character identity reference. Input image 3 is a style reference only; do not copy its character, pose, pixels or watermark.\nPrimary correction: Remove the round dark eyeglass frames and nose bridge entirely. Katja has no glasses. Show her unobstructed pale-cyan eyes with natural upper eyelids and a small worried brow, matching image 2. Do not encircle the eyes with black rings.\nPreserve the existing sprite's compact 2.2-head chibi proportions, full-body pose, hair silhouette, outfit, weapon, colors and clean pixel clusters. Change only the incorrect eyewear and the immediately adjacent facial pixels needed for a clear bare face. Keep the individual expression and eye color. The eyes remain readable at an 80x80 logical grid.\nIdentity confirmation: Gray hair with a long tied side ponytail, unobstructed teal eyes and a bare face with no eyewear, dark gray-cyan tech sniper outfit, oversized rifle.\nGenuine transparent background, full feet and weapon visible with padding, square canvas. Clean economical square pixel clusters, dark selective outlines, flat muted shading. No text, watermark, background, floor, shadows, glow clouds, gradients or antialiasing. Do not invent additional accessories.\n",
       "generatedSource": "docs/art-reference-chibi/generated/katja.png",
-      "generatedSha256": "56c4bd02dab9e176ec3bea571adab530a5fe7cca78a5dabbbc7b38ffb8cc0552",
+      "generatedSha256": "eaa565a9676f8339396c75e694c61ce12ab976be916c15a881cead9812d6b272",
       "generatedSize": [
         1254,
         1254
       ],
       "alphaCropBox": [
-        33,
-        35,
-        1224,
+        17,
+        20,
+        1246,
         1254
       ],
       "logicalCanvas": [
@@ -2868,15 +2868,34 @@
         80
       ],
       "resizedSize": [
-        70,
+        72,
         72
       ],
       "integerPixelScale": 2,
       "path": "Assets/Resources/Lumia/PortraitsReference/katja.png",
       "width": 160,
       "height": 160,
-      "sha256": "d936412202600d870cdacb8d59b35c88b8044ab0827d334afb782c70e5e0e91c",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "f2ac4d9123af0ee04bd168e1326d02d6f6e055990b5b5f005819352f743eb897",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-4ebc7de4-9867-4071-9aa0-d217cfd54583.png",
+      "inputReferences": [
+        {
+          "role": "edit target: previous project sprite",
+          "path": "docs/art-reference-chibi/generated/versions/katja_56c4bd02dab9.png",
+          "sha256": "56c4bd02dab9e176ec3bea571adab530a5fe7cca78a5dabbbc7b38ffb8cc0552"
+        },
+        {
+          "role": "official character identity",
+          "path": "docs/art-chibi/references/subjects/katja.png",
+          "sha256": "e656f8b867b96153a3270daa234abbe255c3b63f589b5f8c12907119613b9014"
+        },
+        {
+          "role": "style guidance only; not redistributed",
+          "path": "Temp/ReferenceChibi/style-reference.png",
+          "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+        }
+      ],
+      "correction": "Remove the round dark eyeglass frames and nose bridge entirely. Katja has no glasses. Show her unobstructed pale-cyan eyes with natural upper eyelids and a small worried brow, matching image 2. Do not encircle the eyes with black rings."
     },
     {
       "id": "darko",
@@ -3224,23 +3243,23 @@
       "id": "blair",
       "name": "블레어",
       "tool": "builtin image_gen",
-      "intent": "new illustration with style and identity references",
+      "intent": "precise-object-edit; correct default character identity while preserving the chibi sprite style",
       "originalReference": "docs/art-chibi/references/subjects/blair.png",
       "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Blair_S000.png",
       "referenceSha256": "31567343680389bcab0896ccef787445c78e608d977a09900be513a3053e4140",
       "styleReferenceSha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db",
       "styleReferenceCopied": false,
-      "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art character sprite for a cute chibi deckbuilding game.\nInput image 1 is ONLY the official character identity reference: preserve its distinctive hair, eye color, age, face features, outfit, and signature prop. Input image 2 is ONLY a style guide supplied by the user, not their artwork: study its compact proportions and pixel clustering but do NOT trace, copy its pose, reproduce its exact sprite, include its background or watermark, or borrow Rio's bow/clothes for another character.\nDraw a fresh original sprite in this style: very cute compact 2.1 to 2.3 heads tall, head approximately 43 to 47 percent of full character height, broad rounded head, tiny compact torso, very short legs and small hands. Soft muted material colors, clean dark-purple/brown 1-pixel contours and selective colored interior outlines, chunky deliberate square pixel clusters, 3 flat shades per material, small restrained highlights. Pixel craft suitable for an 80 x 80 logical grid with the complete character fitting inside about 72 x 72 pixels. Eyes and mouth stay clearly readable: use distinct upper eyelids and 4-6 pixel irises, restrained cheeks, character-specific eyebrows and expression. Never give everyone identical round shiny eyes. Adult men retain facial hair, mature eye shapes, and defining features while remaining chibi.\nOne full-body character only, three-quarter front view facing slightly right, a fresh balanced idle/battle-ready pose, complete feet and signature prop visible with transparent padding on all sides. Square composition. Genuine transparent background. No text, label, watermark, signature, scenery, floor, cast shadow, glow cloud or frame. No smooth painting, anti-aliasing, gradients, 3D render, realistic anatomy, tall long-legged body, or oversized weapon hiding the face. Keep color clusters economical and edges crisp.\n\nCharacter: 블레어 (blair).\nIdentity/outfit: Long cream-blond hair, black sleeveless high-neck crop outfit, silver necklace and chains, black coat, dual blades.\nSignature prop: Hold two slender black-and-silver blades, one in each hand.\nProp constraints: Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here.\nCharacter-specific face from the original: Melancholic blonde woman, tired pale BLUE half-lidded eyes, raised sad inner brows, small softly parted lips. Long pale hair and black outfit.\n",
+      "prompt": "Use case: precise-object-edit.\nAsset type: corrected transparent pixel-art game sprite of Blair (블레어).\nInput image 1 is the existing chibi sprite to EDIT. Image 2 is the OFFICIAL DEFAULT COSTUME CONCEPT SHEET, the authoritative reference for clothes and boots. Image 3 is the official color portrait for face and upper-body colors. Image 4 is a user-supplied style guide ONLY; do not copy its character, pose, pixels, background or watermark.\nPrimary correction: Replace the incorrect exposed-thigh short bottoms and tall boots with the DEFAULT outfit in image 2: fitted FULL-LENGTH BLACK SKINNY TROUSERS completely covering BOTH thighs and knees down to the ankles, and BLACK ANKLE BOOTS with tiny silver buckles/ornament. The trousers are continuous black fabric, not thigh-high stockings. Only a very small lace-up cutout at the OUTER HIP may show skin, as on the concept sheet. No skirt, shorts, bare thighs, exposed knees, stockings or knee-high boots.\nKeep the black sleeveless high-neck crop top, layered silver medallion and star necklaces, exposed midriff with dark curling flank tattoo, thin waist chain, wide black belt with large silver buckle and hanging side chains. Match the short black fur-collar jacket draped BELOW the shoulders, with puffy sleeves and fur cuffs. Keep the tiny turquoise upper-arm device if visible.\nPreserve the existing sprite's tired pale-blue half-lidded eyes, sad inner eyebrows, small parted lips, long pale cream-blond hair, compact 2.2-head chibi proportions, idle stance, weapon positions, muted palette and economical pixel clusters. Hold the same two long silver-and-black swords; the official blades have a thin turquoise inset accent. Do not change the face or expression.\nDraw ONE full-body chibi character only, fitting about 72x72 inside an 80x80 logical grid. Genuine transparent background and square canvas, full feet and blades visible with padding. Crisp square pixels, flat shading, dark selective outlines. No concept-sheet layout, multiple views, extra character, labels, logos, watermark, background, ground, cast shadows, gradients or smooth painting.\n",
       "generatedSource": "docs/art-reference-chibi/generated/blair.png",
-      "generatedSha256": "64ab28ef0f586d29c6c73ebc3ef58017506afb7ab9bf9eeabf68048e2317d4b7",
+      "generatedSha256": "882937a0f1001d9ddea7bc3bbe566fb55415d7f7e71d433961a3730d0c98d1f9",
       "generatedSize": [
         1254,
         1254
       ],
       "alphaCropBox": [
         0,
-        0,
-        1240,
+        25,
+        1228,
         1254
       ],
       "logicalCanvas": [
@@ -3248,15 +3267,41 @@
         80
       ],
       "resizedSize": [
-        71,
+        72,
         72
       ],
       "integerPixelScale": 2,
       "path": "Assets/Resources/Lumia/PortraitsReference/blair.png",
       "width": 160,
       "height": 160,
-      "sha256": "ccbe6a7e3bf2e0e396f4ec4684aa904f69891519859274b0d67399935cd6e832",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "1b651a92a8588c40a0d2870f7a051cbe52c0ff3a77eace6492a0ffa68bc4a5ca",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-3ec82599-2a0f-4651-a19b-f22a650c3ab2.png",
+      "inputReferences": [
+        {
+          "role": "edit target: previous project sprite",
+          "path": "docs/art-reference-chibi/generated/versions/blair_64ab28ef0f58.png",
+          "sha256": "64ab28ef0f586d29c6c73ebc3ef58017506afb7ab9bf9eeabf68048e2317d4b7"
+        },
+        {
+          "role": "official full default costume concept sheet",
+          "path": "docs/art-reference-chibi/references/blair-default-concept.png",
+          "sha256": "d7ff2f6761b4b871fa440e6a5d506e2bc84978b10d0f600edd943a9b3d706a74",
+          "sourceUrl": "https://cdn.playeternalreturn.com/event/season9/blair/blair01.png",
+          "pageUrl": "https://event.playeternalreturn.com/S9/Blair?hl=ko-KR"
+        },
+        {
+          "role": "official character identity",
+          "path": "docs/art-chibi/references/subjects/blair.png",
+          "sha256": "31567343680389bcab0896ccef787445c78e608d977a09900be513a3053e4140"
+        },
+        {
+          "role": "style guidance only; not redistributed",
+          "path": "Temp/ReferenceChibi/style-reference.png",
+          "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+        }
+      ],
+      "correction": "Restore Blair's official default black full-length skinny trousers and black ankle boots, with the original crop top, draped fur-collar jacket, belts and silver chains. Both thighs and knees must be covered by trousers."
     },
     {
       "id": "mirka",
@@ -3376,22 +3421,22 @@
       "id": "bihyung",
       "name": "비형",
       "tool": "builtin image_gen",
-      "intent": "new illustration with style and identity references",
+      "intent": "precise-object-edit; correct default character identity while preserving the chibi sprite style",
       "originalReference": "docs/art-chibi/references/subjects/bihyung.png",
       "originalSourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Bihyung_S000.png",
       "referenceSha256": "aa9d3be71f19cc12014c2d6deb7d44d52f9d16ccd14f8645d5f051069d86c9af",
       "styleReferenceSha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db",
       "styleReferenceCopied": false,
-      "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art character sprite for a cute chibi deckbuilding game.\nInput image 1 is ONLY the official character identity reference: preserve its distinctive hair, eye color, age, face features, outfit, and signature prop. Input image 2 is ONLY a style guide supplied by the user, not their artwork: study its compact proportions and pixel clustering but do NOT trace, copy its pose, reproduce its exact sprite, include its background or watermark, or borrow Rio's bow/clothes for another character.\nDraw a fresh original sprite in this style: very cute compact 2.1 to 2.3 heads tall, head approximately 43 to 47 percent of full character height, broad rounded head, tiny compact torso, very short legs and small hands. Soft muted material colors, clean dark-purple/brown 1-pixel contours and selective colored interior outlines, chunky deliberate square pixel clusters, 3 flat shades per material, small restrained highlights. Pixel craft suitable for an 80 x 80 logical grid with the complete character fitting inside about 72 x 72 pixels. Eyes and mouth stay clearly readable: use distinct upper eyelids and 4-6 pixel irises, restrained cheeks, character-specific eyebrows and expression. Never give everyone identical round shiny eyes. Adult men retain facial hair, mature eye shapes, and defining features while remaining chibi.\nOne full-body character only, three-quarter front view facing slightly right, a fresh balanced idle/battle-ready pose, complete feet and signature prop visible with transparent padding on all sides. Square composition. Genuine transparent background. No text, label, watermark, signature, scenery, floor, cast shadow, glow cloud or frame. No smooth painting, anti-aliasing, gradients, 3D render, realistic anatomy, tall long-legged body, or oversized weapon hiding the face. Keep color clusters economical and edges crisp.\n\nCharacter: 비형 (bihyung).\nIdentity/outfit: Black hair with bright teal strands and very long teal tail, round red glasses, white-black-red hooded street outfit, giant mallet.\nSignature prop: Carry a giant black-and-red mallet with a square mechanical head.\nProp constraints: Do not inherit a camera, book, rifle, or glowing device from another character unless explicitly specified here.\nCharacter-specific face from the original: Playful dark-haired woman, bright GOLDEN eyes, ONE eye WINKING, lifted eyebrow and wide open delighted smile. Long aqua-black hair and colorful ghost-themed outfit. Wink remains clear.\n",
+      "prompt": "Use case: precise-object-edit.\nAsset type: corrected transparent pixel-art game sprite of 비형 (bihyung).\nInput image 1 is the existing sprite to EDIT. Input image 2 is the official character identity reference. Input image 3 is a style reference only; do not copy its character, pose, pixels or watermark.\nPrimary correction: Remove the red eyeglass frames and nose bridge entirely. Bihyung has no glasses. Show her unobstructed golden eye and her clear winking eye, matching image 2. Keep the small red cheek marks BELOW the eyes as face paint, separate from the eyes. No circular rings, lenses or lines across the nose.\nPreserve the existing sprite's compact 2.2-head chibi proportions, full-body pose, hair silhouette, outfit, weapon, colors and clean pixel clusters. Change only the incorrect eyewear and the immediately adjacent facial pixels needed for a clear bare face. Keep the individual expression and eye color. The eyes remain readable at an 80x80 logical grid.\nIdentity confirmation: Black hair with bright teal strands and very long teal tail, unobstructed golden eye and one winking eye with small red cheek marks below them, white-black-red hooded street outfit, giant mallet. No glasses or eyewear.\nGenuine transparent background, full feet and weapon visible with padding, square canvas. Clean economical square pixel clusters, dark selective outlines, flat muted shading. No text, watermark, background, floor, shadows, glow clouds, gradients or antialiasing. Do not invent additional accessories.\n",
       "generatedSource": "docs/art-reference-chibi/generated/bihyung.png",
-      "generatedSha256": "5d14134997147fe4d910d878219b7d8d3bf37619c8ec790122fa5ab3b026cd0f",
+      "generatedSha256": "6d80f94e0a07592c06824d063669f362b8066737c7a8454b93f64632b10e97ea",
       "generatedSize": [
         1254,
         1254
       ],
       "alphaCropBox": [
         0,
-        9,
+        7,
         1238,
         1254
       ],
@@ -3400,15 +3445,34 @@
         80
       ],
       "resizedSize": [
-        72,
+        71,
         72
       ],
       "integerPixelScale": 2,
       "path": "Assets/Resources/Lumia/PortraitsReference/bihyung.png",
       "width": 160,
       "height": 160,
-      "sha256": "7468c47afcec373be80799679b48499d021fa2f096710f079049bbb131216998",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "26abfcaa66098089572683048ddc03999fdeb9167e8840eaa87a860d70e7b2d1",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-ee256691-13b1-4079-ab5d-2abbdfa08839.png",
+      "inputReferences": [
+        {
+          "role": "edit target: previous project sprite",
+          "path": "docs/art-reference-chibi/generated/versions/bihyung_5d1413499714.png",
+          "sha256": "5d14134997147fe4d910d878219b7d8d3bf37619c8ec790122fa5ab3b026cd0f"
+        },
+        {
+          "role": "official character identity",
+          "path": "docs/art-chibi/references/subjects/bihyung.png",
+          "sha256": "aa9d3be71f19cc12014c2d6deb7d44d52f9d16ccd14f8645d5f051069d86c9af"
+        },
+        {
+          "role": "style guidance only; not redistributed",
+          "path": "Temp/ReferenceChibi/style-reference.png",
+          "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+        }
+      ],
+      "correction": "Remove the red eyeglass frames and nose bridge entirely. Bihyung has no glasses. Show her unobstructed golden eye and her clear winking eye, matching image 2. Keep the small red cheek marks BELOW the eyes as face paint, separate from the eyes. No circular rings, lenses or lines across the nose."
     },
     {
       "id": "craver",

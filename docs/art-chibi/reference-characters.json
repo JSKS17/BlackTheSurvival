@@ -1071,7 +1071,7 @@
     "name": "카티야",
     "cdn_key": "Katja",
     "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Katja_S000.png",
-    "appearance": "Gray hair with long side ponytail, teal eyes, round glasses, dark gray-cyan tech sniper outfit, oversized rifle.",
+    "appearance": "Gray hair with a long tied side ponytail, unobstructed teal eyes and a bare face with no eyewear, dark gray-cyan tech sniper outfit, oversized rifle.",
     "reference_path": "docs/art-chibi/references/subjects/katja.png",
     "reference_available": true,
     "weapon_types": [
@@ -1211,7 +1211,7 @@
     "name": "블레어",
     "cdn_key": "Blair",
     "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Blair_S000.png",
-    "appearance": "Long cream-blond hair, black sleeveless high-neck crop outfit, silver necklace and chains, black coat, dual blades.",
+    "appearance": "Long cream-blond hair and tired pale blue eyes; black sleeveless high-neck crop top, layered silver necklaces, black fur-collar cropped jacket slipped below the shoulders; fitted full-length black skinny trousers covering both thighs and knees, tiny outer-hip lace-up cutout, silver-buckled belt and side chains; black ankle boots. No skirt, shorts, stockings or knee boots.",
     "reference_path": "docs/art-chibi/references/subjects/blair.png",
     "reference_available": true,
     "weapon_types": [
@@ -1267,7 +1267,7 @@
     "name": "비형",
     "cdn_key": "Bihyung",
     "original_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Bihyung_S000.png",
-    "appearance": "Black hair with bright teal strands and very long teal tail, round red glasses, white-black-red hooded street outfit, giant mallet.",
+    "appearance": "Black hair with bright teal strands and very long teal tail, unobstructed golden eye and one winking eye with small red cheek marks below them, white-black-red hooded street outfit, giant mallet. No glasses or eyewear.",
     "reference_path": "docs/art-chibi/references/subjects/bihyung.png",
     "reference_available": true,
     "weapon_types": [

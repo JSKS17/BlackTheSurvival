@@ -45,6 +45,8 @@ def save_png(image, path):
 
 def prepare():
     faces = read(ROOT / 'docs/art-identity/face-designs.json')
+    override_path = DOC / 'prompt-overrides.json'
+    overrides = read(override_path) if override_path.exists() else {}
     (DOC / 'prompts').mkdir(parents=True, exist_ok=True)
     (DOC / 'common-prompt.txt').write_text(COMMON, encoding='utf8')
     for ref in read(REFS):
@@ -53,6 +55,7 @@ def prepare():
         prompt += 'Signature prop: ' + ref.get('signature_prop', '') + '\n'
         prompt += 'Prop constraints: ' + ref.get('prop_avoid', '') + '\n'
         prompt += 'Character-specific face from the original: ' + faces[ref['id']] + '\n'
+        prompt = overrides.get(ref['id'], prompt)
         (DOC / 'prompts' / (ref['id'] + '.txt')).write_text(prompt, encoding='utf8')
     write_json(DOC / 'style-reference.json', dict(
         role='Style guidance only; user states this Rio sprite is not their own creation.',
@@ -109,6 +112,9 @@ def rebuild():
     for rec in records:
         for key, digest in [('path','sha256'),('generatedSource','generatedSha256'),('originalReference','referenceSha256')]:
             if sha(ROOT/rec[key])!=rec[digest]: errors.append(rec['id']+': '+digest)
+        for source in rec.get('inputReferences', []):
+            if source['role'].startswith('style guidance'): continue
+            if sha(ROOT/source['path'])!=source['sha256']: errors.append(rec['id']+': input reference '+source['path'])
         image=Image.open(ROOT/rec['path']).convert('RGBA')
         if image.size!=(160,160): errors.append(rec['id']+': runtime size')
         test=image.resize((80,80),Image.Resampling.NEAREST).resize((160,160),Image.Resampling.NEAREST)
