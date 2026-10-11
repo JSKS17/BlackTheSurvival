@@ -11,7 +11,7 @@ namespace Lumia
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void StartVerification()
         {
-            if (Debug.isDebugBuild && (System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0))
+            if (Debug.isDebugBuild && (System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0))
                 new GameObject("Lumia verification").AddComponent<LumiaVerification>();
         }
         IEnumerator Start()
@@ -41,6 +41,11 @@ namespace Lumia
             string[] campViews = { "campfire_choice", "campfire_craft_noheal", "campfire_rest", "campfire_rest_selected", "campfire_rest_cancelled", "campfire_rest_one_removed", "campfire_rest_removed", "campfire_rest_empty", "campfire_rest_protected", "campfire_rest_leave_selected", "campfire_rest_reentered", "campfire_tagged" };
             bool campOnly = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0;
             views = campOnly ? campViews.Concat(new[] { "help" }).ToArray() : views.Concat(campViews.Where(view => !views.Contains(view))).ToArray();
+            bool strategyOnly = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0;
+            if (strategyOnly) views = new[] { "strategy_upgrade_offer", "strategy_upgrade_select", "strategy_upgrade_power", "strategy_upgrade_special", "strategy_upgrade_applied", "strategy_upgrade_reloaded",
+                "strategy_retain_select", "strategy_retain_selected", "strategy_retain_cancelled", "strategy_retain_reloaded", "strategy_retain_after",
+                "strategy_map_before", "strategy_map_scouted", "strategy_map_stock", "strategy_map_reloaded", "strategy_hyperloop_select", "strategy_hyperloop_cancelled", "strategy_hyperloop_used",
+                "strategy_chain_promise", "strategy_chain_unavailable", "strategy_chain_pending", "strategy_chain_offers", "strategy_chain_followup", "strategy_chain_reloaded", "strategy_chain_completed", "help" };
             foreach (string view in views)
             {
                 LumiaGame.Instance.VerificationView(view);
@@ -94,8 +99,10 @@ namespace Lumia
                 ScreenCapture.CaptureScreenshot(Path.Combine(output, view + ".png"));
                 yield return new WaitForSecondsRealtime(.6f);
                 Debug.Log("LUMIA CAPTURE " + view);
+                if (strategyOnly) Debug.Log("BTS STRATEGY PASS " + view);
                 if (campOnly) Debug.Log("BTS CAMP PASS " + view + " / hp=" + LumiaGame.Instance.Engine.State.hp + " / removals=" + LumiaGame.Instance.Engine.State.campRemovalsRemaining);
             }
+            if (strategyOnly) Debug.Log("BTS STRATEGY VERIFICATION PASS / views=" + views.Length);
             if (campOnly) Debug.Log("BTS CAMP VERIFICATION PASS / views=" + views.Length);
             Application.Quit();
         }

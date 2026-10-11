@@ -7,7 +7,7 @@ using System.Reflection;
 using Lumia;
 
 // Compiled outside Unity by Tools/RunCoreTests.ps1. No graphics or Unity APIs required.
-public static class CoreSmokeTests
+public static partial class CoreSmokeTests
 {
     private static int checks;
     public static int Main(string[] args)
@@ -24,7 +24,8 @@ public static class CoreSmokeTests
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();
             OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates(); HealingDroneHealthTrigger(); RevisedEconomyAndEncounters();
             ConditionalRecastPreparation(); ConditionalRecastEnemyForecast();
-            Console.WriteLine("PASS: " + checks + " assertions across 57 game-rule scenarios.");
+            StrategicUpgradeChoice(); StrategicRetain(); StrategicMapServices(); StrategicEncounterChains();
+            Console.WriteLine("PASS: " + checks + " assertions across 61 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -548,9 +549,16 @@ public static class CoreSmokeTests
             {
                 var e = Ready(89 + i); Enter(e, ZoneKind.Encounter);
                 e.State.credits=1000;
+                if (!string.IsNullOrEmpty(def.options[i].requiredFoodId)) e.State.foods.Add(def.options[i].requiredFoodId);
+                if (!string.IsNullOrEmpty(def.options[i].requiredObjectId)) e.State.objects.Add(def.options[i].requiredObjectId);
                 e.State.encounterOffers = new List<string> { def.id };
                 Check(e.SelectEncounter(def.id), "select encounter " + def.id);
                 Check(e.ChooseEventOption(i), "resolve event option " + def.id + "/" + i);
+                if (e.State.cardUpgradePending)
+                {
+                    string card = e.UpgradeCandidates().First();
+                    Check(e.UpgradeCard(card, e.CardUpgradeOptions(card).First().id), "chosen event upgrade completes its encounter");
+                }
                 if (e.State.runeChangePending)
                 {
                     var main = GameDatabase.Runes.First(x => x.main && x.id != e.State.mainRune);
@@ -1931,7 +1939,7 @@ public static class CoreSmokeTests
             if (e.State.stage == RunStage.Combat) { battles++; Win(e); e.FinishRewards(); }
             else if (e.State.stage == RunStage.Campfire) { e.ChooseCamp(false); e.LeaveCamp(); }
             else if (e.State.stage == RunStage.Kiosk) e.LeaveKiosk();
-            else if (e.State.stage == RunStage.Encounter) { e.SelectEncounter(e.State.encounterOffers[0]); e.ChooseEventOption(0); if (e.State.runeChangePending) e.FinishRuneChange(); }
+            else if (e.State.stage == RunStage.Encounter) { e.SelectEncounter(e.State.encounterOffers[0]); e.ChooseEventOption(Enumerable.Range(0,e.CurrentEncounter.options.Length).First(e.CanChooseEventOption)); if (e.State.cardUpgradePending) { string card=e.UpgradeCandidates().First(); e.UpgradeCard(card,e.CardUpgradeOptions(card).First().id); } if (e.State.runeChangePending) e.FinishRuneChange(); }
             if (e.State.stage == RunStage.PassiveChoice) e.ReplacePassive(-1);
         }
         Check(e.State.level == 20 && battles >= 12, "max level twenty is reachable through earned combat XP");

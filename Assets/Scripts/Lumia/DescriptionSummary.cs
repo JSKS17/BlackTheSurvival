@@ -255,10 +255,15 @@ namespace Lumia
 
         static string PreviewIdentity(CardDef card)
         {
+            var rules = card.mechanics?.rules ?? new SkillRule[0];
             switch(card.id)
             {
-                case "nia_q":return "아케이드 블록을 1 늘립니다(최대 3).";
-                case "nia_w":return "블록을 모두 소모해 블록당 피해 4를 더하고 다음 Q 코스트를 1 줄입니다.";
+                case "nia_q":
+                    var gain = rules.FirstOrDefault(rule => rule.op == "gain" && rule.key == "blocks");
+                    return "아케이드 블록을 " + (gain?.amount ?? 1) + " 늘립니다(최대 " + (gain?.cap ?? 3) + ").";
+                case "nia_w":
+                    var bonus = rules.FirstOrDefault(rule => rule.op == "bonus_damage" && rule.scaleKey == "blocks");
+                    return "블록을 모두 소모해 블록당 " + CardPresentation.WithParticle("피해 " + (bonus?.amount ?? 4), "를", "을") + " 더하고 다음 Q 코스트를 1 줄입니다.";
                 case "nia_r":return "배터리 ×5(최대20)의 방어도를 더 얻고 배터리를 모두 소모합니다.";
                 case "emma_r":return "직전 Q·W·E의 마술을 소모해 피해 또는 방어도를 추가합니다.";
                 case "sua_r":return "직전 수아 Q·W·E를 이번 턴에 무료로 1회 다시 사용합니다.";

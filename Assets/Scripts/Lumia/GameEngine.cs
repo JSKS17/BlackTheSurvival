@@ -9,6 +9,7 @@ namespace Lumia
         public int id, act, row, lane;
         public ZoneKind kind;
         public bool visited, nearKiosk;
+        public string assignedOpponent, assignedAnimal;
     }
 
     [Serializable] public class FreeCastGrant
@@ -48,6 +49,9 @@ namespace Lumia
         public int intentDamage, intentBlock, attacksPlayed, enemyActionIndex, enemyAvailableEnergy;
         public int playerOpeningEnergy, enemyOpeningEnergy;
         public bool enemyTurn;
+        public int retainIndex = -1, retainUses;
+        public string retainedCardId;
+        public int retainVersion = 1;
         public string enemyWeaponClass, enemyWeaponCardId, enemyTacticalCardId, enemyPassiveId;
         public List<string> enemyGear = new List<string>();
         public List<DeferredDamage> playerDeferredDamage = new List<DeferredDamage>(), enemyDeferredDamage = new List<DeferredDamage>();
@@ -92,6 +96,11 @@ namespace Lumia
         public int energyGrowthVersion, maxEnergyBonus, bossVictories;
         public string draftBiasPassive;
         public bool runeChangePending;
+        public bool cardUpgradePending;
+        public List<CardUpgradeSelection> cardUpgrades = new List<CardUpgradeSelection>();
+        public List<int> scoutedActs = new List<int>(), hyperloopActs = new List<int>(), revealedNodeIds = new List<int>();
+        public List<PendingEncounterFollowup> pendingEncounterFollowups = new List<PendingEncounterFollowup>();
+        public List<string> completedChainEvents = new List<string>();
         public List<string> deck = new List<string>(), passives = new List<string>(), gear = new List<string>(), foods = new List<string>(), objects = new List<string>();
         public List<string> weaponGrantedCards = new List<string>();
         public List<string> passiveOffers = new List<string>(), draftOffers = new List<string>(), draftSelected = new List<string>(), upgrades = new List<string>();
@@ -113,6 +122,8 @@ namespace Lumia
         public const int CriticalChanceCap = 30;
         public const int WildlifeBasicAttackDropChance = 3;
         public const int WildlifeMeatDropChance = 50;
+        public const int SecurityConsolePrice = 40;
+        public const int FollowupOfferChance = 80;
         public RunState State { get; private set; }
         public readonly List<CombatAction> CombatActions = new List<CombatAction>();
         private int actionSerial;
@@ -126,6 +137,12 @@ namespace Lumia
         public int NextLevelXp { get { return 50 + State.level * 12; } }
         public int TotalAttack { get { return EquipmentSum(g => g.attack); } }
         public int TotalBlock { get { return EquipmentSum(g => g.block); } }
+        public int RetainAvailable { get { return State.combat == null ? 0 : Math.Max(0, 2 - State.combat.retainUses); } }
+        public EventDef CurrentEncounter { get { return GameDatabase.Event(State.chosenEventId); } }
+        public List<EventDef> CurrentEncounterOffers { get { return State.encounterOffers.Select(GameDatabase.Event).Where(x => x != null).ToList(); } }
+        public string PendingFollowupDescription { get { var next = NextPromisedEncounter(); return next == null ? "" : "다음 약속: " + next.owner + " · 다음 조우 등장 확률 80% · 남은 약속 " + State.pendingEncounterFollowups.Count + "건. 다른 조우를 선택해도 유지됩니다."; } }
+        public bool CanUseSecurityConsole { get { return State.stage == RunStage.Map && State.credits >= SecurityConsolePrice && !State.scoutedActs.Contains(State.act) && ScoutNodes().Any(n => (n.kind == ZoneKind.Subject || n.kind == ZoneKind.Wildlife) && !State.revealedNodeIds.Contains(n.id)); } }
+        public bool CanUseHyperloop { get { return State.stage == RunStage.Map && !State.hyperloopActs.Contains(State.act) && AvailableHyperloopNodes().Count > 0; } }
         public int Evasion { get { return Math.Min(90, Math.Min(65, EquipmentSum(g => g.evasion) + Modifier("evade_bonus") + (State.combat == null ? 0 : State.combat.evasion + Modifier("battle_start_evasion") + TraitMechanics.EvasionBonus(State.combat.playerTraits)))+(State.combat==null?0:StatusMechanics.AccuracyPenalty(State.combat.enemyStatuses))); } }
         public int EnemyEvasion { get { var c=State.combat;return c==null?0:c.enemyEvasion>=100?100:Math.Min(90,Math.Min(65,c.enemyEvasion+TraitMechanics.EvasionBonus(c.enemyTraits))+StatusMechanics.AccuracyPenalty(c.playerStatuses)); } }
         public string EnemyIntent
@@ -156,6 +173,14 @@ namespace Lumia
         {
             if (savedState == null || savedState.version < 1 || savedState.version > 2) throw new ArgumentException("지원하지 않는 저장 데이터입니다.");
             State = savedState;
+            if (State.cardUpgrades == null) State.cardUpgrades = new List<CardUpgradeSelection>();
+            if (State.scoutedActs == null) State.scoutedActs = new List<int>();
+            if (State.hyperloopActs == null) State.hyperloopActs = new List<int>();
+            if (State.revealedNodeIds == null) State.revealedNodeIds = new List<int>();
+            if (State.pendingEncounterFollowups == null) State.pendingEncounterFollowups = new List<PendingEncounterFollowup>();
+            if (State.completedChainEvents == null) State.completedChainEvents = new List<string>();
+            State.pendingEncounterFollowups.RemoveAll(x => x == null || GameDatabase.Event(x.eventId) == null || State.completedChainEvents.Contains(x.eventId));
+            if (State.stage != RunStage.Encounter) State.cardUpgradePending = false;
             State.persistentTraits=TraitMechanics.Ensure(State.persistentTraits);
             if (State.rngState == 0) State.rngState = 1831565813;
             if (State.level < 1 || State.level > 20 || State.map == null || State.deck == null) throw new ArgumentException("손상된 저장 데이터입니다.");
@@ -205,6 +230,9 @@ namespace Lumia
             if (State.combat != null)
             {
                 var c = State.combat;
+                if (c.retainVersion == 0) { c.retainIndex = -1; c.retainedCardId = null; c.retainUses = 0; c.retainVersion = 1; }
+                c.retainUses = Math.Max(0, Math.Min(2, c.retainUses));
+                if (c.enemyTurn || c.retainIndex < 0 || c.retainIndex >= c.hand.Count || c.retainUses >= 2) c.retainIndex = -1;
                 if (c.lastSkills == null) c.lastSkills = new List<SkillHistory>();
                 if (c.enemyLastSkills == null) c.enemyLastSkills = new List<SkillHistory>();
                 if (c.freeCasts == null) c.freeCasts = new List<FreeCastGrant>();
@@ -291,7 +319,76 @@ namespace Lumia
         public List<MapNode> AvailableNodes()
         {
             if (State.stage != RunStage.Map) return new List<MapNode>();
-            return State.map.Where(n => n.act == State.act && n.row == State.row + 1 && (State.lane < 0 || Math.Abs(n.lane - State.lane) <= 1)).ToList();
+            return State.map.Where(n => !n.visited && n.act == State.act && n.row == State.row + 1 && (State.lane < 0 || Math.Abs(n.lane - State.lane) <= 1)).ToList();
+        }
+
+        public List<MapNode> AvailableHyperloopNodes()
+        {
+            if (State.stage != RunStage.Map || State.lane < 0 || State.hyperloopActs.Contains(State.act)) return new List<MapNode>();
+            return State.map.Where(n => !n.visited && n.act == State.act && n.row == State.row + 1 && Math.Abs(n.lane - State.lane) > 1).ToList();
+        }
+
+        private IEnumerable<MapNode> ScoutNodes()
+        {
+            return State.map.Where(n => !n.visited && n.act == State.act && n.row > State.row && n.row <= State.row + 2
+                && (n.kind == ZoneKind.Subject || n.kind == ZoneKind.Wildlife || n.kind == ZoneKind.Kiosk));
+        }
+
+        public bool UseSecurityConsole()
+        {
+            if (!CanUseSecurityConsole) return Fail("보안 콘솔은 구역마다 한 번, 40 크레딧으로 앞으로 두 줄의 정보를 확인합니다.");
+            foreach (var node in ScoutNodes())
+            {
+                AssignScoutedOpponent(node);
+                if (!State.revealedNodeIds.Contains(node.id)) State.revealedNodeIds.Add(node.id);
+            }
+            State.credits -= SecurityConsolePrice; State.scoutedActs.Add(State.act);
+            return Say("보안 콘솔 · 앞으로 두 줄의 실험체·야생동물과 키오스크 재고를 확인했습니다.");
+        }
+
+        // Scouting never advances battle RNG. A paid reveal commits its own stable opponent assignment.
+        private void AssignScoutedOpponent(MapNode node)
+        {
+            int random = unchecked(State.seed ^ (node.id + 1) * (int)0x9E3779B9 ^ (int)0x51C0A7E1);
+            if (random == 0) random = 1831565813;
+            if (node.kind == ZoneKind.Wildlife && string.IsNullOrEmpty(node.assignedAnimal))
+            {
+                var animals = new[] { "chicken", "dog", "boar", "wolf", "bear" };
+                node.assignedAnimal = animals[Next(ref random, animals.Length)];
+            }
+            if (node.kind == ZoneKind.Subject && string.IsNullOrEmpty(node.assignedOpponent))
+            {
+                var roster = GameDatabase.Characters.Where(x => x.cards != null && x.cards.Length > 0).ToList();
+                node.assignedOpponent = roster[Next(ref random, roster.Count)].id;
+            }
+        }
+
+        public string NodeIntel(MapNode node)
+        {
+            if (node == null || !State.revealedNodeIds.Contains(node.id)) return "";
+            if (node.kind == ZoneKind.Subject) return GameDatabase.Character(node.assignedOpponent)?.name ?? "실험체";
+            if (node.kind == ZoneKind.Wildlife)
+            {
+                var animals = new[] { "chicken", "dog", "boar", "wolf", "bear" };
+                var names = new[] { "닭", "들개", "멧돼지", "늑대", "곰" };
+                int index = Array.IndexOf(animals, node.assignedAnimal);
+                return index >= 0 ? names[index] : "야생동물";
+            }
+            if (node.kind == ZoneKind.Kiosk)
+            {
+                var stock = GameDatabase.Objects.Select(item => item.name + (IsKioskObjectUnlocked(item.id) ? " " + ObjectPrice(item.id) + " CR" : " · 잠김"));
+                var foods = KioskFoods.Select(food => food.name + " " + FoodPrice(food.id) + " CR");
+                return "오브젝트\n" + string.Join(" · ", stock) + "\n\n식재료\n" + string.Join(" · ", foods);
+            }
+            return "";
+        }
+
+        public bool EnterHyperloopNode(int lane)
+        {
+            var node = AvailableHyperloopNodes().FirstOrDefault(n => n.lane == lane);
+            if (node == null) return Fail("하이퍼루프는 같은 다음 줄에서 평소 연결되지 않은 구역으로 한 번 이동할 수 있습니다.");
+            State.hyperloopActs.Add(State.act);
+            return EnterMapNode(node);
         }
 
         public bool EnterNode(int lane)
@@ -299,8 +396,15 @@ namespace Lumia
             RefreshMapProximity();
             var node = AvailableNodes().FirstOrDefault(n => n.lane == lane);
             if (node == null) return Fail("연결된 다음 구역만 이동할 수 있습니다.");
+            return EnterMapNode(node);
+        }
+
+        private bool EnterMapNode(MapNode node)
+        {
+            RefreshMapProximity();
             State.activeNodeId = node.id; State.combat = null; State.rewards = null;
             State.pendingPassive = null; State.runeChangePending = false; State.chosenEventId = null;
+            State.cardUpgradePending = false;
             switch (node.kind)
             {
                 case ZoneKind.Wildlife: StartBattle(true, false); break;
@@ -311,17 +415,55 @@ namespace Lumia
                     State.stage = RunStage.Campfire; State.campChoice = 0; State.campActions = 3; State.campRemovalsRemaining = 0;
                     Say("휴식하면 체력을 모두 회복하고 만년 스프를 받으며 카드를 최대 2장 제거할 수 있습니다. 제작·요리를 선택하면 회복 없이 최대 3번 작업합니다."); break;
                 case ZoneKind.Encounter:
-                    State.stage = RunStage.Encounter; State.encounterOffers = Offer(GameDatabase.Events.Select(x => x.id), 3);
+                    State.stage = RunStage.Encounter; RollEncounterOffers();
                     Say("세 실험체의 흔적을 발견했습니다. 하나의 조우를 선택하세요."); break;
             }
             return true;
         }
 
         public int CardCost(string id) { var c = GameDatabase.Card(id); return c == null ? 99 : Math.Max(0, c.cost); }
+        public CardDef PlayerCard(string id)
+        {
+            var source = GameDatabase.Card(id);
+            if (source == null) return null;
+            var selection = State.cardUpgrades.FirstOrDefault(x => x.cardId == id);
+            string branch = selection != null ? selection.branchId : State.upgrades.Contains(id) ? "legacy" : null;
+            return string.IsNullOrEmpty(branch) ? source : StrategyMechanics.Apply(source, branch);
+        }
+        public string CardUpgradeLabel(string id)
+        {
+            var choice = State.cardUpgrades.FirstOrDefault(x => x.cardId == id);
+            if (choice == null) return State.upgrades.Contains(id) ? "출력 강화" : "";
+            return StrategyMechanics.BranchName(id, choice.branchId);
+        }
+        public List<string> UpgradeCandidates()
+        {
+            return State.deck.Distinct().Where(id => !State.upgrades.Contains(id) && !State.cardUpgrades.Any(x => x.cardId == id)
+                && StrategyMechanics.CanUpgrade(GameDatabase.Card(id))).ToList();
+        }
+        public List<CardUpgradeOption> CardUpgradeOptions(string id)
+        {
+            return UpgradeCandidates().Contains(id) ? StrategyMechanics.Options(GameDatabase.Card(id)) : new List<CardUpgradeOption>();
+        }
+        public bool UpgradeCard(string id, string branchId)
+        {
+            if (State.stage != RunStage.Encounter || !State.cardUpgradePending || !CardUpgradeOptions(id).Any(x => x.id == branchId))
+                return Fail("강화할 카드와 하나의 강화 방향을 선택하세요.");
+            State.cardUpgrades.Add(new CardUpgradeSelection { cardId = id, branchId = branchId });
+            State.cardUpgradePending = false;
+            Say(GameDatabase.Card(id).name + " · " + CardUpgradeLabel(id) + " 완료. 같은 이름의 카드에 적용됩니다.");
+            CompleteNode(); return true;
+        }
+        public bool SkipCardUpgrade()
+        {
+            if (State.stage != RunStage.Encounter || !State.cardUpgradePending) return false;
+            State.cardUpgradePending = false; Say("이번 카드 강화를 포기했습니다."); CompleteNode(); return true;
+        }
         public int EffectiveCardCost(string id)
         {
             var c = State.combat;
-            return c != null && c.freeCasts.Any(g => g.cardId == id && g.uses > 0) ? 0 : Math.Max(0, CardCost(id) + (c==null?0:StatusMechanics.CostPenalty(c.playerStatuses,GameDatabase.Card(id))) - (c == null ? 0 : Math.Max(SkillMechanics.Discount(c.playerSkills,id),SkillMechanics.Discount(c.playerTraits.skills,id))));
+            var card = PlayerCard(id);
+            return c != null && c.freeCasts.Any(g => g.cardId == id && g.uses > 0) ? 0 : Math.Max(0, (card == null ? 99 : card.cost) + (c==null?0:StatusMechanics.CostPenalty(c.playerStatuses,card)) - (c == null ? 0 : Math.Max(SkillMechanics.Discount(c.playerSkills,id),SkillMechanics.Discount(c.playerTraits.skills,id))));
         }
         public int EnemyEffectiveCardCost(string id)
         {
@@ -366,9 +508,9 @@ namespace Lumia
 
         public int CardDamage(string id)
         {
-            var card = GameDatabase.Card(id);
+            var card = PlayerCard(id);
             if (card == null || card.damage <= 0) return 0;
-            int value = card.damage + State.level / 3 + TotalAttack + UpgradeBonus(id, 3) + (State.combat == null ? 0 : State.combat.strength);
+            int value = card.damage + State.level / 3 + TotalAttack + (State.combat == null ? 0 : State.combat.strength);
             value += Modifier(card.category == "basic" ? "attack_bonus" : "skill_bonus");
             if (State.combat != null && State.combat.weak > 0) value = value * 3 / 4;
             if (State.combat != null && State.combat.enemyVulnerable > 0) value = value * 3 / 2;
@@ -378,7 +520,7 @@ namespace Lumia
         }
         private int PlayerBonusDamage(string id)
         {
-            var c = State.combat; var card = GameDatabase.Card(id);
+            var c = State.combat; var card = PlayerCard(id);
             if (c == null || card == null) return 0;
             int skillDamage=SkillMechanics.Bonuses(c.playerSkills,card).damage,empower=TraitMechanics.EmpowerBonus(c.playerTraits,card);
             if(card.damage<=0 && skillDamage<=0 && empower<=0) return 0;
@@ -390,7 +532,7 @@ namespace Lumia
         }
         public int CardTotalDamage(string id)
         {
-            var card = GameDatabase.Card(id);
+            var card = PlayerCard(id);
             return card == null ? 0 : CardDamage(id) * Math.Max(1, card.hits) + PlayerBonusDamage(id);
         }
 
@@ -398,7 +540,7 @@ namespace Lumia
         {
             var c = State.combat;
             if (!CanPlayCard(handIndex)) return Fail(c != null && c.enemyTurn ? "적의 행동이 끝나기를 기다리세요." : "카드를 사용할 코스트가 부족하거나 사용할 수 없는 손패입니다.");
-            var id = c.hand[handIndex]; var card = GameDatabase.Card(id);
+            var id = c.hand[handIndex]; var card = PlayerCard(id);
             int price = EffectiveCardCost(id);
             ConsumeFreeCast(c.freeCasts, id);
             SkillMechanics.ConsumeDiscount(c.playerSkills, id);
@@ -406,6 +548,8 @@ namespace Lumia
             var skillBefore = SkillMechanics.Clone(c.playerSkills);
             int traitHpBefore=State.hp;
             c.energy -= price; c.hand.RemoveAt(handIndex);
+            if (c.retainIndex == handIndex) c.retainIndex = -1;
+            else if (c.retainIndex > handIndex) c.retainIndex--;
             if (card.exhaust) c.exhaustPile.Add(id); else c.discardPile.Add(id);
             int hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0;
             int bonusDamage = PlayerBonusDamage(id);
@@ -425,9 +569,9 @@ namespace Lumia
             }
             if (card.damage > 0 || bonusDamage > 0) c.attacksPlayed++;
             var bonuses = SkillMechanics.Bonuses(skillBefore, card, landed);
-            int block = (card.block > 0 ? card.block + UpgradeBonus(id, 3) : 0) + bonuses.block, beforeHp = State.hp;
+            int block = Math.Max(0, card.block) + bonuses.block, beforeHp = State.hp;
             c.block += block;
-            if (card.heal > 0 || bonuses.heal > 0) Heal((card.heal > 0 ? card.heal + UpgradeBonus(id, 2) : 0) + bonuses.heal);
+            if (card.heal > 0 || bonuses.heal > 0) Heal(Math.Max(0, card.heal) + bonuses.heal);
             c.strength += card.strength;
             if (landed) { c.enemyPoison += card.poison; c.enemyVulnerable = Math.Max(c.enemyVulnerable, card.vulnerable); c.enemyWeak = Math.Max(c.enemyWeak, card.weak); }
             if (card.evasion > 0) { c.evasion = Math.Max(c.evasion, card.evasion); c.evasionTurns = Math.Max(c.evasionTurns, card.duration); }
@@ -437,7 +581,7 @@ namespace Lumia
             StatusMechanics.CancelMissingInstallations(c.enemyStatuses,c.playerSkills);
             StatusMechanics.DamageTaken(c.enemyStatuses,dealt);
             bool statusControl=ApplyCardStatuses(false,skillBefore,card,landed);
-            RecallSkillDiscounts(c.playerSkills, skillBefore, State.deck, c.hand, c.drawPile, c.discardPile);
+            RecallSkillDiscounts(c.playerSkills, skillBefore, State.deck, c.hand, c.drawPile, c.discardPile, true);
             if (RecordLastSkill(c.lastSkills, card)) c.lastSkillCard = id;
             GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills, card.owner), skillBefore, landed);
             RefreshEnemyIntent();
@@ -454,10 +598,24 @@ namespace Lumia
             return true;
         }
 
+        public bool ToggleRetainCard(int handIndex)
+        {
+            var c = State.combat;
+            if (State.stage != RunStage.Combat || c == null || c.enemyTurn || RetainAvailable <= 0 || handIndex < 0 || handIndex >= c.hand.Count)
+                return Fail("손패 보관은 전투마다 2회, 내 턴에 손패 1장을 선택할 수 있습니다.");
+            c.retainIndex = c.retainIndex == handIndex ? -1 : handIndex;
+            return Say(c.retainIndex < 0 ? "손패 보관 예약을 취소했습니다." : GameDatabase.Card(c.hand[handIndex]).name + " 보관 예약 · 턴 종료 시 확정하고 다음 턴 새로 뽑는 카드가 1장 줄어듭니다.");
+        }
+
         public bool BeginEndTurn()
         {
             var c = State.combat;
             if (State.stage != RunStage.Combat || c == null || c.enemyTurn) return Fail("현재 플레이어의 턴이 아닙니다.");
+            if (c.retainIndex >= 0 && c.retainIndex < c.hand.Count && c.retainUses < 2)
+            {
+                c.retainedCardId = c.hand[c.retainIndex]; c.hand.RemoveAt(c.retainIndex); c.retainUses++;
+            }
+            c.retainIndex = -1;
             c.discardPile.AddRange(c.hand); c.hand.Clear();
             c.freeCasts.Clear(); c.freeCastSources.Clear();
             if (c.weak > 0) c.weak--;
@@ -771,19 +929,48 @@ namespace Lumia
         public bool SelectEncounter(string id)
         {
             if (State.stage != RunStage.Encounter || !State.encounterOffers.Contains(id) || !string.IsNullOrEmpty(State.chosenEventId)) return Fail("제시된 조우 3개 중 하나를 선택하세요.");
+            var encounter = GameDatabase.Event(id);
+            if (encounter == null) return Fail("선택할 수 없는 조우입니다.");
             State.chosenEventId = id;
-            return Say(GameDatabase.Event(id).story);
+            return Say(encounter.story);
+        }
+
+        private void RollEncounterOffers()
+        {
+            State.pendingEncounterFollowups.RemoveAll(x => x == null || GameDatabase.Event(x.eventId) == null || State.completedChainEvents.Contains(x.eventId));
+            var next = NextPromisedEncounter();
+            var pendingOwners = new HashSet<string>(State.pendingEncounterFollowups.Select(x => x.owner));
+            var ordinary = GameDatabase.Events.Where(x => !x.chainOnly && !pendingOwners.Contains(x.owner)).ToList();
+            ordinary.AddRange(State.pendingEncounterFollowups.Where(x => x != next).Select(x => GameDatabase.Event(x.eventId)).Where(x => x != null));
+            bool featured = next != null && Roll(FollowupOfferChance);
+            State.encounterOffers = Offer(ordinary.Select(x => x.id), featured ? 2 : 3);
+            if (featured) { State.encounterOffers.Add(next.eventId); Shuffle(State.encounterOffers); }
+            if (next != null)
+            {
+                next.priorityNext = false;
+                State.pendingEncounterFollowups.Remove(next); State.pendingEncounterFollowups.Add(next);
+            }
+        }
+
+        private PendingEncounterFollowup NextPromisedEncounter()
+        {
+            return State.pendingEncounterFollowups.LastOrDefault(x => x.priorityNext) ?? State.pendingEncounterFollowups.FirstOrDefault();
         }
 
         public bool CanChooseEventOption(int index)
         {
             var ev=GameDatabase.Event(State.chosenEventId);
-            if(State.stage!=RunStage.Encounter || ev==null || State.runeChangePending || index<0 || index>=ev.options.Length)return false;
+            if(State.stage!=RunStage.Encounter || ev==null || State.runeChangePending || State.cardUpgradePending || index<0 || index>=ev.options.Length)return false;
             var option=ev.options[index];
+            if (ev.chainOnly && State.completedChainEvents.Contains(ev.id)) return false;
+            int totalCreditCost = Math.Max(0, option.creditCost) + (option.effect == "trade_card" || option.effect == "trade_object" ? Math.Max(0, option.amount) : 0);
+            if (totalCreditCost > State.credits || (!string.IsNullOrEmpty(option.requiredFoodId) && !State.foods.Contains(option.requiredFoodId))
+                || (!string.IsNullOrEmpty(option.requiredObjectId) && !State.objects.Contains(option.requiredObjectId))) return false;
+            if (!string.IsNullOrEmpty(option.followupId) && (State.completedChainEvents.Contains(option.followupId) || State.pendingEncounterFollowups.Any(x => x.eventId == option.followupId))) return false;
             if(option.effect=="trade_card" || option.effect=="trade_object") return State.credits>=Math.Max(0,option.amount);
             if(option.effect=="risky_card" || option.effect=="risky_object") return State.hp>Math.Max(0,option.amount);
             if(option.effect=="remove_card")return State.deck.Count>5 && State.deck.Any(id=>GameDatabase.Card(id)!=null && GameDatabase.Card(id).category!="weapon");
-            if(option.effect=="upgrade_card")return State.deck.Any(id=>GameDatabase.Card(id)!=null && GameDatabase.Card(id).category!="weapon" && !State.upgrades.Contains(id));
+            if(option.effect=="upgrade_card")return UpgradeCandidates().Count > 0;
             return true;
         }
         public string EventOptionUnavailableReason(int index)
@@ -791,6 +978,14 @@ namespace Lumia
             if(CanChooseEventOption(index))return "";
             var ev=GameDatabase.Event(State.chosenEventId);
             if(ev==null || index<0 || index>=ev.options.Length)return "선택할 수 없는 행동입니다.";
+            if (State.cardUpgradePending) return "먼저 카드 강화를 완료하거나 포기하세요.";
+            if (ev.chainOnly && State.completedChainEvents.Contains(ev.id)) return "이미 보상을 받은 후속 조우입니다.";
+            var option = ev.options[index];
+            if (option.creditCost > State.credits) return "약속에 필요한 크레딧이 부족합니다.";
+            if (!string.IsNullOrEmpty(option.requiredFoodId) && !State.foods.Contains(option.requiredFoodId)) return "필요한 음식: " + (GameDatabase.Food(option.requiredFoodId)?.name ?? option.requiredFoodId);
+            if (!string.IsNullOrEmpty(option.requiredObjectId) && !State.objects.Contains(option.requiredObjectId)) return "필요한 오브젝트: " + (GameDatabase.Object(option.requiredObjectId)?.name ?? option.requiredObjectId);
+            if (!string.IsNullOrEmpty(option.followupId) && State.completedChainEvents.Contains(option.followupId)) return "이 약속의 후속 조우를 이미 마쳤습니다.";
+            if (!string.IsNullOrEmpty(option.followupId) && State.pendingEncounterFollowups.Any(x => x.eventId == option.followupId)) return "이미 다음 만남을 약속했습니다.";
             switch(ev.options[index].effect)
             {
                 case "trade_card":case "trade_object":return "필요한 크레딧이 부족합니다.";
@@ -803,9 +998,22 @@ namespace Lumia
         public bool ChooseEventOption(int index)
         {
             var e = GameDatabase.Event(State.chosenEventId);
-            if (State.stage != RunStage.Encounter || e == null || State.runeChangePending || index < 0 || index >= e.options.Length) return Fail("조우의 행동을 선택하세요.");
+            if (State.stage != RunStage.Encounter || e == null || State.runeChangePending || State.cardUpgradePending || index < 0 || index >= e.options.Length) return Fail("조우의 행동을 선택하세요.");
             if(!CanChooseEventOption(index)) return Fail(EventOptionUnavailableReason(index));
             var o = e.options[index]; bool pending = false;
+            State.credits -= Math.Max(0, o.creditCost);
+            if (!string.IsNullOrEmpty(o.requiredFoodId)) State.foods.Remove(o.requiredFoodId);
+            if (!string.IsNullOrEmpty(o.requiredObjectId)) State.objects.Remove(o.requiredObjectId);
+            if (e.chainOnly)
+            {
+                if (!State.completedChainEvents.Contains(e.id)) State.completedChainEvents.Add(e.id);
+                State.pendingEncounterFollowups.RemoveAll(x => x.eventId == e.id);
+            }
+            if (!string.IsNullOrEmpty(o.followupId) && !State.completedChainEvents.Contains(o.followupId) && !State.pendingEncounterFollowups.Any(x => x.eventId == o.followupId))
+            {
+                var followup = GameDatabase.Event(o.followupId);
+                if (followup != null) State.pendingEncounterFollowups.Add(new PendingEncounterFollowup { eventId = followup.id, owner = followup.owner, priorityNext = true });
+            }
             switch (o.effect)
             {
                 case "heal": Heal(o.amount); break;
@@ -827,9 +1035,8 @@ namespace Lumia
                     if (removable.Count > 0 && State.deck.Count > 5) { string removed = removable[Next(removable.Count)]; State.deck.Remove(removed); Say(GameDatabase.Card(removed).name + " 카드 1장을 제거했습니다."); }
                     break;
                 case "upgrade_card":
-                    var upgradable = State.deck.Where(id => GameDatabase.Card(id) != null && GameDatabase.Card(id).category != "weapon" && !State.upgrades.Contains(id)).Distinct().ToList();
-                    if (upgradable.Count > 0) { var upgrade = upgradable[Next(upgradable.Count)]; State.upgrades.Add(upgrade); Say(GameDatabase.Card(upgrade).name + " 강화 · 피해/방어 +3, 회복 +2"); }
-                    break;
+                    State.cardUpgradePending = true;
+                    return Say("강화할 카드와 강화 방향을 직접 선택하세요. 같은 이름의 카드에는 같은 강화가 적용되며, 한 카드 이름에는 한 방향만 선택할 수 있습니다.");
             }
             Say(o.description);
             if (State.hp <= 0) { Lose(); return true; }
@@ -949,13 +1156,16 @@ namespace Lumia
                 string[] animals = { "chicken", "dog", "boar", "wolf", "bear" };
                 string[] names = { "닭", "들개", "멧돼지", "늑대", "곰" };
                 int[] health = { 20, 28, 38, 44, 62 };
-                int pick = Next(animals.Length); c.animal = c.enemyId = animals[pick]; c.enemyName = names[pick];
+                int pick = Next(animals.Length);
+                if (!string.IsNullOrEmpty(node.assignedAnimal) && Array.IndexOf(animals, node.assignedAnimal) >= 0) pick = Array.IndexOf(animals, node.assignedAnimal);
+                c.animal = c.enemyId = animals[pick]; c.enemyName = names[pick];
                 c.enemyMaxHp = (int)Math.Ceiling((health[pick] + level * 3) * (1.15f + (State.act-1)*.12f)); c.enemyDeck.Add("basic_attack");
             }
             else
             {
                 var combatRoster = GameDatabase.Characters.Where(x => x.cards != null && x.cards.Length > 0).ToList();
                 var character = boss ? BossForAct(State.act) : combatRoster[Next(combatRoster.Count)];
+                if (!boss && !string.IsNullOrEmpty(node.assignedOpponent)) character = combatRoster.FirstOrDefault(x => x.id == node.assignedOpponent) ?? character;
                 c.enemyId = character.id; c.enemyName = (boss ? "보스 · " : "") + character.name;
                 c.enemyMaxHp = (int)Math.Ceiling((boss ? 80 + level * 8 : 35 + level * 6) * (boss ? 1.40f + (State.act-1)*.40f : 1.15f + (State.act-1)*.30f) + (State.act-1)*15);
                 foreach (var id in character.cards)
@@ -1035,7 +1245,12 @@ namespace Lumia
 
         private void StartPlayerTurn(bool first = false)
         {
-            var c = State.combat; c.turn++; c.energy = MaxEnergy + Modifier("turn_energy")+(first?c.playerOpeningEnergy:0); c.playerOpeningEnergy=0; c.attacksPlayed = 0;
+            var c = State.combat;
+            int retained = !first && !string.IsNullOrEmpty(c.retainedCardId) ? 1 : 0;
+            // Restore the reserved copy before any turn-start draws, so those draws respect its hand slot.
+            if (retained > 0) c.hand.Add(c.retainedCardId);
+            c.retainedCardId = null; c.retainIndex = -1;
+            c.turn++; c.energy = MaxEnergy + Modifier("turn_energy")+(first?c.playerOpeningEnergy:0); c.playerOpeningEnergy=0; c.attacksPlayed = 0;
             if (!first) SkillMechanics.StartTurn(c.playerSkills);
             TraitMechanics.StartTurn(c.playerTraits);
             c.enemyTurn = false; c.freeCasts.Clear(); c.freeCastSources.Clear();
@@ -1052,7 +1267,7 @@ namespace Lumia
                 if(damage>0){TraitEvent(false,"damaged",null,true,damage);TraitEvent(false,"low_health",null,true,damage);}
             }
             if (CheckBattleEnd()) return;
-            DrawCards(5 + Modifier("turn_draw")); PlanEnemyTurn();
+            DrawCards(Math.Max(0, 5 + Modifier("turn_draw") - retained)); PlanEnemyTurn();
             Say(c.turn + "턴 · 코스트 " + c.energy + "/" + MaxEnergy);
         }
 
@@ -1268,12 +1483,13 @@ namespace Lumia
         }
 
         private int BaseEnemyEvasion() { return string.IsNullOrEmpty(State.combat.animal) ? Math.Min(45, 3 + State.combat.enemyLevel / 2 + EnemyEquipmentSum(g=>g.evasion)) : 0; }
-        private void RecallSkillDiscounts(SkillActorState actor, SkillActorState before, IEnumerable<string> owned, List<string> hand, List<string> draw, List<string> discard)
+        private void RecallSkillDiscounts(SkillActorState actor, SkillActorState before, IEnumerable<string> owned, List<string> hand, List<string> draw, List<string> discard, bool playerUpgrade = false)
         {
             foreach (var discount in actor.discounts)
             {
                 string id=discount.targetCard;
-                if (discount.amount<CardCost(id) || SkillMechanics.Discount(before,id)>=discount.amount || !owned.Contains(id) || hand.Contains(id) || hand.Count>=12) continue;
+                int baseCost = playerUpgrade ? PlayerCard(id)?.cost ?? 99 : CardCost(id);
+                if (discount.amount<baseCost || SkillMechanics.Discount(before,id)>=discount.amount || !owned.Contains(id) || hand.Contains(id) || hand.Count>=12) continue;
                 int index=discard.LastIndexOf(id);
                 if (index>=0) { discard.RemoveAt(index);hand.Add(id);continue; }
                 index=draw.LastIndexOf(id);
@@ -1351,7 +1567,7 @@ namespace Lumia
             var c=State.combat;var actor=enemy?c.enemyTraits:c.playerTraits;
             var before=SkillMechanics.Clone(actor.skills);
             ApplyTraitResult(enemy,ResolveBeforeTraits(actor,enemy,card,landed,skillBefore,hp));
-            if(!enemy)RecallSkillDiscounts(actor.skills,before,State.deck,c.hand,c.drawPile,c.discardPile);
+            if(!enemy)RecallSkillDiscounts(actor.skills,before,State.deck,c.hand,c.drawPile,c.discardPile,true);
         }
         private TraitResult TraitEvent(bool enemy,string trigger,CardDef card,bool landed,int damage=0,int block=0,int heal=0,int avoided=0)
         {
@@ -1633,6 +1849,7 @@ namespace Lumia
             node.visited = true; State.row = node.row; State.lane = node.lane;
             State.activeNodeId = -1; State.combat = null; State.stage = RunStage.Map;
             State.encounterOffers.Clear(); State.chosenEventId = null;
+            State.cardUpgradePending = false;
             if (node.kind == ZoneKind.Boss)
             {
                 if (State.act >= 3) { State.stage = RunStage.Won; Say("니아: 출구는 바로 여기야. 하나는 VF 세계를 탈출해 아글라이아 연구소로 돌아왔다."); }
@@ -1651,7 +1868,6 @@ namespace Lumia
             var c=State.combat;
             c.enemyHp=Math.Min(c.enemyMaxHp,c.enemyHp+Math.Max(0,amount)*(100-Math.Max(TraitMechanics.HealingReduction(c.enemyTraits),StatusMechanics.HealingReduction(c.enemyStatuses)))/100);
         }
-        private int UpgradeBonus(string id, int amount) { return State.upgrades.Contains(id) ? amount : 0; }
         private int EquipmentSum(Func<GearDef, int> value) { return State.gear.Select(GameDatabase.Equipment).Where(x => x != null).Sum(value); }
         private int Modifier(string trigger)
         {

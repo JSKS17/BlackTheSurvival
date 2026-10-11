@@ -29,7 +29,9 @@ namespace Lumia
             foreach (var card in Cards) card.description = CardPresentation.Describe(card, Cards);
             TraitMechanics.Configure(Passives, Runes);
             EquipmentIdentity.Configure(Gear);
+            EncounterChains.Configure(Events);
             EventPresentation.Configure(Events);
+            EventPresentation.Configure(EncounterChains.Events);
         }
 
         public static CardDef Card(string id) => Cards.Find(x => x.id == id);
@@ -38,7 +40,7 @@ namespace Lumia
         public static GearDef Equipment(string id) => Gear.Find(x => x.id == id);
         public static FoodDef Food(string id) => Foods.Find(x => x.id == id);
         public static ObjectDef Object(string id) => Objects.Find(x => x.id == id);
-        public static EventDef Event(string id) => Events.Find(x => x.id == id);
+        public static EventDef Event(string id) => Events.Find(x => x.id == id) ?? EncounterChains.Event(id);
         public static CharacterDef Character(string id) => Characters.Find(x => x.id == id);
         public static int CostForCooldown(float seconds) => CardPresentation.Cost(seconds);
 
@@ -297,7 +299,7 @@ namespace Lumia
 
         static EventOption Choice(string label,string effect,int amount=0,string cardId=null,string objectId=null,string passiveId=null)
         {
-            string outcome = effect=="heal" ? $"체력 {amount} 회복" : effect=="credits" ? $"{amount} 크레딧 획득" : effect=="damage" ? $"체력 {amount} 소모" : effect=="max_health" ? $"최대 체력 +{amount}" : effect=="object" ? $"{Object(objectId)?.name} 1개 획득" : effect=="card" ? $"{Card(cardId)?.name} 카드 획득" : effect=="passive" ? $"{Passive(passiveId)?.name} 패시브 획득" : effect=="rune_change" ? "메인·보조 룬을 다른 계열로 변경" : effect=="remove_card" ? "무작위 일반 카드 1장 제거" : effect=="upgrade_card" ? "무작위 일반 카드 1종 강화" : "잠시 이야기를 나눈다";
+            string outcome = effect=="heal" ? $"체력 {amount} 회복" : effect=="credits" ? $"{amount} 크레딧 획득" : effect=="damage" ? $"체력 {amount} 소모" : effect=="max_health" ? $"최대 체력 +{amount}" : effect=="object" ? $"{Object(objectId)?.name} 1개 획득" : effect=="card" ? $"{Card(cardId)?.name} 카드 획득" : effect=="passive" ? $"{Passive(passiveId)?.name} 패시브 획득" : effect=="rune_change" ? "메인·보조 룬을 다른 계열로 변경" : effect=="remove_card" ? "무작위 일반 카드 1장 제거" : effect=="upgrade_card" ? "원하는 일반 카드 1종 강화" : "잠시 이야기를 나눈다";
             return new EventOption { label=label,description=outcome,effect=effect,amount=amount,cardId=cardId,objectId=objectId,passiveId=passiveId };
         }
 

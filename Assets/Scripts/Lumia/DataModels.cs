@@ -64,11 +64,14 @@ namespace Lumia
     {
         public string label, description, effect, cardId, objectId, passiveId;
         public int amount;
+        public string followupId, requiredFoodId, requiredObjectId;
+        public int creditCost;
     }
     [Serializable] public class EventDef
     {
         public string id, owner, title, story;
         public EventOption[] options;
+        public bool chainOnly;
     }
     [Serializable] public class CharacterDef
     {

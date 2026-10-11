@@ -94,6 +94,11 @@ public static class BalanceSimulation
                         var ev = GameDatabase.Event(e.State.chosenEventId);
                         var options = Enumerable.Range(0, ev.options.Length).Where(e.CanChooseEventOption).OrderBy(i => EventScore(e, ev.options[i]));
                         e.ChooseEventOption(options.Last());
+                        if (e.State.cardUpgradePending)
+                        {
+                            string card = e.UpgradeCandidates().OrderBy(id => DraftScore(e.PlayerCard(id))).Last();
+                            e.UpgradeCard(card, e.CardUpgradeOptions(card).First().id);
+                        }
                         if (e.State.runeChangePending) { e.SetRunes("diamond", "tempering"); e.FinishRuneChange(); }
                         break;
                     case RunStage.PassiveChoice:

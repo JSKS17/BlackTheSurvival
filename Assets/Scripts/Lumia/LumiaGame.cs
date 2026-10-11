@@ -28,6 +28,9 @@ namespace Lumia
         GearSlot craftSlot;
         Vector2 scroll, inventoryScroll, handScroll, mapScroll, detailScroll, fieldScroll, encounterStoryScroll;
         int displayedTurn = -1;
+        bool retainSelecting, hyperloopSelecting;
+        string upgradeSelected = "", upgradeBranch = "", mapIntel = "";
+        Vector2 upgradeCardScroll, upgradePreviewScroll, helpScroll, mapIntelScroll;
         int mapAct = -1, mapRow = -99;
         readonly CombatEffects effects = new CombatEffects();
         readonly Dictionary<string, AudioClip> skillSounds = new Dictionary<string, AudioClip>();
@@ -54,7 +57,7 @@ namespace Lumia
             DontDestroyOnLoad(gameObject);
             Application.targetFrameRate = 60;
             audioVerification = Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-audio-verify") >= 0;
-            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
+            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
             savePath = Path.Combine(Application.persistentDataPath, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
             font = Resources.Load<Font>("Lumia/Galmuri11");
@@ -155,7 +158,7 @@ namespace Lumia
             GUI.matrix = Matrix4x4.TRS(new Vector3(ox, oy, 0), Quaternion.identity, new Vector3(scale, scale, 1));
             GUI.color = Color.white;
             currentLayer = 0;
-            topLayer = !string.IsNullOrEmpty(inspectCard) || !string.IsNullOrEmpty(inspectTrait) || !string.IsNullOrEmpty(inspectGear) ? 6 : fieldInfo || enemyLoadout ? 5 : help ? 4 : settings ? 3 : inventory ? 2 : catalog || !string.IsNullOrEmpty(craftPending) ? 1 : 0;
+            topLayer = !string.IsNullOrEmpty(inspectCard) || !string.IsNullOrEmpty(inspectTrait) || !string.IsNullOrEmpty(inspectGear) ? 6 : fieldInfo || enemyLoadout ? 5 : help ? 4 : settings ? 3 : inventory ? 2 : catalog || !string.IsNullOrEmpty(craftPending) || !string.IsNullOrEmpty(mapIntel) ? 1 : 0;
             GUI.enabled = topLayer == 0;
             Fill(new Rect(-ox / scale, -oy / scale, Screen.width / scale, Screen.height / scale), Ink);
             if (lobby || Engine == null) DrawLobby();
@@ -177,6 +180,7 @@ namespace Lumia
                 if (Btn(new Rect(1174, 18, 84, 32), "메뉴", false, Muted)) { lobby = true; Save(); }
             }
             if (!lobby && Engine != null && (Engine.State.stage == RunStage.Combat || Engine.State.stage == RunStage.Rewards || Engine.State.stage == RunStage.Lost)) effects.Draw(label, reduceMotion);
+            if (!string.IsNullOrEmpty(mapIntel)) { currentLayer = 1; GUI.enabled = topLayer == 1; DrawMapIntel(); }
             if (catalog) { currentLayer = 1; GUI.enabled = topLayer == 1; DrawCatalog(); }
             if (inventory && Engine != null) { currentLayer = 2; GUI.enabled = topLayer == 2; DrawInventory(); }
             if (settings) { currentLayer = 3; GUI.enabled = topLayer == 3; DrawSettings(); }
@@ -232,6 +236,7 @@ namespace Lumia
         {
             Engine = new GameEngine(Environment.TickCount & int.MaxValue);
             campRemovalSelection.Clear(); campSelectionState = null;
+            retainSelecting = hyperloopSelecting = false; upgradeSelected = upgradeBranch = mapIntel = "";
             lobby = false; prepStep = 0; scroll = handScroll = mapScroll = detailScroll = Vector2.zero; displayedTurn = -1;
             mapAct = -1; mapRow = -99; effects.Clear(); nextEnemyActionAt = nextPlayerActionAt = 0;
             var main = GameDatabase.Runes.FirstOrDefault(x => x.main);
@@ -353,20 +358,24 @@ namespace Lumia
         void DrawMap()
         {
             var s = Engine.State;
-            Header("루미아 탐색 지도", "ACT " + s.act + " / 03  ·  연결된 구역을 선택하세요.  ·  노드 방문 시 자동 저장");
+            Header("루미아 탐색 지도", "ACT " + s.act + " / 03  ·  " + (hyperloopSelecting ? "하이퍼루프 목적지를 선택하세요. 취소하면 사용 횟수를 소모하지 않습니다." : "연결된 구역을 선택하세요.  ·  노드 방문 시 자동 저장"));
             Tex(new Rect(0, 80, 905, 640), PixelArt.MapBackground(), ScaleMode.ScaleAndCrop);
             Fill(new Rect(0, 80, 905, 640), new Color(.035f, .07f, .10f, .74f));
             string[] actNames = { "숲의 잔향", "금지구역의 신호", "게임 월드의 끝" };
             Txt(new Rect(35, 110, 800, 35), "0" + s.act + "  /  " + actNames[s.act - 1], 25, Text);
             Txt(new Rect(35, 153, 800, 23), "막당 " + s.mapRows + "구역  ·  현재 " + Math.Max(0, s.row + 1) + " / " + s.mapRows + "  ·  지도를 가로로 스크롤할 수 있습니다.", 14, Muted);
             var nodes = s.map.Where(x => x.act == s.act).ToArray();
-            var reachable = Engine.AvailableNodes();
+            var reachable = hyperloopSelecting ? Engine.AvailableHyperloopNodes() : Engine.AvailableNodes();
             if (mapAct != s.act || mapRow != s.row)
             {
                 mapScroll = new Vector2(Math.Max(0, (s.row - 2) * 119), 0); mapAct = s.act; mapRow = s.row;
             }
             if (Btn(new Rect(35, 186, 96, 29), "< 이전", false, Muted)) mapScroll.x = Math.Max(0, mapScroll.x - 238);
             if (Btn(new Rect(770, 186, 96, 29), "다음 >", false, Muted)) mapScroll.x = Math.Min(Math.Max(0, s.mapRows * 119 + 40 - 843), mapScroll.x + 238);
+            if (Btn(new Rect(150, 186, 298, 29), s.scoutedActs.Contains(s.act) ? "보안 콘솔  ·  사용 완료" : "보안 콘솔  ·  40 CR", false, Gold, Engine.CanUseSecurityConsole && s.credits >= 40)) Act(Engine.UseSecurityConsole, "kiosk.purchase");
+            if (Btn(new Rect(460, 186, 295, 29), hyperloopSelecting ? "하이퍼루프 선택 취소" : !s.hyperloopActs.Contains(s.act) ? "하이퍼루프  ·  막당 1회" : "하이퍼루프  ·  사용 완료", hyperloopSelecting, Mint, hyperloopSelecting || Engine.CanUseHyperloop)) hyperloopSelecting = !hyperloopSelecting;
+            string pending = Engine.PendingFollowupDescription;
+            Txt(new Rect(35, 596, 830, 16), string.IsNullOrEmpty(pending) ? "콘솔: 다음 두 단계 정보 확인  /  하이퍼루프: 바로 다음 단계의 연결되지 않은 구역으로 이동" : pending, 10, string.IsNullOrEmpty(pending) ? Muted : Gold);
             int selectedLane = -1;
             mapScroll = GUI.BeginScrollView(new Rect(27, 225, 843, 371), mapScroll, new Rect(0, 0, Math.Max(843, s.mapRows * 119 + 40), 348));
             foreach (var n in nodes)
@@ -387,11 +396,23 @@ namespace Lumia
                 else Tex(new Rect(r.x + 12, r.y + 9, 36, 36), PixelArt.Icon(n.kind.ToString()), ScaleMode.ScaleToFit, available || n.visited ? Color.white : Muted);
                 Txt(new Rect(r.x - 22, r.y + 65, 106, 22), boss == null ? ZoneName(n.kind) : boss.name, 11, available ? tone : Muted, true);
                 if (n.nearKiosk && n.kind == ZoneKind.Subject) Txt(new Rect(r.x - 14, r.y - 22, 92, 20), "키오스크 주변", 9, Gold, true);
+                string intel = Engine.NodeIntel(n);
+                if (!string.IsNullOrEmpty(intel))
+                {
+                    Rect intelRect = new Rect(r.x - 25, r.y + 86, 112, 14);
+                    Txt(intelRect, n.kind == ZoneKind.Kiosk ? "키오스크 재고 보기 +" : intel, 9, Gold, true);
+                    if (n.kind == ZoneKind.Kiosk && Hit(intelRect)) { mapIntel = intel; mapIntelScroll = Vector2.zero; }
+                }
                 if (Hit(r, available)) selectedLane = n.lane;
             }
             for (int i = 0; i < s.mapRows; i++) Txt(new Rect(8 + i * 119, 8, 94, 24), (i + 1).ToString("00"), 11, Muted, true);
             GUI.EndScrollView();
-            if (selectedLane >= 0) { Act(() => Engine.EnterNode(selectedLane), "map.enter"); return; }
+            if (selectedLane >= 0)
+            {
+                bool moved = hyperloopSelecting ? Act(() => Engine.EnterHyperloopNode(selectedLane), "map.enter") : Act(() => Engine.EnterNode(selectedLane), "map.enter");
+                if (moved) hyperloopSelecting = false;
+                return;
+            }
             Sidebar(921, 103);
             for (int act = 1; act <= 3; ++act)
             {
@@ -406,6 +427,16 @@ namespace Lumia
                 Txt(new Rect(r.x + 64, r.y + 30, 200, 29), boss.name, 18, Text);
                 Txt(new Rect(r.x + 192, r.y + 8, 70, 19), defeated ? "처치 완료" : act == s.act ? "현재 구역" : "대기", 10, tone, true);
             }
+        }
+        void DrawMapIntel()
+        {
+            Modal(new Rect(220, 110, 840, 500));
+            Txt(new Rect(250, 139, 780, 37), "보안 콘솔 / 키오스크 재고", 25, Gold);
+            string text = mapIntel.Replace(" · ", "\n");
+            wrapped.fontSize = 17; float height = Math.Max(305, wrapped.CalcHeight(new GUIContent(text), 757) + 12);
+            mapIntelScroll = GUI.BeginScrollView(new Rect(250, 195, 780, 315), mapIntelScroll, new Rect(0, 0, 757, height));
+            Para(new Rect(0, 0, 757, height), text, 17, Text); GUI.EndScrollView();
+            if (Btn(new Rect(250, 540, 780, 43), "지도 돌아가기", true, Mint)) mapIntel = "";
         }
         Rect NodeRect(MapNode n) { return new Rect(25 + n.row * 119, 53 + n.lane * 102, 60, 60); }
 
@@ -476,8 +507,12 @@ namespace Lumia
             if (string.IsNullOrEmpty(c.animal) && Btn(new Rect(481, 322, 252, 33), "상대 패시브 · 장비 · D/F", false, Pink)) { enemyLoadout=true; inventoryScroll=Vector2.zero; }
             Fill(new Rect(0, 442, W, 278), Ink);
             Fill(new Rect(0, 441, W, 2), Line);
-            Txt(new Rect(24, 454, 800, 22), "손패 " + c.hand.Count + "  /  뽑을 카드 " + c.drawPile.Count + "  /  버린 카드 " + c.discardPile.Count + "  /  소멸 " + c.exhaustPile.Count, 11, Muted);
-            if (displayedTurn != c.turn) { handScroll = Vector2.zero; displayedTurn = c.turn; }
+            Txt(new Rect(24, 454, 590, 22), "손패 " + c.hand.Count + "  /  뽑을 카드 " + c.drawPile.Count + "  /  버린 카드 " + c.discardPile.Count + "  /  소멸 " + c.exhaustPile.Count, 11, Muted);
+            bool retaining = c.retainIndex >= 0 && c.retainIndex < c.hand.Count;
+            string retainedName = retaining ? GameDatabase.Card(c.hand[c.retainIndex]).name : "없음";
+            Txt(new Rect(615, 454, 413, 22), retainSelecting ? "보관할 카드를 누르세요. 다시 누르면 해제합니다." : "보관: " + retainedName + (retaining ? "  /  다음 턴 새로 뽑기 -1" : ""), 11, retaining || retainSelecting ? Gold : Muted);
+            if (Btn(new Rect(1070, 454, 186, 44), retainSelecting ? "보관 선택 닫기" : "카드 보관  " + Engine.RetainAvailable + "/2", retainSelecting, Gold, !c.enemyTurn && (Engine.RetainAvailable > 0 || retaining))) retainSelecting = !retainSelecting;
+            if (displayedTurn != c.turn) { handScroll = Vector2.zero; displayedTurn = c.turn; retainSelecting = false; }
             var hand = c.hand.ToArray();
             handScroll = GUI.BeginScrollView(new Rect(24, 485, 1004, 229), handScroll, new Rect(0, 0, Math.Max(1004, hand.Length * 178), 212));
             bool cardUsed = false;
@@ -485,19 +520,28 @@ namespace Lumia
             {
                 Rect r = new Rect(i * 178, 0, 168, 212);
                 bool playable = Engine.CanPlayCard(i) && Time.unscaledTime >= nextPlayerActionAt;
-                DrawCard(r, hand[i], false, playable, true);
-                if (Hit(r, playable)) { int index = i; Act(() => Engine.PlayCard(index)); nextPlayerActionAt = Time.unscaledTime + .18f; cardUsed = true; break; }
+                bool selected = c.retainIndex == i;
+                DrawCard(r, hand[i], selected, retainSelecting ? !c.enemyTurn : playable, true);
+                if (selected) { Rect mark = new Rect(r.xMax - 43, r.y + 8, 34, 23); Fill(mark, Ink); Txt(mark, "보관", 10, Gold, true); }
+                if (Hit(r, retainSelecting ? !c.enemyTurn : playable))
+                {
+                    int index = i;
+                    if (retainSelecting) { Act(() => Engine.ToggleRetainCard(index), "ui.select"); }
+                    else { Act(() => Engine.PlayCard(index)); nextPlayerActionAt = Time.unscaledTime + .18f; }
+                    cardUsed = true; break;
+                }
             }
             GUI.EndScrollView();
             if (cardUsed) return;
-            if (Btn(new Rect(1070, 515, 186, 71), c.enemyTurn ? "상대 행동 중" : "턴 종료  >", true, Gold, !c.enemyTurn && Time.unscaledTime >= nextPlayerActionAt)) { Act(Engine.BeginEndTurn, "turn.end"); return; }
+            if (Btn(new Rect(1070, 515, 186, 71), c.enemyTurn ? "상대 행동 중" : "턴 종료  >", true, Gold, !c.enemyTurn && Time.unscaledTime >= nextPlayerActionAt)) { if (Act(Engine.BeginEndTurn, "turn.end")) retainSelecting = false; return; }
             if (Btn(new Rect(1070, 601, 186, 38), "회복 아이템", false, Mint, !c.enemyTurn)) { inventory = true; inventoryTab = 2; inventoryScroll = Vector2.zero; }
             if (s.log.Count > 0) Para(new Rect(1070, 653, 186, 43), s.log[s.log.Count - 1], 11, Muted);
         }
 
         void DrawCard(Rect r, string id, bool selected = false, bool enabled = true, bool combat = false)
         {
-            var d = GameDatabase.Card(id); if (d == null) return;
+            bool enemyPreview = inspectEnemyCard && inspectCard == id && currentLayer == 6;
+            var d = Engine != null && !enemyPreview ? Engine.PlayerCard(id) : GameDatabase.Card(id); if (d == null) return;
             Color tone = d.damage > 0 ? Pink : d.block > 0 ? Mint : Gold;
             Box(r, enabled ? Panel : C("111d28"), selected ? Gold : enabled ? tone : Line);
             Fill(new Rect(r.x + 3, r.y + 3, r.width - 6, 32), C("203343"));
@@ -519,7 +563,7 @@ namespace Lumia
                 Tex(new Rect(r.xMax - 14 - artHeight * .8f, r.y + 39, artHeight * .8f, artHeight + 4), PixelArt.Portrait(owner.id), ScaleMode.ScaleToFit, enabled ? Color.white : Muted);
             float nameY = r.y + 43 + artHeight;
             float nameHeight=r.height>=250?31:26;
-            Para(new Rect(r.x + 9, nameY, r.width - 18, nameHeight), d.name + (selected ? " ✓" : ""), r.width < 130 || d.name.Length > 13 ? 11 : 13, tone);
+            Para(new Rect(r.x + 9, nameY, r.width - 18, nameHeight), d.name + (Engine != null && !string.IsNullOrEmpty(Engine.CardUpgradeLabel(id)) && !enemyPreview ? " +" : "") + (selected ? " ✓" : ""), r.width < 130 || d.name.Length > 13 ? 11 : 13, tone);
             // A card face is a brief overview. Complete rules belong to the detail panel.
             Para(CardPreviewRect(r), CardSummary(d, combat), 11, enabled ? Text : Muted);
             if (inspectCard != id)
@@ -535,8 +579,7 @@ namespace Lumia
 
         string CardSummary(CardDef d, bool combat)
         {
-            bool upgraded = combat && Engine.State.upgrades.Contains(d.id);
-            return DescriptionSummary.CardPreview(d, GameDatabase.Cards, combat ? Engine.CardDamage(d.id) : d.damage, d.block > 0 ? d.block + (upgraded ? 3 : 0) : 0, d.heal > 0 ? d.heal + (upgraded ? 2 : 0) : 0);
+            return DescriptionSummary.CardPreview(d, GameDatabase.Cards, combat ? Engine.CardDamage(d.id) : d.damage, d.block, d.heal);
         }
 
         static Rect CardPreviewRect(Rect r)
@@ -738,15 +781,17 @@ namespace Lumia
             var s = Engine.State;
             Header("실험체 조우", "우연한 만남도, 실험의 일부일까요?");
             if (s.runeChangePending) { DrawRuneSelection(true); return; }
+            if (s.cardUpgradePending) { DrawUpgradeChoice(); return; }
             if (string.IsNullOrEmpty(s.chosenEventId))
             {
                 Txt(new Rect(36, 113, 1160, 34), "세 개의 신호 중 하나를 따라가세요.", 25, Text);
-                var offers = s.encounterOffers.ToArray();
+                Txt(new Rect(36, 153, 1160, 20), Engine.PendingFollowupDescription, 12, Gold);
+                var offers = Engine.CurrentEncounterOffers.ToArray();
                 for (int i = 0; i < offers.Length; i++)
                 {
-                    var e = GameDatabase.Event(offers[i]); Rect r = new Rect(36 + i * 410, 183, 387, 402);
+                    var e = offers[i]; Rect r = new Rect(36 + i * 410, 183, 387, 402);
                     Box(r, Panel, Line); Tex(new Rect(r.x + 94, r.y + 22, 200, 187), PixelArt.Portrait(e.owner), ScaleMode.ScaleToFit);
-                    Txt(new Rect(r.x + 20, r.y + 224, 347, 24), e.owner, 14, Mint, true);
+                    Txt(new Rect(r.x + 20, r.y + 224, 347, 24), e.owner + (e.chainOnly ? "  ·  약속한 재회" : ""), 14, Mint, true);
                     Txt(new Rect(r.x + 20, r.y + 264, 347, 32), e.title, 20, Text, true);
                     FitText(new Rect(r.x + 25, r.y + 313, 337, 65), e.story, 14, Muted);
                     if (Hit(r)) { encounterStoryScroll=Vector2.zero;Act(() => Engine.SelectEncounter(e.id)); return; }
@@ -754,7 +799,8 @@ namespace Lumia
             }
             else
             {
-                var e = GameDatabase.Event(s.chosenEventId);
+                var e = Engine.CurrentEncounter;
+                if (e == null) return;
                 Tex(new Rect(40, 146, 324, 392), PixelArt.Portrait(e.owner), ScaleMode.ScaleToFit);
                 Txt(new Rect(403, 124, 830, 32), e.owner + "  /  " + e.title, 25, Mint);
                 wrapped.fontSize=18;float storyHeight=Math.Max(104,wrapped.CalcHeight(new GUIContent(e.story),801)+10);
@@ -770,8 +816,8 @@ namespace Lumia
                     string summary=EventPresentation.RewardSummary(option);
                     string narrative=option.description.EndsWith(summary,StringComparison.Ordinal)
                         ? option.description.Substring(0,option.description.Length-summary.Length).Trim() : option.description;
-                    FitText(new Rect(r.x + 19, r.y + 36, r.width - 116, 34), narrative, 14, Text);
-                    if(reward!=null)
+                    FitText(new Rect(r.x + 19, r.y + 36, r.width - 116, 34), canChoose ? narrative : Engine.EventOptionUnavailableReason(i), 14, canChoose ? Text : Pink);
+                    if(reward!=null && string.IsNullOrEmpty(option.followupId))
                     {
                         string price=option.effect=="trade_card"?"크레딧 "+option.amount+" 지불 · ":option.effect=="risky_card"?"체력 "+option.amount+" 소모 · ":"";
                         Para(new Rect(r.x+19,r.y+76,r.width-116,28),price+"획득 / "+EventPresentation.RewardTitle(option),11,Mint);
@@ -780,10 +826,52 @@ namespace Lumia
                         Txt(new Rect(r.xMax-90,r.y+76,84,20),"카드 보기 +",10,Mint,true);
                         if(Hit(new Rect(r.xMax-90,r.y+5,84,94))) {inspectCard=reward.id;inspectEnemyCard=false;detailScroll=Vector2.zero;return;}
                     }
-                    else FitText(new Rect(r.x+19,r.y+76,r.width-38,28),summary,12,Mint);
+                    else FitText(new Rect(r.x+19,r.y+72,r.width-38,33),summary,11,Mint);
                     if (Hit(r,canChoose)) { int index = i; Act(() => Engine.ChooseEventOption(index), "encounter.choose"); return; }
                 }
             }
+        }
+
+        void DrawUpgradeChoice()
+        {
+            var candidates = Engine.UpgradeCandidates();
+            if (!candidates.Contains(upgradeSelected)) { upgradeSelected = ""; upgradeBranch = ""; }
+            Txt(new Rect(36, 111, 1160, 32), "기술 개조 / 카드와 강화 방향을 선택하세요.", 25, Mint);
+            Para(new Rect(36, 151, 1160, 26), "같은 카드의 모든 사본에 적용됩니다. 카드 1종은 한 방향으로만 강화할 수 있습니다. 확정 전에는 자유롭게 변경하세요.", 13, Gold);
+            Txt(new Rect(36, 185, 570, 23), "강화할 카드  /  " + candidates.Count + "종", 14, Muted);
+            upgradeCardScroll = GUI.BeginScrollView(new Rect(36, 220, 571, 379), upgradeCardScroll, new Rect(0, 0, 548, Math.Max(360, Mathf.Ceil(candidates.Count / 3f) * 228)));
+            for (int i = 0; i < candidates.Count; i++)
+            {
+                string id = candidates[i]; Rect r = new Rect(i % 3 * 182, i / 3 * 228, 168, 212);
+                DrawCard(r, id, id == upgradeSelected);
+                if (Hit(r)) { upgradeSelected = id; upgradeBranch = ""; upgradePreviewScroll = Vector2.zero; }
+            }
+            GUI.EndScrollView();
+            Box(new Rect(638, 185, 602, 414), Panel, Line);
+            var options = Engine.CardUpgradeOptions(upgradeSelected);
+            if (options.Count == 0)
+                Para(new Rect(663, 215, 552, 100), candidates.Count == 0 ? "강화 가능한 카드가 없습니다. 강화 없이 다음 구역으로 이동할 수 있습니다." : "왼쪽에서 카드를 선택하면 강화 방향과 실제 효과를 확인할 수 있습니다.", 18, Muted);
+            else
+            {
+                for (int i = 0; i < options.Count; i++)
+                {
+                    var option = options[i];
+                    if (Btn(new Rect(657 + i * 287, 202, 276, 43), option.name, option.id == upgradeBranch, option.id == upgradeBranch ? Gold : Mint)) { upgradeBranch = option.id; upgradePreviewScroll = Vector2.zero; }
+                }
+                var selected = options.FirstOrDefault(x => x.id == upgradeBranch);
+                if (selected == null) Para(new Rect(663, 275, 552, 90), "강화 방향을 선택하면 적용 후 수치와 전체 발동 조건을 미리 볼 수 있습니다.", 18, Muted);
+                else
+                {
+                    Txt(new Rect(663, 264, 552, 29), GameDatabase.Card(upgradeSelected).name + "  /  " + selected.name, 18, Gold);
+                    wrapped.fontSize = 15;
+                    float height = Math.Max(250, wrapped.CalcHeight(new GUIContent(selected.description), 529) + 12);
+                    upgradePreviewScroll = GUI.BeginScrollView(new Rect(663, 308, 552, 264), upgradePreviewScroll, new Rect(0, 0, 529, height));
+                    Para(new Rect(0, 0, 529, height), selected.description, 15, Text); GUI.EndScrollView();
+                }
+            }
+            if (Btn(new Rect(36, 626, 571, 48), "강화 없이 진행  >", false, Muted)) { if (Act(Engine.SkipCardUpgrade, "ui.cancel")) upgradeSelected = upgradeBranch = ""; }
+            if (Btn(new Rect(638, 626, 602, 48), "선택한 강화 확정  >", true, Gold, options.Any(x => x.id == upgradeBranch)))
+                if (Act(() => Engine.UpgradeCard(upgradeSelected, upgradeBranch), "encounter.choose")) upgradeSelected = upgradeBranch = "";
         }
 
         void DrawPassiveChoice()
@@ -1013,7 +1101,7 @@ namespace Lumia
 
         void DrawCardDetail()
         {
-            var d = GameDatabase.Card(inspectCard); if (d == null) { inspectCard = ""; return; }
+            var d = Engine != null && !inspectEnemyCard ? Engine.PlayerCard(inspectCard) : GameDatabase.Card(inspectCard); if (d == null) { inspectCard = ""; return; }
             Modal(new Rect(210, 82, 860, 562));
             bool inBattle = Engine != null && Engine.State.stage == RunStage.Combat;
             bool combat = inBattle && !inspectEnemyCard;
@@ -1024,8 +1112,8 @@ namespace Lumia
             DescriptionTabs(new Rect(480,201,559,32));
             if(inBattle && inspectEnemyCard) Txt(new Rect(480,240,560,16),"상대의 기본 효과 · 패시브와 장비 보정은 행동 예고에 반영됩니다.",10,Muted);
             if(combat && Engine.CardTotalDamage(d.id)>0) Txt(new Rect(480,240,560,16),"일반 적중 예상 피해 " + Engine.CardTotalDamage(d.id) + " · 방어·회피" + (d.id == "basic_attack" ? "·치명타" : "") + "에 따라 달라집니다.",10,Mint);
-            bool upgraded = combat && Engine.State.upgrades.Contains(d.id);
-            string description = combat ? CardPresentation.Describe(d, GameDatabase.Cards, Engine.CardDamage(d.id), d.block > 0 ? d.block + (upgraded ? 3 : 0) : 0, d.heal > 0 ? d.heal + (upgraded ? 2 : 0) : 0) : d.description;
+            string description = combat ? CardPresentation.Describe(d, GameDatabase.Cards, Engine.CardDamage(d.id), d.block, d.heal) : d.description;
+            if (Engine != null && !inspectEnemyCard && !string.IsNullOrEmpty(Engine.CardUpgradeLabel(d.id))) description = "강화 / " + Engine.CardUpgradeLabel(d.id) + " · 덱의 같은 카드 전체에 적용됩니다.\n\n" + description;
             string rules = CardPresentation.Rules(d);
             string extra = d.id == "basic_attack" ? "\n\n현재 치명타 확률: " + (inspectEnemyCard ? Engine.EnemyCritChance : Engine.CritChance) + "%. 장비의 치명타 확률은 합산하여 최대 30%까지 적용합니다. 1.5배 계산에서 생기는 소수점은 버립니다." : "";
             string summary=CardSummary(d,combat),cooperation=CrossSubjectSynergies.BriefDescription(d);
@@ -1258,7 +1346,10 @@ namespace Lumia
         {
             Modal(new Rect(150, 100, 980, 530));
             Txt(new Rect(185, 124, 900, 39), "실험 가이드", 25, Mint);
-            Para(new Rect(185, 181, 900, 356), "01  지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 키오스크 주변은 앞뒤 한 단계로 연결된 전투 구역입니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 카드 코스트는 0~7입니다. 최대 코스트는 5로 시작하며 보스 승리마다 1 증가합니다. 일부 조우에서도 올릴 수 있고 레벨 상승으로는 증가하지 않습니다. 방어도는 다음 내 턴에 사라집니다.\n\n03  수치·상태·표식·설치물은 필드 창에서 확인하세요. 할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하여 최대 30%까지 적용합니다.\n\n04  승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다.\n\n05  VF혈액샘플은 두 번째 보스 승리 후 구매합니다. 모닥불 휴식은 전체 회복·만년 스프 1개·카드 최대 2장 제거를 제공합니다. 제작·요리는 회복 없이 합쳐 3회이며, 장비는 이름·태그로 검색합니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.", 15, Text);
+            string text = "01  지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 키오스크 주변은 앞뒤 한 단계로 연결된 전투 구역입니다. 보안 콘솔은 막당 한 번 40크레딧으로 다음 두 단계의 실제 적과 키오스크 재고를 확인합니다. 하이퍼루프는 막당 한 번, 바로 다음 단계의 연결되지 않은 경로로 이동합니다. 목적지 선택을 취소하면 횟수를 쓰지 않습니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 최대 코스트는 5로 시작하며 보스 승리마다 1 증가합니다. 레벨 상승으로는 증가하지 않습니다. 전투마다 두 번, 손패 한 장을 다음 턴까지 보관할 수 있습니다. 보관하면 다음 턴에 새로 뽑는 카드가 한 장 줄어듭니다. 보관 선택은 턴 종료 전까지 변경하거나 해제할 수 있습니다.\n\n03  수치·상태·표식·설치물은 필드 창에서 확인하세요. 할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하여 최대 30%까지 적용합니다.\n\n04  승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다. 조우에서 카드를 강화할 때에는 대상 카드와 표시된 강화 방향 중 하나를 선택합니다. 같은 카드의 모든 사본에 적용되며 한 방향으로만 강화할 수 있습니다.\n\n05  VF혈액샘플은 두 번째 보스 승리 후 구매합니다. 모닥불 휴식은 전체 회복·만년 스프 1개·카드 최대 2장 제거를 제공합니다. 제작·요리는 회복 없이 합쳐 3회이며, 장비는 이름·태그로 검색합니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.\n\n06  일부 실험체 조우에는 다시 만나기로 약속하는 선택지가 있습니다. 새 약속을 맺은 직후의 실험체 조우에는 그 실험체의 후속 이야기가 세 선택지 중 하나로 80% 확률로 등장합니다. 만나지 못한 약속은 유지됩니다. 여러 약속이 있으면 이후 조우마다 미해결 약속의 등장 우선권이 순환합니다. 비용·보상·약속은 선택 전에 표시됩니다.";
+            wrapped.fontSize = 15; float height = Math.Max(350, wrapped.CalcHeight(new GUIContent(text), 877) + 12);
+            helpScroll = GUI.BeginScrollView(new Rect(185, 181, 900, 356), helpScroll, new Rect(0, 0, 877, height));
+            Para(new Rect(0, 0, 877, height), text, 15, Text); GUI.EndScrollView();
             if (Btn(new Rect(185, 550, 900, 45), "기록 확인", true, Mint)) help = false;
         }
 
@@ -1337,7 +1428,7 @@ namespace Lumia
             {
                 var state = JsonUtility.FromJson<RunState>(File.ReadAllText(savePath));
                 if (state == null || state.level < 1 || state.level > 20 || state.deck == null || state.map == null || !Enum.IsDefined(typeof(RunStage), state.stage)) throw new InvalidDataException("저장 기록 형식이 올바르지 않습니다.");
-                Engine = new GameEngine(state); lobby = false;
+                Engine = new GameEngine(state); lobby = false; retainSelecting = hyperloopSelecting = false; upgradeSelected = upgradeBranch = mapIntel = "";
                 prepStep = state.stage == RunStage.Preparation ? string.IsNullOrEmpty(state.chosenPassive) ? 0 : 2 : 0;
                 AudioCue("game.resume");
             }
@@ -1385,6 +1476,142 @@ namespace Lumia
             File.WriteAllText(path,JsonUtility.ToJson(audit,true));
             if(audit.overflows.Count>0)throw new InvalidOperationException("Card previews overflowed "+audit.overflows.Count+" native layouts; see "+path);
             Debug.Log("LUMIA PREVIEW "+audit.cards+" cards / "+audit.measurements+" native layouts / overflow=0 / font=11 / innerScroll=0");
+        }
+
+        void VerificationStrategyView(string view)
+        {
+            var s = Engine.State;
+            s.deck = new List<string> { "basic_attack", "basic_attack", "nia_q", "nia_q", "nia_w", "nia_e", "nia_r", "aya_q", "jackie_q" };
+            s.passives.Clear(); s.mainRune = s.supportRune = ""; s.gear.Clear(); s.weaponGrantedCards.Clear(); s.upgrades.Clear(); s.cardUpgrades.Clear(); s.credits = 200;
+            if (view.StartsWith("strategy_upgrade", StringComparison.Ordinal))
+            {
+                var encounter = GameDatabase.Events.First(e => !e.chainOnly && e.options.Any(o => o.effect == "upgrade_card"));
+                var eventNode = Engine.AvailableNodes().First(); eventNode.kind = ZoneKind.Encounter;
+                if (!Engine.EnterNode(eventNode.lane)) throw new InvalidOperationException("Native upgrade encounter node entry failed.");
+                s.encounterOffers = new List<string> { encounter.id }; s.chosenEventId = null;
+                if (!Engine.SelectEncounter(encounter.id)) throw new InvalidOperationException("Native upgrade encounter selection failed.");
+                if (view == "strategy_upgrade_offer") return;
+                int option = Array.FindIndex(encounter.options, o => o.effect == "upgrade_card");
+                if (!Engine.ChooseEventOption(option) || !s.cardUpgradePending || s.cardUpgrades.Count != 0 || s.stage != RunStage.Encounter)
+                    throw new InvalidOperationException("Upgrade event must wait for explicit card and branch confirmation.");
+                if (view == "strategy_upgrade_select") return;
+                upgradeSelected = "nia_q"; upgradeBranch = view == "strategy_upgrade_power" ? "power" : "arcade";
+                if (!Engine.CardUpgradeOptions(upgradeSelected).Any(o => o.id == upgradeBranch && o.description.Contains("강화 후 전체 효과")))
+                    throw new InvalidOperationException("Native upgrade preview must include its exact resulting rules.");
+                if (view == "strategy_upgrade_power" || view == "strategy_upgrade_special") return;
+                if (!Engine.UpgradeCard(upgradeSelected, upgradeBranch) || s.stage != RunStage.Map || !eventNode.visited || s.row != eventNode.row || s.lane != eventNode.lane
+                    || s.cardUpgrades.Count != 1 || s.cardUpgradePending || s.deck.Count(id => id == "nia_q") != 2 || Engine.CardUpgradeOptions("nia_q").Count != 0)
+                    throw new InvalidOperationException("A branch must upgrade all duplicate copies exactly once and close the pending selection.");
+                var upgraded = Engine.PlayerCard("nia_q");
+                if (!DescriptionSummary.CardPreview(upgraded, GameDatabase.Cards).Contains("블록을 2 늘립니다"))
+                    throw new InvalidOperationException("Upgraded Nia Q's compact summary must show its actual block generation.");
+                if (upgraded.mechanics.rules.Where(r => r.op == "gain").Sum(r => r.amount) <= GameDatabase.Card("nia_q").mechanics.rules.Where(r => r.op == "gain").Sum(r => r.amount))
+                    throw new InvalidOperationException("Nia Q's block branch was not applied in native rules.");
+                if (view == "strategy_upgrade_reloaded")
+                {
+                    Engine = new GameEngine(JsonUtility.FromJson<RunState>(JsonUtility.ToJson(s))); s = Engine.State;
+                    if (s.cardUpgrades.Count != 1 || Engine.CardUpgradeLabel("nia_q") != "블록 증설" || Engine.UpgradeCard("nia_q", "power"))
+                        throw new InvalidOperationException("Saved exclusive upgrades must persist and reject a second branch.");
+                }
+                inspectCard = "nia_q"; summaryMode = false; return;
+            }
+            if (view.StartsWith("strategy_retain", StringComparison.Ordinal))
+            {
+                var node = Engine.AvailableNodes().First(); node.kind = ZoneKind.Subject;
+                if (!Engine.EnterNode(node.lane)) throw new InvalidOperationException("Native retain battle could not start.");
+                var c = s.combat; c.hand = new List<string> { "basic_attack", "basic_attack", "nia_r", "nia_q", "nia_w" };
+                c.drawPile = Enumerable.Repeat("basic_guard", 12).ToList(); c.discardPile.Clear(); c.enemyHp = c.enemyMaxHp = 9999;
+                s.hp = s.maxHp = 999; c.enemyPlan.Clear(); displayedTurn = c.turn; retainSelecting = true;
+                if (view == "strategy_retain_select") return;
+                if (!Engine.ToggleRetainCard(2) || c.retainIndex != 2 || c.retainUses != 0 || Engine.RetainAvailable != 2)
+                    throw new InvalidOperationException("Retain selection must reserve one hand copy without spending a charge.");
+                if (view == "strategy_retain_selected") return;
+                if (view == "strategy_retain_cancelled")
+                {
+                    if (!Engine.ToggleRetainCard(2) || c.retainIndex != -1 || c.retainUses != 0 || c.hand.Count != 5)
+                        throw new InvalidOperationException("Cancelling retain must preserve all cards and charges.");
+                    return;
+                }
+                if (view == "strategy_retain_reloaded")
+                {
+                    Engine = new GameEngine(JsonUtility.FromJson<RunState>(JsonUtility.ToJson(s))); c = Engine.State.combat;
+                    if (c.retainIndex != 2 || c.retainUses != 0 || c.hand[2] != "nia_r") throw new InvalidOperationException("Unity reload lost the exact reserved hand copy.");
+                    return;
+                }
+                if (!Engine.EndTurn() || c.retainUses != 1 || c.hand.Count != 5 || c.hand[0] != "nia_r" || c.drawPile.Count != 8)
+                    throw new InvalidOperationException("Retaining must carry one card, draw four new cards, and spend one battle charge.");
+                retainSelecting = false; displayedTurn = c.turn; effects.Clear(); Engine.CombatActions.Clear(); return;
+            }
+            if (view.StartsWith("strategy_map", StringComparison.Ordinal) || view.StartsWith("strategy_hyperloop", StringComparison.Ordinal))
+            {
+                s.row = 0; s.lane = 0; s.stage = RunStage.Map; s.scoutedActs.Clear(); s.hyperloopActs.Clear(); s.revealedNodeIds.Clear(); mapAct = -1;
+                foreach (var n in s.map.Where(n => n.act == s.act && (n.row == 1 || n.row == 2)))
+                    n.kind = n.lane == 0 ? ZoneKind.Subject : n.lane == 1 ? ZoneKind.Kiosk : ZoneKind.Wildlife;
+                if (view == "strategy_map_before") return;
+                int previousRng = s.rngState;
+                if (!Engine.UseSecurityConsole() || s.credits != 160 || s.rngState != previousRng || s.revealedNodeIds.Count == 0 || s.revealedNodeIds.Any(id => string.IsNullOrEmpty(Engine.NodeIntel(s.map.First(n => n.id == id)))))
+                    throw new InvalidOperationException("Scouting must reveal stable actual node information for exactly 40 credits.");
+                if (view == "strategy_map_scouted") return;
+                if (view == "strategy_map_reloaded")
+                {
+                    string before = string.Join("|", s.map.Select(Engine.NodeIntel));
+                    Engine = new GameEngine(JsonUtility.FromJson<RunState>(JsonUtility.ToJson(s))); s = Engine.State;
+                    if (string.Join("|", s.map.Select(Engine.NodeIntel)) != before || Engine.UseSecurityConsole()) throw new InvalidOperationException("Reload changed scouting information or allowed a second purchase.");
+                    return;
+                }
+                if (view == "strategy_map_stock") { mapIntel = Engine.NodeIntel(s.map.First(n => n.kind == ZoneKind.Kiosk && s.revealedNodeIds.Contains(n.id))); return; }
+                hyperloopSelecting = true;
+                if (view == "strategy_hyperloop_select") return;
+                if (view == "strategy_hyperloop_cancelled") { hyperloopSelecting = false; if (s.hyperloopActs.Count != 0 || s.row != 0 || s.credits != 160) throw new InvalidOperationException("Cancelling hyperloop selection must be free."); return; }
+                var destination = Engine.AvailableHyperloopNodes().First(); string expected = destination.assignedAnimal;
+                int completedRow = s.row, completedLane = s.lane, currentAct = s.act;
+                if (!Engine.EnterHyperloopNode(destination.lane) || s.activeNodeId != destination.id || s.row != completedRow || s.lane != completedLane
+                    || !s.hyperloopActs.Contains(currentAct) || s.hyperloopActs.Count(act => act == currentAct) != 1 || s.combat == null || s.combat.animal != expected || destination.visited)
+                    throw new InvalidOperationException("Hyperloop must activate the scouted next-row opponent, spend one use, and defer completed route progress until the zone is finished.");
+                hyperloopSelecting = false; displayedTurn = s.combat.turn; effects.Clear(); Engine.CombatActions.Clear(); return;
+            }
+            if (view.StartsWith("strategy_chain", StringComparison.Ordinal))
+            {
+                var encounter = GameDatabase.Event("event_sho");
+                s.foods.Add("meat");
+                var eventNode = Engine.AvailableNodes().First(); eventNode.kind = ZoneKind.Encounter;
+                if (!Engine.EnterNode(eventNode.lane)) throw new InvalidOperationException("Native chain encounter node entry failed.");
+                s.encounterOffers = new List<string> { encounter.id }; s.chosenEventId = null;
+                int choice = Array.FindIndex(encounter.options, o => !string.IsNullOrEmpty(o.followupId));
+                if (choice < 0 || !Engine.SelectEncounter(encounter.id)) throw new InvalidOperationException("Native chain entry was not available.");
+                if (view == "strategy_chain_promise") return;
+                if (view == "strategy_chain_unavailable") { s.foods.Clear(); if (Engine.CanChooseEventOption(choice)) throw new InvalidOperationException("Chain cost must be enforced before making a promise."); return; }
+                if (!Engine.ChooseEventOption(choice) || s.stage != RunStage.Map || !eventNode.visited || s.row != eventNode.row || s.lane != eventNode.lane
+                    || s.pendingEncounterFollowups.Count != 1 || s.foods.Contains("meat")) throw new InvalidOperationException("Chain promise must pay its ingredient cost, queue a follow-up, and complete its real map node.");
+                string followup = s.pendingEncounterFollowups[0].eventId;
+                if (view == "strategy_chain_pending") return;
+                string promisedState = JsonUtility.ToJson(s); bool featured = false;
+                for (int seed = 1; seed <= 100 && !featured; seed++)
+                {
+                    var snapshot = JsonUtility.FromJson<RunState>(promisedState); snapshot.rngState = seed;
+                    Engine = new GameEngine(snapshot); s = Engine.State;
+                    var next = Engine.AvailableNodes().First(); next.kind = ZoneKind.Encounter;
+                    if (!Engine.EnterNode(next.lane)) throw new InvalidOperationException("Native next encounter could not start.");
+                    featured = s.encounterOffers.Contains(followup);
+                }
+                if (!featured || Engine.CurrentEncounterOffers.Count != 3 || !Engine.CurrentEncounterOffers.Any(e => e.id == followup && e.owner == "쇼우" && e.chainOnly))
+                    throw new InvalidOperationException("Native next encounter must offer the promised character's follow-up scene among three choices.");
+                if (view == "strategy_chain_offers") return;
+                if (!Engine.SelectEncounter(followup)) throw new InvalidOperationException("Promised follow-up could not be selected.");
+                if (view == "strategy_chain_reloaded")
+                {
+                    Engine = new GameEngine(JsonUtility.FromJson<RunState>(JsonUtility.ToJson(s))); s = Engine.State;
+                    if (Engine.CurrentEncounter == null || Engine.CurrentEncounter.id != followup || Engine.CurrentEncounter.owner != "쇼우") throw new InvalidOperationException("Unity reload lost the selected follow-up character or story.");
+                }
+                if (view == "strategy_chain_followup" || view == "strategy_chain_reloaded") return;
+                int before = s.deck.Count(id => id == "sho_w");
+                var followupNode = s.map.First(n => n.id == s.activeNodeId);
+                if (!Engine.ChooseEventOption(1) || s.stage != RunStage.Map || !followupNode.visited || s.row != followupNode.row || s.lane != followupNode.lane
+                    || s.deck.Count(id => id == "sho_w") != before + 1 || !s.completedChainEvents.Contains(followup) || s.pendingEncounterFollowups.Any(x => x.eventId == followup))
+                    throw new InvalidOperationException("Completing a follow-up must grant the shown reward once and clear the promise.");
+                inspectCard = "sho_w"; return;
+            }
+            throw new InvalidOperationException("Unknown native strategy fixture: " + view);
         }
 
         void VerificationCampRest(string view)
@@ -1458,10 +1685,11 @@ namespace Lumia
 
         public void VerificationView(string view)
         {
-            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0)) return;
+            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") < 0)) return;
             lobby = catalog = inventory = settings = help = fieldInfo = enemyLoadout = false;
             inspectCard = inspectTrait = inspectGear = craftPending = ""; inspectEnemyCard=false; summaryMode=true; scroll = inventoryScroll = encounterStoryScroll = detailScroll = Vector2.zero;summaryScroll.Clear();
             craftQuery = ""; craftTags.Clear(); craftSlot = GearSlot.Weapon; campRemovalSelection.Clear(); campSelectionState = null;
+            retainSelecting = hyperloopSelecting = false; upgradeSelected = upgradeBranch = mapIntel = ""; mapIntelScroll = helpScroll = upgradeCardScroll = upgradePreviewScroll = Vector2.zero;
             if (view == "lobby" || view == "audio_settings") { lobby = true; settings = view == "audio_settings"; return; }
             bool showFull=view.EndsWith("_full",StringComparison.Ordinal);
             if(showFull)view=view.Substring(0,view.Length-5);
@@ -1476,6 +1704,7 @@ namespace Lumia
             if (view == "preparation") { prepStep = 2; return; }
             Engine.BeginJourney();
             if (view == "help") { help = true; return; }
+            if (view.StartsWith("strategy_", StringComparison.Ordinal)) { VerificationStrategyView(view); return; }
             if (view == "jenny_passive")
             {
                 var jenny = GameDatabase.Passive("jenny_p");

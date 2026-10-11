@@ -10,7 +10,14 @@ namespace Lumia
         {
             foreach (var encounter in events)
                 foreach (var option in encounter.options)
-                    option.description = option.description + " " + RewardSummary(option);
+                {
+                    string summary = RewardSummary(option);
+                    string narrative = (option.description ?? "").Trim();
+                    // A second initialization must not duplicate the reward paragraph.
+                    while (!string.IsNullOrEmpty(summary) && narrative.EndsWith(summary, System.StringComparison.Ordinal))
+                        narrative = narrative.Substring(0, narrative.Length - summary.Length).TrimEnd();
+                    option.description = string.IsNullOrEmpty(narrative) ? summary : narrative + " " + summary;
+                }
         }
 
         public static CardDef RewardCard(EventOption option)
@@ -22,10 +29,51 @@ namespace Lumia
         public static string RewardTitle(EventOption option)
         {
             var card = RewardCard(option);
-            return card == null ? "" : card.owner + " · " + card.name + " [" + card.key + "] · " + card.cost + "코스트";
+            if (card != null) return card.owner + " · " + card.name + " [" + card.key + "] · " + card.cost + "코스트";
+            if (option == null) return "";
+            switch (option.effect)
+            {
+                case "food": return (GameDatabase.Food(option.objectId)?.name ?? "음식") + " 1개";
+                case "object": case "trade_object": case "risky_object": return (GameDatabase.Object(option.objectId)?.name ?? "오브젝트") + " 1개";
+                case "credits": return "크레딧 " + option.amount;
+                case "heal": return "체력 " + option.amount + " 회복";
+                case "max_health": return "최대 체력 +" + option.amount;
+                case "max_energy": return "최대 코스트 +" + option.amount;
+                case "upgrade_card": return "원하는 카드 1종 강화";
+                case "remove_card": return "덱 정리";
+                default: return "";
+            }
         }
 
         public static string RewardSummary(EventOption option)
+        {
+            if (option == null) return "";
+            string cost = CostSummary(option);
+            string followup = FollowupSummary(option);
+            return (string.IsNullOrEmpty(cost) ? "" : cost + " ") + ImmediateRewardSummary(option)
+                + (string.IsNullOrEmpty(followup) ? "" : " " + followup);
+        }
+
+        public static string CostSummary(EventOption option)
+        {
+            if (option == null) return "";
+            var costs = new List<string>();
+            if (option.creditCost > 0) costs.Add("크레딧 " + option.creditCost);
+            if (!string.IsNullOrEmpty(option.requiredFoodId)) costs.Add((GameDatabase.Food(option.requiredFoodId)?.name ?? option.requiredFoodId) + " 1개");
+            if (!string.IsNullOrEmpty(option.requiredObjectId)) costs.Add((GameDatabase.Object(option.requiredObjectId)?.name ?? option.requiredObjectId) + " 1개");
+            bool hasItem = !string.IsNullOrEmpty(option.requiredFoodId) || !string.IsNullOrEmpty(option.requiredObjectId);
+            return costs.Count == 0 ? "" : string.Join(", ", costs) + (hasItem ? "를" : "을") + " 지불합니다.";
+        }
+
+        public static string FollowupSummary(EventOption option)
+        {
+            if (option == null || string.IsNullOrEmpty(option.followupId)) return "";
+            var next = EncounterChains.Event(option.followupId);
+            if (next == null) return "";
+            return "다음 실험체 조우에서 " + next.owner + "의 ‘" + next.title + "’ 선택지가 80% 확률로 등장합니다.";
+        }
+
+        public static string ImmediateRewardSummary(EventOption option)
         {
             if (option == null) return "";
             var card = RewardCard(option);
@@ -49,7 +97,7 @@ namespace Lumia
                 case "passive": return (GameDatabase.Passive(option.passiveId)?.name ?? "지정 패시브") + " 패시브를 획득합니다.";
                 case "rune_change": case "swap_rune": return "메인 룬과 같은 계열의 보조 룬을 새로 선택합니다.";
                 case "remove_card": return "무기 카드 이외의 무작위 카드 1장을 제거합니다. 덱에는 최소 5장을 남깁니다.";
-                case "upgrade_card": return "무기 카드 이외의 강화되지 않은 무작위 카드 1종을 강화합니다. 피해·방어도는 3, 회복은 2 증가합니다.";
+                case "upgrade_card": return "덱에서 원하는 카드 1종과 강화 방향을 선택합니다. 같은 카드의 모든 사본에 적용되며, 카드 1종은 한 방향으로만 강화할 수 있습니다.";
                 default: return "이야기를 나눈 뒤 다음 구역으로 이동합니다.";
             }
         }
