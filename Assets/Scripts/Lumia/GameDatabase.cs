@@ -245,7 +245,7 @@ namespace Lumia
             F("salmon_steak","연어 스테이크",90,35,null,"체력 35 회복. 연어 + 모닥불.");
             F("honey_potato","꿀고구마",90,35,null,"체력 35 회복. 호박고구마 + 모닥불.");
             F("truffle_pasta","트러플 파스타",95,38,null,"체력 38 회복. 트러플 + 모닥불.");
-            Foods.Add(new FoodDef { id="soup",name="만년 스프",price=150,fullHeal=true,description="최대 체력까지 회복. 모닥불에서 식사를 선택하면 1개 획득. 팬 게임에서는 원본 수치 대신 완전 회복 적용." });
+            Foods.Add(new FoodDef { id="soup",name="만년 스프",price=150,fullHeal=true,description="사용하면 최대 체력까지 회복합니다. 모닥불에서 휴식을 선택하면 1개를 얻습니다." });
         }
 
         static void F(string id,string name,int price,int heal,string upgradeTo,string description) => Foods.Add(new FoodDef { id=id,name=name,price=price,heal=heal,upgradeTo=upgradeTo,description=description });

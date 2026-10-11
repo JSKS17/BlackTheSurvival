@@ -18,13 +18,13 @@ public static class CoreSmokeTests
             KioskUnlockAndStock(); MapKioskProximity(); BossMapPreview(); PermanentEnergyGrowth(); CriticalBasicAttacks();
             DatabaseIntegrity(); PreparationAndLocks(); RouteProgression(); CombatPilesAndEnergy();
             EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); WildlifeDropTables(); WildlifeSupplyRewards(); SubjectDropTables();
-            ShopEconomy(); CampAndEquipment(); FoodAndCooking(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
+            ShopEconomy(); CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
             StarterLocksAndCeiling(); FullEnemyLoadouts(); EquipmentIdentityAndAlex();
             SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); CrossSubjectRules(); CrossSubjectCombatAndSave(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();
             OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates(); HealingDroneHealthTrigger(); RevisedEconomyAndEncounters();
             ConditionalRecastPreparation(); ConditionalRecastEnemyForecast();
-            Console.WriteLine("PASS: " + checks + " assertions across 56 game-rule scenarios.");
+            Console.WriteLine("PASS: " + checks + " assertions across 57 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -422,8 +422,10 @@ public static class CoreSmokeTests
     private static void CampAndEquipment()
     {
         var e = Ready(); e.State.hp = 1; Enter(e, ZoneKind.Campfire);
-        Check(e.State.hp == e.State.maxHp, "camp heals before either action");
+        Check(e.State.hp == 1, "entering camp leaves healing to the rest choice");
         Check(e.ChooseCamp(true), "craft camp choice");
+        Check(e.State.hp == 1, "craft camp choice does not heal");
+        int missingHealth = e.State.maxHp - e.State.hp;
         var weapon = GameDatabase.Gear.First(x => x.slot == GearSlot.Weapon);
         var weapon2 = GameDatabase.Gear.First(x => x.slot == GearSlot.Weapon && x.cardId != weapon.cardId);
         for (int i = 0; i < 3; ++i) e.State.objects.Add(weapon.objectId);
@@ -433,6 +435,7 @@ public static class CoreSmokeTests
         e.State.objects.Add(weapon2.objectId);
         Check(e.Craft(weapon2.id, 0) && e.State.gear.Count == 2 && e.State.campActions == 0, "weapon replacement consumes single action");
         Check(e.State.deck.Count(id => id == weapon.cardId) == 1 && e.State.deck.Count(id => id == weapon2.cardId) == 1, "old weapon skill removed on replacement");
+        Check(e.State.maxHp - e.State.hp == missingHealth, "crafting weapons preserves missing health while applying equipment stats");
         Check(!e.Craft(weapon.id), "fourth combined craft/cook action blocked");
         Check(e.LeaveCamp() && e.State.row == 0, "camp resolved after work");
         var hpGear = GameDatabase.Gear.First(x => x.health > 0 && x.slot == GearSlot.Clothes);
@@ -445,14 +448,82 @@ public static class CoreSmokeTests
 
     private static void FoodAndCooking()
     {
-        var e = Ready(); Enter(e, ZoneKind.Campfire); Check(e.ChooseCamp(false), "soup choice");
-        Check(e.State.foods.Contains("soup") && e.State.stage == RunStage.Map, "soup choice immediately resolves camp");
+        var e = Ready(); e.State.hp = 1; Enter(e, ZoneKind.Campfire); Check(e.ChooseCamp(false), "soup choice");
+        Check(e.State.foods.Count(id => id == "soup") == 1 && e.State.hp == e.State.maxHp && e.State.stage == RunStage.Campfire, "rest fully heals and grants soup before optional card removal");
+        Check(e.LeaveCamp() && e.State.stage == RunStage.Map, "rest can finish without removing cards");
         e.State.hp = 1; Check(e.UseFood(0) && e.State.hp == e.State.maxHp && e.State.foods.Count == 0, "one-use soup fully heals");
-        Enter(e, ZoneKind.Campfire); e.ChooseCamp(true);
+        e.State.hp = 1; Enter(e, ZoneKind.Campfire); e.ChooseCamp(true);
         var ingredient = GameDatabase.Foods.First(x => !string.IsNullOrEmpty(x.upgradeTo));
         e.State.foods.Add(ingredient.id); e.State.foods.Add("soup");
         Check(e.Cook(0) && e.State.foods[0] == ingredient.upgradeTo && e.State.campActions == 2, "eligible ingredient is consumed into actual recipe output");
+        Check(e.State.hp == 1, "cooking preserves injured health");
         Check(!e.Cook(1) && e.State.campActions == 2, "ineligible food cannot waste cooking actions");
+    }
+
+    private static void CampRestAndDeckRemoval()
+    {
+        var e = Ready(551); e.State.hp = 9;
+        e.State.deck = new List<string> { "basic_attack", "nia_q", "basic_guard", "basic_attack", "nia_w", "nia_q" };
+        var original = e.State.deck.ToArray();
+        Check(!e.CanRemoveCampCard(0) && !e.RemoveCampCards(new[] { 0 }) && e.State.deck.SequenceEqual(original), "deck removal is unavailable outside camp rest");
+        Enter(e, ZoneKind.Campfire);
+        Check(e.State.hp == 9 && e.State.campRemovalsRemaining == 0 && !e.LeaveCamp(), "unselected camp preserves health and requires an activity choice");
+        Check(!e.CanRemoveCampCard(0) && !e.RemoveCampCards(new[] { 0 }), "camp entry does not enable free card removal");
+        Check(e.ChooseCamp(false) && e.State.hp == e.State.maxHp && e.State.campRemovalsRemaining == 2, "rest grants full health and exactly two optional removals");
+        Check(e.CanRemoveCampCard(0) && !e.CanRemoveCampCard(-1) && !e.CanRemoveCampCard(e.State.deck.Count), "only valid deck copies can be selected while resting");
+        var invalidSelections = new int[][] { null, new int[0], new[] { -1 }, new[] { e.State.deck.Count }, new[] { 0, 0 }, new[] { 0, 1, 2 }, new[] { 0, e.State.deck.Count } };
+        int rng = e.State.rngState;
+        foreach (var indices in invalidSelections)
+            Check(!e.RemoveCampCards(indices) && e.State.deck.SequenceEqual(original) && e.State.campRemovalsRemaining == 2 && e.State.foods.Count(id => id == "soup") == 1 && e.State.rngState == rng,
+                "invalid or excessive selection atomically preserves deck, rest allowance, soup and randomness");
+        e.State.hp -= 9; int injuredAfterRest = e.State.hp;
+        Check(!e.ChooseCamp(false) && !e.ChooseCamp(true) && e.State.hp == injuredAfterRest && e.State.foods.Count(id => id == "soup") == 1,
+            "reselecting rest neither re-heals nor grants another soup or permits workshop switching");
+        var ingredient = GameDatabase.Foods.First(x => !string.IsNullOrEmpty(x.upgradeTo));
+        e.State.foods.Add(ingredient.id); var weapon = GameDatabase.Gear.First(x => x.slot == GearSlot.Weapon);
+        e.State.objects.Add(weapon.objectId);
+        Check(!e.Cook(1) && !e.Craft(weapon.id) && e.State.foods[1] == ingredient.id && e.State.objects.Contains(weapon.objectId), "rest cannot also cook or craft");
+        Check(e.RemoveCampCards(new[] { 3 }) && e.State.deck.SequenceEqual(new[] { "basic_attack", "nia_q", "basic_guard", "nia_w", "nia_q" }) && e.State.campRemovalsRemaining == 1,
+            "first removal deletes the chosen basic-attack copy and preserves every other card in order");
+        var loaded = new GameEngine((RunState)Clone(e.State));
+        Check(loaded.State.stage == RunStage.Campfire && loaded.State.campChoice == 1 && loaded.State.campRemovalsRemaining == 1 && loaded.State.deck.SequenceEqual(e.State.deck) && loaded.State.hp == injuredAfterRest && loaded.State.foods.Count(id => id == "soup") == 1,
+            "resuming rest preserves remaining allowance and already-applied health and food rewards");
+        var before = loaded.State.deck.ToArray();
+        Check(!loaded.RemoveCampCards(new[] { 0, 1 }) && loaded.State.deck.SequenceEqual(before) && loaded.State.campRemovalsRemaining == 1, "two-card batch cannot exceed the one remaining removal after save reload");
+        Check(loaded.RemoveCampCards(new[] { 4 }) && loaded.State.deck.SequenceEqual(new[] { "basic_attack", "nia_q", "basic_guard", "nia_w" }) && loaded.State.campRemovalsRemaining == 0,
+            "second removal selects one duplicated skill copy and exhausts this camp's allowance");
+        Check(!loaded.CanRemoveCampCard(0) && !loaded.RemoveCampCards(new[] { 0 }), "multiple requests cannot remove more than two cards at one camp");
+        loaded = new GameEngine((RunState)Clone(loaded.State));
+        Check(loaded.State.campRemovalsRemaining == 0 && !loaded.RemoveCampCards(new[] { 0 }) && !loaded.ChooseCamp(false) && loaded.State.foods.Count(id => id == "soup") == 1,
+            "saving after two removals cannot renew rest rewards or its removal allowance");
+        Check(loaded.LeaveCamp() && loaded.State.stage == RunStage.Map && loaded.State.campRemovalsRemaining == 0 && !loaded.RemoveCampCards(new[] { 0 }), "finishing rest closes card removal and returns to the map");
+        Enter(loaded, ZoneKind.Campfire); loaded.ChooseCamp(false);
+        Check(loaded.State.campRemovalsRemaining == 2 && loaded.State.foods.Count(id => id == "soup") == 2, "another camp grants its own independent rest rewards");
+        Check(loaded.RemoveCampCards(new[] { 3, 1 }) && loaded.State.deck.SequenceEqual(new[] { "basic_attack", "basic_guard" }), "unordered two-card selection removes the exact chosen indices without index shifting");
+
+        e = Ready(552); e.State.hp = 11; Enter(e, ZoneKind.Campfire); e.ChooseCamp(true);
+        before = e.State.deck.ToArray(); e.State.foods.Add(ingredient.id);
+        Check(!e.RemoveCampCards(new[] { 0 }) && !e.CanRemoveCampCard(0) && e.State.deck.SequenceEqual(before) && e.State.campRemovalsRemaining == 0, "workshop cannot use rest's deck-thinning benefit");
+        Check(e.Cook(0) && e.State.hp == 11 && e.LeaveCamp() && e.State.hp == 11 && !e.State.foods.Contains("soup"), "workshop cooking and departure grant neither healing nor soup");
+        var malformed = (RunState)Clone(e.State); malformed.campRemovalsRemaining = 20;
+        Check(new GameEngine(malformed).State.campRemovalsRemaining == 0, "loading outside rest clears any stale removal allowance");
+
+        e = Ready(553); e.State.passives.Clear(); e.State.passives.Add("alex_p"); e.State.gear.Add("fragarach");
+        e.State.deck = new List<string> { "basic_attack", "weapon_dagger", "nia_q", "basic_guard" };
+        e = new GameEngine((RunState)Clone(e.State)); Enter(e, ZoneKind.Campfire); e.ChooseCamp(false);
+        var granted = e.State.weaponGrantedCards.ToArray(); int grantStart = e.State.deck.Count - granted.Length;
+        Check(granted.Length == 2 && e.CanRemoveCampCard(1) && !e.IsEquipmentGrantedCard(1) && Enumerable.Range(grantStart, granted.Length).All(index => e.IsEquipmentGrantedCard(index) && !e.CanRemoveCampCard(index)),
+            "earned matching D card remains removable while weapon and Alex grants are protected");
+        before = e.State.deck.ToArray();
+        Check(!e.RemoveCampCards(new[] { 1, grantStart }) && e.State.deck.SequenceEqual(before) && e.State.campRemovalsRemaining == 2, "mixed earned and equipment-granted selection rejects the whole batch");
+        Check(e.RemoveCampCards(new[] { 1 }) && e.State.deck.Count(id => id == "weapon_dagger") == granted.Count(id => id == "weapon_dagger"), "removing an earned D copy preserves all equipment grants");
+        loaded = new GameEngine((RunState)Clone(e.State));
+        Check(loaded.State.deck.SequenceEqual(e.State.deck) && loaded.State.weaponGrantedCards.SequenceEqual(granted) && loaded.State.campRemovalsRemaining == 1, "save synchronization neither restores a removed earned D card nor loses weapon-granted copies");
+
+        e = Ready(554); e.State.deck = new List<string> { "basic_attack" }; Enter(e, ZoneKind.Campfire); e.ChooseCamp(false);
+        Check(e.RemoveCampCards(new[] { 0 }) && e.State.deck.Count == 0 && e.LeaveCamp(), "a tiny deck never forces two removals or prevents camp completion");
+        Enter(e, ZoneKind.Campfire); e.ChooseCamp(false);
+        Check(!e.CanRemoveCampCard(0) && !e.RemoveCampCards(new[] { 0 }) && e.LeaveCamp(), "empty deck can take rest rewards and finish without any removal");
     }
 
     private static void PassiveCapacity()
@@ -1858,7 +1929,7 @@ public static class CoreSmokeTests
             var node = e.AvailableNodes().OrderBy(n => n.kind == ZoneKind.Boss ? 9 : n.kind == ZoneKind.Subject ? 8 : n.kind == ZoneKind.Wildlife ? 7 : n.kind == ZoneKind.Campfire ? 6 : n.kind == ZoneKind.Kiosk ? 5 : 4).Last();
             Check(e.EnterNode(node.lane), "real generated route remains reachable");
             if (e.State.stage == RunStage.Combat) { battles++; Win(e); e.FinishRewards(); }
-            else if (e.State.stage == RunStage.Campfire) e.ChooseCamp(false);
+            else if (e.State.stage == RunStage.Campfire) { e.ChooseCamp(false); e.LeaveCamp(); }
             else if (e.State.stage == RunStage.Kiosk) e.LeaveKiosk();
             else if (e.State.stage == RunStage.Encounter) { e.SelectEncounter(e.State.encounterOffers[0]); e.ChooseEventOption(0); if (e.State.runeChangePending) e.FinishRuneChange(); }
             if (e.State.stage == RunStage.PassiveChoice) e.ReplacePassive(-1);

@@ -20,6 +20,9 @@ namespace Lumia
         int prepStep, inventoryTab, catalogPage;
         string catalogQuery = "", craftQuery = "", craftPending = "", inspectCard = "", inspectTrait = "", inspectGear = "";
         readonly HashSet<string> craftTags = new HashSet<string>();
+        readonly HashSet<int> campRemovalSelection = new HashSet<int>();
+        RunState campSelectionState;
+        int campSelectionNode = -1;
         readonly Dictionary<string, Vector2> summaryScroll = new Dictionary<string, Vector2>();
         int currentLayer, topLayer;
         GearSlot craftSlot;
@@ -51,7 +54,7 @@ namespace Lumia
             DontDestroyOnLoad(gameObject);
             Application.targetFrameRate = 60;
             audioVerification = Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-audio-verify") >= 0;
-            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
+            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
             savePath = Path.Combine(Application.persistentDataPath, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
             font = Resources.Load<Font>("Lumia/Galmuri11");
@@ -228,6 +231,7 @@ namespace Lumia
         void NewRun()
         {
             Engine = new GameEngine(Environment.TickCount & int.MaxValue);
+            campRemovalSelection.Clear(); campSelectionState = null;
             lobby = false; prepStep = 0; scroll = handScroll = mapScroll = detailScroll = Vector2.zero; displayedTurn = -1;
             mapAct = -1; mapRow = -99; effects.Clear(); nextEnemyActionAt = nextPlayerActionAt = 0;
             var main = GameDatabase.Runes.FirstOrDefault(x => x.main);
@@ -605,20 +609,25 @@ namespace Lumia
         void DrawCamp()
         {
             var s = Engine.State;
-            Header("모닥불", "작은 불빛 아래, 잠시 실험을 멈춥니다. 입장 시 체력을 모두 회복합니다.");
+            if (!ReferenceEquals(campSelectionState, s) || campSelectionNode != s.activeNodeId || s.campChoice != 1)
+            {
+                campRemovalSelection.Clear(); campSelectionState = s; campSelectionNode = s.activeNodeId;
+            }
+            Header("모닥불", "휴식은 체력을 회복하고 덱을 정리합니다. 제작·요리를 선택하면 체력을 회복하지 않습니다.");
             if (s.campChoice == 0)
             {
                 Tex(new Rect(36, 164, 376, 379), PixelArt.Icon("Campfire"), ScaleMode.ScaleToFit);
                 Box(new Rect(453, 155, 783, 195), Panel, Mint);
                 Txt(new Rect(478, 179, 722, 28), "01  휴식과 만년 스프", 25, Mint);
-                Para(new Rect(478, 228, 722, 49), "최대 체력까지 회복하고, 한 번 사용하면 모든 체력을 회복하는 만년 스프를 1개 받습니다.", 16, Text);
+                Para(new Rect(478, 224, 722, 57), "체력을 모두 회복하고 만년 스프를 1개 받습니다. 원하는 카드를 최대 2장까지 덱에서 영구 제거할 수 있습니다.", 16, Text);
                 if (Btn(new Rect(478, 291, 722, 39), "휴식하기", true, Mint)) Act(() => Engine.ChooseCamp(false), "camp.rest");
                 Box(new Rect(453, 385, 783, 195), Panel, Gold);
                 Txt(new Rect(478, 408, 722, 28), "02  제작과 요리", 25, Gold);
-                Para(new Rect(478, 456, 722, 50), "최대 체력까지 회복하고, 보유 오브젝트로 장비를 제작하거나 재료로 요리합니다. 둘을 합쳐 최대 3회.", 16, Text);
-                if (Btn(new Rect(478, 519, 722, 39), "작업 시작", true, Gold)) Act(() => Engine.ChooseCamp(true), "camp.rest");
+                Para(new Rect(478, 453, 722, 57), "보유 오브젝트로 장비를 제작하거나 재료로 요리합니다. 둘을 합쳐 최대 3회이며, 체력은 회복하지 않습니다.", 16, Text);
+                if (Btn(new Rect(478, 519, 722, 39), "작업 시작", true, Gold)) Act(() => Engine.ChooseCamp(true), "ui.select");
                 return;
             }
+            if (s.campChoice == 1) { DrawCampRest(); return; }
             Txt(new Rect(36, 102, 1100, 30), "남은 작업 횟수  " + s.campActions + " / 3", 20, Gold);
             for (int i = 0; i < 5; i++) if (Btn(new Rect(36 + i * 175, 152, 161, 38), SlotName((GearSlot)i), craftSlot == (GearSlot)i, Mint)) { craftSlot = (GearSlot)i; scroll = Vector2.zero; }
             if (Btn(new Rect(933, 152, 305, 38), "가방에서 요리 / 회복", false, Gold)) { inventory = true; inventoryTab = 2; inventoryScroll = Vector2.zero; }
@@ -656,6 +665,46 @@ namespace Lumia
             if (Btn(new Rect(999, 626, 241, 48), "불을 떠나기  >", true, Mint)) Act(Engine.LeaveCamp);
             Txt(new Rect(36, 625, 925, 45), "각 슬롯은 최대 2개. 무기 제작 시 무기군 스킬이 덱에 추가됩니다. 슬롯이 가득 차면 교체할 장비를 선택합니다.", 11, Muted);
             if (!string.IsNullOrEmpty(craftPending)) DrawCraftReplacement();
+        }
+
+        void DrawCampRest()
+        {
+            var s = Engine.State;
+            campRemovalSelection.RemoveWhere(index => !Engine.CanRemoveCampCard(index));
+            Txt(new Rect(36, 103, 1202, 30), "휴식 완료  ·  체력 전체 회복  ·  만년 스프 1개 획득", 22, Mint);
+            Txt(new Rect(36, 146, 1202, 25), "덱에서 영구 제거할 카드 선택  " + campRemovalSelection.Count + " / " + s.campRemovalsRemaining + "  ·  남은 제거 횟수 " + s.campRemovalsRemaining + " / 2", 16, Gold);
+            Txt(new Rect(36, 180, 1202, 22), "같은 카드를 다시 누르면 선택을 취소합니다. 장비가 부여한 무기 스킬은 제거할 수 없습니다.", 12, Muted);
+            scroll = GUI.BeginScrollView(new Rect(36, 214, 1202, 365), scroll, new Rect(0, 0, 1174, Math.Max(350, Mathf.Ceil(s.deck.Count / 6f) * 245)));
+            if (s.deck.Count == 0) Para(new Rect(15, 38, 1130, 75), "덱에 카드가 없습니다. 카드 제거 없이 휴식을 마칠 수 있습니다.", 18, Muted);
+            for (int i = 0; i < s.deck.Count; i++)
+            {
+                Rect card = new Rect(i % 6 * 196, i / 6 * 245, 181, 215);
+                bool selected = campRemovalSelection.Contains(i), removable = Engine.CanRemoveCampCard(i);
+                bool canSelect = removable && (selected || campRemovalSelection.Count < s.campRemovalsRemaining);
+                DrawCard(card, s.deck[i], selected, canSelect);
+                string hint = Engine.IsEquipmentGrantedCard(i) ? "장비 부여 · 제거 불가" : selected ? "제거 선택됨 · 다시 눌러 취소" : s.campRemovalsRemaining == 0 ? "이번 휴식의 제거 완료" : !canSelect ? "다른 카드의 선택을 취소하세요" : "눌러서 제거 선택";
+                Txt(new Rect(card.x, card.yMax + 5, card.width, 22), hint, 10, selected ? Gold : Muted, true);
+                if (Hit(card, canSelect)) ToggleCampRemoval(i);
+            }
+            GUI.EndScrollView();
+            if (Btn(new Rect(36, 626, 180, 48), "선택 취소", false, Muted, campRemovalSelection.Count > 0)) { campRemovalSelection.Clear(); AudioCue("ui.cancel"); }
+            if (Btn(new Rect(235, 626, 440, 48), "선택한 " + campRemovalSelection.Count + "장 영구 제거", true, Pink, campRemovalSelection.Count > 0)) ConfirmCampRemoval();
+            if (Btn(new Rect(999, 626, 241, 48), "휴식 마치기  >", true, Mint)) { campRemovalSelection.Clear(); Act(Engine.LeaveCamp); }
+            Txt(new Rect(36, 588, 1202, 25), "제거 버튼을 누르면 되돌릴 수 없습니다. 선택만 하고 떠나면 카드는 제거되지 않습니다.", 12, Muted);
+        }
+
+        bool ToggleCampRemoval(int index)
+        {
+            if (campRemovalSelection.Remove(index)) { AudioCue("ui.cancel"); return true; }
+            if (!Engine.CanRemoveCampCard(index) || campRemovalSelection.Count >= Engine.State.campRemovalsRemaining) return false;
+            campRemovalSelection.Add(index); AudioCue("ui.select"); return true;
+        }
+
+        bool ConfirmCampRemoval()
+        {
+            bool removed = Act(() => Engine.RemoveCampCards(campRemovalSelection.ToArray()), "ui.select");
+            if (removed) { campRemovalSelection.Clear(); scroll = Vector2.zero; }
+            return removed;
         }
 
         IEnumerable<GearDef> FilterCraftGear()
@@ -1209,7 +1258,7 @@ namespace Lumia
         {
             Modal(new Rect(150, 100, 980, 530));
             Txt(new Rect(185, 124, 900, 39), "실험 가이드", 25, Mint);
-            Para(new Rect(185, 181, 900, 356), "01  지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 키오스크 주변은 앞뒤 한 단계로 연결된 전투 구역입니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 카드 코스트는 0~7입니다. 최대 코스트는 5로 시작하며 보스 승리마다 1 증가합니다. 일부 조우에서도 올릴 수 있고 레벨 상승으로는 증가하지 않습니다. 방어도는 다음 내 턴에 사라집니다.\n\n03  수치·상태·표식·설치물은 필드 창에서 확인하세요. 할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하여 최대 30%까지 적용합니다.\n\n04  승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다.\n\n05  VF혈액샘플은 두 번째 보스 승리 후 구매합니다. 만년 스프와 완성 요리는 모닥불에서 얻습니다. 모닥불 제작은 이름·옵션 태그로 검색할 수 있고 요리와 합쳐 최대 3회입니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.", 15, Text);
+            Para(new Rect(185, 181, 900, 356), "01  지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 키오스크 주변은 앞뒤 한 단계로 연결된 전투 구역입니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 카드 코스트는 0~7입니다. 최대 코스트는 5로 시작하며 보스 승리마다 1 증가합니다. 일부 조우에서도 올릴 수 있고 레벨 상승으로는 증가하지 않습니다. 방어도는 다음 내 턴에 사라집니다.\n\n03  수치·상태·표식·설치물은 필드 창에서 확인하세요. 할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하여 최대 30%까지 적용합니다.\n\n04  승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다.\n\n05  VF혈액샘플은 두 번째 보스 승리 후 구매합니다. 모닥불 휴식은 전체 회복·만년 스프 1개·카드 최대 2장 제거를 제공합니다. 제작·요리는 회복 없이 합쳐 3회이며, 장비는 이름·태그로 검색합니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.", 15, Text);
             if (Btn(new Rect(185, 550, 900, 45), "기록 확인", true, Mint)) help = false;
         }
 
@@ -1338,12 +1387,81 @@ namespace Lumia
             Debug.Log("LUMIA PREVIEW "+audit.cards+" cards / "+audit.measurements+" native layouts / overflow=0 / font=11 / innerScroll=0");
         }
 
+        void VerificationCampRest(string view)
+        {
+            var s = Engine.State;
+            s.deck = new List<string> { "basic_attack", "basic_attack", "nia_q", "nia_w", "nia_e", "nia_r", "aya_q", "jackie_q" };
+            s.gear.Clear(); s.weaponGrantedCards.Clear();
+            if (view == "campfire_rest_empty") s.deck.Clear();
+            if (view == "campfire_rest_protected")
+            {
+                s.gear.Add(GameDatabase.Gear.First(g => g.slot == GearSlot.Weapon).id);
+                Engine = new GameEngine(s); s = Engine.State;
+                if (s.weaponGrantedCards.Count == 0) throw new InvalidOperationException("Protected-card preview needs an equipment-granted weapon card.");
+                s.deck.Insert(0, s.weaponGrantedCards[0]);
+            }
+            int originalCount = s.deck.Count, soupCount = s.foods.Count(id => id == "soup");
+            if (!Engine.ChooseCamp(false) || s.hp != s.maxHp || s.foods.Count(id => id == "soup") != soupCount + 1 || s.campRemovalsRemaining != 2 || s.stage != RunStage.Campfire)
+                throw new InvalidOperationException("Camp rest must heal, grant one soup, and offer two optional removals.");
+            campSelectionState = s; campSelectionNode = s.activeNodeId;
+            if (view == "campfire_rest" || view == "campfire_rest_empty") return;
+            if (view == "campfire_rest_protected")
+            {
+                int granted = s.deck.Count - 1;
+                if (Engine.IsEquipmentGrantedCard(0) || !Engine.CanRemoveCampCard(0) || !Engine.IsEquipmentGrantedCard(granted) || ToggleCampRemoval(granted) || !ToggleCampRemoval(0))
+                    throw new InvalidOperationException("Only the equipment-granted D copy must be protected from camp removal.");
+                return;
+            }
+            if (!ToggleCampRemoval(0) || !ToggleCampRemoval(1) || ToggleCampRemoval(2) || campRemovalSelection.Count != 2)
+                throw new InvalidOperationException("Camp card selection must allow two distinct copies and enforce its limit.");
+            if (view == "campfire_rest_selected") return;
+            if (view == "campfire_rest_cancelled")
+            {
+                if (!ToggleCampRemoval(0) || campRemovalSelection.Contains(0) || campRemovalSelection.Count != 1)
+                    throw new InvalidOperationException("Selecting a camp card again must cancel its selection.");
+                campRemovalSelection.Clear();
+                if (s.deck.Count != originalCount || s.campRemovalsRemaining != 2)
+                    throw new InvalidOperationException("Cancelling camp selections must not remove cards or spend the budget.");
+                return;
+            }
+            if (view == "campfire_rest_leave_selected")
+            {
+                if (!Engine.LeaveCamp() || s.stage != RunStage.Map || s.deck.Count != originalCount)
+                    throw new InvalidOperationException("Leaving without confirming must preserve selected cards.");
+                campRemovalSelection.Clear(); return;
+            }
+            if (view == "campfire_rest_one_removed") campRemovalSelection.Remove(1);
+            int removed = campRemovalSelection.Count;
+            if (!ConfirmCampRemoval() || s.deck.Count != originalCount - removed || s.campRemovalsRemaining != 2 - removed || campRemovalSelection.Count != 0)
+                throw new InvalidOperationException("Confirmed camp removal must delete only selected copies and spend their budget.");
+            Engine = new GameEngine(JsonUtility.FromJson<RunState>(JsonUtility.ToJson(s))); s = Engine.State;
+            campSelectionState = s; campSelectionNode = s.activeNodeId;
+            if (s.campRemovalsRemaining != 2 - removed || s.deck.Count != originalCount - removed || s.foods.Count(id => id == "soup") != soupCount + 1 || Engine.ChooseCamp(false))
+                throw new InvalidOperationException("Unity save reload must preserve camp removals and prevent repeated rest rewards.");
+            if (view == "campfire_rest_one_removed")
+            {
+                if (!Engine.CanRemoveCampCard(0) || s.deck.Count(id => id == "basic_attack") != 1)
+                    throw new InvalidOperationException("Removing one duplicate must preserve the other copy and one remaining removal.");
+                return;
+            }
+            if (Engine.CanRemoveCampCard(0) || Engine.RemoveCampCards(new[] { 0 }))
+                throw new InvalidOperationException("An exhausted camp removal budget must reject additional removals after reloading.");
+            if (view == "campfire_rest_reentered")
+            {
+                if (!Engine.LeaveCamp()) throw new InvalidOperationException("Rest must allow leaving after removing cards.");
+                var next = Engine.AvailableNodes().First(); next.kind = ZoneKind.Campfire; s.hp = 13;
+                if (!Engine.EnterNode(next.lane) || s.hp != 13 || s.campRemovalsRemaining != 0 || !Engine.ChooseCamp(false) || s.campRemovalsRemaining != 2 || s.foods.Count(id => id == "soup") != soupCount + 2)
+                    throw new InvalidOperationException("A new campfire must offer fresh rest rewards without healing on entry.");
+                campSelectionState = s; campSelectionNode = s.activeNodeId;
+            }
+        }
+
         public void VerificationView(string view)
         {
-            if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0) return;
+            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0)) return;
             lobby = catalog = inventory = settings = help = fieldInfo = enemyLoadout = false;
             inspectCard = inspectTrait = inspectGear = craftPending = ""; inspectEnemyCard=false; summaryMode=true; scroll = inventoryScroll = encounterStoryScroll = detailScroll = Vector2.zero;summaryScroll.Clear();
-            craftQuery = ""; craftTags.Clear(); craftSlot = GearSlot.Weapon;
+            craftQuery = ""; craftTags.Clear(); craftSlot = GearSlot.Weapon; campRemovalSelection.Clear(); campSelectionState = null;
             if (view == "lobby" || view == "audio_settings") { lobby = true; settings = view == "audio_settings"; return; }
             bool showFull=view.EndsWith("_full",StringComparison.Ordinal);
             if(showFull)view=view.Substring(0,view.Length-5);
@@ -1581,9 +1699,21 @@ namespace Lumia
             }
             else if (view == "campfire" || view.StartsWith("campfire_"))
             {
-                Engine.State.stage = RunStage.Campfire; Engine.State.campChoice = 0; Engine.State.campActions = 3;
-                Engine.ChooseCamp(true); Engine.State.objects.AddRange(GameDatabase.Objects.Select(x => x.id));
+                var node = Engine.AvailableNodes().First(); node.kind = ZoneKind.Campfire; Engine.State.hp = 17;
+                if (!Engine.EnterNode(node.lane) || Engine.State.hp != 17 || Engine.State.campChoice != 0)
+                    throw new InvalidOperationException("Entering a campfire must preserve missing health and wait for a choice.");
+                if (view == "campfire_choice") return;
+                if (view.StartsWith("campfire_rest", StringComparison.Ordinal)) { VerificationCampRest(view); return; }
+                Engine.ChooseCamp(true);
+                if (Engine.State.hp != 17) throw new InvalidOperationException("Camp crafting choice must not heal.");
+                Engine.State.objects.AddRange(GameDatabase.Objects.Select(x => x.id));
                 Engine.State.foods.Add(GameDatabase.Foods.First(x => !string.IsNullOrEmpty(x.upgradeTo)).id);
+                if (view == "campfire_craft_noheal")
+                {
+                    int food = Engine.State.foods.FindIndex(id => !string.IsNullOrEmpty(GameDatabase.Food(id).upgradeTo));
+                    if (!Engine.Cook(food) || Engine.State.hp != 17 || Engine.State.campActions != 2)
+                        throw new InvalidOperationException("Cooking should use one work action without healing.");
+                }
                 if (view == "campfire_critical") { craftSlot=GearSlot.Head; craftTags.Add("치명타"); }
                 if (view == "campfire_tagged") { craftSlot=GearSlot.Arm; craftTags.Add("치명타"); craftTags.Add("일반 공격"); craftQuery="레이더"; }
                 if (view == "campfire_empty") { craftTags.Add("치명타"); craftQuery="없는 장비"; }

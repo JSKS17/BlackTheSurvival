@@ -84,7 +84,7 @@ namespace Lumia
         public RunStage stage = RunStage.Preparation;
         public int level = 1, xp, hp = 80, maxHp = 80, credits = 120, maxHealthBonus;
         public string mainRune, supportRune, chosenPassive, chosenEventId, pendingPassive, message;
-        public int passiveRerolls = 2, draftRerolls = 2, campChoice, campActions;
+        public int passiveRerolls = 2, draftRerolls = 2, campChoice, campActions, campRemovalsRemaining;
         // One saved seed per paid draft roll: changing the passive reweights this same roll.
         // Zero marks an older saved draft whose displayed offers must remain intact.
         public int draftSeed;
@@ -159,6 +159,9 @@ namespace Lumia
             State.persistentTraits=TraitMechanics.Ensure(State.persistentTraits);
             if (State.rngState == 0) State.rngState = 1831565813;
             if (State.level < 1 || State.level > 20 || State.map == null || State.deck == null) throw new ArgumentException("손상된 저장 데이터입니다.");
+            // Old saves never stayed at the campfire after resting, so an absent budget remains zero.
+            State.campRemovalsRemaining = State.stage == RunStage.Campfire && State.campChoice == 1
+                ? Math.Max(0, Math.Min(2, State.campRemovalsRemaining)) : 0;
             if (State.defeatedBosses == null) State.defeatedBosses = new List<string>();
             if (State.energyGrowthVersion == 0)
             {
@@ -305,8 +308,8 @@ namespace Lumia
                 case ZoneKind.Boss: StartBattle(false, true); break;
                 case ZoneKind.Kiosk: State.stage = RunStage.Kiosk; Say("키오스크에 도착했습니다. 크레딧으로 오브젝트와 음식을 구매하세요."); break;
                 case ZoneKind.Campfire:
-                    State.hp = State.maxHp; State.stage = RunStage.Campfire; State.campChoice = 0; State.campActions = 3;
-                    Say("모닥불에서 체력을 모두 회복했습니다. 만년 스프를 받거나 제작·요리 3회를 선택하세요."); break;
+                    State.stage = RunStage.Campfire; State.campChoice = 0; State.campActions = 3; State.campRemovalsRemaining = 0;
+                    Say("휴식하면 체력을 모두 회복하고 만년 스프를 받으며 카드를 최대 2장 제거할 수 있습니다. 제작·요리를 선택하면 회복 없이 최대 3번 작업합니다."); break;
                 case ZoneKind.Encounter:
                     State.stage = RunStage.Encounter; State.encounterOffers = Offer(GameDatabase.Events.Select(x => x.id), 3);
                     Say("세 실험체의 흔적을 발견했습니다. 하나의 조우를 선택하세요."); break;
@@ -689,9 +692,49 @@ namespace Lumia
         {
             if (State.stage != RunStage.Campfire || State.campChoice != 0) return Fail("이미 모닥불 행동을 선택했습니다.");
             State.campChoice = craft ? 2 : 1;
-            if (craft) return Say("제작과 요리를 합쳐 최대 3번 할 수 있습니다.");
-            State.foods.Add("soup"); CompleteNode();
-            return Say("만년 스프를 받았습니다. 사용하면 체력을 모두 회복합니다.");
+            State.campRemovalsRemaining = craft ? 0 : 2;
+            if (craft) return Say("체력 회복 없이 제작과 요리를 합쳐 최대 3번 할 수 있습니다.");
+            State.hp = State.maxHp;
+            State.foods.Add("soup");
+            return Say("체력을 모두 회복하고 만년 스프를 1개 받았습니다. 원하는 카드를 최대 2장 제거하거나 바로 떠날 수 있습니다.");
+        }
+
+        public bool CanRemoveCampCard(int deckIndex)
+        {
+            if (State.stage != RunStage.Campfire || State.campChoice != 1 || State.campRemovalsRemaining <= 0
+                || deckIndex < 0 || deckIndex >= State.deck.Count || GameDatabase.Card(State.deck[deckIndex]) == null) return false;
+            return !IsEquipmentGrantedCard(deckIndex);
+        }
+
+        public bool IsEquipmentGrantedCard(int deckIndex)
+        {
+            if (deckIndex < 0 || deckIndex >= State.deck.Count) return false;
+            string id = State.deck[deckIndex];
+            int grants = State.weaponGrantedCards == null ? 0 : State.weaponGrantedCards.Count(cardId => cardId == id);
+            // SyncWeaponCards appends equipment grants after earned copies and removes those last copies.
+            // Protect only those grants; an independently earned copy of the same D skill can be removed.
+            int laterCopies = 0;
+            for (int i = deckIndex + 1; i < State.deck.Count; i++)
+                if (State.deck[i] == id) laterCopies++;
+            return laterCopies < grants;
+        }
+
+        public bool RemoveCampCards(IEnumerable<int> deckIndices)
+        {
+            if (State.stage != RunStage.Campfire || State.campChoice != 1 || State.campRemovalsRemaining <= 0)
+                return Fail("카드 제거는 모닥불에서 휴식을 선택한 뒤 최대 2장까지 가능합니다.");
+            if (deckIndices == null) return Fail("제거할 카드를 선택하세요.");
+            var indices = deckIndices.ToList();
+            if (indices.Count == 0) return Fail("제거할 카드를 선택하거나 바로 떠나세요.");
+            if (indices.Count > State.campRemovalsRemaining || indices.Distinct().Count() != indices.Count)
+                return Fail("남은 제거 횟수 안에서 서로 다른 카드를 선택하세요.");
+            // Validate the entire batch before mutating the deck or spending its saved budget.
+            if (indices.Any(index => !CanRemoveCampCard(index)))
+                return Fail("선택한 카드를 제거할 수 없습니다. 장비로 얻은 무기 스킬은 장비와 함께 유지됩니다.");
+            var names = indices.Select(index => GameDatabase.Card(State.deck[index]).name).ToArray();
+            foreach (int index in indices.OrderByDescending(index => index)) State.deck.RemoveAt(index);
+            State.campRemovalsRemaining -= indices.Count;
+            return Say(string.Join(" · ", names) + " 제거 · 추가로 " + State.campRemovalsRemaining + "장까지 제거할 수 있습니다.");
         }
 
         public bool Craft(string id, int replaceIndex = -1)
@@ -721,6 +764,7 @@ namespace Lumia
         public bool LeaveCamp()
         {
             if (State.stage != RunStage.Campfire || State.campChoice == 0) return Fail("모닥불 행동을 먼저 선택하세요.");
+            State.campRemovalsRemaining = 0;
             CompleteNode(); return true;
         }
 

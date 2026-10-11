@@ -1,0 +1,112 @@
+{
+  "passed": true,
+  "uiScreens": 13,
+  "runtimeErrors": 0,
+  "screens": [
+    {
+      "file": "native-ui/campfire_choice.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/campfire_craft_noheal.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/campfire_rest.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/campfire_rest_selected.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/campfire_rest_cancelled.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/campfire_rest_one_removed.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/campfire_rest_removed.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/campfire_rest_empty.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/campfire_rest_protected.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/campfire_rest_leave_selected.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/campfire_rest_reentered.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/campfire_tagged.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/help.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ],
+  "scope": "Camp choice, injured workshop, optional exact-copy removal, selection cancellation, one/two removals, empty deck, equipment grants, leave without confirming, save/load, re-entry, equipment filter and help."
+}

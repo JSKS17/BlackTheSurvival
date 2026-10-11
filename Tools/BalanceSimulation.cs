@@ -69,7 +69,7 @@ public static class BalanceSimulation
                         e.LeaveKiosk(); break;
                     case RunStage.Campfire:
                         var craftable = CraftPlan(e);
-                        if (craftable.Count == 0) e.ChooseCamp(false);
+                        if (craftable.Count == 0) { e.ChooseCamp(false); e.LeaveCamp(); }
                         else
                         {
                             e.ChooseCamp(true);

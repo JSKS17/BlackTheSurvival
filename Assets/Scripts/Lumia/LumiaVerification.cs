@@ -11,7 +11,7 @@ namespace Lumia
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void StartVerification()
         {
-            if (Debug.isDebugBuild && System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lumia-verify") >= 0)
+            if (Debug.isDebugBuild && (System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0))
                 new GameObject("Lumia verification").AddComponent<LumiaVerification>();
         }
         IEnumerator Start()
@@ -38,6 +38,9 @@ namespace Lumia
             views=views.Concat(new[]{"recast_cathy_cold","recast_cathy_denied","recast_cathy_ready","recast_cathy_granted","recast_cathy_spent","recast_cathy_detail_full",
                 "recast_shoichi_w_full","recast_celine_w_full","recast_jan_e_full"}).ToArray();
             views=views.Concat(new[]{"audio_settings"}).ToArray();
+            string[] campViews = { "campfire_choice", "campfire_craft_noheal", "campfire_rest", "campfire_rest_selected", "campfire_rest_cancelled", "campfire_rest_one_removed", "campfire_rest_removed", "campfire_rest_empty", "campfire_rest_protected", "campfire_rest_leave_selected", "campfire_rest_reentered", "campfire_tagged" };
+            bool campOnly = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0;
+            views = campOnly ? campViews.Concat(new[] { "help" }).ToArray() : views.Concat(campViews.Where(view => !views.Contains(view))).ToArray();
             foreach (string view in views)
             {
                 LumiaGame.Instance.VerificationView(view);
@@ -91,7 +94,9 @@ namespace Lumia
                 ScreenCapture.CaptureScreenshot(Path.Combine(output, view + ".png"));
                 yield return new WaitForSecondsRealtime(.6f);
                 Debug.Log("LUMIA CAPTURE " + view);
+                if (campOnly) Debug.Log("BTS CAMP PASS " + view + " / hp=" + LumiaGame.Instance.Engine.State.hp + " / removals=" + LumiaGame.Instance.Engine.State.campRemovalsRemaining);
             }
+            if (campOnly) Debug.Log("BTS CAMP VERIFICATION PASS / views=" + views.Length);
             Application.Quit();
         }
     }
