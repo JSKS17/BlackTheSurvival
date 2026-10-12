@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/elena.png",
-  "sha256": "a029c889987b4907d0ca2919161bc36cce341204fbb54044700bc8c9ebddea69",
+  "sha256": "757132d31066ecd495163289ccbd4fafe0b8182003c2374caca4ee353ec40ecc",
   "processedPath": "docs/art-rare-skins/processed/elena.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/elena.png",
   "originalDefaultSpriteSha256": "b2cce4e7a6284d9db488bc6111eda839131e1883adffc37e0cc241666ea73c3c",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "a029c889987b4907d0ca2919161bc36cce341204fbb54044700bc8c9ebddea69",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

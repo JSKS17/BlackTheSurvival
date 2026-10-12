@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/isaac.png",
   "width": 160,
   "height": 160,
-  "sha256": "f383622750da2f5657ab3c6e42090d90452a6c045bc1a576904cd7298a6c3322",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "38ceebc4a77177f8f402edba5605ed3beb83c76734dba7b4e659c9bb1959ea75",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "f383622750da2f5657ab3c6e42090d90452a6c045bc1a576904cd7298a6c3322",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/tia.png",
   "width": 160,
   "height": 160,
-  "sha256": "3670031d8352a584d1497e2f279b9981e33f2a8331d9e768f77d9c61a6240465",
+  "sha256": "7c6baac6f4ad8c34a1aae99db2378ff56ad01e6df43b1c2d9acfedb7aea002ce",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-be0fe2c1-7911-4cea-878d-dc176783bcd0.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-be0fe2c1-7911-4cea-878d-dc176783bcd0.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "3670031d8352a584d1497e2f279b9981e33f2a8331d9e768f77d9c61a6240465",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

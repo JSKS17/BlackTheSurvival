@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/jenny.png",
   "width": 160,
   "height": 160,
-  "sha256": "55beb6b7c2957608f3bc5a7bff72af08f409c181d13d21a802121c850118a3d6",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "ecdbab2ae0bf86a4aca495ca22991f7f549ed9ddeac1e7eb1c2f89da455f43ca",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "55beb6b7c2957608f3bc5a7bff72af08f409c181d13d21a802121c850118a3d6",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

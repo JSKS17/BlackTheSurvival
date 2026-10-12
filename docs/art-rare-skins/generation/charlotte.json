@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/charlotte.png",
-  "sha256": "9bf954d53930e1e2397139c5e8ba1848180f69bac2eadd02f990f1c0c121d33a",
+  "sha256": "ea96cb3f066c96f1411026af36cd68f0f2af0f6346d69117f86c06abe7a83302",
   "processedPath": "docs/art-rare-skins/processed/charlotte.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/charlotte.png",
   "originalDefaultSpriteSha256": "205729ee2c947a79c3fbd4ca2e0007b9e2bba4bd13dd315370ecd0cec3c5b8a4",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "9bf954d53930e1e2397139c5e8ba1848180f69bac2eadd02f990f1c0c121d33a",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

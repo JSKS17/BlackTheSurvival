@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/cathy.png",
   "width": 160,
   "height": 160,
-  "sha256": "e6340619936a3ddae39029b6a62887bcd167cc0b4afc36f3d520ea91346a3de6",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "4ec9001d10f5e469a5059b941701b4740a6fbfbc15f29ce596617dffc5f01263",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "e6340619936a3ddae39029b6a62887bcd167cc0b4afc36f3d520ea91346a3de6",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

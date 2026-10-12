@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/alex.png",
-  "sha256": "327736a55b7336fdcd86e23fa6817fae04aa60e6afc3e6dac70c9301b6b4b5f9",
+  "sha256": "4ef81f2afdf7bb8aeb7404a15086adf86ab47f5b91031883a0de59b7d7f734d6",
   "processedPath": "docs/art-rare-skins/processed/alex.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/alex.png",
   "originalDefaultSpriteSha256": "e10344b1493a59150153a45890ce79e13a4a7d8aaf4427f28b54de429770db76",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "327736a55b7336fdcd86e23fa6817fae04aa60e6afc3e6dac70c9301b6b4b5f9",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

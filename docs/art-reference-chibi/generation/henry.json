@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/henry.png",
   "width": 160,
   "height": 160,
-  "sha256": "c0dc84560c3b684006b5fd399d6c480c709f59ebaedf1b8df2c786112d91d75c",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "4e803ad8f639a85861464ae87714c0163413878728ca2708c02134450eca00f8",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "c0dc84560c3b684006b5fd399d6c480c709f59ebaedf1b8df2c786112d91d75c",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

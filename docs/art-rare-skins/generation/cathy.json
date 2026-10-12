@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/cathy.png",
-  "sha256": "fa676c206f5afe461454897a2736a107d92731b87909d44aca1cce56f5c2ea63",
+  "sha256": "afd6b6acbb5a192c330704e6af3a8d9ef5921633922a01a071cb2ebf73b86b36",
   "processedPath": "docs/art-rare-skins/processed/cathy.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/cathy.png",
   "originalDefaultSpriteSha256": "e6340619936a3ddae39029b6a62887bcd167cc0b4afc36f3d520ea91346a3de6",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "fa676c206f5afe461454897a2736a107d92731b87909d44aca1cce56f5c2ea63",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

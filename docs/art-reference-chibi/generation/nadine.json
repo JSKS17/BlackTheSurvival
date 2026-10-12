@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/nadine.png",
   "width": 160,
   "height": 160,
-  "sha256": "38b1b8f068657539ad26690ecdbe89193f21de797e3e4ab26c8c4436f94cb538",
+  "sha256": "310dbfb872e73cfda511a10c24e6d0c99513e1212228450c15992f004a2531a4",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-26fa5f44-1dc1-403c-8aa2-92379cc7e192.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-26fa5f44-1dc1-403c-8aa2-92379cc7e192.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "38b1b8f068657539ad26690ecdbe89193f21de797e3e4ab26c8c4436f94cb538",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

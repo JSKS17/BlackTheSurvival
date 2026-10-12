@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/nathapon.png",
   "width": 160,
   "height": 160,
-  "sha256": "5807a88ccf878b8f8bad1e5fa8ee3a933bcfec8317908304f3521da9ff90bffb",
+  "sha256": "0b8531404db5009d4b35c892f7dbea1936e58a56be7528caaae35bcde5d0f346",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-c87e66a6-5980-4b83-b2ba-9e03109ab1c6.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-c87e66a6-5980-4b83-b2ba-9e03109ab1c6.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "5807a88ccf878b8f8bad1e5fa8ee3a933bcfec8317908304f3521da9ff90bffb",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

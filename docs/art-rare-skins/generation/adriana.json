@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/adriana.png",
-  "sha256": "72ac700856cccd6a9b2cce9bc5a6c85601513ca8a057ba885c8afd2b9f207946",
+  "sha256": "01b7f7c5ea172e908a253a5864cd4de851f115cf1bdb696f96d3f97fb65db487",
   "processedPath": "docs/art-rare-skins/processed/adriana.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/adriana.png",
   "originalDefaultSpriteSha256": "3063ee0d35f17a755ac15d829f5a54a2c5e371a0a5bb19406a2f1bd0549a5067",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "72ac700856cccd6a9b2cce9bc5a6c85601513ca8a057ba885c8afd2b9f207946",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/mirka.png",
   "width": 160,
   "height": 160,
-  "sha256": "6dab9ed0f9212fc7c83587117484e7dd7ae9e31201e8d903d21f2407dbd6c4cb",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "b32e0ccea2a362b835a28b1f890e591414426eab090fbf5c6b7062894629e3f9",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "6dab9ed0f9212fc7c83587117484e7dd7ae9e31201e8d903d21f2407dbd6c4cb",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

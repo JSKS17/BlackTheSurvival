@@ -1,0 +1,6199 @@
+{
+  "schema": 1,
+  "reviewedAt": "2026-10-12",
+  "scope": "Runtime rare encounter Resources sprites; 91 individual visual inspections with selected official skin appearance reference and native 160px sprite / enlarged nearest-neighbor logical pixel grid.",
+  "coordinates": "All rectangles use exclusive right/bottom. faceRect uses source160 coordinates; faceRectLogical, eyeRects and mouthRects use source80 logical coordinates. Occluded eyes or mouths must not be invented.",
+  "invariants": [
+    "160x160 canvas",
+    "80x80 logical grid",
+    "pose and body footprint",
+    "costume and accessories",
+    "existing gaze and character expression",
+    "glasses only when selected skin actually wears them"
+  ],
+  "reviewed": 91,
+  "prioritySubjects": [
+    "nia",
+    "nadine",
+    "nathapon",
+    "leon",
+    "barbara",
+    "sissela",
+    "isaac",
+    "alex",
+    "zahir",
+    "abigail",
+    "yumin"
+  ],
+  "entries": [
+    {
+      "id": "nia",
+      "variant": "rare",
+      "name": "니아",
+      "skin": "니아 (물속성)",
+      "path": "Assets/Resources/Lumia/PortraitsRare/nia.png",
+      "baselineSha256": "cbc3a6c7c0e71e58808a9bd2f57e672ba55883b79d9bbbbfb3822194ca894275",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        64,
+        60,
+        94,
+        78
+      ],
+      "faceRectLogical": [
+        32,
+        30,
+        47,
+        39
+      ],
+      "eyeRects": [
+        [
+          34,
+          35,
+          37,
+          38
+        ],
+        [
+          41,
+          33,
+          45,
+          36
+        ]
+      ],
+      "mouthRect": null,
+      "mouthRects": [],
+      "needsRefinement": true,
+      "priority": "high",
+      "eyeReadability": "낮음",
+      "mouthReadability": "풍선껌에 의도적으로 가림",
+      "direction": "졸린 보라색 눈의 기존 동공만 보완합니다. 입을 가린 분홍 풍선껌은 유지하고 접촉 가장자리의 분홍 대비만 살립니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/nia.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-01.png",
+        "docs/art-face-refinement/audit-rare/grid-01.png"
+      ]
+    },
+    {
+      "id": "jackie",
+      "variant": "rare",
+      "name": "재키",
+      "skin": "고스트헌터 재키",
+      "path": "Assets/Resources/Lumia/PortraitsRare/jackie.png",
+      "baselineSha256": "5e24355aa981af30db771b742a6d10e134a86f595de55835dcd0378ad1898a71",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        66,
+        58,
+        100,
+        82
+      ],
+      "faceRectLogical": [
+        33,
+        29,
+        50,
+        41
+      ],
+      "eyeRects": [
+        [
+          35,
+          35,
+          40,
+          39
+        ],
+        [
+          44,
+          32,
+          48,
+          36
+        ]
+      ],
+      "mouthRect": [
+        40,
+        39,
+        43,
+        40
+      ],
+      "mouthRects": [
+        [
+          40,
+          39,
+          43,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "치켜뜬 붉은 눈이 보이나 짓궂은 작은 웃음의 경계가 약합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/jackie.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-01.png",
+        "docs/art-face-refinement/audit-rare/grid-01.png"
+      ]
+    },
+    {
+      "id": "aya",
+      "variant": "rare",
+      "name": "아야",
+      "skin": "엘페르트 아야",
+      "path": "Assets/Resources/Lumia/PortraitsRare/aya.png",
+      "baselineSha256": "ed8474bc55c585df35f46a8f8116816cdecca316a38cd988df45b2f53a6602f9",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        64,
+        52,
+        96,
+        78
+      ],
+      "faceRectLogical": [
+        32,
+        26,
+        48,
+        39
+      ],
+      "eyeRects": [
+        [
+          34,
+          29,
+          40,
+          33
+        ],
+        [
+          42,
+          32,
+          46,
+          35
+        ]
+      ],
+      "mouthRect": [
+        40,
+        36,
+        43,
+        38
+      ],
+      "mouthRects": [
+        [
+          40,
+          36,
+          43,
+          38
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "엘페르트 스킨의 청록 눈과 작은 입이 판독됩니다. 이 스킨에는 기본 안경이 없어 추가하지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/aya.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-01.png",
+        "docs/art-face-refinement/audit-rare/grid-01.png"
+      ]
+    },
+    {
+      "id": "hyunwoo",
+      "variant": "rare",
+      "name": "현우",
+      "skin": "해변가 현우",
+      "path": "Assets/Resources/Lumia/PortraitsRare/hyunwoo.png",
+      "baselineSha256": "954d39678b8eba0484ed2b43faf7645f1bc2eb0dd319cc503547a93aa6648d26",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        62,
+        106,
+        90
+      ],
+      "faceRectLogical": [
+        34,
+        31,
+        53,
+        45
+      ],
+      "eyeRects": [
+        [
+          36,
+          36,
+          42,
+          40
+        ],
+        [
+          45,
+          34,
+          51,
+          38
+        ]
+      ],
+      "mouthRect": [
+        42,
+        42,
+        46,
+        44
+      ],
+      "mouthRects": [
+        [
+          42,
+          42,
+          46,
+          44
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "눈은 선명하지만 이를 드러낸 입이 피부와 섞입니다. 기존 이빨과 거친 표정을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/hyunwoo.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-01.png",
+        "docs/art-face-refinement/audit-rare/grid-01.png"
+      ]
+    },
+    {
+      "id": "yuki",
+      "variant": "rare",
+      "name": "유키",
+      "skin": "단풍이 이끄는 발걸음 유키",
+      "path": "Assets/Resources/Lumia/PortraitsRare/yuki.png",
+      "baselineSha256": "a83cd7171884260e1a3783b7f599adba300593474d14de2ad82afc17f4daa8fc",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        54,
+        102,
+        78
+      ],
+      "faceRectLogical": [
+        34,
+        27,
+        51,
+        39
+      ],
+      "eyeRects": [
+        [
+          36,
+          30,
+          42,
+          33
+        ],
+        [
+          46,
+          33,
+          49,
+          36
+        ]
+      ],
+      "mouthRect": [
+        43,
+        36,
+        45,
+        38
+      ],
+      "mouthRects": [
+        [
+          43,
+          36,
+          45,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "파란 눈과 가려진 반대 눈을 유지하고 낮은 대비의 닫힌 입을 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/yuki.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-01.png",
+        "docs/art-face-refinement/audit-rare/grid-01.png"
+      ]
+    },
+    {
+      "id": "hyejin",
+      "variant": "rare",
+      "name": "혜진",
+      "skin": "실수투성이 냥냥 메이드 혜진",
+      "path": "Assets/Resources/Lumia/PortraitsRare/hyejin.png",
+      "baselineSha256": "26a85fc32adec5aae950b933d7d0c6445496a7b5b0f6d9054fd7765b3587213c",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        70,
+        58,
+        102,
+        82
+      ],
+      "faceRectLogical": [
+        35,
+        29,
+        51,
+        41
+      ],
+      "eyeRects": [
+        [
+          37,
+          32,
+          42,
+          35
+        ],
+        [
+          44,
+          34,
+          49,
+          36
+        ]
+      ],
+      "mouthRect": [
+        44,
+        38,
+        46,
+        40
+      ],
+      "mouthRects": [
+        [
+          44,
+          38,
+          46,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "한쪽 눈 윙크는 읽히며 작은 입만 약합니다. 양눈을 뜨게 바꾸지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/hyejin.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-01.png",
+        "docs/art-face-refinement/audit-rare/grid-01.png"
+      ]
+    },
+    {
+      "id": "sua",
+      "variant": "rare",
+      "name": "수아",
+      "skin": "1st Anniversary Dawn 수아",
+      "path": "Assets/Resources/Lumia/PortraitsRare/sua.png",
+      "baselineSha256": "a93226ad666fcdf41b4f19e82499d5c9ba7fc2f0b6900ed9bf73cb2c1183e9c7",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        74,
+        58,
+        102,
+        80
+      ],
+      "faceRectLogical": [
+        37,
+        29,
+        51,
+        40
+      ],
+      "eyeRects": [
+        [
+          39,
+          33,
+          43,
+          36
+        ],
+        [
+          46,
+          32,
+          49,
+          35
+        ]
+      ],
+      "mouthRect": [
+        44,
+        37,
+        47,
+        39
+      ],
+      "mouthRects": [
+        [
+          44,
+          37,
+          47,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "녹색 눈은 보이나 따뜻한 작은 미소가 피부색에 묻힙니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/sua.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-01.png",
+        "docs/art-face-refinement/audit-rare/grid-01.png"
+      ]
+    },
+    {
+      "id": "isol",
+      "variant": "rare",
+      "name": "아이솔",
+      "skin": "사관후보생 아이솔",
+      "path": "Assets/Resources/Lumia/PortraitsRare/isol.png",
+      "baselineSha256": "6804178e270858fa43b7fcc28b34157acc4c10f04e6a98356fcec15da3573299",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        70,
+        58,
+        102,
+        78
+      ],
+      "faceRectLogical": [
+        35,
+        29,
+        51,
+        39
+      ],
+      "eyeRects": [
+        [
+          37,
+          32,
+          43,
+          35
+        ],
+        [
+          46,
+          32,
+          49,
+          35
+        ]
+      ],
+      "mouthRect": [
+        45,
+        36,
+        47,
+        38
+      ],
+      "mouthRects": [
+        [
+          45,
+          36,
+          47,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "앞머리 아래 좁은 눈의 갈색 대비와 무표정한 작은 입을 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/isol.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-01.png",
+        "docs/art-face-refinement/audit-rare/grid-01.png"
+      ]
+    },
+    {
+      "id": "nadine",
+      "variant": "rare",
+      "name": "나딘",
+      "skin": "사관후보생 나딘",
+      "path": "Assets/Resources/Lumia/PortraitsRare/nadine.png",
+      "baselineSha256": "a2ddbacd321039f432cefd5e63fdb460b36d62973872cdcef0a839629aa7f923",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        74,
+        60,
+        106,
+        80
+      ],
+      "faceRectLogical": [
+        37,
+        30,
+        53,
+        40
+      ],
+      "eyeRects": [
+        [
+          39,
+          33,
+          45,
+          36
+        ],
+        [
+          48,
+          33,
+          51,
+          36
+        ]
+      ],
+      "mouthRect": [
+        46,
+        37,
+        49,
+        39
+      ],
+      "mouthRects": [
+        [
+          46,
+          37,
+          49,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "high",
+      "eyeReadability": "낮음",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "짙은 피부·머리·모자와 갈색 눈이 뭉칩니다. 모자 그림자를 유지한 채 눈 윗선과 작은 입을 구분합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/nadine.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-02.png",
+        "docs/art-face-refinement/audit-rare/grid-02.png"
+      ]
+    },
+    {
+      "id": "emma",
+      "variant": "rare",
+      "name": "엠마",
+      "skin": "매지컬 래빗 엠마",
+      "path": "Assets/Resources/Lumia/PortraitsRare/emma.png",
+      "baselineSha256": "3cf436ff07d77d5fa62865ebce7c5e973c13fffaaa4477cffbc4a1fdce988ea7",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        64,
+        102,
+        86
+      ],
+      "faceRectLogical": [
+        34,
+        32,
+        51,
+        43
+      ],
+      "eyeRects": [
+        [
+          36,
+          36,
+          41,
+          39
+        ],
+        [
+          44,
+          35,
+          49,
+          38
+        ]
+      ],
+      "mouthRect": [
+        42,
+        40,
+        45,
+        42
+      ],
+      "mouthRects": [
+        [
+          42,
+          40,
+          45,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "하늘색 머리와 청록 눈이 비슷합니다. 밝은 눈동자의 어두운 윗선과 열린 미소를 보존합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/emma.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-02.png",
+        "docs/art-face-refinement/audit-rare/grid-02.png"
+      ]
+    },
+    {
+      "id": "charlotte",
+      "variant": "rare",
+      "name": "샬럿",
+      "skin": "타락의 유열 샬럿",
+      "path": "Assets/Resources/Lumia/PortraitsRare/charlotte.png",
+      "baselineSha256": "9bf954d53930e1e2397139c5e8ba1848180f69bac2eadd02f990f1c0c121d33a",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        74,
+        60,
+        104,
+        84
+      ],
+      "faceRectLogical": [
+        37,
+        30,
+        52,
+        42
+      ],
+      "eyeRects": [
+        [
+          39,
+          35,
+          43,
+          38
+        ],
+        [
+          47,
+          33,
+          50,
+          36
+        ]
+      ],
+      "mouthRect": [
+        45,
+        39,
+        47,
+        41
+      ],
+      "mouthRects": [
+        [
+          45,
+          39,
+          47,
+          41
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "장난스러운 자색 반달눈은 유지하고 옅은 입 경계만 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/charlotte.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-02.png",
+        "docs/art-face-refinement/audit-rare/grid-02.png"
+      ]
+    },
+    {
+      "id": "nathapon",
+      "variant": "rare",
+      "name": "나타폰",
+      "skin": "감식반 나타폰",
+      "path": "Assets/Resources/Lumia/PortraitsRare/nathapon.png",
+      "baselineSha256": "4bf81d50ca6feacc49d88bceb6e2597c9e57801cb98bb788b8caf79d9da50107",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        74,
+        58,
+        92,
+        78
+      ],
+      "faceRectLogical": [
+        37,
+        29,
+        46,
+        39
+      ],
+      "eyeRects": [
+        [
+          39,
+          32,
+          43,
+          35
+        ]
+      ],
+      "mouthRect": [
+        42,
+        37,
+        44,
+        38
+      ],
+      "mouthRects": [
+        [
+          42,
+          37,
+          44,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "high",
+      "eyeReadability": "낮음",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "앞머리가 가린 눈은 유지합니다. 드러난 갈색 눈과 편안한 작은 입의 경계가 거의 사라집니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/nathapon.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-02.png",
+        "docs/art-face-refinement/audit-rare/grid-02.png"
+      ]
+    },
+    {
+      "id": "nicky",
+      "variant": "rare",
+      "name": "니키",
+      "skin": "치어풀 펀치! 니키",
+      "path": "Assets/Resources/Lumia/PortraitsRare/nicky.png",
+      "baselineSha256": "ff88ceff3dcc6a0b2402123f6edd83aa79faf3531de802066df4019fb21f995d",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        60,
+        60,
+        96,
+        84
+      ],
+      "faceRectLogical": [
+        30,
+        30,
+        48,
+        42
+      ],
+      "eyeRects": [
+        [
+          32,
+          33,
+          38,
+          37
+        ],
+        [
+          41,
+          34,
+          46,
+          38
+        ]
+      ],
+      "mouthRect": [
+        38,
+        39,
+        41,
+        41
+      ],
+      "mouthRects": [
+        [
+          38,
+          39,
+          41,
+          41
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "날카로운 파란 눈과 활기찬 입이 선명합니다. 큰 리본을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/nicky.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-02.png",
+        "docs/art-face-refinement/audit-rare/grid-02.png"
+      ]
+    },
+    {
+      "id": "daniel",
+      "variant": "rare",
+      "name": "다니엘",
+      "skin": "화이트데이 다니엘",
+      "path": "Assets/Resources/Lumia/PortraitsRare/daniel.png",
+      "baselineSha256": "c8ba7b2452ef66b0f20f487b53bc4387a060da408ede2d3bac05c69fff27d57d",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        66,
+        52,
+        102,
+        74
+      ],
+      "faceRectLogical": [
+        33,
+        26,
+        51,
+        37
+      ],
+      "eyeRects": [
+        [
+          35,
+          31,
+          39,
+          34
+        ],
+        [
+          46,
+          29,
+          49,
+          32
+        ]
+      ],
+      "mouthRect": [
+        42,
+        34,
+        45,
+        36
+      ],
+      "mouthRects": [
+        [
+          42,
+          34,
+          45,
+          36
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "아주 좁은 눈과 얇은 닫힌 입이 판독됩니다. 눈을 크게 만들지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/daniel.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-02.png",
+        "docs/art-face-refinement/audit-rare/grid-02.png"
+      ]
+    },
+    {
+      "id": "tia",
+      "variant": "rare",
+      "name": "띠아",
+      "skin": "살금살금 땨람쥐 메이드 띠아",
+      "path": "Assets/Resources/Lumia/PortraitsRare/tia.png",
+      "baselineSha256": "c49b3ce5e1e2e06888376f501a63659451b7764b707a60303bf7e675081b5e46",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        72,
+        58,
+        102,
+        80
+      ],
+      "faceRectLogical": [
+        36,
+        29,
+        51,
+        40
+      ],
+      "eyeRects": [
+        [
+          38,
+          32,
+          42,
+          35
+        ],
+        [
+          45,
+          34,
+          49,
+          37
+        ]
+      ],
+      "mouthRect": [
+        42,
+        37,
+        45,
+        39
+      ],
+      "mouthRects": [
+        [
+          42,
+          37,
+          45,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "주황 눈과 앞머리의 밝기가 가까우나 작은 입은 보입니다. 눈 윗선만 국소 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/tia.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-02.png",
+        "docs/art-face-refinement/audit-rare/grid-02.png"
+      ]
+    },
+    {
+      "id": "laura",
+      "variant": "rare",
+      "name": "라우라",
+      "skin": "팬서 라우라",
+      "path": "Assets/Resources/Lumia/PortraitsRare/laura.png",
+      "baselineSha256": "acf6c6b2a7946f55a9829f88e405bffb084d66794a398b6888cda07a688edb11",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        70,
+        52,
+        104,
+        78
+      ],
+      "faceRectLogical": [
+        35,
+        26,
+        52,
+        39
+      ],
+      "eyeRects": [
+        [
+          37,
+          32,
+          43,
+          35
+        ],
+        [
+          47,
+          29,
+          50,
+          32
+        ]
+      ],
+      "mouthRect": [
+        44,
+        36,
+        47,
+        38
+      ],
+      "mouthRects": [
+        [
+          44,
+          36,
+          47,
+          38
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "이 스킨의 녹색 눈과 붉은 작은 미소가 선명합니다. 기본 보라색 눈으로 덮어쓰지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/laura.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-02.png",
+        "docs/art-face-refinement/audit-rare/grid-02.png"
+      ]
+    },
+    {
+      "id": "lenox",
+      "variant": "rare",
+      "name": "레녹스",
+      "skin": "심연의 마왕 레녹스",
+      "path": "Assets/Resources/Lumia/PortraitsRare/lenox.png",
+      "baselineSha256": "dd0504961af62af1de263b232e23914e2e961355a5daeb8d1a53d02e029ce28f",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        70,
+        58,
+        96,
+        80
+      ],
+      "faceRectLogical": [
+        35,
+        29,
+        48,
+        40
+      ],
+      "eyeRects": [
+        [
+          37,
+          33,
+          42,
+          35
+        ],
+        [
+          43,
+          32,
+          46,
+          35
+        ]
+      ],
+      "mouthRect": [
+        40,
+        37,
+        43,
+        39
+      ],
+      "mouthRects": [
+        [
+          40,
+          37,
+          43,
+          39
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "날카로운 보라색 눈과 작은 장난스러운 입이 구분됩니다. 스킨 눈색을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/lenox.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-03.png",
+        "docs/art-face-refinement/audit-rare/grid-03.png"
+      ]
+    },
+    {
+      "id": "leon",
+      "variant": "rare",
+      "name": "레온",
+      "skin": "장교 레온",
+      "path": "Assets/Resources/Lumia/PortraitsRare/leon.png",
+      "baselineSha256": "0a8ea9327073f0700d6745759e3ec052835a7cb81aa5f74fa902de6d6d33d37a",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        64,
+        102,
+        86
+      ],
+      "faceRectLogical": [
+        34,
+        32,
+        51,
+        43
+      ],
+      "eyeRects": [
+        [
+          36,
+          35,
+          40,
+          38
+        ],
+        [
+          46,
+          36,
+          49,
+          39
+        ]
+      ],
+      "mouthRect": [
+        41,
+        40,
+        44,
+        42
+      ],
+      "mouthRects": [
+        [
+          41,
+          40,
+          44,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "high",
+      "eyeReadability": "낮음",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "제복 모자 아래 청록 눈은 옅고 닫힌 입이 거의 없습니다. 낮은 눈매를 유지해 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/leon.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-03.png",
+        "docs/art-face-refinement/audit-rare/grid-03.png"
+      ]
+    },
+    {
+      "id": "rozzi",
+      "variant": "rare",
+      "name": "로지",
+      "skin": "파이널 랩 로지",
+      "path": "Assets/Resources/Lumia/PortraitsRare/rozzi.png",
+      "baselineSha256": "61b20f4955e36dba955d20ed7bfefbea91f3519ca2f83e2304822bff143a7129",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        78,
+        56,
+        96,
+        78
+      ],
+      "faceRectLogical": [
+        39,
+        28,
+        48,
+        39
+      ],
+      "eyeRects": [
+        [
+          43,
+          31,
+          46,
+          35
+        ]
+      ],
+      "mouthRect": [
+        41,
+        36,
+        43,
+        38
+      ],
+      "mouthRects": [
+        [
+          41,
+          36,
+          43,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "앞머리 아래 한쪽 눈만 보이는 구도입니다. 드러난 회색 녹색 눈과 작은 입을 국소 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/rozzi.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-03.png",
+        "docs/art-face-refinement/audit-rare/grid-03.png"
+      ]
+    },
+    {
+      "id": "luke",
+      "variant": "rare",
+      "name": "루크",
+      "skin": "사신 루크",
+      "path": "Assets/Resources/Lumia/PortraitsRare/luke.png",
+      "baselineSha256": "59d53d62b9fa51aed51fa84a541045472176c6594a89e18847e1ad65cde83e5a",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        56,
+        100,
+        76
+      ],
+      "faceRectLogical": [
+        34,
+        28,
+        50,
+        38
+      ],
+      "eyeRects": [
+        [
+          36,
+          31,
+          40,
+          34
+        ],
+        [
+          44,
+          31,
+          48,
+          34
+        ]
+      ],
+      "mouthRect": [
+        41,
+        35,
+        44,
+        37
+      ],
+      "mouthRects": [
+        [
+          41,
+          35,
+          44,
+          37
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "사신 스킨의 차가운 좁은 눈을 유지합니다. 밝은 머리·피부 사이 입의 대비가 약합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/luke.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-03.png",
+        "docs/art-face-refinement/audit-rare/grid-03.png"
+      ]
+    },
+    {
+      "id": "dailin",
+      "variant": "rare",
+      "name": "리 다이린",
+      "skin": "잭 오 리 다이린",
+      "path": "Assets/Resources/Lumia/PortraitsRare/dailin.png",
+      "baselineSha256": "b21a99a806db511b2b9fcca1658c815d8f5575776b1e14411e90aa54aab17e22",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        74,
+        60,
+        104,
+        82
+      ],
+      "faceRectLogical": [
+        37,
+        30,
+        52,
+        41
+      ],
+      "eyeRects": [
+        [
+          39,
+          34,
+          44,
+          36
+        ],
+        [
+          46,
+          33,
+          50,
+          35
+        ]
+      ],
+      "mouthRect": [
+        44,
+        38,
+        47,
+        40
+      ],
+      "mouthRects": [
+        [
+          44,
+          38,
+          47,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "졸린 녹색 눈은 읽히며 작은 비대칭 웃음만 옅습니다. 후광과 붉은 머리는 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/dailin.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-03.png",
+        "docs/art-face-refinement/audit-rare/grid-03.png"
+      ]
+    },
+    {
+      "id": "rio",
+      "variant": "rare",
+      "name": "리오",
+      "skin": "3rd Anniversary 리오 Dolce",
+      "path": "Assets/Resources/Lumia/PortraitsRare/rio.png",
+      "baselineSha256": "aacf918c771a9cdc699e08b5493f1f41488514dd3ef12aaaa10224c6d94fc096",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        66,
+        54,
+        100,
+        76
+      ],
+      "faceRectLogical": [
+        33,
+        27,
+        50,
+        38
+      ],
+      "eyeRects": [
+        [
+          35,
+          30,
+          41,
+          33
+        ],
+        [
+          45,
+          32,
+          48,
+          35
+        ]
+      ],
+      "mouthRect": [
+        42,
+        35,
+        44,
+        37
+      ],
+      "mouthRects": [
+        [
+          42,
+          35,
+          44,
+          37
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "직선 윗눈꺼풀과 금색 눈이 읽힙니다. 담담한 작은 닫힌 입을 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/rio.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-03.png",
+        "docs/art-face-refinement/audit-rare/grid-03.png"
+      ]
+    },
+    {
+      "id": "martina",
+      "variant": "rare",
+      "name": "마르티나",
+      "skin": "20년 전 마르티나",
+      "path": "Assets/Resources/Lumia/PortraitsRare/martina.png",
+      "baselineSha256": "0dad1cfa40fcdb5808d3278c270055b021b4603355f5e7b191a9cd252d00f463",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        66,
+        50,
+        100,
+        74
+      ],
+      "faceRectLogical": [
+        33,
+        25,
+        50,
+        37
+      ],
+      "eyeRects": [
+        [
+          35,
+          30,
+          40,
+          34
+        ],
+        [
+          44,
+          28,
+          48,
+          31
+        ]
+      ],
+      "mouthRect": [
+        41,
+        34,
+        43,
+        36
+      ],
+      "mouthRects": [
+        [
+          41,
+          34,
+          43,
+          36
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "이 젊은 스킨에는 양 눈과 얇은 안경이 있습니다. 기본 안대를 추가하지 않고 작은 입을 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/martina.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-03.png",
+        "docs/art-face-refinement/audit-rare/grid-03.png"
+      ]
+    },
+    {
+      "id": "mai",
+      "variant": "rare",
+      "name": "마이",
+      "skin": "아 라 모드 바니 마이",
+      "path": "Assets/Resources/Lumia/PortraitsRare/mai.png",
+      "baselineSha256": "eb39610d210362c7a6c37f75374396c3395a5ad8a0be0cee076e6c266666210c",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        66,
+        102,
+        90
+      ],
+      "faceRectLogical": [
+        34,
+        33,
+        51,
+        45
+      ],
+      "eyeRects": [
+        [
+          36,
+          36,
+          41,
+          40
+        ],
+        [
+          44,
+          36,
+          49,
+          39
+        ]
+      ],
+      "mouthRect": [
+        41,
+        42,
+        44,
+        44
+      ],
+      "mouthRects": [
+        [
+          41,
+          42,
+          44,
+          44
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "자신감 있는 주황 눈이 갈색 얼굴과 일부 섞입니다. 현재 작은 미소를 보존합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/mai.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-03.png",
+        "docs/art-face-refinement/audit-rare/grid-03.png"
+      ]
+    },
+    {
+      "id": "markus",
+      "variant": "rare",
+      "name": "마커스",
+      "skin": "해변의 전사 마커스",
+      "path": "Assets/Resources/Lumia/PortraitsRare/markus.png",
+      "baselineSha256": "ba3640991781d55ab4ac02d2a9dcdb3cc30f11cf899d658a8496bcbb2c9d9998",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        76,
+        64,
+        90,
+        78
+      ],
+      "faceRectLogical": [
+        38,
+        32,
+        45,
+        39
+      ],
+      "eyeRects": [],
+      "mouthRect": [
+        40,
+        35,
+        43,
+        38
+      ],
+      "mouthRects": [
+        [
+          40,
+          35,
+          43,
+          38
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "짙은 선글라스가 양 눈을 가리는 스킨입니다. 노출된 눈을 새로 그리지 않습니다. 수염과 입의 캐릭터성이 읽힙니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/markus.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-04.png",
+        "docs/art-face-refinement/audit-rare/grid-04.png"
+      ]
+    },
+    {
+      "id": "magnus",
+      "variant": "rare",
+      "name": "매그너스",
+      "skin": "Mk. VIII Destroyer M.A.G",
+      "path": "Assets/Resources/Lumia/PortraitsRare/magnus.png",
+      "baselineSha256": "5778211b8926c2f2a3837739af2070824ed0278e9378d13085d5f36364651d36",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        72,
+        68,
+        100,
+        84
+      ],
+      "faceRectLogical": [
+        36,
+        34,
+        50,
+        42
+      ],
+      "eyeRects": [
+        [
+          38,
+          37,
+          42,
+          40
+        ],
+        [
+          45,
+          38,
+          48,
+          41
+        ]
+      ],
+      "mouthRect": null,
+      "mouthRects": [],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "의도적으로 가림",
+      "direction": "사이보그 얼굴 장갑이 입을 가립니다. 사람 입을 추가하지 않습니다. 렌즈·차가운 눈만 보존합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/magnus.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-04.png",
+        "docs/art-face-refinement/audit-rare/grid-04.png"
+      ]
+    },
+    {
+      "id": "vanya",
+      "variant": "rare",
+      "name": "바냐",
+      "skin": "꾸벅꾸벅 아기 새 메이드 바냐",
+      "path": "Assets/Resources/Lumia/PortraitsRare/vanya.png",
+      "baselineSha256": "97e24aaec3b6125d3829d39b67db5716366395ffca4eae577688237f16bb6d7a",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        60,
+        58,
+        92,
+        80
+      ],
+      "faceRectLogical": [
+        30,
+        29,
+        46,
+        40
+      ],
+      "eyeRects": [
+        [
+          32,
+          34,
+          37,
+          37
+        ],
+        [
+          39,
+          32,
+          44,
+          35
+        ]
+      ],
+      "mouthRect": [
+        37,
+        37,
+        40,
+        39
+      ],
+      "mouthRects": [
+        [
+          37,
+          37,
+          40,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "졸린 옅은 하늘색 눈과 흰 머리의 대비가 낮습니다. 반쯤 감긴 눈과 작은 입만 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/vanya.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-04.png",
+        "docs/art-face-refinement/audit-rare/grid-04.png"
+      ]
+    },
+    {
+      "id": "barbara",
+      "variant": "rare",
+      "name": "바바라",
+      "skin": "연구원 바바라",
+      "path": "Assets/Resources/Lumia/PortraitsRare/barbara.png",
+      "baselineSha256": "c7c810371e083a3adc4e2c7bcf38256698c6c6fd1a8719b291ff96a63e2dd50e",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        56,
+        98,
+        78
+      ],
+      "faceRectLogical": [
+        34,
+        28,
+        49,
+        39
+      ],
+      "eyeRects": [
+        [
+          36,
+          31,
+          39,
+          34
+        ],
+        [
+          44,
+          32,
+          47,
+          35
+        ]
+      ],
+      "mouthRect": [
+        40,
+        37,
+        42,
+        38
+      ],
+      "mouthRects": [
+        [
+          40,
+          37,
+          42,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "high",
+      "eyeReadability": "낮음",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "녹색 눈과 사각 안경 테가 섞여 보입니다. 안경을 두껍게 만들지 않고 눈·테·입을 구분합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/barbara.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-04.png",
+        "docs/art-face-refinement/audit-rare/grid-04.png"
+      ]
+    },
+    {
+      "id": "bernice",
+      "variant": "rare",
+      "name": "버니스",
+      "skin": "하우스키퍼 버니스",
+      "path": "Assets/Resources/Lumia/PortraitsRare/bernice.png",
+      "baselineSha256": "95f76d4cfe232f1dd5778ac27192c24edfb64baa86fda9b7671a9bec70d70ea5",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        70,
+        48,
+        104,
+        76
+      ],
+      "faceRectLogical": [
+        35,
+        24,
+        52,
+        38
+      ],
+      "eyeRects": [
+        [
+          37,
+          27,
+          42,
+          31
+        ],
+        [
+          46,
+          29,
+          50,
+          32
+        ]
+      ],
+      "mouthRect": [
+        43,
+        35,
+        46,
+        37
+      ],
+      "mouthRects": [
+        [
+          43,
+          35,
+          46,
+          37
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "한쪽 모노클과 성숙한 눈썹·수염을 유지합니다. 입은 수염 안에서 낮은 대비입니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/bernice.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-04.png",
+        "docs/art-face-refinement/audit-rare/grid-04.png"
+      ]
+    },
+    {
+      "id": "bianca",
+      "variant": "rare",
+      "name": "비앙카",
+      "skin": "영겁의 푸른 망령 비앙카",
+      "path": "Assets/Resources/Lumia/PortraitsRare/bianca.png",
+      "baselineSha256": "28c37fc6fe64823584898306aa1166948ae1ed0fc2fd119403c3938b04c663f1",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        80,
+        64,
+        112,
+        86
+      ],
+      "faceRectLogical": [
+        40,
+        32,
+        56,
+        43
+      ],
+      "eyeRects": [
+        [
+          42,
+          37,
+          47,
+          39
+        ],
+        [
+          50,
+          35,
+          54,
+          38
+        ]
+      ],
+      "mouthRect": [
+        47,
+        40,
+        50,
+        42
+      ],
+      "mouthRects": [
+        [
+          47,
+          40,
+          50,
+          42
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "붉은 눈과 작은 붉은 입이 선명합니다. 기울어진 장난스러운 표정을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/bianca.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-04.png",
+        "docs/art-face-refinement/audit-rare/grid-04.png"
+      ]
+    },
+    {
+      "id": "celine",
+      "variant": "rare",
+      "name": "셀린",
+      "skin": "메이드, 때때로 폭발 셀린",
+      "path": "Assets/Resources/Lumia/PortraitsRare/celine.png",
+      "baselineSha256": "3e8215f74c7b601000573f92998b337eb4b8a2474aba748dd0f4ef761c78fc32",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        58,
+        64,
+        92,
+        86
+      ],
+      "faceRectLogical": [
+        29,
+        32,
+        46,
+        43
+      ],
+      "eyeRects": [
+        [
+          31,
+          35,
+          36,
+          38
+        ],
+        [
+          39,
+          36,
+          44,
+          39
+        ]
+      ],
+      "mouthRect": [
+        36,
+        40,
+        39,
+        42
+      ],
+      "mouthRects": [
+        [
+          36,
+          40,
+          39,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "낮은 금색 눈이 밝은 피부와 가까우며 작은 입이 약합니다. 무심한 눈매를 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/celine.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-04.png",
+        "docs/art-face-refinement/audit-rare/grid-04.png"
+      ]
+    },
+    {
+      "id": "sho",
+      "variant": "rare",
+      "name": "쇼우",
+      "skin": "산타 쇼우",
+      "path": "Assets/Resources/Lumia/PortraitsRare/sho.png",
+      "baselineSha256": "fb7216045d322bc16a82f6d4ed75a7b1d7f267229729d842c7cb121a61934bab",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        72,
+        54,
+        104,
+        68
+      ],
+      "faceRectLogical": [
+        36,
+        27,
+        52,
+        34
+      ],
+      "eyeRects": [
+        [
+          38,
+          31,
+          43,
+          33
+        ],
+        [
+          46,
+          30,
+          50,
+          33
+        ]
+      ],
+      "mouthRect": null,
+      "mouthRects": [],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "의도적으로 가림",
+      "direction": "둥근 안경 속 작은 눈이 읽힙니다. 산타 수염에 가려진 입을 새로 드러내지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/sho.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-04.png",
+        "docs/art-face-refinement/audit-rare/grid-04.png"
+      ]
+    },
+    {
+      "id": "shoichi",
+      "variant": "rare",
+      "name": "쇼이치",
+      "skin": "모란 뒤의 그림자 쇼이치",
+      "path": "Assets/Resources/Lumia/PortraitsRare/shoichi.png",
+      "baselineSha256": "b8a2890cc6cab87e3c21ccb3ec79e9db72a812fa9557f8efa42f02646891e1db",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        62,
+        58,
+        96,
+        80
+      ],
+      "faceRectLogical": [
+        31,
+        29,
+        48,
+        40
+      ],
+      "eyeRects": [
+        [
+          33,
+          32,
+          38,
+          35
+        ],
+        [
+          41,
+          32,
+          46,
+          35
+        ]
+      ],
+      "mouthRect": [
+        39,
+        37,
+        42,
+        39
+      ],
+      "mouthRects": [
+        [
+          39,
+          37,
+          42,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "얇은 안경과 좁은 눈이 같은 색으로 섞입니다. 가느다란 눈과 미소만 국소 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/shoichi.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-05.png",
+        "docs/art-face-refinement/audit-rare/grid-05.png"
+      ]
+    },
+    {
+      "id": "sissela",
+      "variant": "rare",
+      "name": "시셀라",
+      "skin": "사관후보생 시셀라",
+      "path": "Assets/Resources/Lumia/PortraitsRare/sissela.png",
+      "baselineSha256": "3c21d763705cff8f3fac0478361a521153746996daf54302ab5b763b4fcc4ecb",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        70,
+        62,
+        100,
+        82
+      ],
+      "faceRectLogical": [
+        35,
+        31,
+        50,
+        41
+      ],
+      "eyeRects": [
+        [
+          37,
+          34,
+          41,
+          37
+        ],
+        [
+          45,
+          35,
+          48,
+          39
+        ]
+      ],
+      "mouthRect": [
+        41,
+        39,
+        43,
+        40
+      ],
+      "mouthRects": [
+        [
+          41,
+          39,
+          43,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "high",
+      "eyeReadability": "낮음",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "창백한 머리·피부·하늘색 눈이 섞입니다. 앞머리가 덮은 눈은 유지하고 보이는 지친 눈과 입의 대비를 높입니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/sissela.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-05.png",
+        "docs/art-face-refinement/audit-rare/grid-05.png"
+      ]
+    },
+    {
+      "id": "silvia",
+      "variant": "rare",
+      "name": "실비아",
+      "skin": "퀸 실비아",
+      "path": "Assets/Resources/Lumia/PortraitsRare/silvia.png",
+      "baselineSha256": "362b2fff6280f96241b625f21ae93e62424035d1040bb80c77d2a2751150ef8c",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        58,
+        54,
+        88,
+        78
+      ],
+      "faceRectLogical": [
+        29,
+        27,
+        44,
+        39
+      ],
+      "eyeRects": [
+        [
+          31,
+          31,
+          35,
+          35
+        ],
+        [
+          38,
+          30,
+          42,
+          34
+        ]
+      ],
+      "mouthRect": [
+        34,
+        35,
+        39,
+        38
+      ],
+      "mouthRects": [
+        [
+          34,
+          35,
+          39,
+          38
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "붉은 눈과 열린 미소가 모두 선명합니다. 어두운 스킨 복장 속 얼굴이 잘 읽힙니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/silvia.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-05.png",
+        "docs/art-face-refinement/audit-rare/grid-05.png"
+      ]
+    },
+    {
+      "id": "adela",
+      "variant": "rare",
+      "name": "아델라",
+      "skin": "메이드 아델라",
+      "path": "Assets/Resources/Lumia/PortraitsRare/adela.png",
+      "baselineSha256": "7fbd2f3aaca95344c31c23763077218053b9c5dbf76d16c98055d7f0092e3b5f",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        56,
+        58,
+        82,
+        82
+      ],
+      "faceRectLogical": [
+        28,
+        29,
+        41,
+        41
+      ],
+      "eyeRects": [
+        [
+          30,
+          33,
+          33,
+          36
+        ],
+        [
+          35,
+          32,
+          39,
+          35
+        ]
+      ],
+      "mouthRect": [
+        35,
+        38,
+        38,
+        40
+      ],
+      "mouthRects": [
+        [
+          35,
+          38,
+          38,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "얇은 안경과 어두운 눈매는 유지합니다. 작은 닫힌 입의 윤곽이 약합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/adela.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-05.png",
+        "docs/art-face-refinement/audit-rare/grid-05.png"
+      ]
+    },
+    {
+      "id": "adriana",
+      "variant": "rare",
+      "name": "아드리아나",
+      "skin": "악역 영애 아드리아나",
+      "path": "Assets/Resources/Lumia/PortraitsRare/adriana.png",
+      "baselineSha256": "72ac700856cccd6a9b2cce9bc5a6c85601513ca8a057ba885c8afd2b9f207946",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        66,
+        58,
+        98,
+        86
+      ],
+      "faceRectLogical": [
+        33,
+        29,
+        49,
+        43
+      ],
+      "eyeRects": [
+        [
+          35,
+          34,
+          40,
+          37
+        ],
+        [
+          43,
+          32,
+          47,
+          35
+        ]
+      ],
+      "mouthRect": [
+        40,
+        38,
+        44,
+        42
+      ],
+      "mouthRects": [
+        [
+          40,
+          38,
+          44,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "큰 열린 웃음은 선명합니다. 녹색 눈이 붉은 머리 그림자에 일부 묻혀 윗선만 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/adriana.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-05.png",
+        "docs/art-face-refinement/audit-rare/grid-05.png"
+      ]
+    },
+    {
+      "id": "adina",
+      "variant": "rare",
+      "name": "아디나",
+      "skin": "해변의 점성술사 아디나",
+      "path": "Assets/Resources/Lumia/PortraitsRare/adina.png",
+      "baselineSha256": "604631a642d6d94d649a97de779b64c773890b88f3fed90e4effc11b32187a89",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        58,
+        66,
+        92,
+        86
+      ],
+      "faceRectLogical": [
+        29,
+        33,
+        46,
+        43
+      ],
+      "eyeRects": [
+        [
+          31,
+          36,
+          36,
+          39
+        ],
+        [
+          39,
+          36,
+          44,
+          40
+        ]
+      ],
+      "mouthRect": [
+        36,
+        40,
+        39,
+        42
+      ],
+      "mouthRects": [
+        [
+          36,
+          40,
+          39,
+          42
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "파란 눈과 작은 입이 선명합니다. 은색 머리와 눈이 구분됩니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/adina.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-05.png",
+        "docs/art-face-refinement/audit-rare/grid-05.png"
+      ]
+    },
+    {
+      "id": "isaac",
+      "variant": "rare",
+      "name": "아이작",
+      "skin": "오만의 군단장 아이작",
+      "path": "Assets/Resources/Lumia/PortraitsRare/isaac.png",
+      "baselineSha256": "7ff9fea349d4a0b6e319ce5fd85091b0bd5d6ea235afd9fab35ed0401e90aa5a",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        62,
+        60,
+        90,
+        84
+      ],
+      "faceRectLogical": [
+        31,
+        30,
+        45,
+        42
+      ],
+      "eyeRects": [
+        [
+          33,
+          34,
+          36,
+          37
+        ],
+        [
+          39,
+          33,
+          42,
+          36
+        ]
+      ],
+      "mouthRect": [
+        41,
+        40,
+        43,
+        41
+      ],
+      "mouthRects": [
+        [
+          41,
+          40,
+          43,
+          41
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "high",
+      "eyeReadability": "낮음",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "회색 눈·콧수염·작은 입이 옅은 얼굴과 섞입니다. 성숙한 얼굴의 수염과 좁은 눈을 국소 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/isaac.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-05.png",
+        "docs/art-face-refinement/audit-rare/grid-05.png"
+      ]
+    },
+    {
+      "id": "alex",
+      "variant": "rare",
+      "name": "알렉스",
+      "skin": "조커 알렉스",
+      "path": "Assets/Resources/Lumia/PortraitsRare/alex.png",
+      "baselineSha256": "327736a55b7336fdcd86e23fa6817fae04aa60e6afc3e6dac70c9301b6b4b5f9",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        70,
+        70,
+        86,
+        86
+      ],
+      "faceRectLogical": [
+        35,
+        35,
+        43,
+        43
+      ],
+      "eyeRects": [
+        [
+          37,
+          38,
+          41,
+          39
+        ]
+      ],
+      "mouthRect": [
+        38,
+        41,
+        40,
+        42
+      ],
+      "mouthRects": [
+        [
+          38,
+          41,
+          40,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "high",
+      "eyeReadability": "낮음",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "검은 앞머리 아래 드러난 눈과 닫힌 입이 거의 보이지 않습니다. 앞머리와 이마 가면을 보존해 좁은 눈만 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/alex.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-05.png",
+        "docs/art-face-refinement/audit-rare/grid-05.png"
+      ]
+    },
+    {
+      "id": "jan",
+      "variant": "rare",
+      "name": "얀",
+      "skin": "언더보스 얀",
+      "path": "Assets/Resources/Lumia/PortraitsRare/jan.png",
+      "baselineSha256": "1e0aee6b57de77553b7f92199576c5faba2980b7b9887a54ad88e8038a657e8a",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        86,
+        64,
+        102,
+        78
+      ],
+      "faceRectLogical": [
+        43,
+        32,
+        51,
+        39
+      ],
+      "eyeRects": [],
+      "mouthRect": [
+        45,
+        35,
+        49,
+        38
+      ],
+      "mouthRects": [
+        [
+          45,
+          35,
+          49,
+          38
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "붉은 틴트 선글라스가 눈을 가리는 스킨입니다. 금빛 이빨 웃음이 선명하므로 노출된 눈을 추가하지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/jan.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-06.png",
+        "docs/art-face-refinement/audit-rare/grid-06.png"
+      ]
+    },
+    {
+      "id": "estelle",
+      "variant": "rare",
+      "name": "에스텔",
+      "skin": "안전 교관 에스텔",
+      "path": "Assets/Resources/Lumia/PortraitsRare/estelle.png",
+      "baselineSha256": "a3a5e594a6c7977c2f5c65a5b18eab9d946fe21ed73e84b87491b27aff266128",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        66,
+        56,
+        100,
+        80
+      ],
+      "faceRectLogical": [
+        33,
+        28,
+        50,
+        40
+      ],
+      "eyeRects": [
+        [
+          35,
+          33,
+          39,
+          36
+        ],
+        [
+          44,
+          31,
+          48,
+          34
+        ]
+      ],
+      "mouthRect": [
+        41,
+        37,
+        44,
+        39
+      ],
+      "mouthRects": [
+        [
+          41,
+          37,
+          44,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "주황 눈은 구분되지만 작은 입이 붉은 볼과 섞입니다. 교관 스킨의 자신감 있는 미소를 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/estelle.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-06.png",
+        "docs/art-face-refinement/audit-rare/grid-06.png"
+      ]
+    },
+    {
+      "id": "aiden",
+      "variant": "rare",
+      "name": "에이든",
+      "skin": "카이 에이든",
+      "path": "Assets/Resources/Lumia/PortraitsRare/aiden.png",
+      "baselineSha256": "0ea3fa8dcd9b328c637c93fe651a677071a4d1d917b672c9d9f754c06dcaabc4",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        60,
+        62,
+        90,
+        82
+      ],
+      "faceRectLogical": [
+        30,
+        31,
+        45,
+        41
+      ],
+      "eyeRects": [
+        [
+          32,
+          35,
+          36,
+          38
+        ],
+        [
+          39,
+          34,
+          43,
+          37
+        ]
+      ],
+      "mouthRect": [
+        38,
+        38,
+        41,
+        40
+      ],
+      "mouthRects": [
+        [
+          38,
+          38,
+          41,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "앞머리 아래 파란 눈은 선명합니다. 진지한 작은 닫힌 입을 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/aiden.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-06.png",
+        "docs/art-face-refinement/audit-rare/grid-06.png"
+      ]
+    },
+    {
+      "id": "echion",
+      "variant": "rare",
+      "name": "에키온",
+      "skin": "암흑가 에키온",
+      "path": "Assets/Resources/Lumia/PortraitsRare/echion.png",
+      "baselineSha256": "5f4b70f294f80d99ccaaeec31ebff9e156f2830e9623b82f2cc01102420218bf",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        72,
+        72,
+        100,
+        94
+      ],
+      "faceRectLogical": [
+        36,
+        36,
+        50,
+        47
+      ],
+      "eyeRects": [
+        [
+          38,
+          39,
+          42,
+          42
+        ],
+        [
+          44,
+          41,
+          48,
+          43
+        ]
+      ],
+      "mouthRect": [
+        42,
+        44,
+        45,
+        46
+      ],
+      "mouthRects": [
+        [
+          42,
+          44,
+          45,
+          46
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "마젠타 눈과 밝은 은색 머리의 경계가 약하며 입이 옅습니다. 비뚤어진 반항적 미소를 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/echion.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-06.png",
+        "docs/art-face-refinement/audit-rare/grid-06.png"
+      ]
+    },
+    {
+      "id": "elena",
+      "variant": "rare",
+      "name": "엘레나",
+      "skin": "바이올렛 엘레나",
+      "path": "Assets/Resources/Lumia/PortraitsRare/elena.png",
+      "baselineSha256": "a029c889987b4907d0ca2919161bc36cce341204fbb54044700bc8c9ebddea69",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        76,
+        62,
+        106,
+        82
+      ],
+      "faceRectLogical": [
+        38,
+        31,
+        53,
+        41
+      ],
+      "eyeRects": [
+        [
+          40,
+          35,
+          44,
+          38
+        ],
+        [
+          47,
+          34,
+          51,
+          37
+        ]
+      ],
+      "mouthRect": [
+        45,
+        38,
+        48,
+        40
+      ],
+      "mouthRects": [
+        [
+          45,
+          38,
+          48,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "좁은 적갈색 눈은 잘 읽히나 닫힌 입이 매우 옅습니다. 진지한 표정을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/elena.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-06.png",
+        "docs/art-face-refinement/audit-rare/grid-06.png"
+      ]
+    },
+    {
+      "id": "johann",
+      "variant": "rare",
+      "name": "요한",
+      "skin": "악마사냥꾼 요한",
+      "path": "Assets/Resources/Lumia/PortraitsRare/johann.png",
+      "baselineSha256": "fce3c8564926c3f8e66d21731c6b5b9abc36d006b728546db4d52b8562dbef23",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        70,
+        68,
+        86,
+        86
+      ],
+      "faceRectLogical": [
+        35,
+        34,
+        43,
+        43
+      ],
+      "eyeRects": [
+        [
+          37,
+          37,
+          41,
+          39
+        ]
+      ],
+      "mouthRect": [
+        38,
+        40,
+        41,
+        42
+      ],
+      "mouthRects": [
+        [
+          38,
+          40,
+          41,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "거대한 모자가 눈 대부분을 가리는 스킨입니다. 보이는 한쪽 눈과 작은 입만 강조합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/johann.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-06.png",
+        "docs/art-face-refinement/audit-rare/grid-06.png"
+      ]
+    },
+    {
+      "id": "william",
+      "variant": "rare",
+      "name": "윌리엄",
+      "skin": "아포칼립스 윌리엄",
+      "path": "Assets/Resources/Lumia/PortraitsRare/william.png",
+      "baselineSha256": "cc8b63621945c30be4bc773d9bf8ec7f5db8804d3f93ee071bcc90441c62a752",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        76,
+        60,
+        102,
+        82
+      ],
+      "faceRectLogical": [
+        38,
+        30,
+        51,
+        41
+      ],
+      "eyeRects": [
+        [
+          40,
+          33,
+          44,
+          36
+        ],
+        [
+          46,
+          34,
+          49,
+          36
+        ]
+      ],
+      "mouthRect": [
+        44,
+        38,
+        47,
+        40
+      ],
+      "mouthRects": [
+        [
+          44,
+          38,
+          47,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "모자 아래 파란 눈이 작고 낮은 대비이며 입은 거의 없습니다. 피곤하고 차분한 인상을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/william.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-06.png",
+        "docs/art-face-refinement/audit-rare/grid-06.png"
+      ]
+    },
+    {
+      "id": "irem",
+      "variant": "rare",
+      "name": "이렘",
+      "skin": "당신과 나의 네코마츠리 이렘",
+      "path": "Assets/Resources/Lumia/PortraitsRare/irem.png",
+      "baselineSha256": "f12e16ac74cb52400a7c9291b9d36e3c3fadbde20f969e9f8d596aebe0715420",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        72,
+        52,
+        100,
+        78
+      ],
+      "faceRectLogical": [
+        36,
+        26,
+        50,
+        39
+      ],
+      "eyeRects": [
+        [
+          38,
+          33,
+          42,
+          35
+        ],
+        [
+          43,
+          29,
+          48,
+          33
+        ]
+      ],
+      "mouthRect": [
+        40,
+        35,
+        44,
+        38
+      ],
+      "mouthRects": [
+        [
+          40,
+          35,
+          44,
+          38
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "금색·파란색 오드아이와 열린 웃음이 모두 선명합니다. 고양이 귀와 표정을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/irem.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-06.png",
+        "docs/art-face-refinement/audit-rare/grid-06.png"
+      ]
+    },
+    {
+      "id": "eva",
+      "variant": "rare",
+      "name": "이바",
+      "skin": "2nd Anniversary 이바 Blossom",
+      "path": "Assets/Resources/Lumia/PortraitsRare/eva.png",
+      "baselineSha256": "a61293bac779868d66ac1f0c759840123ae4787ba880d7f02930ce356b5a5161",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        64,
+        50,
+        100,
+        74
+      ],
+      "faceRectLogical": [
+        32,
+        25,
+        50,
+        37
+      ],
+      "eyeRects": [
+        [
+          34,
+          28,
+          39,
+          31
+        ],
+        [
+          44,
+          29,
+          48,
+          33
+        ]
+      ],
+      "mouthRect": [
+        39,
+        34,
+        42,
+        36
+      ],
+      "mouthRects": [
+        [
+          39,
+          34,
+          42,
+          36
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "분홍 눈은 잘 읽히며 우아한 작은 입만 피부와 섞입니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/eva.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-07.png",
+        "docs/art-face-refinement/audit-rare/grid-07.png"
+      ]
+    },
+    {
+      "id": "ian",
+      "variant": "rare",
+      "name": "이안",
+      "skin": "도깨비불에 이끌린 이안",
+      "path": "Assets/Resources/Lumia/PortraitsRare/ian.png",
+      "baselineSha256": "c8b8681579b3b13fce7bd11fc38697b4ee4ff2f997e63a067f9de52de1d53377",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        58,
+        58,
+        92,
+        78
+      ],
+      "faceRectLogical": [
+        29,
+        29,
+        46,
+        39
+      ],
+      "eyeRects": [
+        [
+          31,
+          32,
+          35,
+          35
+        ],
+        [
+          40,
+          33,
+          44,
+          36
+        ]
+      ],
+      "mouthRect": [
+        37,
+        36,
+        40,
+        38
+      ],
+      "mouthRects": [
+        [
+          37,
+          36,
+          40,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "앞머리 아래 금색 눈을 유지합니다. 조용하고 장난스러운 작은 입이 약합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/ian.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-07.png",
+        "docs/art-face-refinement/audit-rare/grid-07.png"
+      ]
+    },
+    {
+      "id": "eleven",
+      "variant": "rare",
+      "name": "일레븐",
+      "skin": "사관후보생 일레븐",
+      "path": "Assets/Resources/Lumia/PortraitsRare/eleven.png",
+      "baselineSha256": "dbce654cf37739acbe79071fb990b8051df5ab445518a29b277b5a6faa00cc6b",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        74,
+        60,
+        104,
+        84
+      ],
+      "faceRectLogical": [
+        37,
+        30,
+        52,
+        42
+      ],
+      "eyeRects": [
+        [
+          39,
+          33,
+          43,
+          36
+        ],
+        [
+          47,
+          36,
+          50,
+          39
+        ]
+      ],
+      "mouthRect": [
+        43,
+        38,
+        46,
+        41
+      ],
+      "mouthRects": [
+        [
+          43,
+          38,
+          46,
+          41
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "한쪽 윙크와 밝게 열린 웃음이 선명합니다. 윙크를 두 개의 열린 눈으로 바꾸지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/eleven.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-07.png",
+        "docs/art-face-refinement/audit-rare/grid-07.png"
+      ]
+    },
+    {
+      "id": "zahir",
+      "variant": "rare",
+      "name": "자히르",
+      "skin": "부자히르",
+      "path": "Assets/Resources/Lumia/PortraitsRare/zahir.png",
+      "baselineSha256": "e1e8984500740e97e98dfbb2a04c24a484a47dc39935011bbebbece3422862b4",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        64,
+        52,
+        94,
+        74
+      ],
+      "faceRectLogical": [
+        32,
+        26,
+        47,
+        37
+      ],
+      "eyeRects": [
+        [
+          34,
+          31,
+          38,
+          34
+        ],
+        [
+          42,
+          29,
+          45,
+          33
+        ]
+      ],
+      "mouthRect": [
+        41,
+        35,
+        43,
+        36
+      ],
+      "mouthRects": [
+        [
+          41,
+          35,
+          43,
+          36
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "high",
+      "eyeReadability": "낮음",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "짙은 피부와 갈색 눈·입이 거의 동일한 색입니다. 금색 눈과 잘난 듯한 작은 미소를 최소 픽셀로 분리합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/zahir.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-07.png",
+        "docs/art-face-refinement/audit-rare/grid-07.png"
+      ]
+    },
+    {
+      "id": "jenny",
+      "variant": "rare",
+      "name": "제니",
+      "skin": "꿈꾸는 백수 제니",
+      "path": "Assets/Resources/Lumia/PortraitsRare/jenny.png",
+      "baselineSha256": "5db8c47bf0436703fa8b31d5f6776835d53fd13f03fbf408489051acb8442ce2",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        64,
+        70,
+        100,
+        92
+      ],
+      "faceRectLogical": [
+        32,
+        35,
+        50,
+        46
+      ],
+      "eyeRects": [
+        [
+          34,
+          38,
+          40,
+          42
+        ],
+        [
+          44,
+          40,
+          48,
+          42
+        ]
+      ],
+      "mouthRect": [
+        40,
+        43,
+        43,
+        45
+      ],
+      "mouthRects": [
+        [
+          40,
+          43,
+          43,
+          45
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "졸린 분홍 눈과 한쪽 윙크를 유지합니다. 닫힌 작은 미소가 옅습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/jenny.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-07.png",
+        "docs/art-face-refinement/audit-rare/grid-07.png"
+      ]
+    },
+    {
+      "id": "camilo",
+      "variant": "rare",
+      "name": "카밀로",
+      "skin": "크로우 카밀로",
+      "path": "Assets/Resources/Lumia/PortraitsRare/camilo.png",
+      "baselineSha256": "ce3db89053c916bc3e42f8e05aacad1cafa689f121d6555a93fa82c21f74137f",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        66,
+        56,
+        94,
+        78
+      ],
+      "faceRectLogical": [
+        33,
+        28,
+        47,
+        39
+      ],
+      "eyeRects": [
+        [
+          35,
+          31,
+          39,
+          34
+        ],
+        [
+          41,
+          33,
+          45,
+          36
+        ]
+      ],
+      "mouthRect": [
+        40,
+        36,
+        43,
+        38
+      ],
+      "mouthRects": [
+        [
+          40,
+          36,
+          43,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "한쪽 가려진 눈과 붉은 눈을 유지합니다. 자신감 있는 작은 미소를 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/camilo.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-07.png",
+        "docs/art-face-refinement/audit-rare/grid-07.png"
+      ]
+    },
+    {
+      "id": "karla",
+      "variant": "rare",
+      "name": "칼라",
+      "skin": "뒷골목 칼라",
+      "path": "Assets/Resources/Lumia/PortraitsRare/karla.png",
+      "baselineSha256": "c0faa03e25bc3f9bd30a6591caf03c4410b777132a1f2b684bd2f60f1a4f7925",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        66,
+        56,
+        94,
+        78
+      ],
+      "faceRectLogical": [
+        33,
+        28,
+        47,
+        39
+      ],
+      "eyeRects": [
+        [
+          35,
+          32,
+          39,
+          35
+        ],
+        [
+          41,
+          31,
+          45,
+          34
+        ]
+      ],
+      "mouthRect": [
+        39,
+        35,
+        42,
+        38
+      ],
+      "mouthRects": [
+        [
+          39,
+          35,
+          42,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "모자·고글 아래 붉은 눈을 유지하고 이빨 미소와 피부의 경계를 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/karla.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-07.png",
+        "docs/art-face-refinement/audit-rare/grid-07.png"
+      ]
+    },
+    {
+      "id": "cathy",
+      "variant": "rare",
+      "name": "캐시",
+      "skin": "프리즌 브레이크 캐시",
+      "path": "Assets/Resources/Lumia/PortraitsRare/cathy.png",
+      "baselineSha256": "fa676c206f5afe461454897a2736a107d92731b87909d44aca1cce56f5c2ea63",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        62,
+        52,
+        92,
+        74
+      ],
+      "faceRectLogical": [
+        31,
+        26,
+        46,
+        37
+      ],
+      "eyeRects": [
+        [
+          33,
+          31,
+          36,
+          34
+        ],
+        [
+          40,
+          29,
+          44,
+          32
+        ]
+      ],
+      "mouthRect": [
+        38,
+        34,
+        41,
+        36
+      ],
+      "mouthRects": [
+        [
+          38,
+          34,
+          41,
+          36
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "푸른 눈은 선명합니다. 짙은 피부에 작은 웃음의 낮은 대비만 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/cathy.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-07.png",
+        "docs/art-face-refinement/audit-rare/grid-07.png"
+      ]
+    },
+    {
+      "id": "chloe",
+      "variant": "rare",
+      "name": "클로에",
+      "skin": "해변의 인형사 클로에",
+      "path": "Assets/Resources/Lumia/PortraitsRare/chloe.png",
+      "baselineSha256": "4a616c23fd6ae54bab047b6d36cedca39c7f133c8fc45529c2275c93a0c05977",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        58,
+        56,
+        92,
+        76
+      ],
+      "faceRectLogical": [
+        29,
+        28,
+        46,
+        38
+      ],
+      "eyeRects": [
+        [
+          31,
+          31,
+          36,
+          33
+        ],
+        [
+          40,
+          32,
+          44,
+          35
+        ]
+      ],
+      "mouthRect": [
+        37,
+        35,
+        39,
+        37
+      ],
+      "mouthRects": [
+        [
+          37,
+          35,
+          39,
+          37
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "나른한 분홍 눈과 작은 입이 판독됩니다. 늘어진 눈꺼풀을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/chloe.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-08.png",
+        "docs/art-face-refinement/audit-rare/grid-08.png"
+      ]
+    },
+    {
+      "id": "chiara",
+      "variant": "rare",
+      "name": "키아라",
+      "skin": "글루미 바니 키아라",
+      "path": "Assets/Resources/Lumia/PortraitsRare/chiara.png",
+      "baselineSha256": "26782a3fc56d7bc8f260f0c4cf110bc6dc1edd3c97942f622ccd6381e7873482",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        70,
+        64,
+        86,
+        76
+      ],
+      "faceRectLogical": [
+        35,
+        32,
+        43,
+        38
+      ],
+      "eyeRects": [
+        [
+          37,
+          35,
+          41,
+          37
+        ]
+      ],
+      "mouthRect": null,
+      "mouthRects": [],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "의도적으로 가림",
+      "direction": "한쪽 보이는 처진 눈과 큰 검은 목깃이 특징입니다. 목깃 뒤에 가려진 입을 그리지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/chiara.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-08.png",
+        "docs/art-face-refinement/audit-rare/grid-08.png"
+      ]
+    },
+    {
+      "id": "tazia",
+      "variant": "rare",
+      "name": "타지아",
+      "skin": "유릿빛 물결 타지아",
+      "path": "Assets/Resources/Lumia/PortraitsRare/tazia.png",
+      "baselineSha256": "01718e911be3b3235776f2e853ab173812c9a6c7b41ec766a6f2e6c598247b99",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        76,
+        58,
+        104,
+        78
+      ],
+      "faceRectLogical": [
+        38,
+        29,
+        52,
+        39
+      ],
+      "eyeRects": [
+        [
+          40,
+          33,
+          44,
+          35
+        ],
+        [
+          47,
+          32,
+          50,
+          34
+        ]
+      ],
+      "mouthRect": [
+        45,
+        36,
+        47,
+        38
+      ],
+      "mouthRects": [
+        [
+          45,
+          36,
+          47,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "차분한 금색 눈과 작은 입이 옅습니다. 현재 낮은 눈매를 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/tazia.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-08.png",
+        "docs/art-face-refinement/audit-rare/grid-08.png"
+      ]
+    },
+    {
+      "id": "theodore",
+      "variant": "rare",
+      "name": "테오도르",
+      "skin": "사격 교관 테오도르",
+      "path": "Assets/Resources/Lumia/PortraitsRare/theodore.png",
+      "baselineSha256": "51b17af29fa00a7a71a2bbd7182b206e046a8885fc7839833ee841a72881b74c",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        66,
+        58,
+        100,
+        80
+      ],
+      "faceRectLogical": [
+        33,
+        29,
+        50,
+        40
+      ],
+      "eyeRects": [
+        [
+          35,
+          33,
+          40,
+          36
+        ],
+        [
+          44,
+          32,
+          48,
+          35
+        ]
+      ],
+      "mouthRect": [
+        42,
+        37,
+        45,
+        39
+      ],
+      "mouthRects": [
+        [
+          42,
+          37,
+          45,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "차가운 파란 눈은 선명하고 닫힌 입은 거의 없습니다. 교관의 진지한 표정을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/theodore.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-08.png",
+        "docs/art-face-refinement/audit-rare/grid-08.png"
+      ]
+    },
+    {
+      "id": "felix",
+      "variant": "rare",
+      "name": "펠릭스",
+      "skin": "사관후보생 펠릭스",
+      "path": "Assets/Resources/Lumia/PortraitsRare/felix.png",
+      "baselineSha256": "17d66766086b61c52c77aad5ff2c4a2ee559d015a8c53da03fbc2c99b92fd90e",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        62,
+        66,
+        90,
+        86
+      ],
+      "faceRectLogical": [
+        31,
+        33,
+        45,
+        43
+      ],
+      "eyeRects": [
+        [
+          33,
+          36,
+          37,
+          39
+        ],
+        [
+          39,
+          37,
+          43,
+          40
+        ]
+      ],
+      "mouthRect": [
+        36,
+        40,
+        39,
+        42
+      ],
+      "mouthRects": [
+        [
+          36,
+          40,
+          39,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "모자 아래 녹색 눈을 유지하고 쾌활한 작은 미소를 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/felix.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-08.png",
+        "docs/art-face-refinement/audit-rare/grid-08.png"
+      ]
+    },
+    {
+      "id": "priya",
+      "variant": "rare",
+      "name": "프리야",
+      "skin": "테니스부 프리야",
+      "path": "Assets/Resources/Lumia/PortraitsRare/priya.png",
+      "baselineSha256": "58de5973cc45c230c6138bce1c001aef7d10b77dbb5f33a6ab97b2ca352f276d",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        60,
+        66,
+        94,
+        90
+      ],
+      "faceRectLogical": [
+        30,
+        33,
+        47,
+        45
+      ],
+      "eyeRects": [
+        [
+          32,
+          38,
+          36,
+          41
+        ],
+        [
+          41,
+          36,
+          45,
+          39
+        ]
+      ],
+      "mouthRect": [
+        37,
+        41,
+        40,
+        44
+      ],
+      "mouthRects": [
+        [
+          37,
+          41,
+          40,
+          44
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "녹색 눈과 활짝 열린 입이 모두 선명합니다. 짙은 피부와 치아가 구분됩니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/priya.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-08.png",
+        "docs/art-face-refinement/audit-rare/grid-08.png"
+      ]
+    },
+    {
+      "id": "fiora",
+      "variant": "rare",
+      "name": "피오라",
+      "skin": "제식 교관 피오라",
+      "path": "Assets/Resources/Lumia/PortraitsRare/fiora.png",
+      "baselineSha256": "c661095b4d1f097897ceec5b20d3eb34b618c24f4d293efabefd27cdb652f5ea",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        70,
+        98,
+        90
+      ],
+      "faceRectLogical": [
+        34,
+        35,
+        49,
+        45
+      ],
+      "eyeRects": [
+        [
+          36,
+          39,
+          40,
+          41
+        ],
+        [
+          43,
+          38,
+          47,
+          41
+        ]
+      ],
+      "mouthRect": [
+        41,
+        42,
+        43,
+        44
+      ],
+      "mouthRects": [
+        [
+          41,
+          42,
+          43,
+          44
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "모자 아래 집중한 녹색 눈과 작은 닫힌 입이 판독됩니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/fiora.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-08.png",
+        "docs/art-face-refinement/audit-rare/grid-08.png"
+      ]
+    },
+    {
+      "id": "piolo",
+      "variant": "rare",
+      "name": "피올로",
+      "skin": "스트리트 파이터 피올로",
+      "path": "Assets/Resources/Lumia/PortraitsRare/piolo.png",
+      "baselineSha256": "c6fa6a6854806527c599dd8a6de887c3a5c2282e32ac4c5ad57c97d1306d1708",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        64,
+        60,
+        96,
+        80
+      ],
+      "faceRectLogical": [
+        32,
+        30,
+        48,
+        40
+      ],
+      "eyeRects": [
+        [
+          34,
+          33,
+          39,
+          36
+        ],
+        [
+          41,
+          33,
+          46,
+          36
+        ]
+      ],
+      "mouthRect": [
+        41,
+        37,
+        44,
+        39
+      ],
+      "mouthRects": [
+        [
+          41,
+          37,
+          44,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "후드 아래 낮은 눈을 유지하고 결연한 작은 닫힌 입을 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/piolo.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-08.png",
+        "docs/art-face-refinement/audit-rare/grid-08.png"
+      ]
+    },
+    {
+      "id": "hart",
+      "variant": "rare",
+      "name": "하트",
+      "skin": "3rd Anniversary 하트 Vivace",
+      "path": "Assets/Resources/Lumia/PortraitsRare/hart.png",
+      "baselineSha256": "30fb16dd4cd81a22ddd59d4cc998b0aff950b57a64858c6bb8909c110960214a",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        48,
+        98,
+        72
+      ],
+      "faceRectLogical": [
+        34,
+        24,
+        49,
+        36
+      ],
+      "eyeRects": [
+        [
+          36,
+          30,
+          40,
+          33
+        ],
+        [
+          44,
+          27,
+          47,
+          30
+        ]
+      ],
+      "mouthRect": [
+        42,
+        33,
+        45,
+        35
+      ],
+      "mouthRects": [
+        [
+          42,
+          33,
+          45,
+          35
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "따뜻한 금색 눈과 작은 자신감 있는 미소가 판독됩니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/hart.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-09.png",
+        "docs/art-face-refinement/audit-rare/grid-09.png"
+      ]
+    },
+    {
+      "id": "haze",
+      "variant": "rare",
+      "name": "헤이즈",
+      "skin": "노블 에이스 바니 헤이즈",
+      "path": "Assets/Resources/Lumia/PortraitsRare/haze.png",
+      "baselineSha256": "7b5b2aab215f1a4c6b74991db99b1553df7d4ca974d8375ffd8417bb33e55c43",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        72,
+        72,
+        104,
+        94
+      ],
+      "faceRectLogical": [
+        36,
+        36,
+        52,
+        47
+      ],
+      "eyeRects": [
+        [
+          38,
+          39,
+          43,
+          42
+        ],
+        [
+          46,
+          40,
+          50,
+          43
+        ]
+      ],
+      "mouthRect": [
+        43,
+        44,
+        46,
+        46
+      ],
+      "mouthRects": [
+        [
+          43,
+          44,
+          46,
+          46
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "회색 갈색 눈이 은색 머리와 비슷하므로 낮은 눈 윗선의 대비를 보완합니다. 억제된 표정을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/haze.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-09.png",
+        "docs/art-face-refinement/audit-rare/grid-09.png"
+      ]
+    },
+    {
+      "id": "debi_marlene",
+      "variant": "rare",
+      "name": "데비&마를렌",
+      "skin": "방과 후 자유시간 데비&마를렌",
+      "path": "Assets/Resources/Lumia/PortraitsRare/debi_marlene.png",
+      "baselineSha256": "fc09a5842229e446696dcbf1ca47dd17934095b2ee24be86d45767819fef6359",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        50,
+        50,
+        124,
+        82
+      ],
+      "faceRectLogical": [
+        25,
+        25,
+        62,
+        41
+      ],
+      "eyeRects": [
+        [
+          27,
+          35,
+          30,
+          38
+        ],
+        [
+          33,
+          34,
+          36,
+          37
+        ],
+        [
+          48,
+          30,
+          51,
+          33
+        ],
+        [
+          56,
+          28,
+          60,
+          31
+        ]
+      ],
+      "mouthRect": [
+        31,
+        38,
+        34,
+        40
+      ],
+      "mouthRects": [
+        [
+          31,
+          38,
+          34,
+          40
+        ],
+        [
+          53,
+          33,
+          56,
+          35
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "왼쪽 데비의 파란 눈과 오른쪽 마를렌의 붉은 눈, 각자의 작은 입이 구분됩니다. 두 얼굴을 하나로 합치지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/debi_marlene.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-09.png",
+        "docs/art-face-refinement/audit-rare/grid-09.png"
+      ]
+    },
+    {
+      "id": "arda",
+      "variant": "rare",
+      "name": "아르다",
+      "skin": "고스트헌터 아르다",
+      "path": "Assets/Resources/Lumia/PortraitsRare/arda.png",
+      "baselineSha256": "2baee509a37d908fbe66f2c0036b3d8bda6d7948238aff7d681b0903a1366045",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        64,
+        58,
+        96,
+        78
+      ],
+      "faceRectLogical": [
+        32,
+        29,
+        48,
+        39
+      ],
+      "eyeRects": [
+        [
+          34,
+          33,
+          38,
+          36
+        ],
+        [
+          42,
+          32,
+          46,
+          35
+        ]
+      ],
+      "mouthRect": [
+        39,
+        36,
+        43,
+        38
+      ],
+      "mouthRects": [
+        [
+          39,
+          36,
+          43,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "금색 눈은 선명합니다. 차분한 작은 입이 피부에 묻힙니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/arda.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-09.png",
+        "docs/art-face-refinement/audit-rare/grid-09.png"
+      ]
+    },
+    {
+      "id": "abigail",
+      "variant": "rare",
+      "name": "아비게일",
+      "skin": "트로피컬 디멘션 아비게일",
+      "path": "Assets/Resources/Lumia/PortraitsRare/abigail.png",
+      "baselineSha256": "8f50574be4d69185cf797bbf9a02f2bc1acf6c5893bd635f76b3e44ff4204df1",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        62,
+        60,
+        94,
+        80
+      ],
+      "faceRectLogical": [
+        31,
+        30,
+        47,
+        40
+      ],
+      "eyeRects": [
+        [
+          33,
+          34,
+          37,
+          37
+        ],
+        [
+          41,
+          33,
+          45,
+          36
+        ]
+      ],
+      "mouthRect": [
+        40,
+        38,
+        42,
+        39
+      ],
+      "mouthRects": [
+        [
+          40,
+          38,
+          42,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "high",
+      "eyeReadability": "낮음",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "검은 머리 아래 녹색 눈과 아주 작은 입이 옅습니다. 조용한 표정과 이마 선글라스를 유지해 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/abigail.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-09.png",
+        "docs/art-face-refinement/audit-rare/grid-09.png"
+      ]
+    },
+    {
+      "id": "alonso",
+      "variant": "rare",
+      "name": "알론소",
+      "skin": "지옥의 선봉장 알론소",
+      "path": "Assets/Resources/Lumia/PortraitsRare/alonso.png",
+      "baselineSha256": "39ac0790b86538cb03b9766e79a9a53f11df006915038287a62a1bf9e6f40b19",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        60,
+        108,
+        84
+      ],
+      "faceRectLogical": [
+        34,
+        30,
+        54,
+        42
+      ],
+      "eyeRects": [
+        [
+          36,
+          33,
+          41,
+          36
+        ],
+        [
+          49,
+          38,
+          52,
+          41
+        ]
+      ],
+      "mouthRect": null,
+      "mouthRects": [],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "의도적으로 가림",
+      "direction": "악마 가면의 빛나는 눈과 송곳니가 얼굴 자체입니다. 사람 눈·입을 새로 추가하지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/alonso.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-09.png",
+        "docs/art-face-refinement/audit-rare/grid-09.png"
+      ]
+    },
+    {
+      "id": "leni",
+      "variant": "rare",
+      "name": "레니",
+      "skin": "장난꾸러기 곰돌이 메이드 레니",
+      "path": "Assets/Resources/Lumia/PortraitsRare/leni.png",
+      "baselineSha256": "4b378a64956cfda89a0cad1150e00f79ba38cde71c32e52ac9c20d2d3c2cd8b8",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        62,
+        58,
+        98,
+        82
+      ],
+      "faceRectLogical": [
+        31,
+        29,
+        49,
+        41
+      ],
+      "eyeRects": [
+        [
+          33,
+          35,
+          38,
+          38
+        ],
+        [
+          43,
+          32,
+          47,
+          35
+        ]
+      ],
+      "mouthRect": [
+        40,
+        38,
+        43,
+        40
+      ],
+      "mouthRects": [
+        [
+          40,
+          38,
+          43,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "하늘색 눈과 흰 치아 입이 읽히나 작은 입 윤곽이 약합니다. 레퍼런스의 즐거운 곰 메이드 표정을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/leni.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-09.png",
+        "docs/art-face-refinement/audit-rare/grid-09.png"
+      ]
+    },
+    {
+      "id": "tsubame",
+      "variant": "rare",
+      "name": "츠바메",
+      "skin": "청랑일섬 츠바메",
+      "path": "Assets/Resources/Lumia/PortraitsRare/tsubame.png",
+      "baselineSha256": "e4d3fedafcd2b0b869538b4df801ed6b4878712b1086f83121513ba439287556",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        74,
+        66,
+        102,
+        88
+      ],
+      "faceRectLogical": [
+        37,
+        33,
+        51,
+        44
+      ],
+      "eyeRects": [
+        [
+          39,
+          36,
+          43,
+          39
+        ],
+        [
+          46,
+          37,
+          49,
+          40
+        ]
+      ],
+      "mouthRect": [
+        43,
+        41,
+        46,
+        43
+      ],
+      "mouthRects": [
+        [
+          43,
+          41,
+          46,
+          43
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "앞머리 아래 보라 눈이 구분되며 엄숙한 작은 입만 약합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/tsubame.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-09.png",
+        "docs/art-face-refinement/audit-rare/grid-09.png"
+      ]
+    },
+    {
+      "id": "kenneth",
+      "variant": "rare",
+      "name": "케네스",
+      "skin": "운명의 푸른 가약 케네스",
+      "path": "Assets/Resources/Lumia/PortraitsRare/kenneth.png",
+      "baselineSha256": "ff8a207571d3b9cd6754a3f6d52c861aa3623f39bd283a134cfae91c4ba9ed62",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        62,
+        98,
+        84
+      ],
+      "faceRectLogical": [
+        34,
+        31,
+        49,
+        42
+      ],
+      "eyeRects": [
+        [
+          36,
+          36,
+          40,
+          39
+        ],
+        [
+          43,
+          34,
+          47,
+          37
+        ]
+      ],
+      "mouthRect": [
+        41,
+        39,
+        44,
+        41
+      ],
+      "mouthRects": [
+        [
+          41,
+          39,
+          44,
+          41
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "붉은 눈과 작은 닫힌 입이 선명합니다. 침착한 표정을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/kenneth.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-10.png",
+        "docs/art-face-refinement/audit-rare/grid-10.png"
+      ]
+    },
+    {
+      "id": "katja",
+      "variant": "rare",
+      "name": "카티야",
+      "skin": "카페 알바 카티야",
+      "path": "Assets/Resources/Lumia/PortraitsRare/katja.png",
+      "baselineSha256": "c10959af6aa837e82c24a17c27a5a0a020e897e00dea77b59802612ecd5354e8",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        62,
+        62,
+        94,
+        84
+      ],
+      "faceRectLogical": [
+        31,
+        31,
+        47,
+        42
+      ],
+      "eyeRects": [
+        [
+          33,
+          35,
+          38,
+          38
+        ],
+        [
+          41,
+          34,
+          45,
+          37
+        ]
+      ],
+      "mouthRect": [
+        38,
+        39,
+        41,
+        41
+      ],
+      "mouthRects": [
+        [
+          38,
+          39,
+          41,
+          41
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "큰 청록 눈과 작은 미소가 선명합니다. 안경을 추가하지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/katja.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-10.png",
+        "docs/art-face-refinement/audit-rare/grid-10.png"
+      ]
+    },
+    {
+      "id": "darko",
+      "variant": "rare",
+      "name": "다르코",
+      "skin": "한여름의 휴가 다르코",
+      "path": "Assets/Resources/Lumia/PortraitsRare/darko.png",
+      "baselineSha256": "dc8c23bab6a5515939794563acde8f03551e11682274b3204fd37a557d154e90",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        66,
+        66,
+        88,
+        84
+      ],
+      "faceRectLogical": [
+        33,
+        33,
+        44,
+        42
+      ],
+      "eyeRects": [
+        [
+          35,
+          36,
+          39,
+          38
+        ]
+      ],
+      "mouthRect": [
+        39,
+        39,
+        42,
+        41
+      ],
+      "mouthRects": [
+        [
+          39,
+          39,
+          42,
+          41
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "앞머리와 이마 선글라스 아래 한쪽 주황 눈을 유지합니다. 가벼운 작은 미소만 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/darko.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-10.png",
+        "docs/art-face-refinement/audit-rare/grid-10.png"
+      ]
+    },
+    {
+      "id": "lenore",
+      "variant": "rare",
+      "name": "르노어",
+      "skin": "음악 선생님 르노어",
+      "path": "Assets/Resources/Lumia/PortraitsRare/lenore.png",
+      "baselineSha256": "386dc07d87f5f1470327371874fd64ba58b55afdd1af4282fed33668cdd4b9a5",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        72,
+        50,
+        90,
+        74
+      ],
+      "faceRectLogical": [
+        36,
+        25,
+        45,
+        37
+      ],
+      "eyeRects": [
+        [
+          38,
+          28,
+          43,
+          31
+        ]
+      ],
+      "mouthRect": [
+        39,
+        34,
+        42,
+        36
+      ],
+      "mouthRects": [
+        [
+          39,
+          34,
+          42,
+          36
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "한쪽 보라 눈과 붉은 열린 입이 선명합니다. 긴 앞머리 뒤의 반대 눈을 드러내지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/lenore.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-10.png",
+        "docs/art-face-refinement/audit-rare/grid-10.png"
+      ]
+    },
+    {
+      "id": "garnet",
+      "variant": "rare",
+      "name": "가넷",
+      "skin": "키치 러브 가넷",
+      "path": "Assets/Resources/Lumia/PortraitsRare/garnet.png",
+      "baselineSha256": "635bcd630f5f2e051d70c939937eb3d39ed755f2ea99fc0d698acf76da6e5d38",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        88,
+        56,
+        112,
+        82
+      ],
+      "faceRectLogical": [
+        44,
+        28,
+        56,
+        41
+      ],
+      "eyeRects": [
+        [
+          46,
+          36,
+          50,
+          38
+        ],
+        [
+          50,
+          31,
+          54,
+          34
+        ]
+      ],
+      "mouthRect": [
+        48,
+        37,
+        51,
+        40
+      ],
+      "mouthRects": [
+        [
+          48,
+          37,
+          51,
+          40
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "비대칭 얼굴 각도의 붉은 눈과 장난스러운 입이 읽힙니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/garnet.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-10.png",
+        "docs/art-face-refinement/audit-rare/grid-10.png"
+      ]
+    },
+    {
+      "id": "yumin",
+      "variant": "rare",
+      "name": "유민",
+      "skin": "풍랑 위의 이정표 유민",
+      "path": "Assets/Resources/Lumia/PortraitsRare/yumin.png",
+      "baselineSha256": "79a19ec103254522e4f20dfe3e3c198336e150ad2009e9fed28ab2dcec9ee1c1",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        74,
+        60,
+        104,
+        82
+      ],
+      "faceRectLogical": [
+        37,
+        30,
+        52,
+        41
+      ],
+      "eyeRects": [
+        [
+          39,
+          33,
+          43,
+          36
+        ],
+        [
+          47,
+          35,
+          50,
+          38
+        ]
+      ],
+      "mouthRect": [
+        44,
+        39,
+        45,
+        40
+      ],
+      "mouthRects": [
+        [
+          44,
+          39,
+          45,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "high",
+      "eyeReadability": "낮음",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "검은 머리와 좁은 어두운 눈이 섞이고 입은 거의 없습니다. 자신감 있는 작은 닫힌 미소를 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/yumin.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-10.png",
+        "docs/art-face-refinement/audit-rare/grid-10.png"
+      ]
+    },
+    {
+      "id": "hisui",
+      "variant": "rare",
+      "name": "히스이",
+      "skin": "고스트헌터 히스이",
+      "path": "Assets/Resources/Lumia/PortraitsRare/hisui.png",
+      "baselineSha256": "a6180611b45f2588d94497acf395daa7c2a4970ef83f03c4aa0efeb3625a280e",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        72,
+        66,
+        106,
+        90
+      ],
+      "faceRectLogical": [
+        36,
+        33,
+        53,
+        45
+      ],
+      "eyeRects": [
+        [
+          38,
+          36,
+          42,
+          40
+        ],
+        [
+          48,
+          38,
+          51,
+          42
+        ]
+      ],
+      "mouthRect": [
+        42,
+        41,
+        47,
+        44
+      ],
+      "mouthRects": [
+        [
+          42,
+          41,
+          47,
+          44
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "날카로운 붉은 눈과 장난스러운 열린 미소가 선명합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/hisui.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-10.png",
+        "docs/art-face-refinement/audit-rare/grid-10.png"
+      ]
+    },
+    {
+      "id": "justyna",
+      "variant": "rare",
+      "name": "유스티나",
+      "skin": "럭키 히어로 바니 유스티나",
+      "path": "Assets/Resources/Lumia/PortraitsRare/justyna.png",
+      "baselineSha256": "f4dda218afb2f049e5caee1a6217ff8e5686b6baf44be09e362860fa3fb932eb",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        70,
+        98,
+        96
+      ],
+      "faceRectLogical": [
+        34,
+        35,
+        49,
+        48
+      ],
+      "eyeRects": [
+        [
+          36,
+          40,
+          40,
+          43
+        ],
+        [
+          43,
+          38,
+          47,
+          41
+        ]
+      ],
+      "mouthRect": [
+        41,
+        44,
+        45,
+        47
+      ],
+      "mouthRects": [
+        [
+          41,
+          44,
+          45,
+          47
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "붉은 머리 아래 청록 눈과 밝은 열린 미소가 선명합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/justyna.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-10.png",
+        "docs/art-face-refinement/audit-rare/grid-10.png"
+      ]
+    },
+    {
+      "id": "istvan",
+      "variant": "rare",
+      "name": "이슈트반",
+      "skin": "집사 이슈트반",
+      "path": "Assets/Resources/Lumia/PortraitsRare/istvan.png",
+      "baselineSha256": "d4dfd628b30e442a776c53d2d2d0124acbff9ed7fad008389633e4312132bcbb",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        62,
+        96,
+        86
+      ],
+      "faceRectLogical": [
+        34,
+        31,
+        48,
+        43
+      ],
+      "eyeRects": [
+        [
+          36,
+          34,
+          40,
+          37
+        ],
+        [
+          42,
+          36,
+          46,
+          38
+        ]
+      ],
+      "mouthRect": [
+        40,
+        40,
+        42,
+        42
+      ],
+      "mouthRects": [
+        [
+          40,
+          40,
+          42,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "모노클과 좁은 눈을 유지하고 얇은 집사 미소를 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/istvan.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-11.png",
+        "docs/art-face-refinement/audit-rare/grid-11.png"
+      ]
+    },
+    {
+      "id": "xuelin",
+      "variant": "rare",
+      "name": "슈린",
+      "skin": "벽파참랑 슈린",
+      "path": "Assets/Resources/Lumia/PortraitsRare/xuelin.png",
+      "baselineSha256": "a52ab9a8a57294d244013fcdb94020e9567a98dccc9cb3b3f897b53e40dbab1b",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        66,
+        98,
+        86
+      ],
+      "faceRectLogical": [
+        34,
+        33,
+        49,
+        43
+      ],
+      "eyeRects": [
+        [
+          36,
+          36,
+          40,
+          39
+        ],
+        [
+          44,
+          36,
+          47,
+          39
+        ]
+      ],
+      "mouthRect": [
+        40,
+        40,
+        43,
+        42
+      ],
+      "mouthRects": [
+        [
+          40,
+          40,
+          43,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "녹색 눈과 앞머리의 경계가 낮은 대비입니다. 날카롭고 활기찬 눈매와 작은 미소를 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/xuelin.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-11.png",
+        "docs/art-face-refinement/audit-rare/grid-11.png"
+      ]
+    },
+    {
+      "id": "henry",
+      "variant": "rare",
+      "name": "헨리",
+      "skin": "전투사제 헨리",
+      "path": "Assets/Resources/Lumia/PortraitsRare/henry.png",
+      "baselineSha256": "030f825c8922bb3f70f4d732c5adb14716411e77289173918ebdd213d65db97a",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        62,
+        50,
+        92,
+        74
+      ],
+      "faceRectLogical": [
+        31,
+        25,
+        46,
+        37
+      ],
+      "eyeRects": [
+        [
+          33,
+          30,
+          37,
+          33
+        ],
+        [
+          40,
+          28,
+          44,
+          31
+        ]
+      ],
+      "mouthRect": [
+        39,
+        34,
+        42,
+        36
+      ],
+      "mouthRects": [
+        [
+          39,
+          34,
+          42,
+          36
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "얇은 사각 안경과 자색 눈을 구분하고 성숙한 작은 입을 보완합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/henry.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-11.png",
+        "docs/art-face-refinement/audit-rare/grid-11.png"
+      ]
+    },
+    {
+      "id": "blair",
+      "variant": "rare",
+      "name": "블레어",
+      "skin": "포디엄 피니시 블레어",
+      "path": "Assets/Resources/Lumia/PortraitsRare/blair.png",
+      "baselineSha256": "788452b60b2a8587b415af649fb2bdc2e605c0e4ee680620a5e5957c68aa986d",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        62,
+        52,
+        94,
+        74
+      ],
+      "faceRectLogical": [
+        31,
+        26,
+        47,
+        37
+      ],
+      "eyeRects": [
+        [
+          33,
+          30,
+          38,
+          33
+        ],
+        [
+          41,
+          29,
+          45,
+          32
+        ]
+      ],
+      "mouthRect": [
+        38,
+        34,
+        41,
+        36
+      ],
+      "mouthRects": [
+        [
+          38,
+          34,
+          41,
+          36
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "졸린 옅은 파란 눈과 금발의 대비가 낮습니다. 선글라스는 이마에만 유지하고 실제 눈을 가리지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/blair.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-11.png",
+        "docs/art-face-refinement/audit-rare/grid-11.png"
+      ]
+    },
+    {
+      "id": "mirka",
+      "variant": "rare",
+      "name": "미르카",
+      "skin": "와일드 메이드 미르카",
+      "path": "Assets/Resources/Lumia/PortraitsRare/mirka.png",
+      "baselineSha256": "55ecd07428a02209351f98604e17f8971aa9f3ea13bcdc2dfb034c39e2e59a2e",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        68,
+        56,
+        94,
+        78
+      ],
+      "faceRectLogical": [
+        34,
+        28,
+        47,
+        39
+      ],
+      "eyeRects": [
+        [
+          36,
+          32,
+          39,
+          35
+        ],
+        [
+          41,
+          31,
+          45,
+          34
+        ]
+      ],
+      "mouthRect": [
+        39,
+        35,
+        42,
+        38
+      ],
+      "mouthRects": [
+        [
+          39,
+          35,
+          42,
+          38
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "선명한 녹색 눈과 활기찬 작은 입이 잘 읽힙니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/mirka.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-11.png",
+        "docs/art-face-refinement/audit-rare/grid-11.png"
+      ]
+    },
+    {
+      "id": "fenrir",
+      "variant": "rare",
+      "name": "펜리르",
+      "skin": "미드나잇 비스트 펜리르",
+      "path": "Assets/Resources/Lumia/PortraitsRare/fenrir.png",
+      "baselineSha256": "21ad37c062f3c981562111fce912071ba04050cd7160742c6fbed650e122a057",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        66,
+        56,
+        94,
+        78
+      ],
+      "faceRectLogical": [
+        33,
+        28,
+        47,
+        39
+      ],
+      "eyeRects": [
+        [
+          35,
+          31,
+          38,
+          34
+        ],
+        [
+          41,
+          31,
+          45,
+          34
+        ]
+      ],
+      "mouthRect": [
+        38,
+        35,
+        42,
+        38
+      ],
+      "mouthRects": [
+        [
+          38,
+          35,
+          42,
+          38
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "청록 눈과 작은 열린 미소가 선명합니다. 지친 낮은 눈매를 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/fenrir.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-11.png",
+        "docs/art-face-refinement/audit-rare/grid-11.png"
+      ]
+    },
+    {
+      "id": "coraline",
+      "variant": "rare",
+      "name": "코렐라인",
+      "skin": "설렘 가득 코렐라인",
+      "path": "Assets/Resources/Lumia/PortraitsRare/coraline.png",
+      "baselineSha256": "e3610fc9e0fd246bc71c57f45156b9577f5fd89c9a49780425cebc55af54477e",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        62,
+        50,
+        92,
+        76
+      ],
+      "faceRectLogical": [
+        31,
+        25,
+        46,
+        38
+      ],
+      "eyeRects": [
+        [
+          33,
+          31,
+          37,
+          34
+        ],
+        [
+          40,
+          28,
+          44,
+          31
+        ]
+      ],
+      "mouthRect": [
+        38,
+        35,
+        41,
+        37
+      ],
+      "mouthRects": [
+        [
+          38,
+          35,
+          41,
+          37
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "한쪽 보라 눈은 읽히나 가느다란 입이 옅습니다. 비대칭 머리색과 차분한 작은 미소를 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/coraline.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-11.png",
+        "docs/art-face-refinement/audit-rare/grid-11.png"
+      ]
+    },
+    {
+      "id": "bihyung",
+      "variant": "rare",
+      "name": "비형",
+      "skin": "청춘, 한 컷 비형",
+      "path": "Assets/Resources/Lumia/PortraitsRare/bihyung.png",
+      "baselineSha256": "d7c70c175a57577da400b4d9c25e967471abd482bf3ee1de005e97498b99818d",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        74,
+        66,
+        104,
+        90
+      ],
+      "faceRectLogical": [
+        37,
+        33,
+        52,
+        45
+      ],
+      "eyeRects": [
+        [
+          39,
+          36,
+          44,
+          40
+        ],
+        [
+          46,
+          38,
+          50,
+          41
+        ]
+      ],
+      "mouthRect": [
+        43,
+        41,
+        47,
+        44
+      ],
+      "mouthRects": [
+        [
+          43,
+          41,
+          47,
+          44
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "금색 눈과 큰 즐거운 열린 입이 선명합니다. 안경을 추가하지 않습니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/bihyung.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-11.png",
+        "docs/art-face-refinement/audit-rare/grid-11.png"
+      ]
+    },
+    {
+      "id": "craver",
+      "variant": "rare",
+      "name": "크레이버",
+      "skin": "골목의 휴일 크레이버",
+      "path": "Assets/Resources/Lumia/PortraitsRare/craver.png",
+      "baselineSha256": "5f28abf856151e8dd1af501df89b791fb837504608ab52f9758b0250a38e93de",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        72,
+        60,
+        102,
+        82
+      ],
+      "faceRectLogical": [
+        36,
+        30,
+        51,
+        41
+      ],
+      "eyeRects": [
+        [
+          38,
+          33,
+          42,
+          36
+        ],
+        [
+          45,
+          34,
+          49,
+          37
+        ]
+      ],
+      "mouthRect": [
+        41,
+        38,
+        44,
+        40
+      ],
+      "mouthRects": [
+        [
+          41,
+          38,
+          44,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "붉은 눈의 빛과 머리색을 구분하고 작은 입의 윤곽을 보완합니다. 목과 얼굴 가장자리의 가면을 보존합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/craver.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-12.png",
+        "docs/art-face-refinement/audit-rare/grid-12.png"
+      ]
+    },
+    {
+      "id": "lucia",
+      "variant": "rare",
+      "name": "루치아",
+      "skin": "별빛 산책 루치아",
+      "path": "Assets/Resources/Lumia/PortraitsRare/lucia.png",
+      "baselineSha256": "807e7265809938b1da0e46f814ddbf0e6b40be48ed6e964355df9bd21dcaf039",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        64,
+        58,
+        100,
+        80
+      ],
+      "faceRectLogical": [
+        32,
+        29,
+        50,
+        40
+      ],
+      "eyeRects": [
+        [
+          34,
+          32,
+          39,
+          35
+        ],
+        [
+          44,
+          33,
+          48,
+          36
+        ]
+      ],
+      "mouthRect": [
+        40,
+        36,
+        43,
+        39
+      ],
+      "mouthRects": [
+        [
+          40,
+          36,
+          43,
+          39
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": "keep",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "선명함",
+      "direction": "청록 눈과 작은 열린 입이 선명합니다. 새 사복의 머리 리본과 작은 뿔을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/lucia.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-12.png",
+        "docs/art-face-refinement/audit-rare/grid-12.png"
+      ]
+    },
+    {
+      "id": "ceres",
+      "variant": "rare",
+      "name": "세레스",
+      "skin": "느긋한 외출 세레스",
+      "path": "Assets/Resources/Lumia/PortraitsRare/ceres.png",
+      "baselineSha256": "913d5482ae129c46b11a32248e03a33d64912b75d0fc9fa85befbf465e1a9f81",
+      "canvas": [
+        160,
+        160
+      ],
+      "logicalCanvas": [
+        80,
+        80
+      ],
+      "faceRect": [
+        66,
+        58,
+        100,
+        80
+      ],
+      "faceRectLogical": [
+        33,
+        29,
+        50,
+        40
+      ],
+      "eyeRects": [
+        [
+          35,
+          32,
+          40,
+          35
+        ],
+        [
+          45,
+          32,
+          48,
+          36
+        ]
+      ],
+      "mouthRect": [
+        41,
+        37,
+        44,
+        39
+      ],
+      "mouthRects": [
+        [
+          41,
+          37,
+          44,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": "minor",
+      "eyeReadability": "판독 가능",
+      "mouthReadability": "대비 보완 필요",
+      "direction": "좁은 옅은 파란 눈의 낮은 채도를 보완합니다. 검은 목깃 위의 작은 닫힌 입을 유지합니다.",
+      "referencePaths": [
+        "docs/art-rare-skins/references/ceres.png",
+        "docs/art-identity/face-designs.json"
+      ],
+      "reviewSheets": [
+        "docs/art-face-refinement/audit-rare/page-12.png",
+        "docs/art-face-refinement/audit-rare/grid-12.png"
+      ]
+    }
+  ]
+}

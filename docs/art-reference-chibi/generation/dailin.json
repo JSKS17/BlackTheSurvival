@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/dailin.png",
   "width": 160,
   "height": 160,
-  "sha256": "b2ec50c573fd3875e3bdf9087f0589c866c47cd2e1baebd9b3b447e51774538e",
+  "sha256": "9c57e6ac8a98ce7fc8b2dafbf00d3348a6c2897b6039eccd9426b98e47c335df",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-69821803-4af7-46fe-8891-93e5e51c5b3a.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-69821803-4af7-46fe-8891-93e5e51c5b3a.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "b2ec50c573fd3875e3bdf9087f0589c866c47cd2e1baebd9b3b447e51774538e",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

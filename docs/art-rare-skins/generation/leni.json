@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/leni.png",
-  "sha256": "4b378a64956cfda89a0cad1150e00f79ba38cde71c32e52ac9c20d2d3c2cd8b8",
+  "sha256": "0b02a83a116cf4643ec5e3840db5755c21c70dffd9a73dcc9785c8dbc1c1d81e",
   "processedPath": "docs/art-rare-skins/processed/leni.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/leni.png",
   "originalDefaultSpriteSha256": "bd004525967423148b02397a367ce21197d9bd1d192474ad698c3bb0e881e305",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "4b378a64956cfda89a0cad1150e00f79ba38cde71c32e52ac9c20d2d3c2cd8b8",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

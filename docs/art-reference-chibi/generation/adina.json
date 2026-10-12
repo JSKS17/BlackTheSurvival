@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/adina.png",
   "width": 160,
   "height": 160,
-  "sha256": "a23956dc8be51b57537f4128f60542c7a541d0c1bb629691797e9689bb7a9a71",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "86bd9d25ec7255e5416d40eba53cbafe970acd0fe0537e2629aeb1b3a1b3f437",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "a23956dc8be51b57537f4128f60542c7a541d0c1bb629691797e9689bb7a9a71",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

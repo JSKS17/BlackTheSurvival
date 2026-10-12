@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/rio.png",
   "width": 160,
   "height": 160,
-  "sha256": "8a1909b16cd5e8d6e23d6614083d078f558b2b083766097844d5cc199800560d",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "766558d826f83e877b2d6d4bd949ec1279ee68f260afe25282be06c5cb59b255",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "8a1909b16cd5e8d6e23d6614083d078f558b2b083766097844d5cc199800560d",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

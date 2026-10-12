@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/vanya.png",
   "width": 160,
   "height": 160,
-  "sha256": "1b41dd2e5582acecf9e934bd98f933a941637e7649d74928793481d8bcfb0c09",
+  "sha256": "d3947dc5d5a32470d98faaf0182daef24352d75c0eef75a6de1df12c6349ae3c",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-5661615d-4154-4056-9656-746ea5d97932.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-5661615d-4154-4056-9656-746ea5d97932.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "1b41dd2e5582acecf9e934bd98f933a941637e7649d74928793481d8bcfb0c09",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

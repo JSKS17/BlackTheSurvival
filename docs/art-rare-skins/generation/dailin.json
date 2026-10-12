@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/dailin.png",
-  "sha256": "b21a99a806db511b2b9fcca1658c815d8f5575776b1e14411e90aa54aab17e22",
+  "sha256": "fa25f50430e197aeae4ffcd9a3991f4b8a94d890832ecf705389c3835a3e6b04",
   "processedPath": "docs/art-rare-skins/processed/dailin.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/dailin.png",
   "originalDefaultSpriteSha256": "b2ec50c573fd3875e3bdf9087f0589c866c47cd2e1baebd9b3b447e51774538e",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "b21a99a806db511b2b9fcca1658c815d8f5575776b1e14411e90aa54aab17e22",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

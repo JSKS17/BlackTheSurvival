@@ -1,0 +1,12 @@
+{
+  "tool": "builtin image_gen",
+  "intent": "Ceres facial readability design guide",
+  "inputReferences": [
+    "Assets/Resources/Lumia/PortraitsReference/ceres.png",
+    "docs/art-chibi/references/subjects/ceres.png"
+  ],
+  "sourceOutput": "exec-10416913-3255-457b-80eb-665219687eff.png",
+  "sourceOutputSha256": "15011665b34d7f3415356abf5a0965af5b076e0a396191a103bddb57a2eea743",
+  "generatedGuideShippedAsRuntimeSprite": false,
+  "prompt": "Use case: precise-object-edit. Edit image 1, the existing Ceres pixel-art game sprite. Image 2 is ONLY her official face and expression reference. Correct ONLY the facial features: keep her stern narrow pale blue eyes and heavy horizontal upper lids, tiny dark pupils distinguishable from white hair and pale skin, and a clear small displeased closed mouth, with fine low eyebrows. Keep the existing half-lidded shape and perspective. Preserve the original complete sprite EXACTLY outside the tiny face: identical chibi head/body proportions, face position, pose, long silver hair, maid headpiece, clothing, sword, colors, occupied bounds and empty padding. Canvas and full-body composition must remain unchanged. Crisp economical square pixel clusters on an 80x80 logical grid, not smooth illustration. The face should read without enlarging the sprite. No new accessories, no glasses, no glow, no text, no background. Preserve real transparent alpha. This is a surgical eye/mouth readability correction, not a character redesign."
+}

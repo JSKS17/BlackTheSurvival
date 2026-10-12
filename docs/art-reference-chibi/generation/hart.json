@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/hart.png",
   "width": 160,
   "height": 160,
-  "sha256": "fd65eb13427ed3e7a598ee0a2e5132b3a41c37f82b66cfd79d152f43ff72dbc8",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "bb751e53f3ddde1574c40cae8712889376bc0622ef9523c380c1bf6a717e904c",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "fd65eb13427ed3e7a598ee0a2e5132b3a41c37f82b66cfd79d152f43ff72dbc8",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

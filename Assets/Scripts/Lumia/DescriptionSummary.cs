@@ -65,11 +65,24 @@ namespace Lumia
                 if (group == null) { group = new List<ConditionEffect>(); groups.Add(group); }
                 group.Add(effect);
             }
-            return groups.Select(group => (string.IsNullOrEmpty(group[0].condition) ? "" : group[0].condition + ": ")
+            return groups.Select(group => ConditionPrefix(group[0].condition)
                 + JoinEffects(group.Select(x => x.effect)) + "."
                 + (group.Any(x => !string.IsNullOrWhiteSpace(x.note)) ? " " + string.Join(" ", group.Select(x => x.note).Where(x => !string.IsNullOrWhiteSpace(x)).Distinct()) : ""))
                 .Select(Normalize).ToList();
         }
+
+        public static string ConditionPrefix(string condition)
+        {
+            if (string.IsNullOrWhiteSpace(condition)) return "";
+            string text = condition.Trim().TrimEnd(':', '：', ',', ' ');
+            string[] endings = { "적중하면", "적중했다면", "했다면", "아니라면", "있으면", "있다면", "없으면", "없다면", "아니면", "이하면", "낮으면", "높으면", "같으면", "많으면", "적으면", "된다면", "이라면", "이면", "라면", "하면" };
+            string[] replacements = { "적중했을 때", "적중했을 때", "했을 때", "아닐 때", "있을 때", "있을 때", "없을 때", "없을 때", "아닐 때", "이하일 때", "낮을 때", "높을 때", "같을 때", "많을 때", "적을 때", "될 때", "일 때", "일 때", "일 때", "할 때" };
+            for (int i = 0; i < endings.Length; i++)
+                if (text.EndsWith(endings[i], StringComparison.Ordinal))
+                { text = text.Substring(0, text.Length - endings[i].Length) + replacements[i]; break; }
+            return text + ", ";
+        }
+
         public static string Normalize(string text)
         {
             if (string.IsNullOrWhiteSpace(text)) return "";
@@ -84,6 +97,8 @@ namespace Lumia
             text = text.Replace("이면 적중하면", "이고 공격이 적중하면").Replace("이면 사용하면", "이면")
                 .Replace("이면, 공격이 적중하면", "이고 공격이 적중하면").Replace("이면, 적중하면", "이고 적중하면")
                 .Replace("아니면, 공격이 적중하면", "아니고 공격이 적중하면").Replace("아니면, 적중하면", "아니고 적중하면");
+            text = Regex.Replace(text, @"(?<condition>[^\n:.]+(?:이면|라면|다면|하면|있으면|없으면|아니면))\s*:\s*",
+                match => ConditionPrefix(match.Groups["condition"].Value));
             text = Regex.Replace(text, @"[^\S\n]+", " ");
             return text.Trim();
         }

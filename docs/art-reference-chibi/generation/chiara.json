@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/chiara.png",
   "width": 160,
   "height": 160,
-  "sha256": "5c724898979f7140a3dc6d24137b61d8c8f316c8104d31c1adf87b01612d42c5",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "f46408f024ae187dac152471915ab42298aa9bbaf682f120e92284d83129e865",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "5c724898979f7140a3dc6d24137b61d8c8f316c8104d31c1adf87b01612d42c5",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

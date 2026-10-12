@@ -42,7 +42,7 @@
     1208
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/hyunwoo.png",
-  "sha256": "954d39678b8eba0484ed2b43faf7645f1bc2eb0dd319cc503547a93aa6648d26",
+  "sha256": "f3c2695ebf8e705ffecf4da24e595b6d4afbb7c489eab1eb75abbf9157f9b61c",
   "processedPath": "docs/art-rare-skins/processed/hyunwoo.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/hyunwoo.png",
   "originalDefaultSpriteSha256": "8662dfcc7d77346ba424b17c81d8b2a471536518807751dc8c6bacfef30f1c98",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "954d39678b8eba0484ed2b43faf7645f1bc2eb0dd319cc503547a93aa6648d26",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -83,7 +83,7 @@ namespace Lumia
                 string joined = DescriptionSummary.JoinEffects(group.effects.Select(e => e.text +
                     (!sharedLimit && e.limit.Length > 0 ? " (" + e.limit + ")" : "")));
                 string common = sharedLimit && group.effects[0].limit.Length > 0 ? " (" + group.effects[0].limit + ")" : "";
-                lines.Add((group.when.Length == 0 ? "" : group.when + ": ") + joined + common + ".");
+                lines.Add(DescriptionSummary.ConditionPrefix(group.when) + joined + common + ".");
             }
             // This equipment-dependent Alex rule is resolved by the engine outside the trigger table.
             if ((profile.summary ?? "").Contains("장착한 무기마다"))

@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/bianca.png",
   "width": 160,
   "height": 160,
-  "sha256": "95040faa755c62423e66b4fc9d9bb516e0f0b3287bc3033b702c7574d5790ad8",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "59dfca4671121a447dd1abe02b24ddae27534891130f79637914b83f58efcca3",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "95040faa755c62423e66b4fc9d9bb516e0f0b3287bc3033b702c7574d5790ad8",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -1,0 +1,1375 @@
+[
+  {
+    "file": "Assets/Scripts/Lumia/BossMechanics.cs",
+    "sha256": "a79fbfd376bdf81421ed5a8309997bbd38369b94dd1a8beadb821ef97c6b8b8b",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/BossProfiles.cs",
+    "sha256": "f81492a710118b12eab74150ae1e21fdcf8f06fe6fec26443aba3025903edc40",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/BossProfilesClassic.cs",
+    "sha256": "ca4f7b8855d28af8ec2e45994f70d850c85e70405d7d6c97071b20532a9b5f76",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/BossProfilesRecent.cs",
+    "sha256": "8fd6e29cd8b9579bce018aa39e09a0924adf73db8c4d29578758f620b6b5b349",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/CardPresentation.cs",
+    "sha256": "3eaaceca0824fe46d0ed5ca19202a6c738d30efcfe8a9f905cc8a42a76bb07d7",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/ClassicRoster.cs",
+    "sha256": "64fd30549a97cc428f1376d63b6bb21b21350c36474609b1401aac61d03a7349",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/CombatEffects.cs",
+    "sha256": "1190720b506a50787bf0f3657f855694682a84ec4036b7c1ff895fa497d118a6",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/CrossSubjectSynergies.cs",
+    "sha256": "36c7bdc5f4d778f9e2a85f362db3280f7d20911d43262d4bef1d77a9d5fda81f",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/DataModels.cs",
+    "sha256": "cf533cbafa029caad5fe050558dac57d2c58e5ec9bba08e5a1c4760f419298f8",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/DescriptionSummary.cs",
+    "sha256": "d0261a9fd47c7a7dee1a9ee465df2a91ef51c22c1dfdf304c5aab473bd6b9c69",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EncounterChains.cs",
+    "sha256": "52c51a4cfa1dc86360f746ebaa2665d2a2d8fd964824dddd69a48549236daaa6",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EndlessAugmentEngine.cs",
+    "sha256": "5e6523345bef8f5ebcff58c083e74076f335a6b4787b10d94ec8aa4c70827671",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EndlessAugments.cs",
+    "sha256": "abdbe00b47e5fab1276ba2c63ff5b3e2a82df507374708eebc04b716b90e3ef4",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EquipmentIdentity.cs",
+    "sha256": "541fe7187a077265859980c313ee1d6675b9a930b1294038f52f45b74d4705e2",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EventIdentity.cs",
+    "sha256": "f8899cc081910151a7c8b1991fcb970c2c725b937a385d35e7db3ae85a1f73a8",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EventPresentation.cs",
+    "sha256": "ba7c370b7ffc5ddcd3fd7c0a40b10e656211053e5a28d7afbdf978628882f53c",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/FreeCastMechanics.cs",
+    "sha256": "499048375a5ae5506a15dd57c3912d254cc9a57de564d60e6d8a2720cf1daf7f",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameAudio.cs",
+    "sha256": "6d59e70dac24989e0786f8874c0f4cca4c3990473e31226d0ea2c3eee443cb4e",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameAudioCatalog.cs",
+    "sha256": "baa5ba76a3bcbbba662ea6f9c7ce55d5f5f33fb803b327e26d1adfb52f91bee7",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameAudioVerification.cs",
+    "sha256": "668bcad02759d870b3c061c1d89ac7dd85e5c4bda1b20b9aff89d6464a202e7f",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameDatabase.cs",
+    "sha256": "362329add8bc83f6faa37f42c23004aca090a0cc42946e3e8ff2fd2ee3498567",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameEngine.cs",
+    "sha256": "f81ab5b0cc07de83c7c20e039c63b60f526544215fdeae02725bf526bc11f0b5",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameIdentity.cs",
+    "sha256": "f535e2e78ff286f48936046d3ce8d03e982f782e725a01a3d4dce6b355d04a89",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameIdentityVerification.cs",
+    "sha256": "23122f980042c345b9db53463ec41b2902ff2fcb35fa21d7a3cdffc492ee4624",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LobbyDialogue.cs",
+    "sha256": "6d94ce83ff47be0688df6ddef5ef6503612768bd1ba55761f20c886fa1bb83c4",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaArtVerification.cs",
+    "sha256": "b84377073c77a9472cd26f9310258db0db112699b5edf12175bf4deb76baad19",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaAugmentsUI.cs",
+    "sha256": "0256064ef7d234d3256fb655a3c277422609cdeaddcb2be9af0296c0b8f7b6c7",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaGame.cs",
+    "sha256": "d737106eb14b178730d4c57139f43240745f240f003f7fd4bb7f3bb4e8ea03b3",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaModesUI.cs",
+    "sha256": "3a2169072aa8601b0e9f7a73e49051b7f39f326fef17d626318673befc7ca251",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaResearchPersistence.cs",
+    "sha256": "4fba0e3871eb2edb25b2d532f8b95a56a945baa75db07377d247e84522f1d2e2",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaResearchUI.cs",
+    "sha256": "9316fac8332357d961700c847629164841765d1fc97c25e6ce7ec04174f3aa7b",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaVerification.cs",
+    "sha256": "59f97dcc6a79ba3ee1c2b452fa3d5be578ea07c9d8a9c54f1d64240e8b686d36",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/PassiveIdentityClassic.cs",
+    "sha256": "0d39306da051d8cd64555a693a2c5c6ff4df2982441f8edc71aebc51cd7d0279",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/PassiveIdentityCore.cs",
+    "sha256": "81abcdc079d4238332b9d1e96557acd376ca8a4fbcbc746db1a26def24cb2dd7",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/PassiveIdentityRecent.cs",
+    "sha256": "7661273a200f3801c3ece1f85557a01876d6adc84e3ee18781505fbeba20ea82",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/PixelArt.cs",
+    "sha256": "a185cf2673d73a98f7b51fda6a0c7444e8c45b3d86c6478b9fd907ca5a5efeeb",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/RareSkinCatalog.cs",
+    "sha256": "c666fd249207e84c34c65714c3e615f4100d137a12a0c81c0b41bbfbb42788a8",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/RareSkinStories.cs",
+    "sha256": "a14a9158b26048e1e9750462950423a25ab90ac0b2d28d152ddd27fdf36bd18c",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/RecentRoster.cs",
+    "sha256": "ec22a2c96319e2442939f2624178d4299a24ae66f77fe5ac55f444f60845385c",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/ResearchEncounters.cs",
+    "sha256": "9c58c0e37d35ffeee75be8fbbc2fa8141039ce882ba05bf13c7c766cec220139",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/ResearchProgression.cs",
+    "sha256": "adf9ef73e360a12d6f3c4178044c8cb66f3640108b1e7728e3dc218817b462cf",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/ResearchRareEncounters.cs",
+    "sha256": "4cb244d0fe7d07fdc76cf48bcfb5adf351fafe20e0602570828ce6754f3b0465",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/ResearchStore.cs",
+    "sha256": "adb47458b9582be998c7d43f6a57c0f8f992075ac6e64f98d6763235f6978e31",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/RuneIdentityCore.cs",
+    "sha256": "c266a06ddecc73e0d3868e05fe9e854bb5a0436bed29ee17e1a732292b9ec09e",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/RunModes.cs",
+    "sha256": "689fed6d945b9e51fa3377cd0c4dcf2e91fca12d2799a03e4b224cfcded9078a",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/SkillIdentityClassic.cs",
+    "sha256": "1fe8fcdc512bf5a99a931876b284ed50fb5a001e4fb79a96e623e56bd9e4b899",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/SkillIdentityCore.cs",
+    "sha256": "4bc45e7d39c1f060019f410f65ae470567e6c02bc12f790165e98cecbc83c529",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/SkillIdentityRecent.cs",
+    "sha256": "937d20b8ab5291afbbcad7e0939fae3081fb16679cc1940ec357bb34cebb4533",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/SkillMechanics.cs",
+    "sha256": "568be4869c73208936ff9e3510c87e14d7a9f57af8ac5c5e8476325ff93dde20",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/StatusIdentity.cs",
+    "sha256": "2e5b4db255ee8d3fda398d717d55688b471f39f2582598b3b8ae405fccfab24c",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/StatusMechanics.cs",
+    "sha256": "94a5e0cfaaec57da905e1a6d94bf6911c385c6d964753c4e052a7bccacf440d3",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/StrategyMechanics.cs",
+    "sha256": "c9e50ed7ffcf31d9f299e5cfbe2020f23595da8c3996987e8987432d415c8358",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/TraitMechanics.cs",
+    "sha256": "fcd2eca3fdb34c86f9bff3de37610ed1386b851d9153f3051711c1193657b47f",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/TraitPresentation.cs",
+    "sha256": "c4f364781c7cfa34c5c6f19357aedbdd67ef4c55ee85c2d3cd986604720b7b98",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/WeaponIdentity.cs",
+    "sha256": "0a1d5ae3f2fc78646f61c7b8b037f0f29c764c0fa7d3ac763dac9b905a67cac0",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/abigail.png",
+    "sha256": "83495f173e2f3bd513fa4739f3e268c3913871d1e8a1d3e29a314232b8a5f9d6",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/adela.png",
+    "sha256": "4783794c34f21325f475a344ff030918d2fd9244a9c4d1dc5c92a4e8c2f86914",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/adina.png",
+    "sha256": "86bd9d25ec7255e5416d40eba53cbafe970acd0fe0537e2629aeb1b3a1b3f437",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/adriana.png",
+    "sha256": "3063ee0d35f17a755ac15d829f5a54a2c5e371a0a5bb19406a2f1bd0549a5067",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/aiden.png",
+    "sha256": "7f2763c8b8fab8f33ef5690bf871601f1fc06c5ea86fcdcdb714497af9f57042",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/alex.png",
+    "sha256": "f488e2f8924a86d42504a171bb90e6dcb23fa0705990fb2bcddf6ca63fa1a8cf",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/alonso.png",
+    "sha256": "8473ef9cfebfaeb54c705794d1deaccd1c50889eb8b48c1a2780fdeb83b0c60e",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/arda.png",
+    "sha256": "0994ba51b5f3b662e6d75b01c7cf545657216d9ebc219b05d1b5d096f3f1a52c",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/aya.png",
+    "sha256": "dbac0dd61dc70a1b3149a4c0f21912930e8fead18ea42eb29699f74eaabfc592",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/barbara.png",
+    "sha256": "bdcd9124ca2e9a1d1545a94066c57cb787ba0fe82bbd7827e46e36ada9e4f259",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/bernice.png",
+    "sha256": "d689041be3edb5bd85d5633c77f3ef696094e8dcdb9b216d2b6e15a941451926",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/bianca.png",
+    "sha256": "59dfca4671121a447dd1abe02b24ddae27534891130f79637914b83f58efcca3",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/bihyung.png",
+    "sha256": "51c56caff395c7e8ce670bbfdf03d2ac54b581499bf41965fc40ead398f2e288",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/blair.png",
+    "sha256": "654f69239eaae6797257ecf319869045de39dde3817a9df5ea3268140a3228a7",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/camilo.png",
+    "sha256": "41049f3929cbc005fb0f8293cd382e81e3b730d46b530d26eae2778b7fcd491a",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/cathy.png",
+    "sha256": "4ec9001d10f5e469a5059b941701b4740a6fbfbc15f29ce596617dffc5f01263",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/celine.png",
+    "sha256": "8d52a63d667c243a7c89fe332fa316202d36feede7356e84269a178c7430236a",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/ceres.png",
+    "sha256": "48ed8226aa32b40967d5c63332c341af521c3fb56980c564b7007e4ebfea0afb",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/charlotte.png",
+    "sha256": "eeee51ae5bc01fad94da311418eb2694a651dae6f7aa4afcc7c2900578a56d67",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/chiara.png",
+    "sha256": "f46408f024ae187dac152471915ab42298aa9bbaf682f120e92284d83129e865",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/chloe.png",
+    "sha256": "730f085b651fb4c7375943a8089169c188cdaa3122523eeb1f750644ac2d9e56",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/coraline.png",
+    "sha256": "d66ef450dd11ff961e17a356d43535de8a72a666fc5ebef19b2b116e9762d02b",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/craver.png",
+    "sha256": "80eca5e732df9874a75afddb9dd26c6c222dad6ff10b31804ec2e76446e4d995",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/dailin.png",
+    "sha256": "9c57e6ac8a98ce7fc8b2dafbf00d3348a6c2897b6039eccd9426b98e47c335df",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/daniel.png",
+    "sha256": "0770858a15d928e90016911b10410da3339fe2b1f55fd2391d2cddd2d71c61a0",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/darko.png",
+    "sha256": "693abb44f3703cd88901a222cc35cd0fb1ab5f86ff012d5dc8b616580e2dfc52",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/debi_marlene.png",
+    "sha256": "4aa259d6b43381d35af2a2c30ff33425387dd42b37ba059c8fac641cbc14e4bc",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/echion.png",
+    "sha256": "e393b17bece5a7bba9ab3d76069e8b3af185bdfd700eaa532b898e9b211a898f",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/elena.png",
+    "sha256": "acde431b6205bc484f36be14b42236e6c6a55c54895ac62dc7fe349b284d291c",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/eleven.png",
+    "sha256": "34211784cc19f09307d6bd6e93782d52005c8cb77bf403e64c2c4dd6c102d75b",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/emma.png",
+    "sha256": "ed092dd1c54051c277a60b155c2c4d2fc8c5b292c7200674f8240ffc6d3c2456",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/estelle.png",
+    "sha256": "d1bac4d0bd31706e71199eec46738118aacdfc4f89511de1cb339559d552066c",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/eva.png",
+    "sha256": "3e6aa2536da94ca9f20858e0bdc3cfa07766868c677d1f302477847deeb77848",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/felix.png",
+    "sha256": "c61875e09d2fa551efd4a79a75b7c9f422e0dc1b20205aafbcf3c2911a976af6",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/fenrir.png",
+    "sha256": "68d8dd18a27a7b7fb22bcd32bfc0505ca0e2bcbd04cbef5dad9dafbd7ead679e",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/fiora.png",
+    "sha256": "6c818239f162d553bf801a99588bc63d2954d6e03d7aa3704d610c5f42f73c83",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/garnet.png",
+    "sha256": "fbec1919f099ddb82fff16ea3db5cac8720c33e09624270dd93865c3ec2875d2",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/hana.png",
+    "sha256": "b481c31267ae4f86616c471eb18328d13f4d79c1d2ee18e40a7b787ebca88268",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/hart.png",
+    "sha256": "bb751e53f3ddde1574c40cae8712889376bc0622ef9523c380c1bf6a717e904c",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/haze.png",
+    "sha256": "e38bb4bcf27b947ded0a0ee2ceca69bed42514e5e2876afba5197a5e2302a99e",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/henry.png",
+    "sha256": "4e803ad8f639a85861464ae87714c0163413878728ca2708c02134450eca00f8",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/hisui.png",
+    "sha256": "d7005b9af8e94bb1febea480cefa51d5fec08e5a9d8148c37035955206d4f580",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/hyejin.png",
+    "sha256": "8f9922fa0ea78c3cf56411dfd23728e1781b65102328ede12e0874cf9ffcf125",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/hyunwoo.png",
+    "sha256": "c7c3f75461c9db2c7e3dc5fc7b57d055ddeb780522b080419f1041aba64ff193",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/ian.png",
+    "sha256": "f67add79c33c277cb89a32b0bfd1bcf8ca767e8085da84ccafdaadce7e5b16f1",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/irem.png",
+    "sha256": "b69dbae9c0f1e3c0ed7365d2ff8de693ab355d18f6e0e7b34b52b399f648edb5",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/isaac.png",
+    "sha256": "38ceebc4a77177f8f402edba5605ed3beb83c76734dba7b4e659c9bb1959ea75",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/isol.png",
+    "sha256": "e3e233d5d16becc455ebe6b91cfe5555d5707a1d1788c2b50c79dcae67266455",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/istvan.png",
+    "sha256": "e770f8c7b1e8d087659e7df30f03617a0f01bada602a47b2a0c230c05a131b3c",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/jackie.png",
+    "sha256": "622cbcb5349277d1b922b7faf352700f8c11233384660f21480d5770dd1b1e9e",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/jan.png",
+    "sha256": "c48ad8150df3d8e08675dba3f0b8457766316f62dcc37ce899062ee894e6fff1",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/jenny.png",
+    "sha256": "ecdbab2ae0bf86a4aca495ca22991f7f549ed9ddeac1e7eb1c2f89da455f43ca",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/johann.png",
+    "sha256": "77f63cbe15501e06ab8c0b57a96d67fb45adef0e71b7bdd71bba08f2040362e9",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/justyna.png",
+    "sha256": "959d032515daf869648aebd5552fca0a9a78184be36ed10829bc99ee2e0a1070",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/karla.png",
+    "sha256": "f734994c409a68a7d8ec54bb54425d71af1694e5c41b54bd212c597c630dfa1a",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/katja.png",
+    "sha256": "a2c18d39080475e606d24e8577bb074510349759f485ac04bbf758521a06e0b9",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/kenneth.png",
+    "sha256": "5bf8e2a247158200acf90b361684cb878e03438e72b52a6914573f5bc13da74a",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/laura.png",
+    "sha256": "5e62fba54fe346e91edcea951a90aefa7edfff8b6ecc170e9b81dd4c98d8cc8f",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/leni.png",
+    "sha256": "bd004525967423148b02397a367ce21197d9bd1d192474ad698c3bb0e881e305",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/lenore.png",
+    "sha256": "8931c24788d232f197a6ad235c8f146dbe116ad58f2b35372603d8670f4fd299",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/lenox.png",
+    "sha256": "4c6453e215e88a41219f40e701cb5e332a10cf2128862e860b68556513b8c1d2",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/leon.png",
+    "sha256": "b62e740e90d6c7428f3cd4c127278884bfd3693180a239c91ddff2f6e13076b5",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/lucia.png",
+    "sha256": "5b30d83bbfd75dba94189da767fb66be1291b007d76276fdb1be7533aba163c8",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/luke.png",
+    "sha256": "2700174aac7865d76b8c64f3a17fe029b6cbf07eab84cf5b0e2151048b27abeb",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/magnus.png",
+    "sha256": "edd71289008936ed545e8f577f2bea26730f3a2f2be8573a9e8b4dce98f40086",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/mai.png",
+    "sha256": "492be3f8905bf1e6ddcbdb45f980a5b479a34c9dcc2514c0046d486345f76f88",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/markus.png",
+    "sha256": "6d5c5940401373d4eaaef90864885529269b6c6cc96890a2030eb53fd5aba7ed",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/martina.png",
+    "sha256": "0e7a21f1ab838ebeb2a29077f9bf8146862396b015e16b846df1693f6ec4e229",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/mirka.png",
+    "sha256": "b32e0ccea2a362b835a28b1f890e591414426eab090fbf5c6b7062894629e3f9",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/nadine.png",
+    "sha256": "310dbfb872e73cfda511a10c24e6d0c99513e1212228450c15992f004a2531a4",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/nathapon.png",
+    "sha256": "0b8531404db5009d4b35c892f7dbea1936e58a56be7528caaae35bcde5d0f346",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/nia.png",
+    "sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/nicky.png",
+    "sha256": "d136e950e9576114f5e9ea18d4d37808b0c2589ae80a4576da3a0b0e2aadc6fd",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/piolo.png",
+    "sha256": "b47ebd3ce4b582944c107d98d837b795e172a0cca6ac5436e3e46a258bbc07bd",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/priya.png",
+    "sha256": "03116dc37895a09dd4b6866069c66021e14990d646449fa457255dc75562f78e",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/rio.png",
+    "sha256": "766558d826f83e877b2d6d4bd949ec1279ee68f260afe25282be06c5cb59b255",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/rozzi.png",
+    "sha256": "36ded5aa1b1c3a3267ebf48dab341f70c99a3e8c0bf5061c732f2803ff93af2c",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/sho.png",
+    "sha256": "20508565c1c6e3e3e54d30e2fd957c544b597275cbc4a802a6c915d01973d9a0",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/shoichi.png",
+    "sha256": "f2af747cef960c12b7c4de15ce92e16b06e7aa593b9f5c54bc6f172c435cda50",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/silvia.png",
+    "sha256": "a48808f99d8e0cc9fbfcf49b08e8442423400030bca5dd41734139ad9733ed3d",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/sissela.png",
+    "sha256": "1716ed761b698a3958c2e4642fc03396e9904a317f76208e72210d91dec8b5cf",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/sua.png",
+    "sha256": "92b0f4ddb21df752cb36c77d1cb1852891a2f03de2203eb21b49504a311ebe43",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/tazia.png",
+    "sha256": "c4146efae90a42794412efaaf7cd701f4117ea2237f33ff55213a4b7817977c9",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/theodore.png",
+    "sha256": "a5496e768754a86068b24d172f86303660092d07e95b5c4e46f89e9470c859b7",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/tia.png",
+    "sha256": "7c6baac6f4ad8c34a1aae99db2378ff56ad01e6df43b1c2d9acfedb7aea002ce",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/tsubame.png",
+    "sha256": "3da73c7126bf6c9123eaa47e1184ed3f0cdafd1c9852aca598f8be89cb2b8926",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/vanya.png",
+    "sha256": "d3947dc5d5a32470d98faaf0182daef24352d75c0eef75a6de1df12c6349ae3c",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/william.png",
+    "sha256": "172563b64144370f29d2cf6bfed1aa7ca5e62e7141d272a6d7b90788740a03c8",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/xuelin.png",
+    "sha256": "53f6254c05c2728e31242d9d74f8f1d5aad78bd5972973fe9b610d4bf58f5048",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/yuki.png",
+    "sha256": "313a0dabfdf7168f9930e6ca01b4e17870459f29a17ff795f32917f00f050e50",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/yumin.png",
+    "sha256": "f78afe1b6eb0e11c837b7f3ec34a372fe552a4baaae430d8f4aa921da6c2cbf6",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsReference/zahir.png",
+    "sha256": "71b8c626fd07dff3f25796843ec25ff3f5b22b69b17e345a8d065094a340200b",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/abigail.png",
+    "sha256": "c4a10e7d9ffbca74ca5b90f0991dc40d61d8b571592f4cb28a67e3e964a90091",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/adela.png",
+    "sha256": "0312fa6450ab1db16061484383956b7c15c1798d888dfd273bd6deb2672396da",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/adina.png",
+    "sha256": "604631a642d6d94d649a97de779b64c773890b88f3fed90e4effc11b32187a89",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/adriana.png",
+    "sha256": "01b7f7c5ea172e908a253a5864cd4de851f115cf1bdb696f96d3f97fb65db487",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/aiden.png",
+    "sha256": "df12c223063819b75b8758ab93ffd7d25be6ef06eff9c86742adbe4d032504b1",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/alex.png",
+    "sha256": "4ef81f2afdf7bb8aeb7404a15086adf86ab47f5b91031883a0de59b7d7f734d6",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/alonso.png",
+    "sha256": "39ac0790b86538cb03b9766e79a9a53f11df006915038287a62a1bf9e6f40b19",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/arda.png",
+    "sha256": "025353d3769330e2388e1b128e13acf111c41dfe1bfe2ce475a451a0b49e66aa",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/aya.png",
+    "sha256": "ed8474bc55c585df35f46a8f8116816cdecca316a38cd988df45b2f53a6602f9",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/barbara.png",
+    "sha256": "ed9b503bf9038dead1222e488014da9b093b111968cf05a32cf122f87438d09d",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/bernice.png",
+    "sha256": "62126a2adf83604007c28f7b33a9a6bea18b03237011c4e2d613297c1b19783b",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/bianca.png",
+    "sha256": "28c37fc6fe64823584898306aa1166948ae1ed0fc2fd119403c3938b04c663f1",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/bihyung.png",
+    "sha256": "d7c70c175a57577da400b4d9c25e967471abd482bf3ee1de005e97498b99818d",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/blair.png",
+    "sha256": "2494c9ff7fc1077e45fe95e4bb12dce14597b16120fc03346bb93cdb35b9ddeb",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/camilo.png",
+    "sha256": "2ec6d8ca1c7c7637474692e71175e80c0d6b02d06b52558a801d9995b0d86c05",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/cathy.png",
+    "sha256": "afd6b6acbb5a192c330704e6af3a8d9ef5921633922a01a071cb2ebf73b86b36",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/celine.png",
+    "sha256": "c01688b7d04e66e1ba5b2be73fafc12c165bd104926a21d63cb047fc3020ca0d",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/ceres.png",
+    "sha256": "61028957356bc73fbedb682eba1c67da9b51079217ba14973337ce7134068869",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/charlotte.png",
+    "sha256": "ea96cb3f066c96f1411026af36cd68f0f2af0f6346d69117f86c06abe7a83302",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/chiara.png",
+    "sha256": "26782a3fc56d7bc8f260f0c4cf110bc6dc1edd3c97942f622ccd6381e7873482",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/chloe.png",
+    "sha256": "4a616c23fd6ae54bab047b6d36cedca39c7f133c8fc45529c2275c93a0c05977",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/coraline.png",
+    "sha256": "af41a531f791a5e3e058845a20b6b1fbd1193793498207bbe471a24f7ff97fb6",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/craver.png",
+    "sha256": "f978c4e9a4efcb82d324885593e158f8d55580ff7820952544b202ccc5f9121c",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/dailin.png",
+    "sha256": "fa25f50430e197aeae4ffcd9a3991f4b8a94d890832ecf705389c3835a3e6b04",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/daniel.png",
+    "sha256": "c8ba7b2452ef66b0f20f487b53bc4387a060da408ede2d3bac05c69fff27d57d",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/darko.png",
+    "sha256": "82a9ad9cebf268d3757805d2afb7ec068bd8480120904ba23abab37a91c584e0",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/debi_marlene.png",
+    "sha256": "fc09a5842229e446696dcbf1ca47dd17934095b2ee24be86d45767819fef6359",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/echion.png",
+    "sha256": "51751c2c6946d28c973d5e65c9d88670f15ed16bc03e207bb69fa40c1733c261",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/elena.png",
+    "sha256": "757132d31066ecd495163289ccbd4fafe0b8182003c2374caca4ee353ec40ecc",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/eleven.png",
+    "sha256": "dbce654cf37739acbe79071fb990b8051df5ab445518a29b277b5a6faa00cc6b",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/emma.png",
+    "sha256": "10d1c999627b1acc8dd6ed9e2c5a08a9e26259dd54b9cc37db1e50c4490b6fcb",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/estelle.png",
+    "sha256": "4ca27c0f9aa1eeb810e84d1fe9a9a61e2b93b45f9db8d0b1cb3d5d0d72ed8e1c",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/eva.png",
+    "sha256": "923195c5a116df7678e5cd15883a076e03931b74394ca28509c71a7a432c3588",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/felix.png",
+    "sha256": "f18effd901a910d2b58f06c96b7b0b736e0ca45d004cdb0ef505037381f8edf3",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/fenrir.png",
+    "sha256": "21ad37c062f3c981562111fce912071ba04050cd7160742c6fbed650e122a057",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/fiora.png",
+    "sha256": "c661095b4d1f097897ceec5b20d3eb34b618c24f4d293efabefd27cdb652f5ea",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/garnet.png",
+    "sha256": "635bcd630f5f2e051d70c939937eb3d39ed755f2ea99fc0d698acf76da6e5d38",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/hart.png",
+    "sha256": "30fb16dd4cd81a22ddd59d4cc998b0aff950b57a64858c6bb8909c110960214a",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/haze.png",
+    "sha256": "8d21951583320977583045c235e3515012b2ef7357150e9939f6351fac56f787",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/henry.png",
+    "sha256": "e886228eb8a11999a66086fe211c98d4077a455d03e093a4122c46096a0d6177",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/hisui.png",
+    "sha256": "a6180611b45f2588d94497acf395daa7c2a4970ef83f03c4aa0efeb3625a280e",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/hyejin.png",
+    "sha256": "a6f7968e252b51844546a7c70772543a53cca650d6e45ef41092d5825d9fe819",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/hyunwoo.png",
+    "sha256": "f3c2695ebf8e705ffecf4da24e595b6d4afbb7c489eab1eb75abbf9157f9b61c",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/ian.png",
+    "sha256": "7019a6e033333440e049756b25e72e728755cf73b505e05a22389c325cf80d07",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/irem.png",
+    "sha256": "f12e16ac74cb52400a7c9291b9d36e3c3fadbde20f969e9f8d596aebe0715420",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/isaac.png",
+    "sha256": "ee663289b500352526e7c0c02110dcacdc9c3b56e4e48965a45067567cc12eb9",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/isol.png",
+    "sha256": "1f6685f06502bf90c0b7e3bed0e0f2a1f55b8f5226ddf42fb042f00461e4ab5f",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/istvan.png",
+    "sha256": "6c53e40d39567243d62515d7930437c8035380416eb30001fec94de1efd90887",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/jackie.png",
+    "sha256": "19ec5d41920d51ab852f076cae5a3e4f7ae8436ce6a5d76534c80ac21e1a8f47",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/jan.png",
+    "sha256": "1e0aee6b57de77553b7f92199576c5faba2980b7b9887a54ad88e8038a657e8a",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/jenny.png",
+    "sha256": "3c4e75676111803361960f1c92d419764e55b7361f98da21c1abefb198627ea4",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/johann.png",
+    "sha256": "5f6eac1672ba4f90a4a3d5bf21d5d26c57733ec001df5245acd212cdc2325cf3",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/justyna.png",
+    "sha256": "f4dda218afb2f049e5caee1a6217ff8e5686b6baf44be09e362860fa3fb932eb",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/karla.png",
+    "sha256": "101c214ef3332899cd05dc62c35b9d1b1f9b14aa451d21e9564ea9927335b423",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/katja.png",
+    "sha256": "c10959af6aa837e82c24a17c27a5a0a020e897e00dea77b59802612ecd5354e8",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/kenneth.png",
+    "sha256": "ff8a207571d3b9cd6754a3f6d52c861aa3623f39bd283a134cfae91c4ba9ed62",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/laura.png",
+    "sha256": "acf6c6b2a7946f55a9829f88e405bffb084d66794a398b6888cda07a688edb11",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/leni.png",
+    "sha256": "0b02a83a116cf4643ec5e3840db5755c21c70dffd9a73dcc9785c8dbc1c1d81e",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/lenore.png",
+    "sha256": "386dc07d87f5f1470327371874fd64ba58b55afdd1af4282fed33668cdd4b9a5",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/lenox.png",
+    "sha256": "dd0504961af62af1de263b232e23914e2e961355a5daeb8d1a53d02e029ce28f",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/leon.png",
+    "sha256": "e35b3aa0a33ce0a026a6b33457726eb82ecf0ddee8c7119a3ac738e2e30ed6c5",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/lucia.png",
+    "sha256": "807e7265809938b1da0e46f814ddbf0e6b40be48ed6e964355df9bd21dcaf039",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/luke.png",
+    "sha256": "c93592b9a4ff4ed0f402caa67f191b181070cdcd916dbe3a13c748eda440b770",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/magnus.png",
+    "sha256": "5778211b8926c2f2a3837739af2070824ed0278e9378d13085d5f36364651d36",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/mai.png",
+    "sha256": "48ebde43dd3fb165892116669380716e153489ba085cccf5e3991ddc078e2e5a",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/markus.png",
+    "sha256": "ba3640991781d55ab4ac02d2a9dcdb3cc30f11cf899d658a8496bcbb2c9d9998",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/martina.png",
+    "sha256": "e68b7d31177d60e6107946fb0df9c8a423c1f2388a8bed9e4093d1a645abe51a",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/mirka.png",
+    "sha256": "55ecd07428a02209351f98604e17f8971aa9f3ea13bcdc2dfb034c39e2e59a2e",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/nadine.png",
+    "sha256": "22a50b9250ee558962990d02375dd36fdaa56d0566187e8e0072a48a55d1e291",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/nathapon.png",
+    "sha256": "b8ebe50b0a05dd8a6186098db64acd8764c5a0cbb1cb2b269d1c60acc9f40800",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/nia.png",
+    "sha256": "4b7d7561007469468e66ffe4f24358ae9beb8a00fdb8432d8423f370b15b6a63",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/nicky.png",
+    "sha256": "ff88ceff3dcc6a0b2402123f6edd83aa79faf3531de802066df4019fb21f995d",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/piolo.png",
+    "sha256": "03adcd8d58dd654fe418e72d493ce93b6ef45939146d08c2f2d9585268c6d4ca",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/priya.png",
+    "sha256": "58de5973cc45c230c6138bce1c001aef7d10b77dbb5f33a6ab97b2ca352f276d",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/rio.png",
+    "sha256": "841408a88edfbcd0c7bb50829f3830179442b569fafb78a70063886c2b29b335",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/rozzi.png",
+    "sha256": "ddd4f259c8666101d33eaa13e7cfb026f9d6f2d2bc66984faebda8ae1e030e4a",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/sho.png",
+    "sha256": "fb7216045d322bc16a82f6d4ed75a7b1d7f267229729d842c7cb121a61934bab",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/shoichi.png",
+    "sha256": "ab4b420e0b60f0bdcea233d50cc24a56b5e6c13fe526902639e906fb8d870e07",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/silvia.png",
+    "sha256": "362b2fff6280f96241b625f21ae93e62424035d1040bb80c77d2a2751150ef8c",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/sissela.png",
+    "sha256": "f33096b34f10adf5d9cc21cb17ebf0dc66e90341c5f31c3fd863a2e3ee59d4c3",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/sua.png",
+    "sha256": "6721f18c9d14a104c19a54cac7aefe498ec37c06dd2b12d832eac620195ff610",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/tazia.png",
+    "sha256": "5d6384d77f989b3f2a9e0fd68da8a00c96eacaf39b01c83546094bb4a809bb26",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/theodore.png",
+    "sha256": "64cbfe43c10f5ec0a1c7c84f352a057b4b4fe090bc1e6e186befc198c267c7d4",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/tia.png",
+    "sha256": "c8b2d1da09979c856be32ca5162c4fb7c5fbdfee7397f62524f303daf4181011",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/tsubame.png",
+    "sha256": "4c54454bd1218e36d517ff2e21061e61b139a4b417ca55720453521a4a3c3903",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/vanya.png",
+    "sha256": "0cfa8777eb06e832124f3b3b2616e56cafb5a705001f9f036b782c1a6374d563",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/william.png",
+    "sha256": "add8fe54b8ad46529c243e2bc273e14b604f03fe43a8a2a44839208a6cb0bc7f",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/xuelin.png",
+    "sha256": "a188664a6452ea4b71be8e58aa4ac5c623e7f0ca99234f93f10ab8f6f304d3f5",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/yuki.png",
+    "sha256": "0181e4dd1ae20121e3e4cb90de56f7a8755c06b5fa964399dd8bf875e687fda1",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/yumin.png",
+    "sha256": "aef314607a8e52806733e782d8babb7c2f1a47f2dc9cd5ac58fcd54d47cbae6b",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  },
+  {
+    "file": "Assets/Resources/Lumia/PortraitsRare/zahir.png",
+    "sha256": "72069ffef9b96501ca60c5240afefa1426c92d48bc3a7ad3dc91464609337127",
+    "buildMatches": true,
+    "nativeLoaderExport": true
+  }
+]

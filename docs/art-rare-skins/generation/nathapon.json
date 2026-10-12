@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/nathapon.png",
-  "sha256": "4bf81d50ca6feacc49d88bceb6e2597c9e57801cb98bb788b8caf79d9da50107",
+  "sha256": "b8ebe50b0a05dd8a6186098db64acd8764c5a0cbb1cb2b269d1c60acc9f40800",
   "processedPath": "docs/art-rare-skins/processed/nathapon.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/nathapon.png",
   "originalDefaultSpriteSha256": "5807a88ccf878b8f8bad1e5fa8ee3a933bcfec8317908304f3521da9ff90bffb",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "4bf81d50ca6feacc49d88bceb6e2597c9e57801cb98bb788b8caf79d9da50107",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

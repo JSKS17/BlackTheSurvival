@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/daniel.png",
   "width": 160,
   "height": 160,
-  "sha256": "746010fd54f2be05b939d582c6e356ce124add084ea0260638fdd0732f2f57a4",
+  "sha256": "0770858a15d928e90016911b10410da3339fe2b1f55fd2391d2cddd2d71c61a0",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-670a76b5-ad8c-454b-9a53-7a81b3f72698.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-670a76b5-ad8c-454b-9a53-7a81b3f72698.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "746010fd54f2be05b939d582c6e356ce124add084ea0260638fdd0732f2f57a4",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

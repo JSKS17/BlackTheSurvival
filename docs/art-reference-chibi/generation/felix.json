@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/felix.png",
   "width": 160,
   "height": 160,
-  "sha256": "ef2824fc84e1d02c6beb71097ff89facb2d5bb057a5ebea8552eda420b374ff3",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "c61875e09d2fa551efd4a79a75b7c9f422e0dc1b20205aafbcf3c2911a976af6",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "ef2824fc84e1d02c6beb71097ff89facb2d5bb057a5ebea8552eda420b374ff3",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

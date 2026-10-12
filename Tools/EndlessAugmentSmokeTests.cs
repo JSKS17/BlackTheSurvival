@@ -96,13 +96,15 @@ public static partial class CoreSmokeTests
         Check(loaded.State.augmentOffers.SequenceEqual(choices) && loaded.SelectedAugmentId == choices[2]
             && loaded.State.rngState == random && loaded.State.stage == RunStage.AugmentChoice, "save restores the exact three choices, selected preview and random stream");
         Check(loaded.ConfirmAugment() && loaded.AugmentCount == 1 && loaded.AugmentStacks(choices[2]) == 1
-            && loaded.State.stage == RunStage.Map && loaded.State.endlessCycle == 1 && loaded.AugmentOffers.Count == 0 && loaded.SelectedAugmentId == null,
-            "confirmation grants exactly one augment and starts exactly one new cycle");
+            && loaded.State.stage == RunStage.EquipmentSlotChoice && loaded.State.endlessCycle == 0 && loaded.AugmentOffers.Count == 0 && loaded.SelectedAugmentId == null,
+            "confirmation grants exactly one augment and waits for the equipment capacity choice");
         int after = loaded.State.rngState;
         Check(!loaded.ConfirmAugment() && !loaded.SkipAugment() && loaded.AugmentCount == 1 && loaded.State.rngState == after,
             "repeated confirmation or skip cannot duplicate a reward or map");
-        Check(e.SkipAugment() && e.AugmentCount == 0 && e.State.stage == RunStage.Map && e.State.endlessCycle == 1,
-            "explicit skip advances without a reward");
+        Check(e.SkipAugment() && e.AugmentCount == 0 && e.State.stage == RunStage.EquipmentSlotChoice && e.State.endlessCycle == 0,
+            "explicit augment skip still allows its separate equipment capacity reward");
+        Check(loaded.ToggleEquipmentSlot(GearSlot.Weapon) && loaded.ConfirmEquipmentSlot()
+            && loaded.State.stage == RunStage.Map && loaded.State.endlessCycle == 1, "one confirmed equipment choice starts exactly one new cycle");
     }
 
     static void EndlessAugmentCycleAndLegacy()
@@ -115,6 +117,7 @@ public static partial class CoreSmokeTests
         Check(e.ReplacePassive(-1) && e.State.stage == RunStage.AugmentChoice && e.State.deck.Contains(card)
             && e.State.map.Select(n => n.id).SequenceEqual(ids), "augment comes after confirmed rewards while retaining the completed map");
         string owned = e.State.augmentOffers[0]; Check(e.ToggleAugment(owned) && e.ConfirmAugment(), "final reward can start a new cycle");
+        Check(e.ToggleEquipmentSlot(GearSlot.Arm) && e.ConfirmEquipmentSlot(), "equipment reward follows the final augment");
         Check(e.State.map.All(n => !ids.Contains(n.id)) && e.State.archivedMapNodes.All(n => n.visited)
             && e.State.archivedMapNodes.Select(n => n.id).Distinct().Count() == e.State.archivedMapNodes.Count,
             "augment transition preserves unique current and archived map identities");
@@ -289,6 +292,112 @@ public static partial class CoreSmokeTests
         PlayAugmentCard(normal, "basic_attack"); PlayAugmentCard(bare, "basic_attack");
         Check(normal.State.combat.block == bare.State.combat.block && normal.State.combat.enemyHp == bare.State.combat.enemyHp
             && normal.State.rngState == bare.State.rngState, "finite-mode damage, block and random results remain identical");
+    }
+
+    static void EndlessEquipmentChoiceAndSave()
+    {
+        var e = PendingAugment(); var map = e.State.map.Select(n => n.id).ToArray(); int random = e.State.rngState;
+        Check(!e.ToggleEquipmentSlot(GearSlot.Weapon) && !e.ConfirmEquipmentSlot(), "equipment expansion cannot bypass the augment choice");
+        string augment = e.AugmentOffers[0].id;
+        Check(e.ToggleAugment(augment) && e.ConfirmAugment() && e.State.stage == RunStage.EquipmentSlotChoice
+            && e.EquipmentExpansionCycle == 1 && e.SelectedEquipmentSlotIndex == -1, "the confirmed augment opens one unselected equipment reward");
+        Check((int)RunStage.EquipmentSlotChoice == (int)RunStage.AugmentChoice + 1
+            && !e.ConfirmEquipmentSlot() && !e.ToggleEquipmentSlot((GearSlot)(-1)) && !e.ToggleEquipmentSlot((GearSlot)999),
+            "the new stage appends without changing save identifiers and rejects invalid or missing selections");
+        Check(e.ToggleEquipmentSlot(GearSlot.Weapon) && e.SelectedEquipmentSlotIndex == (int)GearSlot.Weapon
+            && e.ToggleEquipmentSlot(GearSlot.Head) && e.SelectedEquipmentSlotIndex == (int)GearSlot.Head,
+            "equipment capacity selection can be changed");
+        Check(e.ToggleEquipmentSlot(GearSlot.Head) && e.SelectedEquipmentSlotIndex == -1
+            && e.ToggleEquipmentSlot(GearSlot.Legs), "equipment capacity selection can be cancelled and selected again");
+        Check(e.State.endlessCycle == 0 && e.State.rngState == random && e.State.map.Select(n => n.id).SequenceEqual(map)
+            && Enum.GetValues(typeof(GearSlot)).Cast<GearSlot>().All(slot => e.EquipmentCapacity(slot) == 2),
+            "previews leave the map, random stream and all equipment capacities unchanged");
+        var resumed = new GameEngine((RunState)Clone(e.State));
+        Check(resumed.State.stage == RunStage.EquipmentSlotChoice && resumed.SelectedEquipmentSlotIndex == (int)GearSlot.Legs
+            && resumed.EquipmentExpansionCycle == 1 && resumed.AugmentStacks(augment) == 1 && resumed.State.rngState == random,
+            "save resumes the chosen equipment preview without regranting the preceding augment");
+        Check(resumed.ConfirmEquipmentSlot() && resumed.State.stage == RunStage.Map && resumed.State.endlessCycle == 1
+            && resumed.EquipmentCapacity(GearSlot.Legs) == 3 && resumed.State.gearSlotBonuses.Sum() == 1
+            && resumed.SelectedEquipmentSlotIndex == -1 && resumed.EquipmentExpansionCycle == -1,
+            "confirmation expands only its chosen body slot and begins the next cycle exactly once");
+        int after = resumed.State.rngState;
+        Check(!resumed.ConfirmEquipmentSlot() && !resumed.ToggleEquipmentSlot(GearSlot.Legs) && !resumed.ConfirmAugment()
+            && !resumed.SkipAugment() && resumed.State.gearSlotBonuses.Sum() == 1 && resumed.State.rngState == after,
+            "duplicate clicks cannot expand another slot, repeat an augment or regenerate the map");
+        var completed = new GameEngine((RunState)Clone(resumed.State));
+        Check(completed.State.stage == RunStage.Map && completed.State.endlessCycle == 1 && completed.EquipmentCapacity(GearSlot.Legs) == 3
+            && completed.State.gearSlotBonuses.Sum() == 1 && !completed.ConfirmEquipmentSlot(), "save after confirmation retains capacity without another pending reward");
+        ModeBossRewards(completed, 3); Check(completed.FinishRewards(), "second equipment reward follows the next final boss");
+        if (completed.State.stage == RunStage.PassiveChoice) Check(completed.ReplacePassive(-1), "second equipment fixture confirms its passive");
+        Check(completed.SkipAugment() && completed.ToggleEquipmentSlot(GearSlot.Legs) && completed.ConfirmEquipmentSlot()
+            && completed.State.endlessCycle == 2 && completed.EquipmentCapacity(GearSlot.Legs) == 4 && completed.State.gearSlotBonuses.Sum() == 2,
+            "another completed three-act cycle can expand the same desired slot again");
+    }
+
+    static void EndlessEquipmentCapacityAndCraft()
+    {
+        foreach (GearSlot slot in Enum.GetValues(typeof(GearSlot)))
+        {
+            var e = PendingAugment(); Check(e.SkipAugment() && e.ToggleEquipmentSlot(slot) && e.ConfirmEquipmentSlot(), "every equipment slot can receive the cycle reward: " + slot);
+            Check(Enum.GetValues(typeof(GearSlot)).Cast<GearSlot>().All(other => e.EquipmentCapacity(other) == (other == slot ? 3 : 2)),
+                "one chosen slot grows without changing the other four: " + slot);
+            var item = GameDatabase.Gear.First(g => g.slot == slot); var otherItem = GameDatabase.Gear.First(g => g.slot != slot);
+            e.State.stage = RunStage.Campfire; e.State.campChoice = 2; e.State.campActions = 3;
+            e.State.gear.Clear(); e.State.passives.Clear(); e.State.deck.Clear(); e.State.deck.Add("basic_attack");
+            if (slot == GearSlot.Weapon) { e.State.passives.Add("alex_p"); e.State.deck.Add("weapon_hammer"); }
+            e.State.objects.AddRange(Enumerable.Repeat(item.objectId, 4));
+            Check(e.Craft(item.id) && e.Craft(item.id) && e.Craft(item.id) && e.State.gear.Count == 3,
+                "crafting actually equips a third item in the expanded slot: " + slot);
+            Check(e.TotalAttack == item.attack * 3 && e.TotalBlock == item.block * 3,
+                "all three equipped items contribute their numerical stats: " + slot);
+            e.State.campActions = 1; int materials = e.State.objects.Count;
+            Check(!e.Craft(item.id) && e.State.gear.Count == 3 && e.State.campActions == 1 && e.State.objects.Count == materials,
+                "a full expanded slot still requires replacement without consuming materials: " + slot);
+            e.State.gear.Add(otherItem.id);
+            Check(!e.Craft(item.id, 3) && e.State.objects.Count == materials, "replacement still requires the same body slot: " + slot);
+            e.State.gear.RemoveAt(3);
+            Check(e.Craft(item.id, 0) && e.State.gear.Count == 3 && e.State.campActions == 0,
+                "replacement works normally at the expanded capacity: " + slot);
+            if (slot == GearSlot.Weapon)
+            {
+                var expected = WeaponIdentity.EquipmentCards(e.State.gear, true);
+                Check(expected.Count == 6 && e.State.weaponGrantedCards.SequenceEqual(expected)
+                    && e.State.deck.Count(id => GameDatabase.Card(id).category == "weapon") == 7,
+                    "three weapons retain their own D and Alex's per-weapon extra D while preserving an independently earned card");
+            }
+            var restored = new GameEngine((RunState)Clone(e.State));
+            Check(restored.EquipmentCapacity(slot) == 3 && restored.State.gear.SequenceEqual(e.State.gear)
+                && restored.State.weaponGrantedCards.SequenceEqual(e.State.weaponGrantedCards) && restored.State.deck.SequenceEqual(e.State.deck),
+                "save preserves the expanded loadout and synchronizes weapon grants without duplicates: " + slot);
+        }
+    }
+
+    static void EndlessEquipmentLegacyAndModes()
+    {
+        foreach (var mode in new[] { RunMode.Normal, RunMode.Hard })
+        {
+            var e = ReadyMode(mode); e.State.gearSlotBonuses = new List<int> { 9, 9, 9, 9, 9 };
+            Check(Enum.GetValues(typeof(GearSlot)).Cast<GearSlot>().All(slot => e.EquipmentCapacity(slot) == 2)
+                && !e.ToggleEquipmentSlot(GearSlot.Weapon) && !e.ConfirmEquipmentSlot(), "finite modes keep their original two-item limit even with imported bonus fields");
+            e.State.stage = RunStage.EquipmentSlotChoice;
+            var loaded = new GameEngine((RunState)Clone(e.State));
+            Check(loaded.State.stage == RunStage.Map && loaded.State.gearSlotBonuses.Sum() == 0 && loaded.SelectedEquipmentSlotIndex == -1,
+                "finite saves clear an invalid endless-only equipment reward");
+            loaded.State.stage = RunStage.Campfire; loaded.State.campChoice = 2; loaded.State.campActions = 3;
+            var item = GameDatabase.Gear.First(); loaded.State.objects.AddRange(Enumerable.Repeat(item.objectId, 3));
+            Check(loaded.Craft(item.id) && loaded.Craft(item.id) && !loaded.Craft(item.id) && loaded.State.gear.Count == 2,
+                "finite crafting still blocks a third item");
+        }
+        var old = ReadyMode(RunMode.Endless); old.State.endlessCycle = 4; old.State.gearSlotBonuses = null;
+        var migrated = new GameEngine((RunState)Clone(old.State));
+        Check(migrated.State.endlessCycle == 4 && migrated.State.stage == RunStage.Map && migrated.State.gearSlotBonuses.Count == 5
+            && migrated.State.gearSlotBonuses.All(x => x == 0), "old endless saves receive five default capacities without retroactive growth or an unexpected choice");
+        var pending = PendingAugment(); Check(pending.SkipAugment(), "legacy pending fixture reaches the new equipment stage");
+        pending.State.gearSlotBonuses = new List<int> { -3 }; pending.State.equipmentSlotSelected = 999;
+        var repaired = new GameEngine((RunState)Clone(pending.State));
+        Check(repaired.State.stage == RunStage.EquipmentSlotChoice && repaired.State.gearSlotBonuses.Count == 5
+            && repaired.State.gearSlotBonuses.Sum() == 0 && repaired.SelectedEquipmentSlotIndex == -1 && repaired.EquipmentExpansionCycle == 1,
+            "a damaged pending selection repairs safely without granting or losing the pending reward");
     }
 }
 #endif

@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/hyejin.png",
-  "sha256": "26a85fc32adec5aae950b933d7d0c6445496a7b5b0f6d9054fd7765b3587213c",
+  "sha256": "a6f7968e252b51844546a7c70772543a53cca650d6e45ef41092d5825d9fe819",
   "processedPath": "docs/art-rare-skins/processed/hyejin.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/hyejin.png",
   "originalDefaultSpriteSha256": "ff4db4e5b7a990f1487c438ffbcac3beecc00c246b3017cd4bdce0042352b8d2",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "26a85fc32adec5aae950b933d7d0c6445496a7b5b0f6d9054fd7765b3587213c",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/markus.png",
   "width": 160,
   "height": 160,
-  "sha256": "f2e21cce98c49680b0453d0bfc14cc21f8d94231e1fdfd18b39b25e2506d3221",
+  "sha256": "6d5c5940401373d4eaaef90864885529269b6c6cc96890a2030eb53fd5aba7ed",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-3b140c26-ec77-44b0-b948-aaccb1ab7771.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-3b140c26-ec77-44b0-b948-aaccb1ab7771.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "f2e21cce98c49680b0453d0bfc14cc21f8d94231e1fdfd18b39b25e2506d3221",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

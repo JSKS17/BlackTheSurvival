@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/emma.png",
-  "sha256": "3cf436ff07d77d5fa62865ebce7c5e973c13fffaaa4477cffbc4a1fdce988ea7",
+  "sha256": "10d1c999627b1acc8dd6ed9e2c5a08a9e26259dd54b9cc37db1e50c4490b6fcb",
   "processedPath": "docs/art-rare-skins/processed/emma.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/emma.png",
   "originalDefaultSpriteSha256": "f643c104eee59bcc3289bbc4c13ac381bef09789bb2fb44717d70783ca2a4e42",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "3cf436ff07d77d5fa62865ebce7c5e973c13fffaaa4477cffbc4a1fdce988ea7",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

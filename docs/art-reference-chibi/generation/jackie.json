@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/jackie.png",
   "width": 160,
   "height": 160,
-  "sha256": "68c67ef55e18f86b53abff526235bcfa98fafd6992530c5580bf107f256bb79d",
+  "sha256": "622cbcb5349277d1b922b7faf352700f8c11233384660f21480d5770dd1b1e9e",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-e44f8aab-f324-4518-b92d-e135fd6353b1.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-e44f8aab-f324-4518-b92d-e135fd6353b1.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "68c67ef55e18f86b53abff526235bcfa98fafd6992530c5580bf107f256bb79d",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

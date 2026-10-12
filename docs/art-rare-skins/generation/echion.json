@@ -42,7 +42,7 @@
     1189
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/echion.png",
-  "sha256": "5f4b70f294f80d99ccaaeec31ebff9e156f2830e9623b82f2cc01102420218bf",
+  "sha256": "51751c2c6946d28c973d5e65c9d88670f15ed16bc03e207bb69fa40c1733c261",
   "processedPath": "docs/art-rare-skins/processed/echion.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/echion.png",
   "originalDefaultSpriteSha256": "75a6bdc18975b7dd467a69937dfe0e6c2c0180fdcf8ebd1de73c4e1b166d77e6",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "5f4b70f294f80d99ccaaeec31ebff9e156f2830e9623b82f2cc01102420218bf",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

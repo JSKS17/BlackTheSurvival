@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/emma.png",
   "width": 160,
   "height": 160,
-  "sha256": "f643c104eee59bcc3289bbc4c13ac381bef09789bb2fb44717d70783ca2a4e42",
+  "sha256": "ed092dd1c54051c277a60b155c2c4d2fc8c5b292c7200674f8240ffc6d3c2456",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-f366da0c-b6bc-45a3-8482-b504e8a21200.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-f366da0c-b6bc-45a3-8482-b504e8a21200.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "f643c104eee59bcc3289bbc4c13ac381bef09789bb2fb44717d70783ca2a4e42",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

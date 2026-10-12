@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/kenneth.png",
   "width": 160,
   "height": 160,
-  "sha256": "df02655c33527b8629ad013fded6d0eceb5f2cafad7659350f4bbe9a056da722",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "5bf8e2a247158200acf90b361684cb878e03438e72b52a6914573f5bc13da74a",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "df02655c33527b8629ad013fded6d0eceb5f2cafad7659350f4bbe9a056da722",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

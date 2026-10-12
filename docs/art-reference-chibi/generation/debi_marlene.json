@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/debi_marlene.png",
   "width": 160,
   "height": 160,
-  "sha256": "df2334e08725d24a75db690201bcae103644e76ae4a333693ef81eb343c16263",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "4aa259d6b43381d35af2a2c30ff33425387dd42b37ba059c8fac641cbc14e4bc",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "df2334e08725d24a75db690201bcae103644e76ae4a333693ef81eb343c16263",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

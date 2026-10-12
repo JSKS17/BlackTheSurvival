@@ -42,7 +42,7 @@
     1188
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/adela.png",
-  "sha256": "7fbd2f3aaca95344c31c23763077218053b9c5dbf76d16c98055d7f0092e3b5f",
+  "sha256": "0312fa6450ab1db16061484383956b7c15c1798d888dfd273bd6deb2672396da",
   "processedPath": "docs/art-rare-skins/processed/adela.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/adela.png",
   "originalDefaultSpriteSha256": "8e5c23abe28b5c5e933ef78c1c1f3257bc07037d4e037b59c87187066b5ba186",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "7fbd2f3aaca95344c31c23763077218053b9c5dbf76d16c98055d7f0092e3b5f",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

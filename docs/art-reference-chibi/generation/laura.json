@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/laura.png",
   "width": 160,
   "height": 160,
-  "sha256": "cf770605aaf8f57aae60459a59523de4fb2632ca5210063fb6a37d5fa3ac249e",
+  "sha256": "5e62fba54fe346e91edcea951a90aefa7edfff8b6ecc170e9b81dd4c98d8cc8f",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-7b1f83da-4f85-4a45-ac93-50e5b9a5288e.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-7b1f83da-4f85-4a45-ac93-50e5b9a5288e.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "cf770605aaf8f57aae60459a59523de4fb2632ca5210063fb6a37d5fa3ac249e",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

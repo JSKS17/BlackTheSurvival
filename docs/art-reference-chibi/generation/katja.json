@@ -33,7 +33,7 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/katja.png",
   "width": 160,
   "height": 160,
-  "sha256": "f2ac4d9123af0ee04bd168e1326d02d6f6e055990b5b5f005819352f743eb897",
+  "sha256": "a2c18d39080475e606d24e8577bb074510349759f485ac04bbf758521a06e0b9",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
   "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-4ebc7de4-9867-4071-9aa0-d217cfd54583.png",
   "inputReferences": [
@@ -53,5 +53,14 @@
       "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
     }
   ],
-  "correction": "Remove the round dark eyeglass frames and nose bridge entirely. Katja has no glasses. Show her unobstructed pale-cyan eyes with natural upper eyelids and a small worried brow, matching image 2. Do not encircle the eyes with black rings."
+  "correction": "Remove the round dark eyeglass frames and nose bridge entirely. Katja has no glasses. Show her unobstructed pale-cyan eyes with natural upper eyelids and a small worried brow, matching image 2. Do not encircle the eyes with black rings.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "f2ac4d9123af0ee04bd168e1326d02d6f6e055990b5b5f005819352f743eb897",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

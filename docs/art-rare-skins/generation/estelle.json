@@ -42,7 +42,7 @@
     1234
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/estelle.png",
-  "sha256": "a3a5e594a6c7977c2f5c65a5b18eab9d946fe21ed73e84b87491b27aff266128",
+  "sha256": "4ca27c0f9aa1eeb810e84d1fe9a9a61e2b93b45f9db8d0b1cb3d5d0d72ed8e1c",
   "processedPath": "docs/art-rare-skins/processed/estelle.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/estelle.png",
   "originalDefaultSpriteSha256": "0483cba5b4f2ebd6c901218fec78143f6a0fe16a96e07c1e2644351d79e03b9a",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "a3a5e594a6c7977c2f5c65a5b18eab9d946fe21ed73e84b87491b27aff266128",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

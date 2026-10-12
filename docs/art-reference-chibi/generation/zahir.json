@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/zahir.png",
   "width": 160,
   "height": 160,
-  "sha256": "53ed1845f75a73f097879c56921825ca9cf69c1dced5ca3a9b052a8d0f64e2a3",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "71b8c626fd07dff3f25796843ec25ff3f5b22b69b17e345a8d065094a340200b",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "53ed1845f75a73f097879c56921825ca9cf69c1dced5ca3a9b052a8d0f64e2a3",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

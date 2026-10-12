@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/haze.png",
   "width": 160,
   "height": 160,
-  "sha256": "a3aa69ef8fc692d2a292befe4387fc5e8e06948c7df8bc9c83a12fb59404426f",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "e38bb4bcf27b947ded0a0ee2ceca69bed42514e5e2876afba5197a5e2302a99e",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "a3aa69ef8fc692d2a292befe4387fc5e8e06948c7df8bc9c83a12fb59404426f",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

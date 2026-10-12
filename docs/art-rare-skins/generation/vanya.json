@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/vanya.png",
-  "sha256": "97e24aaec3b6125d3829d39b67db5716366395ffca4eae577688237f16bb6d7a",
+  "sha256": "0cfa8777eb06e832124f3b3b2616e56cafb5a705001f9f036b782c1a6374d563",
   "processedPath": "docs/art-rare-skins/processed/vanya.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/vanya.png",
   "originalDefaultSpriteSha256": "1b41dd2e5582acecf9e934bd98f933a941637e7649d74928793481d8bcfb0c09",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "97e24aaec3b6125d3829d39b67db5716366395ffca4eae577688237f16bb6d7a",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -33,7 +33,7 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/bihyung.png",
   "width": 160,
   "height": 160,
-  "sha256": "26abfcaa66098089572683048ddc03999fdeb9167e8840eaa87a860d70e7b2d1",
+  "sha256": "51c56caff395c7e8ce670bbfdf03d2ac54b581499bf41965fc40ead398f2e288",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
   "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-ee256691-13b1-4079-ab5d-2abbdfa08839.png",
   "inputReferences": [
@@ -53,5 +53,14 @@
       "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
     }
   ],
-  "correction": "Remove the red eyeglass frames and nose bridge entirely. Bihyung has no glasses. Show her unobstructed golden eye and her clear winking eye, matching image 2. Keep the small red cheek marks BELOW the eyes as face paint, separate from the eyes. No circular rings, lenses or lines across the nose."
+  "correction": "Remove the red eyeglass frames and nose bridge entirely. Bihyung has no glasses. Show her unobstructed golden eye and her clear winking eye, matching image 2. Keep the small red cheek marks BELOW the eyes as face paint, separate from the eyes. No circular rings, lenses or lines across the nose.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "26abfcaa66098089572683048ddc03999fdeb9167e8840eaa87a860d70e7b2d1",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -37,7 +37,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/craver.png",
-  "sha256": "5f28abf856151e8dd1af501df89b791fb837504608ab52f9758b0250a38e93de",
+  "sha256": "f978c4e9a4efcb82d324885593e158f8d55580ff7820952544b202ccc5f9121c",
   "processedPath": "docs/art-rare-skins/processed/craver.png",
   "width": 160,
   "height": 160,
@@ -52,5 +52,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/craver.png",
   "originalDefaultSpriteSha256": "a7c4aaefea8104bbb26094f5f0a2ac6cffd3e08c4045d846dcef4883ca0ecd03",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "5f28abf856151e8dd1af501df89b791fb837504608ab52f9758b0250a38e93de",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

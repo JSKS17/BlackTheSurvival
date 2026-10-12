@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/martina.png",
-  "sha256": "0dad1cfa40fcdb5808d3278c270055b021b4603355f5e7b191a9cd252d00f463",
+  "sha256": "e68b7d31177d60e6107946fb0df9c8a423c1f2388a8bed9e4093d1a645abe51a",
   "processedPath": "docs/art-rare-skins/processed/martina.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/martina.png",
   "originalDefaultSpriteSha256": "749f46b26639208a74423656cb7d8d930d5ea583715a2669f51b21556a2838cc",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "0dad1cfa40fcdb5808d3278c270055b021b4603355f5e7b191a9cd252d00f463",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

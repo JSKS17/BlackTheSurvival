@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/tazia.png",
   "width": 160,
   "height": 160,
-  "sha256": "a2c50c8ac1338ef4c97d8397b988bb0ae9e7d33ac182b281ff2f9ee60cfeaf35",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "c4146efae90a42794412efaaf7cd701f4117ea2237f33ff55213a4b7817977c9",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "a2c50c8ac1338ef4c97d8397b988bb0ae9e7d33ac182b281ff2f9ee60cfeaf35",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

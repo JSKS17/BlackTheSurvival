@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/luke.png",
   "width": 160,
   "height": 160,
-  "sha256": "548e8887a3abee2aa913a3f2a9da431290e787dd7f006e3704563f0f9170348c",
+  "sha256": "2700174aac7865d76b8c64f3a17fe029b6cbf07eab84cf5b0e2151048b27abeb",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-2c5dcd16-8b01-4c2e-9ad1-8eb0689f3ec0.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-2c5dcd16-8b01-4c2e-9ad1-8eb0689f3ec0.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "548e8887a3abee2aa913a3f2a9da431290e787dd7f006e3704563f0f9170348c",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

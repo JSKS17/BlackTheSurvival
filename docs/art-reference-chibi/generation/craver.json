@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/craver.png",
   "width": 160,
   "height": 160,
-  "sha256": "a7c4aaefea8104bbb26094f5f0a2ac6cffd3e08c4045d846dcef4883ca0ecd03",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "80eca5e732df9874a75afddb9dd26c6c222dad6ff10b31804ec2e76446e4d995",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "a7c4aaefea8104bbb26094f5f0a2ac6cffd3e08c4045d846dcef4883ca0ecd03",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

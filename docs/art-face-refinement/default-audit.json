@@ -1,0 +1,4870 @@
+{
+  "schema": 1,
+  "reviewedCount": 92,
+  "complete": true,
+  "coordinateConvention": "Rectangles are [left, top, rightExclusive, bottomExclusive]. Logical coordinates use the existing 80x80 grid; runtime coordinates use the existing 160x160 PNG.",
+  "scope": "Visual comparison of every default runtime sprite at 160px and 215px with its cached official illustration. No sprite image edits were made by this audit.",
+  "nativeSheets": [
+    "docs/art-face-refinement/audit-default/sheet_01.png",
+    "docs/art-face-refinement/audit-default/sheet_02.png",
+    "docs/art-face-refinement/audit-default/sheet_03.png",
+    "docs/art-face-refinement/audit-default/sheet_04.png",
+    "docs/art-face-refinement/audit-default/sheet_05.png",
+    "docs/art-face-refinement/audit-default/sheet_06.png",
+    "docs/art-face-refinement/audit-default/sheet_07.png",
+    "docs/art-face-refinement/audit-default/sheet_08.png",
+    "docs/art-face-refinement/audit-default/sheet_09.png",
+    "docs/art-face-refinement/audit-default/sheet_10.png",
+    "docs/art-face-refinement/audit-default/sheet_11.png"
+  ],
+  "coordinateSheets": [
+    "docs/art-face-refinement/audit-default/grid_01.png",
+    "docs/art-face-refinement/audit-default/grid_02.png",
+    "docs/art-face-refinement/audit-default/grid_03.png",
+    "docs/art-face-refinement/audit-default/grid_04.png",
+    "docs/art-face-refinement/audit-default/grid_05.png",
+    "docs/art-face-refinement/audit-default/grid_06.png",
+    "docs/art-face-refinement/audit-default/grid_07.png",
+    "docs/art-face-refinement/audit-default/grid_08.png"
+  ],
+  "assets": [
+    {
+      "id": "abigail",
+      "name": "아비게일",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/abigail.png",
+      "sha256": "89c55545fbca5d2e7c748c4c05b2518b47a4be2cffb85256269a25ec37373f63",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/abigail.png",
+      "faceRectLogical": [
+        32,
+        28,
+        49,
+        41
+      ],
+      "faceRect": [
+        64,
+        56,
+        98,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          33,
+          34,
+          37,
+          38
+        ],
+        [
+          41,
+          32,
+          46,
+          37
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          38,
+          42,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "녹색 눈의 비스듬한 위눈꺼풀은 구별됩니다. 작은 입만 피부색에 묻혀서 닫힌 입 선의 대비를 보강합니다."
+    },
+    {
+      "id": "adela",
+      "name": "아델라",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/adela.png",
+      "sha256": "8e5c23abe28b5c5e933ef78c1c1f3257bc07037d4e037b59c87187066b5ba186",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/adela.png",
+      "faceRectLogical": [
+        29,
+        25,
+        49,
+        40
+      ],
+      "faceRect": [
+        58,
+        50,
+        98,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          29,
+          31,
+          35,
+          35
+        ],
+        [
+          39,
+          29,
+          44,
+          33
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          35,
+          36,
+          39,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "안경은 명확하나 안경 아래 눈이 뭉칩니다. 안경을 보존하고 갈색 눈과 작은 냉정한 입을 분리합니다."
+    },
+    {
+      "id": "adina",
+      "name": "아디나",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/adina.png",
+      "sha256": "a23956dc8be51b57537f4128f60542c7a541d0c1bb629691797e9689bb7a9a71",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/adina.png",
+      "faceRectLogical": [
+        39,
+        28,
+        53,
+        41
+      ],
+      "faceRect": [
+        78,
+        56,
+        106,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          40,
+          31,
+          45,
+          35
+        ],
+        [
+          49,
+          29,
+          52,
+          33
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          45,
+          36,
+          48,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "모자 아래 푸른 눈과 연한 입이 밝은 머리와 피부에 묻힙니다. 보이는 눈의 윗선과 작은 입술만 보강합니다."
+    },
+    {
+      "id": "adriana",
+      "name": "아드리아나",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/adriana.png",
+      "sha256": "3063ee0d35f17a755ac15d829f5a54a2c5e371a0a5bb19406a2f1bd0549a5067",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/adriana.png",
+      "faceRectLogical": [
+        31,
+        25,
+        44,
+        41
+      ],
+      "faceRect": [
+        62,
+        50,
+        88,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          31,
+          36,
+          35
+        ],
+        [
+          37,
+          28,
+          42,
+          33
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          34,
+          36,
+          39,
+          38
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "날카로운 붉은 눈과 비대칭 입이 현재도 구별됩니다. 기존 화난 눈매와 표정을 유지합니다."
+    },
+    {
+      "id": "aiden",
+      "name": "에이든",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/aiden.png",
+      "sha256": "70bc1e4043aa73fd74c5d92eb5da8af2ec18a84b26e149b22b02279be17b4a9b",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/aiden.png",
+      "faceRectLogical": [
+        32,
+        30,
+        48,
+        41
+      ],
+      "faceRect": [
+        64,
+        60,
+        96,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          34,
+          33,
+          39,
+          36
+        ],
+        [
+          44,
+          34,
+          48,
+          38
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          39,
+          37,
+          43,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "흰 앞머리에 가려진 눈은 그대로 두고 보이는 붉은 눈과 작은 무표정 입의 윤곽만 보강합니다."
+    },
+    {
+      "id": "alex",
+      "name": "알렉스",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/alex.png",
+      "sha256": "e10344b1493a59150153a45890ce79e13a4a7d8aaf4427f28b54de429770db76",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/alex.png",
+      "faceRectLogical": [
+        29,
+        29,
+        50,
+        38
+      ],
+      "faceRect": [
+        58,
+        58,
+        100,
+        76
+      ],
+      "eyeRectsLogical": [],
+      "mouthRectsLogical": [
+        [
+          36,
+          35,
+          40,
+          37
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "검은 선글라스가 원작 특징이므로 눈을 새로 그리지 않습니다. 선글라스 아래 작은 닫힌 입만 명확히 합니다."
+    },
+    {
+      "id": "alonso",
+      "name": "알론소",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/alonso.png",
+      "sha256": "8473ef9cfebfaeb54c705794d1deaccd1c50889eb8b48c1a2780fdeb83b0c60e",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/alonso.png",
+      "faceRectLogical": [
+        39,
+        29,
+        52,
+        45
+      ],
+      "faceRect": [
+        78,
+        58,
+        104,
+        90
+      ],
+      "eyeRectsLogical": [
+        [
+          40,
+          33,
+          44,
+          36
+        ],
+        [
+          48,
+          32,
+          51,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "얼굴 전체를 덮은 기계 가면과 노란 렌즈는 정상적으로 읽힙니다. 사람 눈과 입을 새로 만들지 않습니다."
+    },
+    {
+      "id": "arda",
+      "name": "아르다",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/arda.png",
+      "sha256": "d7774b19d3ae2e4256075d57eabcefe6b0c04891ee6cdf6b5020efdc713f94c6",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/arda.png",
+      "faceRectLogical": [
+        32,
+        28,
+        50,
+        40
+      ],
+      "faceRect": [
+        64,
+        56,
+        100,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          31,
+          37,
+          35
+        ],
+        [
+          42,
+          30,
+          47,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          35,
+          43,
+          37
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "따뜻한 갈색 눈이 읽히며 오른쪽 눈의 위눈꺼풀은 유지합니다. 작은 중립 입의 대비만 높입니다."
+    },
+    {
+      "id": "aya",
+      "name": "아야",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/aya.png",
+      "sha256": "1bf165bbc45d7c67a0ff76e4c95e6725a37c4faea7ed1757e1e5b65386f4ee21",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/aya.png",
+      "faceRectLogical": [
+        34,
+        27,
+        52,
+        40
+      ],
+      "faceRect": [
+        68,
+        54,
+        104,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          38,
+          30,
+          43,
+          35
+        ],
+        [
+          46,
+          29,
+          50,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          43,
+          36,
+          46,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "갈색 눈과 부드러운 표정은 구별되나 분홍 입이 피부에 묻힙니다. 현재 얼굴과 액세서리를 유지하고 입만 보강합니다."
+    },
+    {
+      "id": "barbara",
+      "name": "바바라",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/barbara.png",
+      "sha256": "001459ebb4ab10edf6dd7283201699fb8de3da8268608478531a083d1b748bfe",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/barbara.png",
+      "faceRectLogical": [
+        31,
+        32,
+        47,
+        41
+      ],
+      "faceRect": [
+        62,
+        64,
+        94,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          35,
+          36,
+          39
+        ],
+        [
+          41,
+          34,
+          45,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          37,
+          38,
+          40,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "헬멧 아래 안경테와 녹색 눈을 분리해야 합니다. 안경을 제거하지 말고 눈동자의 명암과 작은 진지한 입을 보강합니다."
+    },
+    {
+      "id": "bernice",
+      "name": "버니스",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/bernice.png",
+      "sha256": "9b8940066a6233f2f72c825a7e932d9d5067ccbc93653c5ac327e020d6c1d6bb",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/bernice.png",
+      "faceRectLogical": [
+        37,
+        30,
+        51,
+        41
+      ],
+      "faceRect": [
+        74,
+        60,
+        102,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          37,
+          32,
+          42,
+          35
+        ],
+        [
+          48,
+          32,
+          51,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          37,
+          45,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 3,
+      "visualAssessment": "금발 그림자 아래 가는 갈색 눈과 입이 모두 흐립니다. 성인 남성의 낮은 눈꺼풀과 무표정 입을 진하게 분리합니다."
+    },
+    {
+      "id": "bianca",
+      "name": "비앙카",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/bianca.png",
+      "sha256": "95040faa755c62423e66b4fc9d9bb516e0f0b3287bc3033b702c7574d5790ad8",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/bianca.png",
+      "faceRectLogical": [
+        37,
+        34,
+        49,
+        46
+      ],
+      "faceRect": [
+        74,
+        68,
+        98,
+        92
+      ],
+      "eyeRectsLogical": [
+        [
+          37,
+          38,
+          41,
+          42
+        ],
+        [
+          44,
+          35,
+          48,
+          40
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          42,
+          45,
+          45
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "붉은 눈은 잘 보입니다. 장난스러운 입과 작은 송곳니를 보존하며 입의 경계만 또렷하게 합니다."
+    },
+    {
+      "id": "bihyung",
+      "name": "비형",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/bihyung.png",
+      "sha256": "26abfcaa66098089572683048ddc03999fdeb9167e8840eaa87a860d70e7b2d1",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/bihyung.png",
+      "faceRectLogical": [
+        35,
+        31,
+        51,
+        43
+      ],
+      "faceRect": [
+        70,
+        62,
+        102,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          34,
+          41,
+          38
+        ],
+        [
+          45,
+          33,
+          49,
+          37
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          39,
+          46,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "금빛 눈과 익살스러운 분홍 입은 구별됩니다. 안경을 추가하지 말고 미소 윤곽만 보강합니다."
+    },
+    {
+      "id": "blair",
+      "name": "블레어",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/blair.png",
+      "sha256": "1b651a92a8588c40a0d2870f7a051cbe52c0ff3a77eace6492a0ffa68bc4a5ca",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/blair.png",
+      "faceRectLogical": [
+        36,
+        26,
+        52,
+        39
+      ],
+      "faceRect": [
+        72,
+        52,
+        104,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          37,
+          28,
+          42,
+          32
+        ],
+        [
+          46,
+          30,
+          51,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          34,
+          44,
+          36
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 3,
+      "visualAssessment": "크림색 앞머리 아래 처진 옅은 푸른 눈과 작은 입이 모두 피부색에 묻힙니다. 피곤한 반쯤 감긴 눈과 작은 벌어진 입을 유지하며 대비를 보강합니다."
+    },
+    {
+      "id": "camilo",
+      "name": "카밀로",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/camilo.png",
+      "sha256": "2ec42e82732c9ce65daae82824beb3b24ad488e3c45f730e86d9bd16b8aa8565",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/camilo.png",
+      "faceRectLogical": [
+        30,
+        28,
+        48,
+        41
+      ],
+      "faceRect": [
+        60,
+        56,
+        96,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          30,
+          32,
+          35,
+          35
+        ],
+        [
+          40,
+          30,
+          45,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          37,
+          36,
+          40,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 3,
+      "visualAssessment": "가는 감긴 눈의 윙크와 열린 청록 눈이 작은 크기에서 뭉쳐 보입니다. 실제 안경을 추가하거나 감긴 눈을 뜨게 하지 말고 열린 눈의 색과 작은 자신감 있는 미소만 구별합니다."
+    },
+    {
+      "id": "cathy",
+      "name": "캐시",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/cathy.png",
+      "sha256": "e6340619936a3ddae39029b6a62887bcd167cc0b4afc36f3d520ea91346a3de6",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/cathy.png",
+      "faceRectLogical": [
+        32,
+        29,
+        51,
+        40
+      ],
+      "faceRect": [
+        64,
+        58,
+        102,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          33,
+          31,
+          38,
+          35
+        ],
+        [
+          45,
+          29,
+          49,
+          33
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          36,
+          44,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "짙은 피부 위 푸른 눈은 일부 보이지만 입이 거의 사라집니다. 피부톤과 눈매를 유지하고 입을 피부보다 확실히 어둡게 만듭니다."
+    },
+    {
+      "id": "celine",
+      "name": "셀린",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/celine.png",
+      "sha256": "3155867328605c2def890f1396c39d75d739b9e58b9fa09cacdcf90e23798db6",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/celine.png",
+      "faceRectLogical": [
+        32,
+        30,
+        49,
+        40
+      ],
+      "faceRect": [
+        64,
+        60,
+        98,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          32,
+          37,
+          36
+        ],
+        [
+          43,
+          31,
+          47,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          36,
+          42,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "노란 반쯤 감긴 눈은 잘 보입니다. 직선 위눈꺼풀을 유지하고 작은 중립 입을 명확히 합니다."
+    },
+    {
+      "id": "ceres",
+      "name": "세레스",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/ceres.png",
+      "sha256": "48ed8226aa32b40967d5c63332c341af521c3fb56980c564b7007e4ebfea0afb",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/ceres.png",
+      "faceRectLogical": [
+        34,
+        28,
+        50,
+        39
+      ],
+      "faceRect": [
+        68,
+        56,
+        100,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          34,
+          31,
+          40,
+          35
+        ],
+        [
+          45,
+          31,
+          49,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          36,
+          44,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 3,
+      "visualAssessment": "흰 머리·밝은 피부·옅은 푸른 눈이 합쳐져 얼굴이 씻겨 나간 듯 보입니다. 위눈꺼풀과 동공을 구별하고 아주 작은 닫힌 입을 보강합니다."
+    },
+    {
+      "id": "charlotte",
+      "name": "샬럿",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/charlotte.png",
+      "sha256": "205729ee2c947a79c3fbd4ca2e0007b9e2bba4bd13dd315370ecd0cec3c5b8a4",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/charlotte.png",
+      "faceRectLogical": [
+        33,
+        28,
+        45,
+        40
+      ],
+      "faceRect": [
+        66,
+        56,
+        90,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          33,
+          33,
+          36,
+          37
+        ],
+        [
+          40,
+          29,
+          44,
+          33
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          35,
+          41,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "분홍 머리 아래 자홍색 눈과 입의 대비가 낮습니다. 우아하게 올라간 바깥 눈꼬리와 자신감 있는 비대칭 미소를 유지합니다."
+    },
+    {
+      "id": "chiara",
+      "name": "키아라",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/chiara.png",
+      "sha256": "5c724898979f7140a3dc6d24137b61d8c8f316c8104d31c1adf87b01612d42c5",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/chiara.png",
+      "faceRectLogical": [
+        35,
+        27,
+        47,
+        39
+      ],
+      "faceRect": [
+        70,
+        54,
+        94,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          30,
+          39,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          39,
+          35,
+          42,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 3,
+      "visualAssessment": "밝은 얼굴 위 분홍빛 눈과 입이 묻히며 다른 눈은 머리카락에 가려집니다. 가려진 눈은 만들지 않고 보이는 눈의 짙은 윗선과 무표정 입을 보강합니다."
+    },
+    {
+      "id": "chloe",
+      "name": "클로에",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/chloe.png",
+      "sha256": "4f6490d3e7f9b28c6767f9b9a54f7549830161f2d6ed9e05faf48fe3e641be40",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/chloe.png",
+      "faceRectLogical": [
+        34,
+        27,
+        47,
+        39
+      ],
+      "faceRect": [
+        68,
+        54,
+        94,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          34,
+          31,
+          39,
+          34
+        ],
+        [
+          44,
+          29,
+          47,
+          32
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          35,
+          41,
+          37
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "차분한 좁은 갈색 눈과 작은 입이 흐립니다. 부드럽게 내려간 눈매를 유지하고 입의 가는 선을 분리합니다."
+    },
+    {
+      "id": "coraline",
+      "name": "코렐라인",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/coraline.png",
+      "sha256": "406dd1b6f6f7a884634ed42261a815c4f9a9b6a73ce2352e798ff3ee7498fe78",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/coraline.png",
+      "faceRectLogical": [
+        29,
+        28,
+        46,
+        39
+      ],
+      "faceRect": [
+        58,
+        56,
+        92,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          29,
+          30,
+          34,
+          34
+        ],
+        [
+          40,
+          32,
+          45,
+          36
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          35,
+          36,
+          38,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "서로 다른 위치의 보라색 눈은 구별되며 분홍 작은 입은 약합니다. 좌우 비대칭과 두 가지 머리색을 유지합니다."
+    },
+    {
+      "id": "craver",
+      "name": "크레이버",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/craver.png",
+      "sha256": "a7c4aaefea8104bbb26094f5f0a2ac6cffd3e08c4045d846dcef4883ca0ecd03",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/craver.png",
+      "faceRectLogical": [
+        35,
+        29,
+        44,
+        40
+      ],
+      "faceRect": [
+        70,
+        58,
+        88,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          32,
+          40,
+          36
+        ],
+        [
+          41,
+          34,
+          44,
+          37
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          37,
+          41,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "붉은 눈과 기계 입가 장식이 읽힙니다. 머리카락에 가려진 눈을 드러내지 말고 현재의 강한 표정을 유지합니다."
+    },
+    {
+      "id": "dailin",
+      "name": "리 다이린",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/dailin.png",
+      "sha256": "b2ec50c573fd3875e3bdf9087f0589c866c47cd2e1baebd9b3b447e51774538e",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/dailin.png",
+      "faceRectLogical": [
+        31,
+        28,
+        47,
+        41
+      ],
+      "faceRect": [
+        62,
+        56,
+        94,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          31,
+          33,
+          35,
+          37
+        ],
+        [
+          40,
+          32,
+          45,
+          36
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          35,
+          38,
+          39,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "늘어진 금빛 눈과 취한 표정은 구별됩니다. 눈을 크게 뜨게 하지 말고 작은 비뚤어진 입만 보강합니다."
+    },
+    {
+      "id": "daniel",
+      "name": "다니엘",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/daniel.png",
+      "sha256": "746010fd54f2be05b939d582c6e356ce124add084ea0260638fdd0732f2f57a4",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/daniel.png",
+      "faceRectLogical": [
+        36,
+        23,
+        52,
+        39
+      ],
+      "faceRect": [
+        72,
+        46,
+        104,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          37,
+          29,
+          42,
+          33
+        ],
+        [
+          48,
+          28,
+          52,
+          33
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          42,
+          35,
+          47,
+          37
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "보랏빛 반쯤 감긴 눈은 보이지만 입이 거의 없습니다. 차갑고 가는 직선 입을 추가/보강하며 무표정을 유지합니다."
+    },
+    {
+      "id": "darko",
+      "name": "다르코",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/darko.png",
+      "sha256": "b64e1785b7ce5519b6fb469954c25f3ec521f4f17af9ee6f2621eced2f9f945f",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/darko.png",
+      "faceRectLogical": [
+        33,
+        32,
+        47,
+        44
+      ],
+      "faceRect": [
+        66,
+        64,
+        94,
+        88
+      ],
+      "eyeRectsLogical": [
+        [
+          33,
+          35,
+          36,
+          38
+        ],
+        [
+          38,
+          35,
+          42,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          40,
+          42,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "녹회색 머리에 한쪽 눈이 가려집니다. 보이는 좁은 보라색 눈과 건조한 입만 분리하며 어두운 눈 밑을 유지합니다."
+    },
+    {
+      "id": "debi_marlene",
+      "name": "데비&마를렌",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/debi_marlene.png",
+      "sha256": "df2334e08725d24a75db690201bcae103644e76ae4a333693ef81eb343c16263",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/debi_marlene.png",
+      "faceRectLogical": [
+        25,
+        29,
+        60,
+        41
+      ],
+      "faceRect": [
+        50,
+        58,
+        120,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          25,
+          33,
+          29,
+          37
+        ],
+        [
+          33,
+          32,
+          37,
+          36
+        ],
+        [
+          48,
+          30,
+          52,
+          34
+        ],
+        [
+          56,
+          33,
+          60,
+          37
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          29,
+          38,
+          32,
+          40
+        ],
+        [
+          52,
+          35,
+          55,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "두 얼굴이 각각 아주 작아 특히 입이 약합니다. 푸른 눈의 데비와 붉은 눈의 마를렌을 구별하며 두 얼굴에 별개의 작은 입을 보강합니다."
+    },
+    {
+      "id": "echion",
+      "name": "에키온",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/echion.png",
+      "sha256": "75a6bdc18975b7dd467a69937dfe0e6c2c0180fdcf8ebd1de73c4e1b166d77e6",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/echion.png",
+      "faceRectLogical": [
+        34,
+        29,
+        52,
+        42
+      ],
+      "faceRect": [
+        68,
+        58,
+        104,
+        84
+      ],
+      "eyeRectsLogical": [
+        [
+          34,
+          34,
+          40,
+          37
+        ],
+        [
+          45,
+          35,
+          50,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          39,
+          45,
+          41
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "좁은 붉은 눈은 읽힙니다. 가늘고 비뚤어진 자신감 있는 입을 보강하며 거친 눈썹을 유지합니다."
+    },
+    {
+      "id": "elena",
+      "name": "엘레나",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/elena.png",
+      "sha256": "b2cce4e7a6284d9db488bc6111eda839131e1883adffc37e0cc241666ea73c3c",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/elena.png",
+      "faceRectLogical": [
+        35,
+        31,
+        49,
+        41
+      ],
+      "faceRect": [
+        70,
+        62,
+        98,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          33,
+          41,
+          37
+        ],
+        [
+          45,
+          35,
+          49,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          38,
+          44,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "푸른 눈이 앞머리와 푸른 머리색에 묻힙니다. 내려간 좁은 눈꺼풀과 작은 냉정한 입을 분리합니다."
+    },
+    {
+      "id": "eleven",
+      "name": "일레븐",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/eleven.png",
+      "sha256": "e301d207b9ded4f5dc9e2cc6e0f43a06a2d72ec0ac8f0ee34817b3171df96e58",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/eleven.png",
+      "faceRectLogical": [
+        32,
+        33,
+        47,
+        43
+      ],
+      "faceRect": [
+        64,
+        66,
+        94,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          33,
+          35,
+          38,
+          39
+        ],
+        [
+          42,
+          37,
+          46,
+          40
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          36,
+          39,
+          40,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "분홍 일색으로 얼굴과 입의 구분이 약합니다. 둥근 금빛 눈과 밝은 열린 미소의 경계만 보강합니다."
+    },
+    {
+      "id": "emma",
+      "name": "엠마",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/emma.png",
+      "sha256": "f643c104eee59bcc3289bbc4c13ac381bef09789bb2fb44717d70783ca2a4e42",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/emma.png",
+      "faceRectLogical": [
+        34,
+        31,
+        48,
+        43
+      ],
+      "faceRect": [
+        68,
+        62,
+        96,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          34,
+          35,
+          40,
+          38
+        ],
+        [
+          43,
+          33,
+          47,
+          37
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          39,
+          42,
+          41
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "청록 눈이 머리색과 합쳐집니다. 밝고 날카로운 바깥 눈꼬리와 작은 열린 미소를 보존하며 대비를 보강합니다."
+    },
+    {
+      "id": "estelle",
+      "name": "에스텔",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/estelle.png",
+      "sha256": "0483cba5b4f2ebd6c901218fec78143f6a0fe16a96e07c1e2644351d79e03b9a",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/estelle.png",
+      "faceRectLogical": [
+        32,
+        26,
+        49,
+        39
+      ],
+      "faceRect": [
+        64,
+        52,
+        98,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          33,
+          31,
+          38,
+          34
+        ],
+        [
+          42,
+          29,
+          47,
+          33
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          37,
+          35,
+          41,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "붉은 갈색 눈은 선명하지만 작은 입은 약합니다. 성실한 표정과 왼쪽 눈꺼풀 각도를 유지합니다."
+    },
+    {
+      "id": "eva",
+      "name": "이바",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/eva.png",
+      "sha256": "0dcb3187fb671b7090ac88db3fc09e2eb83921a9ae7854e0bad9ae41b6719adb",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/eva.png",
+      "faceRectLogical": [
+        30,
+        26,
+        48,
+        40
+      ],
+      "faceRect": [
+        60,
+        52,
+        96,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          33,
+          29,
+          39,
+          32
+        ],
+        [
+          42,
+          31,
+          47,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          36,
+          41,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "분홍 보라 눈은 구별되나 입과 피부색이 비슷합니다. 우울한 처진 눈과 작은 벌어진 입을 유지합니다."
+    },
+    {
+      "id": "felix",
+      "name": "펠릭스",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/felix.png",
+      "sha256": "ef2824fc84e1d02c6beb71097ff89facb2d5bb057a5ebea8552eda420b374ff3",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/felix.png",
+      "faceRectLogical": [
+        34,
+        33,
+        48,
+        43
+      ],
+      "faceRect": [
+        68,
+        66,
+        96,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          37,
+          39,
+          40
+        ],
+        [
+          43,
+          35,
+          47,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          39,
+          40,
+          43,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "초록 눈이 명확합니다. 어린 인상의 눈매를 유지하고 작은 자신감 있는 입을 보강합니다."
+    },
+    {
+      "id": "fenrir",
+      "name": "펜리르",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/fenrir.png",
+      "sha256": "a40614e608d3f051c969261ec22fb8dbd19bcd76bd3272d7c7c758773722d977",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/fenrir.png",
+      "faceRectLogical": [
+        34,
+        29,
+        49,
+        39
+      ],
+      "faceRect": [
+        68,
+        58,
+        98,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          34,
+          39,
+          37
+        ],
+        [
+          43,
+          31,
+          47,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          36,
+          43,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "푸른 눈과 개방된 표정은 비교적 읽힙니다. 눈의 좌우 높이를 바꾸지 않고 입 윤곽만 보강합니다."
+    },
+    {
+      "id": "fiora",
+      "name": "피오라",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/fiora.png",
+      "sha256": "cbde220d120ad020ce185f2ed30a4e9117d73cb6fed0a9f5346f31c7012e928c",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/fiora.png",
+      "faceRectLogical": [
+        33,
+        32,
+        48,
+        43
+      ],
+      "faceRect": [
+        66,
+        64,
+        96,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          36,
+          40,
+          39
+        ],
+        [
+          42,
+          35,
+          47,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          39,
+          40,
+          43,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "초록 눈이 읽히지만 앞머리 아래 입은 작습니다. 날렵한 눈꺼풀과 도도한 작은 입을 유지합니다."
+    },
+    {
+      "id": "garnet",
+      "name": "가넷",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/garnet.png",
+      "sha256": "950fe220268be735b1b1a29d6b31ca13d2dd0483be38d10c0cf048e5f74025b3",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/garnet.png",
+      "faceRectLogical": [
+        41,
+        31,
+        56,
+        42
+      ],
+      "faceRect": [
+        82,
+        62,
+        112,
+        84
+      ],
+      "eyeRectsLogical": [
+        [
+          42,
+          33,
+          47,
+          37
+        ],
+        [
+          51,
+          35,
+          56,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          47,
+          38,
+          51,
+          41
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "붉은 눈과 호전적 표정이 구별됩니다. 머리카락의 얼굴 가림을 유지하며 작은 미소만 또렷하게 합니다."
+    },
+    {
+      "id": "hana",
+      "name": "하나",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/hana.png",
+      "sha256": "b481c31267ae4f86616c471eb18328d13f4d79c1d2ee18e40a7b787ebca88268",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/hana.png",
+      "faceRectLogical": [
+        31,
+        33,
+        49,
+        44
+      ],
+      "faceRect": [
+        62,
+        66,
+        98,
+        88
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          36,
+          37,
+          40
+        ],
+        [
+          43,
+          34,
+          47,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          37,
+          40,
+          41,
+          44
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "호박색 눈과 크게 열린 따뜻한 웃음이 이미 잘 구별됩니다. 기존 눈과 입의 형태·크기를 유지합니다."
+    },
+    {
+      "id": "hart",
+      "name": "하트",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/hart.png",
+      "sha256": "fd65eb13427ed3e7a598ee0a2e5132b3a41c37f82b66cfd79d152f43ff72dbc8",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/hart.png",
+      "faceRectLogical": [
+        31,
+        25,
+        46,
+        40
+      ],
+      "faceRect": [
+        62,
+        50,
+        92,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          35,
+          36,
+          38
+        ],
+        [
+          41,
+          31,
+          45,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          37,
+          36,
+          40,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "왼쪽과 오른쪽 눈의 높이와 붉은 눈동자가 읽힙니다. 수줍은 작은 입을 조금 더 명확히 합니다."
+    },
+    {
+      "id": "haze",
+      "name": "헤이즈",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/haze.png",
+      "sha256": "a3aa69ef8fc692d2a292befe4387fc5e8e06948c7df8bc9c83a12fb59404426f",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/haze.png",
+      "faceRectLogical": [
+        35,
+        29,
+        51,
+        40
+      ],
+      "faceRect": [
+        70,
+        58,
+        102,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          31,
+          40,
+          34
+        ],
+        [
+          44,
+          32,
+          49,
+          36
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          36,
+          44,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "붉은 눈의 직선 위눈꺼풀은 명확합니다. 작은 중립 입을 보강하며 냉정한 표정을 유지합니다."
+    },
+    {
+      "id": "henry",
+      "name": "헨리",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/henry.png",
+      "sha256": "c0dc84560c3b684006b5fd399d6c480c709f59ebaedf1b8df2c786112d91d75c",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/henry.png",
+      "faceRectLogical": [
+        34,
+        30,
+        51,
+        41
+      ],
+      "faceRect": [
+        68,
+        60,
+        102,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          32,
+          40,
+          35
+        ],
+        [
+          45,
+          33,
+          49,
+          36
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          39,
+          38,
+          44,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 3,
+      "visualAssessment": "보라색 앞머리 아래 한쪽 눈과 가는 입이 매우 약합니다. 다른 눈을 억지로 드러내지 않고 연한 보라 눈동자·작은 미소의 대비를 보강합니다."
+    },
+    {
+      "id": "hisui",
+      "name": "히스이",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/hisui.png",
+      "sha256": "d7005b9af8e94bb1febea480cefa51d5fec08e5a9d8148c37035955206d4f580",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/hisui.png",
+      "faceRectLogical": [
+        30,
+        27,
+        42,
+        39
+      ],
+      "faceRect": [
+        60,
+        54,
+        84,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          31,
+          32,
+          35,
+          36
+        ],
+        [
+          36,
+          28,
+          40,
+          32
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          36,
+          35,
+          39,
+          39
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "한쪽 눈을 가린 머리와 크게 열린 활기찬 입이 잘 구별됩니다. 현재 눈·입 및 비대칭을 유지합니다."
+    },
+    {
+      "id": "hyejin",
+      "name": "혜진",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/hyejin.png",
+      "sha256": "ff4db4e5b7a990f1487c438ffbcac3beecc00c246b3017cd4bdce0042352b8d2",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/hyejin.png",
+      "faceRectLogical": [
+        30,
+        27,
+        45,
+        39
+      ],
+      "faceRect": [
+        60,
+        54,
+        90,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          30,
+          31,
+          35,
+          35
+        ],
+        [
+          38,
+          30,
+          43,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          35,
+          36,
+          38,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "보라색 눈과 진지한 표정은 읽히며 아주 작은 닫힌 입이 약합니다. 웃는 입으로 바꾸지 않습니다."
+    },
+    {
+      "id": "hyunwoo",
+      "name": "현우",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/hyunwoo.png",
+      "sha256": "8662dfcc7d77346ba424b17c81d8b2a471536518807751dc8c6bacfef30f1c98",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/hyunwoo.png",
+      "faceRectLogical": [
+        32,
+        32,
+        50,
+        43
+      ],
+      "faceRect": [
+        64,
+        64,
+        100,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          33,
+          35,
+          37,
+          38
+        ],
+        [
+          40,
+          34,
+          46,
+          38
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          37,
+          40,
+          42,
+          43
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "눈썹과 눈의 날카로운 각도는 잘 보입니다. 코의 밴드를 보존하고 다문 이가 보이는 입을 더 구별합니다."
+    },
+    {
+      "id": "ian",
+      "name": "이안",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/ian.png",
+      "sha256": "0d248fb54f552b652bdb8913d9a2e3bb1a93f8ab7ff26350f49ed7ab5cf49220",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/ian.png",
+      "faceRectLogical": [
+        35,
+        32,
+        50,
+        43
+      ],
+      "faceRect": [
+        70,
+        64,
+        100,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          35,
+          41,
+          38
+        ],
+        [
+          45,
+          36,
+          49,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          40,
+          44,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "올리브색 눈이 밝은 앞머리와 합쳐집니다. 차분하게 내려간 눈꺼풀과 작은 입을 보강합니다."
+    },
+    {
+      "id": "irem",
+      "name": "이렘",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/irem.png",
+      "sha256": "8e80873ed120cccca2622224b8df91d2d811197ba5058a0f4c2faabdc97f0c4a",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/irem.png",
+      "faceRectLogical": [
+        36,
+        29,
+        53,
+        41
+      ],
+      "faceRect": [
+        72,
+        58,
+        106,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          37,
+          33,
+          41,
+          37
+        ],
+        [
+          48,
+          30,
+          52,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          43,
+          37,
+          46,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "푸른 눈과 밝은 고양이 같은 표정은 잘 구별됩니다. 미소를 피부색에서 더 분리합니다."
+    },
+    {
+      "id": "isaac",
+      "name": "아이작",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/isaac.png",
+      "sha256": "f383622750da2f5657ab3c6e42090d90452a6c045bc1a576904cd7298a6c3322",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/isaac.png",
+      "faceRectLogical": [
+        33,
+        24,
+        52,
+        43
+      ],
+      "faceRect": [
+        66,
+        48,
+        104,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          28,
+          42,
+          33
+        ],
+        [
+          47,
+          28,
+          51,
+          33
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          36,
+          46,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "낮은 눈꺼풀과 수염이 명확합니다. 흰 수염 속 입의 경계를 보강하고 성숙한 얼굴을 유지합니다."
+    },
+    {
+      "id": "isol",
+      "name": "아이솔",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/isol.png",
+      "sha256": "11cafb29ec27ba6724daab9787769aaf73734a496b9a79920283d954f6e7d37e",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/isol.png",
+      "faceRectLogical": [
+        33,
+        31,
+        49,
+        42
+      ],
+      "faceRect": [
+        66,
+        62,
+        98,
+        84
+      ],
+      "eyeRectsLogical": [
+        [
+          33,
+          35,
+          37,
+          39
+        ],
+        [
+          39,
+          35,
+          44,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          39,
+          42,
+          41
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "좁은 갈색 눈과 옆을 보는 표정은 읽힙니다. 진지한 직선 입만 보강합니다."
+    },
+    {
+      "id": "istvan",
+      "name": "이슈트반",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/istvan.png",
+      "sha256": "3fd1fc2dd613c48d9e658462d73826770fc8823fba471a23c9430021318118aa",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/istvan.png",
+      "faceRectLogical": [
+        36,
+        30,
+        49,
+        43
+      ],
+      "faceRect": [
+        72,
+        60,
+        98,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          37,
+          35,
+          42,
+          38
+        ],
+        [
+          44,
+          35,
+          48,
+          38
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          40,
+          45,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "머리카락에 가려진 좁은 눈과 작은 입이 약합니다. 비대칭 눈 가림과 냉정한 표정을 유지합니다."
+    },
+    {
+      "id": "jackie",
+      "name": "재키",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/jackie.png",
+      "sha256": "68c67ef55e18f86b53abff526235bcfa98fafd6992530c5580bf107f256bb79d",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/jackie.png",
+      "faceRectLogical": [
+        39,
+        33,
+        52,
+        44
+      ],
+      "faceRect": [
+        78,
+        66,
+        104,
+        88
+      ],
+      "eyeRectsLogical": [
+        [
+          39,
+          38,
+          44,
+          41
+        ],
+        [
+          48,
+          35,
+          51,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          44,
+          41,
+          47,
+          44
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "붉은 치켜뜬 눈은 명확하지만 치아가 있는 미소는 약합니다. 비대칭 이가 보이는 미소만 강조합니다."
+    },
+    {
+      "id": "jan",
+      "name": "얀",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/jan.png",
+      "sha256": "c48ad8150df3d8e08675dba3f0b8457766316f62dcc37ce899062ee894e6fff1",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/jan.png",
+      "faceRectLogical": [
+        41,
+        32,
+        55,
+        44
+      ],
+      "faceRect": [
+        82,
+        64,
+        110,
+        88
+      ],
+      "eyeRectsLogical": [
+        [
+          41,
+          35,
+          46,
+          39
+        ],
+        [
+          49,
+          36,
+          54,
+          40
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          44,
+          40,
+          49,
+          44
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "갈색 피부 위 금빛 눈과 흰 이를 보이는 큰 웃음이 모두 명확합니다. 현재 눈과 입을 유지합니다."
+    },
+    {
+      "id": "jenny",
+      "name": "제니",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/jenny.png",
+      "sha256": "55beb6b7c2957608f3bc5a7bff72af08f409c181d13d21a802121c850118a3d6",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/jenny.png",
+      "faceRectLogical": [
+        32,
+        27,
+        46,
+        38
+      ],
+      "faceRect": [
+        64,
+        54,
+        92,
+        76
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          32,
+          37,
+          36
+        ],
+        [
+          40,
+          30,
+          45,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          35,
+          41,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "반쯤 감긴 붉은 눈과 연기하듯 여유로운 표정은 읽힙니다. 작은 입의 색 대비만 보강합니다."
+    },
+    {
+      "id": "johann",
+      "name": "요한",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/johann.png",
+      "sha256": "834a19d15562173c60f3c1af88c12c94fb7a8fd48ff58dcee80506333f60db57",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/johann.png",
+      "faceRectLogical": [
+        34,
+        26,
+        49,
+        41
+      ],
+      "faceRect": [
+        68,
+        52,
+        98,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          34,
+          32,
+          39,
+          36
+        ],
+        [
+          44,
+          31,
+          48,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          37,
+          44,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "녹회색 눈과 엄격한 중립 입이 희미합니다. 가는 수평 눈매를 유지하고 입을 분리합니다."
+    },
+    {
+      "id": "justyna",
+      "name": "유스티나",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/justyna.png",
+      "sha256": "959d032515daf869648aebd5552fca0a9a78184be36ed10829bc99ee2e0a1070",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/justyna.png",
+      "faceRectLogical": [
+        35,
+        28,
+        49,
+        40
+      ],
+      "faceRect": [
+        70,
+        56,
+        98,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          33,
+          40,
+          37
+        ],
+        [
+          44,
+          30,
+          48,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          36,
+          44,
+          39
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "청록 눈과 열린 활기찬 입이 이미 구별됩니다. 현재 개방된 표정과 눈동자를 유지합니다."
+    },
+    {
+      "id": "karla",
+      "name": "칼라",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/karla.png",
+      "sha256": "caae0d1ec0bfe7180d8b0dcd13f93f087c7de5ad085c5f69a4c43ee2c7847d60",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/karla.png",
+      "faceRectLogical": [
+        29,
+        27,
+        43,
+        40
+      ],
+      "faceRect": [
+        58,
+        54,
+        86,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          30,
+          33,
+          34,
+          36
+        ],
+        [
+          37,
+          30,
+          41,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          35,
+          36,
+          39,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "노란 눈과 자신감 있는 표정이 읽힙니다. 작고 비대칭인 미소만 명확히 합니다."
+    },
+    {
+      "id": "katja",
+      "name": "카티야",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/katja.png",
+      "sha256": "f2ac4d9123af0ee04bd168e1326d02d6f6e055990b5b5f005819352f743eb897",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/katja.png",
+      "faceRectLogical": [
+        36,
+        34,
+        49,
+        46
+      ],
+      "faceRect": [
+        72,
+        68,
+        98,
+        92
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          39,
+          41,
+          43
+        ],
+        [
+          44,
+          39,
+          48,
+          43
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          43,
+          45,
+          45
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 3,
+      "visualAssessment": "회색 머리 아래 창백한 청록 눈과 입의 구분이 약합니다. 안경 없이 가는 위눈꺼풀과 작은 닫힌 입을 보강합니다."
+    },
+    {
+      "id": "kenneth",
+      "name": "케네스",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/kenneth.png",
+      "sha256": "df02655c33527b8629ad013fded6d0eceb5f2cafad7659350f4bbe9a056da722",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/kenneth.png",
+      "faceRectLogical": [
+        42,
+        31,
+        56,
+        44
+      ],
+      "faceRect": [
+        84,
+        62,
+        112,
+        88
+      ],
+      "eyeRectsLogical": [
+        [
+          43,
+          37,
+          48,
+          40
+        ],
+        [
+          51,
+          35,
+          55,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          47,
+          40,
+          51,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "붉은 눈과 진지한 얼굴이 읽힙니다. 작은 다문 입만 더 구별합니다."
+    },
+    {
+      "id": "laura",
+      "name": "라우라",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/laura.png",
+      "sha256": "cf770605aaf8f57aae60459a59523de4fb2632ca5210063fb6a37d5fa3ac249e",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/laura.png",
+      "faceRectLogical": [
+        34,
+        28,
+        51,
+        39
+      ],
+      "faceRect": [
+        68,
+        56,
+        102,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          37,
+          30,
+          43,
+          33
+        ],
+        [
+          46,
+          33,
+          50,
+          36
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          35,
+          45,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "보라 눈의 긴 위눈꺼풀과 비대칭 시선이 읽힙니다. 냉정하고 자신감 있는 작은 미소를 보강합니다."
+    },
+    {
+      "id": "leni",
+      "name": "레니",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/leni.png",
+      "sha256": "bd004525967423148b02397a367ce21197d9bd1d192474ad698c3bb0e881e305",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/leni.png",
+      "faceRectLogical": [
+        35,
+        34,
+        51,
+        47
+      ],
+      "faceRect": [
+        70,
+        68,
+        102,
+        94
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          40,
+          41,
+          44
+        ],
+        [
+          46,
+          38,
+          50,
+          42
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          44,
+          46,
+          47
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "푸른 눈과 크게 열린 웃음이 명확합니다. 눈과 입의 현재 형태를 유지합니다."
+    },
+    {
+      "id": "lenore",
+      "name": "르노어",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/lenore.png",
+      "sha256": "c743d164bf778cbf51d13b8a0dfba5d663657aed6cf91d733b460287a8390431",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/lenore.png",
+      "faceRectLogical": [
+        31,
+        29,
+        45,
+        39
+      ],
+      "faceRect": [
+        62,
+        58,
+        90,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          40,
+          31,
+          44,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          35,
+          35,
+          39,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "한쪽 눈이 푸른 앞머리에 가려지고 보이는 청록 눈과 작은 입이 약합니다. 가려진 눈을 만들지 않고 어른스러운 미소만 분리합니다."
+    },
+    {
+      "id": "lenox",
+      "name": "레녹스",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/lenox.png",
+      "sha256": "4c6453e215e88a41219f40e701cb5e332a10cf2128862e860b68556513b8c1d2",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/lenox.png",
+      "faceRectLogical": [
+        35,
+        27,
+        51,
+        39
+      ],
+      "faceRect": [
+        70,
+        54,
+        102,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          31,
+          39,
+          35
+        ],
+        [
+          43,
+          30,
+          47,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          35,
+          44,
+          38
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "선명한 청록 눈과 열린 편안한 웃음이 잘 구별됩니다. 현재 각진 눈썹과 표정을 유지합니다."
+    },
+    {
+      "id": "leon",
+      "name": "레온",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/leon.png",
+      "sha256": "aad2238ac11cfeddc7fe7dde64b6d5dc7193b46cdacababb40eedb3982cd1652",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/leon.png",
+      "faceRectLogical": [
+        31,
+        29,
+        48,
+        39
+      ],
+      "faceRect": [
+        62,
+        58,
+        96,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          32,
+          36,
+          36
+        ],
+        [
+          42,
+          30,
+          46,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          39,
+          36,
+          42,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "청록 눈의 색과 납작한 눈꺼풀은 잘 보입니다. 자신감 있는 작은 닫힌 입만 보강합니다."
+    },
+    {
+      "id": "lucia",
+      "name": "루치아",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/lucia.png",
+      "sha256": "b477524f080f1018a55460300aa975574b95b56a26002f7112f48f982cf4d8cb",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/lucia.png",
+      "faceRectLogical": [
+        36,
+        34,
+        49,
+        44
+      ],
+      "faceRect": [
+        72,
+        68,
+        98,
+        88
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          36,
+          41,
+          40
+        ],
+        [
+          46,
+          38,
+          49,
+          42
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          40,
+          45,
+          44
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "밝은 머리 아래 푸른 눈과 작은 벌어진 입이 피부색에 묻힙니다. 밝고 명랑한 표정의 입 윤곽을 보강합니다."
+    },
+    {
+      "id": "luke",
+      "name": "루크",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/luke.png",
+      "sha256": "548e8887a3abee2aa913a3f2a9da431290e787dd7f006e3704563f0f9170348c",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/luke.png",
+      "faceRectLogical": [
+        31,
+        27,
+        46,
+        39
+      ],
+      "faceRect": [
+        62,
+        54,
+        92,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          31,
+          36,
+          35
+        ],
+        [
+          41,
+          28,
+          45,
+          32
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          37,
+          35,
+          41,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "금색 눈과 비스듬한 눈꺼풀은 구별됩니다. 장난기 있는 비대칭 웃음만 선명하게 합니다."
+    },
+    {
+      "id": "magnus",
+      "name": "매그너스",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/magnus.png",
+      "sha256": "8a23e4fe161e00a5d2d7346ed4d5cdd5ce51eda87b7d6a2aa5b337bff6f13a70",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/magnus.png",
+      "faceRectLogical": [
+        36,
+        29,
+        54,
+        45
+      ],
+      "faceRect": [
+        72,
+        58,
+        108,
+        90
+      ],
+      "eyeRectsLogical": [
+        [
+          38,
+          35,
+          43,
+          39
+        ],
+        [
+          48,
+          37,
+          53,
+          40
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          42,
+          41,
+          48,
+          44
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "푸른 좁은 눈은 보이지만 거친 비뚤어진 입이 약합니다. 성인 남성의 깊은 눈썹과 큰 코는 유지합니다."
+    },
+    {
+      "id": "mai",
+      "name": "마이",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/mai.png",
+      "sha256": "492be3f8905bf1e6ddcbdb45f980a5b479a34c9dcc2514c0046d486345f76f88",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/mai.png",
+      "faceRectLogical": [
+        33,
+        26,
+        46,
+        39
+      ],
+      "faceRect": [
+        66,
+        52,
+        92,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          34,
+          31,
+          38,
+          34
+        ],
+        [
+          40,
+          28,
+          45,
+          32
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          34,
+          41,
+          38
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "갈색 눈과 작게 열린 말하는 입이 잘 구별됩니다. 자신감 있는 올라간 눈꼬리를 유지합니다."
+    },
+    {
+      "id": "markus",
+      "name": "마커스",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/markus.png",
+      "sha256": "f2e21cce98c49680b0453d0bfc14cc21f8d94231e1fdfd18b39b25e2506d3221",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/markus.png",
+      "faceRectLogical": [
+        36,
+        27,
+        53,
+        42
+      ],
+      "faceRect": [
+        72,
+        54,
+        106,
+        84
+      ],
+      "eyeRectsLogical": [
+        [
+          37,
+          32,
+          43,
+          35
+        ],
+        [
+          46,
+          30,
+          51,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          42,
+          37,
+          47,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "푸른 눈과 짙은 수염은 명확합니다. 수염 속 닫힌 입만 보강하고 각진 성인 얼굴을 유지합니다."
+    },
+    {
+      "id": "martina",
+      "name": "마르티나",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/martina.png",
+      "sha256": "749f46b26639208a74423656cb7d8d930d5ea583715a2669f51b21556a2838cc",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/martina.png",
+      "faceRectLogical": [
+        34,
+        27,
+        49,
+        39
+      ],
+      "faceRect": [
+        68,
+        54,
+        98,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          30,
+          39,
+          34
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          35,
+          44,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "한쪽 푸른 눈과 다른 쪽 안대가 정상적으로 구별됩니다. 안대 아래 눈은 만들지 않고 작은 건조한 미소만 보강합니다."
+    },
+    {
+      "id": "mirka",
+      "name": "미르카",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/mirka.png",
+      "sha256": "6dab9ed0f9212fc7c83587117484e7dd7ae9e31201e8d903d21f2407dbd6c4cb",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/mirka.png",
+      "faceRectLogical": [
+        36,
+        30,
+        51,
+        43
+      ],
+      "faceRect": [
+        72,
+        60,
+        102,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          34,
+          41,
+          38
+        ],
+        [
+          45,
+          34,
+          50,
+          38
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          39,
+          45,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "녹색 눈과 익살스러운 표정은 읽힙니다. 장난스러운 입의 분홍 선을 피부와 더 분리합니다."
+    },
+    {
+      "id": "nadine",
+      "name": "나딘",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/nadine.png",
+      "sha256": "38b1b8f068657539ad26690ecdbe89193f21de797e3e4ab26c8c4436f94cb538",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/nadine.png",
+      "faceRectLogical": [
+        30,
+        32,
+        48,
+        44
+      ],
+      "faceRect": [
+        60,
+        64,
+        96,
+        88
+      ],
+      "eyeRectsLogical": [
+        [
+          31,
+          35,
+          36,
+          39
+        ],
+        [
+          39,
+          35,
+          44,
+          39
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          36,
+          40,
+          40,
+          43
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "모자 그림자 아래 좁은 눈은 읽힙니다. 경계하는 작은 닫힌 입을 보강하며 모자와 얼굴 그림자를 유지합니다."
+    },
+    {
+      "id": "nathapon",
+      "name": "나타폰",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/nathapon.png",
+      "sha256": "5807a88ccf878b8f8bad1e5fa8ee3a933bcfec8317908304f3521da9ff90bffb",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/nathapon.png",
+      "faceRectLogical": [
+        35,
+        28,
+        47,
+        39
+      ],
+      "faceRect": [
+        70,
+        56,
+        94,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          31,
+          41,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          35,
+          44,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "머리카락에 가려진 한쪽 눈은 그대로 두어야 합니다. 보이는 갈색 눈과 느긋한 작은 미소가 피부색에 묻혀 대비를 보강합니다."
+    },
+    {
+      "id": "nia",
+      "name": "니아",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/nia.png",
+      "sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/nia.png",
+      "faceRectLogical": [
+        35,
+        29,
+        49,
+        40
+      ],
+      "faceRect": [
+        70,
+        58,
+        98,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          32,
+          40,
+          36
+        ],
+        [
+          43,
+          31,
+          48,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          42,
+          36,
+          47,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "반쯤 감긴 보랏빛 눈과 분홍 풍선껌은 구별되나 낮은 대비로 얼굴이 흐려집니다. 졸린 위눈꺼풀과 풍선껌을 유지하며 눈동자만 분리합니다."
+    },
+    {
+      "id": "nicky",
+      "name": "니키",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/nicky.png",
+      "sha256": "be277ce5372d5b98f9592f0ec603647b635a0672634b23a39ed5b227a709310b",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/nicky.png",
+      "faceRectLogical": [
+        32,
+        28,
+        48,
+        39
+      ],
+      "faceRect": [
+        64,
+        56,
+        96,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          32,
+          37,
+          36
+        ],
+        [
+          41,
+          31,
+          46,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          36,
+          42,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "푸른 눈과 날카로운 눈꼬리가 읽힙니다. 도전적인 작은 벌어진 입을 피부색에서 분리합니다."
+    },
+    {
+      "id": "piolo",
+      "name": "피올로",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/piolo.png",
+      "sha256": "84316ba01710c82bee0e88954b73b76da63f423d2ebd6b0083354ae1256c5e38",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/piolo.png",
+      "faceRectLogical": [
+        34,
+        28,
+        48,
+        40
+      ],
+      "faceRect": [
+        68,
+        56,
+        96,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          32,
+          40,
+          35
+        ],
+        [
+          42,
+          31,
+          47,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          37,
+          42,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "갈색 좁은 눈과 느긋한 표정이 읽힙니다. 작은 입만 보강하고 앞머리의 눈 가림을 유지합니다."
+    },
+    {
+      "id": "priya",
+      "name": "프리야",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/priya.png",
+      "sha256": "03116dc37895a09dd4b6866069c66021e14990d646449fa457255dc75562f78e",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/priya.png",
+      "faceRectLogical": [
+        35,
+        25,
+        49,
+        39
+      ],
+      "faceRect": [
+        70,
+        50,
+        98,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          29,
+          40,
+          33
+        ],
+        [
+          44,
+          31,
+          48,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          34,
+          44,
+          37
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "짙은 피부 위 청록 눈과 흰 이가 보이는 밝은 미소가 잘 구별됩니다. 현재 표정을 유지합니다."
+    },
+    {
+      "id": "rio",
+      "name": "리오",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/rio.png",
+      "sha256": "8a1909b16cd5e8d6e23d6614083d078f558b2b083766097844d5cc199800560d",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/rio.png",
+      "faceRectLogical": [
+        30,
+        31,
+        43,
+        41
+      ],
+      "faceRect": [
+        60,
+        62,
+        86,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          30,
+          33,
+          34,
+          37
+        ],
+        [
+          38,
+          32,
+          42,
+          36
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          34,
+          37,
+          38,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "노란 눈과 수평 위눈꺼풀은 읽힙니다. 아주 작은 평평한 닫힌 입만 선명하게 합니다."
+    },
+    {
+      "id": "rozzi",
+      "name": "로지",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/rozzi.png",
+      "sha256": "d9e21f53990a1d8db1c490e36c6cb35a9bf3ee30fc46f0d310633a7d01c471f7",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/rozzi.png",
+      "faceRectLogical": [
+        36,
+        21,
+        48,
+        38
+      ],
+      "faceRect": [
+        72,
+        42,
+        96,
+        76
+      ],
+      "eyeRectsLogical": [
+        [
+          43,
+          27,
+          47,
+          31
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          39,
+          34,
+          43,
+          36
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "다른 눈을 가리는 검은 머리와 한쪽 초록 눈은 정상적으로 구별됩니다. 작은 비대칭 닫힌 미소만 보강합니다."
+    },
+    {
+      "id": "sho",
+      "name": "쇼우",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/sho.png",
+      "sha256": "20508565c1c6e3e3e54d30e2fd957c544b597275cbc4a802a6c915d01973d9a0",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/sho.png",
+      "faceRectLogical": [
+        32,
+        30,
+        48,
+        44
+      ],
+      "faceRect": [
+        64,
+        60,
+        96,
+        88
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          34,
+          36,
+          37
+        ],
+        [
+          38,
+          35,
+          42,
+          37
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          36,
+          39,
+          43,
+          42
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "감긴 초승달 눈과 넓은 만족스러운 미소가 명확합니다. 눈을 뜨게 바꾸지 말고 현재 감긴 눈을 유지합니다."
+    },
+    {
+      "id": "shoichi",
+      "name": "쇼이치",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/shoichi.png",
+      "sha256": "8aabb72125ef9f1734d2e1dc9219ddcc5b2728f1f4e7e5b2c309723e98cccde5",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/shoichi.png",
+      "faceRectLogical": [
+        31,
+        28,
+        51,
+        43
+      ],
+      "faceRect": [
+        62,
+        56,
+        102,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          34,
+          36,
+          36
+        ],
+        [
+          44,
+          35,
+          48,
+          37
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          39,
+          43,
+          41
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "안경과 감긴 미소 눈은 읽히나 입이 약합니다. 안경과 초승달 눈을 유지하고 온화한 닫힌 미소만 보강합니다."
+    },
+    {
+      "id": "silvia",
+      "name": "실비아",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/silvia.png",
+      "sha256": "a48808f99d8e0cc9fbfcf49b08e8442423400030bca5dd41734139ad9733ed3d",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/silvia.png",
+      "faceRectLogical": [
+        35,
+        27,
+        50,
+        43
+      ],
+      "faceRect": [
+        70,
+        54,
+        100,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          36,
+          41,
+          40
+        ],
+        [
+          46,
+          34,
+          49,
+          38
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          39,
+          45,
+          42
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "푸른 눈과 작게 열린 활기찬 입이 잘 보입니다. 두 눈의 높이와 자신감 있는 표정을 유지합니다."
+    },
+    {
+      "id": "sissela",
+      "name": "시셀라",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/sissela.png",
+      "sha256": "05cd5dd96721f3374c9b5ff50934965a0cfdd6f260823c59e164772385be153a",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/sissela.png",
+      "faceRectLogical": [
+        34,
+        31,
+        48,
+        44
+      ],
+      "faceRect": [
+        68,
+        62,
+        96,
+        88
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          35,
+          42,
+          40
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          42,
+          39,
+          46,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "흰 머리와 창백한 피부 위 연한 푸른 눈·분홍 입의 대비가 부족합니다. 병약하고 작은 처진 입을 명확히 하되 크게 웃게 바꾸지 않습니다."
+    },
+    {
+      "id": "sua",
+      "name": "수아",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/sua.png",
+      "sha256": "92b0f4ddb21df752cb36c77d1cb1852891a2f03de2203eb21b49504a311ebe43",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/sua.png",
+      "faceRectLogical": [
+        31,
+        26,
+        48,
+        40
+      ],
+      "faceRect": [
+        62,
+        52,
+        96,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          32,
+          31,
+          37,
+          35
+        ],
+        [
+          42,
+          28,
+          47,
+          32
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          33,
+          42,
+          38
+        ]
+      ],
+      "needsRefinement": false,
+      "priority": 0,
+      "visualAssessment": "녹금색 눈과 부드럽게 열린 따뜻한 미소가 이미 잘 구별됩니다. 현재 둥근 눈과 미소를 유지합니다."
+    },
+    {
+      "id": "tazia",
+      "name": "타지아",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/tazia.png",
+      "sha256": "a2c50c8ac1338ef4c97d8397b988bb0ae9e7d33ac182b281ff2f9ee60cfeaf35",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/tazia.png",
+      "faceRectLogical": [
+        34,
+        25,
+        48,
+        40
+      ],
+      "faceRect": [
+        68,
+        50,
+        96,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          32,
+          39,
+          36
+        ],
+        [
+          41,
+          31,
+          46,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          38,
+          37,
+          42,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "금빛 좁은 눈은 구별됩니다. 작은 차분한 입을 선명하게 하며 수평 눈꺼풀을 유지합니다."
+    },
+    {
+      "id": "theodore",
+      "name": "테오도르",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/theodore.png",
+      "sha256": "9a450a80461a340062583d33cbd5c5e24a5bbc3f32f31cce861478a28266beff",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/theodore.png",
+      "faceRectLogical": [
+        33,
+        27,
+        49,
+        43
+      ],
+      "faceRect": [
+        66,
+        54,
+        98,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          34,
+          34,
+          39,
+          37
+        ],
+        [
+          43,
+          34,
+          48,
+          38
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          39,
+          39,
+          43,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "푸른 눈과 검은 눈썹은 읽힙니다. 진지한 작은 닫힌 입의 대비만 보강합니다."
+    },
+    {
+      "id": "tia",
+      "name": "띠아",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/tia.png",
+      "sha256": "3670031d8352a584d1497e2f279b9981e33f2a8331d9e768f77d9c61a6240465",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/tia.png",
+      "faceRectLogical": [
+        34,
+        30,
+        50,
+        41
+      ],
+      "faceRect": [
+        68,
+        60,
+        100,
+        82
+      ],
+      "eyeRectsLogical": [
+        [
+          35,
+          33,
+          40,
+          37
+        ],
+        [
+          46,
+          34,
+          50,
+          38
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          41,
+          38,
+          44,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "갈색 호박 눈과 부드러운 내려간 눈꺼풀이 보입니다. 수줍고 작은 벌어진 입만 명확히 합니다."
+    },
+    {
+      "id": "tsubame",
+      "name": "츠바메",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/tsubame.png",
+      "sha256": "806876aeefea675ca42a32a75391ec8ee066d84a831b67ea484025045dfc3a2a",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/tsubame.png",
+      "faceRectLogical": [
+        37,
+        31,
+        51,
+        40
+      ],
+      "faceRect": [
+        74,
+        62,
+        102,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          37,
+          34,
+          42,
+          37
+        ],
+        [
+          46,
+          33,
+          50,
+          36
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          43,
+          37,
+          46,
+          39
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "보랏빛 좁은 눈은 잘 읽힙니다. 진지하고 작은 직선 입을 피부와 분리합니다."
+    },
+    {
+      "id": "vanya",
+      "name": "바냐",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/vanya.png",
+      "sha256": "1b41dd2e5582acecf9e934bd98f933a941637e7649d74928793481d8bcfb0c09",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/vanya.png",
+      "faceRectLogical": [
+        34,
+        30,
+        46,
+        42
+      ],
+      "faceRect": [
+        68,
+        60,
+        92,
+        84
+      ],
+      "eyeRectsLogical": [
+        [
+          34,
+          35,
+          39,
+          39
+        ],
+        [
+          42,
+          31,
+          46,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          39,
+          38,
+          42,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "옅은 푸른 눈과 입이 머리색과 피부에 묻힙니다. 걱정스러운 처진 눈꺼풀과 작은 벌어진 입을 유지하며 대비를 보강합니다."
+    },
+    {
+      "id": "william",
+      "name": "윌리엄",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/william.png",
+      "sha256": "8100a99d0a941ef46865940c3397777ae0a3939ae9aee2be52f4d7eb5ac2fcd2",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/william.png",
+      "faceRectLogical": [
+        30,
+        27,
+        49,
+        40
+      ],
+      "faceRect": [
+        60,
+        54,
+        98,
+        80
+      ],
+      "eyeRectsLogical": [
+        [
+          30,
+          32,
+          34,
+          36
+        ],
+        [
+          38,
+          29,
+          44,
+          33
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          34,
+          36,
+          39,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 3,
+      "visualAssessment": "피부색과 머리 그림자 위 작은 회색 눈과 입이 약합니다. 좁고 냉정한 눈과 닫힌 입을 피부보다 어둡게 분리합니다."
+    },
+    {
+      "id": "xuelin",
+      "name": "슈린",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/xuelin.png",
+      "sha256": "762e28350d1caa07430d51d9d273c2644ab03f12e027bf0da1bdfa54c2a0a529",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/xuelin.png",
+      "faceRectLogical": [
+        38,
+        31,
+        49,
+        44
+      ],
+      "faceRect": [
+        76,
+        62,
+        98,
+        88
+      ],
+      "eyeRectsLogical": [
+        [
+          38,
+          36,
+          42,
+          40
+        ],
+        [
+          46,
+          36,
+          49,
+          40
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          42,
+          40,
+          46,
+          42
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "갈색 눈은 읽히지만 입은 거의 사라집니다. 차분한 작은 입을 보강하며 머리카락의 눈 가림을 유지합니다."
+    },
+    {
+      "id": "yuki",
+      "name": "유키",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/yuki.png",
+      "sha256": "c2423c235a4e87c261ffdf2aa27b305154e561d0ced657eeae6d097c0af51cd4",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/yuki.png",
+      "faceRectLogical": [
+        33,
+        29,
+        50,
+        39
+      ],
+      "faceRect": [
+        66,
+        58,
+        100,
+        78
+      ],
+      "eyeRectsLogical": [
+        [
+          34,
+          33,
+          39,
+          36
+        ],
+        [
+          43,
+          31,
+          48,
+          35
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          36,
+          44,
+          38
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 1,
+      "visualAssessment": "가늘고 푸른 눈과 냉정한 표정은 읽힙니다. 자신감 있는 작은 닫힌 입만 보강합니다."
+    },
+    {
+      "id": "yumin",
+      "name": "유민",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/yumin.png",
+      "sha256": "edf2204af02ac2a9b772006ae6fbee39d602e8369250b267aefce42cd2f6d9fd",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/yumin.png",
+      "faceRectLogical": [
+        35,
+        25,
+        49,
+        42
+      ],
+      "faceRect": [
+        70,
+        50,
+        98,
+        84
+      ],
+      "eyeRectsLogical": [
+        [
+          36,
+          29,
+          40,
+          33
+        ],
+        [
+          42,
+          28,
+          47,
+          32
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          40,
+          37,
+          44,
+          40
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 2,
+      "visualAssessment": "검은 안경과 눈·앞머리가 겹쳐 눈동자가 희미하며 입도 약합니다. 안경을 보존하고 눈 밑 공간과 작은 열린 입을 분리합니다."
+    },
+    {
+      "id": "zahir",
+      "name": "자히르",
+      "variant": "default",
+      "path": "Assets/Resources/Lumia/PortraitsReference/zahir.png",
+      "sha256": "53ed1845f75a73f097879c56921825ca9cf69c1dced5ca3a9b052a8d0f64e2a3",
+      "nativeSize": [
+        160,
+        160
+      ],
+      "reviewedAtSizes": [
+        160,
+        215
+      ],
+      "reviewedAgainst": "docs/art-chibi/references/subjects/zahir.png",
+      "faceRectLogical": [
+        33,
+        30,
+        46,
+        43
+      ],
+      "faceRect": [
+        66,
+        60,
+        92,
+        86
+      ],
+      "eyeRectsLogical": [
+        [
+          34,
+          35,
+          39,
+          38
+        ],
+        [
+          41,
+          35,
+          45,
+          38
+        ]
+      ],
+      "mouthRectsLogical": [
+        [
+          37,
+          39,
+          41,
+          41
+        ]
+      ],
+      "needsRefinement": true,
+      "priority": 3,
+      "visualAssessment": "어두운 피부에 노란 눈과 갈색 입의 대비가 약합니다. 금빛 눈동자의 명암과 차분한 닫힌 입을 보강하며 피부톤은 바꾸지 않습니다."
+    }
+  ]
+}

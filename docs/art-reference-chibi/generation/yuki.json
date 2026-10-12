@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/yuki.png",
   "width": 160,
   "height": 160,
-  "sha256": "c2423c235a4e87c261ffdf2aa27b305154e561d0ced657eeae6d097c0af51cd4",
+  "sha256": "313a0dabfdf7168f9930e6ca01b4e17870459f29a17ff795f32917f00f050e50",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-7085e9a6-041a-494d-b08a-df95c9de3df2.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-7085e9a6-041a-494d-b08a-df95c9de3df2.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "c2423c235a4e87c261ffdf2aa27b305154e561d0ced657eeae6d097c0af51cd4",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

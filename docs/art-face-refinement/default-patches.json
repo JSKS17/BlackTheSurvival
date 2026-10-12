@@ -1,0 +1,444 @@
+[
+  {
+    "id": "blair",
+    "variant": "default",
+    "reason": "Keep tired half-lidded pale-blue eyes; increase separation of the existing iris shades and add one soft pixel beside the existing tiny parted lip.",
+    "referencePaths": [
+      "docs/art-chibi/references/subjects/blair.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        39,
+        30,
+        "2c3860"
+      ],
+      [
+        40,
+        30,
+        "2f365a"
+      ],
+      [
+        39,
+        31,
+        "4d517b"
+      ],
+      [
+        40,
+        31,
+        "5076a4"
+      ],
+      [
+        49,
+        32,
+        "34496f"
+      ],
+      [
+        49,
+        33,
+        "8cb7d7"
+      ],
+      [
+        42,
+        35,
+        "bc7989"
+      ],
+      [
+        43,
+        35,
+        "793b49"
+      ]
+    ]
+  },
+  {
+    "id": "bernice",
+    "variant": "default",
+    "reason": "Keep mature narrow amber eyes under the bangs; distinguish the iris shades and add a two-pixel closed neutral mouth, without altering jaw or facial age.",
+    "referencePaths": [
+      "docs/art-chibi/references/subjects/bernice.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        40,
+        33,
+        "74481f"
+      ],
+      [
+        41,
+        33,
+        "c49b39"
+      ],
+      [
+        48,
+        33,
+        "452b24"
+      ],
+      [
+        49,
+        33,
+        "c6a444"
+      ],
+      [
+        42,
+        37,
+        "8c5d50"
+      ],
+      [
+        43,
+        37,
+        "765047"
+      ]
+    ]
+  },
+  {
+    "id": "camilo",
+    "variant": "default",
+    "reason": "Keep the existing wink and the open teal eye; strengthen only its iris and the small crooked smile. Do not add glasses or open the closed eye.",
+    "referencePaths": [
+      "docs/art-chibi/references/subjects/camilo.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        42,
+        32,
+        "245e76"
+      ],
+      [
+        43,
+        32,
+        "4aa5b4"
+      ],
+      [
+        38,
+        38,
+        "8b4e48"
+      ],
+      [
+        39,
+        38,
+        "b67467"
+      ]
+    ]
+  },
+  {
+    "id": "chiara",
+    "variant": "default",
+    "reason": "Keep one eye hidden by hair; distinguish the visible reddish iris and preserve the existing small reserved lip shape.",
+    "referencePaths": [
+      "docs/art-chibi/references/subjects/chiara.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        36,
+        32,
+        "8e4f75"
+      ],
+      [
+        37,
+        32,
+        "8d2a42"
+      ],
+      [
+        39,
+        37,
+        "7f4b68"
+      ],
+      [
+        40,
+        37,
+        "56203d"
+      ]
+    ]
+  },
+  {
+    "id": "henry",
+    "variant": "default",
+    "reason": "Keep lavender half-lidded eyes and the asymmetric hair coverage; add a tiny gentle closed smile and separate two existing iris pixels.",
+    "referencePaths": [
+      "docs/art-chibi/references/subjects/henry.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        37,
+        34,
+        "915eac"
+      ],
+      [
+        39,
+        34,
+        "40205e"
+      ],
+      [
+        41,
+        38,
+        "9e6272"
+      ],
+      [
+        42,
+        38,
+        "834a5d"
+      ]
+    ]
+  },
+  {
+    "id": "katja",
+    "variant": "default",
+    "reason": "Keep the corrected no-glasses face and pale teal eyes; deepen existing iris shades and separate the existing tiny closed mouth.",
+    "referencePaths": [
+      "docs/art-chibi/references/subjects/katja.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        39,
+        40,
+        "315763"
+      ],
+      [
+        40,
+        40,
+        "2e505c"
+      ],
+      [
+        39,
+        41,
+        "69b5b3"
+      ],
+      [
+        40,
+        41,
+        "77bfb9"
+      ],
+      [
+        47,
+        40,
+        "2b5360"
+      ],
+      [
+        46,
+        41,
+        "527c87"
+      ],
+      [
+        47,
+        41,
+        "253b46"
+      ],
+      [
+        47,
+        42,
+        "7bb3b4"
+      ],
+      [
+        42,
+        44,
+        "ac7377"
+      ],
+      [
+        43,
+        44,
+        "6b3440"
+      ]
+    ]
+  },
+  {
+    "id": "william",
+    "variant": "default",
+    "reason": "Keep narrow cool-gray eyes and warm skin; distinguish the existing iris pixels and preserve the existing three-pixel closed mouth shape.",
+    "referencePaths": [
+      "docs/art-chibi/references/subjects/william.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        33,
+        34,
+        "466262"
+      ],
+      [
+        40,
+        32,
+        "47716f"
+      ],
+      [
+        41,
+        31,
+        "384950"
+      ],
+      [
+        36,
+        37,
+        "7f4b41"
+      ],
+      [
+        37,
+        37,
+        "754438"
+      ],
+      [
+        38,
+        37,
+        "ac7160"
+      ]
+    ]
+  },
+  {
+    "id": "zahir",
+    "variant": "default",
+    "reason": "Keep dark skin and narrow golden eyes; distinguish existing golden iris pixels, and add a tiny composed closed mouth below the nose.",
+    "referencePaths": [
+      "docs/art-chibi/references/subjects/zahir.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        36,
+        37,
+        "91562e"
+      ],
+      [
+        37,
+        37,
+        "e2bc71"
+      ],
+      [
+        43,
+        37,
+        "d9af5b"
+      ],
+      [
+        44,
+        37,
+        "f2e3bc"
+      ],
+      [
+        39,
+        40,
+        "613b3b"
+      ],
+      [
+        40,
+        40,
+        "6e403d"
+      ]
+    ]
+  },
+  {
+    "id": "aiden",
+    "variant": "default",
+    "reason": "Keep sharp crimson eyes and the existing fringe; add only a tiny closed stern lip, below the original nose pixels.",
+    "referencePaths": [
+      "docs/art-chibi/references/subjects/aiden.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        41,
+        38,
+        "9b5b62"
+      ],
+      [
+        42,
+        38,
+        "ac6b72"
+      ]
+    ]
+  },
+  {
+    "id": "cathy",
+    "variant": "default",
+    "reason": "Keep existing blue eyes and warm brown skin; strengthen three existing blue iris pixels and the tiny closed confident lip.",
+    "referencePaths": [
+      "docs/art-chibi/references/subjects/cathy.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        46,
+        32,
+        "4e9bc6"
+      ],
+      [
+        47,
+        31,
+        "306da5"
+      ],
+      [
+        37,
+        33,
+        "2e6399"
+      ],
+      [
+        42,
+        36,
+        "9c4d43"
+      ],
+      [
+        43,
+        36,
+        "632b32"
+      ]
+    ]
+  },
+  {
+    "id": "daniel",
+    "variant": "default",
+    "reason": "Keep the current very narrow mauve eyes and cold expression; add a restrained two-pixel straight closed mouth.",
+    "referencePaths": [
+      "docs/art-chibi/references/subjects/daniel.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        44,
+        36,
+        "a56d75"
+      ],
+      [
+        45,
+        36,
+        "875460"
+      ]
+    ]
+  },
+  {
+    "id": "nathapon",
+    "variant": "default",
+    "reason": "Keep the hair-covered eye and the visible relaxed brown eye; deepen the brown iris and existing small crooked smile.",
+    "referencePaths": [
+      "docs/art-chibi/references/subjects/nathapon.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        38,
+        32,
+        "964829"
+      ],
+      [
+        39,
+        32,
+        "7d412f"
+      ],
+      [
+        41,
+        36,
+        "763c36"
+      ],
+      [
+        42,
+        36,
+        "6c3431"
+      ],
+      [
+        43,
+        36,
+        "754239"
+      ]
+    ]
+  }
+]

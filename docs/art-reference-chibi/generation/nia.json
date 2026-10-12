@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/nia.png",
   "width": 160,
   "height": 160,
-  "sha256": "8213158b05ecff2654cd1fc3c66a9c97d403a0934c413f3a75dc383e20db2813",
+  "sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-78265b20-43dc-44ed-869e-25f0ccaa1159.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-78265b20-43dc-44ed-869e-25f0ccaa1159.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "8213158b05ecff2654cd1fc3c66a9c97d403a0934c413f3a75dc383e20db2813",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

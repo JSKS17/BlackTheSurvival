@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/johann.png",
-  "sha256": "fce3c8564926c3f8e66d21731c6b5b9abc36d006b728546db4d52b8562dbef23",
+  "sha256": "5f6eac1672ba4f90a4a3d5bf21d5d26c57733ec001df5245acd212cdc2325cf3",
   "processedPath": "docs/art-rare-skins/processed/johann.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/johann.png",
   "originalDefaultSpriteSha256": "834a19d15562173c60f3c1af88c12c94fb7a8fd48ff58dcee80506333f60db57",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "fce3c8564926c3f8e66d21731c6b5b9abc36d006b728546db4d52b8562dbef23",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/eva.png",
-  "sha256": "a61293bac779868d66ac1f0c759840123ae4787ba880d7f02930ce356b5a5161",
+  "sha256": "923195c5a116df7678e5cd15883a076e03931b74394ca28509c71a7a432c3588",
   "processedPath": "docs/art-rare-skins/processed/eva.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/eva.png",
   "originalDefaultSpriteSha256": "0dcb3187fb671b7090ac88db3fc09e2eb83921a9ae7854e0bad9ae41b6719adb",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "a61293bac779868d66ac1f0c759840123ae4787ba880d7f02930ce356b5a5161",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

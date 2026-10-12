@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/coraline.png",
   "width": 160,
   "height": 160,
-  "sha256": "406dd1b6f6f7a884634ed42261a815c4f9a9b6a73ce2352e798ff3ee7498fe78",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "d66ef450dd11ff961e17a356d43535de8a72a666fc5ebef19b2b116e9762d02b",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "406dd1b6f6f7a884634ed42261a815c4f9a9b6a73ce2352e798ff3ee7498fe78",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

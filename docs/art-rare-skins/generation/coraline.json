@@ -42,7 +42,7 @@
     1230
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/coraline.png",
-  "sha256": "e3610fc9e0fd246bc71c57f45156b9577f5fd89c9a49780425cebc55af54477e",
+  "sha256": "af41a531f791a5e3e058845a20b6b1fbd1193793498207bbe471a24f7ff97fb6",
   "processedPath": "docs/art-rare-skins/processed/coraline.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/coraline.png",
   "originalDefaultSpriteSha256": "406dd1b6f6f7a884634ed42261a815c4f9a9b6a73ce2352e798ff3ee7498fe78",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "e3610fc9e0fd246bc71c57f45156b9577f5fd89c9a49780425cebc55af54477e",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

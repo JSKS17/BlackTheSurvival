@@ -9,6 +9,106 @@ namespace Lumia
     {
         static readonly string[] Palette = { "91dfbd", "efc979", "dd88ae", "8fbff0", "d6a5f4", "f29475", "80d9e3", "bedb85" };
 
+        // Physical field resources, scoped to their subject. A personal meter or attached
+        // mark with the same key must not become an installation just because it is gained.
+        static readonly HashSet<string> FieldResources = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "nia|blocks", "hyejin|nomad", "emma|dove", "emma|hat", "leon|pool",
+            "martina|camera", "barbara|sentry", "celine|bomb", "celine|fusion", "shoichi|dagger",
+            "sissela|wilson", "adela|pawn", "adela|knight", "adela|rook", "adriana|oil",
+            "jan|ring", "elena|field", "johann|censer", "william|ball", "william|mound",
+            "jenny|carpet", "tazia|shard", "theodore|screen", "priya|flower",
+            "tsubame|wooden_log", "katja|scan", "yumin|wind", "henry|chronograph"
+        };
+
+        // Timed-effect operations also implement spinning attacks, returning projectiles
+        // and personal shield bursts. Only the actual objects, summons and placed zones
+        // below are installations; operation names alone are not sufficient.
+        static readonly HashSet<string> FieldEffects = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "nia|world", "hyejin|charm", "hyejin|orbit", "isol|semtex", "isol|mine", "isol|mine_end",
+            "nadine|trap", "nadine|wolf", "emma|hat", "nathapon|timelapse", "nathapon|last_frame",
+            "rozzi|semtex_fuse", "markus|rift_impact", "barbara|sentry", "bernice|foothold", "bernice|bola",
+            "bianca|blood_pool", "bianca|reign", "bianca|reign_end",
+            "adriana|oil_fire", "adriana|trail", "adriana|cocktail", "alex|emp", "aiden|sparkring",
+            "william|return_ball", "eva|vortex", "zahir|heaven", "jenny|stage", "karla|anchor",
+            "chloe|nina", "chloe|threads", "tazia|barrier", "tazia|paradiso", "arda|cube", "arda|awakened_cube",
+            "alonso|magnetic_field", "alonso|field_release", "leni|spring", "lenore|recital", "lenore|finale",
+            "istvan|alter_one", "istvan|alter_two", "istvan|alter_three",
+            "xuelin|flying_sword", "xuelin|guard_sword", "xuelin|orbiting_sword", "xuelin|falling_sword", "xuelin|sword_field",
+            "henry|time_fracture", "henry|chronograph_field", "henry|chrono_field", "henry|chrono_explosion",
+            "mirka|aftershock_one", "mirka|aftershock_two", "bihyung|divine_light", "bihyung|dokkaebi_ground",
+            "cathy|surgery", "johann|censer", "weapon|smoke", "weapon|caltrops", "weapon|vf_orb"
+        };
+
+        /// <summary>Compact, non-exclusive action classifications used by the card UI.</summary>
+        public static string ClassificationLabel(CardDef card)
+        {
+            var tags = ClassificationTags(card);
+            if (tags.Count > 0) return string.Join(" · ", tags);
+            if (card == null) return "일반";
+            if (card.category == "basic" && (card.id == "basic_attack" || card.key == "ATK")) return "기본 공격";
+            if (card.category == "basic" && (card.id == "basic_guard" || card.key == "DEF")) return "방어";
+            if (card.key == "D") return "무기";
+            if (card.key == "F") return "전술";
+            return "일반";
+        }
+
+        /// <summary>Explains the same classifications used for status and boss checks.</summary>
+        public static string ClassificationRules(CardDef card)
+        {
+            var tags = ClassificationTags(card);
+            var lines = new List<string> { "카드 분류: " + ClassificationLabel(card) };
+            lines.Add("보스 기믹 판정: 이동 기술 " + (card?.movement == true ? "해당" : "해당 없음")
+                + " · 디버프 기술 " + (BossMechanics.IsDebuffSkill(card) ? "해당" : "해당 없음") + ".");
+            if (tags.Contains("이동"))
+                lines.Add("이동: 속박 상태에서는 사용할 수 없습니다. 둔화 또는 끌어당김 상태에서는 코스트가 1 증가하며, 두 상태가 함께 있어도 1만 증가합니다. 보스의 이동 기술 사용·금지 기믹은 카드를 직접 사용할 때 이 분류를 확인합니다.");
+            if (tags.Contains("설치"))
+                lines.Add("설치: 전장에 물체나 지대를 남기거나 소환체를 전개하는 카드입니다. 조건부 설치는 해당 조건을 충족해야 실제 효과를 남깁니다.");
+            if (tags.Contains("디버프"))
+                lines.Add("디버프: 적에게 상태이상이나 지속 피해를 부여할 수 있는 기술입니다. 조건부 효과, 다음 기본 공격에 예약한 효과, 설치물로 나중에 부여하는 효과도 포함합니다. 보스의 디버프 기술 사용·금지 기믹은 카드를 직접 사용하는 시점에 판정하며, 실제 부여 성공 여부와 관계없이 적용됩니다.");
+            if (tags.Count == 0)
+            {
+                switch (ClassificationLabel(card))
+                {
+                    case "기본 공격": lines.Add("기본 공격: 기본 공격 사용에 반응하는 효과와 치명타가 적용됩니다."); break;
+                    case "방어": lines.Add("방어: 방어도를 얻는 기본 카드입니다."); break;
+                    case "무기": lines.Add("무기: 무기군에 따른 D 기술입니다."); break;
+                    case "전술": lines.Add("전술: F 전술 기술입니다."); break;
+                    default: lines.Add("일반: 이동·설치·디버프 분류가 붙지 않는 카드입니다."); break;
+                }
+            }
+            return string.Join("\n", lines);
+        }
+
+        static List<string> ClassificationTags(CardDef card)
+        {
+            var tags = new List<string>();
+            if (card == null) return tags;
+            // These are the canonical gameplay predicates, not evasion or text heuristics.
+            if (card.movement) tags.Add("이동");
+            if (IsInstallation(card)) tags.Add("설치");
+            if (BossMechanics.IsDebuffSkill(card)) tags.Add("디버프");
+            return tags;
+        }
+
+        static bool IsInstallation(CardDef card)
+        {
+            string id = card.id ?? "";
+            int divider = id.LastIndexOf('_');
+            if (divider < 1) return false;
+            string source = id.Substring(0, divider);
+            foreach (var rule in card.mechanics?.rules ?? new SkillRule[0])
+            {
+                if (rule == null || rule.amount <= 0 || string.IsNullOrEmpty(rule.key)) continue;
+                string identity = source + "|" + rule.key;
+                if ((rule.op == "gain" || rule.op == "set" || rule.op == "state_on") && FieldResources.Contains(identity)) return true;
+                if ((rule.op == "delayed_damage" || rule.op == "summon" || rule.op == "counter" || rule.op == "burn" || rule.op == "hot")
+                    && FieldEffects.Contains(identity)) return true;
+            }
+            return false;
+        }
+
         public static int Cost(float seconds)
         {
             return seconds <= 3 ? 0 : seconds <= 7 ? 1 : seconds <= 12 ? 2 : seconds <= 20 ? 3 : seconds <= 35 ? 4 : seconds <= 60 ? 5 : seconds <= 100 ? 6 : 7;

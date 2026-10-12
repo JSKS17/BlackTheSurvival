@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/sua.png",
-  "sha256": "a93226ad666fcdf41b4f19e82499d5c9ba7fc2f0b6900ed9bf73cb2c1183e9c7",
+  "sha256": "6721f18c9d14a104c19a54cac7aefe498ec37c06dd2b12d832eac620195ff610",
   "processedPath": "docs/art-rare-skins/processed/sua.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/sua.png",
   "originalDefaultSpriteSha256": "92b0f4ddb21df752cb36c77d1cb1852891a2f03de2203eb21b49504a311ebe43",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "a93226ad666fcdf41b4f19e82499d5c9ba7fc2f0b6900ed9bf73cb2c1183e9c7",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

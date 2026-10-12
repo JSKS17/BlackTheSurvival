@@ -16,6 +16,7 @@ public static class DescriptionAudit
         Check(!string.IsNullOrWhiteSpace(text), id+": text is present");
         Check(!Regex.IsMatch(text, @"\d+\s*개(?:로|마다|이면| 이상| 쌓|\))"), id+": resources are numerical values");
         Check(!text.Contains("이면 적중하면") && !text.Contains("이면 사용하면"), id+": nested conditions read as one clause");
+        Check(!Regex.IsMatch(text, @"(?:이면|라면|다면|하면|있으면|없으면)\s*:"), id+": conditions use a readable comma clause instead of a colon");
         Check(!Regex.IsMatch(text,@"상태\s*(?:를|을|가|이)\s*\d|상태\s*×"),id+": semantic states are never described as numeric stacks");
         var lines=text.Split('\n').Where(x=>!string.IsNullOrWhiteSpace(x)).ToArray();
         Check(lines.Length==lines.Distinct().Count(), id+": no exact repeated lines");
@@ -91,6 +92,10 @@ public static class DescriptionAudit
     }
     static void GroupedEffectCases()
     {
+        Check(DescriptionSummary.ConditionPrefix("표식이 3 이상이면") == "표식이 3 이상일 때, ", "Numeric condition uses the requested connective");
+        Check(DescriptionSummary.ConditionPrefix("공격이 적중하면") == "공격이 적중했을 때, ", "Hit condition keeps its precise timing");
+        Check(DescriptionSummary.ConditionPrefix("고양이 상태가 아니면") == "고양이 상태가 아닐 때, ", "Negative state condition retains its meaning");
+        Check(DescriptionSummary.Normalize("준비가 있고 폭탄이 2 이하이면: 추가 피해를 줍니다.") == "준비가 있고 폭탄이 2 이하일 때, 추가 피해를 줍니다.", "Authored cross-subject prose uses the same condition connective");
         var structural=DescriptionSummary.GroupEffects(new[] {
             new ConditionEffect {key="cast|hit",condition="공격이 적중하면",effect="체력을 3만큼 회복합니다"},
             new ConditionEffect {key="cast|hit",condition="공격이 적중하면",effect="사용 가능한 코스트를 1 회복합니다"},
@@ -98,7 +103,7 @@ public static class DescriptionAudit
         });
         Check(structural.Count==2,"Structural grouping: identical printed conditions with different activation phases stay separate");
         string structuralCast=SharedLine(string.Join("\n",structural),"Structural grouping","체력","코스트");
-        Check(!structuralCast.Contains("실명")&&Occurrences(structuralCast,"공격이 적중하면")==1,"Structural grouping: key, not the first condition phrase, determines shared activation");
+        Check(!structuralCast.Contains("실명")&&Occurrences(structuralCast,"공격이 적중했을 때,")==1,"Structural grouping: key, not the first condition phrase, determines shared activation");
         OneSentence(structuralCast,"Structural grouping");
         // These fixtures use distinct effect names/values, so merging only the first
         // textual '이면' would lose a condition or incorrectly join two activations.

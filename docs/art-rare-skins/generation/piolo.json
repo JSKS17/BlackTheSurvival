@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/piolo.png",
-  "sha256": "c6fa6a6854806527c599dd8a6de887c3a5c2282e32ac4c5ad57c97d1306d1708",
+  "sha256": "03adcd8d58dd654fe418e72d493ce93b6ef45939146d08c2f2d9585268c6d4ca",
   "processedPath": "docs/art-rare-skins/processed/piolo.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/piolo.png",
   "originalDefaultSpriteSha256": "84316ba01710c82bee0e88954b73b76da63f423d2ebd6b0083354ae1256c5e38",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "c6fa6a6854806527c599dd8a6de887c3a5c2282e32ac4c5ad57c97d1306d1708",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

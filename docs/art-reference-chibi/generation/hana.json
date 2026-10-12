@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/hana.png",
   "width": 160,
   "height": 160,
-  "sha256": "7cd4aa95967cf25dedf562f2365cf18285e8ec4ba233f80d8baa12fd1b2f3951",
+  "sha256": "b481c31267ae4f86616c471eb18328d13f4d79c1d2ee18e40a7b787ebca88268",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-d9c1a6ca-1b43-494c-9f29-19573b25a20d.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-d9c1a6ca-1b43-494c-9f29-19573b25a20d.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "7cd4aa95967cf25dedf562f2365cf18285e8ec4ba233f80d8baa12fd1b2f3951",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

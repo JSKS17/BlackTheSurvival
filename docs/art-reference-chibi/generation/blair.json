@@ -33,7 +33,7 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/blair.png",
   "width": 160,
   "height": 160,
-  "sha256": "1b651a92a8588c40a0d2870f7a051cbe52c0ff3a77eace6492a0ffa68bc4a5ca",
+  "sha256": "654f69239eaae6797257ecf319869045de39dde3817a9df5ea3268140a3228a7",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
   "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-3ec82599-2a0f-4651-a19b-f22a650c3ab2.png",
   "inputReferences": [
@@ -60,5 +60,14 @@
       "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
     }
   ],
-  "correction": "Restore Blair's official default black full-length skinny trousers and black ankle boots, with the original crop top, draped fur-collar jacket, belts and silver chains. Both thighs and knees must be covered by trousers."
+  "correction": "Restore Blair's official default black full-length skinny trousers and black ankle boots, with the original crop top, draped fur-collar jacket, belts and silver chains. Both thighs and knees must be covered by trousers.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "1b651a92a8588c40a0d2870f7a051cbe52c0ff3a77eace6492a0ffa68bc4a5ca",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -1,0 +1,26 @@
+﻿[
+    {
+        "file":  "BlackTheSurvival.exe",
+        "source":  "5BFB02293C482170C4D5035081245E45D69FE0F617FCC92A81E98ADEE13B945F",
+        "installed":  "5BFB02293C482170C4D5035081245E45D69FE0F617FCC92A81E98ADEE13B945F",
+        "match":  true
+    },
+    {
+        "file":  "UnityPlayer.dll",
+        "source":  "A2022611884470DDAB23927A3EB7BBAEF3924C18972D30BA7B5330A8FD25BCC4",
+        "installed":  "A2022611884470DDAB23927A3EB7BBAEF3924C18972D30BA7B5330A8FD25BCC4",
+        "match":  true
+    },
+    {
+        "file":  "BlackTheSurvival_Data/Managed/Assembly-CSharp.dll",
+        "source":  "7AAC576EF0B97EE982B89A31F811DBAB6D6A6693BDBA912A0CF021B6EA23E023",
+        "installed":  "7AAC576EF0B97EE982B89A31F811DBAB6D6A6693BDBA912A0CF021B6EA23E023",
+        "match":  true
+    },
+    {
+        "file":  "BlackTheSurvival_Data/resources.assets",
+        "source":  "363E6F6CE0280F837E28DFE9A065E258512EFB4155CC957F181E77DFC9886E7C",
+        "installed":  "363E6F6CE0280F837E28DFE9A065E258512EFB4155CC957F181E77DFC9886E7C",
+        "match":  true
+    }
+]

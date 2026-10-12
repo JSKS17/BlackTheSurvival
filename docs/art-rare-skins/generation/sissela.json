@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/sissela.png",
-  "sha256": "3c21d763705cff8f3fac0478361a521153746996daf54302ab5b763b4fcc4ecb",
+  "sha256": "f33096b34f10adf5d9cc21cb17ebf0dc66e90341c5f31c3fd863a2e3ee59d4c3",
   "processedPath": "docs/art-rare-skins/processed/sissela.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/sissela.png",
   "originalDefaultSpriteSha256": "05cd5dd96721f3374c9b5ff50934965a0cfdd6f260823c59e164772385be153a",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "3c21d763705cff8f3fac0478361a521153746996daf54302ab5b763b4fcc4ecb",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

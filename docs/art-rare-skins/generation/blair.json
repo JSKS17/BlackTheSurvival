@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/blair.png",
-  "sha256": "788452b60b2a8587b415af649fb2bdc2e605c0e4ee680620a5e5957c68aa986d",
+  "sha256": "2494c9ff7fc1077e45fe95e4bb12dce14597b16120fc03346bb93cdb35b9ddeb",
   "processedPath": "docs/art-rare-skins/processed/blair.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/blair.png",
   "originalDefaultSpriteSha256": "1b651a92a8588c40a0d2870f7a051cbe52c0ff3a77eace6492a0ffa68bc4a5ca",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "788452b60b2a8587b415af649fb2bdc2e605c0e4ee680620a5e5957c68aa986d",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

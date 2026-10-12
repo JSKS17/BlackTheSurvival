@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/johann.png",
   "width": 160,
   "height": 160,
-  "sha256": "834a19d15562173c60f3c1af88c12c94fb7a8fd48ff58dcee80506333f60db57",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "77f63cbe15501e06ab8c0b57a96d67fb45adef0e71b7bdd71bba08f2040362e9",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "834a19d15562173c60f3c1af88c12c94fb7a8fd48ff58dcee80506333f60db57",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

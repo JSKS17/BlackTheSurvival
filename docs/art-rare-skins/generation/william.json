@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/william.png",
-  "sha256": "cc8b63621945c30be4bc773d9bf8ec7f5db8804d3f93ee071bcc90441c62a752",
+  "sha256": "add8fe54b8ad46529c243e2bc273e14b604f03fe43a8a2a44839208a6cb0bc7f",
   "processedPath": "docs/art-rare-skins/processed/william.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/william.png",
   "originalDefaultSpriteSha256": "8100a99d0a941ef46865940c3397777ae0a3939ae9aee2be52f4d7eb5ac2fcd2",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "cc8b63621945c30be4bc773d9bf8ec7f5db8804d3f93ee071bcc90441c62a752",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

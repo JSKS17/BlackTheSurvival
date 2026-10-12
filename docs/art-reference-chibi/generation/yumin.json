@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/yumin.png",
   "width": 160,
   "height": 160,
-  "sha256": "edf2204af02ac2a9b772006ae6fbee39d602e8369250b267aefce42cd2f6d9fd",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "f78afe1b6eb0e11c837b7f3ec34a372fe552a4baaae430d8f4aa921da6c2cbf6",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "edf2204af02ac2a9b772006ae6fbee39d602e8369250b267aefce42cd2f6d9fd",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

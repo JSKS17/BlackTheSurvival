@@ -196,6 +196,9 @@ namespace Lumia
                 throw new InvalidOperationException("Mode native fixture must defeat an entered boss with an actual card and commit its rewards.");
             if (state.stage == RunStage.AugmentChoice && finishAugment && !Engine.SkipAugment())
                 throw new InvalidOperationException("A legacy mode fixture must explicitly skip its new Endless augment choice.");
+            if(state.stage==RunStage.EquipmentSlotChoice && finishAugment
+                && (!ToggleEquipmentSlotChoice(GearSlot.Weapon)||!FinishEquipmentSlotChoice()))
+                throw new InvalidOperationException("An Endless mode fixture must explicitly confirm its equipment expansion before the next cycle.");
             var expected = act == 3 ? state.mode != RunMode.Endless ? RunStage.Won : finishAugment ? RunStage.Map : RunStage.AugmentChoice : RunStage.Map;
             if (state.stage != expected)
                 throw new InvalidOperationException("The third boss must escape in finite modes and offer an augment before the next Endless cycle.");
@@ -247,10 +250,10 @@ namespace Lumia
             if (!SelectMode(RunMode.Endless) || !ConfirmModeSelection() || Engine.State.mode != RunMode.Endless) throw new InvalidOperationException("Unlocked Endless must start through mode confirmation.");
             Engine = ModesFixtureRun(80103, RunMode.Endless); lobby = false;
             for (int act = 1; act <= 3; act++) CompleteModesBoss(act, 1);
-            if (Engine.State.endlessCycle != 1 || Engine.State.act != 1 || Engine.State.stage != RunStage.Map || Engine.State.archivedMapNodes.Count == 0)
+            if (Engine.State.endlessCycle != 1 || Engine.State.act != 1 || Engine.State.stage != RunStage.Map || Engine.State.archivedMapNodes.Count == 0 || Engine.EquipmentCapacity(GearSlot.Weapon)!=3)
                 throw new InvalidOperationException("Endless must retain the previous cycle and generate its next three acts.");
             Save(); string endless = File.ReadAllText(savePath); Load();
-            if (Engine.State.mode != RunMode.Endless || Engine.State.endlessCycle != 1 || Engine.State.archivedMapNodes.Count == 0)
+            if (Engine.State.mode != RunMode.Endless || Engine.State.endlessCycle != 1 || Engine.State.archivedMapNodes.Count == 0 || Engine.EquipmentCapacity(GearSlot.Weapon)!=3)
                 throw new InvalidOperationException("Unity run file reload must preserve mode, cycle and archived visits.");
             OpenRunMenu(); endlessConfirm = true; runMenu = false;
             endlessConfirm = false;

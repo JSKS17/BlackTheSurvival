@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/aiden.png",
-  "sha256": "0ea3fa8dcd9b328c637c93fe651a677071a4d1d917b672c9d9f754c06dcaabc4",
+  "sha256": "df12c223063819b75b8758ab93ffd7d25be6ef06eff9c86742adbe4d032504b1",
   "processedPath": "docs/art-rare-skins/processed/aiden.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/aiden.png",
   "originalDefaultSpriteSha256": "70bc1e4043aa73fd74c5d92eb5da8af2ec18a84b26e149b22b02279be17b4a9b",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "0ea3fa8dcd9b328c637c93fe651a677071a4d1d917b672c9d9f754c06dcaabc4",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

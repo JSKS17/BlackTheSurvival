@@ -50,11 +50,11 @@ namespace Lumia
                 "턴 종료 시 남은 코스트가 {2} 이상이면 방어를 {0} 얻습니다.", threshold: 2),
             Def("aug_s_victory_heal", "간이 수복", AugmentTier.Silver, "victory_heal", 4,
                 "전투에서 승리할 때마다 체력을 {0} 회복합니다."),
-            Def("aug_s_credits", "실버 보급금", AugmentTier.Silver, "support_credits", 200,
+            Def("aug_s_credits", "보통 보급금", AugmentTier.Silver, "support_credits", 200,
                 "즉시 크레딧을 {0} 얻습니다. 이 지원은 반복해서 선택할 수 있습니다.", support: true),
-            Def("aug_s_heal", "실버 응급 수복", AugmentTier.Silver, "support_heal", 60,
+            Def("aug_s_heal", "보통 응급 수복", AugmentTier.Silver, "support_heal", 60,
                 "즉시 최대 체력의 {0}%만큼 체력을 회복합니다. 이 지원은 반복해서 선택할 수 있습니다.", support: true),
-            Def("aug_s_health", "실버 생체 확장", AugmentTier.Silver, "support_max_health", 8,
+            Def("aug_s_health", "보통 생체 확장", AugmentTier.Silver, "support_max_health", 8,
                 "최대 체력이 {0} 증가하고 체력을 {0} 회복합니다. 이 지원은 반복해서 선택할 수 있습니다.", support: true),
 
             Def("aug_g_qwe_energy", "기초 연계 회로", AugmentTier.Gold, "qwe_energy", 1,
@@ -69,11 +69,11 @@ namespace Lumia
                 "이번 턴에 D 카드를 사용했다면, 그 뒤의 첫 유료 기본 공격에 피해를 {0} 추가합니다."),
             Def("aug_g_small_deck", "압축 덱", AugmentTier.Gold, "small_deck_draw", 1,
                 "턴 시작 시 덱이 {2}장 이하면 카드를 {0}장 더 뽑습니다. 장비가 제공한 카드도 덱에 포함됩니다.", threshold: 18),
-            Def("aug_g_credits", "골드 보급금", AugmentTier.Gold, "support_credits", 350,
+            Def("aug_g_credits", "희귀 보급금", AugmentTier.Gold, "support_credits", 350,
                 "즉시 크레딧을 {0} 얻습니다. 이 지원은 반복해서 선택할 수 있습니다.", support: true),
-            Def("aug_g_heal", "골드 응급 수복", AugmentTier.Gold, "support_heal", 80,
+            Def("aug_g_heal", "희귀 응급 수복", AugmentTier.Gold, "support_heal", 80,
                 "즉시 최대 체력의 {0}%만큼 체력을 회복합니다. 이 지원은 반복해서 선택할 수 있습니다.", support: true),
-            Def("aug_g_health", "골드 생체 확장", AugmentTier.Gold, "support_max_health", 14,
+            Def("aug_g_health", "희귀 생체 확장", AugmentTier.Gold, "support_max_health", 14,
                 "최대 체력이 {0} 증가하고 체력을 {0} 회복합니다. 이 지원은 반복해서 선택할 수 있습니다.", support: true),
 
             Def("aug_p_heavy_refund", "초고출력 환류", AugmentTier.Prismatic, "heavy_refund", 2,
@@ -88,11 +88,11 @@ namespace Lumia
                 "유료 카드로 남은 코스트를 전부 사용하면 방어를 {0} 얻습니다. 턴당 한 번 발동합니다."),
             Def("aug_p_boss_energy", "보스 전용 전원", AugmentTier.Prismatic, "boss_opening_energy", 1,
                 "보스전의 첫 턴에만 사용할 수 있는 코스트를 {0} 추가로 얻습니다. 최대 코스트는 바뀌지 않습니다."),
-            Def("aug_p_credits", "프리즘 보급금", AugmentTier.Prismatic, "support_credits", 550,
+            Def("aug_p_credits", "전설 보급금", AugmentTier.Prismatic, "support_credits", 550,
                 "즉시 크레딧을 {0} 얻습니다. 이 지원은 반복해서 선택할 수 있습니다.", support: true),
-            Def("aug_p_heal", "프리즘 응급 수복", AugmentTier.Prismatic, "support_heal", 100,
+            Def("aug_p_heal", "전설 응급 수복", AugmentTier.Prismatic, "support_heal", 100,
                 "즉시 체력을 모두 회복합니다. 이 지원은 반복해서 선택할 수 있습니다.", support: true),
-            Def("aug_p_health", "프리즘 생체 확장", AugmentTier.Prismatic, "support_max_health", 22,
+            Def("aug_p_health", "전설 생체 확장", AugmentTier.Prismatic, "support_max_health", 22,
                 "최대 체력이 {0} 증가하고 체력을 {0} 회복합니다. 이 지원은 반복해서 선택할 수 있습니다.", support: true)
         });
 
@@ -103,9 +103,9 @@ namespace Lumia
         {
             switch (tier)
             {
-                case AugmentTier.Gold: return "골드";
-                case AugmentTier.Prismatic: return "프리즘";
-                default: return "실버";
+                case AugmentTier.Gold: return "희귀";
+                case AugmentTier.Prismatic: return "전설";
+                default: return "보통";
             }
         }
 

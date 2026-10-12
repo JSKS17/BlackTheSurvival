@@ -1,0 +1,646 @@
+[
+  {
+    "id": "nia",
+    "variant": "rare",
+    "reason": "졸린 보라색 눈의 기존 동공만 보완합니다. 입을 가린 분홍 풍선껌은 유지하고 접촉 가장자리의 분홍 대비만 살립니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/nia.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "baselineSha256": "cbc3a6c7c0e71e58808a9bd2f57e672ba55883b79d9bbbbfb3822194ca894275",
+    "pixels": [
+      [
+        35,
+        36,
+        "57344d"
+      ],
+      [
+        42,
+        34,
+        "6c426d"
+      ],
+      [
+        43,
+        34,
+        "4c304b"
+      ],
+      [
+        40,
+        39,
+        "c75a82"
+      ]
+    ],
+    "beforePixels": [
+      [
+        35,
+        36,
+        "311b28"
+      ],
+      [
+        42,
+        34,
+        "17080e"
+      ],
+      [
+        43,
+        34,
+        "653052"
+      ],
+      [
+        40,
+        39,
+        "fb80a8"
+      ]
+    ]
+  },
+  {
+    "id": "nadine",
+    "variant": "rare",
+    "reason": "짙은 피부·머리·모자와 갈색 눈이 뭉칩니다. 모자 그림자를 유지한 채 눈 윗선과 작은 입을 구분합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/nadine.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "baselineSha256": "a2ddbacd321039f432cefd5e63fdb460b36d62973872cdcef0a839629aa7f923",
+    "pixels": [
+      [
+        41,
+        34,
+        "37272b"
+      ],
+      [
+        44,
+        35,
+        "d3aa4c"
+      ],
+      [
+        49,
+        34,
+        "956a3a"
+      ],
+      [
+        46,
+        38,
+        "714538"
+      ],
+      [
+        47,
+        38,
+        "714538"
+      ]
+    ],
+    "beforePixels": [
+      [
+        41,
+        34,
+        "dea18e"
+      ],
+      [
+        44,
+        35,
+        "fbd051"
+      ],
+      [
+        49,
+        34,
+        "e7d8de"
+      ],
+      [
+        46,
+        38,
+        "e0aa96"
+      ],
+      [
+        47,
+        38,
+        "e0a995"
+      ]
+    ]
+  },
+  {
+    "id": "nathapon",
+    "variant": "rare",
+    "reason": "앞머리가 가린 눈은 유지합니다. 드러난 갈색 눈과 편안한 작은 입의 경계가 거의 사라집니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/nathapon.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "baselineSha256": "4bf81d50ca6feacc49d88bceb6e2597c9e57801cb98bb788b8caf79d9da50107",
+    "pixels": [
+      [
+        39,
+        33,
+        "a46228"
+      ],
+      [
+        40,
+        33,
+        "97602d"
+      ],
+      [
+        39,
+        32,
+        "35282c"
+      ],
+      [
+        42,
+        37,
+        "87565b"
+      ],
+      [
+        43,
+        37,
+        "87565b"
+      ]
+    ],
+    "beforePixels": [
+      [
+        39,
+        33,
+        "db7932"
+      ],
+      [
+        40,
+        33,
+        "bb6838"
+      ],
+      [
+        39,
+        32,
+        "1f0e10"
+      ],
+      [
+        42,
+        37,
+        "faddd0"
+      ],
+      [
+        43,
+        37,
+        "e3b4a7"
+      ]
+    ]
+  },
+  {
+    "id": "leon",
+    "variant": "rare",
+    "reason": "제복 모자 아래 청록 눈은 옅고 닫힌 입이 거의 없습니다. 낮은 눈매를 유지해 보완합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/leon.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "baselineSha256": "0a8ea9327073f0700d6745759e3ec052835a7cb81aa5f74fa902de6d6d33d37a",
+    "pixels": [
+      [
+        37,
+        36,
+        "15b9cd"
+      ],
+      [
+        47,
+        37,
+        "48c7d4"
+      ],
+      [
+        37,
+        35,
+        "244858"
+      ],
+      [
+        42,
+        40,
+        "9a6362"
+      ],
+      [
+        43,
+        40,
+        "9a6362"
+      ]
+    ],
+    "beforePixels": [
+      [
+        37,
+        36,
+        "25f4f8"
+      ],
+      [
+        47,
+        37,
+        "f5fafa"
+      ],
+      [
+        37,
+        35,
+        "1961a0"
+      ],
+      [
+        42,
+        40,
+        "fddabf"
+      ],
+      [
+        43,
+        40,
+        "fcd9bd"
+      ]
+    ]
+  },
+  {
+    "id": "barbara",
+    "variant": "rare",
+    "reason": "녹색 눈과 사각 안경 테가 섞여 보입니다. 안경을 두껍게 만들지 않고 눈·테·입을 구분합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/barbara.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "baselineSha256": "c7c810371e083a3adc4e2c7bcf38256698c6c6fd1a8719b291ff96a63e2dd50e",
+    "pixels": [
+      [
+        37,
+        33,
+        "86a74b"
+      ],
+      [
+        45,
+        34,
+        "76954a"
+      ],
+      [
+        37,
+        32,
+        "29362a"
+      ],
+      [
+        45,
+        33,
+        "283a2d"
+      ],
+      [
+        41,
+        37,
+        "a25d67"
+      ]
+    ],
+    "beforePixels": [
+      [
+        37,
+        33,
+        "a8c467"
+      ],
+      [
+        45,
+        34,
+        "96b85a"
+      ],
+      [
+        37,
+        32,
+        "373c3a"
+      ],
+      [
+        45,
+        33,
+        "30472a"
+      ],
+      [
+        41,
+        37,
+        "d88a84"
+      ]
+    ]
+  },
+  {
+    "id": "sissela",
+    "variant": "rare",
+    "reason": "창백한 머리·피부·하늘색 눈이 섞입니다. 앞머리가 덮은 눈은 유지하고 보이는 지친 눈과 입의 대비를 높입니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/sissela.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "baselineSha256": "3c21d763705cff8f3fac0478361a521153746996daf54302ab5b763b4fcc4ecb",
+    "pixels": [
+      [
+        38,
+        35,
+        "294981"
+      ],
+      [
+        39,
+        36,
+        "6da5c7"
+      ],
+      [
+        45,
+        37,
+        "87613f"
+      ],
+      [
+        41,
+        39,
+        "b85d72"
+      ],
+      [
+        42,
+        39,
+        "9f5065"
+      ]
+    ],
+    "beforePixels": [
+      [
+        38,
+        35,
+        "324681"
+      ],
+      [
+        39,
+        36,
+        "90cbf4"
+      ],
+      [
+        45,
+        37,
+        "d2ab71"
+      ],
+      [
+        41,
+        39,
+        "dc7b81"
+      ],
+      [
+        42,
+        39,
+        "bf5f6d"
+      ]
+    ]
+  },
+  {
+    "id": "isaac",
+    "variant": "rare",
+    "reason": "회색 눈·콧수염·작은 입이 옅은 얼굴과 섞입니다. 성숙한 얼굴의 수염과 좁은 눈을 국소 보완합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/isaac.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "baselineSha256": "7ff9fea349d4a0b6e319ce5fd85091b0bd5d6ea235afd9fab35ed0401e90aa5a",
+    "pixels": [
+      [
+        35,
+        35,
+        "544f64"
+      ],
+      [
+        40,
+        34,
+        "5b536b"
+      ],
+      [
+        41,
+        40,
+        "72576a"
+      ],
+      [
+        42,
+        40,
+        "72576a"
+      ]
+    ],
+    "beforePixels": [
+      [
+        35,
+        35,
+        "2c1d20"
+      ],
+      [
+        40,
+        34,
+        "b87b81"
+      ],
+      [
+        41,
+        40,
+        "fbdcc8"
+      ],
+      [
+        42,
+        40,
+        "fbddcc"
+      ]
+    ]
+  },
+  {
+    "id": "alex",
+    "variant": "rare",
+    "reason": "검은 앞머리 아래 드러난 눈과 닫힌 입이 거의 보이지 않습니다. 앞머리와 이마 가면을 보존해 좁은 눈만 보완합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/alex.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "baselineSha256": "327736a55b7336fdcd86e23fa6817fae04aa60e6afc3e6dac70c9301b6b4b5f9",
+    "pixels": [
+      [
+        40,
+        38,
+        "566273"
+      ],
+      [
+        38,
+        41,
+        "895b62"
+      ]
+    ],
+    "beforePixels": [
+      [
+        40,
+        38,
+        "6e7687"
+      ],
+      [
+        38,
+        41,
+        "c19589"
+      ]
+    ]
+  },
+  {
+    "id": "zahir",
+    "variant": "rare",
+    "reason": "짙은 피부와 갈색 눈·입이 거의 동일한 색입니다. 금색 눈과 잘난 듯한 작은 미소를 최소 픽셀로 분리합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/zahir.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "baselineSha256": "e1e8984500740e97e98dfbb2a04c24a484a47dc39935011bbebbece3422862b4",
+    "pixels": [
+      [
+        35,
+        32,
+        "38282c"
+      ],
+      [
+        36,
+        33,
+        "e2ba65"
+      ],
+      [
+        43,
+        30,
+        "38282c"
+      ],
+      [
+        43,
+        31,
+        "e5bd60"
+      ],
+      [
+        41,
+        35,
+        "6e3d38"
+      ],
+      [
+        42,
+        35,
+        "6e3d38"
+      ]
+    ],
+    "beforePixels": [
+      [
+        35,
+        32,
+        "c08966"
+      ],
+      [
+        36,
+        33,
+        "b4766e"
+      ],
+      [
+        43,
+        30,
+        "f1c868"
+      ],
+      [
+        43,
+        31,
+        "752428"
+      ],
+      [
+        41,
+        35,
+        "b77364"
+      ],
+      [
+        42,
+        35,
+        "b67364"
+      ]
+    ]
+  },
+  {
+    "id": "abigail",
+    "variant": "rare",
+    "reason": "검은 머리 아래 녹색 눈과 아주 작은 입이 옅습니다. 조용한 표정과 이마 선글라스를 유지해 보완합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/abigail.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "baselineSha256": "8f50574be4d69185cf797bbf9a02f2bc1acf6c5893bd635f76b3e44ff4204df1",
+    "pixels": [
+      [
+        34,
+        35,
+        "332633"
+      ],
+      [
+        35,
+        36,
+        "96b867"
+      ],
+      [
+        42,
+        34,
+        "332633"
+      ],
+      [
+        43,
+        35,
+        "83a757"
+      ],
+      [
+        40,
+        38,
+        "9b646a"
+      ]
+    ],
+    "beforePixels": [
+      [
+        34,
+        35,
+        "35454a"
+      ],
+      [
+        35,
+        36,
+        "d3e7ac"
+      ],
+      [
+        42,
+        34,
+        "91b998"
+      ],
+      [
+        43,
+        35,
+        "fdd8d1"
+      ],
+      [
+        40,
+        38,
+        "fdebe6"
+      ]
+    ]
+  },
+  {
+    "id": "yumin",
+    "variant": "rare",
+    "reason": "검은 머리와 좁은 어두운 눈이 섞이고 입은 거의 없습니다. 자신감 있는 작은 닫힌 미소를 보완합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/yumin.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "baselineSha256": "79a19ec103254522e4f20dfe3e3c198336e150ad2009e9fed28ab2dcec9ee1c1",
+    "pixels": [
+      [
+        42,
+        34,
+        "674f45"
+      ],
+      [
+        49,
+        37,
+        "726653"
+      ],
+      [
+        44,
+        39,
+        "82505a"
+      ]
+    ],
+    "beforePixels": [
+      [
+        42,
+        34,
+        "b8b3bc"
+      ],
+      [
+        49,
+        37,
+        "150a15"
+      ],
+      [
+        44,
+        39,
+        "9e6365"
+      ]
+    ]
+  }
+]

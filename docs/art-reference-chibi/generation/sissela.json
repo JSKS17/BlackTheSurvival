@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/sissela.png",
   "width": 160,
   "height": 160,
-  "sha256": "05cd5dd96721f3374c9b5ff50934965a0cfdd6f260823c59e164772385be153a",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "1716ed761b698a3958c2e4642fc03396e9904a317f76208e72210d91dec8b5cf",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "05cd5dd96721f3374c9b5ff50934965a0cfdd6f260823c59e164772385be153a",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

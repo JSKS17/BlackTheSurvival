@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/abigail.png",
   "width": 160,
   "height": 160,
-  "sha256": "89c55545fbca5d2e7c748c4c05b2518b47a4be2cffb85256269a25ec37373f63",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "83495f173e2f3bd513fa4739f3e268c3913871d1e8a1d3e29a314232b8a5f9d6",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "89c55545fbca5d2e7c748c4c05b2518b47a4be2cffb85256269a25ec37373f63",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

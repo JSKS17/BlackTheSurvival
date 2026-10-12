@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/lenore.png",
   "width": 160,
   "height": 160,
-  "sha256": "c743d164bf778cbf51d13b8a0dfba5d663657aed6cf91d733b460287a8390431",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "8931c24788d232f197a6ad235c8f146dbe116ad58f2b35372603d8670f4fd299",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "c743d164bf778cbf51d13b8a0dfba5d663657aed6cf91d733b460287a8390431",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

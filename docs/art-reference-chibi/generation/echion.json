@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/echion.png",
   "width": 160,
   "height": 160,
-  "sha256": "75a6bdc18975b7dd467a69937dfe0e6c2c0180fdcf8ebd1de73c4e1b166d77e6",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "e393b17bece5a7bba9ab3d76069e8b3af185bdfd700eaa532b898e9b211a898f",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "75a6bdc18975b7dd467a69937dfe0e6c2c0180fdcf8ebd1de73c4e1b166d77e6",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

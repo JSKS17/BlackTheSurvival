@@ -1,0 +1,921 @@
+[
+  {
+    "id": "jackie",
+    "variant": "rare",
+    "reason": "42~43,39의 흰 치아를 보존하고 비대칭 웃음의 두 입꼬리만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/jackie.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        44,
+        38,
+        "542a38"
+      ],
+      [
+        40,
+        39,
+        "442230"
+      ]
+    ]
+  },
+  {
+    "id": "hyunwoo",
+    "variant": "rare",
+    "reason": "44~46,43의 흰 치아를 보존하고 기존 입 양쪽 모서리만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/hyunwoo.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        43,
+        43,
+        "722e35"
+      ],
+      [
+        47,
+        43,
+        "955663"
+      ]
+    ]
+  },
+  {
+    "id": "yuki",
+    "variant": "rare",
+    "reason": "파란 눈과 가려진 반대 눈을 유지하고 낮은 대비의 닫힌 입을 보완합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/yuki.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        44,
+        37,
+        "965f52"
+      ]
+    ]
+  },
+  {
+    "id": "hyejin",
+    "variant": "rare",
+    "reason": "한쪽 눈 윙크는 읽히며 작은 입만 약합니다. 양눈을 뜨게 바꾸지 않습니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/hyejin.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        44,
+        38,
+        "96534c"
+      ]
+    ]
+  },
+  {
+    "id": "sua",
+    "variant": "rare",
+    "reason": "녹색 눈은 보이나 따뜻한 작은 미소가 피부색에 묻힙니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/sua.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        45,
+        37,
+        "b54c50"
+      ],
+      [
+        46,
+        37,
+        "de7a72"
+      ]
+    ]
+  },
+  {
+    "id": "isol",
+    "variant": "rare",
+    "reason": "앞머리 아래 좁은 눈의 갈색 대비와 무표정한 작은 입을 보완합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/isol.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        46,
+        36,
+        "8c4c45"
+      ]
+    ]
+  },
+  {
+    "id": "emma",
+    "variant": "rare",
+    "reason": "열린 입의 밝은 내부를 보존하고 기존 오른쪽 입술의 위·아래 픽셀만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/emma.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        45,
+        40,
+        "6f2539"
+      ],
+      [
+        45,
+        41,
+        "af4c62"
+      ]
+    ]
+  },
+  {
+    "id": "charlotte",
+    "variant": "rare",
+    "reason": "46,38의 밝은 입 내부를 보존하고 좌우 입술 픽셀만 보강합니다. 아래턱 45,39는 변경하지 않습니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/charlotte.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        45,
+        38,
+        "9a5a72"
+      ],
+      [
+        47,
+        38,
+        "9f5f76"
+      ]
+    ]
+  },
+  {
+    "id": "tia",
+    "variant": "rare",
+    "reason": "주황 눈과 앞머리의 밝기가 가까우나 작은 입은 보입니다. 눈 윗선만 국소 보완합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/tia.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        43,
+        38,
+        "bd6566"
+      ]
+    ]
+  },
+  {
+    "id": "rozzi",
+    "variant": "rare",
+    "reason": "앞머리로 가려진 눈과 무표정에 가까운 표정을 유지하며 작은 닫힌 비대칭 미소를 얼굴 하단에 2px로 분리합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/rozzi.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        41,
+        37,
+        "99626e"
+      ],
+      [
+        42,
+        37,
+        "bd8d8b"
+      ]
+    ]
+  },
+  {
+    "id": "luke",
+    "variant": "rare",
+    "reason": "사신 스킨의 차가운 좁은 눈을 유지합니다. 밝은 머리·피부 사이 입의 대비가 약합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/luke.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        41,
+        36,
+        "72414c"
+      ]
+    ]
+  },
+  {
+    "id": "dailin",
+    "variant": "rare",
+    "reason": "졸린 녹색 눈은 읽히며 작은 비대칭 웃음만 옅습니다. 후광과 붉은 머리는 유지합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/dailin.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        45,
+        38,
+        "8c2d39"
+      ],
+      [
+        46,
+        38,
+        "9b2934"
+      ]
+    ]
+  },
+  {
+    "id": "rio",
+    "variant": "rare",
+    "reason": "직선 윗눈꺼풀과 금색 눈이 읽힙니다. 담담한 작은 닫힌 입을 보완합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/rio.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        43,
+        35,
+        "a9756e"
+      ]
+    ]
+  },
+  {
+    "id": "martina",
+    "variant": "rare",
+    "reason": "이 젊은 스킨에는 양 눈과 얇은 안경이 있습니다. 기본 안대를 추가하지 않고 작은 입을 보완합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/martina.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        41,
+        35,
+        "73352f"
+      ],
+      [
+        42,
+        35,
+        "bd7f74"
+      ]
+    ]
+  },
+  {
+    "id": "mai",
+    "variant": "rare",
+    "reason": "자신감 있는 주황 눈이 갈색 얼굴과 일부 섞입니다. 현재 작은 미소를 보존합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/mai.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        41,
+        43,
+        "5b2637"
+      ]
+    ]
+  },
+  {
+    "id": "vanya",
+    "variant": "rare",
+    "reason": "원본의 실제 분홍 입 픽셀 38,38을 보강합니다. 피부인 40,37로 입을 이동시키지 않습니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/vanya.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        38,
+        38,
+        "b77888"
+      ]
+    ]
+  },
+  {
+    "id": "bernice",
+    "variant": "rare",
+    "reason": "입은 수염 속 42,35입니다. 기존 수염색인 45,36을 입으로 바꾸지 않고 실제 입 틈만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/bernice.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        42,
+        35,
+        "4e302e"
+      ]
+    ]
+  },
+  {
+    "id": "celine",
+    "variant": "rare",
+    "reason": "낮은 금색 눈이 밝은 피부와 가까우며 작은 입이 약합니다. 무심한 눈매를 유지합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/celine.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        37,
+        40,
+        "9c5e60"
+      ]
+    ]
+  },
+  {
+    "id": "shoichi",
+    "variant": "rare",
+    "reason": "얇은 안경과 좁은 눈이 같은 색으로 섞입니다. 가느다란 눈과 미소만 국소 보완합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/shoichi.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        41,
+        38,
+        "ac7a79"
+      ],
+      [
+        42,
+        38,
+        "d6a49a"
+      ]
+    ]
+  },
+  {
+    "id": "adela",
+    "variant": "rare",
+    "reason": "원본의 실제 입은 38,39입니다. 기존 안경과 눈매를 유지합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/adela.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        38,
+        39,
+        "713e59"
+      ]
+    ]
+  },
+  {
+    "id": "adriana",
+    "variant": "rare",
+    "reason": "붉은 머리 옆 45,38의 기존 입술을 보강합니다. 목 경계인 41,41과 빈 피부인 42,37은 변경하지 않습니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/adriana.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        45,
+        38,
+        "632a3d"
+      ]
+    ]
+  },
+  {
+    "id": "estelle",
+    "variant": "rare",
+    "reason": "아래쪽 원래 입 픽셀 41,37을 보강합니다. 위쪽 43,36의 붉은 코 픽셀은 그대로 둡니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/estelle.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        41,
+        37,
+        "9d4848"
+      ]
+    ]
+  },
+  {
+    "id": "aiden",
+    "variant": "rare",
+    "reason": "앞머리 아래 얼굴 끝의 기존 입 43,40만 보강합니다. 눈 바로 아래 40,38과 빈 피부 42,39는 변경하지 않습니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/aiden.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        43,
+        40,
+        "642c39"
+      ]
+    ]
+  },
+  {
+    "id": "echion",
+    "variant": "rare",
+    "reason": "41,45와 43,45의 원래 입 모서리를 보강하고 가운데 밝은 치아 42,45를 보존합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/echion.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        41,
+        45,
+        "4f2937"
+      ],
+      [
+        43,
+        45,
+        "895563"
+      ]
+    ]
+  },
+  {
+    "id": "elena",
+    "variant": "rare",
+    "reason": "기존 차갑고 가는 눈매 아래 작은 닫힌 중립 입을 2px로 분리합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/elena.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        47,
+        39,
+        "a86e79"
+      ],
+      [
+        48,
+        39,
+        "b98489"
+      ]
+    ]
+  },
+  {
+    "id": "johann",
+    "variant": "rare",
+    "reason": "모자 아래 드러난 얼굴 하단의 침착한 닫힌 입을 2px로 분리합니다. 목과 장식은 그대로 둡니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/johann.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        39,
+        40,
+        "a16d70"
+      ],
+      [
+        40,
+        40,
+        "b88988"
+      ]
+    ]
+  },
+  {
+    "id": "william",
+    "variant": "rare",
+    "reason": "짙은 피부 위 차분한 닫힌 입을 따뜻한 갈색 2px로 분리하며 피부색은 유지합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/william.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        45,
+        39,
+        "8c5b53"
+      ],
+      [
+        46,
+        39,
+        "a56e5f"
+      ]
+    ]
+  },
+  {
+    "id": "eva",
+    "variant": "rare",
+    "reason": "분홍 눈은 잘 읽히며 우아한 작은 입만 피부와 섞입니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/eva.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        39,
+        34,
+        "a15f59"
+      ]
+    ]
+  },
+  {
+    "id": "ian",
+    "variant": "rare",
+    "reason": "옅은 분홍 입의 실제 모서리 41,38만 보강하고 피부색인 38,37은 변경하지 않습니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/ian.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        41,
+        38,
+        "8f4f5c"
+      ]
+    ]
+  },
+  {
+    "id": "jenny",
+    "variant": "rare",
+    "reason": "졸린 분홍 눈과 한쪽 윙크를 유지합니다. 닫힌 작은 미소가 옅습니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/jenny.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        41,
+        44,
+        "773e4d"
+      ],
+      [
+        40,
+        44,
+        "c36a7d"
+      ]
+    ]
+  },
+  {
+    "id": "camilo",
+    "variant": "rare",
+    "reason": "한쪽 가려진 눈과 붉은 눈을 유지합니다. 자신감 있는 작은 미소를 보완합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/camilo.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        42,
+        36,
+        "884a50"
+      ]
+    ]
+  },
+  {
+    "id": "karla",
+    "variant": "rare",
+    "reason": "밝은 치아 39~41,36을 보존하고 오른쪽 입술 42,35~36만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/karla.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        42,
+        35,
+        "873c46"
+      ],
+      [
+        42,
+        36,
+        "99515b"
+      ]
+    ]
+  },
+  {
+    "id": "cathy",
+    "variant": "rare",
+    "reason": "기존 닫힌 입을 완전한 검정 대신 어두운 따뜻한 갈색으로 보강하며 갈색 피부를 그대로 둡니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/cathy.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        38,
+        35,
+        "512e2c"
+      ],
+      [
+        39,
+        35,
+        "a45c50"
+      ]
+    ]
+  },
+  {
+    "id": "tazia",
+    "variant": "rare",
+    "reason": "차분한 금색 눈과 작은 입이 옅습니다. 현재 낮은 눈매를 유지합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/tazia.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        47,
+        37,
+        "a74f61"
+      ]
+    ]
+  },
+  {
+    "id": "theodore",
+    "variant": "rare",
+    "reason": "모자 아래 차분한 눈매와 어울리는 매우 작은 닫힌 입을 얼굴 중앙 아래에 2px로 분리합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/theodore.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        42,
+        38,
+        "9b6570"
+      ],
+      [
+        43,
+        38,
+        "b98487"
+      ]
+    ]
+  },
+  {
+    "id": "felix",
+    "variant": "rare",
+    "reason": "녹색 동공 39,39와 떨어진 얼굴 중앙 아래 37~38,41에 작은 닫힌 입을 분리합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/felix.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        37,
+        41,
+        "a46c72"
+      ],
+      [
+        38,
+        41,
+        "c18b89"
+      ]
+    ]
+  },
+  {
+    "id": "piolo",
+    "variant": "rare",
+    "reason": "후드 아래 낮은 눈을 유지하고 결연한 작은 닫힌 입을 보완합니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/piolo.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        42,
+        37,
+        "9f766f"
+      ],
+      [
+        43,
+        37,
+        "b5897b"
+      ]
+    ]
+  },
+  {
+    "id": "haze",
+    "variant": "rare",
+    "reason": "45~46,45의 얼굴 하단에 차분한 닫힌 입을 2px로 분리합니다. 45,47은 목·의상 경계이므로 변경하지 않습니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/haze.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        45,
+        45,
+        "9f7275"
+      ],
+      [
+        46,
+        45,
+        "b28782"
+      ]
+    ]
+  },
+  {
+    "id": "arda",
+    "variant": "rare",
+    "reason": "원본의 실제 입 색 40,38을 보강하고 코 옆 그림자 42,37은 변경하지 않습니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/arda.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        40,
+        38,
+        "a77575"
+      ]
+    ]
+  },
+  {
+    "id": "leni",
+    "variant": "rare",
+    "reason": "41~43,38의 흰 치아를 보존하고 기존 왼쪽 입꼬리 및 위 입술만 보강합니다. 42,40의 턱 아래는 변경하지 않습니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/leni.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        40,
+        38,
+        "5d3247"
+      ],
+      [
+        42,
+        37,
+        "a27786"
+      ]
+    ]
+  },
+  {
+    "id": "tsubame",
+    "variant": "rare",
+    "reason": "안전모 아래 중립적인 작은 닫힌 입을 43,40에 분리합니다. 45,42의 어두운 목 경계는 변경하지 않습니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/tsubame.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        43,
+        40,
+        "9d646f"
+      ]
+    ]
+  },
+  {
+    "id": "darko",
+    "variant": "rare",
+    "reason": "42,39의 실제 입 색을 보강하고 왼쪽 피부 41,39는 변경하지 않습니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/darko.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        42,
+        39,
+        "764652"
+      ]
+    ]
+  },
+  {
+    "id": "istvan",
+    "variant": "rare",
+    "reason": "머리카락 아래 냉정한 눈매에 맞춰 얼굴 하단에 가는 닫힌 입을 2px로 분리합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/istvan.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        42,
+        40,
+        "9e6c75"
+      ],
+      [
+        43,
+        40,
+        "b48889"
+      ]
+    ]
+  },
+  {
+    "id": "xuelin",
+    "variant": "rare",
+    "reason": "현재의 차분한 얼굴과 눈 가림을 유지하고 얼굴 중앙 하단에 아주 작은 닫힌 입을 2px로 분리합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/xuelin.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        42,
+        40,
+        "a56e70"
+      ],
+      [
+        43,
+        40,
+        "ba8180"
+      ]
+    ]
+  },
+  {
+    "id": "henry",
+    "variant": "rare",
+    "reason": "원래 미소 픽셀 37,35와 옆의 연한 입술 38,35만 보강합니다. 빈 피부 40,35는 변경하지 않습니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/henry.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        37,
+        35,
+        "874c5a"
+      ],
+      [
+        38,
+        35,
+        "be8c89"
+      ]
+    ]
+  },
+  {
+    "id": "blair",
+    "variant": "rare",
+    "reason": "졸린 옅은 파란 눈과 금발의 대비가 낮습니다. 선글라스는 이마에만 유지하고 실제 눈을 가리지 않습니다. 기존 입술의 위치와 모양을 보존하며 색 대비만 보강합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/blair.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        39,
+        34,
+        "a05b61"
+      ]
+    ]
+  },
+  {
+    "id": "coraline",
+    "variant": "rare",
+    "reason": "42~43,36의 원래 입술을 보강합니다. 피부색인 40,35와 목의 장식은 유지합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/coraline.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        42,
+        36,
+        "935163"
+      ],
+      [
+        43,
+        36,
+        "b87986"
+      ]
+    ]
+  },
+  {
+    "id": "craver",
+    "variant": "rare",
+    "reason": "원래 입술 41~42,39의 형태만 보강하고 기계 장식·마스크는 유지합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/craver.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        42,
+        39,
+        "51272e"
+      ],
+      [
+        41,
+        39,
+        "95636b"
+      ]
+    ]
+  },
+  {
+    "id": "ceres",
+    "variant": "rare",
+    "reason": "43,38은 어두운 목 경계입니다. 창백한 얼굴 하단 41~42,36에 차분한 닫힌 입을 분리합니다.",
+    "referencePaths": [
+      "docs/art-rare-skins/references/ceres.png",
+      "docs/art-identity/face-designs.json"
+    ],
+    "pixels": [
+      [
+        41,
+        36,
+        "ac757d"
+      ],
+      [
+        42,
+        36,
+        "bc8b8d"
+      ]
+    ]
+  }
+]

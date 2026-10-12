@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/celine.png",
   "width": 160,
   "height": 160,
-  "sha256": "3155867328605c2def890f1396c39d75d739b9e58b9fa09cacdcf90e23798db6",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "8d52a63d667c243a7c89fe332fa316202d36feede7356e84269a178c7430236a",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "3155867328605c2def890f1396c39d75d739b9e58b9fa09cacdcf90e23798db6",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

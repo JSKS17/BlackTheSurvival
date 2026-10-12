@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/camilo.png",
   "width": 160,
   "height": 160,
-  "sha256": "2ec42e82732c9ce65daae82824beb3b24ad488e3c45f730e86d9bd16b8aa8565",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "41049f3929cbc005fb0f8293cd382e81e3b730d46b530d26eae2778b7fcd491a",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "2ec42e82732c9ce65daae82824beb3b24ad488e3c45f730e86d9bd16b8aa8565",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

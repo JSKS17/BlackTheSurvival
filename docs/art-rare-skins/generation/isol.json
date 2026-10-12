@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/isol.png",
-  "sha256": "6804178e270858fa43b7fcc28b34157acc4c10f04e6a98356fcec15da3573299",
+  "sha256": "1f6685f06502bf90c0b7e3bed0e0f2a1f55b8f5226ddf42fb042f00461e4ab5f",
   "processedPath": "docs/art-rare-skins/processed/isol.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/isol.png",
   "originalDefaultSpriteSha256": "11cafb29ec27ba6724daab9787769aaf73734a496b9a79920283d954f6e7d37e",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "6804178e270858fa43b7fcc28b34157acc4c10f04e6a98356fcec15da3573299",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/istvan.png",
   "width": 160,
   "height": 160,
-  "sha256": "3fd1fc2dd613c48d9e658462d73826770fc8823fba471a23c9430021318118aa",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "e770f8c7b1e8d087659e7df30f03617a0f01bada602a47b2a0c230c05a131b3c",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "3fd1fc2dd613c48d9e658462d73826770fc8823fba471a23c9430021318118aa",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

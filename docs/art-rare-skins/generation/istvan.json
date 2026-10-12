@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/istvan.png",
-  "sha256": "d4dfd628b30e442a776c53d2d2d0124acbff9ed7fad008389633e4312132bcbb",
+  "sha256": "6c53e40d39567243d62515d7930437c8035380416eb30001fec94de1efd90887",
   "processedPath": "docs/art-rare-skins/processed/istvan.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/istvan.png",
   "originalDefaultSpriteSha256": "3fd1fc2dd613c48d9e658462d73826770fc8823fba471a23c9430021318118aa",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "d4dfd628b30e442a776c53d2d2d0124acbff9ed7fad008389633e4312132bcbb",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

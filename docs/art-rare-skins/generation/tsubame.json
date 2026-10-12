@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/tsubame.png",
-  "sha256": "e4d3fedafcd2b0b869538b4df801ed6b4878712b1086f83121513ba439287556",
+  "sha256": "4c54454bd1218e36d517ff2e21061e61b139a4b417ca55720453521a4a3c3903",
   "processedPath": "docs/art-rare-skins/processed/tsubame.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/tsubame.png",
   "originalDefaultSpriteSha256": "806876aeefea675ca42a32a75391ec8ee066d84a831b67ea484025045dfc3a2a",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "e4d3fedafcd2b0b869538b4df801ed6b4878712b1086f83121513ba439287556",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

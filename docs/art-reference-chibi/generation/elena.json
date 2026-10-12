@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/elena.png",
   "width": 160,
   "height": 160,
-  "sha256": "b2cce4e7a6284d9db488bc6111eda839131e1883adffc37e0cc241666ea73c3c",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "acde431b6205bc484f36be14b42236e6c6a55c54895ac62dc7fe349b284d291c",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "b2cce4e7a6284d9db488bc6111eda839131e1883adffc37e0cc241666ea73c3c",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

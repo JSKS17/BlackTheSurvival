@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/lucia.png",
   "width": 160,
   "height": 160,
-  "sha256": "b477524f080f1018a55460300aa975574b95b56a26002f7112f48f982cf4d8cb",
+  "sha256": "5b30d83bbfd75dba94189da767fb66be1291b007d76276fdb1be7533aba163c8",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-1f4eba67-057c-4082-901a-0b4d842ef8a7.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-1f4eba67-057c-4082-901a-0b4d842ef8a7.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "b477524f080f1018a55460300aa975574b95b56a26002f7112f48f982cf4d8cb",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

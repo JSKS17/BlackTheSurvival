@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/bernice.png",
-  "sha256": "95f76d4cfe232f1dd5778ac27192c24edfb64baa86fda9b7671a9bec70d70ea5",
+  "sha256": "62126a2adf83604007c28f7b33a9a6bea18b03237011c4e2d613297c1b19783b",
   "processedPath": "docs/art-rare-skins/processed/bernice.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/bernice.png",
   "originalDefaultSpriteSha256": "9b8940066a6233f2f72c825a7e932d9d5067ccbc93653c5ac327e020d6c1d6bb",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "95f76d4cfe232f1dd5778ac27192c24edfb64baa86fda9b7671a9bec70d70ea5",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

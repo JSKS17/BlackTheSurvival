@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/ceres.png",
   "width": 160,
   "height": 160,
-  "sha256": "3be108fd1a3513455cd826bb085784132a6f2330b0d8da4ef461aea9a55e4b76",
+  "sha256": "48ed8226aa32b40967d5c63332c341af521c3fb56980c564b7007e4ebfea0afb",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-49254d63-cc1d-4d57-be33-07c474797743.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-49254d63-cc1d-4d57-be33-07c474797743.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "3be108fd1a3513455cd826bb085784132a6f2330b0d8da4ef461aea9a55e4b76",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

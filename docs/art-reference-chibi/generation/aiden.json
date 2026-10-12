@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/aiden.png",
   "width": 160,
   "height": 160,
-  "sha256": "70bc1e4043aa73fd74c5d92eb5da8af2ec18a84b26e149b22b02279be17b4a9b",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "7f2763c8b8fab8f33ef5690bf871601f1fc06c5ea86fcdcdb714497af9f57042",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "70bc1e4043aa73fd74c5d92eb5da8af2ec18a84b26e149b22b02279be17b4a9b",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

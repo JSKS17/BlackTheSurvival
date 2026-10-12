@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/shoichi.png",
   "width": 160,
   "height": 160,
-  "sha256": "8aabb72125ef9f1734d2e1dc9219ddcc5b2728f1f4e7e5b2c309723e98cccde5",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "f2af747cef960c12b7c4de15ce92e16b06e7aa593b9f5c54bc6f172c435cda50",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "8aabb72125ef9f1734d2e1dc9219ddcc5b2728f1f4e7e5b2c309723e98cccde5",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/shoichi.png",
-  "sha256": "b8a2890cc6cab87e3c21ccb3ec79e9db72a812fa9557f8efa42f02646891e1db",
+  "sha256": "ab4b420e0b60f0bdcea233d50cc24a56b5e6c13fe526902639e906fb8d870e07",
   "processedPath": "docs/art-rare-skins/processed/shoichi.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/shoichi.png",
   "originalDefaultSpriteSha256": "8aabb72125ef9f1734d2e1dc9219ddcc5b2728f1f4e7e5b2c309723e98cccde5",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "b8a2890cc6cab87e3c21ccb3ec79e9db72a812fa9557f8efa42f02646891e1db",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

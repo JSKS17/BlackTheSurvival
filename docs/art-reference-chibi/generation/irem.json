@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/irem.png",
   "width": 160,
   "height": 160,
-  "sha256": "8e80873ed120cccca2622224b8df91d2d811197ba5058a0f4c2faabdc97f0c4a",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "b69dbae9c0f1e3c0ed7365d2ff8de693ab355d18f6e0e7b34b52b399f648edb5",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "8e80873ed120cccca2622224b8df91d2d811197ba5058a0f4c2faabdc97f0c4a",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

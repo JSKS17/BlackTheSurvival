@@ -1,0 +1,7 @@
+Dedicated sprites: 183
+Reference-style sprites: 92
+Rare sprites: 91
+Dedicated icons: 0
+System icons: 0
+Portrait pixel height: 160
+Missing assets: 0

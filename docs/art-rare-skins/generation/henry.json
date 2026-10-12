@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/henry.png",
-  "sha256": "030f825c8922bb3f70f4d732c5adb14716411e77289173918ebdd213d65db97a",
+  "sha256": "e886228eb8a11999a66086fe211c98d4077a455d03e093a4122c46096a0d6177",
   "processedPath": "docs/art-rare-skins/processed/henry.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/henry.png",
   "originalDefaultSpriteSha256": "c0dc84560c3b684006b5fd399d6c480c709f59ebaedf1b8df2c786112d91d75c",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "030f825c8922bb3f70f4d732c5adb14716411e77289173918ebdd213d65db97a",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

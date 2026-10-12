@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/xuelin.png",
-  "sha256": "a52ab9a8a57294d244013fcdb94020e9567a98dccc9cb3b3f897b53e40dbab1b",
+  "sha256": "a188664a6452ea4b71be8e58aa4ac5c623e7f0ca99234f93f10ab8f6f304d3f5",
   "processedPath": "docs/art-rare-skins/processed/xuelin.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/xuelin.png",
   "originalDefaultSpriteSha256": "762e28350d1caa07430d51d9d273c2644ab03f12e027bf0da1bdfa54c2a0a529",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "a52ab9a8a57294d244013fcdb94020e9567a98dccc9cb3b3f897b53e40dbab1b",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

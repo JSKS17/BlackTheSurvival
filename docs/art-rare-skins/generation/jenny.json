@@ -42,7 +42,7 @@
     1236
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/jenny.png",
-  "sha256": "5db8c47bf0436703fa8b31d5f6776835d53fd13f03fbf408489051acb8442ce2",
+  "sha256": "3c4e75676111803361960f1c92d419764e55b7361f98da21c1abefb198627ea4",
   "processedPath": "docs/art-rare-skins/processed/jenny.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/jenny.png",
   "originalDefaultSpriteSha256": "55beb6b7c2957608f3bc5a7bff72af08f409c181d13d21a802121c850118a3d6",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "5db8c47bf0436703fa8b31d5f6776835d53fd13f03fbf408489051acb8442ce2",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

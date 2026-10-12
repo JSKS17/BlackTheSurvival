@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/felix.png",
-  "sha256": "17d66766086b61c52c77aad5ff2c4a2ee559d015a8c53da03fbc2c99b92fd90e",
+  "sha256": "f18effd901a910d2b58f06c96b7b0b736e0ca45d004cdb0ef505037381f8edf3",
   "processedPath": "docs/art-rare-skins/processed/felix.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/felix.png",
   "originalDefaultSpriteSha256": "ef2824fc84e1d02c6beb71097ff89facb2d5bb057a5ebea8552eda420b374ff3",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "17d66766086b61c52c77aad5ff2c4a2ee559d015a8c53da03fbc2c99b92fd90e",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

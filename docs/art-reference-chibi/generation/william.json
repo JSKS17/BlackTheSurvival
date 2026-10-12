@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/william.png",
   "width": 160,
   "height": 160,
-  "sha256": "8100a99d0a941ef46865940c3397777ae0a3939ae9aee2be52f4d7eb5ac2fcd2",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "172563b64144370f29d2cf6bfed1aa7ca5e62e7141d272a6d7b90788740a03c8",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "8100a99d0a941ef46865940c3397777ae0a3939ae9aee2be52f4d7eb5ac2fcd2",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

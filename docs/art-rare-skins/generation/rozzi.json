@@ -42,7 +42,7 @@
     1230
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/rozzi.png",
-  "sha256": "61b20f4955e36dba955d20ed7bfefbea91f3519ca2f83e2304822bff143a7129",
+  "sha256": "ddd4f259c8666101d33eaa13e7cfb026f9d6f2d2bc66984faebda8ae1e030e4a",
   "processedPath": "docs/art-rare-skins/processed/rozzi.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/rozzi.png",
   "originalDefaultSpriteSha256": "d9e21f53990a1d8db1c490e36c6cb35a9bf3ee30fc46f0d310633a7d01c471f7",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "61b20f4955e36dba955d20ed7bfefbea91f3519ca2f83e2304822bff143a7129",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

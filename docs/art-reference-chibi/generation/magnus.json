@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/magnus.png",
   "width": 160,
   "height": 160,
-  "sha256": "8a23e4fe161e00a5d2d7346ed4d5cdd5ce51eda87b7d6a2aa5b337bff6f13a70",
+  "sha256": "edd71289008936ed545e8f577f2bea26730f3a2f2be8573a9e8b4dce98f40086",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-2773b590-e189-4a14-8bd4-99f394adb130.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-2773b590-e189-4a14-8bd4-99f394adb130.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "8a23e4fe161e00a5d2d7346ed4d5cdd5ce51eda87b7d6a2aa5b337bff6f13a70",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

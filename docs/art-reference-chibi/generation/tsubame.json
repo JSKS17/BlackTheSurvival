@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/tsubame.png",
   "width": 160,
   "height": 160,
-  "sha256": "806876aeefea675ca42a32a75391ec8ee066d84a831b67ea484025045dfc3a2a",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "3da73c7126bf6c9123eaa47e1184ed3f0cdafd1c9852aca598f8be89cb2b8926",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "806876aeefea675ca42a32a75391ec8ee066d84a831b67ea484025045dfc3a2a",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

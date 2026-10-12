@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/tazia.png",
-  "sha256": "01718e911be3b3235776f2e853ab173812c9a6c7b41ec766a6f2e6c598247b99",
+  "sha256": "5d6384d77f989b3f2a9e0fd68da8a00c96eacaf39b01c83546094bb4a809bb26",
   "processedPath": "docs/art-rare-skins/processed/tazia.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/tazia.png",
   "originalDefaultSpriteSha256": "a2c50c8ac1338ef4c97d8397b988bb0ae9e7d33ac182b281ff2f9ee60cfeaf35",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "01718e911be3b3235776f2e853ab173812c9a6c7b41ec766a6f2e6c598247b99",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

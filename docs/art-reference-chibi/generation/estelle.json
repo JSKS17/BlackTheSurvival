@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/estelle.png",
   "width": 160,
   "height": 160,
-  "sha256": "0483cba5b4f2ebd6c901218fec78143f6a0fe16a96e07c1e2644351d79e03b9a",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "d1bac4d0bd31706e71199eec46738118aacdfc4f89511de1cb339559d552066c",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "0483cba5b4f2ebd6c901218fec78143f6a0fe16a96e07c1e2644351d79e03b9a",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

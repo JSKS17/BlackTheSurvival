@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/darko.png",
   "width": 160,
   "height": 160,
-  "sha256": "b64e1785b7ce5519b6fb469954c25f3ec521f4f17af9ee6f2621eced2f9f945f",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "693abb44f3703cd88901a222cc35cd0fb1ab5f86ff012d5dc8b616580e2dfc52",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "b64e1785b7ce5519b6fb469954c25f3ec521f4f17af9ee6f2621eced2f9f945f",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

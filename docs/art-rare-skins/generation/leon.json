@@ -42,7 +42,7 @@
     1231
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/leon.png",
-  "sha256": "0a8ea9327073f0700d6745759e3ec052835a7cb81aa5f74fa902de6d6d33d37a",
+  "sha256": "e35b3aa0a33ce0a026a6b33457726eb82ecf0ddee8c7119a3ac738e2e30ed6c5",
   "processedPath": "docs/art-rare-skins/processed/leon.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/leon.png",
   "originalDefaultSpriteSha256": "aad2238ac11cfeddc7fe7dde64b6d5dc7193b46cdacababb40eedb3982cd1652",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "0a8ea9327073f0700d6745759e3ec052835a7cb81aa5f74fa902de6d6d33d37a",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

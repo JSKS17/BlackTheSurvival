@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/karla.png",
   "width": 160,
   "height": 160,
-  "sha256": "caae0d1ec0bfe7180d8b0dcd13f93f087c7de5ad085c5f69a4c43ee2c7847d60",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "f734994c409a68a7d8ec54bb54425d71af1694e5c41b54bd212c597c630dfa1a",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "caae0d1ec0bfe7180d8b0dcd13f93f087c7de5ad085c5f69a4c43ee2c7847d60",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

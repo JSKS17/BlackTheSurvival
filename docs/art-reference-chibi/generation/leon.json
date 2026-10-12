@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/leon.png",
   "width": 160,
   "height": 160,
-  "sha256": "aad2238ac11cfeddc7fe7dde64b6d5dc7193b46cdacababb40eedb3982cd1652",
+  "sha256": "b62e740e90d6c7428f3cd4c127278884bfd3693180a239c91ddff2f6e13076b5",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-9ff90848-54db-48e6-b0d7-2707803f5978.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-9ff90848-54db-48e6-b0d7-2707803f5978.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "aad2238ac11cfeddc7fe7dde64b6d5dc7193b46cdacababb40eedb3982cd1652",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

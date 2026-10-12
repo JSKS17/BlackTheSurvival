@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/hyejin.png",
   "width": 160,
   "height": 160,
-  "sha256": "ff4db4e5b7a990f1487c438ffbcac3beecc00c246b3017cd4bdce0042352b8d2",
+  "sha256": "8f9922fa0ea78c3cf56411dfd23728e1781b65102328ede12e0874cf9ffcf125",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-309385dc-98d3-4312-a82c-35f57ffa8e63.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-309385dc-98d3-4312-a82c-35f57ffa8e63.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "ff4db4e5b7a990f1487c438ffbcac3beecc00c246b3017cd4bdce0042352b8d2",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/karla.png",
-  "sha256": "c0faa03e25bc3f9bd30a6591caf03c4410b777132a1f2b684bd2f60f1a4f7925",
+  "sha256": "101c214ef3332899cd05dc62c35b9d1b1f9b14aa451d21e9564ea9927335b423",
   "processedPath": "docs/art-rare-skins/processed/karla.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/karla.png",
   "originalDefaultSpriteSha256": "caae0d1ec0bfe7180d8b0dcd13f93f087c7de5ad085c5f69a4c43ee2c7847d60",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "c0faa03e25bc3f9bd30a6591caf03c4410b777132a1f2b684bd2f60f1a4f7925",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

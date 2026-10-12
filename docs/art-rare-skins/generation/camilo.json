@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/camilo.png",
-  "sha256": "ce3db89053c916bc3e42f8e05aacad1cafa689f121d6555a93fa82c21f74137f",
+  "sha256": "2ec6d8ca1c7c7637474692e71175e80c0d6b02d06b52558a801d9995b0d86c05",
   "processedPath": "docs/art-rare-skins/processed/camilo.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/camilo.png",
   "originalDefaultSpriteSha256": "2ec42e82732c9ce65daae82824beb3b24ad488e3c45f730e86d9bd16b8aa8565",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "ce3db89053c916bc3e42f8e05aacad1cafa689f121d6555a93fa82c21f74137f",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

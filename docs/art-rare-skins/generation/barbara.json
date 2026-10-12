@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/barbara.png",
-  "sha256": "c7c810371e083a3adc4e2c7bcf38256698c6c6fd1a8719b291ff96a63e2dd50e",
+  "sha256": "ed9b503bf9038dead1222e488014da9b093b111968cf05a32cf122f87438d09d",
   "processedPath": "docs/art-rare-skins/processed/barbara.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/barbara.png",
   "originalDefaultSpriteSha256": "001459ebb4ab10edf6dd7283201699fb8de3da8268608478531a083d1b748bfe",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "c7c810371e083a3adc4e2c7bcf38256698c6c6fd1a8719b291ff96a63e2dd50e",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

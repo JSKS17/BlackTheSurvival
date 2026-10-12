@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/nicky.png",
   "width": 160,
   "height": 160,
-  "sha256": "be277ce5372d5b98f9592f0ec603647b635a0672634b23a39ed5b227a709310b",
+  "sha256": "d136e950e9576114f5e9ea18d4d37808b0c2589ae80a4576da3a0b0e2aadc6fd",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-972d7bf4-04f7-4854-ba94-f7f27ef43a10.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-972d7bf4-04f7-4854-ba94-f7f27ef43a10.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "be277ce5372d5b98f9592f0ec603647b635a0672634b23a39ed5b227a709310b",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

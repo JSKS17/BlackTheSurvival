@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/adela.png",
   "width": 160,
   "height": 160,
-  "sha256": "8e5c23abe28b5c5e933ef78c1c1f3257bc07037d4e037b59c87187066b5ba186",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "4783794c34f21325f475a344ff030918d2fd9244a9c4d1dc5c92a4e8c2f86914",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "8e5c23abe28b5c5e933ef78c1c1f3257bc07037d4e037b59c87187066b5ba186",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

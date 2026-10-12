@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/arda.png",
-  "sha256": "2baee509a37d908fbe66f2c0036b3d8bda6d7948238aff7d681b0903a1366045",
+  "sha256": "025353d3769330e2388e1b128e13acf111c41dfe1bfe2ce475a451a0b49e66aa",
   "processedPath": "docs/art-rare-skins/processed/arda.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/arda.png",
   "originalDefaultSpriteSha256": "d7774b19d3ae2e4256075d57eabcefe6b0c04891ee6cdf6b5020efdc713f94c6",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "2baee509a37d908fbe66f2c0036b3d8bda6d7948238aff7d681b0903a1366045",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

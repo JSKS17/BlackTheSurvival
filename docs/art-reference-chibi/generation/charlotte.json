@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/charlotte.png",
   "width": 160,
   "height": 160,
-  "sha256": "205729ee2c947a79c3fbd4ca2e0007b9e2bba4bd13dd315370ecd0cec3c5b8a4",
+  "sha256": "eeee51ae5bc01fad94da311418eb2694a651dae6f7aa4afcc7c2900578a56d67",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-67baa56a-79f6-4ce1-9312-6466b48bf1e5.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-67baa56a-79f6-4ce1-9312-6466b48bf1e5.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "205729ee2c947a79c3fbd4ca2e0007b9e2bba4bd13dd315370ecd0cec3c5b8a4",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

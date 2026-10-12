@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/barbara.png",
   "width": 160,
   "height": 160,
-  "sha256": "001459ebb4ab10edf6dd7283201699fb8de3da8268608478531a083d1b748bfe",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "bdcd9124ca2e9a1d1545a94066c57cb787ba0fe82bbd7827e46e36ada9e4f259",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "001459ebb4ab10edf6dd7283201699fb8de3da8268608478531a083d1b748bfe",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

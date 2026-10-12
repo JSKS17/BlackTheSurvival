@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/nadine.png",
-  "sha256": "a2ddbacd321039f432cefd5e63fdb460b36d62973872cdcef0a839629aa7f923",
+  "sha256": "22a50b9250ee558962990d02375dd36fdaa56d0566187e8e0072a48a55d1e291",
   "processedPath": "docs/art-rare-skins/processed/nadine.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/nadine.png",
   "originalDefaultSpriteSha256": "38b1b8f068657539ad26690ecdbe89193f21de797e3e4ab26c8c4436f94cb538",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "a2ddbacd321039f432cefd5e63fdb460b36d62973872cdcef0a839629aa7f923",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

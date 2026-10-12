@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/darko.png",
-  "sha256": "dc8c23bab6a5515939794563acde8f03551e11682274b3204fd37a557d154e90",
+  "sha256": "82a9ad9cebf268d3757805d2afb7ec068bd8480120904ba23abab37a91c584e0",
   "processedPath": "docs/art-rare-skins/processed/darko.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/darko.png",
   "originalDefaultSpriteSha256": "b64e1785b7ce5519b6fb469954c25f3ec521f4f17af9ee6f2621eced2f9f945f",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "dc8c23bab6a5515939794563acde8f03551e11682274b3204fd37a557d154e90",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

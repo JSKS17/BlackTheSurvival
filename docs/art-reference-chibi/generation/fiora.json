@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/fiora.png",
   "width": 160,
   "height": 160,
-  "sha256": "cbde220d120ad020ce185f2ed30a4e9117d73cb6fed0a9f5346f31c7012e928c",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "6c818239f162d553bf801a99588bc63d2954d6e03d7aa3704d610c5f42f73c83",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "cbde220d120ad020ce185f2ed30a4e9117d73cb6fed0a9f5346f31c7012e928c",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

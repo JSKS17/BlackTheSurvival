@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/zahir.png",
-  "sha256": "e1e8984500740e97e98dfbb2a04c24a484a47dc39935011bbebbece3422862b4",
+  "sha256": "72069ffef9b96501ca60c5240afefa1426c92d48bc3a7ad3dc91464609337127",
   "processedPath": "docs/art-rare-skins/processed/zahir.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/zahir.png",
   "originalDefaultSpriteSha256": "53ed1845f75a73f097879c56921825ca9cf69c1dced5ca3a9b052a8d0f64e2a3",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "e1e8984500740e97e98dfbb2a04c24a484a47dc39935011bbebbece3422862b4",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

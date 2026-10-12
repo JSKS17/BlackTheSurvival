@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/celine.png",
-  "sha256": "3e8215f74c7b601000573f92998b337eb4b8a2474aba748dd0f4ef761c78fc32",
+  "sha256": "c01688b7d04e66e1ba5b2be73fafc12c165bd104926a21d63cb047fc3020ca0d",
   "processedPath": "docs/art-rare-skins/processed/celine.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/celine.png",
   "originalDefaultSpriteSha256": "3155867328605c2def890f1396c39d75d739b9e58b9fa09cacdcf90e23798db6",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "3e8215f74c7b601000573f92998b337eb4b8a2474aba748dd0f4ef761c78fc32",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

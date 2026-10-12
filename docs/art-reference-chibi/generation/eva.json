@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/eva.png",
   "width": 160,
   "height": 160,
-  "sha256": "0dcb3187fb671b7090ac88db3fc09e2eb83921a9ae7854e0bad9ae41b6719adb",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "3e6aa2536da94ca9f20858e0bdc3cfa07766868c677d1f302477847deeb77848",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "0dcb3187fb671b7090ac88db3fc09e2eb83921a9ae7854e0bad9ae41b6719adb",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

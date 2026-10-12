@@ -37,7 +37,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/ceres.png",
-  "sha256": "913d5482ae129c46b11a32248e03a33d64912b75d0fc9fa85befbf465e1a9f81",
+  "sha256": "61028957356bc73fbedb682eba1c67da9b51079217ba14973337ce7134068869",
   "processedPath": "docs/art-rare-skins/processed/ceres.png",
   "width": 160,
   "height": 160,
@@ -52,5 +52,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/ceres.png",
   "originalDefaultSpriteSha256": "3be108fd1a3513455cd826bb085784132a6f2330b0d8da4ef461aea9a55e4b76",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "913d5482ae129c46b11a32248e03a33d64912b75d0fc9fa85befbf465e1a9f81",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

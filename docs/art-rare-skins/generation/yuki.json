@@ -42,7 +42,7 @@
     1236
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/yuki.png",
-  "sha256": "a83cd7171884260e1a3783b7f599adba300593474d14de2ad82afc17f4daa8fc",
+  "sha256": "0181e4dd1ae20121e3e4cb90de56f7a8755c06b5fa964399dd8bf875e687fda1",
   "processedPath": "docs/art-rare-skins/processed/yuki.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/yuki.png",
   "originalDefaultSpriteSha256": "c2423c235a4e87c261ffdf2aa27b305154e561d0ced657eeae6d097c0af51cd4",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "a83cd7171884260e1a3783b7f599adba300593474d14de2ad82afc17f4daa8fc",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

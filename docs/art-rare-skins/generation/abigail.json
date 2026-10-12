@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/abigail.png",
-  "sha256": "8f50574be4d69185cf797bbf9a02f2bc1acf6c5893bd635f76b3e44ff4204df1",
+  "sha256": "c4a10e7d9ffbca74ca5b90f0991dc40d61d8b571592f4cb28a67e3e964a90091",
   "processedPath": "docs/art-rare-skins/processed/abigail.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/abigail.png",
   "originalDefaultSpriteSha256": "89c55545fbca5d2e7c748c4c05b2518b47a4be2cffb85256269a25ec37373f63",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "8f50574be4d69185cf797bbf9a02f2bc1acf6c5893bd635f76b3e44ff4204df1",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -98,6 +98,8 @@ namespace Lumia
         public List<string> augments = new List<string>(), augmentOffers = new List<string>();
         public string augmentSelectedId;
         public int augmentOfferingCycle = -1;
+        public List<int> gearSlotBonuses = new List<int> { 0, 0, 0, 0, 0 };
+        public int equipmentSlotSelected = -1, equipmentExpansionCycle = -1;
         public RunStage stage = RunStage.Preparation;
         public int level = 1, xp, hp = 80, maxHp = 80, credits = 120, maxHealthBonus;
         public string mainRune, supportRune, chosenPassive, chosenEventId, pendingPassive, message;
@@ -1071,7 +1073,7 @@ namespace Lumia
             if (!State.objects.Contains(item.objectId)) return Fail("제작에 필요한 오브젝트가 없습니다.");
             int count = State.gear.Count(g => GameDatabase.Equipment(g) != null && GameDatabase.Equipment(g).slot == item.slot);
             if (replaceIndex >= 0 && (replaceIndex >= State.gear.Count || GameDatabase.Equipment(State.gear[replaceIndex]).slot != item.slot)) return Fail("같은 부위의 장비를 교체하세요.");
-            if (count >= 2 && replaceIndex < 0) return Fail("각 부위는 2개까지만 착용합니다. 교체할 장비를 선택하세요.");
+            if (count >= EquipmentCapacity(item.slot) && replaceIndex < 0) return Fail("이 부위는 " + EquipmentCapacity(item.slot) + "개까지 착용합니다. 교체할 장비를 선택하세요.");
             if (replaceIndex >= 0) State.gear.RemoveAt(replaceIndex);
             State.objects.Remove(item.objectId); State.gear.Add(id); State.campActions--;
             PruneUnownedTraits(); SyncWeaponCards(); RecalculateHealth(false);

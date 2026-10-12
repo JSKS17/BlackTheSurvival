@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/ian.png",
   "width": 160,
   "height": 160,
-  "sha256": "0d248fb54f552b652bdb8913d9a2e3bb1a93f8ab7ff26350f49ed7ab5cf49220",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "f67add79c33c277cb89a32b0bfd1bcf8ca767e8085da84ccafdaadce7e5b16f1",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "0d248fb54f552b652bdb8913d9a2e3bb1a93f8ab7ff26350f49ed7ab5cf49220",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

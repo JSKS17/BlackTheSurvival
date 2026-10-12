@@ -20,6 +20,63 @@ namespace Lumia
         public string SelectedAugmentId { get { return State.augmentSelectedId; } }
         public int AugmentCount { get { return State.augments == null ? 0 : State.augments.Count; } }
         public int AugmentStacks(string id) { return State.augments == null ? 0 : State.augments.Count(x => x == id); }
+        public int SelectedEquipmentSlotIndex { get { return State.equipmentSlotSelected; } }
+        public int EquipmentExpansionCycle { get { return State.equipmentExpansionCycle; } }
+
+        public int EquipmentCapacity(GearSlot slot)
+        {
+            int index = (int)slot;
+            if (!Enum.IsDefined(typeof(GearSlot), slot)) return 0;
+            int bonus = State.mode == RunMode.Endless && State.gearSlotBonuses != null && index < State.gearSlotBonuses.Count
+                ? Math.Max(0, Math.Min(int.MaxValue - 2, State.gearSlotBonuses[index])) : 0;
+            return 2 + bonus;
+        }
+
+        void EnsureEquipmentExpansion()
+        {
+            int count = Enum.GetValues(typeof(GearSlot)).Length;
+            if (State.gearSlotBonuses == null) State.gearSlotBonuses = new List<int>();
+            State.gearSlotBonuses = Enumerable.Range(0, count).Select(index => index < State.gearSlotBonuses.Count
+                ? Math.Max(0, Math.Min(int.MaxValue - 2, State.gearSlotBonuses[index])) : 0).ToList();
+            if (State.mode != RunMode.Endless)
+            {
+                State.gearSlotBonuses = Enumerable.Repeat(0, count).ToList();
+                if (State.stage == RunStage.EquipmentSlotChoice) State.stage = RunStage.Map;
+            }
+            if (State.mode == RunMode.Endless && State.stage == RunStage.EquipmentSlotChoice)
+            {
+                State.equipmentExpansionCycle = State.endlessCycle + 1;
+                if (State.equipmentSlotSelected < 0 || State.equipmentSlotSelected >= count) State.equipmentSlotSelected = -1;
+            }
+            else State.equipmentSlotSelected = State.equipmentExpansionCycle = -1;
+        }
+
+        void BeginEquipmentSlotChoice()
+        {
+            State.stage = RunStage.EquipmentSlotChoice;
+            State.equipmentSlotSelected = -1; State.equipmentExpansionCycle = State.endlessCycle + 1;
+            Say("3막 완료 · 장착 한도를 1 늘릴 장비 부위를 선택하세요. 확정하면 다음 무한 주기가 시작됩니다.");
+        }
+
+        public bool ToggleEquipmentSlot(GearSlot slot)
+        {
+            if (State.mode != RunMode.Endless || State.stage != RunStage.EquipmentSlotChoice || !Enum.IsDefined(typeof(GearSlot), slot)) return false;
+            State.equipmentSlotSelected = State.equipmentSlotSelected == (int)slot ? -1 : (int)slot;
+            return Say(State.equipmentSlotSelected < 0 ? "장비 부위 선택을 취소했습니다." : "장비 부위를 선택했습니다. 확정 전까지 변경할 수 있습니다.");
+        }
+
+        public bool ConfirmEquipmentSlot()
+        {
+            if (State.mode != RunMode.Endless || State.stage != RunStage.EquipmentSlotChoice
+                || State.equipmentExpansionCycle != State.endlessCycle + 1
+                || State.equipmentSlotSelected < 0 || State.equipmentSlotSelected >= Enum.GetValues(typeof(GearSlot)).Length) return false;
+            int index = State.equipmentSlotSelected;
+            if (State.gearSlotBonuses == null || index >= State.gearSlotBonuses.Count || State.gearSlotBonuses[index] >= int.MaxValue - 2) return false;
+            State.gearSlotBonuses[index]++;
+            State.equipmentSlotSelected = State.equipmentExpansionCycle = -1;
+            BeginNextEndlessCycle();
+            return true;
+        }
 
         int AugmentAmount(string effect)
         {
@@ -33,6 +90,7 @@ namespace Lumia
         }
         void EnsureEndlessAugments()
         {
+            EnsureEquipmentExpansion();
             if (State.augments == null) State.augments = new List<string>();
             if (State.augmentOffers == null) State.augmentOffers = new List<string>();
             if (State.mode != RunMode.Endless)
@@ -64,7 +122,7 @@ namespace Lumia
         {
             State.stage = RunStage.AugmentChoice; State.augmentOfferingCycle = State.endlessCycle + 1;
             State.augmentSelectedId = null; GenerateAugmentOffers();
-            Say("3막 완료 · " + EndlessAugments.TierName(AugmentOffers[0].tier) + " 증강 3개 중 하나를 선택하세요. 확정하면 다음 무한 주기가 시작됩니다.");
+            Say("3막 완료 · " + EndlessAugments.TierName(AugmentOffers[0].tier) + " 증강 3개 중 하나를 선택하세요. 다음으로 장착 한도를 늘릴 장비 부위를 선택합니다.");
         }
         void GenerateAugmentOffers()
         {
@@ -107,14 +165,14 @@ namespace Lumia
                     RecalculateHealth(false); break;
             }
             State.augmentOffers.Clear(); State.augmentSelectedId = null;
-            BeginNextEndlessCycle(); Say(value.name + " 획득 · " + RunModes.CycleLabel(State) + " 시작");
+            BeginEquipmentSlotChoice(); Say(value.name + " 획득 · 장착 한도를 1 늘릴 장비 부위를 선택하세요.");
             return true;
         }
         public bool SkipAugment()
         {
             if (State.mode != RunMode.Endless || State.stage != RunStage.AugmentChoice) return false;
             State.augmentOffers.Clear(); State.augmentSelectedId = null;
-            BeginNextEndlessCycle(); return Say("증강을 건너뛰었습니다. " + RunModes.CycleLabel(State) + " 시작");
+            BeginEquipmentSlotChoice(); return Say("증강을 건너뛰었습니다. 장착 한도를 1 늘릴 장비 부위를 선택하세요.");
         }
 
         bool AugmentReady(int flag) { return (State.combat.augmentTurnMask & flag) == 0; }

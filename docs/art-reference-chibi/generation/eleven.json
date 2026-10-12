@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/eleven.png",
   "width": 160,
   "height": 160,
-  "sha256": "e301d207b9ded4f5dc9e2cc6e0f43a06a2d72ec0ac8f0ee34817b3171df96e58",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "34211784cc19f09307d6bd6e93782d52005c8cb77bf403e64c2c4dd6c102d75b",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "e301d207b9ded4f5dc9e2cc6e0f43a06a2d72ec0ac8f0ee34817b3171df96e58",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

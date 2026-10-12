@@ -21,12 +21,13 @@ namespace Lumia
         GUIStyle text, title;
         bool showingSprites;
         bool showingSystems;
+        bool faceVerification;
         int page;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void StartVerification()
         {
-            if (Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0))
+            if (Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-face-verify") >= 0))
                 new GameObject("Lumia art verification").AddComponent<LumiaArtVerification>();
         }
 
@@ -35,10 +36,15 @@ namespace Lumia
             string output = Path.GetFullPath(Path.Combine(Application.dataPath, "..", "ArtVerification"));
             Directory.CreateDirectory(output);
             int missing = 0;
-            bool portraitOnly=Array.IndexOf(Environment.GetCommandLineArgs(),"-lumia-portrait-verify")>=0;
+            faceVerification=Array.IndexOf(Environment.GetCommandLineArgs(),"-lumia-face-verify")>=0;
+            bool portraitOnly=faceVerification || Array.IndexOf(Environment.GetCommandLineArgs(),"-lumia-portrait-verify")>=0;
             sprites.Add(new ArtItem { id = "hana", name = "하나", texture = PixelArt.Portrait("hana"), present = PixelArt.HasIdentityPortrait("hana") });
             foreach (var character in GameDatabase.Characters)
                 sprites.Add(new ArtItem { id = character.id, name = character.name, texture = PixelArt.Portrait(character.id), present = PixelArt.HasIdentityPortrait(character.id) });
+            int defaultSprites=sprites.Count;
+            if(faceVerification)
+                foreach(var character in GameDatabase.Characters)
+                    sprites.Add(new ArtItem {id=character.id,name=character.name,subtitle="레어 조우",texture=PixelArt.RarePortrait(character.id),present=PixelArt.HasRarePortrait(character.id)});
             foreach (var card in portraitOnly?new List<CardDef>():GameDatabase.Cards)
                 icons.Add(new ArtItem { id = card.id, name = card.name, subtitle = card.owner + " " + card.key, texture = PixelArt.SkillIcon(card.id), present = PixelArt.HasSkillIcon(card.id) });
             foreach (var passive in portraitOnly?new List<PassiveDef>():GameDatabase.Passives)
@@ -54,14 +60,32 @@ namespace Lumia
             foreach (var item in icons) if (!item.present) { missing++; Debug.LogError("LUMIA MISSING SKILL ICON " + item.id); }
             foreach(var item in systems) if(!item.present){missing++;Debug.LogError("LUMIA MISSING SYSTEM ICON "+item.id);}
             string portraitOutput=Path.Combine(output,"IdentityPortraits");Directory.CreateDirectory(portraitOutput);
-            foreach(var item in sprites)
+            string rareOutput=Path.Combine(output,"RarePortraits");
+            if(faceVerification)Directory.CreateDirectory(rareOutput);
+            for(int index=0;index<sprites.Count;index++)
             {
-                if (!PixelArt.HasReferencePortrait(item.id) || item.texture != Resources.Load<Texture2D>("Lumia/PortraitsReference/" + item.id))
-                { missing++; Debug.LogError("BTS MISSING NEW CHIBI " + item.id); }
+                var item=sprites[index];bool rare=index>=defaultSprites;
+                bool dedicated=rare?PixelArt.HasRarePortrait(item.id):PixelArt.HasReferencePortrait(item.id);
+                if (!dedicated || item.texture != Resources.Load<Texture2D>("Lumia/"+(rare?"PortraitsRare/":"PortraitsReference/") + item.id))
+                { missing++; Debug.LogError("BTS MISSING NEW CHIBI " +(rare?"rare/":"default/")+ item.id); }
                 if(item.texture.height>PixelArt.PortraitPixelHeight) {missing++;Debug.LogError("LUMIA PORTRAIT GRID "+item.id);}
-                ExportTexture(item.texture,Path.Combine(portraitOutput,item.id+".png"));
+                if(faceVerification && (item.texture.width!=160 || item.texture.height!=160 || item.texture.filterMode!=FilterMode.Point))
+                {missing++;Debug.LogError("BTS FACE CANVAS OR FILTER "+item.id);}
+                ExportTexture(item.texture,Path.Combine(rare?rareOutput:portraitOutput,item.id+".png"));
             }
-            File.WriteAllText(Path.Combine(output, "coverage.txt"), "Dedicated sprites: " + sprites.Count + "\nReference-style sprites: " + sprites.Count + "\nDedicated icons: " + icons.Count + "\nSystem icons: "+systems.Count+"\nPortrait pixel height: "+PixelArt.PortraitPixelHeight+"\nMissing assets: " + missing + "\n");
+            File.WriteAllText(Path.Combine(output, "coverage.txt"), "Dedicated sprites: " + sprites.Count + "\nReference-style sprites: " + defaultSprites + "\nRare sprites: "+(sprites.Count-defaultSprites)+"\nDedicated icons: " + icons.Count + "\nSystem icons: "+systems.Count+"\nPortrait pixel height: "+PixelArt.PortraitPixelHeight+"\nMissing assets: " + missing + "\n");
+            if(faceVerification)
+            {
+                for(page=0;page<(int)Math.Ceiling(sprites.Count/6d);page++)
+                {
+                    yield return new WaitForSecondsRealtime(.35f);
+                    ScreenCapture.CaptureScreenshot(Path.Combine(output,"faces_"+(page+1).ToString("00")+".png"));
+                    yield return new WaitForSecondsRealtime(.35f);
+                }
+                Debug.Log("BTS FACE COVERAGE default="+defaultSprites+" rare="+(sprites.Count-defaultSprites)+" native=160 battle=215 missing="+missing);
+                Application.Quit(missing==0?0:1);
+                yield break;
+            }
             for (int kind = 0; kind < 3; kind++)
             {
                 showingSprites = kind == 0;
@@ -100,6 +124,12 @@ namespace Lumia
                 text.normal.textColor = new Color(.88f, .94f, .91f);
                 title = new GUIStyle(text) { fontSize = 22 };
             }
+            if(faceVerification)
+            {
+                DrawFaceComparison();
+                GUI.matrix=Matrix4x4.identity;
+                return;
+            }
             var items = showingSprites ? sprites : showingSystems?systems:icons;
             int size = showingSprites ? 12 : 40;
             GUI.Label(new Rect(30, 22, 1220, 37), (showingSprites ? "눈매와 표정이 살아 있는 픽셀 실험체" : showingSystems?"룬 · 크레딧 · 모닥불 · 오브젝트 · 장비":"실험체 · 무기 · 전술 · 패시브 아이콘") + "  /  " + (page + 1) + " / " + Math.Ceiling(items.Count / (double)size), title);
@@ -116,6 +146,23 @@ namespace Lumia
                 GUI.Label(showingSprites ? new Rect(x + 6, y + 244, 176, 18) : new Rect(x + 3, y + 115, 106, 22), showingSprites ? item.id : item.subtitle, text);
             }
             GUI.matrix = Matrix4x4.identity;
+        }
+
+        void DrawFaceComparison()
+        {
+            GUI.Label(new Rect(24,18,1232,35),"실제 게임 스프라이트 · 눈과 입 검토  /  "+(page+1)+" / "+Math.Ceiling(sprites.Count/6d),title);
+            GUI.Label(new Rect(24,53,1232,23),"왼쪽: 원본 160 × 160  ·  오른쪽: 전투 표시 215 × 215  ·  실제 PixelArt 로더 / Point 필터",text);
+            for(int index=page*6;index<Math.Min(sprites.Count,(page+1)*6);index++)
+            {
+                var item=sprites[index];int local=index%6;
+                float x=18+local%3*418,y=88+local/3*306;
+                GUI.color=item.present?new Color(.07f,.15f,.2f):new Color(.4f,.06f,.06f);
+                GUI.DrawTexture(new Rect(x,y,408,292),Texture2D.whiteTexture);GUI.color=Color.white;
+                GUI.DrawTexture(new Rect(x+12,y+65,160,160),item.texture,ScaleMode.ScaleToFit,true);
+                GUI.DrawTexture(new Rect(x+182,y+15,215,215),item.texture,ScaleMode.ScaleToFit,true);
+                GUI.Label(new Rect(x+7,y+239,394,23),item.name+" · "+(string.IsNullOrEmpty(item.subtitle)?"기본":item.subtitle),text);
+                GUI.Label(new Rect(x+7,y+266,394,18),item.id,text);
+            }
         }
     }
 }

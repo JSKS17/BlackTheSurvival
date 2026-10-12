@@ -36,7 +36,9 @@ public static partial class CoreSmokeTests
             LobbyDialogueCatalog(); LobbyDialogueRotationIsolation(); LobbyDialogueRuleAccuracy();
             EndlessAugmentCatalogAndOffers(); EndlessAugmentSelectionAndSave(); EndlessAugmentCycleAndLegacy(); EndlessAugmentSupportAndCaps();
             EndlessAugmentSilverCombat(); EndlessAugmentGoldCombat(); EndlessAugmentPrismaticCombat(); EndlessAugmentPersistenceAndIsolation();
-            Console.WriteLine("PASS: " + checks + " assertions across 104 game-rule scenarios.");
+            EndlessEquipmentChoiceAndSave(); EndlessEquipmentCapacityAndCraft(); EndlessEquipmentLegacyAndModes();
+            CardClassificationCanonicalRules();
+            Console.WriteLine("PASS: " + checks + " assertions across 108 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -984,8 +986,8 @@ public static partial class CoreSmokeTests
         }
         Check(namedStatusConditions==8, "all eight authored control rules that depend on binary states are covered");
         string rioStatus=string.Join(" ",StatusMechanics.Describe(GameDatabase.Card("rio_r")));
-        Check(rioStatus.Contains("장궁 자세 상태이고 공격이 적중하면") && rioStatus.Contains("장궁 자세 상태가 아니고 공격이 적중하면"), "Rio control descriptions distinguish longbow active and inactive without 0/1 values");
-        Check(string.Join(" ",StatusMechanics.Describe(GameDatabase.Card("nia_w"))).Contains("아케이드 블록이 1 이상이고 공격이 적중하면"), "numerical resource control conditions retain their actual threshold");
+        Check(rioStatus.Contains("장궁 자세 상태이고 공격이 적중했을 때,") && rioStatus.Contains("장궁 자세 상태가 아니고 공격이 적중했을 때,"), "Rio control descriptions distinguish longbow active and inactive without 0/1 values");
+        Check(string.Join(" ",StatusMechanics.Describe(GameDatabase.Card("nia_w"))).Contains("아케이드 블록이 1 이상이고 공격이 적중했을 때,"), "numerical resource control conditions retain their actual threshold");
     }
     private static string StatusConditionPrefix(CardDef card,CardStatusRule status)
     {
@@ -996,7 +998,7 @@ public static partial class CoreSmokeTests
         if(status.timing=="next_basic")parts.Add("다음 기본 공격이 적중하면");
         else if(status.timing!="cast")parts.Add("해당 설치물·추가 효과가 적중하면");
         else if(status.onHit)parts.Add("공격이 적중하면");
-        return DescriptionSummary.Normalize(string.Join(", ",parts));
+        return DescriptionSummary.ConditionPrefix(DescriptionSummary.JoinConditions(parts)).TrimEnd();
     }
     private static void SkillTimedEffects()
     {
@@ -1347,7 +1349,7 @@ public static partial class CoreSmokeTests
         foreach(var r in GameDatabase.Runes)Check(r.mechanics!=null && r.mechanics.rules.Length>0 && r.mechanics.replaceLegacy,"original rune profile: "+r.id);
         string nathapon=GameDatabase.Passive("nathapon_p").description;
         Check(nathapon.Contains("구도 × 1") && nathapon.Contains("최대 3"),"scaled passive description names its numerical resource and effective maximum");
-        Check(GameDatabase.Passive("tsubame_p").description.Contains("3 이상이면"),"conditional maximum-mark passive description includes its numerical condition");
+        Check(GameDatabase.Passive("tsubame_p").description.Contains("3 이상일 때"),"conditional maximum-mark passive description includes its numerical condition");
         Check(GameDatabase.Passive("fenrir_p").description.Contains("사용될 때까지"),"persistent fatal prevention is described as lasting until used");
         Check(GameDatabase.Passive("isaac_p").description.Contains("기본 공격 사용 3회마다"),"third-basic passive describes its actual trigger count");
         foreach(var card in GameDatabase.Cards.Where(x=>x.mechanics!=null))Check(!string.Join(" ",SkillMechanics.Describe(card)).Contains("(를)") && !string.Join(" ",SkillMechanics.Describe(card)).Contains("이(가)"),"mechanic sentence has natural particles: "+card.id);

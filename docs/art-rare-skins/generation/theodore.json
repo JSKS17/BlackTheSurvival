@@ -42,7 +42,7 @@
     1254
   ],
   "path": "Assets/Resources/Lumia/PortraitsRare/theodore.png",
-  "sha256": "51b17af29fa00a7a71a2bbd7182b206e046a8885fc7839833ee841a72881b74c",
+  "sha256": "64cbfe43c10f5ec0a1c7c84f352a057b4b4fe090bc1e6e186befc198c267c7d4",
   "processedPath": "docs/art-rare-skins/processed/theodore.png",
   "width": 160,
   "height": 160,
@@ -57,5 +57,14 @@
   "integerPixelScale": 2,
   "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/theodore.png",
   "originalDefaultSpriteSha256": "9a450a80461a340062583d33cbd5c5e24a5bbc3f32f31cce861478a28266beff",
-  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "51b17af29fa00a7a71a2bbd7182b206e046a8885fc7839833ee841a72881b74c",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/chloe.png",
   "width": 160,
   "height": 160,
-  "sha256": "4f6490d3e7f9b28c6767f9b9a54f7549830161f2d6ed9e05faf48fe3e641be40",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "730f085b651fb4c7375943a8089169c188cdaa3122523eeb1f750644ac2d9e56",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "4f6490d3e7f9b28c6767f9b9a54f7549830161f2d6ed9e05faf48fe3e641be40",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

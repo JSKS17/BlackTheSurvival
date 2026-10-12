@@ -33,6 +33,15 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/garnet.png",
   "width": 160,
   "height": 160,
-  "sha256": "950fe220268be735b1b1a29d6b31ca13d2dd0483be38d10c0cf048e5f74025b3",
-  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+  "sha256": "fbec1919f099ddb82fff16ea3db5cac8720c33e09624270dd93865c3ec2875d2",
+  "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "950fe220268be735b1b1a29d6b31ca13d2dd0483be38d10c0cf048e5f74025b3",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

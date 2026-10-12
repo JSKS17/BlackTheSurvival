@@ -33,7 +33,16 @@
   "path": "Assets/Resources/Lumia/PortraitsReference/isol.png",
   "width": 160,
   "height": 160,
-  "sha256": "11cafb29ec27ba6724daab9787769aaf73734a496b9a79920283d954f6e7d37e",
+  "sha256": "e3e233d5d16becc455ebe6b91cfe5555d5707a1d1788c2b50c79dcae67266455",
   "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-96088566-8549-4e92-8748-c6f8852e40ec.png"
+  "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-96088566-8549-4e92-8748-c6f8852e40ec.png",
+  "faceRefinement": {
+    "manifest": "docs/art-face-refinement/manifest.json",
+    "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+    "beforeSha256": "11cafb29ec27ba6724daab9787769aaf73734a496b9a79920283d954f6e7d37e",
+    "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+    "preservesCanvas": true,
+    "preservesAlpha": true,
+    "preservesOutsideMask": true
+  }
 }

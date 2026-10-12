@@ -36,9 +36,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/hana.png",
       "width": 160,
       "height": 160,
-      "sha256": "7cd4aa95967cf25dedf562f2365cf18285e8ec4ba233f80d8baa12fd1b2f3951",
+      "sha256": "b481c31267ae4f86616c471eb18328d13f4d79c1d2ee18e40a7b787ebca88268",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-d9c1a6ca-1b43-494c-9f29-19573b25a20d.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-d9c1a6ca-1b43-494c-9f29-19573b25a20d.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "7cd4aa95967cf25dedf562f2365cf18285e8ec4ba233f80d8baa12fd1b2f3951",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "nia",
@@ -75,9 +84,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/nia.png",
       "width": 160,
       "height": 160,
-      "sha256": "8213158b05ecff2654cd1fc3c66a9c97d403a0934c413f3a75dc383e20db2813",
+      "sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-78265b20-43dc-44ed-869e-25f0ccaa1159.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-78265b20-43dc-44ed-869e-25f0ccaa1159.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "8213158b05ecff2654cd1fc3c66a9c97d403a0934c413f3a75dc383e20db2813",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "jackie",
@@ -114,9 +132,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/jackie.png",
       "width": 160,
       "height": 160,
-      "sha256": "68c67ef55e18f86b53abff526235bcfa98fafd6992530c5580bf107f256bb79d",
+      "sha256": "622cbcb5349277d1b922b7faf352700f8c11233384660f21480d5770dd1b1e9e",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-e44f8aab-f324-4518-b92d-e135fd6353b1.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-e44f8aab-f324-4518-b92d-e135fd6353b1.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "68c67ef55e18f86b53abff526235bcfa98fafd6992530c5580bf107f256bb79d",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "aya",
@@ -153,9 +180,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/aya.png",
       "width": 160,
       "height": 160,
-      "sha256": "1bf165bbc45d7c67a0ff76e4c95e6725a37c4faea7ed1757e1e5b65386f4ee21",
+      "sha256": "dbac0dd61dc70a1b3149a4c0f21912930e8fead18ea42eb29699f74eaabfc592",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-25592038-a4e1-4f2d-9529-e9a79f2482f4.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-25592038-a4e1-4f2d-9529-e9a79f2482f4.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "1bf165bbc45d7c67a0ff76e4c95e6725a37c4faea7ed1757e1e5b65386f4ee21",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "hyunwoo",
@@ -192,9 +228,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/hyunwoo.png",
       "width": 160,
       "height": 160,
-      "sha256": "8662dfcc7d77346ba424b17c81d8b2a471536518807751dc8c6bacfef30f1c98",
+      "sha256": "c7c3f75461c9db2c7e3dc5fc7b57d055ddeb780522b080419f1041aba64ff193",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-93d1742d-e27f-4bf8-a068-f7d319299b48.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-93d1742d-e27f-4bf8-a068-f7d319299b48.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "8662dfcc7d77346ba424b17c81d8b2a471536518807751dc8c6bacfef30f1c98",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "yuki",
@@ -231,9 +276,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/yuki.png",
       "width": 160,
       "height": 160,
-      "sha256": "c2423c235a4e87c261ffdf2aa27b305154e561d0ced657eeae6d097c0af51cd4",
+      "sha256": "313a0dabfdf7168f9930e6ca01b4e17870459f29a17ff795f32917f00f050e50",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-7085e9a6-041a-494d-b08a-df95c9de3df2.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-7085e9a6-041a-494d-b08a-df95c9de3df2.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "c2423c235a4e87c261ffdf2aa27b305154e561d0ced657eeae6d097c0af51cd4",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "hyejin",
@@ -270,9 +324,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/hyejin.png",
       "width": 160,
       "height": 160,
-      "sha256": "ff4db4e5b7a990f1487c438ffbcac3beecc00c246b3017cd4bdce0042352b8d2",
+      "sha256": "8f9922fa0ea78c3cf56411dfd23728e1781b65102328ede12e0874cf9ffcf125",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-309385dc-98d3-4312-a82c-35f57ffa8e63.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-309385dc-98d3-4312-a82c-35f57ffa8e63.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "ff4db4e5b7a990f1487c438ffbcac3beecc00c246b3017cd4bdce0042352b8d2",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "sua",
@@ -348,9 +411,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/isol.png",
       "width": 160,
       "height": 160,
-      "sha256": "11cafb29ec27ba6724daab9787769aaf73734a496b9a79920283d954f6e7d37e",
+      "sha256": "e3e233d5d16becc455ebe6b91cfe5555d5707a1d1788c2b50c79dcae67266455",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-96088566-8549-4e92-8748-c6f8852e40ec.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-96088566-8549-4e92-8748-c6f8852e40ec.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "11cafb29ec27ba6724daab9787769aaf73734a496b9a79920283d954f6e7d37e",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "nadine",
@@ -387,9 +459,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/nadine.png",
       "width": 160,
       "height": 160,
-      "sha256": "38b1b8f068657539ad26690ecdbe89193f21de797e3e4ab26c8c4436f94cb538",
+      "sha256": "310dbfb872e73cfda511a10c24e6d0c99513e1212228450c15992f004a2531a4",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-26fa5f44-1dc1-403c-8aa2-92379cc7e192.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-26fa5f44-1dc1-403c-8aa2-92379cc7e192.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "38b1b8f068657539ad26690ecdbe89193f21de797e3e4ab26c8c4436f94cb538",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "emma",
@@ -426,9 +507,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/emma.png",
       "width": 160,
       "height": 160,
-      "sha256": "f643c104eee59bcc3289bbc4c13ac381bef09789bb2fb44717d70783ca2a4e42",
+      "sha256": "ed092dd1c54051c277a60b155c2c4d2fc8c5b292c7200674f8240ffc6d3c2456",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-f366da0c-b6bc-45a3-8482-b504e8a21200.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-f366da0c-b6bc-45a3-8482-b504e8a21200.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "f643c104eee59bcc3289bbc4c13ac381bef09789bb2fb44717d70783ca2a4e42",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "charlotte",
@@ -465,9 +555,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/charlotte.png",
       "width": 160,
       "height": 160,
-      "sha256": "205729ee2c947a79c3fbd4ca2e0007b9e2bba4bd13dd315370ecd0cec3c5b8a4",
+      "sha256": "eeee51ae5bc01fad94da311418eb2694a651dae6f7aa4afcc7c2900578a56d67",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-67baa56a-79f6-4ce1-9312-6466b48bf1e5.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-67baa56a-79f6-4ce1-9312-6466b48bf1e5.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "205729ee2c947a79c3fbd4ca2e0007b9e2bba4bd13dd315370ecd0cec3c5b8a4",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "nathapon",
@@ -504,9 +603,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/nathapon.png",
       "width": 160,
       "height": 160,
-      "sha256": "5807a88ccf878b8f8bad1e5fa8ee3a933bcfec8317908304f3521da9ff90bffb",
+      "sha256": "0b8531404db5009d4b35c892f7dbea1936e58a56be7528caaae35bcde5d0f346",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-c87e66a6-5980-4b83-b2ba-9e03109ab1c6.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-c87e66a6-5980-4b83-b2ba-9e03109ab1c6.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "5807a88ccf878b8f8bad1e5fa8ee3a933bcfec8317908304f3521da9ff90bffb",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "nicky",
@@ -543,9 +651,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/nicky.png",
       "width": 160,
       "height": 160,
-      "sha256": "be277ce5372d5b98f9592f0ec603647b635a0672634b23a39ed5b227a709310b",
+      "sha256": "d136e950e9576114f5e9ea18d4d37808b0c2589ae80a4576da3a0b0e2aadc6fd",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-972d7bf4-04f7-4854-ba94-f7f27ef43a10.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-972d7bf4-04f7-4854-ba94-f7f27ef43a10.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "be277ce5372d5b98f9592f0ec603647b635a0672634b23a39ed5b227a709310b",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "daniel",
@@ -582,9 +699,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/daniel.png",
       "width": 160,
       "height": 160,
-      "sha256": "746010fd54f2be05b939d582c6e356ce124add084ea0260638fdd0732f2f57a4",
+      "sha256": "0770858a15d928e90016911b10410da3339fe2b1f55fd2391d2cddd2d71c61a0",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-670a76b5-ad8c-454b-9a53-7a81b3f72698.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-670a76b5-ad8c-454b-9a53-7a81b3f72698.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "746010fd54f2be05b939d582c6e356ce124add084ea0260638fdd0732f2f57a4",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "tia",
@@ -621,9 +747,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/tia.png",
       "width": 160,
       "height": 160,
-      "sha256": "3670031d8352a584d1497e2f279b9981e33f2a8331d9e768f77d9c61a6240465",
+      "sha256": "7c6baac6f4ad8c34a1aae99db2378ff56ad01e6df43b1c2d9acfedb7aea002ce",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-be0fe2c1-7911-4cea-878d-dc176783bcd0.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-be0fe2c1-7911-4cea-878d-dc176783bcd0.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "3670031d8352a584d1497e2f279b9981e33f2a8331d9e768f77d9c61a6240465",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "laura",
@@ -660,9 +795,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/laura.png",
       "width": 160,
       "height": 160,
-      "sha256": "cf770605aaf8f57aae60459a59523de4fb2632ca5210063fb6a37d5fa3ac249e",
+      "sha256": "5e62fba54fe346e91edcea951a90aefa7edfff8b6ecc170e9b81dd4c98d8cc8f",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-7b1f83da-4f85-4a45-ac93-50e5b9a5288e.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-7b1f83da-4f85-4a45-ac93-50e5b9a5288e.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "cf770605aaf8f57aae60459a59523de4fb2632ca5210063fb6a37d5fa3ac249e",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "lenox",
@@ -738,9 +882,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/leon.png",
       "width": 160,
       "height": 160,
-      "sha256": "aad2238ac11cfeddc7fe7dde64b6d5dc7193b46cdacababb40eedb3982cd1652",
+      "sha256": "b62e740e90d6c7428f3cd4c127278884bfd3693180a239c91ddff2f6e13076b5",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-9ff90848-54db-48e6-b0d7-2707803f5978.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-9ff90848-54db-48e6-b0d7-2707803f5978.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "aad2238ac11cfeddc7fe7dde64b6d5dc7193b46cdacababb40eedb3982cd1652",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "rozzi",
@@ -777,9 +930,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/rozzi.png",
       "width": 160,
       "height": 160,
-      "sha256": "d9e21f53990a1d8db1c490e36c6cb35a9bf3ee30fc46f0d310633a7d01c471f7",
+      "sha256": "36ded5aa1b1c3a3267ebf48dab341f70c99a3e8c0bf5061c732f2803ff93af2c",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-49759a51-7faf-4d81-9ba6-9c60dc3f4e4b.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-49759a51-7faf-4d81-9ba6-9c60dc3f4e4b.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "d9e21f53990a1d8db1c490e36c6cb35a9bf3ee30fc46f0d310633a7d01c471f7",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "luke",
@@ -816,9 +978,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/luke.png",
       "width": 160,
       "height": 160,
-      "sha256": "548e8887a3abee2aa913a3f2a9da431290e787dd7f006e3704563f0f9170348c",
+      "sha256": "2700174aac7865d76b8c64f3a17fe029b6cbf07eab84cf5b0e2151048b27abeb",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-2c5dcd16-8b01-4c2e-9ad1-8eb0689f3ec0.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-2c5dcd16-8b01-4c2e-9ad1-8eb0689f3ec0.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "548e8887a3abee2aa913a3f2a9da431290e787dd7f006e3704563f0f9170348c",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "dailin",
@@ -855,9 +1026,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/dailin.png",
       "width": 160,
       "height": 160,
-      "sha256": "b2ec50c573fd3875e3bdf9087f0589c866c47cd2e1baebd9b3b447e51774538e",
+      "sha256": "9c57e6ac8a98ce7fc8b2dafbf00d3348a6c2897b6039eccd9426b98e47c335df",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-69821803-4af7-46fe-8891-93e5e51c5b3a.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-69821803-4af7-46fe-8891-93e5e51c5b3a.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "b2ec50c573fd3875e3bdf9087f0589c866c47cd2e1baebd9b3b447e51774538e",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "rio",
@@ -894,8 +1074,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/rio.png",
       "width": 160,
       "height": 160,
-      "sha256": "8a1909b16cd5e8d6e23d6614083d078f558b2b083766097844d5cc199800560d",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "766558d826f83e877b2d6d4bd949ec1279ee68f260afe25282be06c5cb59b255",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "8a1909b16cd5e8d6e23d6614083d078f558b2b083766097844d5cc199800560d",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "martina",
@@ -932,9 +1121,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/martina.png",
       "width": 160,
       "height": 160,
-      "sha256": "749f46b26639208a74423656cb7d8d930d5ea583715a2669f51b21556a2838cc",
+      "sha256": "0e7a21f1ab838ebeb2a29077f9bf8146862396b015e16b846df1693f6ec4e229",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-4fea09ec-2902-4297-8b44-a76d8e4d2b25.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-4fea09ec-2902-4297-8b44-a76d8e4d2b25.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "749f46b26639208a74423656cb7d8d930d5ea583715a2669f51b21556a2838cc",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "mai",
@@ -1010,9 +1208,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/markus.png",
       "width": 160,
       "height": 160,
-      "sha256": "f2e21cce98c49680b0453d0bfc14cc21f8d94231e1fdfd18b39b25e2506d3221",
+      "sha256": "6d5c5940401373d4eaaef90864885529269b6c6cc96890a2030eb53fd5aba7ed",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-3b140c26-ec77-44b0-b948-aaccb1ab7771.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-3b140c26-ec77-44b0-b948-aaccb1ab7771.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "f2e21cce98c49680b0453d0bfc14cc21f8d94231e1fdfd18b39b25e2506d3221",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "magnus",
@@ -1049,9 +1256,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/magnus.png",
       "width": 160,
       "height": 160,
-      "sha256": "8a23e4fe161e00a5d2d7346ed4d5cdd5ce51eda87b7d6a2aa5b337bff6f13a70",
+      "sha256": "edd71289008936ed545e8f577f2bea26730f3a2f2be8573a9e8b4dce98f40086",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-2773b590-e189-4a14-8bd4-99f394adb130.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-2773b590-e189-4a14-8bd4-99f394adb130.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "8a23e4fe161e00a5d2d7346ed4d5cdd5ce51eda87b7d6a2aa5b337bff6f13a70",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "vanya",
@@ -1088,9 +1304,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/vanya.png",
       "width": 160,
       "height": 160,
-      "sha256": "1b41dd2e5582acecf9e934bd98f933a941637e7649d74928793481d8bcfb0c09",
+      "sha256": "d3947dc5d5a32470d98faaf0182daef24352d75c0eef75a6de1df12c6349ae3c",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-5661615d-4154-4056-9656-746ea5d97932.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-5661615d-4154-4056-9656-746ea5d97932.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "1b41dd2e5582acecf9e934bd98f933a941637e7649d74928793481d8bcfb0c09",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "barbara",
@@ -1127,8 +1352,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/barbara.png",
       "width": 160,
       "height": 160,
-      "sha256": "001459ebb4ab10edf6dd7283201699fb8de3da8268608478531a083d1b748bfe",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "bdcd9124ca2e9a1d1545a94066c57cb787ba0fe82bbd7827e46e36ada9e4f259",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "001459ebb4ab10edf6dd7283201699fb8de3da8268608478531a083d1b748bfe",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "bernice",
@@ -1165,8 +1399,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/bernice.png",
       "width": 160,
       "height": 160,
-      "sha256": "9b8940066a6233f2f72c825a7e932d9d5067ccbc93653c5ac327e020d6c1d6bb",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "d689041be3edb5bd85d5633c77f3ef696094e8dcdb9b216d2b6e15a941451926",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "9b8940066a6233f2f72c825a7e932d9d5067ccbc93653c5ac327e020d6c1d6bb",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "bianca",
@@ -1203,8 +1446,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/bianca.png",
       "width": 160,
       "height": 160,
-      "sha256": "95040faa755c62423e66b4fc9d9bb516e0f0b3287bc3033b702c7574d5790ad8",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "59dfca4671121a447dd1abe02b24ddae27534891130f79637914b83f58efcca3",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "95040faa755c62423e66b4fc9d9bb516e0f0b3287bc3033b702c7574d5790ad8",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "celine",
@@ -1241,8 +1493,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/celine.png",
       "width": 160,
       "height": 160,
-      "sha256": "3155867328605c2def890f1396c39d75d739b9e58b9fa09cacdcf90e23798db6",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "8d52a63d667c243a7c89fe332fa316202d36feede7356e84269a178c7430236a",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "3155867328605c2def890f1396c39d75d739b9e58b9fa09cacdcf90e23798db6",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "sho",
@@ -1317,8 +1578,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/shoichi.png",
       "width": 160,
       "height": 160,
-      "sha256": "8aabb72125ef9f1734d2e1dc9219ddcc5b2728f1f4e7e5b2c309723e98cccde5",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "f2af747cef960c12b7c4de15ce92e16b06e7aa593b9f5c54bc6f172c435cda50",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "8aabb72125ef9f1734d2e1dc9219ddcc5b2728f1f4e7e5b2c309723e98cccde5",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "sissela",
@@ -1355,8 +1625,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/sissela.png",
       "width": 160,
       "height": 160,
-      "sha256": "05cd5dd96721f3374c9b5ff50934965a0cfdd6f260823c59e164772385be153a",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "1716ed761b698a3958c2e4642fc03396e9904a317f76208e72210d91dec8b5cf",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "05cd5dd96721f3374c9b5ff50934965a0cfdd6f260823c59e164772385be153a",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "silvia",
@@ -1431,8 +1710,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/adela.png",
       "width": 160,
       "height": 160,
-      "sha256": "8e5c23abe28b5c5e933ef78c1c1f3257bc07037d4e037b59c87187066b5ba186",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "4783794c34f21325f475a344ff030918d2fd9244a9c4d1dc5c92a4e8c2f86914",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "8e5c23abe28b5c5e933ef78c1c1f3257bc07037d4e037b59c87187066b5ba186",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "adriana",
@@ -1507,8 +1795,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/adina.png",
       "width": 160,
       "height": 160,
-      "sha256": "a23956dc8be51b57537f4128f60542c7a541d0c1bb629691797e9689bb7a9a71",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "86bd9d25ec7255e5416d40eba53cbafe970acd0fe0537e2629aeb1b3a1b3f437",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "a23956dc8be51b57537f4128f60542c7a541d0c1bb629691797e9689bb7a9a71",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "isaac",
@@ -1545,8 +1842,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/isaac.png",
       "width": 160,
       "height": 160,
-      "sha256": "f383622750da2f5657ab3c6e42090d90452a6c045bc1a576904cd7298a6c3322",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "38ceebc4a77177f8f402edba5605ed3beb83c76734dba7b4e659c9bb1959ea75",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "f383622750da2f5657ab3c6e42090d90452a6c045bc1a576904cd7298a6c3322",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "alex",
@@ -1583,8 +1889,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/alex.png",
       "width": 160,
       "height": 160,
-      "sha256": "e10344b1493a59150153a45890ce79e13a4a7d8aaf4427f28b54de429770db76",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "f488e2f8924a86d42504a171bb90e6dcb23fa0705990fb2bcddf6ca63fa1a8cf",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "e10344b1493a59150153a45890ce79e13a4a7d8aaf4427f28b54de429770db76",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "jan",
@@ -1659,8 +1974,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/estelle.png",
       "width": 160,
       "height": 160,
-      "sha256": "0483cba5b4f2ebd6c901218fec78143f6a0fe16a96e07c1e2644351d79e03b9a",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "d1bac4d0bd31706e71199eec46738118aacdfc4f89511de1cb339559d552066c",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "0483cba5b4f2ebd6c901218fec78143f6a0fe16a96e07c1e2644351d79e03b9a",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "aiden",
@@ -1697,8 +2021,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/aiden.png",
       "width": 160,
       "height": 160,
-      "sha256": "70bc1e4043aa73fd74c5d92eb5da8af2ec18a84b26e149b22b02279be17b4a9b",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "7f2763c8b8fab8f33ef5690bf871601f1fc06c5ea86fcdcdb714497af9f57042",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "70bc1e4043aa73fd74c5d92eb5da8af2ec18a84b26e149b22b02279be17b4a9b",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "echion",
@@ -1735,8 +2068,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/echion.png",
       "width": 160,
       "height": 160,
-      "sha256": "75a6bdc18975b7dd467a69937dfe0e6c2c0180fdcf8ebd1de73c4e1b166d77e6",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "e393b17bece5a7bba9ab3d76069e8b3af185bdfd700eaa532b898e9b211a898f",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "75a6bdc18975b7dd467a69937dfe0e6c2c0180fdcf8ebd1de73c4e1b166d77e6",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "elena",
@@ -1773,8 +2115,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/elena.png",
       "width": 160,
       "height": 160,
-      "sha256": "b2cce4e7a6284d9db488bc6111eda839131e1883adffc37e0cc241666ea73c3c",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "acde431b6205bc484f36be14b42236e6c6a55c54895ac62dc7fe349b284d291c",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "b2cce4e7a6284d9db488bc6111eda839131e1883adffc37e0cc241666ea73c3c",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "johann",
@@ -1811,8 +2162,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/johann.png",
       "width": 160,
       "height": 160,
-      "sha256": "834a19d15562173c60f3c1af88c12c94fb7a8fd48ff58dcee80506333f60db57",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "77f63cbe15501e06ab8c0b57a96d67fb45adef0e71b7bdd71bba08f2040362e9",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "834a19d15562173c60f3c1af88c12c94fb7a8fd48ff58dcee80506333f60db57",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "william",
@@ -1849,8 +2209,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/william.png",
       "width": 160,
       "height": 160,
-      "sha256": "8100a99d0a941ef46865940c3397777ae0a3939ae9aee2be52f4d7eb5ac2fcd2",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "172563b64144370f29d2cf6bfed1aa7ca5e62e7141d272a6d7b90788740a03c8",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "8100a99d0a941ef46865940c3397777ae0a3939ae9aee2be52f4d7eb5ac2fcd2",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "irem",
@@ -1887,8 +2256,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/irem.png",
       "width": 160,
       "height": 160,
-      "sha256": "8e80873ed120cccca2622224b8df91d2d811197ba5058a0f4c2faabdc97f0c4a",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "b69dbae9c0f1e3c0ed7365d2ff8de693ab355d18f6e0e7b34b52b399f648edb5",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "8e80873ed120cccca2622224b8df91d2d811197ba5058a0f4c2faabdc97f0c4a",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "eva",
@@ -1925,8 +2303,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/eva.png",
       "width": 160,
       "height": 160,
-      "sha256": "0dcb3187fb671b7090ac88db3fc09e2eb83921a9ae7854e0bad9ae41b6719adb",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "3e6aa2536da94ca9f20858e0bdc3cfa07766868c677d1f302477847deeb77848",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "0dcb3187fb671b7090ac88db3fc09e2eb83921a9ae7854e0bad9ae41b6719adb",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "ian",
@@ -1963,8 +2350,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/ian.png",
       "width": 160,
       "height": 160,
-      "sha256": "0d248fb54f552b652bdb8913d9a2e3bb1a93f8ab7ff26350f49ed7ab5cf49220",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "f67add79c33c277cb89a32b0bfd1bcf8ca767e8085da84ccafdaadce7e5b16f1",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "0d248fb54f552b652bdb8913d9a2e3bb1a93f8ab7ff26350f49ed7ab5cf49220",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "eleven",
@@ -2001,8 +2397,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/eleven.png",
       "width": 160,
       "height": 160,
-      "sha256": "e301d207b9ded4f5dc9e2cc6e0f43a06a2d72ec0ac8f0ee34817b3171df96e58",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "34211784cc19f09307d6bd6e93782d52005c8cb77bf403e64c2c4dd6c102d75b",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "e301d207b9ded4f5dc9e2cc6e0f43a06a2d72ec0ac8f0ee34817b3171df96e58",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "zahir",
@@ -2039,8 +2444,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/zahir.png",
       "width": 160,
       "height": 160,
-      "sha256": "53ed1845f75a73f097879c56921825ca9cf69c1dced5ca3a9b052a8d0f64e2a3",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "71b8c626fd07dff3f25796843ec25ff3f5b22b69b17e345a8d065094a340200b",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "53ed1845f75a73f097879c56921825ca9cf69c1dced5ca3a9b052a8d0f64e2a3",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "jenny",
@@ -2077,8 +2491,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/jenny.png",
       "width": 160,
       "height": 160,
-      "sha256": "55beb6b7c2957608f3bc5a7bff72af08f409c181d13d21a802121c850118a3d6",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "ecdbab2ae0bf86a4aca495ca22991f7f549ed9ddeac1e7eb1c2f89da455f43ca",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "55beb6b7c2957608f3bc5a7bff72af08f409c181d13d21a802121c850118a3d6",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "camilo",
@@ -2115,8 +2538,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/camilo.png",
       "width": 160,
       "height": 160,
-      "sha256": "2ec42e82732c9ce65daae82824beb3b24ad488e3c45f730e86d9bd16b8aa8565",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "41049f3929cbc005fb0f8293cd382e81e3b730d46b530d26eae2778b7fcd491a",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "2ec42e82732c9ce65daae82824beb3b24ad488e3c45f730e86d9bd16b8aa8565",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "karla",
@@ -2153,8 +2585,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/karla.png",
       "width": 160,
       "height": 160,
-      "sha256": "caae0d1ec0bfe7180d8b0dcd13f93f087c7de5ad085c5f69a4c43ee2c7847d60",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "f734994c409a68a7d8ec54bb54425d71af1694e5c41b54bd212c597c630dfa1a",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "caae0d1ec0bfe7180d8b0dcd13f93f087c7de5ad085c5f69a4c43ee2c7847d60",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "cathy",
@@ -2191,8 +2632,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/cathy.png",
       "width": 160,
       "height": 160,
-      "sha256": "e6340619936a3ddae39029b6a62887bcd167cc0b4afc36f3d520ea91346a3de6",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "4ec9001d10f5e469a5059b941701b4740a6fbfbc15f29ce596617dffc5f01263",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "e6340619936a3ddae39029b6a62887bcd167cc0b4afc36f3d520ea91346a3de6",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "chloe",
@@ -2229,8 +2679,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/chloe.png",
       "width": 160,
       "height": 160,
-      "sha256": "4f6490d3e7f9b28c6767f9b9a54f7549830161f2d6ed9e05faf48fe3e641be40",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "730f085b651fb4c7375943a8089169c188cdaa3122523eeb1f750644ac2d9e56",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "4f6490d3e7f9b28c6767f9b9a54f7549830161f2d6ed9e05faf48fe3e641be40",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "chiara",
@@ -2267,8 +2726,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/chiara.png",
       "width": 160,
       "height": 160,
-      "sha256": "5c724898979f7140a3dc6d24137b61d8c8f316c8104d31c1adf87b01612d42c5",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "f46408f024ae187dac152471915ab42298aa9bbaf682f120e92284d83129e865",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "5c724898979f7140a3dc6d24137b61d8c8f316c8104d31c1adf87b01612d42c5",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "tazia",
@@ -2305,8 +2773,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/tazia.png",
       "width": 160,
       "height": 160,
-      "sha256": "a2c50c8ac1338ef4c97d8397b988bb0ae9e7d33ac182b281ff2f9ee60cfeaf35",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "c4146efae90a42794412efaaf7cd701f4117ea2237f33ff55213a4b7817977c9",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "a2c50c8ac1338ef4c97d8397b988bb0ae9e7d33ac182b281ff2f9ee60cfeaf35",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "theodore",
@@ -2343,8 +2820,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/theodore.png",
       "width": 160,
       "height": 160,
-      "sha256": "9a450a80461a340062583d33cbd5c5e24a5bbc3f32f31cce861478a28266beff",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "a5496e768754a86068b24d172f86303660092d07e95b5c4e46f89e9470c859b7",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "9a450a80461a340062583d33cbd5c5e24a5bbc3f32f31cce861478a28266beff",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "felix",
@@ -2381,8 +2867,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/felix.png",
       "width": 160,
       "height": 160,
-      "sha256": "ef2824fc84e1d02c6beb71097ff89facb2d5bb057a5ebea8552eda420b374ff3",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "c61875e09d2fa551efd4a79a75b7c9f422e0dc1b20205aafbcf3c2911a976af6",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "ef2824fc84e1d02c6beb71097ff89facb2d5bb057a5ebea8552eda420b374ff3",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "priya",
@@ -2457,8 +2952,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/fiora.png",
       "width": 160,
       "height": 160,
-      "sha256": "cbde220d120ad020ce185f2ed30a4e9117d73cb6fed0a9f5346f31c7012e928c",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "6c818239f162d553bf801a99588bc63d2954d6e03d7aa3704d610c5f42f73c83",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "cbde220d120ad020ce185f2ed30a4e9117d73cb6fed0a9f5346f31c7012e928c",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "piolo",
@@ -2495,8 +2999,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/piolo.png",
       "width": 160,
       "height": 160,
-      "sha256": "84316ba01710c82bee0e88954b73b76da63f423d2ebd6b0083354ae1256c5e38",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "b47ebd3ce4b582944c107d98d837b795e172a0cca6ac5436e3e46a258bbc07bd",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "84316ba01710c82bee0e88954b73b76da63f423d2ebd6b0083354ae1256c5e38",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "hart",
@@ -2533,8 +3046,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/hart.png",
       "width": 160,
       "height": 160,
-      "sha256": "fd65eb13427ed3e7a598ee0a2e5132b3a41c37f82b66cfd79d152f43ff72dbc8",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "bb751e53f3ddde1574c40cae8712889376bc0622ef9523c380c1bf6a717e904c",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "fd65eb13427ed3e7a598ee0a2e5132b3a41c37f82b66cfd79d152f43ff72dbc8",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "haze",
@@ -2571,8 +3093,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/haze.png",
       "width": 160,
       "height": 160,
-      "sha256": "a3aa69ef8fc692d2a292befe4387fc5e8e06948c7df8bc9c83a12fb59404426f",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "e38bb4bcf27b947ded0a0ee2ceca69bed42514e5e2876afba5197a5e2302a99e",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "a3aa69ef8fc692d2a292befe4387fc5e8e06948c7df8bc9c83a12fb59404426f",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "debi_marlene",
@@ -2609,8 +3140,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/debi_marlene.png",
       "width": 160,
       "height": 160,
-      "sha256": "df2334e08725d24a75db690201bcae103644e76ae4a333693ef81eb343c16263",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "4aa259d6b43381d35af2a2c30ff33425387dd42b37ba059c8fac641cbc14e4bc",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "df2334e08725d24a75db690201bcae103644e76ae4a333693ef81eb343c16263",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "arda",
@@ -2647,8 +3187,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/arda.png",
       "width": 160,
       "height": 160,
-      "sha256": "d7774b19d3ae2e4256075d57eabcefe6b0c04891ee6cdf6b5020efdc713f94c6",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "0994ba51b5f3b662e6d75b01c7cf545657216d9ebc219b05d1b5d096f3f1a52c",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "d7774b19d3ae2e4256075d57eabcefe6b0c04891ee6cdf6b5020efdc713f94c6",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "abigail",
@@ -2685,8 +3234,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/abigail.png",
       "width": 160,
       "height": 160,
-      "sha256": "89c55545fbca5d2e7c748c4c05b2518b47a4be2cffb85256269a25ec37373f63",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "83495f173e2f3bd513fa4739f3e268c3913871d1e8a1d3e29a314232b8a5f9d6",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "89c55545fbca5d2e7c748c4c05b2518b47a4be2cffb85256269a25ec37373f63",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "alonso",
@@ -2799,8 +3357,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/tsubame.png",
       "width": 160,
       "height": 160,
-      "sha256": "806876aeefea675ca42a32a75391ec8ee066d84a831b67ea484025045dfc3a2a",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "3da73c7126bf6c9123eaa47e1184ed3f0cdafd1c9852aca598f8be89cb2b8926",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "806876aeefea675ca42a32a75391ec8ee066d84a831b67ea484025045dfc3a2a",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "kenneth",
@@ -2837,8 +3404,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/kenneth.png",
       "width": 160,
       "height": 160,
-      "sha256": "df02655c33527b8629ad013fded6d0eceb5f2cafad7659350f4bbe9a056da722",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "5bf8e2a247158200acf90b361684cb878e03438e72b52a6914573f5bc13da74a",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "df02655c33527b8629ad013fded6d0eceb5f2cafad7659350f4bbe9a056da722",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "katja",
@@ -2875,7 +3451,7 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/katja.png",
       "width": 160,
       "height": 160,
-      "sha256": "f2ac4d9123af0ee04bd168e1326d02d6f6e055990b5b5f005819352f743eb897",
+      "sha256": "a2c18d39080475e606d24e8577bb074510349759f485ac04bbf758521a06e0b9",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
       "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-4ebc7de4-9867-4071-9aa0-d217cfd54583.png",
       "inputReferences": [
@@ -2895,7 +3471,16 @@
           "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
         }
       ],
-      "correction": "Remove the round dark eyeglass frames and nose bridge entirely. Katja has no glasses. Show her unobstructed pale-cyan eyes with natural upper eyelids and a small worried brow, matching image 2. Do not encircle the eyes with black rings."
+      "correction": "Remove the round dark eyeglass frames and nose bridge entirely. Katja has no glasses. Show her unobstructed pale-cyan eyes with natural upper eyelids and a small worried brow, matching image 2. Do not encircle the eyes with black rings.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "f2ac4d9123af0ee04bd168e1326d02d6f6e055990b5b5f005819352f743eb897",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "darko",
@@ -2932,8 +3517,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/darko.png",
       "width": 160,
       "height": 160,
-      "sha256": "b64e1785b7ce5519b6fb469954c25f3ec521f4f17af9ee6f2621eced2f9f945f",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "693abb44f3703cd88901a222cc35cd0fb1ab5f86ff012d5dc8b616580e2dfc52",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "b64e1785b7ce5519b6fb469954c25f3ec521f4f17af9ee6f2621eced2f9f945f",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "lenore",
@@ -2970,8 +3564,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/lenore.png",
       "width": 160,
       "height": 160,
-      "sha256": "c743d164bf778cbf51d13b8a0dfba5d663657aed6cf91d733b460287a8390431",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "8931c24788d232f197a6ad235c8f146dbe116ad58f2b35372603d8670f4fd299",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "c743d164bf778cbf51d13b8a0dfba5d663657aed6cf91d733b460287a8390431",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "garnet",
@@ -3008,8 +3611,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/garnet.png",
       "width": 160,
       "height": 160,
-      "sha256": "950fe220268be735b1b1a29d6b31ca13d2dd0483be38d10c0cf048e5f74025b3",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "fbec1919f099ddb82fff16ea3db5cac8720c33e09624270dd93865c3ec2875d2",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "950fe220268be735b1b1a29d6b31ca13d2dd0483be38d10c0cf048e5f74025b3",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "yumin",
@@ -3046,8 +3658,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/yumin.png",
       "width": 160,
       "height": 160,
-      "sha256": "edf2204af02ac2a9b772006ae6fbee39d602e8369250b267aefce42cd2f6d9fd",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "f78afe1b6eb0e11c837b7f3ec34a372fe552a4baaae430d8f4aa921da6c2cbf6",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "edf2204af02ac2a9b772006ae6fbee39d602e8369250b267aefce42cd2f6d9fd",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "hisui",
@@ -3160,8 +3781,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/istvan.png",
       "width": 160,
       "height": 160,
-      "sha256": "3fd1fc2dd613c48d9e658462d73826770fc8823fba471a23c9430021318118aa",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "e770f8c7b1e8d087659e7df30f03617a0f01bada602a47b2a0c230c05a131b3c",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "3fd1fc2dd613c48d9e658462d73826770fc8823fba471a23c9430021318118aa",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "xuelin",
@@ -3198,8 +3828,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/xuelin.png",
       "width": 160,
       "height": 160,
-      "sha256": "762e28350d1caa07430d51d9d273c2644ab03f12e027bf0da1bdfa54c2a0a529",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "53f6254c05c2728e31242d9d74f8f1d5aad78bd5972973fe9b610d4bf58f5048",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "762e28350d1caa07430d51d9d273c2644ab03f12e027bf0da1bdfa54c2a0a529",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "henry",
@@ -3236,8 +3875,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/henry.png",
       "width": 160,
       "height": 160,
-      "sha256": "c0dc84560c3b684006b5fd399d6c480c709f59ebaedf1b8df2c786112d91d75c",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "4e803ad8f639a85861464ae87714c0163413878728ca2708c02134450eca00f8",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "c0dc84560c3b684006b5fd399d6c480c709f59ebaedf1b8df2c786112d91d75c",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "blair",
@@ -3274,7 +3922,7 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/blair.png",
       "width": 160,
       "height": 160,
-      "sha256": "1b651a92a8588c40a0d2870f7a051cbe52c0ff3a77eace6492a0ffa68bc4a5ca",
+      "sha256": "654f69239eaae6797257ecf319869045de39dde3817a9df5ea3268140a3228a7",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
       "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-3ec82599-2a0f-4651-a19b-f22a650c3ab2.png",
       "inputReferences": [
@@ -3301,7 +3949,16 @@
           "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
         }
       ],
-      "correction": "Restore Blair's official default black full-length skinny trousers and black ankle boots, with the original crop top, draped fur-collar jacket, belts and silver chains. Both thighs and knees must be covered by trousers."
+      "correction": "Restore Blair's official default black full-length skinny trousers and black ankle boots, with the original crop top, draped fur-collar jacket, belts and silver chains. Both thighs and knees must be covered by trousers.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "1b651a92a8588c40a0d2870f7a051cbe52c0ff3a77eace6492a0ffa68bc4a5ca",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "mirka",
@@ -3338,8 +3995,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/mirka.png",
       "width": 160,
       "height": 160,
-      "sha256": "6dab9ed0f9212fc7c83587117484e7dd7ae9e31201e8d903d21f2407dbd6c4cb",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "b32e0ccea2a362b835a28b1f890e591414426eab090fbf5c6b7062894629e3f9",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "6dab9ed0f9212fc7c83587117484e7dd7ae9e31201e8d903d21f2407dbd6c4cb",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "fenrir",
@@ -3376,8 +4042,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/fenrir.png",
       "width": 160,
       "height": 160,
-      "sha256": "a40614e608d3f051c969261ec22fb8dbd19bcd76bd3272d7c7c758773722d977",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "68d8dd18a27a7b7fb22bcd32bfc0505ca0e2bcbd04cbef5dad9dafbd7ead679e",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "a40614e608d3f051c969261ec22fb8dbd19bcd76bd3272d7c7c758773722d977",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "coraline",
@@ -3414,8 +4089,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/coraline.png",
       "width": 160,
       "height": 160,
-      "sha256": "406dd1b6f6f7a884634ed42261a815c4f9a9b6a73ce2352e798ff3ee7498fe78",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "d66ef450dd11ff961e17a356d43535de8a72a666fc5ebef19b2b116e9762d02b",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "406dd1b6f6f7a884634ed42261a815c4f9a9b6a73ce2352e798ff3ee7498fe78",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "bihyung",
@@ -3452,7 +4136,7 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/bihyung.png",
       "width": 160,
       "height": 160,
-      "sha256": "26abfcaa66098089572683048ddc03999fdeb9167e8840eaa87a860d70e7b2d1",
+      "sha256": "51c56caff395c7e8ce670bbfdf03d2ac54b581499bf41965fc40ead398f2e288",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
       "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-ee256691-13b1-4079-ab5d-2abbdfa08839.png",
       "inputReferences": [
@@ -3472,7 +4156,16 @@
           "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
         }
       ],
-      "correction": "Remove the red eyeglass frames and nose bridge entirely. Bihyung has no glasses. Show her unobstructed golden eye and her clear winking eye, matching image 2. Keep the small red cheek marks BELOW the eyes as face paint, separate from the eyes. No circular rings, lenses or lines across the nose."
+      "correction": "Remove the red eyeglass frames and nose bridge entirely. Bihyung has no glasses. Show her unobstructed golden eye and her clear winking eye, matching image 2. Keep the small red cheek marks BELOW the eyes as face paint, separate from the eyes. No circular rings, lenses or lines across the nose.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "26abfcaa66098089572683048ddc03999fdeb9167e8840eaa87a860d70e7b2d1",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "craver",
@@ -3509,8 +4202,17 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/craver.png",
       "width": 160,
       "height": 160,
-      "sha256": "a7c4aaefea8104bbb26094f5f0a2ac6cffd3e08c4045d846dcef4883ca0ecd03",
-      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only."
+      "sha256": "80eca5e732df9874a75afddb9dd26c6c222dad6ff10b31804ec2e76446e4d995",
+      "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "a7c4aaefea8104bbb26094f5f0a2ac6cffd3e08c4045d846dcef4883ca0ecd03",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "lucia",
@@ -3547,9 +4249,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/lucia.png",
       "width": 160,
       "height": 160,
-      "sha256": "b477524f080f1018a55460300aa975574b95b56a26002f7112f48f982cf4d8cb",
+      "sha256": "5b30d83bbfd75dba94189da767fb66be1291b007d76276fdb1be7533aba163c8",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-1f4eba67-057c-4082-901a-0b4d842ef8a7.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-1f4eba67-057c-4082-901a-0b4d842ef8a7.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "b477524f080f1018a55460300aa975574b95b56a26002f7112f48f982cf4d8cb",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     },
     {
       "id": "ceres",
@@ -3586,9 +4297,18 @@
       "path": "Assets/Resources/Lumia/PortraitsReference/ceres.png",
       "width": 160,
       "height": 160,
-      "sha256": "3be108fd1a3513455cd826bb085784132a6f2330b0d8da4ef461aea9a55e4b76",
+      "sha256": "48ed8226aa32b40967d5c63332c341af521c3fb56980c564b7007e4ebfea0afb",
       "processing": "Alpha crop, nearest-neighbour resize to fit 72px, transparent padding to 80px and exact 2x nearest enlargement only.",
-      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-49254d63-cc1d-4d57-be33-07c474797743.png"
+      "builtinOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12b2d-eae6-7c91-b300-87ece88bd9cd\\exec-49254d63-cc1d-4d57-be33-07c474797743.png",
+      "faceRefinement": {
+        "manifest": "docs/art-face-refinement/manifest.json",
+        "baselineCommit": "f3bc337dcffea81bd91e0b4debbe7eb0b763c5f7",
+        "beforeSha256": "3be108fd1a3513455cd826bb085784132a6f2330b0d8da4ef461aea9a55e4b76",
+        "method": "Reviewed individual eye/mouth pixel corrections on the unchanged logical grid.",
+        "preservesCanvas": true,
+        "preservesAlpha": true,
+        "preservesOutsideMask": true
+      }
     }
   ]
 }
