@@ -42,6 +42,7 @@ public static partial class CoreSmokeTests
         ModeBossRewards(engine, act, subject);
         Check(engine.FinishRewards(), "mode boss reward confirmation");
         if (engine.State.stage == RunStage.PassiveChoice) Check(engine.ReplacePassive(-1), "mode boss passive may be declined");
+        if (engine.State.stage == RunStage.AugmentChoice) Check(engine.SkipAugment(), "mode baseline fixture declines the optional endless augment");
     }
 
     static void RunModeSelectionAndLegacy()
@@ -133,6 +134,9 @@ public static partial class CoreSmokeTests
         Check(engine.FinishRewards() && engine.State.stage == RunStage.PassiveChoice && engine.State.endlessCycle == 0,
             "final endless boss waits for card and passive confirmation instead of escaping or immediately replacing its map");
         Check(engine.ReplacePassive(-1), "endless final passive may be declined");
+        Check(engine.State.stage == RunStage.AugmentChoice && engine.State.endlessCycle == 0,
+            "final passive completion waits for the endless augment before generating its next map");
+        Check(engine.SkipAugment(), "old endless baseline can decline its optional augment");
         Check(engine.State.stage == RunStage.Map && engine.State.act == 1 && engine.State.row == -1 && engine.State.endlessCycle == 1
             && engine.State.activeNodeId == -1 && engine.State.combat == null && engine.State.rewards == null, "final reward completion starts the next complete three-act map");
         Check(engine.State.map.Count == GameEngine.RowsPerAct * 9 && engine.State.map.Min(n => n.id) > oldMax
@@ -185,7 +189,7 @@ public static partial class CoreSmokeTests
             Check(engine.State.bossVictories == boss && engine.PlayerBaseEnergy == 5 + eventBonus + Math.Min(6, boss), "only first six endless bosses increase energy; encounter growth remains independent");
         }
         Check(RunModes.Description(RunMode.Endless).Contains("+6") && RunModes.Description(RunMode.Endless).Contains("조우"), "endless description explains the boss cap and separate encounter growth");
-        foreach (var stage in new[] { RunStage.Map, RunStage.Combat, RunStage.Rewards, RunStage.PassiveChoice, RunStage.Kiosk, RunStage.Campfire, RunStage.Encounter })
+        foreach (var stage in new[] { RunStage.Map, RunStage.Combat, RunStage.Rewards, RunStage.PassiveChoice, RunStage.Kiosk, RunStage.Campfire, RunStage.Encounter, RunStage.AugmentChoice })
         {
             var sample = new GameEngine((RunState)Clone(engine.State)); sample.State.stage = stage;
             int hp = sample.State.hp;

@@ -48,6 +48,9 @@ namespace Lumia
         public int enemyStrength, enemyEvasion, enemyEvasionTurns, enemyPoison, enemyVulnerable, enemyWeak;
         public int intentDamage, intentBlock, attacksPlayed, enemyActionIndex, enemyAvailableEnergy;
         public int playerOpeningEnergy, enemyOpeningEnergy;
+        // Endless augment limits are saved with combat, including a paced enemy turn.
+        public int augmentTurnMask, augmentKeyMask;
+        public bool augmentWeaponUsed;
         public bool enemyTurn;
         public int retainIndex = -1, retainUses;
         public string retainedCardId;
@@ -92,6 +95,9 @@ namespace Lumia
         public RunMode mode = RunMode.Normal;
         public int endlessCycle, nextMapNodeId;
         public bool endlessRetired;
+        public List<string> augments = new List<string>(), augmentOffers = new List<string>();
+        public string augmentSelectedId;
+        public int augmentOfferingCycle = -1;
         public RunStage stage = RunStage.Preparation;
         public int level = 1, xp, hp = 80, maxHp = 80, credits = 120, maxHealthBonus;
         public string mainRune, supportRune, chosenPassive, chosenEventId, pendingPassive, message;
@@ -124,7 +130,7 @@ namespace Lumia
     }
 
     /// <summary>Serializable, deterministic game rules. UI and persistence are deliberately external.</summary>
-    public sealed class GameEngine
+    public sealed partial class GameEngine
     {
         public const int RowsPerAct = 12;
         public const float PassiveSkillOfferMultiplier = 1.5f;
@@ -355,6 +361,7 @@ namespace Lumia
                 else c.boss = null;
             }
             // Do not rewrite an in-progress battle's piles; equipment grants synchronize between nodes.
+            EnsureEndlessAugments();
             if(State.stage!=RunStage.Combat)SyncWeaponCards();
         }
 
@@ -631,13 +638,14 @@ namespace Lumia
             if(State.combat!=null)value=StatusMechanics.Damage(State.combat.playerStatuses,State.combat.enemyStatuses,value);
             return Math.Max(0, value);
         }
-        private int PlayerBonusDamage(string id)
+        private int PlayerBonusDamage(string id, int paidCost = -1)
         {
             var c = State.combat; var card = PlayerCard(id);
             if (c == null || card == null) return 0;
             int skillDamage=SkillMechanics.Bonuses(c.playerSkills,card).damage,empower=TraitMechanics.EmpowerBonus(c.playerTraits,card);
             if(card.damage<=0 && skillDamage<=0 && empower<=0) return 0;
-            int damage = skillDamage + PreviewBeforeTraits(false,card,c.playerSkills).bonus.damage + TraitMechanics.DamageBonus(c.playerTraits) + empower;
+            int damage = skillDamage + PreviewBeforeTraits(false,card,c.playerSkills).bonus.damage + TraitMechanics.DamageBonus(c.playerTraits) + empower
+                + AugmentAttackBonus(card, paidCost < 0 ? EffectiveCardCost(id) : paidCost);
             if (c.weak > 0) damage = damage * 3 / 4;
             if (c.enemyVulnerable > 0 || BossMechanics.RewardVulnerable(c)) damage = damage * 3 / 2;
             damage=damage*(100+TraitMechanics.Exposure(c.enemyTraits))/100;
@@ -656,6 +664,7 @@ namespace Lumia
             var id = c.hand[handIndex]; var card = PlayerCard(id);
             int researchActionStart = CombatActions.Count;
             int price = EffectiveCardCost(id);
+            int augmentEnergyBefore = c.energy;
             ConsumeFreeCast(c.freeCasts, id);
             SkillMechanics.ConsumeDiscount(c.playerSkills, id);
             SkillMechanics.ConsumeDiscount(c.playerTraits.skills,id);
@@ -666,7 +675,8 @@ namespace Lumia
             else if (c.retainIndex > handIndex) c.retainIndex--;
             if (card.exhaust) c.exhaustPile.Add(id); else c.discardPile.Add(id);
             int hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0, directDamage = 0;
-            int bonusDamage = PlayerBonusDamage(id);
+            int bonusDamage = PlayerBonusDamage(id, price);
+            ConsumeAugmentAttack(card, price);
             var incoming=card.damage>0 || bonusDamage>0 ? TraitEvent(true,"before_incoming",card,true) : new TraitResult();int incomingReduction=incoming.damageReduction,defenderBlock=c.enemyBlock;
                 bool landed = card.damage == 0 && bonusDamage == 0, bonusUsed = false;
             for (int i = 0; i < hits && c.enemyHp > 0; ++i)
@@ -706,6 +716,7 @@ namespace Lumia
             bool attackAttempt=card.damage>0 || bonusDamage>0;
             ApplyBeforeTraits(false,card,landed && attackAttempt,skillBefore,traitHpBefore);
             AfterCardTraits(false,card,landed,dealt,block,cardHeal,avoided,attackAttempt);
+            AugmentAfterCard(card, price, augmentEnergyBefore, block);
             if(statusControl)TraitEvent(false,"control",card,true,dealt);
             if(defenderBlock>0 && c.enemyBlock==0) TraitEvent(true,"block_break",card,landed,dealt);
             Say(card.name + " 사용" + (criticalHits > 0 ? " · 치명타!" : "") + (card.damage > 0 ? " · 피해 " + dealt : "") + (block > 0 ? " · 방어 +" + block : ""));
@@ -731,6 +742,7 @@ namespace Lumia
         {
             var c = State.combat;
             if (State.stage != RunStage.Combat || c == null || c.enemyTurn) return Fail("현재 플레이어의 턴이 아닙니다.");
+            AugmentTurnEnd();
             if (c.retainIndex >= 0 && c.retainIndex < c.hand.Count && c.retainUses < 2)
             {
                 c.retainedCardId = c.hand[c.retainIndex]; c.hand.RemoveAt(c.retainIndex); c.retainUses++;
@@ -1608,6 +1620,7 @@ namespace Lumia
             if (retained > 0) c.hand.Add(c.retainedCardId);
             c.retainedCardId = null; c.retainIndex = -1;
             c.turn++; c.energy = MaxEnergy + Modifier("turn_energy")+(first?c.playerOpeningEnergy:0); c.playerOpeningEnergy=0; c.attacksPlayed = 0;
+            ResetAugmentTurn();
             PrepareBossNextTurn(); BossMechanics.BeginPlayerTurn(c);
             if (!first) SkillMechanics.StartTurn(c.playerSkills);
             TraitMechanics.StartTurn(c.playerTraits);
@@ -1627,7 +1640,8 @@ namespace Lumia
                 if(damage>0){TraitEvent(false,"damaged",null,true,damage);TraitEvent(false,"low_health",null,true,damage);}
             }
             if (CheckBattleEnd()) return;
-            DrawCards(Math.Max(0, 5 + Modifier("turn_draw") - retained)); PlanEnemyTurn();
+            AugmentTurnStart(first);
+            DrawCards(Math.Max(0, 5 + Modifier("turn_draw") + AugmentOpeningDraw() - retained)); PlanEnemyTurn();
             Say(c.turn + "턴 · 코스트 " + c.energy + "/" + MaxEnergy);
         }
 
@@ -2313,7 +2327,7 @@ namespace Lumia
             State.rewards = r; State.stage = RunStage.Rewards; State.credits += r.credits;
             if (!string.IsNullOrEmpty(r.objectId)) State.objects.Add(r.objectId);
             if (!string.IsNullOrEmpty(r.foodId)) State.foods.Add(r.foodId);
-            GainXp(r.xp); Heal(Modifier("kill_heal"));
+            GainXp(r.xp); Heal(Modifier("kill_heal") + AugmentAmount("victory_heal"));
             Say("전투 승리 · 경험치 +" + r.xp + " · 크레딧 +" + r.credits + (boss ? bossEnergyGained > 0 ? " · 최대 코스트 +1 (" + PlayerBaseEnergy + ")" : " · 보스 최대 코스트 성장 완료 (+6)" : "") + (r.objectId == null ? "" : " · " + GameDatabase.Object(r.objectId).name) + (r.foodId == null ? "" : " · " + GameDatabase.Food(r.foodId).name + " 1개"));
         }
 
@@ -2351,7 +2365,7 @@ namespace Lumia
             State.cardUpgradePending = false;
             if (node.kind == ZoneKind.Boss)
             {
-                if (State.act >= 3 && State.mode == RunMode.Endless) BeginNextEndlessCycle();
+                if (State.act >= 3 && State.mode == RunMode.Endless) BeginAugmentChoice();
                 else if (State.act >= 3) { State.stage = RunStage.Won; Say("니아: 출구는 바로 여기야. 하나는 VF 세계를 탈출해 아글라이아 연구소로 돌아왔다."); }
                 else { State.act++; State.row = State.lane = -1; Say("제" + State.act + "구역으로 진입했습니다. 더 강한 실험체들이 기다립니다."); }
             }
@@ -2362,6 +2376,7 @@ namespace Lumia
             // Archive only visited locations for journal validation. Node identities never repeat.
             State.archivedMapNodes.AddRange(State.map.Where(n => n.visited));
             State.map.Clear(); State.endlessCycle++; State.act = 1; State.row = State.lane = -1;
+            State.stage = RunStage.Map;
             State.scoutedActs.Clear(); State.hyperloopActs.Clear(); State.revealedNodeIds.Clear();
             State.actBosses.Clear(); State.rewards = null;
             GenerateMap(); EnsureBossAssignments();
@@ -2379,7 +2394,7 @@ namespace Lumia
         private void Heal(int amount)
         {
             int reduction=State.stage==RunStage.Combat && State.combat!=null ? Math.Max(TraitMechanics.HealingReduction(State.combat.playerTraits),StatusMechanics.HealingReduction(State.combat.playerStatuses)) : 0;
-            State.hp = Math.Min(State.maxHp, Math.Max(0, State.hp + Math.Max(0, amount)*(100-reduction)/100));
+            State.hp = (int)Math.Min(State.maxHp, Math.Max(0L, (long)State.hp + (long)Math.Max(0, amount)*(100-reduction)/100));
         }
         private void HealEnemy(int amount)
         {
@@ -2399,8 +2414,8 @@ namespace Lumia
         private void RecalculateHealth(bool full)
         {
             int before = State.maxHp;
-            State.maxHp = Math.Max(1, 80 + 4 * (State.level - 1) + State.maxHealthBonus + Modifier("max_health") + EquipmentSum(x => x.health));
-            State.hp = full ? State.maxHp : Math.Min(State.maxHp, Math.Max(1, State.hp + Math.Max(0, State.maxHp - before)));
+            State.maxHp = (int)Math.Min(int.MaxValue, Math.Max(1L, 80L + 4 * (State.level - 1) + State.maxHealthBonus + Modifier("max_health") + EquipmentSum(x => x.health)));
+            State.hp = full ? State.maxHp : (int)Math.Min(State.maxHp, Math.Max(1L, (long)State.hp + Math.Max(0L, (long)State.maxHp - before)));
         }
         private void SyncWeaponCards()
         {

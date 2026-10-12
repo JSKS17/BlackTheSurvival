@@ -106,10 +106,12 @@ namespace Lumia
             Txt(new Rect(418, 183, 444, 36), "원정 메뉴 / " + RunModes.CycleLabel(Engine.State), 24, Pink, true);
             Para(new Rect(418, 235, 444, 50), "잠시 멈추어 원정을 계속하거나, 기록을 저장하고 로비로 돌아갈 수 있습니다.", 15, Text);
             if (Btn(new Rect(418, 305, 444, 48), "원정 계속", true, Mint)) runMenu = false;
-            if (Btn(new Rect(418, 369, 444, 48), "저장하고 로비로", false, Muted)) { runMenu = false; lobby = true; Save(); }
+            if (Btn(new Rect(418, 369, 444, 48), "저장하고 로비로", false, Muted)) SaveAndReturnToLobby();
             if (Btn(new Rect(418, 433, 444, 48), "무한 원정 정산", false, Gold, CanRetireEndless)) { runMenu = false; endlessConfirm = true; }
             Txt(new Rect(418, 510, 444, 25), CanRetireEndless ? "정산 후 종료는 패배와 구분되어 기록됩니다." : "원정 준비를 마치면 정산할 수 있습니다.", 12, Muted, true);
         }
+
+        void SaveAndReturnToLobby() { runMenu = false; lobby = true; Save(); }
 
         void DrawEndlessConfirmation()
         {
@@ -158,7 +160,7 @@ namespace Lumia
 
         void GuardModesVerification()
         {
-            if (!ModesVerificationEnabled || Path.GetFileName(savePath) != "lumia-verification.json")
+            if (!(ModesVerificationEnabled || AugmentVerificationEnabled) || Path.GetFileName(savePath) != "lumia-verification.json")
                 throw new InvalidOperationException("Mode verification must use the isolated development run and research slots.");
         }
 
@@ -184,7 +186,7 @@ namespace Lumia
             return engine;
         }
 
-        void CompleteModesBoss(int act, int lane)
+        void CompleteModesBoss(int act, int lane, bool finishAugment = true)
         {
             var node = EnterBossPathsBattle(act, lane); var state = Engine.State; var combat = state.combat;
             combat.enemyHp = 1; combat.enemyBlock = combat.enemyEvasion = 0; combat.enemyGear.Clear(); combat.enemyPassiveId = "";
@@ -192,8 +194,11 @@ namespace Lumia
             combat.hand = new List<string> { "basic_attack" }; combat.energy = 200;
             if (!Engine.PlayCard(0) || state.stage != RunStage.Rewards || !Engine.FinishRewards() || !node.visited)
                 throw new InvalidOperationException("Mode native fixture must defeat an entered boss with an actual card and commit its rewards.");
-            if (state.stage != (act == 3 && state.mode != RunMode.Endless ? RunStage.Won : RunStage.Map))
-                throw new InvalidOperationException("The third boss must escape in finite modes and continue in Endless.");
+            if (state.stage == RunStage.AugmentChoice && finishAugment && !Engine.SkipAugment())
+                throw new InvalidOperationException("A legacy mode fixture must explicitly skip its new Endless augment choice.");
+            var expected = act == 3 ? state.mode != RunMode.Endless ? RunStage.Won : finishAugment ? RunStage.Map : RunStage.AugmentChoice : RunStage.Map;
+            if (state.stage != expected)
+                throw new InvalidOperationException("The third boss must escape in finite modes and offer an augment before the next Endless cycle.");
             effects.Clear(); Engine.CombatActions.Clear();
         }
 
@@ -206,7 +211,7 @@ namespace Lumia
 
         public void VerificationModesFlow()
         {
-            if (!ModesVerificationEnabled) return;
+            if (!(ModesVerificationEnabled || AugmentVerificationEnabled)) return;
             GuardModesVerification(); ResetModesProfile();
             Engine = ModesFixtureRun(80101, RunMode.Normal); lobby = true; Save();
             string before = JsonUtility.ToJson(Engine.State), disk = File.ReadAllText(savePath), profile = JsonUtility.ToJson(researchStore.Profile);

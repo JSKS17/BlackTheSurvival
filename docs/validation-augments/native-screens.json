@@ -1,0 +1,140 @@
+{
+  "passed": true,
+  "uiScreens": 16,
+  "runtimeErrors": 0,
+  "coreScenarios": 104,
+  "coreAssertions": 92734,
+  "flow": "BTS AUGMENT FLOW PASS / actualBosses=12 / threeTiers=PASS / pendingBeforeNextCycle=PASS / selectionToggleReplace=PASS / savedCandidates=PASS / unityReload=PASS / acquireOnce=PASS / skip=PASS / retirementPending=PASS / modesRegression=PASS / isolatedSave=PASS",
+  "fontLayout": "BTS AUGMENT LAYOUT PASS / measurements=217 / definitions=27 / choiceMax=53.67 / ownedMax=15.17 / nativeFont=PASS",
+  "personalRunAndResearchPreserved": true,
+  "screens": [
+    {
+      "file": "native-ui/augment_silver.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_selected.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_cancelled.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_replaced.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_saved_menu.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_reloaded.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_empty_inventory.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_confirmed_map.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_owned.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_gold.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_prismatic.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_skipped_map.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_support.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_support_owned.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_all_owned.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/augment_all_scrolled.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ]
+}

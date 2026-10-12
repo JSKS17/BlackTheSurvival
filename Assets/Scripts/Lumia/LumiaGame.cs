@@ -60,7 +60,7 @@ namespace Lumia
             DontDestroyOnLoad(gameObject);
             Application.targetFrameRate = 60;
             audioVerification = Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-audio-verify") >= 0;
-            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-modes-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
+            bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-augment-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-modes-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
             savePath = Path.Combine(Application.persistentDataPath, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
             researchStore = new ResearchStore(Path.Combine(Application.persistentDataPath, verify ? "bts-research-verification.json" : "bts-research-v1.json"),
@@ -180,10 +180,12 @@ namespace Lumia
                     case RunStage.Campfire: DrawCamp(); break;
                     case RunStage.Encounter: DrawEncounter(); break;
                     case RunStage.PassiveChoice: DrawPassiveChoice(); break;
+                    case RunStage.AugmentChoice: DrawAugmentChoice(); break;
                     case RunStage.Won: case RunStage.Lost: DrawEnding(); break;
                 }
                 currentLayer = 0;
                 if (Btn(new Rect(1174, 18, 84, 32), "메뉴", false, Muted)) OpenRunMenu();
+                if (RunModes.ModeFor(Engine.State) == RunMode.Endless && Btn(new Rect(1174, 56, 84, 25), "증강 " + Engine.AugmentCount, false, AugmentColor(AugmentTier.Prismatic))) OpenAugmentInventory();
             }
             if (!lobby && Engine != null && (Engine.State.stage == RunStage.Combat || Engine.State.stage == RunStage.Rewards || Engine.State.stage == RunStage.Lost)) effects.Draw(label, reduceMotion);
             if (!string.IsNullOrEmpty(mapIntel)) { currentLayer = 1; GUI.enabled = topLayer == 1; DrawMapIntel(); }
@@ -1040,9 +1042,12 @@ namespace Lumia
             Modal(new Rect(55, 81, 1170, 590));
             Txt(new Rect(78, 98, 650, 32), "하나의 실험 기록", 22, Mint);
             if (Btn(new Rect(1127, 100, 69, 30), "닫기", false, Muted)) { inventory = false; return; }
-            string[] tabs = { "보유 덱", "장비", "가방 · 요리", "패시브", "룬" };
-            for (int i = 0; i < tabs.Length; i++) if (Btn(new Rect(79 + i * 223, 150, 209, 35), tabs[i], i == inventoryTab, Mint)) { inventoryTab = i; inventoryScroll = Vector2.zero; }
             var s = Engine.State;
+            bool endless = RunModes.ModeFor(s) == RunMode.Endless;
+            string[] tabs = endless ? new[] { "보유 덱", "장비", "가방 · 요리", "패시브", "룬", "증강" } : new[] { "보유 덱", "장비", "가방 · 요리", "패시브", "룬" };
+            if (!endless && inventoryTab > 4) inventoryTab = 0;
+            int tabStep = endless ? 186 : 223, tabWidth = endless ? 172 : 209;
+            for (int i = 0; i < tabs.Length; i++) if (Btn(new Rect(79 + i * tabStep, 150, tabWidth, 35), tabs[i], i == inventoryTab, Mint)) { inventoryTab = i; inventoryScroll = Vector2.zero; }
             if (inventoryTab == 0)
             {
                 var cards = s.deck.GroupBy(x => x).ToArray();
@@ -1115,7 +1120,7 @@ namespace Lumia
                     Txt(new Rect(r.x + 187, r.y + 86, 906, 20), PassiveAffinity(p), 13, Mint);
                 }
             }
-            else
+            else if (inventoryTab == 4)
             {
                 var runes=new[]{GameDatabase.Rune(s.mainRune),GameDatabase.Rune(s.supportRune)};
                 Txt(new Rect(82,211,1095,26),"룬은 특정 조우 이벤트에서만 변경할 수 있습니다.",14,Muted);
@@ -1129,6 +1134,7 @@ namespace Lumia
                     TraitDetailButton(new Rect(box.x+20,box.y+115,1075,20),r.id);
                 }
             }
+            else DrawOwnedAugments();
         }
 
         static string PassiveAffinity(PassiveDef passive)

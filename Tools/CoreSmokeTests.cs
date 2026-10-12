@@ -34,7 +34,9 @@ public static partial class CoreSmokeTests
             RunModeSelectionAndLegacy(); RunModeDifficultyAndForecast(); EndlessCycleAndRewards(); EndlessSaveAndNodeIdentity(); EndlessEnergyAndRetirement();
             ModeUnlockMigration(); ModeSettlementProgression(); ModeUnlockTransactions(); EndlessArchiveResearch();
             LobbyDialogueCatalog(); LobbyDialogueRotationIsolation(); LobbyDialogueRuleAccuracy();
-            Console.WriteLine("PASS: " + checks + " assertions across 96 game-rule scenarios.");
+            EndlessAugmentCatalogAndOffers(); EndlessAugmentSelectionAndSave(); EndlessAugmentCycleAndLegacy(); EndlessAugmentSupportAndCaps();
+            EndlessAugmentSilverCombat(); EndlessAugmentGoldCombat(); EndlessAugmentPrismaticCombat(); EndlessAugmentPersistenceAndIsolation();
+            Console.WriteLine("PASS: " + checks + " assertions across 104 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
