@@ -117,9 +117,9 @@ namespace Lumia
             var report = researchStore.GetSettlement(state);
             Tex(new Rect(0, 0, W, H), PixelArt.Background(), ScaleMode.ScaleAndCrop);
             Fill(new Rect(0, 0, W, H), new Color(.025f, .05f, .075f, .91f));
-            Txt(new Rect(50, 34, 1180, 49), won ? "EXPERIMENT COMPLETE" : "SIGNAL LOST", 36, won ? Mint : Pink, true);
-            Txt(new Rect(50, 92, 1180, 32), won ? "탈출 성공 · 관측 기록 보존" : "원정 종료 · 관측 기록 보존", 23, Text, true);
-            Txt(new Rect(50, 136, 1180, 24), "최종 레벨 " + state.level + "  /  덱 " + state.deck.Count + "장  /  크레딧 " + state.credits + "  /  보스 " + state.bossVictories + "명", 15, Muted, true);
+            Txt(new Rect(50, 34, 1180, 49), ModeEndingTitle(state), 36, won || state.endlessRetired ? Mint : Pink, true);
+            Txt(new Rect(50, 92, 1180, 32), ModeEndingSubtitle(state), 23, Text, true);
+            Txt(new Rect(50, 136, 1180, 24), ModeEndingSummary(state), 15, Muted, true);
             Box(new Rect(48, 183, 554, 402), Panel, Gold);
             Txt(new Rect(68, 200, 514, 30), "이번 원정의 관측 데이터", 22, Gold);
             if (report == null || report.legacy)

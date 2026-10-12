@@ -1,0 +1,140 @@
+{
+  "passed": true,
+  "uiScreens": 16,
+  "runtimeErrors": 0,
+  "coreScenarios": 96,
+  "coreAssertions": 91981,
+  "flow": "BTS MODES FLOW PASS / dialogue=48 / locked=PASS / cancelReadOnly=PASS / normalHardEndless=PASS / actualBosses=9 / cycleReload=PASS / retirement=PASS / settlementOnce=PASS / legacyUnityJson=PASS / isolatedSave=PASS",
+  "fontLayout": "BTS MODES LAYOUT PASS / measurements=61 / dialogueMax=32.51 / descriptionMax=119.17 / nativeFont=PASS",
+  "personalRunAndResearchPreserved": true,
+  "screens": [
+    {
+      "file": "native-ui/modes_lobby_dialogue.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_lobby_longest.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_locked.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_cancelled.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_normal_preparation.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_normal_map.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_normal_cleared.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_hard_unlocked.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_hard_combat.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_hard_cleared.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_endless_unlocked.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_endless_cycle.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_endless_menu.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_endless_confirm.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_endless_retired.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/modes_endless_reloaded.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ]
+}

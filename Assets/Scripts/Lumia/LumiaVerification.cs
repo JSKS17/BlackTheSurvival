@@ -11,7 +11,7 @@ namespace Lumia
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void StartVerification()
         {
-            if (Debug.isDebugBuild && (System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-research-verify") >= 0))
+            if (Debug.isDebugBuild && (System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-research-verify") >= 0 || System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-modes-verify") >= 0))
                 new GameObject("Lumia verification").AddComponent<LumiaVerification>();
         }
         IEnumerator Start()
@@ -84,9 +84,16 @@ namespace Lumia
                 LumiaGame.Instance.VerificationRareContent();
                 views = new[] { "research_lobby", "research_empty", "research_progress", "research_ready", "research_insufficient", "research_completed", "research_report", "research_ending_lost", "research_ending_won", "research_encounter" };
             }
+            bool modesOnly = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-modes-verify") >= 0;
+            if (modesOnly)
+            {
+                LumiaGame.Instance.VerificationModesFlow();
+                views = LumiaGame.Instance.ModesVerificationViews;
+            }
             foreach (string view in views)
             {
-                LumiaGame.Instance.VerificationView(view);
+                if (modesOnly) LumiaGame.Instance.VerificationModesView(view);
+                else LumiaGame.Instance.VerificationView(view);
                 if (view == "rewards_wildlife" || view == "rewards_wildlife_cancelled" || view == "wildlife_food_bag")
                 {
                     var engine = LumiaGame.Instance.Engine; var reward = engine.State.rewards;
@@ -132,6 +139,7 @@ namespace Lumia
                 if (varietyOnly && view == "boss_variety_guide_debuffskill") LumiaGame.Instance.VerificationBossHudLayout();
                 if (pathsOnly && view == "boss_paths_act1_top") LumiaGame.Instance.VerificationBossPathsLayout();
                 if (researchOnly && view == "research_empty") LumiaGame.Instance.VerificationResearchLayout();
+                if (modesOnly && view == views[0]) LumiaGame.Instance.VerificationModesLayout();
                 if(view=="lobby")LumiaGame.Instance.ExportPreviewLayoutAudit(Path.Combine(output,"preview-layout.json"));
                 if(view=="irem_field" && !LumiaGame.Instance.Engine.SkillStateSnapshot(false).Any(t=>t.kind=="state" && t.label.Contains("고양이")))
                     throw new System.InvalidOperationException("Irem's cat state was not shown as a native state token.");
@@ -147,6 +155,7 @@ namespace Lumia
                 if (varietyOnly) Debug.Log("BTS BOSS VARIETY PASS " + view);
                 if (pathsOnly) Debug.Log("BTS BOSS PATHS PASS " + view);
                 if (researchOnly) Debug.Log("BTS RESEARCH PASS " + view);
+                if (modesOnly) Debug.Log("BTS MODES PASS " + view);
                 if (campOnly) Debug.Log("BTS CAMP PASS " + view + " / hp=" + LumiaGame.Instance.Engine.State.hp + " / removals=" + LumiaGame.Instance.Engine.State.campRemovalsRemaining);
             }
             if (strategyOnly) Debug.Log("BTS STRATEGY VERIFICATION PASS / views=" + views.Length);
@@ -155,6 +164,7 @@ namespace Lumia
             if (varietyOnly) Debug.Log("BTS BOSS VARIETY VERIFICATION PASS / views=" + views.Length);
             if (pathsOnly) Debug.Log("BTS BOSS PATHS VERIFICATION PASS / views=" + views.Length);
             if (researchOnly) Debug.Log("BTS RESEARCH VERIFICATION PASS / views=" + views.Length);
+            if (modesOnly) Debug.Log("BTS MODES VERIFICATION PASS / views=" + views.Length);
             if (campOnly) Debug.Log("BTS CAMP VERIFICATION PASS / views=" + views.Length);
             Application.Quit();
         }

@@ -31,7 +31,10 @@ public static partial class CoreSmokeTests
             ResearchCoverageAndExperiments(); ResearchRunSettlement(); ResearchActualCombos();
             ResearchStoreTransactions(); ResearchEncounterCoverage(); ResearchEncounterOffers();
             RareEncounterRewards(); RareEncounterAvailability(); RareSkinStoryIsolation();
-            Console.WriteLine("PASS: " + checks + " assertions across 84 game-rule scenarios.");
+            RunModeSelectionAndLegacy(); RunModeDifficultyAndForecast(); EndlessCycleAndRewards(); EndlessSaveAndNodeIdentity(); EndlessEnergyAndRetirement();
+            ModeUnlockMigration(); ModeSettlementProgression(); ModeUnlockTransactions(); EndlessArchiveResearch();
+            LobbyDialogueCatalog(); LobbyDialogueRotationIsolation(); LobbyDialogueRuleAccuracy();
+            Console.WriteLine("PASS: " + checks + " assertions across 96 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }

@@ -12,6 +12,10 @@ foreach ($dataFile in @('CardPresentation.cs', 'ClassicRoster.cs', 'RecentRoster
     if (Test-Path -LiteralPath $dataPath) { $arguments += $dataPath }
 }
 $arguments += Join-Path $PSScriptRoot 'StrategySmokeTests.cs'
+$arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/RunModes.cs'
+$arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/LobbyDialogue.cs'
+$arguments += Join-Path $PSScriptRoot 'RunModesSmokeTests.cs'
+$arguments += Join-Path $PSScriptRoot 'LobbyDialogueSmokeTests.cs'
 $arguments += Join-Path $PSScriptRoot 'BossSmokeTests.cs'
 $arguments += @(Get-ChildItem -LiteralPath (Join-Path $projectRoot 'Assets/Scripts/Lumia') -Filter 'Research*.cs' | ForEach-Object { $_.FullName })
 $arguments += @(Get-ChildItem -LiteralPath $PSScriptRoot -Filter 'Research*SmokeTests.cs' | ForEach-Object { $_.FullName })

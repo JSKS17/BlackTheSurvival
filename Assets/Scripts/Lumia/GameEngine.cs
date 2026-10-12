@@ -89,6 +89,9 @@ namespace Lumia
     [Serializable] public class RunState
     {
         public int version = 2, mapRows = 12, seed, rngState, act = 1, row = -1, lane = -1, activeNodeId = -1;
+        public RunMode mode = RunMode.Normal;
+        public int endlessCycle, nextMapNodeId;
+        public bool endlessRetired;
         public RunStage stage = RunStage.Preparation;
         public int level = 1, xp, hp = 80, maxHp = 80, credits = 120, maxHealthBonus;
         public string mainRune, supportRune, chosenPassive, chosenEventId, pendingPassive, message;
@@ -114,6 +117,7 @@ namespace Lumia
         public int bossAssignmentVersion;
         public ResearchRunState research;
         public List<MapNode> map = new List<MapNode>();
+        public List<MapNode> archivedMapNodes = new List<MapNode>();
         public CombatState combat;
         public RewardState rewards;
         public TraitActorState persistentTraits = new TraitActorState();
@@ -212,9 +216,11 @@ namespace Lumia
             }
         }
 
-        public GameEngine(int seed)
+        public GameEngine(int seed) : this(seed, RunMode.Normal) { }
+
+        public GameEngine(int seed, RunMode mode)
         {
-            State = new RunState { seed = seed, rngState = seed == 0 ? 1831565813 : seed, weaponGrantVersion=1, energyGrowthVersion=1 };
+            State = new RunState { seed = seed, rngState = seed == 0 ? 1831565813 : seed, mode = RunModes.Normalize(mode), weaponGrantVersion=1, energyGrowthVersion=1 };
             ResearchProgression.EnsureRun(State);
             GenerateMap();
             EnsureBossAssignments();
@@ -229,6 +235,10 @@ namespace Lumia
         {
             if (savedState == null || savedState.version < 1 || savedState.version > 2) throw new ArgumentException("지원하지 않는 저장 데이터입니다.");
             State = savedState;
+            State.mode = RunModes.ModeFor(State);
+            State.endlessCycle = State.mode == RunMode.Endless ? Math.Max(0, State.endlessCycle) : 0;
+            if (State.mode != RunMode.Endless) State.endlessRetired = false;
+            if (State.archivedMapNodes == null) State.archivedMapNodes = new List<MapNode>();
             ResearchProgression.EnsureRun(State, migrateExisting: true);
             if (State.rewards != null)
             {
@@ -247,6 +257,7 @@ namespace Lumia
             State.persistentTraits=TraitMechanics.Ensure(State.persistentTraits);
             if (State.rngState == 0) State.rngState = 1831565813;
             if (State.level < 1 || State.level > 20 || State.map == null || State.deck == null) throw new ArgumentException("손상된 저장 데이터입니다.");
+            State.nextMapNodeId = Math.Max(State.nextMapNodeId, State.map.Concat(State.archivedMapNodes).Select(n => n.id).DefaultIfEmpty(-1).Max() + 1);
             // Old saves never stayed at the campfire after resting, so an absent budget remains zero.
             State.campRemovalsRemaining = State.stage == RunStage.Campfire && State.campChoice == 1
                 ? Math.Max(0, Math.Min(2, State.campRemovalsRemaining)) : 0;
@@ -804,7 +815,7 @@ namespace Lumia
                 landed = true;
                 int baseDamage = damagePerHit;
                 if (id == "basic_attack" && baseDamage > 0 && Roll(EnemyCritChance)) { baseDamage = CriticalBaseDamage(baseDamage); criticalHits++; }
-                int damage = Math.Max(0,baseDamage + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.block, damage); c.block -= absorbed;
+                int damage = Math.Max(0,RunModes.ScaleEnemyDirectDamage(State, baseDamage + (bonusUsed ? 0 : bonusDamage)) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.block, damage); c.block -= absorbed;
                 bonusUsed = true;
                 dealt += TakeHealthDamage(false,damage-absorbed);
             }
@@ -1248,7 +1259,7 @@ namespace Lumia
                         : row == State.mapRows - 2 ? new List<ZoneKind> { ZoneKind.Subject, ZoneKind.Campfire, ZoneKind.Wildlife }
                         : new List<ZoneKind> { ZoneKind.Subject, ZoneKind.Wildlife, ZoneKind.Subject };
                     Shuffle(kinds);
-                    for (int lane = 0; lane < 3; ++lane) State.map.Add(new MapNode { id = State.map.Count, act = act, row = row, lane = lane, kind = kinds[lane] });
+                    for (int lane = 0; lane < 3; ++lane) State.map.Add(new MapNode { id = State.nextMapNodeId++, act = act, row = row, lane = lane, kind = kinds[lane] });
                 }
             }
             RefreshMapProximity();
@@ -1317,7 +1328,7 @@ namespace Lumia
             }
 
             // This independent seed never advances map, draft, encounter or combat RNG.
-            int bossRandom = unchecked(State.seed ^ (int)0xB055A17D);
+            int bossRandom = unchecked(State.seed ^ (int)0xB055A17D ^ State.endlessCycle * 16777619);
             if (bossRandom == 0) bossRandom = 1831565813;
             foreach (var node in nodes.Where(n => n.act < 3 && string.IsNullOrEmpty(n.assignedOpponent)))
             {
@@ -1428,7 +1439,7 @@ namespace Lumia
         {
             if (weak > 0) amount = amount * 3 / 4;
             if (vulnerable > 0) amount = amount * 3 / 2;
-            return StatusMechanics.Damage(attacker, defender, amount);
+            return RunModes.ScaleEnemyDirectDamage(State, StatusMechanics.Damage(attacker, defender, amount));
         }
 
         private void ResolveBossStrike(int amount, string kind, string source, bool evadable)
@@ -1486,6 +1497,7 @@ namespace Lumia
             var node = ActiveNode();
             int progress = (State.act - 1) * State.mapRows + node.row;
             int level = Math.Min(20, 1 + progress * 19 / Math.Max(1, State.mapRows * 3 - 1));
+            if (State.mode == RunMode.Endless && State.endlessCycle > 0) level = 20;
             var c = new CombatState { enemyLevel = level, enemyEnergy = EnergyForLevel(level), strength = Modifier("battle_start_strength"), block = Modifier("battle_start_block") };
             State.combat = c; State.stage = RunStage.Combat;
             c.playerTraits=TraitMechanics.NewBattle(State.persistentTraits);State.persistentTraits=c.playerTraits;
@@ -1529,6 +1541,8 @@ namespace Lumia
                 c.enemyMaxHp+=EnemyEquipmentSum(g=>g.health);
                 c.enemyEvasion = BaseEnemyEvasion();
             }
+            // Difficulty is applied only to a newly spawned opponent, never to a restored battle.
+            c.enemyMaxHp = RunModes.ScaleEnemyHealth(State, c.enemyMaxHp);
             c.enemyHp = c.enemyMaxHp;
             c.drawPile.AddRange(State.deck); Shuffle(c.drawPile);
             c.enemyDrawPile.AddRange(c.enemyDeck); Shuffle(c.enemyDrawPile);
@@ -1663,7 +1677,7 @@ namespace Lumia
                     int planExtra=bonuses.damage;
                     if(card.damage>0 || planExtra>0)planExtra+=beforeTraits.bonus.damage+TraitMechanics.DamageBonus(traitPlan)+TraitMechanics.EmpowerBonus(traitPlan,card);
                     if(planWeak>0)planExtra=planExtra*3/4;if(c.vulnerable>1)planExtra=planExtra*3/2;
-                    int raw=CalculateEnemyDamage(card,planStrength,Math.Max(0,c.vulnerable-1),weak:planWeak)*Math.Max(1,card.hits)+planExtra;
+                    int raw=EnemyDirectHitTotal(CalculateEnemyDamage(card,planStrength,Math.Max(0,c.vulnerable-1),weak:planWeak),planExtra,Math.Max(1,card.hits));
                     int absorbed=Math.Min(planTargetBlock,raw);planTargetBlock-=absorbed;int actualDamage=Math.Min(planTargetHp,raw-absorbed);planTargetHp-=actualDamage;
                     int healed=Math.Min(c.enemyMaxHp-planHp,(EnemyAuxiliaryValue(card,card.heal)+bonuses.heal)*(100-Math.Max(TraitMechanics.HealingReduction(traitPlan),StatusMechanics.HealingReduction(c.enemyStatuses)))/100);planHp+=healed;planStrength+=card.strength;
                     available+=beforeTraits.pulses.Where(x=>x.kind=="energy").Sum(x=>x.amount);
@@ -1688,6 +1702,10 @@ namespace Lumia
         private int EnemyCardDamage(CardDef card)
         {
             return CalculateEnemyDamage(card, State.combat.enemyStrength, State.combat.vulnerable);
+        }
+        private int EnemyDirectHitTotal(int perHit, int bonus, int hits)
+        {
+            return RunModes.ScaleEnemyDirectDamage(State, perHit + bonus) + RunModes.ScaleEnemyDirectDamage(State, perHit) * Math.Max(0, hits - 1);
         }
         private int EnemyAuxiliaryValue(CardDef card,int value)
         {
@@ -1901,7 +1919,7 @@ namespace Lumia
                 if(weak>0)extra=extra*3/4;if(vulnerable>0)extra=extra*3/2;extra=extra*(100+TraitMechanics.Exposure(defenderTraits))/100;
                 int baseRaw=CalculateEnemyDamage(card,strength,vulnerable,TraitMechanics.Exposure(defenderTraits),weak,attackerStatuses,defenderStatuses);
                 // CalculateEnemyDamage already includes the live status modifiers; this preview uses its cloned state.
-                int raw=baseRaw*Math.Max(1,card.hits)+StatusMechanics.Damage(attackerStatuses,defenderStatuses,extra);
+                int raw=EnemyDirectHitTotal(baseRaw,StatusMechanics.Damage(attackerStatuses,defenderStatuses,extra),Math.Max(1,card.hits));
                 c.intentDamage+=raw;c.intentBlock+=EnemyAuxiliaryValue(card,card.block)+bonuses.block+beforeTraits.bonus.block;
                 int previousDefenderBlock=defenderBlock;
                 int absorbed=Math.Min(defenderBlock,raw);defenderBlock-=absorbed;int actualDamage=Math.Min(defenderHp,raw-absorbed);defenderHp-=actualDamage;
@@ -2224,7 +2242,7 @@ namespace Lumia
             }
             else
             {
-                int amount = pulse.amount;
+                int amount = enemy && pulse.kind == "counter" ? RunModes.ScaleEnemyDirectDamage(State, pulse.amount) : pulse.amount;
                 if (pulse.kind != "bleed" && pulse.kind != "burn")
                 {
                     int absorbed = Math.Min(enemy ? c.block : c.enemyBlock, amount);
@@ -2262,6 +2280,7 @@ namespace Lumia
         private void WinBattle()
         {
             var c = State.combat; var node = ActiveNode(); bool boss = node.kind == ZoneKind.Boss;
+            int bossEnergyGained = 0;
             ResearchProgression.Victory(State, GameDatabase.Character(c.enemyId)?.id, boss);
             TraitEvent(false,"battle_win",null,true);
             int rewardEnergy=EnergyForLevel(State.level);
@@ -2284,7 +2303,8 @@ namespace Lumia
                 {
                     State.defeatedBosses.Add(c.enemyId);
                     State.bossVictories++;
-                    State.maxEnergyBonus++;
+                    if (State.mode != RunMode.Endless || State.bossVictories <= RunModes.EndlessBossEnergyLimit)
+                    { State.maxEnergyBonus++; bossEnergyGained = 1; }
                     if (character != null && !State.passives.Contains(character.passiveId)) State.pendingPassive = character.passiveId;
                     r.objectId = RandomObject(4);
                 }
@@ -2294,7 +2314,7 @@ namespace Lumia
             if (!string.IsNullOrEmpty(r.objectId)) State.objects.Add(r.objectId);
             if (!string.IsNullOrEmpty(r.foodId)) State.foods.Add(r.foodId);
             GainXp(r.xp); Heal(Modifier("kill_heal"));
-            Say("전투 승리 · 경험치 +" + r.xp + " · 크레딧 +" + r.credits + (boss ? " · 최대 코스트 +1 (" + PlayerBaseEnergy + ")" : "") + (r.objectId == null ? "" : " · " + GameDatabase.Object(r.objectId).name) + (r.foodId == null ? "" : " · " + GameDatabase.Food(r.foodId).name + " 1개"));
+            Say("전투 승리 · 경험치 +" + r.xp + " · 크레딧 +" + r.credits + (boss ? bossEnergyGained > 0 ? " · 최대 코스트 +1 (" + PlayerBaseEnergy + ")" : " · 보스 최대 코스트 성장 완료 (+6)" : "") + (r.objectId == null ? "" : " · " + GameDatabase.Object(r.objectId).name) + (r.foodId == null ? "" : " · " + GameDatabase.Food(r.foodId).name + " 1개"));
         }
 
         private string RandomObject(int count) { return GameDatabase.Objects.Take(count).ElementAt(Next(Math.Min(count, GameDatabase.Objects.Count))).id; }
@@ -2331,9 +2351,28 @@ namespace Lumia
             State.cardUpgradePending = false;
             if (node.kind == ZoneKind.Boss)
             {
-                if (State.act >= 3) { State.stage = RunStage.Won; Say("니아: 출구는 바로 여기야. 하나는 VF 세계를 탈출해 아글라이아 연구소로 돌아왔다."); }
+                if (State.act >= 3 && State.mode == RunMode.Endless) BeginNextEndlessCycle();
+                else if (State.act >= 3) { State.stage = RunStage.Won; Say("니아: 출구는 바로 여기야. 하나는 VF 세계를 탈출해 아글라이아 연구소로 돌아왔다."); }
                 else { State.act++; State.row = State.lane = -1; Say("제" + State.act + "구역으로 진입했습니다. 더 강한 실험체들이 기다립니다."); }
             }
+        }
+
+        private void BeginNextEndlessCycle()
+        {
+            // Archive only visited locations for journal validation. Node identities never repeat.
+            State.archivedMapNodes.AddRange(State.map.Where(n => n.visited));
+            State.map.Clear(); State.endlessCycle++; State.act = 1; State.row = State.lane = -1;
+            State.scoutedActs.Clear(); State.hyperloopActs.Clear(); State.revealedNodeIds.Clear();
+            State.actBosses.Clear(); State.rewards = null;
+            GenerateMap(); EnsureBossAssignments();
+            Say("니아의 VF 세계가 다시 이어집니다. " + RunModes.CycleLabel(State) + " · 적 체력 " + RunModes.EnemyHealthPercent(State) + "% · 직접 공격 피해 " + RunModes.EnemyDamagePercent(State) + "%.");
+        }
+
+        public bool EndEndlessRun()
+        {
+            if (State.mode != RunMode.Endless || State.stage == RunStage.Preparation || State.stage == RunStage.Won || State.stage == RunStage.Lost) return false;
+            State.endlessRetired = true; State.stage = RunStage.Lost;
+            return Say("무한 원정을 종료했습니다. 지금까지의 연구 기록을 정산합니다.");
         }
 
         private void Lose() { State.hp = 0; State.stage = RunStage.Lost; Say("VF 연결이 끊어졌습니다. 니아의 손을 다시 잡고 탐사를 시작하세요."); }

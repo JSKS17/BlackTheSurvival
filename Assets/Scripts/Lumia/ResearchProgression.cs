@@ -18,6 +18,7 @@ namespace Lumia
     [Serializable] public sealed class ResearchSettlement
     {
         public string runId, finishedAt;
+        public RunMode mode;
         public int seed, nodes, victories, bosses, interruptions, escapeBonus, newSubjects, newTasks, newBosses, newSynergies, earned;
         public bool escaped, alreadySettled, legacy;
         public List<ResearchRewardLine> lines = new List<ResearchRewardLine>();
@@ -26,6 +27,7 @@ namespace Lumia
     [Serializable] public sealed class ResearchProfile
     {
         public int version = 1, data, totalData, totalRuns, totalWins;
+        public bool normalCleared, hardCleared;
         public List<ResearchSubjectProgress> subjects = new List<ResearchSubjectProgress>();
         public List<string> completedReports = new List<string>(), settledRunIds = new List<string>(), defeatedBosses = new List<string>(), synergyKeys = new List<string>();
         // The permanent ledger is separate from the twenty retained recent summaries.
@@ -86,6 +88,9 @@ namespace Lumia
             profile.synergyKeys = Present(profile.synergyKeys).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
             profile.settlements = Present(profile.settlements).Where(x => x != null && !string.IsNullOrEmpty(x.runId)).GroupBy(x => x.runId).Select(x => x.First()).ToList();
             profile.history = Present(profile.history).Where(x => x != null).Take(20).ToList();
+            // All wins recorded before modes existed were normal-mode escapes.
+            // Reading an older profile unlocks hard without paying rewards again.
+            profile.normalCleared = profile.normalCleared || profile.hardCleared || profile.totalWins > 0;
             return profile;
         }
         public static ResearchRunState EnsureRun(RunState state, bool migrateExisting = false)
@@ -108,7 +113,7 @@ namespace Lumia
                 if (state.stage == RunStage.Won || state.stage == RunStage.Lost)
                 {
                     run.legacyEnded = run.settled = true;
-                    run.settlement = new ResearchSettlement { runId = run.runId, seed = state.seed, escaped = state.stage == RunStage.Won, alreadySettled = true, legacy = true, finishedAt = Stamp() };
+                    run.settlement = new ResearchSettlement { runId = run.runId, seed = state.seed, mode = state.mode, escaped = state.stage == RunStage.Won && state.mode != RunMode.Endless, alreadySettled = true, legacy = true, finishedAt = Stamp() };
                 }
             }
             return run;
@@ -348,8 +353,9 @@ namespace Lumia
                 return CopySettlement(saved ?? new ResearchSettlement { runId = run.runId, seed = state.seed }, true);
             }
             if (run.legacyEnded || !run.begun || (state.stage != RunStage.Won && state.stage != RunStage.Lost))
-                return new ResearchSettlement { runId = run.runId, seed = state.seed, escaped = state.stage == RunStage.Won, alreadySettled = run.legacyEnded, legacy = run.legacyEnded };
-            var report = new ResearchSettlement { runId = run.runId, seed = state.seed, escaped = state.stage == RunStage.Won, nodes = Present(run.completedNodeIds).Distinct().Count(), victories = Present(run.victoryNodeIds).Distinct().Count(), bosses = Present(run.bossNodeIds).Distinct().Count(), interruptions = Present(run.bossInterruptions).Where(key => ValidInterruption(state, key)).Distinct().Count(), escapeBonus = state.stage == RunStage.Won ? 12 : 0 };
+                return new ResearchSettlement { runId = run.runId, seed = state.seed, mode = state.mode, escaped = state.stage == RunStage.Won && state.mode != RunMode.Endless, alreadySettled = run.legacyEnded, legacy = run.legacyEnded };
+            bool escaped = state.stage == RunStage.Won && state.mode != RunMode.Endless;
+            var report = new ResearchSettlement { runId = run.runId, seed = state.seed, mode = state.mode, escaped = escaped, nodes = Present(run.completedNodeIds).Distinct().Count(), victories = Present(run.victoryNodeIds).Distinct().Count(), bosses = Present(run.bossNodeIds).Distinct().Count(), interruptions = Present(run.bossInterruptions).Where(key => ValidInterruption(state, key)).Distinct().Count(), escapeBonus = escaped ? 12 : 0 };
             report.observedSubjects = Present(run.observedSubjects).Where(SubjectExists).Distinct().ToList();
             report.newSubjects = report.observedSubjects.Count(id => !Present(profile?.subjects).Any(x => x != null && x.subjectId == id && x.observed));
             foreach (var character in GameDatabase.Characters)
@@ -377,7 +383,7 @@ namespace Lumia
         {
             var parts = (key ?? "").Split(':'); int nodeId, phase;
             if (parts.Length != 2 || !int.TryParse(parts[0], out nodeId) || !int.TryParse(parts[1], out phase) || phase < 1) return false;
-            var node = Present(state.map).FirstOrDefault(n => n != null && n.id == nodeId && n.kind == ZoneKind.Boss);
+            var node = Present(state.map).Concat(Present(state.archivedMapNodes)).FirstOrDefault(n => n != null && n.id == nodeId && n.kind == ZoneKind.Boss);
             if (node == null) return false;
             var profile = BossMechanics.Profile(node.assignedOpponent);
             if (profile == null && nodeId == state.activeNodeId) profile = BossMechanics.Profile(state.combat?.enemyId);
@@ -386,12 +392,13 @@ namespace Lumia
         static void Line(ResearchSettlement report, string title, int count, int unit) => report.lines.Add(new ResearchRewardLine { title = title, count = count, unit = unit, amount = count * unit });
         static ResearchSettlement CopySettlement(ResearchSettlement value, bool alreadySettled)
         {
-            return new ResearchSettlement { runId = value.runId, finishedAt = value.finishedAt, seed = value.seed, nodes = value.nodes, victories = value.victories, bosses = value.bosses, interruptions = value.interruptions, escapeBonus = value.escapeBonus, newSubjects = value.newSubjects, newTasks = value.newTasks, newBosses = value.newBosses, newSynergies = value.newSynergies, earned = value.earned, escaped = value.escaped, alreadySettled = alreadySettled, legacy = value.legacy,
+            return new ResearchSettlement { runId = value.runId, finishedAt = value.finishedAt, seed = value.seed, mode = value.mode, nodes = value.nodes, victories = value.victories, bosses = value.bosses, interruptions = value.interruptions, escapeBonus = value.escapeBonus, newSubjects = value.newSubjects, newTasks = value.newTasks, newBosses = value.newBosses, newSynergies = value.newSynergies, earned = value.earned, escaped = value.escaped, alreadySettled = alreadySettled, legacy = value.legacy,
                 lines = Present(value.lines).Where(x => x != null).Select(x => new ResearchRewardLine { title = x.title, count = x.count, unit = x.unit, amount = x.amount }).ToList(), completedTasks = Present(value.completedTasks).ToList(), observedSubjects = Present(value.observedSubjects).ToList(), synergyKeys = Present(value.synergyKeys).ToList() };
         }
         public static ResearchSettlement Settle(ResearchProfile profile, RunState state)
         {
             if (profile == null || state?.research == null) return CalculateReport(profile, state);
+            Normalize(profile);
             var run = state.research; var report = CalculateReport(profile, state);
             bool terminal = state.stage == RunStage.Won || state.stage == RunStage.Lost;
             if (!terminal || !run.begun || run.legacyEnded) return report;
@@ -411,6 +418,8 @@ namespace Lumia
             foreach (var boss in run.defeatedBossSubjects.Where(SubjectExists)) Add(profile.defeatedBosses, boss);
             foreach (var key in report.synergyKeys) Add(profile.synergyKeys, key);
             profile.data += report.earned; profile.totalData += report.earned; profile.totalRuns++; if (report.escaped) profile.totalWins++;
+            if (report.escaped && report.mode == RunMode.Normal) profile.normalCleared = true;
+            if (report.escaped && report.mode == RunMode.Hard) profile.normalCleared = profile.hardCleared = true;
             Add(profile.settledRunIds, run.runId); report.finishedAt = Stamp();
             profile.settlements.Add(CopySettlement(report, false)); profile.history.Insert(0, CopySettlement(report, false)); if (profile.history.Count > 20) profile.history.RemoveRange(20, profile.history.Count - 20);
             run.settled = true; run.settlement = CopySettlement(report, false); return report;
