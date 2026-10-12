@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "subjects": 91,
+  "distinctBuiltinGenerations": 91,
+  "runtimeTextures": 91,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "runtimeCanvas": [
+    160,
+    160
+  ],
+  "pointFiltered": true,
+  "uncompressed": true,
+  "validUniqueUnityGuids": 91,
+  "defaultSpritesUnchanged": true,
+  "customOutfits": [
+    "lucia",
+    "ceres",
+    "craver"
+  ],
+  "styleReferenceRedistributed": false,
+  "comparisonSheets": [
+    "docs/art-rare-skins/sprite-comparisons/page-01.png",
+    "docs/art-rare-skins/sprite-comparisons/page-02.png",
+    "docs/art-rare-skins/sprite-comparisons/page-03.png",
+    "docs/art-rare-skins/sprite-comparisons/page-04.png",
+    "docs/art-rare-skins/sprite-comparisons/page-05.png",
+    "docs/art-rare-skins/sprite-comparisons/page-06.png"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "role": "Style guidance only; user states this Rio sprite is not their own creation.",
+  "source": "User-provided attachment, 2026-10-11",
+  "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db",
+  "redistributed": false,
+  "copiedIntoGame": false,
+  "interpretation": "Compact 2.1-2.3-head proportions, soft material palettes, distinct faces and economical square pixel clusters. New poses and drawings for every character.",
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "runtimeCanvas": [
+    160,
+    160
+  ],
+  "integerPixelScale": 2
+}

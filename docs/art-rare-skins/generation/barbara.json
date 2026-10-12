@@ -1,0 +1,61 @@
+{
+  "id": "barbara",
+  "name": "바바라",
+  "skinNameKR": "연구원 바바라",
+  "skinCode": 1026003,
+  "customOutfit": false,
+  "sourceURL": "https://dak.gg/er/characters/Barbara/introduction?hl=ko",
+  "releaseDate": null,
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-2332292a-dcd6-4613-9356-a5aeacd2ddfe.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/barbara.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "1c868bbceffa0e3d1fff10bc8af52cdd9b6fad64f5b1554d5727c768c3691600"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/barbara.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "60dfc3af5d4e0f0352b8d0225064c51116ffdaf698b78e0201aa1ed704775f3d"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 바바라 (barbara).\nRare outfit: 연구원 바바라.\nOutfit/weapon reference: Use the supplied official full-body skin illustration to preserve this skin's actual hair, distinctive face, costume palette, garment silhouette and signature prop; do not inherit the character's base outfit or another subject's accessories.\nCharacter-specific face from the original: Serious engineer, green eyes behind RECTANGULAR SPECTACLES, determined lowered brows, small flat closed mouth. Bulky white mechanical visor helmet.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin.\n",
+  "promptSha256": "8455e5c27c228e2f99b3f3ebf2f0a2b67605f3017bc192793dcda7e72401e337",
+  "generatedSource": "docs/art-rare-skins/generated/barbara.png",
+  "generatedSha256": "203707da38b581c71f690aae57c65d718543cb1fcf45061ec0fcb45064bf9b71",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    8,
+    1238,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/barbara.png",
+  "sha256": "c7c810371e083a3adc4e2c7bcf38256698c6c6fd1a8719b291ff96a63e2dd50e",
+  "processedPath": "docs/art-rare-skins/processed/barbara.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/barbara.png",
+  "originalDefaultSpriteSha256": "001459ebb4ab10edf6dd7283201699fb8de3da8268608478531a083d1b748bfe",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

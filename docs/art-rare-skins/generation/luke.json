@@ -1,0 +1,61 @@
+{
+  "id": "luke",
+  "name": "루크",
+  "skinNameKR": "사신 루크",
+  "skinCode": 1022006,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/2645?hl=ko-KR",
+  "releaseDate": "2025-04-17",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-edbb67ad-1899-4b5c-bf9c-cbcde8799c92.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/luke.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "4c18de53756853126201e1e36131f19fe2471f6b6627aa92524864d77457e784"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/luke.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "84ee410008c76fe771c273a3fb5aa7aab70457ecec62f5df2e5468e5ba9ca4b2"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 루크 (luke).\nRare outfit: 사신 루크.\nOutfit/weapon reference: Shaggy pale reddish gray hair, narrow cool eyes; black armored street coat beneath red hood and mantle, layered black straps, silver fittings and compact dark scythe-shaped broom weapon.\nCharacter-specific face from the original: Mischievous janitor boy, slanted AMBER eyes, high cheek expression, arched teasing eyebrows, off-center friendly grin. Spiky pale-brown hair.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n\nSelected-skin priority: the selected skin image and its written appearance description override the default face note for hair style/color, eye color and accessories. Preserve distinctive expression and eye shape, but never add default glasses, hats or costume details absent from the selected skin.\n",
+  "promptSha256": "0711f02bcb6aa08541235cceb2f7971b0e1804a1eb3ab41ad19e9c1048e9bf74",
+  "generatedSource": "docs/art-rare-skins/generated/luke.png",
+  "generatedSha256": "3f0f155c54e4ce480484d408195707b2931538344088c246d849a5fd95b12f02",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    9,
+    1230,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/luke.png",
+  "sha256": "59d53d62b9fa51aed51fa84a541045472176c6594a89e18847e1ad65cde83e5a",
+  "processedPath": "docs/art-rare-skins/processed/luke.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    71,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/luke.png",
+  "originalDefaultSpriteSha256": "548e8887a3abee2aa913a3f2a9da431290e787dd7f006e3704563f0f9170348c",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

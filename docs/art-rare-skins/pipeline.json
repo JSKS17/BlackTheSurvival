@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "expectedSubjects": 91,
+  "preparedSubjects": 91,
+  "generator": "builtin image_gen; one call per individual asset",
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "runtimeCanvas": [
+    160,
+    160
+  ],
+  "processing": "Alpha bounding-box crop, nearest-neighbour fit within 72px, transparent 80px padding and exact 2x nearest enlargement only.",
+  "originalSpritesModified": false,
+  "styleReferenceRedistributed": false
+}

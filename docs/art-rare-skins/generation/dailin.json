@@ -1,0 +1,61 @@
+{
+  "id": "dailin",
+  "name": "리 다이린",
+  "skinNameKR": "잭 오 리 다이린",
+  "skinCode": 1010007,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3242?hl=ko-KR",
+  "releaseDate": "2025-12-23",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-8a6bd51f-4d27-478d-953c-876b09074582.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/dailin.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "deb46376c9076ae094f737d5196d9fcdbdcb118ab8b58cf3766457c21b1f8160"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/dailin.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "1efd6215c5aefd4d33cf5d74a8e4b33812a9657589cf6dbce06921a88098900a"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 리 다이린 (dailin).\nRare outfit: 잭 오 리 다이린.\nOutfit/weapon reference: Long red hair, green eyes and mischievous smile; white-black-red fitted Jack-O collaboration suit, red gloves, black ribbon and small gold halo. Keep recognizable Jack-O palette and compact prop.\nCharacter-specific face from the original: Tipsy relaxed young woman, warm amber HALF-LIDDED eyes, sleepy lowered brows, faint crooked closed smile. Black buns and long orange ribbons.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n\nSelected-skin priority: the selected skin image and its written appearance description override the default face note for hair style/color, eye color and accessories. Preserve distinctive expression and eye shape, but never add default glasses, hats or costume details absent from the selected skin.\n",
+  "promptSha256": "957a29fd131e73519232305b4c2e0a507eb1f49799dea6a401934984579faf80",
+  "generatedSource": "docs/art-rare-skins/generated/dailin.png",
+  "generatedSha256": "df4a057ea2892624b60825960214b93d043b82f3dfec518364ba8c00c9340b8b",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    17,
+    1248,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/dailin.png",
+  "sha256": "b21a99a806db511b2b9fcca1658c815d8f5575776b1e14411e90aa54aab17e22",
+  "processedPath": "docs/art-rare-skins/processed/dailin.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    71
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/dailin.png",
+  "originalDefaultSpriteSha256": "b2ec50c573fd3875e3bdf9087f0589c866c47cd2e1baebd9b3b447e51774538e",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

@@ -28,6 +28,21 @@ namespace Lumia
         public static Texture2D BattleBackground() { Ensure(); return battle; }
         public static Texture2D MapBackground() { Ensure(); return map; }
 
+        public static Texture2D RarePortrait(string subjectId)
+        {
+            var character = GameDatabase.Characters.Find(x => x.id == subjectId || x.name == subjectId);
+            string key = character == null ? subjectId : character.id;
+            Texture2D result;
+            if (Cache.TryGetValue("rareportrait/" + key, out result)) return result;
+            result = Load("PortraitsRare/" + key);
+            // A missing optional skin must never remove a character from the UI.
+            if (result == null) return Portrait(subjectId);
+            Cache["rareportrait/" + key] = result;
+            return result;
+        }
+
+        public static bool HasRarePortrait(string subjectId) => Load("PortraitsRare/" + subjectId) != null;
+
         public static Texture2D Portrait(string id)
         {
             Ensure();

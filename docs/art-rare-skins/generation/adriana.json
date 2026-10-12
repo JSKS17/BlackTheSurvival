@@ -1,0 +1,61 @@
+{
+  "id": "adriana",
+  "name": "아드리아나",
+  "skinNameKR": "악역 영애 아드리아나",
+  "skinCode": 1017005,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3209?hl=ko-KR",
+  "releaseDate": "2025-12-11",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-0ce99968-a498-4fe9-b371-34a4c00c8724.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/adriana.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "4766fc016779ec567888cc62d3d2e73ec39e5cf56a8c54f9eb9c70a9d8f804e5"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/adriana.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "47c3be40f6a6cb3c917ca517a19cdaf5708b8b3c45fdb3eced8a3d7236656292"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 아드리아나 (adriana).\nRare outfit: 악역 영애 아드리아나.\nOutfit/weapon reference: Long scarlet-red ponytail, green eyes and sly grin; red-black roses and ribbons, elegant crimson gothic noblewoman dress, dark choker and compact gold-trimmed flame device.\nCharacter-specific face from the original: Wry pyromaniac, narrow BROWN smoky half-lidded eyes, arched confident brows, closed knowing smile with pipe at mouth corner. Orange ponytail.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "1c008814e864911baf4baaa1c3c40e89eb36617a842a25025829255fc5e9127a",
+  "generatedSource": "docs/art-rare-skins/generated/adriana.png",
+  "generatedSha256": "bd4b4d37e96fa952927a0930966a7b2724553a2eb639087f610f1ec1ca2d0eba",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    22,
+    1236,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/adriana.png",
+  "sha256": "72ac700856cccd6a9b2cce9bc5a6c85601513ca8a057ba885c8afd2b9f207946",
+  "processedPath": "docs/art-rare-skins/processed/adriana.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/adriana.png",
+  "originalDefaultSpriteSha256": "3063ee0d35f17a755ac15d829f5a54a2c5e371a0a5bb19406a2f1bd0549a5067",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

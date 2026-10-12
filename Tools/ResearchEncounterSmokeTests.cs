@@ -58,7 +58,7 @@ public static partial class CoreSmokeTests
             Check(saved.State.encounterOffers.SequenceEqual(e.State.encounterOffers) && saved.State.rngState == e.State.rngState
                 && saved.State.research.unlockedReports.SequenceEqual(e.State.research.unlockedReports), "research offers and unlocks persist without reroll");
         }
-        Check(featured > 150 && featured < 400, "research scenes appear as balanced alternatives, not guaranteed replacements");
+        Check(featured > 40 && featured < 145, "rare scenes replace around twelve percent of eligible ordinary offers");
         var locked = Ready(88); Enter(locked, ZoneKind.Encounter);
         var nia = ResearchEncounters.EventForSubject("nia"); locked.State.encounterOffers = new List<string> { nia.id };
         Check(!locked.SelectEncounter(nia.id), "locked research event cannot be injected into an offer list");

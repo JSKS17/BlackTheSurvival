@@ -1,0 +1,61 @@
+{
+  "id": "hart",
+  "name": "하트",
+  "skinNameKR": "3rd Anniversary 하트 Vivace",
+  "skinCode": 1008007,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+  "releaseDate": "2026-07-23",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12bb7-a630-78c0-bcde-8aa5311f9df8\\exec-dcb4a919-6b7c-47aa-a125-76a17da940bb.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/hart.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "eecb6e53492cfe12b36e767e7db17d2a00f506f35e70844f0eb440599347f455"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/hart.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "311af8d9aa86f763cb61e180d46a74c2cfafa738d5dc962f63ee1cb6ac0274ab"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 하트 (hart).\nRare outfit: 3rd Anniversary 하트 Vivace.\nOutfit/weapon reference: Long blonde hair pulled back, amber eyes and friendly confident smile; red-black formal anniversary dress, gold choker, small dark bow, red long glove and compact black-red electric guitar.\nCharacter-specific face from the original: Shy blond musician, warm AMBER drooping almond eyes, worried inward-raised brows, tiny hesitant smile. Black beret and pink electric guitar.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "3a7cd72d3aef8ae2c723719c5de5952b314bf5026f33e15d17fc4b69bff31624",
+  "generatedSource": "docs/art-rare-skins/generated/hart.png",
+  "generatedSha256": "ddd40277b68711668cd7d91dd8ba52281b676765e7356db65f2c561127e9778d",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    21,
+    1238,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/hart.png",
+  "sha256": "30fb16dd4cd81a22ddd59d4cc998b0aff950b57a64858c6bb8909c110960214a",
+  "processedPath": "docs/art-rare-skins/processed/hart.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/hart.png",
+  "originalDefaultSpriteSha256": "fd65eb13427ed3e7a598ee0a2e5132b3a41c37f82b66cfd79d152f43ff72dbc8",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

@@ -1,0 +1,61 @@
+{
+  "id": "piolo",
+  "name": "피올로",
+  "skinNameKR": "스트리트 파이터 피올로",
+  "skinCode": 1056002,
+  "customOutfit": false,
+  "sourceURL": "https://dak.gg/er/characters/Piolo/introduction?hl=ko",
+  "releaseDate": null,
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12bb7-a630-78c0-bcde-8aa5311f9df8\\exec-0ad1e556-3580-4b3f-8b4d-9cea00d2c76a.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/piolo.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "ac4fc77a69949c5f549b7c85fee92427359b9aefe0397c9280e011e135806247"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/piolo.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "40a9ec8b10a15ce9db4c042dc2dca2d5fd1268a28c135a4334f8c963d7efdda4"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 피올로 (piolo).\nRare outfit: 스트리트 파이터 피올로.\nOutfit/weapon reference: Brown hair partly beneath black hood with cyan edging, icy blue eyes and determined frown; black-white-cyan tech street fighter jacket, black gloves and bright blue angular nunchaku.\nCharacter-specific face from the original: Brooding muscular young man, narrow dark BROWN eyes half shaded by spiky brown fringe, heavy low brows, tight serious mouth, mature long nose.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "dc837f4dba8b8019495897aaf4507cdfe29835967703a7198bd3e21d20304266",
+  "generatedSource": "docs/art-rare-skins/generated/piolo.png",
+  "generatedSha256": "4c0a10aed87cc6f6075ccc3b06f8e203843917bda41fc68ba03e34ff8477f64e",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    23,
+    1240,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/piolo.png",
+  "sha256": "c6fa6a6854806527c599dd8a6de887c3a5c2282e32ac4c5ad57c97d1306d1708",
+  "processedPath": "docs/art-rare-skins/processed/piolo.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    71
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/piolo.png",
+  "originalDefaultSpriteSha256": "84316ba01710c82bee0e88954b73b76da63f423d2ebd6b0083354ae1256c5e38",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

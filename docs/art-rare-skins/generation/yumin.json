@@ -1,0 +1,61 @@
+{
+  "id": "yumin",
+  "name": "유민",
+  "skinNameKR": "풍랑 위의 이정표 유민",
+  "skinCode": 1077002,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+  "releaseDate": "2026-08-06",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12bb7-a630-78c0-bcde-8aa5311f9df8\\exec-b7b98434-4250-4a54-89cb-33438df68ca0.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/yumin.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "039499fe8b42f9bab3031b5a34a88d72e941e6fe02f2de6d98e55013e0f46688"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/yumin.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "da7a17593ac1ab57e003eb65de92a58296eb9ac92dc83ce27b85fd1bfd8999c4"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 유민 (yumin).\nRare outfit: 풍랑 위의 이정표 유민.\nOutfit/weapon reference: Long dark black hair with short topknot, confident dark eyes; open white-cyan loose summer robe with bare chest, brown woven summer shorts, straw hat hanging behind, shell bead bracelets and small red watermelon-pattern folding fan.\nCharacter-specific face from the original: Gentle elegant man, one narrow GRAY-BROWN sleepy eye visible under long dark hair, softly lowered brows, faint serene closed smile. Adult male facial anatomy.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "dc568bb7bfb59257b0e1999f6d9baef314977b95de89fcd2a34c67798a48f1c8",
+  "generatedSource": "docs/art-rare-skins/generated/yumin.png",
+  "generatedSha256": "6c2f1abf7e15a9cf4f4b7e35d5917fcfe82aa182d4e7c6e3adefa782bc0bcee2",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    27,
+    1232,
+    1238
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/yumin.png",
+  "sha256": "79a19ec103254522e4f20dfe3e3c198336e150ad2009e9fed28ab2dcec9ee1c1",
+  "processedPath": "docs/art-rare-skins/processed/yumin.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    71
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/yumin.png",
+  "originalDefaultSpriteSha256": "edf2204af02ac2a9b772006ae6fbee39d602e8369250b267aefce42cd2f6d9fd",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

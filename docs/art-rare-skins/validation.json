@@ -1,0 +1,25 @@
+{
+  "expected": 91,
+  "actual": 91,
+  "missing": [],
+  "unexpected": [],
+  "errors": [],
+  "complete": true,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "runtimeCanvas": [
+    160,
+    160
+  ],
+  "integerPixelScale": 2,
+  "customOutfits": [
+    "ceres",
+    "craver",
+    "lucia"
+  ],
+  "originalSpritesModified": false,
+  "styleReferenceRedistributed": false,
+  "runtimeAlphaPolicy": "Transparent background 0; maximum >=250. Generated alpha is preserved without repainting."
+}

@@ -1,0 +1,61 @@
+{
+  "id": "alex",
+  "name": "알렉스",
+  "skinNameKR": "조커 알렉스",
+  "skinCode": 1027003,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3374?hl=ko-KR",
+  "releaseDate": "2026-02-19",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-7b7d2392-4d58-4ca4-92a7-aa62acf8939f.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/alex.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "045e65c85f662b0c56caa1d46fec4959553eedeba50cf30aa6a85ab5ede3c9ea"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/alex.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "1b06d4ff95f27b77fdcbec9a7f1dd6fd3b7aabafa107a62d2474173d8c55b6bb"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 알렉스 (alex).\nRare outfit: 조커 알렉스.\nOutfit/weapon reference: Messy black hair, cool narrow eyes, white phantom-thief mask resting near forehead; black high-collar coat, red gloves, small blue flame and compact dark pistol. No blond hair or black sunglasses for this Joker skin.\nCharacter-specific face from the original: Adult blond spy wearing opaque BLACK SUNGLASSES that completely cover eyes, subtle raised brow implied above frame, small knowing closed smirk. Keep glasses and mature nose distinct.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "cc2d7997ee29732015bc4d893149709dbcad26e3878ad6c5fa29ed8d4d9de524",
+  "generatedSource": "docs/art-rare-skins/generated/alex.png",
+  "generatedSha256": "7b62995921db4e1f3b9c53f7096f31be7edca1f7961f4eaf0f72b3fc8b47acfa",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    43,
+    33,
+    1196,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/alex.png",
+  "sha256": "327736a55b7336fdcd86e23fa6817fae04aa60e6afc3e6dac70c9301b6b4b5f9",
+  "processedPath": "docs/art-rare-skins/processed/alex.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    68,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/alex.png",
+  "originalDefaultSpriteSha256": "e10344b1493a59150153a45890ce79e13a4a7d8aaf4427f28b54de429770db76",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

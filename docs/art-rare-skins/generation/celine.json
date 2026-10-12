@@ -1,0 +1,61 @@
+{
+  "id": "celine",
+  "name": "셀린",
+  "skinNameKR": "메이드, 때때로 폭발 셀린",
+  "skinCode": 1043005,
+  "customOutfit": false,
+  "sourceURL": "https://dak.gg/er/characters/Celine/introduction?hl=ko",
+  "releaseDate": null,
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-cc74db1f-8fd5-4530-80a6-87bcc7bd44ef.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/celine.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "78fcea9cf4d1af2a0e869aadb95370b899b4afa07e41c64e36261f33dc2a2402"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/celine.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "71338caabe6f1e820781acf9d87e44b8ada238ec242d84c6276ef8b53f6480ef"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 셀린 (celine).\nRare outfit: 메이드, 때때로 폭발 셀린.\nOutfit/weapon reference: Icy cyan bob with pale yellow streak, golden eyes; white-cyan maid headband and tiny cap, black-white fitted maid dress, yellow bow, striped cyan-pink apron and small candy-colored grenade.\nCharacter-specific face from the original: Cool demolition girl, vivid YELLOW half-lidded eyes with flat sharp upper eyelids, low straight brow, neutral tiny mouth. Icy-blue bob.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin.\n",
+  "promptSha256": "9e5248f3b31e9ecd517fc98f5c6b01d040ebdede4331d5b4e7eeef9667e7cf07",
+  "generatedSource": "docs/art-rare-skins/generated/celine.png",
+  "generatedSha256": "70f1f94de7d6354e01d19f38fc47b6208d7d5cbe940758f9904636b007e711d6",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    9,
+    1234,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/celine.png",
+  "sha256": "3e8215f74c7b601000573f92998b337eb4b8a2474aba748dd0f4ef761c78fc32",
+  "processedPath": "docs/art-rare-skins/processed/celine.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    71,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/celine.png",
+  "originalDefaultSpriteSha256": "3155867328605c2def890f1396c39d75d739b9e58b9fa09cacdcf90e23798db6",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

@@ -1,0 +1,61 @@
+{
+  "id": "eleven",
+  "name": "일레븐",
+  "skinNameKR": "사관후보생 일레븐",
+  "skinCode": 1030005,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3769?hl=ko-KR",
+  "releaseDate": "2026-08-13",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-9d19bafc-567e-4509-9c1b-df65e18df7c7.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/eleven.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "c3b70a5d7aeee640a62b8a2bf8b9491e1c3878afeb5f2f86a4a59094a5a0a284"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/eleven.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "cc25c25081bf4ce5736f8dff40a3e304f10afb12f748619ffbd0e3c58057d727"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 일레븐 (eleven).\nRare outfit: 사관후보생 일레븐.\nOutfit/weapon reference: Pink twin tails, pink-orange eyes and bright salute; white navy-gold cadet peaked cap, white-gold short military jacket, red-orange neck ribbon, black belt and compact white-red heart hammer.\nCharacter-specific face from the original: Bubbly streamer, luminous pink-orange wide eyes with rounded corners, lifted lively eyebrows, broad OPEN SMILE. Pink flowing hair. Happy expressive face.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "89a91ed27437f5bbdbc1cc5f19f572305b6772c33766c6415c62615bad9b1a8a",
+  "generatedSource": "docs/art-rare-skins/generated/eleven.png",
+  "generatedSha256": "188833b9dcd480615698083d48bb3bd7a0b20533f4daf7ebfbcc675c0cab52ca",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    31,
+    1234,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/eleven.png",
+  "sha256": "dbce654cf37739acbe79071fb990b8051df5ab445518a29b277b5a6faa00cc6b",
+  "processedPath": "docs/art-rare-skins/processed/eleven.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    71
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/eleven.png",
+  "originalDefaultSpriteSha256": "e301d207b9ded4f5dc9e2cc6e0f43a06a2d72ec0ac8f0ee34817b3171df96e58",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

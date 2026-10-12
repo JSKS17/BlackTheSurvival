@@ -1,0 +1,61 @@
+{
+  "id": "bernice",
+  "name": "버니스",
+  "skinNameKR": "하우스키퍼 버니스",
+  "skinCode": 1025003,
+  "customOutfit": false,
+  "sourceURL": "https://dak.gg/er/characters/Bernice/introduction?hl=ko",
+  "releaseDate": null,
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-7601dd79-ef40-4c7b-9df9-fbbfd1115393.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/bernice.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "f2c2d04479f649a350008e8ef75c1ea8c7f000b2d4f442033d7512fa10295a56"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/bernice.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "e25a965b8fc1d924654974221a17f8c05d09751a326ae83878be976a1be211ce"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 버니스 (bernice).\nRare outfit: 하우스키퍼 버니스.\nOutfit/weapon reference: Use the supplied official full-body skin illustration to preserve this skin's actual hair, distinctive face, costume palette, garment silhouette and signature prop; do not inherit the character's base outfit or another subject's accessories.\nCharacter-specific face from the original: Weathered middle-aged hunter, tired narrow amber eyes under blond bangs, heavy low brows, broad nose and pronounced mouth crease, unsmiling straight lips.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin.\n",
+  "promptSha256": "fda61bc55feecd94c9da8036678ed02e5bd2d53f667c7e48fc670c537b7f608e",
+  "generatedSource": "docs/art-rare-skins/generated/bernice.png",
+  "generatedSha256": "41d7b5c3edf5dc65ff79714bb9a2a288ee4866066de7ad730b0810b536de3fc3",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    19,
+    1236,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/bernice.png",
+  "sha256": "95f76d4cfe232f1dd5778ac27192c24edfb64baa86fda9b7671a9bec70d70ea5",
+  "processedPath": "docs/art-rare-skins/processed/bernice.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/bernice.png",
+  "originalDefaultSpriteSha256": "9b8940066a6233f2f72c825a7e932d9d5067ccbc93653c5ac327e020d6c1d6bb",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

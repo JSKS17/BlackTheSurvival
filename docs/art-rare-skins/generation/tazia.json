@@ -1,0 +1,61 @@
+{
+  "id": "tazia",
+  "name": "타지아",
+  "skinNameKR": "유릿빛 물결 타지아",
+  "skinCode": 1060003,
+  "customOutfit": false,
+  "sourceURL": "https://dak.gg/er/characters/Tazia/introduction?hl=ko",
+  "releaseDate": null,
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12bb7-a630-78c0-bcde-8aa5311f9df8\\exec-33f3aadf-f9db-4354-808a-3397e6ede677.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/tazia.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "2d36f20d6cc4dd33959cee58baccf199277c8d444ea18690e07b39bf3e9d484e"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/tazia.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "43de4ed453f48c03203e1587ed14d0b16459db120f8a9d2a8ee6f74cd72997ac"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 타지아 (tazia).\nRare outfit: 유릿빛 물결 타지아.\nOutfit/weapon reference: Use the supplied official full-body skin illustration to preserve this skin's actual hair, distinctive face, costume palette, garment silhouette and signature prop; do not inherit the character's base outfit or another subject's accessories.\nCharacter-specific face from the original: Elegant assertive glass artist, sharp GOLDEN eyes, long rising dark lashes, slanted self-assured brow, very small confident closed smile. Crimson hair.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin.\n\nSelected skin cues: long deep crimson high ponytail, golden narrow eyes, cream star-shaped flower and turquoise ribbon at the ponytail, a white halter swim top and a layered turquoise sarong skirt, delicate silver shell accessories and simple light sandals. Use a flat modest chibi torso without cleavage or anatomy emphasis. One or two small turquoise glass-diamond shards beside her hands convey her glass weapon; no giant rifle, black military coat or another character prop.\n",
+  "promptSha256": "f667aefe2c6dd1bb1502842d5554db58457bfeddca810f02641b600bb158b3a4",
+  "generatedSource": "docs/art-rare-skins/generated/tazia.png",
+  "generatedSha256": "c7b1e73bf22b958dbf80853e40ec1974948d6eca0c3c6a5c7c773cdd00c25ff5",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    23,
+    1226,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/tazia.png",
+  "sha256": "01718e911be3b3235776f2e853ab173812c9a6c7b41ec766a6f2e6c598247b99",
+  "processedPath": "docs/art-rare-skins/processed/tazia.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/tazia.png",
+  "originalDefaultSpriteSha256": "a2c50c8ac1338ef4c97d8397b988bb0ae9e7d33ac182b281ff2f9ee60cfeaf35",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

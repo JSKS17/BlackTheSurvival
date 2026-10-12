@@ -1,0 +1,61 @@
+{
+  "id": "william",
+  "name": "윌리엄",
+  "skinNameKR": "아포칼립스 윌리엄",
+  "skinCode": 1032003,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/2673?hl=ko-KR",
+  "releaseDate": "2025-04-30",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-ef99cce0-3488-4eb5-a945-d017a6b152b9.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/william.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "d4003adb776b1d26af16293dfaf3b02b676b0cc4e46cf9201e5637cbdbafdd43"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/william.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "a7b5c1eebf8df9037329c5a8903c9d5b23e50c6d47bb94c9ddc18e6845e23ea8"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 윌리엄 (william).\nRare outfit: 아포칼립스 윌리엄.\nOutfit/weapon reference: Short brown hair and teal eyes under black baseball cap; weathered blue-black open field jacket, white shirt, dark scarf, wrapped baseball bat or glove and small ball. Post-apocalyptic baseball theme.\nCharacter-specific face from the original: Focused athlete with warm tan skin, slender green-gray eyes under blue cap, straight strong brows, serious tiny closed mouth. Masculine broad nose.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "d6f7f2075c95e1490ab8ed8a128b586e512e1569ac4178facd7fe62945aaff58",
+  "generatedSource": "docs/art-rare-skins/generated/william.png",
+  "generatedSha256": "7829d075346c6567b13f54cd842651165814021c0c94e362a13fc0913cefe963",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    20,
+    1226,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/william.png",
+  "sha256": "cc8b63621945c30be4bc773d9bf8ec7f5db8804d3f93ee071bcc90441c62a752",
+  "processedPath": "docs/art-rare-skins/processed/william.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/william.png",
+  "originalDefaultSpriteSha256": "8100a99d0a941ef46865940c3397777ae0a3939ae9aee2be52f4d7eb5ac2fcd2",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

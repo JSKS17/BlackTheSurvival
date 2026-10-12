@@ -1,0 +1,61 @@
+{
+  "id": "sissela",
+  "name": "시셀라",
+  "skinNameKR": "사관후보생 시셀라",
+  "skinCode": 1015006,
+  "customOutfit": false,
+  "sourceURL": "https://dak.gg/er/characters/Sissela/introduction?hl=ko",
+  "releaseDate": null,
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-8c334930-da0f-4e84-8e9f-c5b768f6c61b.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/sissela.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "71f40c1f068906595d4906464a0b36df70f29bea7231a92544f175a8832afcae"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/sissela.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "83b93c0e7a07d8fa3d652fd01f82bb0a548709c43789967b4379d139b3b278e6"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 시셀라 (sissela).\nRare outfit: 사관후보생 시셀라.\nOutfit/weapon reference: Pale blue-white hair in twin tails, one tired blue eye partly hidden; white navy-gold cadet cap and military-medical uniform, navy gloves and small white-gold companion orb. Preserve delicate weary face.\nCharacter-specific face from the original: Frail pale girl, one large tired BLUE eye with soft drooping lid, other eye naturally covered by white fringe, faint distressed brow, tiny open mouth.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "23aa93befd49d8433290b284d3765d1791d7c870ec88a9798362932ad075e093",
+  "generatedSource": "docs/art-rare-skins/generated/sissela.png",
+  "generatedSha256": "92f66a30c69ee697a27b374e82e7663990c13c0906a4c74b4a061b4ac189c09c",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    37,
+    1236,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/sissela.png",
+  "sha256": "3c21d763705cff8f3fac0478361a521153746996daf54302ab5b763b4fcc4ecb",
+  "processedPath": "docs/art-rare-skins/processed/sissela.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    71
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/sissela.png",
+  "originalDefaultSpriteSha256": "05cd5dd96721f3374c9b5ff50934965a0cfdd6f260823c59e164772385be153a",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

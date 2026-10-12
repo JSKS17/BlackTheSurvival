@@ -66,6 +66,7 @@ namespace Lumia
         public int amount;
         public string followupId, requiredFoodId, requiredObjectId;
         public int creditCost;
+        public int bonusCredits;
     }
     [Serializable] public class EventDef
     {

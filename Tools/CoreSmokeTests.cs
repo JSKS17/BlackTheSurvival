@@ -30,7 +30,8 @@ public static partial class CoreSmokeTests
             BossRestrictionRules(); BossHeavyAttackBoundary(); BossRestrictionPersistence();
             ResearchCoverageAndExperiments(); ResearchRunSettlement(); ResearchActualCombos();
             ResearchStoreTransactions(); ResearchEncounterCoverage(); ResearchEncounterOffers();
-            Console.WriteLine("PASS: " + checks + " assertions across 81 game-rule scenarios.");
+            RareEncounterRewards(); RareEncounterAvailability(); RareSkinStoryIsolation();
+            Console.WriteLine("PASS: " + checks + " assertions across 84 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }

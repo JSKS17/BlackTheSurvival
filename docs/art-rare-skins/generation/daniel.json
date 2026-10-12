@@ -1,0 +1,61 @@
+{
+  "id": "daniel",
+  "name": "다니엘",
+  "skinNameKR": "화이트데이 다니엘",
+  "skinCode": 1037003,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/1765?hl=ko-KR",
+  "releaseDate": "2024-03-05",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-8cb14b3a-4e03-4b32-bd7e-24ad208d8bdd.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/daniel.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "9938a0f03e2a95eb8e096b0159921426194aec5b4b9843ba9b25e3e19916b431"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/daniel.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "6ab8729a74bf3d7c3d927d219c5b26c37660f91434a377711452d2533fde61d7"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 다니엘 (daniel).\nRare outfit: 화이트데이 다니엘.\nOutfit/weapon reference: Long straight violet hair, narrow weary purple eyes; tan winter coat over black turtleneck and burgundy textured sweater, black gloves, small wrapped bouquet with red ribbon, closed tailor scissors.\nCharacter-specific face from the original: Gaunt pale young man, very narrow dark mauve half-lidded eyes, sharply level brows, cold thin straight closed mouth. Long dark-purple hair.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n\nSelected-skin priority: the selected skin image and its written appearance description override the default face note for hair style/color, eye color and accessories. Preserve distinctive expression and eye shape, but never add default glasses, hats or costume details absent from the selected skin.\n",
+  "promptSha256": "b7d3e4f996c791753e90e926751cc1bdf4456dda696955784b4b5fd6035e88ba",
+  "generatedSource": "docs/art-rare-skins/generated/daniel.png",
+  "generatedSha256": "cd225d2e9b4766b2c81744c5e664b31e34c1a04a18c4f311336229cea88bd093",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1238,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/daniel.png",
+  "sha256": "c8ba7b2452ef66b0f20f487b53bc4387a060da408ede2d3bac05c69fff27d57d",
+  "processedPath": "docs/art-rare-skins/processed/daniel.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    71,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/daniel.png",
+  "originalDefaultSpriteSha256": "746010fd54f2be05b939d582c6e356ce124add084ea0260638fdd0732f2f57a4",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

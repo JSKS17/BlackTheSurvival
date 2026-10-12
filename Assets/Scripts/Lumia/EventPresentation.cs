@@ -51,6 +51,7 @@ namespace Lumia
             string cost = CostSummary(option);
             string followup = FollowupSummary(option);
             return (string.IsNullOrEmpty(cost) ? "" : cost + " ") + ImmediateRewardSummary(option)
+                + (option.bonusCredits > 0 ? " 추가로 크레딧 " + option.bonusCredits + "을 획득합니다." : "")
                 + (string.IsNullOrEmpty(followup) ? "" : " " + followup);
         }
 

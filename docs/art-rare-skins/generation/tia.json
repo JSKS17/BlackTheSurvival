@@ -1,0 +1,61 @@
+{
+  "id": "tia",
+  "name": "띠아",
+  "skinNameKR": "살금살금 땨람쥐 메이드 띠아",
+  "skinCode": 1048005,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+  "releaseDate": "2026-04-30",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-22b7218d-23fb-4c32-9d58-f7f11496f787.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/tia.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "425723fd14d7114f9da8a59ace35a17f1d065a0af52ac3e856341ac9d85373c7"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/tia.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "84583c38eaa2cfef6060e331c576c51a67bb7a37d1b8024af0cb195e541f4f70"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 띠아 (tia).\nRare outfit: 살금살금 땨람쥐 메이드 띠아.\nOutfit/weapon reference: Honey-gold hair in rounded side knots, orange eyes; tiny squirrel ears and fluffy curled squirrel tail, white-yellow maid dress, yellow-green ribbon, daisy decorations and small long-handled brush.\nCharacter-specific face from the original: Thoughtful shy artist, warm AMBER downturned almond eyes, gently raised inner eyebrows, tiny hesitant parted lips. Golden rose-knot hair.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n\nSelected-skin priority: the selected skin image and its written appearance description override the default face note for hair style/color, eye color and accessories. Preserve distinctive expression and eye shape, but never add default glasses, hats or costume details absent from the selected skin.\n",
+  "promptSha256": "4beffa758e29bccfe11671b214b98c4bb6373ad40613de8ec59e42f6a7d42c82",
+  "generatedSource": "docs/art-rare-skins/generated/tia.png",
+  "generatedSha256": "bf0244477cf1c7f988de2f02e3497f2653fdd650589829e926d1f9e48d037465",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    25,
+    1232,
+    1236
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/tia.png",
+  "sha256": "c49b3ce5e1e2e06888376f501a63659451b7764b707a60303bf7e675081b5e46",
+  "processedPath": "docs/art-rare-skins/processed/tia.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    71
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/tia.png",
+  "originalDefaultSpriteSha256": "3670031d8352a584d1497e2f279b9981e33f2a8331d9e768f77d9c61a6240465",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

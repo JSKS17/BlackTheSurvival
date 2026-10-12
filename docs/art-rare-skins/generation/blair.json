@@ -1,0 +1,61 @@
+{
+  "id": "blair",
+  "name": "블레어",
+  "skinNameKR": "포디엄 피니시 블레어",
+  "skinCode": 1084001,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3389?hl=ko-KR",
+  "releaseDate": "2026-02-20",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12bb7-a630-78c0-bcde-8aa5311f9df8\\exec-ca60334b-c775-417b-8f59-6230ff2c8495.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/blair.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "1d797a149338d4aaaf01382cde5d5ceb626cb09123043d0900c787d82e45ff82"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/blair.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "31567343680389bcab0896ccef787445c78e608d977a09900be513a3053e4140"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 블레어 (blair).\nRare outfit: 포디엄 피니시 블레어.\nOutfit/weapon reference: Long cream-blond hair, sleepy narrow blue eyes, orange racing sunglasses on forehead; white-black cropped racing jacket with orange stripe accents and pale blue checks, black-gray sports top, silver buckles and compact twin silver-cyan mechanical blades. No glasses over eyes.\nCharacter-specific face from the original: Melancholic blonde woman, tired pale BLUE half-lidded eyes, raised sad inner brows, small softly parted lips. Long pale hair and black outfit.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "c419dcfb67d37fa6c301d810019db6523e4e697f0101f1610f25fb942331b82e",
+  "generatedSource": "docs/art-rare-skins/generated/blair.png",
+  "generatedSha256": "cbf2a1d13f8161a7a514e9b2e97025f4797f47f264209d878b4aac513d899262",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    24,
+    29,
+    1190,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/blair.png",
+  "sha256": "788452b60b2a8587b415af649fb2bdc2e605c0e4ee680620a5e5957c68aa986d",
+  "processedPath": "docs/art-rare-skins/processed/blair.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    69,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/blair.png",
+  "originalDefaultSpriteSha256": "1b651a92a8588c40a0d2870f7a051cbe52c0ff3a77eace6492a0ffa68bc4a5ca",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

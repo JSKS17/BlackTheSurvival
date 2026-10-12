@@ -130,6 +130,7 @@ namespace Lumia
         public const int WildlifeMeatDropChance = 50;
         public const int SecurityConsolePrice = 40;
         public const int FollowupOfferChance = 80;
+        public const int RareOfferChance = 12;
         public RunState State { get; private set; }
         public readonly List<CombatAction> CombatActions = new List<CombatAction>();
         private int actionSerial;
@@ -1095,7 +1096,7 @@ namespace Lumia
                 var subject = GameDatabase.Characters.FirstOrDefault(x => x.name == ordinary[i].owner);
                 var researchEvent = ResearchEncounters.EventForSubject(subject?.id);
                 if (researchEvent != null && State.research.unlockedReports.Contains(subject.id)
-                    && !State.research.completedResearchEvents.Contains(researchEvent.id) && Roll(35)) ordinary[i] = researchEvent;
+                    && !State.research.completedResearchEvents.Contains(researchEvent.id) && Roll(RareOfferChance)) ordinary[i] = researchEvent;
             }
             ordinary.AddRange(State.pendingEncounterFollowups.Where(x => x != next).Select(x => GameDatabase.Event(x.eventId)).Where(x => x != null));
             bool featured = next != null && Roll(FollowupOfferChance);
@@ -1162,6 +1163,7 @@ namespace Lumia
             if (ResearchEncounters.SubjectForEvent(e.id) != null && !State.research.completedResearchEvents.Contains(e.id))
                 State.research.completedResearchEvents.Add(e.id);
             State.credits -= Math.Max(0, o.creditCost);
+            State.credits += Math.Max(0, o.bonusCredits);
             if (!string.IsNullOrEmpty(o.requiredFoodId)) State.foods.Remove(o.requiredFoodId);
             if (!string.IsNullOrEmpty(o.requiredObjectId)) State.objects.Remove(o.requiredObjectId);
             if (e.chainOnly)

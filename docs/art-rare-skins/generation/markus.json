@@ -1,0 +1,61 @@
+{
+  "id": "markus",
+  "name": "마커스",
+  "skinNameKR": "해변의 전사 마커스",
+  "skinCode": 1053003,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/2852?hl=ko-KR",
+  "releaseDate": "2025-07-17",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-1dcbe113-c143-4f27-a75d-342358bcdd20.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/markus.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "a04e3191d3371b915fd2c0a0a1ccc5de8eaea882292fe25d9a5ae9c3ea798ab1"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/markus.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "802c1c915f46f98d77a76dc3cd049d23fa6476cbabb343110969e263c1012576"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 마커스 (markus).\nRare outfit: 해변의 전사 마커스.\nOutfit/weapon reference: Short dark hair, trimmed dark beard and dark sunglasses; brown cowboy-style sun hat, bare tattooed broad torso, pale swim shorts and a coconut drink. Keep mature wide square face and broad chibi build.\nCharacter-specific face from the original: Large mature warrior, intense narrow BLUE eyes, very thick furrowed dark brows, strong nose and square jaw, dark trimmed BEARD, stern tight mouth.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n\nSelected-skin priority: the selected skin image and its written appearance description override the default face note for hair style/color, eye color and accessories. Preserve distinctive expression and eye shape, but never add default glasses, hats or costume details absent from the selected skin.\n",
+  "promptSha256": "553d7e80e74b6126424457f9532416ef2b6b539439d7575f3ae1229d24d101d9",
+  "generatedSource": "docs/art-rare-skins/generated/markus.png",
+  "generatedSha256": "294e28e028fa00f60d5f3c84a3f84ed5c1a8f870d6713c6cdde00f397dd80ad7",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    33,
+    26,
+    1232,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/markus.png",
+  "sha256": "ba3640991781d55ab4ac02d2a9dcdb3cc30f11cf899d658a8496bcbb2c9d9998",
+  "processedPath": "docs/art-rare-skins/processed/markus.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    70,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/markus.png",
+  "originalDefaultSpriteSha256": "f2e21cce98c49680b0453d0bfc14cc21f8d94231e1fdfd18b39b25e2506d3221",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

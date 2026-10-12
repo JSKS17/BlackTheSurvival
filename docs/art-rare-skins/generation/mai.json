@@ -1,0 +1,61 @@
+{
+  "id": "mai",
+  "name": "마이",
+  "skinNameKR": "아 라 모드 바니 마이",
+  "skinCode": 1045005,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+  "releaseDate": "2026-01-29",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-be4f4940-fa68-4b56-9738-c9842007f247.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/mai.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "b11560de76187ad8ab7195655da8bf9ee077fa24cb906ec35c07ba9b8950b84e"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/mai.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "b0e5df47b7e92ee497d091c786b66b402c31e2a5fbdf06f7795fcf0bcf113f68"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 마이 (mai).\nRare outfit: 아 라 모드 바니 마이.\nOutfit/weapon reference: Red-brown bob, orange eyes, knowing elegant smile; tall white rabbit ears, white-black-red bunny formal costume with small red bow, red gloves and curling white ribbon measure.\nCharacter-specific face from the original: Assertive fashion designer, bright brown-orange eyes with confident lifted corners, assertive angled brows, small OPEN outspoken smile. Auburn bob.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n\nSelected-skin priority: the selected skin image and its written appearance description override the default face note for hair style/color, eye color and accessories. Preserve distinctive expression and eye shape, but never add default glasses, hats or costume details absent from the selected skin.\n",
+  "promptSha256": "aa4532a522775251a8e69c30710e1c3b882525a5e9a2c96df7921581647e02b6",
+  "generatedSource": "docs/art-rare-skins/generated/mai.png",
+  "generatedSha256": "05c4ddc0750140c4560d8347ffef3a94447e136c03ccc4eb4bcf183227387fb9",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1240,
+    1232
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/mai.png",
+  "sha256": "eb39610d210362c7a6c37f75374396c3395a5ad8a0be0cee076e6c266666210c",
+  "processedPath": "docs/art-rare-skins/processed/mai.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/mai.png",
+  "originalDefaultSpriteSha256": "492be3f8905bf1e6ddcbdb45f980a5b479a34c9dcc2514c0046d486345f76f88",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

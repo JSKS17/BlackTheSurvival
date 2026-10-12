@@ -1,0 +1,61 @@
+{
+  "id": "sho",
+  "name": "쇼우",
+  "skinNameKR": "산타 쇼우",
+  "skinCode": 1013004,
+  "customOutfit": false,
+  "sourceURL": "https://dak.gg/er/characters/Xiukai/introduction?hl=ko",
+  "releaseDate": null,
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-63f777ed-3224-4fc1-8527-7e819f7eab43.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/sho.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "30d6e9b7c0dcc459762b39484ea7bbfb7deca915c2ab64a43e306f6d7c586292"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/sho.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "b50b8b17a2f512b3d719a1cd84de580d19d22aa5991c33aea28ea395c20c82a3"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 쇼우 (sho).\nRare outfit: 산타 쇼우.\nOutfit/weapon reference: Round rosy face, small round glasses and large curly white Santa beard; red-white Santa hat and suit, golden belt, brown gift sack and compact dark cooking pot. Retain broad friendly smiling build.\nCharacter-specific face from the original: Round cheerful middle-aged chef, soft eyes CLOSED into distinct crescent arcs, thick round short eyebrows, rounded nose, broad content smile, chubby cheeks.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin.\n",
+  "promptSha256": "92751a5a77842d0838c9b5c65526231f83cbd46f6a8c1c5197346294b4134f0a",
+  "generatedSource": "docs/art-rare-skins/generated/sho.png",
+  "generatedSha256": "0045c5c0801bfbb284780585cae6fec021ee0b0173f675c39a1d81de70c9b33a",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    5,
+    1230,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/sho.png",
+  "sha256": "fb7216045d322bc16a82f6d4ed75a7b1d7f267229729d842c7cb121a61934bab",
+  "processedPath": "docs/art-rare-skins/processed/sho.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    71,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/sho.png",
+  "originalDefaultSpriteSha256": "20508565c1c6e3e3e54d30e2fd957c544b597275cbc4a802a6c915d01973d9a0",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

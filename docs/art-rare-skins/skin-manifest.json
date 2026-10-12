@@ -1,0 +1,3377 @@
+{
+  "schema": 1,
+  "checkedAt": "2026-10-12",
+  "gameDataVersion": "12.5.0",
+  "sourceURL": "https://er.dakgg.io/api/v1/data/characters?hl=ko",
+  "selectionMethod": "Latest released distinct skin appearance among current live 12.5.0 character records, checked against official release, reward-pass and delay notices as of 2026-10-12. Later quest-book color variants count as distinct skins. Future announced releases are excluded. Previously released legacy skins remain eligible for existing owners even when no longer sold. Three user-requested originals use official base identity references.",
+  "referencesShippedInGame": false,
+  "skins": [
+    {
+      "subjectId": "nia",
+      "id": "nia",
+      "name": "니아",
+      "skinNameKR": "니아 (물속성)",
+      "skinName": "니아 (물속성)",
+      "skinCode": 1081002,
+      "skinId": 1081002,
+      "imageName": "Niah_S002",
+      "characterKey": "Niah",
+      "characterCode": 81,
+      "releaseDate": "2026-08-06",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Niah_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/nia.png",
+      "referencePath": "docs/art-rare-skins/references/nia.png",
+      "visualDescription": "Pink-violet high twin tails, tired half-lidded eyes, pink goggles on forehead, white-black-pink swimsuit with pale blue sleeves, bright pink water pistol, small bubblegum bubble. Preserve her languid gamer expression and compact water-game theme.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Season 12 pack included immediate ER Pass access on August 6. The separately sold pass opened August 13; the earlier available date is used.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+          "date": "2026-08-06",
+          "note": "Season 12 pack included immediate ER Pass access on August 6. The separately sold pass opened August 13; the earlier available date is used."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        524
+      ],
+      "referenceSha256": "71983354b61ef54345935cfacb5bf8a9d408cabe16f721ba9e68b7d43a5948d2"
+    },
+    {
+      "subjectId": "jackie",
+      "id": "jackie",
+      "name": "재키",
+      "skinNameKR": "고스트헌터 재키",
+      "skinName": "고스트헌터 재키",
+      "skinCode": 1001005,
+      "skinId": 1001005,
+      "imageName": "Jackie_S005",
+      "characterKey": "Jackie",
+      "characterCode": 1,
+      "releaseDate": "2024-11-07",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2304?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2304?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Jackie_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/jackie.png",
+      "referencePath": "docs/art-rare-skins/references/jackie.png",
+      "visualDescription": "Pale lilac swept hair, red predatory eyes and pointed grin; black-white fitted ghost-hunter uniform, short black shoulder mantle, black choker and purple-blue spectral axe. Avoid borrowing her red base outfit.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2304?hl=ko-KR",
+          "date": "2024-11-07",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        366,
+        499
+      ],
+      "referenceSha256": "49a634d121e89dce5e64a2a1e0dd0fb1033714815d38780a694cb0e49cae0cc6"
+    },
+    {
+      "subjectId": "aya",
+      "id": "aya",
+      "name": "아야",
+      "skinNameKR": "엘페르트 아야",
+      "skinName": "엘페르트 아야",
+      "skinCode": 1002005,
+      "skinId": 1002005,
+      "imageName": "Aya_S005",
+      "characterKey": "Aya",
+      "characterCode": 2,
+      "releaseDate": "2025-12-23",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3242?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3242?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Aya_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/aya.png",
+      "referencePath": "docs/art-rare-skins/references/aya.png",
+      "visualDescription": "Short pale pink hair, turquoise eyes, pink-white peaked bridal/bunny cap, coral frilled sleeves, white fitted costume and heart-decorated pink firearm. This collaboration skin has no base police glasses or braids.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3242?hl=ko-KR",
+          "date": "2025-12-23",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        489
+      ],
+      "referenceSha256": "d75f4f7720374e06650c21a475543e669ad851431c35515eb64fab2cc85d59e4"
+    },
+    {
+      "subjectId": "hyunwoo",
+      "id": "hyunwoo",
+      "name": "현우",
+      "skinNameKR": "해변가 현우",
+      "skinName": "해변가 현우",
+      "skinCode": 1007006,
+      "skinId": 1007006,
+      "imageName": "Hyunwoo_S006",
+      "characterKey": "Hyunwoo",
+      "characterCode": 7,
+      "releaseDate": "2024-08-01",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2072?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2072?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Hyunwoo_S006.png",
+      "localReferencePath": "docs/art-rare-skins/references/hyunwoo.png",
+      "referencePath": "docs/art-rare-skins/references/hyunwoo.png",
+      "visualDescription": "Spiky red-orange hair, warm amber eyes, open friendly but competitive expression; bare athletic torso, red drawstring swim shorts, goggles around neck, shell bracelet and wrapped fists.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2072?hl=ko-KR",
+          "date": "2024-08-01",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        476
+      ],
+      "referenceSha256": "d1e16be8ac8c62a857566e00e9fa361ec8c607898164c0ebc432960d61ffdaf7"
+    },
+    {
+      "subjectId": "yuki",
+      "id": "yuki",
+      "name": "유키",
+      "skinNameKR": "단풍이 이끄는 발걸음 유키",
+      "skinName": "단풍이 이끄는 발걸음 유키",
+      "skinCode": 1011006,
+      "skinId": 1011006,
+      "imageName": "Yuki_S006",
+      "characterKey": "Yuki",
+      "characterCode": 11,
+      "releaseDate": "2025-10-23",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3111?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3111?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Yuki_S006.png",
+      "localReferencePath": "docs/art-rare-skins/references/yuki.png",
+      "referencePath": "docs/art-rare-skins/references/yuki.png",
+      "visualDescription": "Short swept dark brown hair, gentle blue eyes; plum and muted gold autumn yukata with red maple-leaf motifs, cream scarf, red candy apple and sheathed katana. Small festive rather than combat-school silhouette.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3111?hl=ko-KR",
+          "date": "2025-10-23",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        477
+      ],
+      "referenceSha256": "1d2427d95e5f16cfad69db66dcfef4201654aae502c9c9fb2da395b0dc03cb98"
+    },
+    {
+      "subjectId": "hyejin",
+      "id": "hyejin",
+      "name": "혜진",
+      "skinNameKR": "실수투성이 냥냥 메이드 혜진",
+      "skinName": "실수투성이 냥냥 메이드 혜진",
+      "skinCode": 1012006,
+      "skinId": 1012006,
+      "imageName": "Hyejin_S006",
+      "characterKey": "Hyejin",
+      "characterCode": 12,
+      "releaseDate": "2026-04-30",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Hyejin_S006.png",
+      "localReferencePath": "docs/art-rare-skins/references/hyejin.png",
+      "referencePath": "docs/art-rare-skins/references/hyejin.png",
+      "visualDescription": "Dark plum hair in twin buns with long pink-tipped strands, one eye winking; pink-white cat maid headband, heart brooch, layered frilled apron and small red ribbon-tied charm. Keep awkward shy cat-maid theme.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Season 11 pack and its included ER Pass opened April 30; these reward skins were obtainable from that pass/pack.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+          "date": "2026-04-30",
+          "note": "Season 11 pack and its included ER Pass opened April 30; these reward skins were obtainable from that pass/pack."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        500
+      ],
+      "referenceSha256": "86e9ca03c64a0b3e0a1ba8bd4cfe6bd31af1a1d2702e79a9589225364cfe5759"
+    },
+    {
+      "subjectId": "sua",
+      "id": "sua",
+      "name": "수아",
+      "skinNameKR": "1st Anniversary Dawn 수아",
+      "skinName": "1st Anniversary Dawn 수아",
+      "skinCode": 1028006,
+      "skinId": 1028006,
+      "imageName": "Sua_S006",
+      "characterKey": "Sua",
+      "characterCode": 28,
+      "releaseDate": "2024-07-18",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2038?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2038?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Sua_S006.png",
+      "localReferencePath": "docs/art-rare-skins/references/sua.png",
+      "referencePath": "docs/art-rare-skins/references/sua.png",
+      "visualDescription": "Long dark brown-to-gray hair, green eyes and warm smile; pale yellow floral evening dress, white-gold draped shawl, golden flower necklace and a small storybook. This is the anniversary Dawn costume.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2038?hl=ko-KR",
+          "date": "2024-07-18",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "9ca05046bd01db447d5ae97b96bcb7801e71e4e69f36daf71457a5417276c4a9"
+    },
+    {
+      "subjectId": "isol",
+      "id": "isol",
+      "name": "아이솔",
+      "skinNameKR": "사관후보생 아이솔",
+      "skinName": "사관후보생 아이솔",
+      "skinCode": 1009004,
+      "skinId": 1009004,
+      "imageName": "Isol_S004",
+      "characterKey": "Isol",
+      "characterCode": 9,
+      "releaseDate": "2024-02-22",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/1749?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/1749?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Isol_S004.png",
+      "localReferencePath": "docs/art-rare-skins/references/isol.png",
+      "referencePath": "docs/art-rare-skins/references/isol.png",
+      "visualDescription": "Short brown hair, sharp reserved eyes; white hood with dark gray-black cadet tactical coat, pale gold accents, black gloves and compact assault rifle. Preserve guarded youthful expression.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/1749?hl=ko-KR",
+          "date": "2024-02-22",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        364,
+        501
+      ],
+      "referenceSha256": "ca1e8f72c39d8d18409549dfd02344940a2cbb4f08ebfa7d9e090c08f002af6f"
+    },
+    {
+      "subjectId": "nadine",
+      "id": "nadine",
+      "name": "나딘",
+      "skinNameKR": "사관후보생 나딘",
+      "skinName": "사관후보생 나딘",
+      "skinCode": 1006005,
+      "skinId": 1006005,
+      "imageName": "Nadine_S005",
+      "characterKey": "Nadine",
+      "characterCode": 6,
+      "releaseDate": "2026-01-29",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Nadine_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/nadine.png",
+      "referencePath": "docs/art-rare-skins/references/nadine.png",
+      "visualDescription": "Brown skin, brown high ponytail, amber focused eyes; white cadet cap with silver-gold wing motifs, white-black uniform, orange-gold side cape and compact bow/crossbow.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+          "date": "2026-01-29",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        495
+      ],
+      "referenceSha256": "5af35f50407867df11a3cdff357e16227b57114b0bd0462cb5dd9d4042057df6"
+    },
+    {
+      "subjectId": "emma",
+      "id": "emma",
+      "name": "엠마",
+      "skinNameKR": "매지컬 래빗 엠마",
+      "skinName": "매지컬 래빗 엠마",
+      "skinCode": 1019005,
+      "skinId": 1019005,
+      "imageName": "Emma_S005",
+      "characterKey": "Emma",
+      "characterCode": 19,
+      "releaseDate": "2024-10-01",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2201?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2201?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Emma_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/emma.png",
+      "referencePath": "docs/art-rare-skins/references/emma.png",
+      "visualDescription": "Bright cyan twin tails, cheerful cyan eyes; long black-cyan rabbit ears, white-black-cyan magician bodysuit, orange ribbon accents, small playing cards and compact magic prop.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2201?hl=ko-KR",
+          "date": "2024-10-01",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "ad7cd702cd56ed2e4424ba44a0d9f5c06a2ed58019015308bbb9b32207711678"
+    },
+    {
+      "subjectId": "charlotte",
+      "id": "charlotte",
+      "name": "샬럿",
+      "skinNameKR": "타락의 유열 샬럿",
+      "skinName": "타락의 유열 샬럿",
+      "skinCode": 1073002,
+      "skinId": 1073002,
+      "imageName": "Charlotte_S002",
+      "characterKey": "Charlotte",
+      "characterCode": 73,
+      "releaseDate": "2024-12-05",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2363?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2363?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Charlotte_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/charlotte.png",
+      "referencePath": "docs/art-rare-skins/references/charlotte.png",
+      "visualDescription": "Long pink hair, amused purple eyes, black lace circlet with rose and angular horn-like details; black-plum revealing gothic dress, pink roses and dark pale-edged floating blades. Keep mischievous elegant expression.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2363?hl=ko-KR",
+          "date": "2024-12-05",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "d0a03d12cdf5d594064a5953ce31e460a26e079937ac136d832d89810ffab916"
+    },
+    {
+      "subjectId": "nathapon",
+      "id": "nathapon",
+      "name": "나타폰",
+      "skinNameKR": "감식반 나타폰",
+      "skinName": "감식반 나타폰",
+      "skinCode": 1034003,
+      "skinId": 1034003,
+      "imageName": "Nathapon_S003",
+      "characterKey": "Nathapon",
+      "characterCode": 34,
+      "releaseDate": "2026-03-10",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3406?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3406?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Nathapon_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/nathapon.png",
+      "referencePath": "docs/art-rare-skins/references/nathapon.png",
+      "visualDescription": "Brown swept hair under black backward cap, amber alert eyes, light gray-blue forensic utility clothing, black harness, white gloves, respirator at neck and a black camera with a compact lens.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3406?hl=ko-KR",
+          "date": "2026-03-10",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        498
+      ],
+      "referenceSha256": "6e9212f640740c3e57df884c7685d694af007482f3f9aeafa1dea489ce621f6e"
+    },
+    {
+      "subjectId": "nicky",
+      "id": "nicky",
+      "name": "니키",
+      "skinNameKR": "치어풀 펀치! 니키",
+      "skinName": "치어풀 펀치! 니키",
+      "skinCode": 1033006,
+      "skinId": 1033006,
+      "imageName": "Nicky_S006",
+      "characterKey": "Nicky",
+      "characterCode": 33,
+      "releaseDate": "2026-09-03",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3813?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3813?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Nicky_S006.png",
+      "localReferencePath": "docs/art-rare-skins/references/nicky.png",
+      "referencePath": "docs/art-rare-skins/references/nicky.png",
+      "visualDescription": "Long golden twin tails, bright blue eyes, oversized pink-cyan cheer bow; lilac-white-pink athletic cheer uniform, short white pleated skirt, one small pink-cyan pompom and cheerful raised boxing fist.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3813?hl=ko-KR",
+          "date": "2026-09-03",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "c468b9e80e9cb958cbf164f3ccc7fa6726ca41cac373692525e0d21295b1895b"
+    },
+    {
+      "subjectId": "daniel",
+      "id": "daniel",
+      "name": "다니엘",
+      "skinNameKR": "화이트데이 다니엘",
+      "skinName": "화이트데이 다니엘",
+      "skinCode": 1037003,
+      "skinId": 1037003,
+      "imageName": "Daniel_S003",
+      "characterKey": "Daniel",
+      "characterCode": 37,
+      "releaseDate": "2024-03-05",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/1765?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/1765?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Daniel_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/daniel.png",
+      "referencePath": "docs/art-rare-skins/references/daniel.png",
+      "visualDescription": "Long straight violet hair, narrow weary purple eyes; tan winter coat over black turtleneck and burgundy textured sweater, black gloves, small wrapped bouquet with red ribbon, closed tailor scissors.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/1765?hl=ko-KR",
+          "date": "2024-03-05",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        482
+      ],
+      "referenceSha256": "9938a0f03e2a95eb8e096b0159921426194aec5b4b9843ba9b25e3e19916b431"
+    },
+    {
+      "subjectId": "tia",
+      "id": "tia",
+      "name": "띠아",
+      "skinNameKR": "살금살금 땨람쥐 메이드 띠아",
+      "skinName": "살금살금 땨람쥐 메이드 띠아",
+      "skinCode": 1048005,
+      "skinId": 1048005,
+      "imageName": "Tia_S005",
+      "characterKey": "Tia",
+      "characterCode": 48,
+      "releaseDate": "2026-04-30",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Tia_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/tia.png",
+      "referencePath": "docs/art-rare-skins/references/tia.png",
+      "visualDescription": "Honey-gold hair in rounded side knots, orange eyes; tiny squirrel ears and fluffy curled squirrel tail, white-yellow maid dress, yellow-green ribbon, daisy decorations and small long-handled brush.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Season 11 pack and its included ER Pass opened April 30; these reward skins were obtainable from that pass/pack.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+          "date": "2026-04-30",
+          "note": "Season 11 pack and its included ER Pass opened April 30; these reward skins were obtainable from that pass/pack."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        332,
+        576
+      ],
+      "referenceSha256": "425723fd14d7114f9da8a59ace35a17f1d065a0af52ac3e856341ac9d85373c7"
+    },
+    {
+      "subjectId": "laura",
+      "id": "laura",
+      "name": "라우라",
+      "skinNameKR": "팬서 라우라",
+      "skinName": "팬서 라우라",
+      "skinCode": 1047005,
+      "skinId": 1047005,
+      "imageName": "Laura_S005",
+      "characterKey": "Laura",
+      "characterCode": 47,
+      "releaseDate": "2026-04-02",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3480?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3480?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Laura_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/laura.png",
+      "referencePath": "docs/art-rare-skins/references/laura.png",
+      "visualDescription": "Blond high ponytail with dark cat-ear headpiece, green sharp eyes; glossy scarlet-and-black fitted phantom-thief suit, pink gloves and compact coiled whip. Preserve poised confident panther expression.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3480?hl=ko-KR",
+          "date": "2026-04-02",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "05210645f00185c137ba009d3e48e3a2c8b0cdaab5e18be55f5068a9df3a7669"
+    },
+    {
+      "subjectId": "lenox",
+      "id": "lenox",
+      "name": "레녹스",
+      "skinNameKR": "심연의 마왕 레녹스",
+      "skinName": "심연의 마왕 레녹스",
+      "skinCode": 1020005,
+      "skinId": 1020005,
+      "imageName": "Lenox_S005",
+      "characterKey": "Lenox",
+      "characterCode": 20,
+      "releaseDate": "2024-12-12",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2381?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2381?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Lenox_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/lenox.png",
+      "referencePath": "docs/art-rare-skins/references/lenox.png",
+      "visualDescription": "Long vivid green hair, narrow violet eyes and teasing grin; black branching demon horns, black thorned armor with green accents, ragged dark cape and compact demonic whip. No base business jacket.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2381?hl=ko-KR",
+          "date": "2024-12-12",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "efcc848bf0ad408870369101858b7d0f5540d6a29822ef70c72e5001c95b03e2"
+    },
+    {
+      "subjectId": "leon",
+      "id": "leon",
+      "name": "레온",
+      "skinNameKR": "장교 레온",
+      "skinName": "장교 레온",
+      "skinCode": 1029004,
+      "skinId": 1029004,
+      "imageName": "Leon_S004",
+      "characterKey": "Leon",
+      "characterCode": 29,
+      "releaseDate": "2023-07-20",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/1286?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/1286?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Leon_S004.png",
+      "localReferencePath": "docs/art-rare-skins/references/leon.png",
+      "referencePath": "docs/art-rare-skins/references/leon.png",
+      "visualDescription": "Short brown hair, turquoise serious eyes; white naval officer cap with black visor and gold anchor, white coat with gold epaulettes and pale blue tie, white gloves and compact blue-gold baton or tonfa.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/1286?hl=ko-KR",
+          "date": "2023-07-20",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        373,
+        519
+      ],
+      "referenceSha256": "6151d2f02de297f7f3f8fe4cddee715084e8c03709f003e1d200d3c8f8aeb7f4"
+    },
+    {
+      "subjectId": "rozzi",
+      "id": "rozzi",
+      "name": "로지",
+      "skinNameKR": "파이널 랩 로지",
+      "skinName": "파이널 랩 로지",
+      "skinCode": 1021005,
+      "skinId": 1021005,
+      "imageName": "Rozzi_S005",
+      "characterKey": "Rozzi",
+      "characterCode": 21,
+      "releaseDate": "2026-07-28",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Rozzi_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/rozzi.png",
+      "referencePath": "docs/art-rare-skins/references/rozzi.png",
+      "visualDescription": "Short navy bob, gray-blue eyes, purple sunglasses resting on head; white-blue checkered racing crop top, draped white-blue team jacket, white-black shorts and dual compact pistols.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+          "date": "2026-07-28",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "8cfc3563f195dbc13d674828979333802712db882ff155b94c2bc7c35fd724f8"
+    },
+    {
+      "subjectId": "luke",
+      "id": "luke",
+      "name": "루크",
+      "skinNameKR": "사신 루크",
+      "skinName": "사신 루크",
+      "skinCode": 1022006,
+      "skinId": 1022006,
+      "imageName": "Luke_S006",
+      "characterKey": "Luke",
+      "characterCode": 22,
+      "releaseDate": "2025-04-17",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2645?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2645?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Luke_S006.png",
+      "localReferencePath": "docs/art-rare-skins/references/luke.png",
+      "referencePath": "docs/art-rare-skins/references/luke.png",
+      "visualDescription": "Shaggy pale reddish gray hair, narrow cool eyes; black armored street coat beneath red hood and mantle, layered black straps, silver fittings and compact dark scythe-shaped broom weapon.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2645?hl=ko-KR",
+          "date": "2025-04-17",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        488
+      ],
+      "referenceSha256": "4c18de53756853126201e1e36131f19fe2471f6b6627aa92524864d77457e784"
+    },
+    {
+      "subjectId": "dailin",
+      "id": "dailin",
+      "name": "리 다이린",
+      "skinNameKR": "잭 오 리 다이린",
+      "skinName": "잭 오 리 다이린",
+      "skinCode": 1010007,
+      "skinId": 1010007,
+      "imageName": "LiDailin_S007",
+      "characterKey": "LiDailin",
+      "characterCode": 10,
+      "releaseDate": "2025-12-23",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3242?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3242?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_LiDailin_S007.png",
+      "localReferencePath": "docs/art-rare-skins/references/dailin.png",
+      "referencePath": "docs/art-rare-skins/references/dailin.png",
+      "visualDescription": "Long red hair, green eyes and mischievous smile; white-black-red fitted Jack-O collaboration suit, red gloves, black ribbon and small gold halo. Keep recognizable Jack-O palette and compact prop.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3242?hl=ko-KR",
+          "date": "2025-12-23",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "deb46376c9076ae094f737d5196d9fcdbdcb118ab8b58cf3766457c21b1f8160"
+    },
+    {
+      "subjectId": "rio",
+      "id": "rio",
+      "name": "리오",
+      "skinNameKR": "3rd Anniversary 리오 Dolce",
+      "skinName": "3rd Anniversary 리오 Dolce",
+      "skinCode": 1031008,
+      "skinId": 1031008,
+      "imageName": "Rio_S008",
+      "characterKey": "Rio",
+      "characterCode": 31,
+      "releaseDate": "2026-07-23",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Rio_S008.png",
+      "localReferencePath": "docs/art-rare-skins/references/rio.png",
+      "referencePath": "docs/art-rare-skins/references/rio.png",
+      "visualDescription": "Long pale silver-lilac hair, amber eyes and reserved gentle smile; asymmetrical white-gold formal anniversary dress, layered violet shoulder ruffle, purple back ribbon and a slender decorative bow.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "The anniversary base skins opened July 9, but the Dolce/Vivace quest-book color variants opened July 23 and are the latest distinct registered skins.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+          "date": "2026-07-23",
+          "note": "The anniversary base skins opened July 9, but the Dolce/Vivace quest-book color variants opened July 23 and are the latest distinct registered skins."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        347,
+        477
+      ],
+      "referenceSha256": "dba981d4f56fb83f18d438e28e6311b3d53288801f62a274da92765e0afb7475"
+    },
+    {
+      "subjectId": "martina",
+      "id": "martina",
+      "name": "마르티나",
+      "skinNameKR": "20년 전 마르티나",
+      "skinName": "20년 전 마르티나",
+      "skinCode": 1057002,
+      "skinId": 1057002,
+      "imageName": "Martina_S002",
+      "characterKey": "Martina",
+      "characterCode": 57,
+      "releaseDate": "2025-04-03",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2623?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2623?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Martina_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/martina.png",
+      "referencePath": "docs/art-rare-skins/references/martina.png",
+      "visualDescription": "Long dark brown hair, blue eyes, thin rectangular glasses; mustard press jacket over white blouse, black utility chest harness, press badge and compact shoulder video camera. This younger version has no base eyepatch.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2623?hl=ko-KR",
+          "date": "2025-04-03",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        480
+      ],
+      "referenceSha256": "45d1ce06e59443d320cc6beae4b8151c5b14cfafc04b4964038dec5f497c1067"
+    },
+    {
+      "subjectId": "mai",
+      "id": "mai",
+      "name": "마이",
+      "skinNameKR": "아 라 모드 바니 마이",
+      "skinName": "아 라 모드 바니 마이",
+      "skinCode": 1045005,
+      "skinId": 1045005,
+      "imageName": "Mai_S005",
+      "characterKey": "Mai",
+      "characterCode": 45,
+      "releaseDate": "2026-01-29",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Mai_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/mai.png",
+      "referencePath": "docs/art-rare-skins/references/mai.png",
+      "visualDescription": "Red-brown bob, orange eyes, knowing elegant smile; tall white rabbit ears, white-black-red bunny formal costume with small red bow, red gloves and curling white ribbon measure.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+          "date": "2026-01-29",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "b11560de76187ad8ab7195655da8bf9ee077fa24cb906ec35c07ba9b8950b84e"
+    },
+    {
+      "subjectId": "markus",
+      "id": "markus",
+      "name": "마커스",
+      "skinNameKR": "해변의 전사 마커스",
+      "skinName": "해변의 전사 마커스",
+      "skinCode": 1053003,
+      "skinId": 1053003,
+      "imageName": "Markus_S003",
+      "characterKey": "Markus",
+      "characterCode": 53,
+      "releaseDate": "2025-07-17",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2852?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2852?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Markus_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/markus.png",
+      "referencePath": "docs/art-rare-skins/references/markus.png",
+      "visualDescription": "Short dark hair, trimmed dark beard and dark sunglasses; brown cowboy-style sun hat, bare tattooed broad torso, pale swim shorts and a coconut drink. Keep mature wide square face and broad chibi build.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2852?hl=ko-KR",
+          "date": "2025-07-17",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        497
+      ],
+      "referenceSha256": "a04e3191d3371b915fd2c0a0a1ccc5de8eaea882292fe25d9a5ae9c3ea798ab1"
+    },
+    {
+      "subjectId": "magnus",
+      "id": "magnus",
+      "name": "매그너스",
+      "skinNameKR": "Mk. VIII Destroyer M.A.G",
+      "skinName": "Mk. VIII Destroyer M.A.G",
+      "skinCode": 1004005,
+      "skinId": 1004005,
+      "imageName": "Magnus_S005",
+      "characterKey": "Magnus",
+      "characterCode": 4,
+      "releaseDate": "2025-09-18",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3030?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3030?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Magnus_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/magnus.png",
+      "referencePath": "docs/art-rare-skins/references/magnus.png",
+      "visualDescription": "Spiky swept blond hair, stern cybernetic gray face with blue eyes; huge black-gray-red mechanical armor, red chest core, compact broad black metal weapon. Keep heavily built silhouette and mature scowl.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3030?hl=ko-KR",
+          "date": "2025-09-18",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "91b61738809e9d9e12d2b1834c9fcbaabfbf17726ef50e292b3f2399f67e65ca"
+    },
+    {
+      "subjectId": "vanya",
+      "id": "vanya",
+      "name": "바냐",
+      "skinNameKR": "꾸벅꾸벅 아기 새 메이드 바냐",
+      "skinName": "꾸벅꾸벅 아기 새 메이드 바냐",
+      "skinCode": 1064004,
+      "skinId": 1064004,
+      "imageName": "Vanya_S004",
+      "characterKey": "Vanya",
+      "characterCode": 64,
+      "releaseDate": "2026-04-30",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Vanya_S004.png",
+      "localReferencePath": "docs/art-rare-skins/references/vanya.png",
+      "referencePath": "docs/art-rare-skins/references/vanya.png",
+      "visualDescription": "Long pale silver hair in twin ponytails, light blue eyes and sleepy expression; pink-white bird maid headband, lace apron, pink ribbons and a small tea tray. Small pale wings and bird theme, not her base cyan butterfly dress.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Season 11 pack and its included ER Pass opened April 30; these reward skins were obtainable from that pass/pack.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+          "date": "2026-04-30",
+          "note": "Season 11 pack and its included ER Pass opened April 30; these reward skins were obtainable from that pass/pack."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        474
+      ],
+      "referenceSha256": "a44917766fb6606245b2beb20a9644266561c060e4f2436015d263c6d0bcc01c"
+    },
+    {
+      "subjectId": "barbara",
+      "id": "barbara",
+      "name": "바바라",
+      "skinNameKR": "연구원 바바라",
+      "skinName": "연구원 바바라",
+      "skinCode": 1026003,
+      "skinId": 1026003,
+      "imageName": "Barbara_S003",
+      "characterKey": "Barbara",
+      "characterCode": 26,
+      "releaseDate": "2025-06-03",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2736?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2736?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Barbara_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/barbara.png",
+      "referencePath": "docs/art-rare-skins/references/barbara.png",
+      "visualDescription": "Orange-red side ponytail, green eyes, green rectangular glasses; white laboratory coat over forest-green zip hoodie, black shirt, scientist ID badge, compact gray mechanical backpack and tiny blue-gray robot.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2736?hl=ko-KR",
+          "date": "2025-06-03",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        511
+      ],
+      "referenceSha256": "1c868bbceffa0e3d1fff10bc8af52cdd9b6fad64f5b1554d5727c768c3691600"
+    },
+    {
+      "subjectId": "bernice",
+      "id": "bernice",
+      "name": "버니스",
+      "skinNameKR": "하우스키퍼 버니스",
+      "skinName": "하우스키퍼 버니스",
+      "skinCode": 1025003,
+      "skinId": 1025003,
+      "imageName": "Bernice_S003",
+      "characterKey": "Bernice",
+      "characterCode": 25,
+      "releaseDate": "2023-11-09",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/1545?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/1545?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Bernice_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/bernice.png",
+      "referencePath": "docs/art-rare-skins/references/bernice.png",
+      "visualDescription": "Swept blond hair tied low, thick blond beard, monocle and calm stern gaze; white shirt, charcoal formal waistcoat, blue tie, black harness and small cleaning/tool case. Housekeeper costume with mature facial hair retained.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/1545?hl=ko-KR",
+          "date": "2023-11-09",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        482
+      ],
+      "referenceSha256": "f2c2d04479f649a350008e8ef75c1ea8c7f000b2d4f442033d7512fa10295a56"
+    },
+    {
+      "subjectId": "bianca",
+      "id": "bianca",
+      "name": "비앙카",
+      "skinNameKR": "영겁의 푸른 망령 비앙카",
+      "skinName": "영겁의 푸른 망령 비앙카",
+      "skinCode": 1042005,
+      "skinId": 1042005,
+      "imageName": "Bianca_S005",
+      "characterKey": "Bianca",
+      "characterCode": 42,
+      "releaseDate": "2026-07-23",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Bianca_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/bianca.png",
+      "referencePath": "docs/art-rare-skins/references/bianca.png",
+      "visualDescription": "Long silver-lavender hair, pink-red eyes and delighted mischievous smile; ornate pale silver-blue gothic bridal gown, blue rose circlet and large gray-purple winglike parasol with dark blue rose accents.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+          "date": "2026-07-23",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "f9366354341cc86b62091cc7ecbd293bb991f736c358e734debd9e9fed2e7514"
+    },
+    {
+      "subjectId": "celine",
+      "id": "celine",
+      "name": "셀린",
+      "skinNameKR": "메이드, 때때로 폭발 셀린",
+      "skinName": "메이드, 때때로 폭발 셀린",
+      "skinCode": 1043005,
+      "skinId": 1043005,
+      "imageName": "Celine_S005",
+      "characterKey": "Celine",
+      "characterCode": 43,
+      "releaseDate": "2026-06-02",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3606?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3606?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Celine_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/celine.png",
+      "referencePath": "docs/art-rare-skins/references/celine.png",
+      "visualDescription": "Icy cyan bob with pale yellow streak, golden eyes; white-cyan maid headband and tiny cap, black-white fitted maid dress, yellow bow, striped cyan-pink apron and small candy-colored grenade.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3606?hl=ko-KR",
+          "date": "2026-06-02",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        326,
+        483
+      ],
+      "referenceSha256": "78fcea9cf4d1af2a0e869aadb95370b899b4afa07e41c64e36261f33dc2a2402"
+    },
+    {
+      "subjectId": "sho",
+      "id": "sho",
+      "name": "쇼우",
+      "skinNameKR": "산타 쇼우",
+      "skinName": "산타 쇼우",
+      "skinCode": 1013004,
+      "skinId": 1013004,
+      "imageName": "Xiukai_S004",
+      "characterKey": "Xiukai",
+      "characterCode": 13,
+      "releaseDate": "2025-11-27",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3182?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3182?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Xiukai_S004.png",
+      "localReferencePath": "docs/art-rare-skins/references/sho.png",
+      "referencePath": "docs/art-rare-skins/references/sho.png",
+      "visualDescription": "Round rosy face, small round glasses and large curly white Santa beard; red-white Santa hat and suit, golden belt, brown gift sack and compact dark cooking pot. Retain broad friendly smiling build.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3182?hl=ko-KR",
+          "date": "2025-11-27",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "30d6e9b7c0dcc459762b39484ea7bbfb7deca915c2ab64a43e306f6d7c586292"
+    },
+    {
+      "subjectId": "shoichi",
+      "id": "shoichi",
+      "name": "쇼이치",
+      "skinNameKR": "모란 뒤의 그림자 쇼이치",
+      "skinName": "모란 뒤의 그림자 쇼이치",
+      "skinCode": 1018005,
+      "skinId": 1018005,
+      "imageName": "Shoichi_S005",
+      "characterKey": "Shoichi",
+      "characterCode": 18,
+      "releaseDate": "2026-08-25",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3783?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3783?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Shoichi_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/shoichi.png",
+      "referencePath": "docs/art-rare-skins/references/shoichi.png",
+      "visualDescription": "Short swept brown hair, narrow red eyes behind thin round glasses; white-gray-black patterned Japanese-style formal robe, black outer drape, pale gold geometric trim, red ornamental knots and a small dagger.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3783?hl=ko-KR",
+          "date": "2026-08-25",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        497
+      ],
+      "referenceSha256": "3b975f9af7e261f34d575d5259a1837062e00f7206e893792a9e961f22b12c0b"
+    },
+    {
+      "subjectId": "sissela",
+      "id": "sissela",
+      "name": "시셀라",
+      "skinNameKR": "사관후보생 시셀라",
+      "skinName": "사관후보생 시셀라",
+      "skinCode": 1015006,
+      "skinId": 1015006,
+      "imageName": "Sissela_S006",
+      "characterKey": "Sissela",
+      "characterCode": 15,
+      "releaseDate": "2026-05-07",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3555?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3555?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Sissela_S006.png",
+      "localReferencePath": "docs/art-rare-skins/references/sissela.png",
+      "referencePath": "docs/art-rare-skins/references/sissela.png",
+      "visualDescription": "Pale blue-white hair in twin tails, one tired blue eye partly hidden; white navy-gold cadet cap and military-medical uniform, navy gloves and small white-gold companion orb. Preserve delicate weary face.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3555?hl=ko-KR",
+          "date": "2026-05-07",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "71f40c1f068906595d4906464a0b36df70f29bea7231a92544f175a8832afcae"
+    },
+    {
+      "subjectId": "silvia",
+      "id": "silvia",
+      "name": "실비아",
+      "skinNameKR": "퀸 실비아",
+      "skinName": "퀸 실비아",
+      "skinCode": 1016005,
+      "skinId": 1016005,
+      "imageName": "Silvia_S005",
+      "characterKey": "Silvia",
+      "characterCode": 16,
+      "releaseDate": "2026-04-02",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3480?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3480?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Silvia_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/silvia.png",
+      "referencePath": "docs/art-rare-skins/references/silvia.png",
+      "visualDescription": "Short black hair with braided headband, sharp red eyes; fitted black armored phantom-thief motorcycle suit, white gloves and compact black-blue motorcycle or helmet. No base blue hair or white-blue biker jacket.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3480?hl=ko-KR",
+          "date": "2026-04-02",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        525
+      ],
+      "referenceSha256": "a064e67d0485d5e73db1c51009d2bf1d019c22dbba9b7566bcfa3fbea2986bba"
+    },
+    {
+      "subjectId": "adela",
+      "id": "adela",
+      "name": "아델라",
+      "skinNameKR": "메이드 아델라",
+      "skinName": "메이드 아델라",
+      "skinCode": 1024003,
+      "skinId": 1024003,
+      "imageName": "Adela_S003",
+      "characterKey": "Adela",
+      "characterCode": 24,
+      "releaseDate": "2024-04-25",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/1868?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/1868?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Adela_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/adela.png",
+      "referencePath": "docs/art-rare-skins/references/adela.png",
+      "visualDescription": "Swept black hair, neat thin glasses, reserved dark eyes; white maid headband, black-white high-collar formal maid dress with gold chest detail, white frilled apron and small chess rapier.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/1868?hl=ko-KR",
+          "date": "2024-04-25",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        485
+      ],
+      "referenceSha256": "ddcd11f207d2473b51d7045391610383757bcead42841eae135472e0b3092fb4"
+    },
+    {
+      "subjectId": "adriana",
+      "id": "adriana",
+      "name": "아드리아나",
+      "skinNameKR": "악역 영애 아드리아나",
+      "skinName": "악역 영애 아드리아나",
+      "skinCode": 1017005,
+      "skinId": 1017005,
+      "imageName": "Adriana_S005",
+      "characterKey": "Adriana",
+      "characterCode": 17,
+      "releaseDate": "2025-12-11",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3209?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3209?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Adriana_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/adriana.png",
+      "referencePath": "docs/art-rare-skins/references/adriana.png",
+      "visualDescription": "Long scarlet-red ponytail, green eyes and sly grin; red-black roses and ribbons, elegant crimson gothic noblewoman dress, dark choker and compact gold-trimmed flame device.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3209?hl=ko-KR",
+          "date": "2025-12-11",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        499
+      ],
+      "referenceSha256": "4766fc016779ec567888cc62d3d2e73ec39e5cf56a8c54f9eb9c70a9d8f804e5"
+    },
+    {
+      "subjectId": "adina",
+      "id": "adina",
+      "name": "아디나",
+      "skinNameKR": "해변의 점성술사 아디나",
+      "skinName": "해변의 점성술사 아디나",
+      "skinCode": 1052003,
+      "skinId": 1052003,
+      "imageName": "Adina_S003",
+      "characterKey": "Adina",
+      "characterCode": 52,
+      "releaseDate": "2025-07-17",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2852?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2852?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Adina_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/adina.png",
+      "referencePath": "docs/art-rare-skins/references/adina.png",
+      "visualDescription": "Long silver hair in high side ponytail, bright blue eyes; white-blue floral swimsuit with sheer pale shoulder wrap and blue waist sash, white-lilac flower hairpin, few small blue tarot stars.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2852?hl=ko-KR",
+          "date": "2025-07-17",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        512
+      ],
+      "referenceSha256": "47d3c45f9399aeb687e984aec22245146c2e8e50b12808bab6f00dc0fa3398d2"
+    },
+    {
+      "subjectId": "isaac",
+      "id": "isaac",
+      "name": "아이작",
+      "skinNameKR": "오만의 군단장 아이작",
+      "skinName": "오만의 군단장 아이작",
+      "skinCode": 1059003,
+      "skinId": 1059003,
+      "imageName": "Isaac_S003",
+      "characterKey": "Isaac",
+      "characterCode": 59,
+      "releaseDate": "2026-03-24",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3444?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3444?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Isaac_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/isaac.png",
+      "referencePath": "docs/art-rare-skins/references/isaac.png",
+      "visualDescription": "Swept silver hair, thick gray mustache and goatee, serious dark eyes; black branching antler-like crown, white-gray formal military coat with red cords and black-red waistcoat, compact black-red tonfa. Mature proud commander face.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3444?hl=ko-KR",
+          "date": "2026-03-24",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        572
+      ],
+      "referenceSha256": "0aeff1f51ca94dc898fd0b1fa9492a4059e4851d7d46271b17da90263e6c3aae"
+    },
+    {
+      "subjectId": "alex",
+      "id": "alex",
+      "name": "알렉스",
+      "skinNameKR": "조커 알렉스",
+      "skinName": "조커 알렉스",
+      "skinCode": 1027003,
+      "skinId": 1027003,
+      "imageName": "Alex_S003",
+      "characterKey": "Alex",
+      "characterCode": 27,
+      "releaseDate": "2026-02-19",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3374?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3374?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Alex_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/alex.png",
+      "referencePath": "docs/art-rare-skins/references/alex.png",
+      "visualDescription": "Messy black hair, cool narrow eyes, white phantom-thief mask resting near forehead; black high-collar coat, red gloves, small blue flame and compact dark pistol. No blond hair or black sunglasses for this Joker skin.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3374?hl=ko-KR",
+          "date": "2026-02-19",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        547
+      ],
+      "referenceSha256": "045e65c85f662b0c56caa1d46fec4959553eedeba50cf30aa6a85ab5ede3c9ea"
+    },
+    {
+      "subjectId": "jan",
+      "id": "jan",
+      "name": "얀",
+      "skinNameKR": "언더보스 얀",
+      "skinName": "언더보스 얀",
+      "skinCode": 1035003,
+      "skinId": 1035003,
+      "imageName": "Jan_S003",
+      "characterKey": "Jan",
+      "characterCode": 35,
+      "releaseDate": "2025-11-18",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3163?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3163?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Jan_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/jan.png",
+      "referencePath": "docs/art-rare-skins/references/jan.png",
+      "visualDescription": "Dark brown skin, thick white dreadlocks, red tinted narrow sunglasses and gold-toothed grin; tan coat over purple waistcoat, dark green shirt, heavy gold necklaces, gold rings and wrapped fists.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3163?hl=ko-KR",
+          "date": "2025-11-18",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        352,
+        490
+      ],
+      "referenceSha256": "ccd009d2db462e7a94418b0316bbd85b5a14450484a95bcf73f60feeee3745e5"
+    },
+    {
+      "subjectId": "estelle",
+      "id": "estelle",
+      "name": "에스텔",
+      "skinNameKR": "안전 교관 에스텔",
+      "skinName": "안전 교관 에스텔",
+      "skinCode": 1055004,
+      "skinId": 1055004,
+      "imageName": "Estelle_S004",
+      "characterKey": "Estelle",
+      "characterCode": 55,
+      "releaseDate": "2025-03-27",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2598?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2598?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Estelle_S004.png",
+      "localReferencePath": "docs/art-rare-skins/references/estelle.png",
+      "referencePath": "docs/art-rare-skins/references/estelle.png",
+      "visualDescription": "Short dark brown bob, orange eyes and confident smile; navy instructor cap and fitted navy uniform with red-white crossed ribbons, brown ropes and compact safety shield and axe.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2598?hl=ko-KR",
+          "date": "2025-03-27",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        491
+      ],
+      "referenceSha256": "ba1587115e4f499c443c62256f90e2cc00ed8c706f7ca20d47579caf584b7c77"
+    },
+    {
+      "subjectId": "aiden",
+      "id": "aiden",
+      "name": "에이든",
+      "skinNameKR": "카이 에이든",
+      "skinName": "카이 에이든",
+      "skinCode": 1046004,
+      "skinId": 1046004,
+      "imageName": "Aiden_S004",
+      "characterKey": "Aiden",
+      "characterCode": 46,
+      "releaseDate": "2025-12-23",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3242?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3242?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Aiden_S004.png",
+      "localReferencePath": "docs/art-rare-skins/references/aiden.png",
+      "referencePath": "docs/art-rare-skins/references/aiden.png",
+      "visualDescription": "Short light blond hair, serious blue eyes; white long military coat with cobalt blue cross motifs, blue fingerless gloves, brown belt and silver sword. Preserve Ky collaboration white-blue silhouette.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3242?hl=ko-KR",
+          "date": "2025-12-23",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "050ab19da690af822a6814c2a7db0e4f49682855752bbc14a49b41fd9c6d6c47"
+    },
+    {
+      "subjectId": "echion",
+      "id": "echion",
+      "name": "에키온",
+      "skinNameKR": "암흑가 에키온",
+      "skinName": "암흑가 에키온",
+      "skinCode": 1044003,
+      "skinId": 1044003,
+      "imageName": "Echion_S003",
+      "characterKey": "Echion",
+      "characterCode": 44,
+      "releaseDate": "2024-04-30",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/1868?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/1868?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Echion_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/echion.png",
+      "referencePath": "docs/art-rare-skins/references/echion.png",
+      "visualDescription": "Spiky silver hair with swept long strands, magenta narrow eyes and rebellious smirk; black gang coat with gold embroidery and scarlet lining, open black shirt and large black-red biomechanical arm.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/1868?hl=ko-KR",
+          "date": "2024-04-30",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        532
+      ],
+      "referenceSha256": "d31eb19cf1b600c3c93b55475f61cf4dd5637a95cc369ef07e23dc8d79632305"
+    },
+    {
+      "subjectId": "elena",
+      "id": "elena",
+      "name": "엘레나",
+      "skinNameKR": "바이올렛 엘레나",
+      "skinName": "바이올렛 엘레나",
+      "skinCode": 1050007,
+      "skinId": 1050007,
+      "imageName": "Elena_S007",
+      "characterKey": "Elena",
+      "characterCode": 50,
+      "releaseDate": "2026-03-05",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3406?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3406?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Elena_S007.png",
+      "localReferencePath": "docs/art-rare-skins/references/elena.png",
+      "referencePath": "docs/art-rare-skins/references/elena.png",
+      "visualDescription": "Long red high ponytail tied with black ribbon, red-brown eyes; fitted black phantom-thief leotard coat with small gold buttons, dark tights and red scarf. Preserve poised Violet collaboration expression.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3406?hl=ko-KR",
+          "date": "2026-03-05",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        491
+      ],
+      "referenceSha256": "179248706eb2b26bef3410677111f6a9c02daa6be226023a53097dae5b30e89a"
+    },
+    {
+      "subjectId": "johann",
+      "id": "johann",
+      "name": "요한",
+      "skinNameKR": "악마사냥꾼 요한",
+      "skinName": "악마사냥꾼 요한",
+      "skinCode": 1041002,
+      "skinId": 1041002,
+      "imageName": "Johann_S002",
+      "characterKey": "Johann",
+      "characterCode": 41,
+      "releaseDate": null,
+      "releasedByDate": "2023-11-27",
+      "sourceURL": "https://playeternalreturn.com/posts/news/1593?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/1593?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Johann_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/johann.png",
+      "referencePath": "docs/art-rare-skins/references/johann.png",
+      "visualDescription": "Dark hair mostly hidden beneath huge black brimmed hunter hat, blue solemn eye, gray-white clerical hunter coat with black leather armor and red cartridge accents, small silver cross and compact dark holy weapon.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "The latest skin in the current character registry is a previously released legacy skin. The official November 27, 2023 refund notice proves it had been owned in-game. Its initial release day was not recovered, so releaseDate remains null. The notice records its discontinued sale; ownership and existing in-game use are not a claim of present store availability.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/1593?hl=ko-KR",
+          "date": null,
+          "note": "The latest skin in the current character registry is a previously released legacy skin. The official November 27, 2023 refund notice proves it had been owned in-game. Its initial release day was not recovered, so releaseDate remains null. The notice records its discontinued sale; ownership and existing in-game use are not a claim of present store availability."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "c2fc9709f7c969394be40f7f96873b55e9378639b6d419b3d111a396cad21ade"
+    },
+    {
+      "subjectId": "william",
+      "id": "william",
+      "name": "윌리엄",
+      "skinNameKR": "아포칼립스 윌리엄",
+      "skinName": "아포칼립스 윌리엄",
+      "skinCode": 1032003,
+      "skinId": 1032003,
+      "imageName": "William_S003",
+      "characterKey": "William",
+      "characterCode": 32,
+      "releaseDate": "2025-04-30",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2673?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2673?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_William_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/william.png",
+      "referencePath": "docs/art-rare-skins/references/william.png",
+      "visualDescription": "Short brown hair and teal eyes under black baseball cap; weathered blue-black open field jacket, white shirt, dark scarf, wrapped baseball bat or glove and small ball. Post-apocalyptic baseball theme.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2673?hl=ko-KR",
+          "date": "2025-04-30",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        490
+      ],
+      "referenceSha256": "d4003adb776b1d26af16293dfaf3b02b676b0cc4e46cf9201e5637cbdbafdd43"
+    },
+    {
+      "subjectId": "irem",
+      "id": "irem",
+      "name": "이렘",
+      "skinNameKR": "당신과 나의 네코마츠리 이렘",
+      "skinName": "당신과 나의 네코마츠리 이렘",
+      "skinCode": 1061003,
+      "skinId": 1061003,
+      "imageName": "Irem_S003",
+      "characterKey": "Irem",
+      "characterCode": 61,
+      "releaseDate": "2026-05-28",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3606?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3606?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Irem_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/irem.png",
+      "referencePath": "docs/art-rare-skins/references/irem.png",
+      "visualDescription": "Cream-blond hair with pink tips, pale cat ears, mismatched bright eyes and lively grin; pink-white floral festival yukata with red-blue flower bow, gold bell, small cream lucky-cat pouch and raised paw sleeve.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3606?hl=ko-KR",
+          "date": "2026-05-28",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        494
+      ],
+      "referenceSha256": "79202374a244a1cf96ee7bcd750223e22cfa332907e5853c09bc55f895375e9c"
+    },
+    {
+      "subjectId": "eva",
+      "id": "eva",
+      "name": "이바",
+      "skinNameKR": "2nd Anniversary 이바 Blossom",
+      "skinName": "2nd Anniversary 이바 Blossom",
+      "skinCode": 1036006,
+      "skinId": 1036006,
+      "imageName": "Eva_S006",
+      "characterKey": "Eva",
+      "characterCode": 36,
+      "releaseDate": "2025-08-07",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2916?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2916?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Eva_S006.png",
+      "localReferencePath": "docs/art-rare-skins/references/eva.png",
+      "referencePath": "docs/art-rare-skins/references/eva.png",
+      "visualDescription": "Long warm beige-blond side braid, soft pink eyes; white-blue formal anniversary dress, gold flower brooch, pearls and small white flower hair ornaments, holding a tiny champagne flute. Elegant relaxed smile.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "The base anniversary skin preceded the Blossom quest-book color variant; the August 7 patch explicitly releases the Blossom variant.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2916?hl=ko-KR",
+          "date": "2025-08-07",
+          "note": "The base anniversary skin preceded the Blossom quest-book color variant; the August 7 patch explicitly releases the Blossom variant."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        312,
+        469
+      ],
+      "referenceSha256": "64b8faff1fdd25867fe08f10704dc5907daaef962ea22aaf5fe664bc76dfc7f6"
+    },
+    {
+      "subjectId": "ian",
+      "id": "ian",
+      "name": "이안",
+      "skinNameKR": "도깨비불에 이끌린 이안",
+      "skinName": "도깨비불에 이끌린 이안",
+      "skinCode": 1063003,
+      "skinId": 1063003,
+      "imageName": "Lyanh_S003",
+      "characterKey": "Lyanh",
+      "characterCode": 63,
+      "releaseDate": "2025-10-23",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3111?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3111?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Lyanh_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/ian.png",
+      "referencePath": "docs/art-rare-skins/references/ian.png",
+      "visualDescription": "Pale green hair in side ponytail, amber eyes and quiet playful expression; light green-white floral festival kimono, gold-orange flowers, red waist cord and a small white-blue-red fox mask.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3111?hl=ko-KR",
+          "date": "2025-10-23",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        556
+      ],
+      "referenceSha256": "21162da4dbf2d7af7936f384edfb85027fdb5117aa9b05bcc906b0617c14d89d"
+    },
+    {
+      "subjectId": "eleven",
+      "id": "eleven",
+      "name": "일레븐",
+      "skinNameKR": "사관후보생 일레븐",
+      "skinName": "사관후보생 일레븐",
+      "skinCode": 1030005,
+      "skinId": 1030005,
+      "imageName": "Eleven_S005",
+      "characterKey": "Eleven",
+      "characterCode": 30,
+      "releaseDate": "2026-08-13",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3769?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3769?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Eleven_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/eleven.png",
+      "referencePath": "docs/art-rare-skins/references/eleven.png",
+      "visualDescription": "Pink twin tails, pink-orange eyes and bright salute; white navy-gold cadet peaked cap, white-gold short military jacket, red-orange neck ribbon, black belt and compact white-red heart hammer.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3769?hl=ko-KR",
+          "date": "2026-08-13",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "c3b70a5d7aeee640a62b8a2bf8b9491e1c3878afeb5f2f86a4a59094a5a0a284"
+    },
+    {
+      "subjectId": "zahir",
+      "id": "zahir",
+      "name": "자히르",
+      "skinNameKR": "부자히르",
+      "skinName": "부자히르",
+      "skinCode": 1005003,
+      "skinId": 1005003,
+      "imageName": "Zahir_S003",
+      "characterKey": "Zahir",
+      "characterCode": 5,
+      "releaseDate": "2024-04-01",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/1827?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/1827?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Zahir_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/zahir.png",
+      "referencePath": "docs/art-rare-skins/references/zahir.png",
+      "visualDescription": "Dark warm skin, long brown-purple hair, golden eyes and self-satisfied smile; white luxury suit with black-gold inner shirt, blue jewels, gold watch and floating green banknote or small gold coin. No base turban.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/1827?hl=ko-KR",
+          "date": "2024-04-01",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        510
+      ],
+      "referenceSha256": "af7d586055e26995f53e5f20c6e7acbaf35ea7c625063b5c4ca7ffa69b3b301b"
+    },
+    {
+      "subjectId": "jenny",
+      "id": "jenny",
+      "name": "제니",
+      "skinNameKR": "꿈꾸는 백수 제니",
+      "skinName": "꿈꾸는 백수 제니",
+      "skinCode": 1038004,
+      "skinId": 1038004,
+      "imageName": "Jenny_S004",
+      "characterKey": "Jenny",
+      "characterCode": 38,
+      "releaseDate": "2026-05-14",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Jenny_S004.png",
+      "localReferencePath": "docs/art-rare-skins/references/jenny.png",
+      "referencePath": "docs/art-rare-skins/references/jenny.png",
+      "visualDescription": "Blond messy bun, half-lidded pink eyes, pink spectacles and purple sleeping mask pushed up; oversized white cropped sweatshirt, purple drawstring shorts, slippers, small toy/controller. Relaxed sleepy homewear.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
+          "date": "2026-05-14",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        332,
+        529
+      ],
+      "referenceSha256": "55480f6da0c6238731b9dea5d35055f3aff73642aab4ba798feb973b078d43a4"
+    },
+    {
+      "subjectId": "camilo",
+      "id": "camilo",
+      "name": "카밀로",
+      "skinNameKR": "크로우 카밀로",
+      "skinName": "크로우 카밀로",
+      "skinCode": 1039004,
+      "skinId": 1039004,
+      "imageName": "Camilo_S004",
+      "characterKey": "Camilo",
+      "characterCode": 39,
+      "releaseDate": "2026-03-19",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3444?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3444?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Camilo_S004.png",
+      "localReferencePath": "docs/art-rare-skins/references/camilo.png",
+      "referencePath": "docs/art-rare-skins/references/camilo.png",
+      "visualDescription": "Short sandy-brown hair, red eyes and bright confident smile; white-gray-red formal military dancer uniform, gold epaulettes and braids, scarlet sleeves and compact twin silver blades. Crow collaboration costume.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3444?hl=ko-KR",
+          "date": "2026-03-19",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        485
+      ],
+      "referenceSha256": "6ddd454f1db7a9477df6b8e4c8aaaf18681235150b1befc8c529ba4a3a560719"
+    },
+    {
+      "subjectId": "karla",
+      "id": "karla",
+      "name": "칼라",
+      "skinNameKR": "뒷골목 칼라",
+      "skinName": "뒷골목 칼라",
+      "skinCode": 1054002,
+      "skinId": 1054002,
+      "imageName": "Karla_S002",
+      "characterKey": "Karla",
+      "characterCode": 54,
+      "releaseDate": "2023-09-14",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/1424?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/1424?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Karla_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/karla.png",
+      "referencePath": "docs/art-rare-skins/references/karla.png",
+      "visualDescription": "Red-orange braid, red eyes, toothy grin; yellow-black hazard headband and goggles, cropped yellow-purple street jacket, black crop top, netted dark leg details and compact mechanical crossbow.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/1424?hl=ko-KR",
+          "date": "2023-09-14",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "77fc540034d518b379c14a867de6091738e270daf2ce13f2df61d44c9dd7611a"
+    },
+    {
+      "subjectId": "cathy",
+      "id": "cathy",
+      "name": "캐시",
+      "skinNameKR": "프리즌 브레이크 캐시",
+      "skinName": "프리즌 브레이크 캐시",
+      "skinCode": 1023004,
+      "skinId": 1023004,
+      "imageName": "Cathy_S004",
+      "characterKey": "Cathy",
+      "characterCode": 23,
+      "releaseDate": "2025-01-07",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2431?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2431?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Cathy_S004.png",
+      "localReferencePath": "docs/art-rare-skins/references/cathy.png",
+      "referencePath": "docs/art-rare-skins/references/cathy.png",
+      "visualDescription": "Brown side ponytail, blue eyes and cool teasing expression; black-purple prison guard style cap and cropped jacket, gray striped top, many black straps and blue metal buckles, small surgical blade. No white lab coat.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2431?hl=ko-KR",
+          "date": "2025-01-07",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        357,
+        483
+      ],
+      "referenceSha256": "e37c2872d10bcfe441a97cca114568fa800b1778e02bb9bd970b7190a7e00d44"
+    },
+    {
+      "subjectId": "chloe",
+      "id": "chloe",
+      "name": "클로에",
+      "skinNameKR": "해변의 인형사 클로에",
+      "skinName": "해변의 인형사 클로에",
+      "skinCode": 1040003,
+      "skinId": 1040003,
+      "imageName": "Chloe_S003",
+      "characterKey": "Chloe",
+      "characterCode": 40,
+      "releaseDate": "2025-07-17",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2852?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2852?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Chloe_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/chloe.png",
+      "referencePath": "docs/art-rare-skins/references/chloe.png",
+      "visualDescription": "Ash-blond short side-swept hair with floral hair clip, pale pink eyes; pale pink swimsuit and translucent pink shawl, shell jewelry, small pink beach hat. Her tiny Nina puppet wears matching pale pink beach clothes, not base lavender maid clothing.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2852?hl=ko-KR",
+          "date": "2025-07-17",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "55080b51b629ef0aedd20e6aeb746afb4cab009f70c52b1b2f1bc1406c6ced35"
+    },
+    {
+      "subjectId": "chiara",
+      "id": "chiara",
+      "name": "키아라",
+      "skinNameKR": "글루미 바니 키아라",
+      "skinName": "글루미 바니 키아라",
+      "skinCode": 1014005,
+      "skinId": 1014005,
+      "imageName": "Chiara_S005",
+      "characterKey": "Chiara",
+      "characterCode": 14,
+      "releaseDate": "2026-01-29",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Chiara_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/chiara.png",
+      "referencePath": "docs/art-rare-skins/references/chiara.png",
+      "visualDescription": "Long pale silver-blue hair with pink ends, drooping pink eyes; large black rabbit ears, white high-collar blouse with black bow, fitted black bunny suit and long black gloves, compact black rapier. Timid gloomy face.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+          "date": "2026-01-29",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "b50225e2faa80115a4965cf907874596786cb2ba74af6b2aee1a0c5d6aca57ae"
+    },
+    {
+      "subjectId": "tazia",
+      "id": "tazia",
+      "name": "타지아",
+      "skinNameKR": "유릿빛 물결 타지아",
+      "skinName": "유릿빛 물결 타지아",
+      "skinCode": 1060003,
+      "skinId": 1060003,
+      "imageName": "Tazia_S003",
+      "characterKey": "Tazia",
+      "characterCode": 60,
+      "releaseDate": "2026-08-06",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Tazia_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/tazia.png",
+      "referencePath": "docs/art-rare-skins/references/tazia.png",
+      "visualDescription": "Long vivid red high ponytail, amber eyes and composed smile; white-cyan jeweled swimsuit, bright cyan sheer wrap, small turquoise hair ribbons and translucent blue glass shards.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Season 12 pack included immediate ER Pass access on August 6. The separately sold pass opened August 13; the earlier available date is used.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+          "date": "2026-08-06",
+          "note": "Season 12 pack included immediate ER Pass access on August 6. The separately sold pass opened August 13; the earlier available date is used."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        517
+      ],
+      "referenceSha256": "2d36f20d6cc4dd33959cee58baccf199277c8d444ea18690e07b39bf3e9d484e"
+    },
+    {
+      "subjectId": "theodore",
+      "id": "theodore",
+      "name": "테오도르",
+      "skinNameKR": "사격 교관 테오도르",
+      "skinName": "사격 교관 테오도르",
+      "skinCode": 1062003,
+      "skinId": 1062003,
+      "imageName": "Theodore_S003",
+      "characterKey": "Theodore",
+      "characterCode": 62,
+      "releaseDate": "2025-03-27",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2598?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2598?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Theodore_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/theodore.png",
+      "referencePath": "docs/art-rare-skins/references/theodore.png",
+      "visualDescription": "Swept dark navy hair, pale blue focused eyes; black instructor peaked cap with blue band, gray-black formal coat with cobalt accents and red lining, compact long scoped sniper rifle.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2598?hl=ko-KR",
+          "date": "2025-03-27",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "75fa69b9223d50df0a95f39917527a6fb20bbc6fb269c7f7e84f61d125c78748"
+    },
+    {
+      "subjectId": "felix",
+      "id": "felix",
+      "name": "펠릭스",
+      "skinNameKR": "사관후보생 펠릭스",
+      "skinName": "사관후보생 펠릭스",
+      "skinCode": 1049005,
+      "skinId": 1049005,
+      "imageName": "Felix_S005",
+      "characterKey": "Felix",
+      "characterCode": 49,
+      "releaseDate": "2025-10-23",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3111?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3111?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Felix_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/felix.png",
+      "referencePath": "docs/art-rare-skins/references/felix.png",
+      "visualDescription": "Tousled sandy-brown hair, green eyes and cheerful salute; white-green-gold cadet cap, dark olive military shirt with white trim, gray shoulder armor and compact silver spear.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3111?hl=ko-KR",
+          "date": "2025-10-23",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        524
+      ],
+      "referenceSha256": "242b8a8ad8d4a5f867dcbbdc46bc166933af938c9a1f3117637b332aa47f8323"
+    },
+    {
+      "subjectId": "priya",
+      "id": "priya",
+      "name": "프리야",
+      "skinNameKR": "테니스부 프리야",
+      "skinName": "테니스부 프리야",
+      "skinCode": 1051003,
+      "skinId": 1051003,
+      "imageName": "Priya_S003",
+      "characterKey": "Priya",
+      "characterCode": 51,
+      "releaseDate": "2026-10-01",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3867?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3867?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Priya_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/priya.png",
+      "referencePath": "docs/art-rare-skins/references/priya.png",
+      "visualDescription": "Warm brown skin, dark green ponytail, green eyes and open cheerful smile; white-blue tennis visor with pale flowers, white-cyan cropped tennis shirt and pleated skirt, light blue tennis racket and small white ball.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3867?hl=ko-KR",
+          "date": "2026-10-01",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "6e7fa7d867e3374a9eba96d2c23c5ea952397b36dadcb27dc83cf5fb75634106"
+    },
+    {
+      "subjectId": "fiora",
+      "id": "fiora",
+      "name": "피오라",
+      "skinNameKR": "제식 교관 피오라",
+      "skinName": "제식 교관 피오라",
+      "skinCode": 1003005,
+      "skinId": 1003005,
+      "imageName": "Fiora_S005",
+      "characterKey": "Fiora",
+      "characterCode": 3,
+      "releaseDate": "2025-04-22",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2654?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2654?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Fiora_S005.png",
+      "localReferencePath": "docs/art-rare-skins/references/fiora.png",
+      "referencePath": "docs/art-rare-skins/references/fiora.png",
+      "visualDescription": "Long red-brown ponytail, green focused eyes, black peaked drill-instructor cap with gold crest; black military coat with gold piping, red neck ribbon, white gloves and slim silver fencing rapier.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2654?hl=ko-KR",
+          "date": "2025-04-22",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        540
+      ],
+      "referenceSha256": "047870147fc0e857c72c21a12e42f9c373513d42920631b205d5792acbca2435"
+    },
+    {
+      "subjectId": "piolo",
+      "id": "piolo",
+      "name": "피올로",
+      "skinNameKR": "스트리트 파이터 피올로",
+      "skinName": "스트리트 파이터 피올로",
+      "skinCode": 1056002,
+      "skinId": 1056002,
+      "imageName": "Piolo_S002",
+      "characterKey": "Piolo",
+      "characterCode": 56,
+      "releaseDate": "2023-11-09",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/1545?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/1545?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Piolo_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/piolo.png",
+      "referencePath": "docs/art-rare-skins/references/piolo.png",
+      "visualDescription": "Brown hair partly beneath black hood with cyan edging, icy blue eyes and determined frown; black-white-cyan tech street fighter jacket, black gloves and bright blue angular nunchaku.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/1545?hl=ko-KR",
+          "date": "2023-11-09",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        518
+      ],
+      "referenceSha256": "ac4fc77a69949c5f549b7c85fee92427359b9aefe0397c9280e011e135806247"
+    },
+    {
+      "subjectId": "hart",
+      "id": "hart",
+      "name": "하트",
+      "skinNameKR": "3rd Anniversary 하트 Vivace",
+      "skinName": "3rd Anniversary 하트 Vivace",
+      "skinCode": 1008007,
+      "skinId": 1008007,
+      "imageName": "Hart_S007",
+      "characterKey": "Hart",
+      "characterCode": 8,
+      "releaseDate": "2026-07-23",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Hart_S007.png",
+      "localReferencePath": "docs/art-rare-skins/references/hart.png",
+      "referencePath": "docs/art-rare-skins/references/hart.png",
+      "visualDescription": "Long blonde hair pulled back, amber eyes and friendly confident smile; red-black formal anniversary dress, gold choker, small dark bow, red long glove and compact black-red electric guitar.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "The anniversary base skins opened July 9, but the Dolce/Vivace quest-book color variants opened July 23 and are the latest distinct registered skins.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+          "date": "2026-07-23",
+          "note": "The anniversary base skins opened July 9, but the Dolce/Vivace quest-book color variants opened July 23 and are the latest distinct registered skins."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        471
+      ],
+      "referenceSha256": "eecb6e53492cfe12b36e767e7db17d2a00f506f35e70844f0eb440599347f455"
+    },
+    {
+      "subjectId": "haze",
+      "id": "haze",
+      "name": "헤이즈",
+      "skinNameKR": "노블 에이스 바니 헤이즈",
+      "skinName": "노블 에이스 바니 헤이즈",
+      "skinCode": 1058006,
+      "skinId": 1058006,
+      "imageName": "Haze_S006",
+      "characterKey": "Haze",
+      "characterCode": 58,
+      "releaseDate": "2026-01-22",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3305?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3305?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Haze_S006.png",
+      "localReferencePath": "docs/art-rare-skins/references/haze.png",
+      "referencePath": "docs/art-rare-skins/references/haze.png",
+      "visualDescription": "Straight silver-blond hair and restrained gray-brown eyes; tall white-gold rabbit ears, white ivory fitted noble bunny suit, dark gray outer drape, gold green collar jewel and compact ivory firearm case.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3305?hl=ko-KR",
+          "date": "2026-01-22",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        350,
+        576
+      ],
+      "referenceSha256": "c54ab9e1e8dc5c3e47c441898c75fc7cb0318fd64794961c8d0c70913b38d427"
+    },
+    {
+      "subjectId": "debi_marlene",
+      "id": "debi_marlene",
+      "name": "데비&마를렌",
+      "skinNameKR": "방과 후 자유시간 데비&마를렌",
+      "skinName": "방과 후 자유시간 데비&마를렌",
+      "skinCode": 1065003,
+      "skinId": 1065003,
+      "imageName": "DebiMarlene_S003",
+      "characterKey": "DebiMarlene",
+      "characterCode": 65,
+      "releaseDate": "2025-05-29",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2736?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2736?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_DebiMarlene_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/debi_marlene.png",
+      "referencePath": "docs/art-rare-skins/references/debi_marlene.png",
+      "visualDescription": "Two sisters together, navy-black hair with cyan tips for Debi and pink tips for Marlene, distinct blue/red eyes; loose white school blouses, blue-gray and pink neck ribbons, dark pleated skirts and compact school bags. Keep both complete figures inside one sprite cell.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2736?hl=ko-KR",
+          "date": "2025-05-29",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        496
+      ],
+      "referenceSha256": "d465adaefb90652877d785d9b0b55685d1870791ed88f4b8b5308025906bc182"
+    },
+    {
+      "subjectId": "arda",
+      "id": "arda",
+      "name": "아르다",
+      "skinNameKR": "고스트헌터 아르다",
+      "skinName": "고스트헌터 아르다",
+      "skinCode": 1066002,
+      "skinId": 1066002,
+      "imageName": "Arda_S002",
+      "characterKey": "Arda",
+      "characterCode": 66,
+      "releaseDate": "2026-05-19",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Arda_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/arda.png",
+      "referencePath": "docs/art-rare-skins/references/arda.png",
+      "visualDescription": "Short sandy-brown hair, amber-gold thoughtful eyes as seen in the supplied reference; dark violet ghost-hunter coat with pale gray edges, black choker, silver chest emblem and small violet relic lantern. Do not keep base beige exploration outfit.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
+          "date": "2026-05-19",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        493
+      ],
+      "referenceSha256": "8088af2143c4c588281631d018bee2220fbe686e11b7a090c3f6afbcc58a89a4"
+    },
+    {
+      "subjectId": "abigail",
+      "id": "abigail",
+      "name": "아비게일",
+      "skinNameKR": "트로피컬 디멘션 아비게일",
+      "skinName": "트로피컬 디멘션 아비게일",
+      "skinCode": 1067003,
+      "skinId": 1067003,
+      "imageName": "Abigail_S003",
+      "characterKey": "Abigail",
+      "characterCode": 67,
+      "releaseDate": "2025-08-07",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2916?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2916?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Abigail_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/abigail.png",
+      "referencePath": "docs/art-rare-skins/references/abigail.png",
+      "visualDescription": "Long black hair, green eyes, pink sunglasses on forehead with white-blue flowers; white translucent beach shirt over black-pink swimsuit, shell jewelry and compact pink-black battle axe.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2916?hl=ko-KR",
+          "date": "2025-08-07",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        538
+      ],
+      "referenceSha256": "84e7e1f9334daef7ba4f200e773a2c2a39cc59cdcabae6c7072856e15586eb45"
+    },
+    {
+      "subjectId": "alonso",
+      "id": "alonso",
+      "name": "알론소",
+      "skinNameKR": "지옥의 선봉장 알론소",
+      "skinName": "지옥의 선봉장 알론소",
+      "skinCode": 1068002,
+      "skinId": 1068002,
+      "imageName": "Alonso_S002",
+      "characterKey": "Alonso",
+      "characterCode": 68,
+      "releaseDate": "2024-12-12",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2381?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2381?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Alonso_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/alonso.png",
+      "referencePath": "docs/art-rare-skins/references/alonso.png",
+      "visualDescription": "Huge flame-orange mane, dark red-black demonic armor, glowing amber eyes behind horned red demon mask, dark angular shoulder plates and small smoldering fists. Broad intimidating chibi silhouette.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2381?hl=ko-KR",
+          "date": "2024-12-12",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "5b3670d3d602d91a4e136ebf3bb93662090a22db95c5b1b73fb4b77b2f0c6fd4"
+    },
+    {
+      "subjectId": "leni",
+      "id": "leni",
+      "name": "레니",
+      "skinNameKR": "장난꾸러기 곰돌이 메이드 레니",
+      "skinName": "장난꾸러기 곰돌이 메이드 레니",
+      "skinCode": 1069003,
+      "skinId": 1069003,
+      "imageName": "Leni_S003",
+      "characterKey": "Leni",
+      "characterCode": 69,
+      "releaseDate": "2026-04-30",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Leni_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/leni.png",
+      "referencePath": "docs/art-rare-skins/references/leni.png",
+      "visualDescription": "Light pink side buns with pale yellow bear-ear maid headband, smiling closed eyes; bright yellow-white frilled maid dress with lime green ribbons, cream bear pouch and compact yellow toy-like cannon.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Season 11 pack and its included ER Pass opened April 30; these reward skins were obtainable from that pass/pack.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+          "date": "2026-04-30",
+          "note": "Season 11 pack and its included ER Pass opened April 30; these reward skins were obtainable from that pass/pack."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        571
+      ],
+      "referenceSha256": "79747543962a5d5d59c9d47c523699c17937a6b583625b6bcb031cbe06c2da54"
+    },
+    {
+      "subjectId": "tsubame",
+      "id": "tsubame",
+      "name": "츠바메",
+      "skinNameKR": "청랑일섬 츠바메",
+      "skinName": "청랑일섬 츠바메",
+      "skinCode": 1070002,
+      "skinId": 1070002,
+      "imageName": "Tsubame_S002",
+      "characterKey": "Tsubame",
+      "characterCode": 70,
+      "releaseDate": "2025-07-10",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2827?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2827?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Tsubame_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/tsubame.png",
+      "referencePath": "docs/art-rare-skins/references/tsubame.png",
+      "visualDescription": "Dark purple high ponytail, serious purple eyes; purple goggles above forehead, cropped white-blue navy summer jacket, black swimsuit, tiny pale blue flower accents and small throwing dart.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2827?hl=ko-KR",
+          "date": "2025-07-10",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "4f8795eda90e4ae531d4b2b15b714caa0734cc9718cab029d6f6fcde43a5f58f"
+    },
+    {
+      "subjectId": "kenneth",
+      "id": "kenneth",
+      "name": "케네스",
+      "skinNameKR": "운명의 푸른 가약 케네스",
+      "skinName": "운명의 푸른 가약 케네스",
+      "skinCode": 1071002,
+      "skinId": 1071002,
+      "imageName": "Kenneth_S002",
+      "characterKey": "Kenneth",
+      "characterCode": 71,
+      "releaseDate": "2025-10-23",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3111?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3111?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Kenneth_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/kenneth.png",
+      "referencePath": "docs/art-rare-skins/references/kenneth.png",
+      "visualDescription": "Gray swept hair, warm red eyes and calm slight smile; white-cyan-gold formal wedding-style Eastern jacket, black high collar, ornate gold chains and red cord ornament, compact blue-gold axe.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3111?hl=ko-KR",
+          "date": "2025-10-23",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        497
+      ],
+      "referenceSha256": "fc21b27b4824da25238706733bf7d1b6ba1b8b0859653f572d409cd18453cb28"
+    },
+    {
+      "subjectId": "katja",
+      "id": "katja",
+      "name": "카티야",
+      "skinNameKR": "카페 알바 카티야",
+      "skinName": "카페 알바 카티야",
+      "skinCode": 1072003,
+      "skinId": 1072003,
+      "imageName": "Katja_S003",
+      "characterKey": "Katja",
+      "characterCode": 72,
+      "releaseDate": "2025-10-30",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3127?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3127?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Katja_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/katja.png",
+      "referencePath": "docs/art-rare-skins/references/katja.png",
+      "visualDescription": "Silver-gray long side ponytail, large teal eyes and gentle smile; white blouse, black-green cafe waistcoat, green neck bow, green apron and small white dessert tray. Absolutely no glasses; no base sniper armor.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3127?hl=ko-KR",
+          "date": "2025-10-30",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        519
+      ],
+      "referenceSha256": "eb8d47a9c386ae4d36371fabeb76cfc05f51da957768f6ba10714f9a054e1c56"
+    },
+    {
+      "subjectId": "darko",
+      "id": "darko",
+      "name": "다르코",
+      "skinNameKR": "한여름의 휴가 다르코",
+      "skinName": "한여름의 휴가 다르코",
+      "skinCode": 1074002,
+      "skinId": 1074002,
+      "imageName": "Darko_S002",
+      "characterKey": "Darko",
+      "characterCode": 74,
+      "releaseDate": "2025-08-12",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2916?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2916?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Darko_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/darko.png",
+      "referencePath": "docs/art-rare-skins/references/darko.png",
+      "visualDescription": "Long green-gray swept hair, warm orange eyes and cocky smile; orange sunglasses on head, open black floral Hawaiian shirt, colorful flower lei, light summer shorts and small dark baseball bat.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2916?hl=ko-KR",
+          "date": "2025-08-12",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        506
+      ],
+      "referenceSha256": "59d3386eacf1dcc56215c66fd9c827c9f80d93b37698d69d665add8690472802"
+    },
+    {
+      "subjectId": "lenore",
+      "id": "lenore",
+      "name": "르노어",
+      "skinNameKR": "음악 선생님 르노어",
+      "skinName": "음악 선생님 르노어",
+      "skinCode": 1075002,
+      "skinId": 1075002,
+      "imageName": "Lenore_S002",
+      "characterKey": "Lenore",
+      "characterCode": 75,
+      "releaseDate": "2026-02-05",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3340?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3340?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Lenore_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/lenore.png",
+      "referencePath": "docs/art-rare-skins/references/lenore.png",
+      "visualDescription": "Long dark blue hair with cyan ends, narrow pink-red eye and knowing smile; white collared blouse, black corset waistcoat, white-gold shoulder details, lilac flower brooch and small instrument or sheet music. No base hood.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3340?hl=ko-KR",
+          "date": "2026-02-05",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        474
+      ],
+      "referenceSha256": "52b84c02b19eaf02d68758cb9b912078dc769bd0dd6ca3d351fdd14670cdcb2c"
+    },
+    {
+      "subjectId": "garnet",
+      "id": "garnet",
+      "name": "가넷",
+      "skinNameKR": "키치 러브 가넷",
+      "skinName": "키치 러브 가넷",
+      "skinCode": 1076003,
+      "skinId": 1076003,
+      "imageName": "Garnet_S003",
+      "characterKey": "Garnet",
+      "characterCode": 76,
+      "releaseDate": "2026-08-20",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3783?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3783?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Garnet_S003.png",
+      "localReferencePath": "docs/art-rare-skins/references/garnet.png",
+      "referencePath": "docs/art-rare-skins/references/garnet.png",
+      "visualDescription": "Long silver-gray hair, red eye and playful grin; black-white striped hood with small cat ears, black eyepatch, lilac heart crop top, black checked skirt and tiny purple-white bat. Retain asymmetrical patch and punk accessories.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3783?hl=ko-KR",
+          "date": "2026-08-20",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "523131e711ec0e07184b16960559b9b5dee7ea9c909fff28131a862fecfeb0b0"
+    },
+    {
+      "subjectId": "yumin",
+      "id": "yumin",
+      "name": "유민",
+      "skinNameKR": "풍랑 위의 이정표 유민",
+      "skinName": "풍랑 위의 이정표 유민",
+      "skinCode": 1077002,
+      "skinId": 1077002,
+      "imageName": "YuMin_S002",
+      "characterKey": "YuMin",
+      "characterCode": 77,
+      "releaseDate": "2026-08-06",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_YuMin_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/yumin.png",
+      "referencePath": "docs/art-rare-skins/references/yumin.png",
+      "visualDescription": "Long dark black hair with short topknot, confident dark eyes; open white-cyan loose summer robe over black swim top, straw hat hanging behind, shell bead bracelets and small red watermelon-pattern folding fan.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Season 12 pack included immediate ER Pass access on August 6. The separately sold pass opened August 13; the earlier available date is used.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+          "date": "2026-08-06",
+          "note": "Season 12 pack included immediate ER Pass access on August 6. The separately sold pass opened August 13; the earlier available date is used."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        493
+      ],
+      "referenceSha256": "039499fe8b42f9bab3031b5a34a88d72e941e6fe02f2de6d98e55013e0f46688"
+    },
+    {
+      "subjectId": "hisui",
+      "id": "hisui",
+      "name": "히스이",
+      "skinNameKR": "고스트헌터 히스이",
+      "skinName": "고스트헌터 히스이",
+      "skinCode": 1078002,
+      "skinId": 1078002,
+      "imageName": "Hisui_S002",
+      "characterKey": "Hisui",
+      "characterCode": 78,
+      "releaseDate": "2025-11-13",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3163?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3163?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Hisui_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/hisui.png",
+      "referencePath": "docs/art-rare-skins/references/hisui.png",
+      "visualDescription": "Dark teal high ponytail, sharp red eyes and toothy grin; black-cyan ghost-hunter tactical costume, silver shoulder and arm armor, black belt with gold rivets and compact cyan-white katana.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3163?hl=ko-KR",
+          "date": "2025-11-13",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "1eb82e1b422c0916fca274a03c76ae2ea44a0328ae6943fc44b23af7227dc83d"
+    },
+    {
+      "subjectId": "justyna",
+      "id": "justyna",
+      "name": "유스티나",
+      "skinNameKR": "럭키 히어로 바니 유스티나",
+      "skinName": "럭키 히어로 바니 유스티나",
+      "skinCode": 1079002,
+      "skinId": 1079002,
+      "imageName": "Justyna_S002",
+      "characterKey": "Justyna",
+      "characterCode": 79,
+      "releaseDate": "2026-01-29",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Justyna_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/justyna.png",
+      "referencePath": "docs/art-rare-skins/references/justyna.png",
+      "visualDescription": "Red side ponytail, red eyes and wide sunny smile; huge white rabbit ears with small gold star crest, white-red-gold heroic bunny suit, small green bow and compact white-red mechanical crossbow.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3327?hl=ko-KR",
+          "date": "2026-01-29",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "8145e42448e5020db186d7a7f0b0e5681095b7de9de753c09adb5cb0f3dfc5b2"
+    },
+    {
+      "subjectId": "istvan",
+      "id": "istvan",
+      "name": "이슈트반",
+      "skinNameKR": "집사 이슈트반",
+      "skinName": "집사 이슈트반",
+      "skinCode": 1080001,
+      "skinId": 1080001,
+      "imageName": "Istvan_S001",
+      "characterKey": "Istvan",
+      "characterCode": 80,
+      "releaseDate": "2025-08-21",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/2952?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/2952?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Istvan_S001.png",
+      "localReferencePath": "docs/art-rare-skins/references/istvan.png",
+      "referencePath": "docs/art-rare-skins/references/istvan.png",
+      "visualDescription": "Short black hair with red ends, narrow eyes and one thin monocle; black-white formal butler tailcoat, blue jewel at neck, white gloves, silver chain and small serving tray with tiny blue bottles.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/2952?hl=ko-KR",
+          "date": "2025-08-21",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        503
+      ],
+      "referenceSha256": "cc4bc77544f30540f5b77a6d72b2b1713d6f7b73cbe870e28ab9c0eb76f5960c"
+    },
+    {
+      "subjectId": "xuelin",
+      "id": "xuelin",
+      "name": "슈린",
+      "skinNameKR": "벽파참랑 슈린",
+      "skinName": "벽파참랑 슈린",
+      "skinCode": 1082002,
+      "skinId": 1082002,
+      "imageName": "Xuelin_S002",
+      "characterKey": "Xuelin",
+      "characterCode": 82,
+      "releaseDate": "2026-08-06",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Xuelin_S002.png",
+      "localReferencePath": "docs/art-rare-skins/references/xuelin.png",
+      "referencePath": "docs/art-rare-skins/references/xuelin.png",
+      "visualDescription": "Long dark teal hair, green eyes; white teal-gold sailor/swimsuit with crisscross green waist straps, white ribbon ornaments and small teal water-themed rapier. Keep sharp lively expression.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Season 12 pack included immediate ER Pass access on August 6. The separately sold pass opened August 13; the earlier available date is used.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3742?hl=ko-KR",
+          "date": "2026-08-06",
+          "note": "Season 12 pack included immediate ER Pass access on August 6. The separately sold pass opened August 13; the earlier available date is used."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        506
+      ],
+      "referenceSha256": "00d8afc58f50c31f9ebba2c16d30776beb7a31b3a33fd88e512b3c26ba723953"
+    },
+    {
+      "subjectId": "henry",
+      "id": "henry",
+      "name": "헨리",
+      "skinNameKR": "전투사제 헨리",
+      "skinName": "전투사제 헨리",
+      "skinCode": 1083001,
+      "skinId": 1083001,
+      "imageName": "Henry_S001",
+      "characterKey": "Henry",
+      "characterCode": 83,
+      "releaseDate": "2026-01-08",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3275?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3275?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Henry_S001.png",
+      "localReferencePath": "docs/art-rare-skins/references/henry.png",
+      "referencePath": "docs/art-rare-skins/references/henry.png",
+      "visualDescription": "Short gray-lilac swept hair, violet eyes, neat thin glasses; white purple-gold clerical military coat, gold cross motifs, black gloves and small gold pocket watch. Refined reserved scholar face.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3275?hl=ko-KR",
+          "date": "2026-01-08",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        576
+      ],
+      "referenceSha256": "b33b487b21964a5ef057d6c92473d97dea0d04ef91adeed58fcf2e32473e5386"
+    },
+    {
+      "subjectId": "blair",
+      "id": "blair",
+      "name": "블레어",
+      "skinNameKR": "포디엄 피니시 블레어",
+      "skinName": "포디엄 피니시 블레어",
+      "skinCode": 1084001,
+      "skinId": 1084001,
+      "imageName": "Blair_S001",
+      "characterKey": "Blair",
+      "characterCode": 84,
+      "releaseDate": "2026-02-20",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3389?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3389?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Blair_S001.png",
+      "localReferencePath": "docs/art-rare-skins/references/blair.png",
+      "referencePath": "docs/art-rare-skins/references/blair.png",
+      "visualDescription": "Long cream-blond hair, sleepy narrow blue eyes, orange racing sunglasses on forehead; black-white pale blue cropped racing jacket, black-gray sports top, silver buckles and compact twin dark blades. No glasses over eyes.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "The skin was delayed after the February 19 patch. The official follow-up confirms actual availability on February 20 at 14:00 KST; the delay overrides the patch date.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3389?hl=ko-KR",
+          "date": "2026-02-20",
+          "note": "The skin was delayed after the February 19 patch. The official follow-up confirms actual availability on February 20 at 14:00 KST; the delay overrides the patch date."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        477
+      ],
+      "referenceSha256": "1d797a149338d4aaaf01382cde5d5ceb626cb09123043d0900c787d82e45ff82"
+    },
+    {
+      "subjectId": "mirka",
+      "id": "mirka",
+      "name": "미르카",
+      "skinNameKR": "와일드 메이드 미르카",
+      "skinName": "와일드 메이드 미르카",
+      "skinCode": 1085001,
+      "skinId": 1085001,
+      "imageName": "Mirka_S001",
+      "characterKey": "Mirka",
+      "characterCode": 85,
+      "releaseDate": "2026-04-16",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3504?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3504?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Mirka_S001.png",
+      "localReferencePath": "docs/art-rare-skins/references/mirka.png",
+      "referencePath": "docs/art-rare-skins/references/mirka.png",
+      "visualDescription": "Long bright pink hair, green eyes and lively grin; white maid headband, black-white sleeveless street maid dress, yellow jacket sleeve accents, black necktie and small dessert tray. Keep wild asymmetrical streetwear styling.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3504?hl=ko-KR",
+          "date": "2026-04-16",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        509
+      ],
+      "referenceSha256": "43fd39649837283ff37bf60720ca9240c0477ff8d62deaac15206bac2acac4c6"
+    },
+    {
+      "subjectId": "fenrir",
+      "id": "fenrir",
+      "name": "펜리르",
+      "skinNameKR": "미드나잇 비스트 펜리르",
+      "skinName": "미드나잇 비스트 펜리르",
+      "skinCode": 1086001,
+      "skinId": 1086001,
+      "imageName": "Fenrir_S001",
+      "characterKey": "Fenrir",
+      "characterCode": 86,
+      "releaseDate": "2026-06-11",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3629?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3629?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Fenrir_S001.png",
+      "localReferencePath": "docs/art-rare-skins/references/fenrir.png",
+      "referencePath": "docs/art-rare-skins/references/fenrir.png",
+      "visualDescription": "Tousled dark olive hair under dark blue cap, cyan eyes and sly tired smile; midnight blue-gray hoodie with red tags, black mechanic gloves and compact black-blue motorcycle helmet. Cool nighttime rider theme.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3629?hl=ko-KR",
+          "date": "2026-06-11",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        459
+      ],
+      "referenceSha256": "70a44554fc66a6940393f27209232d468726b61cb48b3bbf40d8d9009295fe96"
+    },
+    {
+      "subjectId": "coraline",
+      "id": "coraline",
+      "name": "코렐라인",
+      "skinNameKR": "설렘 가득 코렐라인",
+      "skinName": "설렘 가득 코렐라인",
+      "skinCode": 1087001,
+      "skinId": 1087001,
+      "imageName": "Coraline_S001",
+      "characterKey": "Coraline",
+      "characterCode": 87,
+      "releaseDate": "2026-06-25",
+      "releasedByDate": null,
+      "sourceURL": "https://event.playeternalreturn.com/S11/PetitMignon/Teasing?hl=ko-KR",
+      "sourceUrl": "https://event.playeternalreturn.com/S11/PetitMignon/Teasing?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Coraline_S001.png",
+      "localReferencePath": "docs/art-rare-skins/references/coraline.png",
+      "referencePath": "docs/art-rare-skins/references/coraline.png",
+      "visualDescription": "Half pink and half dark gray-black long hair, violet eyes; pink checked cropped jacket, white blouse with black bow, pink skirt with black-gold chains and small gold-pink compact mirror. Sweet date-ready style.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "The official Season 11 skin schedule lists Coraline for June 25. Her displayed client skin name uses 설렘 가득; announcement searches also vary spelling/spacing.",
+      "releaseEvidence": [
+        {
+          "url": "https://event.playeternalreturn.com/S11/PetitMignon/Teasing?hl=ko-KR",
+          "date": "2026-06-25",
+          "note": "The official Season 11 skin schedule lists Coraline for June 25. Her displayed client skin name uses 설렘 가득; announcement searches also vary spelling/spacing."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        483
+      ],
+      "referenceSha256": "2aa8d5e8421dc7317a07dcc24dfb827d8bef64976622118ffa826f20b051e904"
+    },
+    {
+      "subjectId": "bihyung",
+      "id": "bihyung",
+      "name": "비형",
+      "skinNameKR": "청춘, 한 컷 비형",
+      "skinName": "청춘, 한 컷 비형",
+      "skinCode": 1088001,
+      "skinId": 1088001,
+      "imageName": "Bihyung_S001",
+      "characterKey": "Bihyung",
+      "characterCode": 88,
+      "releaseDate": "2026-09-17",
+      "releasedByDate": null,
+      "sourceURL": "https://playeternalreturn.com/posts/news/3838?hl=ko-KR",
+      "sourceUrl": "https://playeternalreturn.com/posts/news/3838?hl=ko-KR",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Bihyung_S001.png",
+      "localReferencePath": "docs/art-rare-skins/references/bihyung.png",
+      "referencePath": "docs/art-rare-skins/references/bihyung.png",
+      "visualDescription": "Long black high ponytail with bright teal streaks, golden eyes, bright red cheek dots and joyful open smile; cropped pale denim jacket, fitted white tee, denim shorts and tiny compact pink camera or hammer charm. Absolutely no glasses; retain youthful energetic face.",
+      "status": "verified",
+      "customOutfit": false,
+      "latestVerification": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12.",
+      "releaseEvidence": [
+        {
+          "url": "https://playeternalreturn.com/posts/news/3838?hl=ko-KR",
+          "date": "2026-09-17",
+          "note": "Official release notice or reward-pass availability date, checked against the current 12.5.0 character skin registry on 2026-10-12."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official skin half-portrait identity and costume reference only; redraw as a new full-body chibi sprite with conservative continuation of cropped clothing.",
+      "referenceSize": [
+        390,
+        512
+      ],
+      "referenceSha256": "18510a3fc836a897652282689b1ead139e2559089ad359b631caf1f50a934001"
+    },
+    {
+      "subjectId": "craver",
+      "id": "craver",
+      "name": "크레이버",
+      "skinNameKR": "골목의 휴일 크레이버",
+      "skinName": "골목의 휴일 크레이버",
+      "skinCode": null,
+      "skinId": null,
+      "imageName": "Craver_S000",
+      "characterKey": "Craver",
+      "characterCode": 89,
+      "releaseDate": null,
+      "releasedByDate": null,
+      "sourceURL": "https://dak.gg/er/characters/Craver/introduction?hl=ko",
+      "sourceUrl": "https://dak.gg/er/characters/Craver/introduction?hl=ko",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Craver_S000.png",
+      "localReferencePath": "docs/art-rare-skins/references/craver.png",
+      "referencePath": "docs/art-rare-skins/references/craver.png",
+      "visualDescription": "Original casual outfit: a light-gray open bomber jacket over a burgundy hoodie, charcoal cargo trousers, black-and-red sneakers and dark fingerless gloves. Preserve his messy spiky vivid red-black hair, round red-tinted spectacles over sharply narrow amber eyes, low stern brows and cold straight mouth. Hold his recognizable large black-and-red revolver low, with a visible cylinder and no glow effects replacing its silhouette. This is a newly designed fan casual outfit, not an official skin.",
+      "status": "casual_original",
+      "customOutfit": true,
+      "latestVerification": "The live 12.5.0 registry has only the base appearance for this subject. The user requested a fan-original casual outfit. Announced future skins are excluded.",
+      "releaseEvidence": [
+        {
+          "url": "https://er.dakgg.io/api/v1/data/characters?hl=ko",
+          "date": "2026-10-12",
+          "note": "Only the default skin is present in current live character data; original casual design requested by the user."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official base character half-portrait identity reference only; costume is original casual design.",
+      "referenceSize": [
+        390,
+        508
+      ],
+      "referenceSha256": "b40a02924a9e3b86880efb95800657e6e246ca24df455584b642336c1bffcef4"
+    },
+    {
+      "subjectId": "lucia",
+      "id": "lucia",
+      "name": "루치아",
+      "skinNameKR": "별빛 산책 루치아",
+      "skinName": "별빛 산책 루치아",
+      "skinCode": null,
+      "skinId": null,
+      "imageName": "Lucia_S000",
+      "characterKey": "Lucia",
+      "characterCode": 90,
+      "releaseDate": null,
+      "releasedByDate": null,
+      "sourceURL": "https://dak.gg/er/characters/Lucia/introduction?hl=ko",
+      "sourceUrl": "https://dak.gg/er/characters/Lucia/introduction?hl=ko",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Lucia_S000.png",
+      "localReferencePath": "docs/art-rare-skins/references/lucia.png",
+      "referencePath": "docs/art-rare-skins/references/lucia.png",
+      "visualDescription": "Original casual outfit: a short cream cardigan over a pale-lavender blouse, dark violet pleated skirt, white ankle socks and violet loafers. Keep her pale-silver side buns, violet hair ribbons and clear cyan eyes. A small violet shoulder bag has a tiny pink crystal clasp. Carry her recognizable ornate silver-and-violet long-barrel musket with a shoulder stock, held low beside the body; no pair of short pistols. Earnest lively expression with raised inner brows and a small open mouth. This is a newly designed fan casual outfit, not an official skin.",
+      "status": "casual_original",
+      "customOutfit": true,
+      "latestVerification": "The live 12.5.0 registry has only the base appearance for this subject. The user requested a fan-original casual outfit. Announced future skins are excluded.",
+      "releaseEvidence": [
+        {
+          "url": "https://er.dakgg.io/api/v1/data/characters?hl=ko",
+          "date": "2026-10-12",
+          "note": "Only the default skin is present in current live character data; original casual design requested by the user."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official base character half-portrait identity reference only; costume is original casual design.",
+      "referenceSize": [
+        390,
+        466
+      ],
+      "referenceSha256": "e80b340e0f5edaf76ecc2986a0544c06649610dbdbe1bbd2c6a7f610ca267668"
+    },
+    {
+      "subjectId": "ceres",
+      "id": "ceres",
+      "name": "세레스",
+      "skinNameKR": "느긋한 외출 세레스",
+      "skinName": "느긋한 외출 세레스",
+      "skinCode": null,
+      "skinId": null,
+      "imageName": "Seres_S000",
+      "characterKey": "Seres",
+      "characterCode": 91,
+      "releaseDate": null,
+      "releasedByDate": null,
+      "sourceURL": "https://dak.gg/er/characters/Seres/introduction?hl=ko",
+      "sourceUrl": "https://dak.gg/er/characters/Seres/introduction?hl=ko",
+      "imageURL": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Seres_S000.png",
+      "localReferencePath": "docs/art-rare-skins/references/ceres.png",
+      "referencePath": "docs/art-rare-skins/references/ceres.png",
+      "visualDescription": "Original casual outfit: a soft ivory ribbed turtleneck, short slate-blue open jacket, dark navy tailored shorts over charcoal tights, and simple black ankle boots. Keep her neat silver bob and narrow pale-blue eyes with flat upper lids, straight low brows and a composed stern closed mouth. Replace the maid lace headpiece with a plain narrow black hairband. Carry her recognizable black-and-gold greatsword with one magenta crystal near the guard, resting diagonally beside the body without hiding the face. This is a newly designed fan casual outfit, not an official skin.",
+      "status": "casual_original",
+      "customOutfit": true,
+      "latestVerification": "The live 12.5.0 registry has only the base appearance for this subject. The user requested a fan-original casual outfit. Announced future skins are excluded.",
+      "releaseEvidence": [
+        {
+          "url": "https://er.dakgg.io/api/v1/data/characters?hl=ko",
+          "date": "2026-10-12",
+          "note": "Only the default skin is present in current live character data; original casual design requested by the user."
+        }
+      ],
+      "checkedAt": "2026-10-12",
+      "referenceRole": "Official base character half-portrait identity reference only; costume is original casual design.",
+      "referenceSize": [
+        390,
+        479
+      ],
+      "referenceSha256": "d61e8b636f9fc61fa6c107c25b27f6f63c3f256070f8aea03312b36ec20f0a69"
+    }
+  ]
+}

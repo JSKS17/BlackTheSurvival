@@ -1,0 +1,61 @@
+{
+  "id": "bianca",
+  "name": "비앙카",
+  "skinNameKR": "영겁의 푸른 망령 비앙카",
+  "skinCode": 1042005,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+  "releaseDate": "2026-07-23",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-40cc2f0e-40af-4654-a2d9-43ce2daffc2e.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/bianca.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "f9366354341cc86b62091cc7ecbd293bb991f736c358e734debd9e9fed2e7514"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/bianca.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "933cd05ef4fac17d27b48f90a702ab148dd0ddc28a4f73de9f59c7df90a181cd"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 비앙카 (bianca).\nRare outfit: 영겁의 푸른 망령 비앙카.\nOutfit/weapon reference: Long silver-lavender hair, pink-red eyes and delighted mischievous smile; ornate pale silver-blue gothic bridal gown, blue rose circlet and large gray-purple winglike parasol with dark blue rose accents.\nCharacter-specific face from the original: Cheeky vampire maid, vivid RED upturned eyes with dark pointed lashes, playful raised eyebrow, mischievous smile showing ONE tiny fang. Dark teal hair.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "3d7603439c16574deda8ac52f18316ae9bce01180df4e7a17a4e89527b806d93",
+  "generatedSource": "docs/art-rare-skins/generated/bianca.png",
+  "generatedSha256": "fd5bad007af1902b6151f290ee9d2ef7eb4fc62697db8730786f2a8f5ceb737f",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    31,
+    1238,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/bianca.png",
+  "sha256": "28c37fc6fe64823584898306aa1166948ae1ed0fc2fd119403c3938b04c663f1",
+  "processedPath": "docs/art-rare-skins/processed/bianca.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    71
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/bianca.png",
+  "originalDefaultSpriteSha256": "95040faa755c62423e66b4fc9d9bb516e0f0b3287bc3033b702c7574d5790ad8",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

@@ -1,0 +1,61 @@
+{
+  "id": "rio",
+  "name": "리오",
+  "skinNameKR": "3rd Anniversary 리오 Dolce",
+  "skinCode": 1031008,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3713?hl=ko-KR",
+  "releaseDate": "2026-07-23",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-bdf1608d-273d-43d1-9b5b-ace0fedd07f9.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/rio.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "dba981d4f56fb83f18d438e28e6311b3d53288801f62a274da92765e0afb7475"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/rio.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "58f81b371b93fe61fb97710e1423b4cda47fe41759054ce7755522eb9085cf83"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 리오 (rio).\nRare outfit: 3rd Anniversary 리오 Dolce.\nOutfit/weapon reference: Long pale silver-lilac hair, amber eyes and reserved gentle smile; asymmetrical white-gold formal anniversary dress, layered violet shoulder ruffle, purple back ribbon and a slender decorative bow.\nCharacter-specific face from the original: Quiet archer, STRAIGHT UPPER EYELIDS over gold-yellow eyes, level low brows, small almost flat closed mouth. White blunt bangs.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n\nSelected-skin priority: the selected skin image and its written appearance description override the default face note for hair style/color, eye color and accessories. Preserve distinctive expression and eye shape, but never add default glasses, hats or costume details absent from the selected skin.\n",
+  "promptSha256": "458438161523667f3b90236ff38cdc191a0d0655e93f56cae7770c83c7823b59",
+  "generatedSource": "docs/art-rare-skins/generated/rio.png",
+  "generatedSha256": "28bc3c5c8cc9e7da2c0534799a7b541259ac12a2c81271d9e492f405b240e146",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    29,
+    1226,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/rio.png",
+  "sha256": "aacf918c771a9cdc699e08b5493f1f41488514dd3ef12aaaa10224c6d94fc096",
+  "processedPath": "docs/art-rare-skins/processed/rio.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/rio.png",
+  "originalDefaultSpriteSha256": "8a1909b16cd5e8d6e23d6614083d078f558b2b083766097844d5cc199800560d",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

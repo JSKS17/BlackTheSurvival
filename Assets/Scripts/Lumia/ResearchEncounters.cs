@@ -573,6 +573,8 @@ namespace Lumia
                 O("다음 경호가 이어질 자세를 점검한다", "기존 기술의 빈틈을 함께 다듬는다.", "upgrade_card"),
                 O("경호를 교대하고 잠시 치료받는다", "세레스가 길을 지키는 동안 몸을 회복한다.", "heal", 18));
 
+            RareSkinStories.Configure(Events, Reports);
+            RareEncounterRules.Configure(Events);
             // Final card names/costs and ordinary reward details share the existing UI.
             EventPresentation.Configure(Events);
         }

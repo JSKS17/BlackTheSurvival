@@ -1,0 +1,61 @@
+{
+  "id": "katja",
+  "name": "카티야",
+  "skinNameKR": "카페 알바 카티야",
+  "skinCode": 1072003,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3127?hl=ko-KR",
+  "releaseDate": "2025-10-30",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12bb7-a630-78c0-bcde-8aa5311f9df8\\exec-ca992337-f980-44c7-8866-7b9d749e6b57.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/katja.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "eb8d47a9c386ae4d36371fabeb76cfc05f51da957768f6ba10714f9a054e1c56"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/katja.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "e656f8b867b96153a3270daa234abbe255c3b63f589b5f8c12907119613b9014"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 카티야 (katja).\nRare outfit: 카페 알바 카티야.\nOutfit/weapon reference: Silver-gray long side ponytail, large teal eyes and gentle smile; white blouse, black-green cafe waistcoat, green neck bow, green apron and small white dessert tray. Absolutely no glasses; no base sniper armor.\nCharacter-specific face from the original: Timid young sniper girl, large pale CYAN eyes with soft upper eyelids and worried inner brows, tiny hesitant parted lips. Gray hair with a tied long ponytail. Bare face: NO glasses, goggles, lenses or frames.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "e72c89fbc544a7c3173b99dcb9f7bd5c906ee4de819c3051b9f605b1a7788c33",
+  "generatedSource": "docs/art-rare-skins/generated/katja.png",
+  "generatedSha256": "6520a23390505904d133122606bb16a5604211359d080787ccf8870238e47500",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    25,
+    1214,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/katja.png",
+  "sha256": "c10959af6aa837e82c24a17c27a5a0a020e897e00dea77b59802612ecd5354e8",
+  "processedPath": "docs/art-rare-skins/processed/katja.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    71,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/katja.png",
+  "originalDefaultSpriteSha256": "f2ac4d9123af0ee04bd168e1326d02d6f6e055990b5b5f005819352f743eb897",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

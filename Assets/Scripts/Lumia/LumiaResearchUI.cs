@@ -27,7 +27,7 @@ namespace Lumia
             if (Btn(new Rect(1130, 59, 85, 32), "닫기", false, Muted)) { research = false; return; }
             string notice = !string.IsNullOrEmpty(researchStore.LoadError) ? "연구 기록 확인 필요: " + researchStore.LoadError
                 : pendingResearchRuns > 0 ? "미정산 원정 " + pendingResearchRuns + "건을 안전하게 보관 중입니다. 연구 기록을 다시 열거나 다음 실행 때 정산을 재시도합니다."
-                : "원정이 끝나면 기록이 축적됩니다. 완성한 보고서의 추가 조우는 다음 원정부터 등장합니다.";
+                : "원정이 끝나면 기록이 축적됩니다. 완성한 보고서의 레어 조우는 다음 원정부터 등장합니다.";
             FitText(new Rect(65, 100, 1149, 23), notice, 13, researchStore.IsReadOnly ? Pink : Muted);
             ResearchMetric(new Rect(64, 134, 274, 51), "관측 데이터", profile.data.ToString(), Gold);
             ResearchMetric(new Rect(352, 134, 274, 51), "종료한 원정", profile.totalRuns.ToString(), Mint);
@@ -67,9 +67,10 @@ namespace Lumia
             var profile = researchStore.Profile; var character = GameDatabase.Character(researchSubject) ?? GameDatabase.Characters[0];
             var definition = ResearchProgression.ForSubject(character.id); var tasks = ResearchProgression.Tasks(profile, character.id);
             bool complete = profile.completedReports.Contains(character.id), ready = tasks.All(task => task.completed);
-            Tex(new Rect(361, 201, 86, 88), PixelArt.Portrait(character.name), ScaleMode.ScaleToFit);
+            Tex(new Rect(361, 201, 86, 88), PixelArt.RarePortrait(character.id), ScaleMode.ScaleToFit);
             Txt(new Rect(465, 207, 726, 31), definition.title, 22, Mint);
-            Txt(new Rect(466, 246, 726, 24), complete ? "연구 보고서 완성 · 추가 조우 해금" : "연구 과제 " + tasks.Count(task => task.completed) + " / 3 달성", 14, complete ? Gold : Muted);
+            Txt(new Rect(466, 246, 726, 24), complete ? "연구 보고서 완성 · 레어 조우 해금" : "연구 과제 " + tasks.Count(task => task.completed) + " / 3 달성", 14, complete ? Gold : Muted);
+            FitText(new Rect(466, 271, 726, 19), "레어 조우 모습 · " + RareSkinCatalog.NameForSubject(character.id), 12, Gold);
             if (researchReadReport && complete)
             {
                 Box(new Rect(361, 300, 853, 322), Panel, Gold);
@@ -91,7 +92,7 @@ namespace Lumia
             Box(new Rect(361, 551, 853, 71), Panel, complete || ready ? Gold : Line);
             string status = complete ? "보고서를 완성했습니다." : ready ? "세 연구 과제를 달성했습니다." : "세 연구 과제를 달성하면 보고서를 완성할 수 있습니다.";
             Txt(new Rect(377, 561, 556, 23), status, 14, complete || ready ? Gold : Text);
-            Txt(new Rect(377, 589, 556, 20), complete ? "추가 조우가 다음 원정부터 등장합니다." : "완성 비용: 관측 데이터 " + ResearchProgression.ReportCost + (ready && profile.data < ResearchProgression.ReportCost ? " · 데이터가 부족합니다." : " · 보고서와 고유 추가 조우를 해금합니다."), 11, Muted);
+            Txt(new Rect(377, 589, 556, 20), complete ? "다음 원정부터 일반 후보의 12%가 레어 조우로 대체됩니다." : "완성 비용: 관측 데이터 " + ResearchProgression.ReportCost + (ready && profile.data < ResearchProgression.ReportCost ? " · 데이터가 부족합니다." : " · 보고서와 레어 조우를 해금합니다."), 11, Muted);
             if (complete)
             {
                 if (Btn(new Rect(944, 565, 253, 42), "연구 보고서 읽기", true, Gold)) researchReadReport = true;
@@ -293,7 +294,9 @@ namespace Lumia
                 throw new InvalidOperationException("A completed report must not charge its data a second time.");
             PrepareResearchUnlockedEncounter(79103);
             string encounterId = Engine.CurrentEncounter.id;
-            if (!Engine.ChooseEventOption(0) || !Engine.State.research.completedResearchEvents.Contains(encounterId))
+            int rareCredits = Engine.State.credits;
+            if (!Engine.ChooseEventOption(0) || !Engine.State.research.completedResearchEvents.Contains(encounterId)
+                || Engine.State.credits != rareCredits + RareEncounterRules.BonusCredits)
                 throw new InvalidOperationException("Choosing an unlocked research encounter option must persist its completion.");
             ResetResearchVerificationProfile(new ResearchProfile()); Engine = NewResearchVerificationRun(79104);
             for (int act = 1; act <= 3; act++) CompleteBossPathsBattle(act, 1);
@@ -469,6 +472,52 @@ namespace Lumia
                 if (reportHeight > 130.1f) throw new InvalidOperationException("Research report text does not fit: " + character.id + " / " + reportHeight);
             }
             Debug.Log("BTS RESEARCH LAYOUT PASS / measurements=" + measurements + " / taskMax=" + maxTask + " / reportMax=" + maxReport + " / nativeFont=PASS");
+            int rareMeasurements = 0, previewMeasurements = 0; float maxUnlock = 0, maxSkin = 0;
+            var unlockStyle = new GUIStyle(wrapped) { fontSize = 15 }; var skinStyle = new GUIStyle(wrapped) { fontSize = 12 };
+            var previewStyle = new GUIStyle(wrapped) { fontSize = 14 };
+            foreach (var character in GameDatabase.Characters)
+            {
+                string unlock = ResearchProgression.ForSubject(character.id).unlockText, skin = "레어 조우 모습 · " + RareSkinCatalog.NameForSubject(character.id);
+                font.RequestCharactersInTexture(unlock, 15, FontStyle.Normal); font.RequestCharactersInTexture(skin, 12, FontStyle.Normal);
+                float unlockHeight = unlockStyle.CalcHeight(new GUIContent(unlock), 812), skinHeight = skinStyle.CalcHeight(new GUIContent(skin), 726);
+                maxUnlock = Math.Max(maxUnlock, unlockHeight); maxSkin = Math.Max(maxSkin, skinHeight); rareMeasurements += 2;
+                if (unlockHeight > 46.1f || skinHeight > 19.1f) throw new InvalidOperationException("Rare report text does not fit: " + character.id + " / " + unlockHeight + " / " + skinHeight);
+                string preview = RareSkinStories.Preview(ResearchEncounters.EventForSubject(character.id).story);
+                font.RequestCharactersInTexture(preview, 14, FontStyle.Normal);
+                float previewHeight = previewStyle.CalcHeight(new GUIContent(preview), 337); previewMeasurements++;
+                if (previewHeight > 65.1f) throw new InvalidOperationException("Rare encounter preview needs scrolling: " + character.id + " / " + previewHeight);
+            }
+            Debug.Log("BTS RARE LAYOUT PASS / measurements=" + rareMeasurements + " / unlockMax=" + maxUnlock + " / skinMax=" + maxSkin + " / nativeFont=PASS");
+            Debug.Log("BTS RARE PREVIEW PASS / scenes=" + previewMeasurements + " / nativeFont=PASS");
+        }
+
+        public void VerificationRareContent()
+        {
+            if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") < 0) return;
+            int portraits = 0, skins = 0, choices = 0;
+            foreach (var character in GameDatabase.Characters)
+            {
+                if (string.IsNullOrWhiteSpace(RareSkinCatalog.NameForSubject(character.id))) throw new InvalidOperationException("Rare skin has no name: " + character.id);
+                skins++;
+                if (!PixelArt.HasRarePortrait(character.id)) throw new InvalidOperationException("Rare skin resource is missing: " + character.id);
+                var sprite = PixelArt.RarePortrait(character.id);
+                if (sprite == null || sprite.height != PixelArt.PortraitPixelHeight || sprite.filterMode != FilterMode.Point
+                    || ReferenceEquals(sprite, PixelArt.Portrait(character.id)) || !ReferenceEquals(sprite, PixelArt.RarePortrait(character.id)))
+                    throw new InvalidOperationException("Rare sprite size, point sampling, isolation, or cache failed: " + character.id);
+                portraits++;
+                var encounter = ResearchEncounters.EventForSubject(character.id);
+                if (encounter == null || encounter.options.Length != 3) throw new InvalidOperationException("Rare scene is missing: " + character.id);
+                foreach (var option in encounter.options)
+                {
+                    if (option.bonusCredits != RareEncounterRules.BonusCredits || !EventPresentation.RewardSummary(option).Contains("크레딧 30"))
+                        throw new InvalidOperationException("Rare scene bonus or description is missing: " + encounter.id);
+                    choices++;
+                }
+            }
+            const string missing = "__rare_portrait_missing_verification__";
+            if (PixelArt.HasRarePortrait(missing) || !ReferenceEquals(PixelArt.RarePortrait(missing), PixelArt.Portrait(missing)))
+                throw new InvalidOperationException("Missing rare sprite must fall back to the ordinary character portrait.");
+            Debug.Log("BTS RARE CONTENT PASS / portraits=" + portraits + " / skins=" + skins + " / choices=" + choices + " / logicalHeight=" + PixelArt.PortraitPixelHeight + " / fallback=PASS");
         }
 
         void VerificationResearchView(string view)

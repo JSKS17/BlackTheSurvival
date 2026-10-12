@@ -1,0 +1,61 @@
+{
+  "id": "hyunwoo",
+  "name": "현우",
+  "skinNameKR": "해변가 현우",
+  "skinCode": 1007006,
+  "customOutfit": false,
+  "sourceURL": "https://dak.gg/er/characters/Hyunwoo/introduction?hl=ko",
+  "releaseDate": null,
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-4c150a4e-b6d1-4f1a-9cea-fc43e9679815.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/hyunwoo.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "d1e16be8ac8c62a857566e00e9fa361ec8c607898164c0ebc432960d61ffdaf7"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/hyunwoo.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "aa8c1f02a3203d9271b582e3b267cd879952cd5b4c3d2005b4fe3a1f10a72bad"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 현우 (hyunwoo).\nRare outfit: 해변가 현우.\nOutfit/weapon reference: Spiky red-orange hair, warm amber eyes, open friendly but competitive expression; bare athletic torso, red drawstring swim shorts, goggles around neck, shell bracelet and wrapped fists.\nCharacter-specific face from the original: Hotheaded schoolboy, narrow orange-brown eyes, sharply inward-slanting THICK brows, clenched-tooth grimace, nose bandage.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin.\n\nSelected-skin priority: the selected skin image and its written appearance description override the default face note for hair style/color, eye color and accessories. Preserve distinctive expression and eye shape, but never add default glasses, hats or costume details absent from the selected skin.\n",
+  "promptSha256": "3503d55a011e53c0e32bd244e16716d49700e042851213de5394ff198821a978",
+  "generatedSource": "docs/art-rare-skins/generated/hyunwoo.png",
+  "generatedSha256": "8278192d01aa5ab0b2ef07f5bbbdbdffbd412b01067d298565e3a31e474d7335",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    37,
+    1232,
+    1208
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/hyunwoo.png",
+  "sha256": "954d39678b8eba0484ed2b43faf7645f1bc2eb0dd319cc503547a93aa6648d26",
+  "processedPath": "docs/art-rare-skins/processed/hyunwoo.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    68
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/hyunwoo.png",
+  "originalDefaultSpriteSha256": "8662dfcc7d77346ba424b17c81d8b2a471536518807751dc8c6bacfef30f1c98",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

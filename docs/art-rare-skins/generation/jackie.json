@@ -1,0 +1,61 @@
+{
+  "id": "jackie",
+  "name": "재키",
+  "skinNameKR": "고스트헌터 재키",
+  "skinCode": 1001005,
+  "customOutfit": false,
+  "sourceURL": "https://dak.gg/er/characters/Jackie/introduction?hl=ko",
+  "releaseDate": null,
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-eeeae2cc-0b63-47f1-a429-0356ae09f666.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/jackie.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "49a634d121e89dce5e64a2a1e0dd0fb1033714815d38780a694cb0e49cae0cc6"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/jackie.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "e824b259ba120803084f5004fd6b0265b10fb4a5f7aad9da7abbf19c8fd336d2"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 재키 (jackie).\nRare outfit: 고스트헌터 재키.\nOutfit/weapon reference: Use the supplied official full-body skin illustration to preserve this skin's actual hair, distinctive face, costume palette, garment silhouette and signature prop; do not inherit the character's base outfit or another subject's accessories.\nCharacter-specific face from the original: Mischievous young woman, SHARP UPSWEPT red eyes, pointed outer corners, fiercely angled brows, wide asymmetric TOOTHY GRIN. Spiky white hair, dark crisscross choker.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin.\nSelected-skin priority: lavender-white layered hair, red slanted eyes and toothy grin, black choker and black/white hunter costume with pale-lavender accents; a blue-purple patterned large ghost-hunting blade. These skin details override the base red axe and base brown clothes.\n",
+  "promptSha256": "f712d38c7418e92611cffd3fe73c35ee77842b67bef9fe501efcb3f6bd0b255c",
+  "generatedSource": "docs/art-rare-skins/generated/jackie.png",
+  "generatedSha256": "ee24ed2ae5fa7cd1d46c65c7a64d093ecc4f52d01d4d1907b3717d1c6f23bc8b",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    32,
+    1222,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/jackie.png",
+  "sha256": "5e24355aa981af30db771b742a6d10e134a86f595de55835dcd0378ad1898a71",
+  "processedPath": "docs/art-rare-skins/processed/jackie.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/jackie.png",
+  "originalDefaultSpriteSha256": "68c67ef55e18f86b53abff526235bcfa98fafd6992530c5580bf107f256bb79d",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

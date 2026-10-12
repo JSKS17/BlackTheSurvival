@@ -1,0 +1,61 @@
+{
+  "id": "alonso",
+  "name": "알론소",
+  "skinNameKR": "지옥의 선봉장 알론소",
+  "skinCode": 1068002,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/2381?hl=ko-KR",
+  "releaseDate": "2024-12-12",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12bb7-a630-78c0-bcde-8aa5311f9df8\\exec-14ebd6c0-7a07-4faf-973b-198f3f3fd7c1.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/alonso.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "5b3670d3d602d91a4e136ebf3bb93662090a22db95c5b1b73fb4b77b2f0c6fd4"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/alonso.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "c711eaa763f96312711186a10e3f00bfd8cd6643cfd5ef8283be1f0fb586698b"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 알론소 (alonso).\nRare outfit: 지옥의 선봉장 알론소.\nOutfit/weapon reference: Huge flame-orange mane, dark red-black demonic armor, glowing amber eyes behind horned red demon mask, dark angular shoulder plates and small smoldering fists. Broad intimidating chibi silhouette.\nCharacter-specific face from the original: Masked magnetic brawler, keep BLACK mechanical FULL FACE MASK with TWO narrow glowing GOLD eye slits and angular vented jaw. Do not invent exposed human doll eyes or mouth. Huge wild sandy mane.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "4bcbc9e3d87f101b67a5a44329c780d01be789f499f46742afb90e93431266c2",
+  "generatedSource": "docs/art-rare-skins/generated/alonso.png",
+  "generatedSha256": "8955c78d40269e9768620585eb1945ad629ceb5371b8a7034ef21e42c964c835",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    9,
+    1242,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/alonso.png",
+  "sha256": "ec925c077b9959a0cbf355118dfe07e41cdfe8a2febaf47b553e7a395c61facc",
+  "processedPath": "docs/art-rare-skins/processed/alonso.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/alonso.png",
+  "originalDefaultSpriteSha256": "8473ef9cfebfaeb54c705794d1deaccd1c50889eb8b48c1a2780fdeb83b0c60e",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

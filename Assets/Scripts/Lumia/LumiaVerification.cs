@@ -81,6 +81,7 @@ namespace Lumia
             if (researchOnly)
             {
                 LumiaGame.Instance.VerificationResearchFlows();
+                LumiaGame.Instance.VerificationRareContent();
                 views = new[] { "research_lobby", "research_empty", "research_progress", "research_ready", "research_insufficient", "research_completed", "research_report", "research_ending_lost", "research_ending_won", "research_encounter" };
             }
             foreach (string view in views)

@@ -1,0 +1,61 @@
+{
+  "id": "jenny",
+  "name": "제니",
+  "skinNameKR": "꿈꾸는 백수 제니",
+  "skinCode": 1038004,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
+  "releaseDate": "2026-05-14",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-c5171918-60f0-419a-8179-ee3c47cdfb5e.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/jenny.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "55480f6da0c6238731b9dea5d35055f3aff73642aab4ba798feb973b078d43a4"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/jenny.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "bd1a6bfbff7768e1684697692b89fc1f3dc8db69fba69855477353e1a01f1592"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 제니 (jenny).\nRare outfit: 꿈꾸는 백수 제니.\nOutfit/weapon reference: Blond messy bun, half-lidded pink eyes, pink spectacles and purple sleeping mask pushed up; oversized white cropped sweatshirt, purple drawstring shorts, slippers, small toy/controller. Relaxed sleepy homewear.\nCharacter-specific face from the original: Glamorous blonde actress, narrow RED-AMBER sultry eyes with heavy long lashes, arched raised brows, confident tiny catlike smile. Red sunglasses perched on head.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "8b2ddce8a78aa2f69c3cc9aba276e73f78d90fcf6883abe9b7e31cac76fd553d",
+  "generatedSource": "docs/art-rare-skins/generated/jenny.png",
+  "generatedSha256": "b942436798ff587f3d68f7d4ed054c156d0dab98406e63645cc587107492cfa6",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    21,
+    1226,
+    1236
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/jenny.png",
+  "sha256": "5db8c47bf0436703fa8b31d5f6776835d53fd13f03fbf408489051acb8442ce2",
+  "processedPath": "docs/art-rare-skins/processed/jenny.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    71
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/jenny.png",
+  "originalDefaultSpriteSha256": "55beb6b7c2957608f3bc5a7bff72af08f409c181d13d21a802121c850118a3d6",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

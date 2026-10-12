@@ -911,10 +911,13 @@ namespace Lumia
                 for (int i = 0; i < offers.Length; i++)
                 {
                     var e = offers[i]; Rect r = new Rect(36 + i * 410, 183, 387, 402);
-                    Box(r, Panel, Line); Tex(new Rect(r.x + 94, r.y + 22, 200, 187), PixelArt.Portrait(e.owner), ScaleMode.ScaleToFit);
-                    Txt(new Rect(r.x + 20, r.y + 224, 347, 24), e.owner + (e.chainOnly ? "  ·  약속한 재회" : ""), 14, Mint, true);
+                    string rareSubject = ResearchEncounters.SubjectForEvent(e.id);
+                    bool rare = rareSubject != null;
+                    Box(r, Panel, rare ? Gold : Line); Tex(new Rect(r.x + 94, r.y + 22, 200, 187), rare ? PixelArt.RarePortrait(rareSubject) : PixelArt.Portrait(e.owner), ScaleMode.ScaleToFit);
+                    Txt(new Rect(r.x + 20, r.y + 224, 347, 24), e.owner + (rare ? "  ·  레어 조우" : e.chainOnly ? "  ·  약속한 재회" : ""), 14, rare ? Gold : Mint, true);
+                    if (rare) FitText(new Rect(r.x + 20, r.y + 247, 347, 17), RareSkinCatalog.NameForSubject(rareSubject), 11, Gold);
                     Txt(new Rect(r.x + 20, r.y + 264, 347, 32), e.title, 20, Text, true);
-                    FitText(new Rect(r.x + 25, r.y + 313, 337, 65), e.story, 14, Muted);
+                    FitText(new Rect(r.x + 25, r.y + 313, 337, 65), rare ? RareSkinStories.Preview(e.story) : e.story, 14, Muted);
                     if (Hit(r)) { encounterStoryScroll=Vector2.zero;Act(() => Engine.SelectEncounter(e.id)); return; }
                 }
             }
@@ -922,8 +925,11 @@ namespace Lumia
             {
                 var e = Engine.CurrentEncounter;
                 if (e == null) return;
-                Tex(new Rect(40, 146, 324, 392), PixelArt.Portrait(e.owner), ScaleMode.ScaleToFit);
-                Txt(new Rect(403, 124, 830, 32), e.owner + "  /  " + e.title, 25, Mint);
+                string rareSubject = ResearchEncounters.SubjectForEvent(e.id);
+                bool rare = rareSubject != null;
+                Tex(new Rect(40, 146, 324, 392), rare ? PixelArt.RarePortrait(rareSubject) : PixelArt.Portrait(e.owner), ScaleMode.ScaleToFit);
+                Txt(new Rect(403, 124, 830, 32), e.owner + "  /  " + e.title, 25, rare ? Gold : Mint);
+                if (rare) FitText(new Rect(403, 157, 825, 19), "레어 조우 · " + RareSkinCatalog.NameForSubject(rareSubject) + " · 모든 선택에 크레딧 +" + RareEncounterRules.BonusCredits, 12, Gold);
                 wrapped.fontSize=18;float storyHeight=Math.Max(104,wrapped.CalcHeight(new GUIContent(e.story),801)+10);
                 encounterStoryScroll=GUI.BeginScrollView(new Rect(403,178,825,112),encounterStoryScroll,new Rect(0,0,801,storyHeight));
                 Para(new Rect(0,0,801,storyHeight),e.story,18,Text);GUI.EndScrollView();
@@ -941,7 +947,7 @@ namespace Lumia
                     if(reward!=null && string.IsNullOrEmpty(option.followupId))
                     {
                         string price=option.effect=="trade_card"?"크레딧 "+option.amount+" 지불 · ":option.effect=="risky_card"?"체력 "+option.amount+" 소모 · ":"";
-                        Para(new Rect(r.x+19,r.y+76,r.width-116,28),price+"획득 / "+EventPresentation.RewardTitle(option),11,Mint);
+                        Para(new Rect(r.x+19,r.y+76,r.width-116,28),price+"획득 / "+EventPresentation.RewardTitle(option)+RareEncounterRules.BonusSummary(option),11,Mint);
                         Rect cardIcon=new Rect(r.xMax-76,r.y+10,58,58);
                         Tex(cardIcon,PixelArt.SkillIcon(reward.id),ScaleMode.ScaleToFit);
                         Txt(new Rect(r.xMax-90,r.y+76,84,20),"카드 보기 +",10,Mint,true);

@@ -1,0 +1,61 @@
+{
+  "id": "silvia",
+  "name": "실비아",
+  "skinNameKR": "퀸 실비아",
+  "skinCode": 1016005,
+  "customOutfit": false,
+  "sourceURL": "https://dak.gg/er/characters/Silvia/introduction?hl=ko",
+  "releaseDate": null,
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-05032592-3f13-40d6-bf1c-7b54f3076cf4.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/silvia.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "a064e67d0485d5e73db1c51009d2bf1d019c22dbba9b7566bcfa3fbea2986bba"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/silvia.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "b5d2d60fd4e8c81162147004ed9fd7561c68cfc2deb89db4df6da2c68cd1c7d6"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 실비아 (silvia).\nRare outfit: 퀸 실비아.\nOutfit/weapon reference: Short black hair with braided headband, sharp red eyes; fitted black armored phantom-thief motorcycle suit, white gloves and compact black-blue motorcycle or helmet. No base blue hair or white-blue biker jacket.\nCharacter-specific face from the original: Energetic biker girl, bright BLUE wide almond eyes with bold upper lids, cocky raised outer eyebrows, cheerful closed grin. Short dark blue hair.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "a3636ec8aa9bcbdf4c344bfb45d1119ebf6c745b7c49d0b2f7f4313149c34224",
+  "generatedSource": "docs/art-rare-skins/generated/silvia.png",
+  "generatedSha256": "5cbccf6f80776f0afb62d883d7ed6ea05ed70ab70a8e681b82dbca086688bf35",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    0,
+    1242,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/silvia.png",
+  "sha256": "362b2fff6280f96241b625f21ae93e62424035d1040bb80c77d2a2751150ef8c",
+  "processedPath": "docs/art-rare-skins/processed/silvia.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    71,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/silvia.png",
+  "originalDefaultSpriteSha256": "a48808f99d8e0cc9fbfcf49b08e8442423400030bca5dd41734139ad9733ed3d",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

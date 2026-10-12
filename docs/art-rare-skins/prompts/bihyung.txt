@@ -1,0 +1,16 @@
+Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.
+Draw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.
+Keep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.
+One full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.
+The user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.
+
+Input references, in this exact order:
+Image 1: official selected skin appearance reference.
+Image 2: official default identity reference; face and identity only, not outfit.
+Image 3: style guidance only; user-provided fan art, not copied or redistributed.
+
+Character: 비형 (bihyung).
+Rare outfit: 청춘, 한 컷 비형.
+Outfit/weapon reference: Long black high ponytail with bright teal streaks, golden eyes, bright red cheek dots and joyful open smile; cropped pale denim jacket, fitted white tee, denim shorts and tiny compact pink camera or hammer charm. Absolutely no glasses; retain youthful energetic face.
+Character-specific face from the original: Playful dark-haired woman, bright GOLDEN eyes with an energetic upturned shape, lifted eyebrow and wide open delighted smile. Long aqua-black hair and colorful ghost-themed outfit. Small red marks sit below the eyes on the cheeks. NO glasses, lenses, frames or bridge across the nose.
+Recreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.

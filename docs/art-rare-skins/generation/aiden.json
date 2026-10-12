@@ -1,0 +1,61 @@
+{
+  "id": "aiden",
+  "name": "에이든",
+  "skinNameKR": "카이 에이든",
+  "skinCode": 1046004,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3242?hl=ko-KR",
+  "releaseDate": "2025-12-23",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-239144d6-b00e-4801-b36b-b8ff66adcdbe.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/aiden.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "050ab19da690af822a6814c2a7db0e4f49682855752bbc14a49b41fd9c6d6c47"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/aiden.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "421e2c6222414929341b7c800723def70a0430d133b10fc22ddca14520acd413"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 에이든 (aiden).\nRare outfit: 카이 에이든.\nOutfit/weapon reference: Short light blond hair, serious blue eyes; white long military coat with cobalt blue cross motifs, blue fingerless gloves, brown belt and silver sword. Preserve Ky collaboration white-blue silhouette.\nCharacter-specific face from the original: Stoic pale young swordsman, narrow RED almond eyes, sharply lowered brows, firm flat closed mouth. White swept hair; no cute happy smile.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "2c9f8247cb2f0b2485709d0c7750a36e8e66e103e54580971a8225cd602fa9c6",
+  "generatedSource": "docs/art-rare-skins/generated/aiden.png",
+  "generatedSha256": "8fbd9b4615d2a78d83b5b228834b63e7770fe6a2ac1ade58ef1b12a2189a348e",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    17,
+    21,
+    1240,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/aiden.png",
+  "sha256": "0ea3fa8dcd9b328c637c93fe651a677071a4d1d917b672c9d9f754c06dcaabc4",
+  "processedPath": "docs/art-rare-skins/processed/aiden.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    71,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/aiden.png",
+  "originalDefaultSpriteSha256": "70bc1e4043aa73fd74c5d92eb5da8af2ec18a84b26e149b22b02279be17b4a9b",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

@@ -301,7 +301,7 @@ namespace Lumia
         {
             var character = GameDatabase.Character(subjectId); if (character == null) return null;
             return new ResearchSubjectDef { subjectId = subjectId, title = character.name + " 연구 보고서", reportText = ResearchEncounters.ReportText(subjectId) + "\n관측과 기술 활용, 고유 실험을 기록했습니다. " + ExperimentFor(subjectId).description,
-                unlockText = character.name + "의 추가 실험체 조우가 새 원정의 후보에 포함됩니다. 기존 카드와 실험체는 그대로 사용할 수 있습니다.", tasks = Tasks(null, subjectId) };
+                unlockText = "‘" + RareSkinCatalog.NameForSubject(subjectId) + "’ 레어 조우를 해금합니다. 새 원정에서 이 실험체의 일반 조우 후보가 " + GameEngine.RareOfferChance + "% 확률로 대체되며, 한 원정에서 한 번만 완료할 수 있습니다.", tasks = Tasks(null, subjectId) };
         }
         public static ResearchTaskView[] Tasks(ResearchProfile profile, string subjectId)
         {

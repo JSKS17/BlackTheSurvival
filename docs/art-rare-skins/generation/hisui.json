@@ -1,0 +1,61 @@
+{
+  "id": "hisui",
+  "name": "히스이",
+  "skinNameKR": "고스트헌터 히스이",
+  "skinCode": 1078002,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/3163?hl=ko-KR",
+  "releaseDate": "2025-11-13",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12bb7-a630-78c0-bcde-8aa5311f9df8\\exec-21373fd7-bca0-4e60-97b5-640e192930ab.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/hisui.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "1eb82e1b422c0916fca274a03c76ae2ea44a0328ae6943fc44b23af7227dc83d"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/hisui.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "8909ee7a77edd631fc37004e6ddd80f40161ecc002f8d6d93e2b47de64c43b47"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 히스이 (hisui).\nRare outfit: 고스트헌터 히스이.\nOutfit/weapon reference: Dark teal high ponytail, sharp cyan-blue eyes framed by reddish upper eyelids and toothy grin; black-cyan ghost-hunter tactical costume, silver shoulder and arm armor, black belt with gold rivets and compact cyan-white katana.\nCharacter-specific face from the original: Wild energetic woman, slanted reddish amber eyes, strongly tilted enthusiastic eyebrows, VERY WIDE OPEN toothy roar/smile showing pointed canine. Teal twin tails.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "afe008770bac3d7c9bef5911888b07dcc2f12306516a78fca47cb2cff0af7e1b",
+  "generatedSource": "docs/art-rare-skins/generated/hisui.png",
+  "generatedSha256": "54b1646e53ade2fda5647ac4fadd33c4b23e497af694f2397cf67b0d99fcba8c",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    21,
+    1220,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/hisui.png",
+  "sha256": "a6180611b45f2588d94497acf395daa7c2a4970ef83f03c4aa0efeb3625a280e",
+  "processedPath": "docs/art-rare-skins/processed/hisui.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    71,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/hisui.png",
+  "originalDefaultSpriteSha256": "d7005b9af8e94bb1febea480cefa51d5fec08e5a9d8148c37035955206d4f580",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

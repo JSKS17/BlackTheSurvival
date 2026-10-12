@@ -1,0 +1,61 @@
+{
+  "id": "lenox",
+  "name": "레녹스",
+  "skinNameKR": "심연의 마왕 레녹스",
+  "skinCode": 1020005,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/2381?hl=ko-KR",
+  "releaseDate": "2024-12-12",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-0eb35e40-9fbb-405c-9d25-0de7f134d406.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/lenox.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "efcc848bf0ad408870369101858b7d0f5540d6a29822ef70c72e5001c95b03e2"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/lenox.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "ecb773b6b8a82eb4ecf8429ef7e0ffb0de4e5093cdee336d3cd6e77a89235fc3"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 레녹스 (lenox).\nRare outfit: 심연의 마왕 레녹스.\nOutfit/weapon reference: Long vivid green hair, narrow violet eyes and teasing grin; black branching demon horns, black thorned armor with green accents, ragged dark cape and compact demonic whip. No base business jacket.\nCharacter-specific face from the original: Confident short-haired woman, sharp CYAN almond eyes, lively thick angular brows, open casual grin. Green short hair and ear piercings.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n\nSelected-skin priority: the selected skin image and its written appearance description override the default face note for hair style/color, eye color and accessories. Preserve distinctive expression and eye shape, but never add default glasses, hats or costume details absent from the selected skin.\n",
+  "promptSha256": "c2ac5c65c52845e2810be6527d4e3da573b05c26daa18effb678950dc5bc85d2",
+  "generatedSource": "docs/art-rare-skins/generated/lenox.png",
+  "generatedSha256": "2aed71d42313504d354400254e9ddb22edc0a0d3ad82bcf0d5e301bdebe9b95e",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    28,
+    1238,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/lenox.png",
+  "sha256": "dd0504961af62af1de263b232e23914e2e961355a5daeb8d1a53d02e029ce28f",
+  "processedPath": "docs/art-rare-skins/processed/lenox.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    71
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/lenox.png",
+  "originalDefaultSpriteSha256": "4c6453e215e88a41219f40e701cb5e332a10cf2128862e860b68556513b8c1d2",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

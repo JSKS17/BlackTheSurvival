@@ -1,0 +1,61 @@
+{
+  "id": "coraline",
+  "name": "코렐라인",
+  "skinNameKR": "설렘 가득 코렐라인",
+  "skinCode": 1087001,
+  "customOutfit": false,
+  "sourceURL": "https://event.playeternalreturn.com/S11/PetitMignon/Teasing?hl=ko-KR",
+  "releaseDate": "2026-06-25",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12bb7-a630-78c0-bcde-8aa5311f9df8\\exec-3396135f-69f0-4dc6-b931-cce45ae2a325.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/coraline.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "2aa8d5e8421dc7317a07dcc24dfb827d8bef64976622118ffa826f20b051e904"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/coraline.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "652456e8605908220b4970aa8e27606b253b4b96e5f4501d7db5b76f36fa93a5"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 코렐라인 (coraline).\nRare outfit: 설렘 가득 코렐라인.\nOutfit/weapon reference: Half pink and half dark gray-black long hair, violet eyes; pink checked cropped jacket, white blouse with black bow, pink skirt with black-gold chains and small gold-pink compact mirror. Sweet date-ready style.\nCharacter-specific face from the original: Unsettling monochrome woman, one magenta PINK eye and one VIOLET eye, widely rounded lower lids but sharp upper lids, high arched brows and small knowing closed smile. Half WHITE half BLACK hair. Preserve asymmetry.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n\nTransparency requirement: The surrounding canvas must be fully transparent (alpha 0), while all interior character colors, face, hair, clothing, mirror and outline are fully opaque (alpha 255). Do not render the sprite as a translucent ghost or reduce its overall opacity. Crisp opaque pixel-art subject on empty transparent canvas.\n\nAnatomy and pose constraint: Exactly TWO arms and TWO hands total. The hand on viewer-left lightly touches her cheek. The single hand on viewer-right holds the small mirror beside her waist. No other arm, extra hand, extra wrist or duplicate mirror. Show clear compact chibi anatomy.\n",
+  "promptSha256": "67012e86d3432758f22c8450d09967ce4d53ccafd528cd6b0487cf2b74680657",
+  "generatedSource": "docs/art-rare-skins/generated/coraline.png",
+  "generatedSha256": "1eb786b914a53d99b193d67bf602a87764d6e98b64c1873fdf973fc1a1b6c0b0",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    27,
+    33,
+    1232,
+    1230
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/coraline.png",
+  "sha256": "e3610fc9e0fd246bc71c57f45156b9577f5fd89c9a49780425cebc55af54477e",
+  "processedPath": "docs/art-rare-skins/processed/coraline.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/coraline.png",
+  "originalDefaultSpriteSha256": "406dd1b6f6f7a884634ed42261a815c4f9a9b6a73ce2352e798ff3ee7498fe78",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}

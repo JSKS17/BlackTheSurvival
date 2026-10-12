@@ -1,0 +1,61 @@
+{
+  "id": "adina",
+  "name": "아디나",
+  "skinNameKR": "해변의 점성술사 아디나",
+  "skinCode": 1052003,
+  "customOutfit": false,
+  "sourceURL": "https://playeternalreturn.com/posts/news/2852?hl=ko-KR",
+  "releaseDate": "2025-07-17",
+  "tool": "builtin image_gen",
+  "toolOutputPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a12f59-f6db-7452-924b-954f8a4c431a\\exec-7bbf745a-39ac-4b5b-825f-63f4dfd51025.png",
+  "transparentBackgroundRequested": true,
+  "inputReferences": [
+    {
+      "path": "docs/art-rare-skins/references/adina.png",
+      "role": "official selected skin appearance reference",
+      "sha256": "47d3c45f9399aeb687e984aec22245146c2e8e50b12808bab6f00dc0fa3398d2"
+    },
+    {
+      "path": "docs/art-chibi/references/subjects/adina.png",
+      "role": "official default identity reference; face and identity only, not outfit",
+      "sha256": "9201818d34b03746fee6bb0717f51572ef24514913b212dbb55ed6c7482a5028"
+    },
+    {
+      "path": "Temp/ReferenceChibi/style-reference.png",
+      "role": "style guidance only; user-provided fan art, not copied or redistributed",
+      "sha256": "51ba47341b7159a8c4750c65df49efc882398bab878645fa43b503be155639db"
+    }
+  ],
+  "styleReferenceCopied": false,
+  "prompt": "Use case: stylized-concept. Asset type: one NEW transparent pixel-art rare-encounter character sprite for Black The Survival.\nDraw a fresh original sprite, matching the game's compact cute chibi style: 2.1 to 2.3 heads tall, head about 43-47 percent of full height, broad rounded head, tiny compact torso, very short legs and small hands. Muted material colors, crisp dark-purple/brown one-pixel contours, selective colored interior outlines, deliberate square pixel clusters, about three flat shades per material and restrained highlights. Design for an 80 x 80 logical grid, with the entire character and prop fitting within about 72 x 72 pixels.\nKeep each character's own recognizable face: readable distinct upper eyelids and 4-6-pixel irises, eyebrows, small mouth, restrained cheeks. Preserve character-specific eye shapes, age, facial hair, glasses and expression rather than repeating a generic face.\nOne full-body character only, three-quarter front view facing slightly right, a newly drawn balanced idle/battle-ready pose. Entire feet and signature prop visible, transparent padding on all sides. Square composition with a genuinely transparent background. No text, label, watermark, signature, scenery, floor, shadow, glow cloud, UI, frame, sprite sheet or additional characters. No smooth painting, anti-aliasing, gradients, 3D, realistic anatomy, long-legged body or weapon obscuring the face.\nThe user-provided Rio fan sprite is STYLE GUIDANCE ONLY: study compact proportions and pixel clustering, never trace its pixels, copy its pose, reproduce its sprite, watermark, bow or clothes. It must not become part of any shipped asset.\n\nInput references, in this exact order:\nImage 1: official selected skin appearance reference.\nImage 2: official default identity reference; face and identity only, not outfit.\nImage 3: style guidance only; user-provided fan art, not copied or redistributed.\n\nCharacter: 아디나 (adina).\nRare outfit: 해변의 점성술사 아디나.\nOutfit/weapon reference: Long silver hair in high side ponytail, bright blue eyes; white-blue floral swimsuit with sheer pale shoulder wrap and blue waist sash, white-lilac flower hairpin, few small blue tarot stars.\nCharacter-specific face from the original: Dreamy astrologer, large BLUE rounded eyes, gentle downward curved lashes, slightly lifted inner eyebrows, tiny parted calm lips. Star-trimmed blue hood.\nRecreate the selected skin's visible costume, color placements, hairstyle, accessories and weapon silhouette; the default reference must not override the skin outfit. Do not invent sunglasses, hats or props absent from the selected skin. Selected skin appearance and its written description override the default face note for hair style/color, eye color and accessories. Keep character-specific expression/eye shape, but do not add default glasses/hats absent from the selected skin.\n",
+  "promptSha256": "5e80e252b9e443926df34547d979cbd8bb92584f1e932a97fde88a55b73a9467",
+  "generatedSource": "docs/art-rare-skins/generated/adina.png",
+  "generatedSha256": "ece896f8e659bde5432abb7a7a33364a19dccd21ba516523c56c06e20ddb93be",
+  "generatedSize": [
+    1254,
+    1254
+  ],
+  "alphaCropBox": [
+    0,
+    29,
+    1224,
+    1254
+  ],
+  "path": "Assets/Resources/Lumia/PortraitsRare/adina.png",
+  "sha256": "604631a642d6d94d649a97de779b64c773890b88f3fed90e4effc11b32187a89",
+  "processedPath": "docs/art-rare-skins/processed/adina.png",
+  "width": 160,
+  "height": 160,
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "resizedSize": [
+    72,
+    72
+  ],
+  "integerPixelScale": 2,
+  "originalDefaultSprite": "Assets/Resources/Lumia/PortraitsReference/adina.png",
+  "originalDefaultSpriteSha256": "a23956dc8be51b57537f4128f60542c7a541d0c1bb629691797e9689bb7a9a71",
+  "processing": "Original generated alpha preserved; alpha crop, nearest resize to fit 72px, transparent 80px padding, exact 2x nearest enlargement only."
+}
