@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "uiScreens": 10,
+  "runtimeErrors": 0,
+  "coreScenarios": 81,
+  "coreAssertions": 80382,
+  "flow": "BTS RESEARCH FLOW PASS / subjects=91 / actualTasks=3 / loss=PASS / escape=PASS / duplicateReload=PASS / reportCost=12 / snapshot=PASS / encounter=PASS / legacy=PASS / isolatedSave=PASS / readOnly=PASS / pending=PASS",
+  "fontLayout": "BTS RESEARCH LAYOUT PASS / measurements=364 / taskMax=32.51 / reportMax=110.51 / nativeFont=PASS",
+  "personalRunAndResearchPreserved": true,
+  "screens": [
+    {
+      "file": "native-ui/research_lobby.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/research_empty.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/research_progress.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/research_ready.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/research_insufficient.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/research_completed.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/research_report.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/research_ending_lost.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/research_ending_won.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    },
+    {
+      "file": "native-ui/research_encounter.png",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "nonblank": true
+    }
+  ]
+}

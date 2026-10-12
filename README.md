@@ -4,10 +4,16 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.18](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.18)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.19](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.19)에 있습니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
 - 완성된 Windows 빌드가 있으면 `Build/Windows/BlackTheSurvival.exe`를 실행하세요. 같은 폴더의 `BlackTheSurvival_Data`, `MonoBleedingEdge`, `UnityPlayer.dll`도 함께 있어야 합니다.
+
+## 원정 사이에 남는 연구 기록
+
+승리·패배 후 완료한 구역과 전투, 보스 처치·공략, 탈출, 새로운 관측·과제·교차 연계를 **관측 데이터**로 정산합니다. 로비의 **연구 기록**에서 91명의 관측·Q/W/E/R 기술 연구·고유 실험 진척을 확인합니다. 과제 세 개를 달성하고 데이터 12로 보고서를 완성하면 실험체별 새 조우를 해금합니다. 추가 조우는 다음 원정부터 등장하며 기존 약속 후속 조우의 우선권을 유지합니다. 시작 준비 단계의 선택은 늘어나지 않습니다.
+
+연구 프로필은 `bts-research-v1.json`에 원정과 별도로 저장합니다. 새 게임으로 원정 기록을 바꾸어도 연구는 남으며, 같은 종료 기록을 불러와도 보상은 한 번만 받습니다. [연구 규칙과 보상](docs/RESEARCH_PROGRESSION.md), [실제 검증 기록](docs/validation-research/README.md)을 참고하세요.
 - Unity 메뉴 **Black The Survival → Build Windows game**으로 다시 빌드할 수 있습니다.
 
 ## 플레이
@@ -45,7 +51,7 @@
 | 카드 | 392장: Q/W/E/R 364장, 기본 2장, 무기 23장, 전술 3장. 모든 미리보기의 공통 요약과 상세 창의 요약·전체 설명 전환 |
 | 전투 실험체 | 91명. 기본 공격·방어, 자기 Q/W/E/R·무기군 D·무작위 F·자기 패시브. 레벨 8부터 장비, 후반·보스는 최대 5부위 |
 | 보스 | 1·2막 경로별 다른 보스·3막 니아, ACT별 상·중·하 미리보기. 91명 고유 공략·2페이즈, 니아 3페이즈. 대응 11종·특수 행동·위반 표시 |
-| 실험체 이벤트 | 기본 조우 91종 + 약속으로 열리는 후속 조우 8종, 각각 행동 3개로 총 297개 행동. 캐릭터별 상황·비용·보상·다음 만남을 표시하며 고정 카드는 이름·슬롯·코스트와 상세 미리보기 제공 |
+| 실험체 이벤트 | 기본 조우 91종 + 약속으로 열리는 후속 조우 8종 + 연구 보고서로 열리는 추가 조우 91종, 각각 행동 3개로 총 570개 행동. 캐릭터별 상황·비용·보상·다음 만남을 표시하며 고정 카드는 이름·슬롯·코스트와 상세 미리보기 제공 |
 | 패시브 | 실험체 91명의 패시브. 최대 3개, 보스 보상에서 획득·교체·포기. 주인 스킬의 무작위 등장 가중치 1.5배 |
 | 룬 | 메인 8개, 보조 8개. 같은 계열 선택, 특정 이벤트에서만 변경 |
 | 장비 | 전설·초월 51개. 무기·옷·머리·팔/장식·다리 각각 2개까지 착용. 치명타 관련 장비와 10종 옵션 태그 검색 |
@@ -88,7 +94,7 @@ Q/W/E/R 364종은 실험체별 스택·표식·설치물·소환·지연 공격�
 
 ## 저장과 설정
 
-Unity의 `Application.persistentDataPath` 아래 `lumia-vf-loop-v1.json`에 저장하며 이전 파일은 `.bak`으로 남깁니다. 설정은 Unity `PlayerPrefs`에 저장됩니다. 새 게임을 시작하면 활성 저장 슬롯을 교체합니다. 자동 화면 검증은 `lumia-verification.json`이라는 별도의 슬롯을 사용합니다.
+Unity의 `Application.persistentDataPath` 아래 `lumia-vf-loop-v1.json`에 원자적으로 저장하며 이전 정상 파일은 `.bak`으로 남깁니다. 연구는 별도 `bts-research-v1.json`에 누적됩니다. 정산에 실패한 종료 기록은 새 게임으로 저장을 바꾸기 전에 별도로 보관하고 다시 지급을 시도합니다. 설정은 Unity `PlayerPrefs`에 저장됩니다. 새 게임을 시작하면 활성 원정 슬롯을 교체합니다. 자동 화면 검증은 `lumia-verification.json`과 별도 검증용 연구 프로필을 사용합니다.
 
 게임 이름 변경 후 새 제품 폴더에 기록이 없으면 이전 **Lumia VF Loop**의 저장·백업을 자동으로 가져옵니다. 음량·효과음·모션 설정도 새 설정이 없으면 가져옵니다. 기존 새 이름의 기록을 덮어쓰거나 이전 파일을 삭제하지 않습니다.
 
@@ -108,6 +114,7 @@ Unity의 `Application.persistentDataPath` 아래 `lumia-vf-loop-v1.json`에 저�
 - `TraitMechanics.cs`, `TraitPresentation.cs`, `PassiveIdentityCore/Classic/Recent.cs`, `RuneIdentityCore.cs`: 주인의 카드 없이 작동하는 패시브 91종과 발동 조건·지속·상한이 있는 룬 16종, 전체 문장형 설명.
 - `StatusIdentity.cs`, `StatusMechanics.cs`: 원본 기술별 상태·조건·지연 발동과 턴제 행동 제한·코스트·명중·회복 보정.
 - `EventIdentity.cs`, `EncounterChains.cs`, `EventPresentation.cs`: 기본 조우 91종·후속 조우 8종·총 297개 행동과 고정 보상·거래 대가·약속 표시.
+- `ResearchProgression.cs`, `ResearchStore.cs`, `ResearchEncounters.cs`, `LumiaResearchUI.cs`, `LumiaResearchPersistence.cs`: 원정 종료 정산·91명 연구 과제·영구 보고서·추가 조우 91종·로비 연구 기록과 미정산 보존.
 - `StrategyMechanics.cs`: 원정별 카드 강화 방향과 복사본을 통한 효과 적용. 공유 카드 데이터와 적 기술은 유지합니다.
 - `CombatEffects.cs`: 카드별 도트 애니메이션·피해 숫자·8비트 음향.
 - `CrossSubjectSynergies.cs`: 서로 다른 실험체 사이의 8종 연계·유료 준비·턴당 제한·공통 설명. 플레이어·적·예고에 같은 판정을 사용합니다.
@@ -128,6 +135,7 @@ Unity의 `Application.persistentDataPath` 아래 `lumia-vf-loop-v1.json`에 저�
 - 개발 빌드의 `-bts-reward-verify`는 실제 실험체·보스 승리에서 최대 2장 선택·취소·교체·저장 복원·중복 확정 방지와 야생동물의 기존 예산을 확인하고 대표 화면 9개를 캡처합니다. 개인 이어하기와 별도의 검증 저장 슬롯을 사용합니다. [보상 제한·검증 기록](docs/validation-reward-limit/README.md)을 보관합니다.
 - 개발 빌드의 `-bts-boss-variety-verify`는 보스 91명의 진입·공략과 새 대응 4종의 13개 흐름을 검사하고, 조건 안내·준수·위반·턴 종료·저장 복원 화면 12개를 캡처합니다. 개인 이어하기와 별도의 검증 슬롯을 사용합니다. [보스 조건·검증 기록](docs/validation-boss-variety/README.md)을 보관합니다.
 - 개발 빌드의 `-bts-boss-paths-verify`는 막·경로별 미리보기와 공략, 실제 보스 진입, 개별 처치 표시와 이전/새 저장 복원을 검사하고 대표 화면 14개를 캡처합니다. 개인 이어하기와 별도의 검증 슬롯을 사용합니다. [경로별 보스·검증 기록](docs/validation-boss-paths/README.md)을 보관합니다.
+- 개발 빌드의 `-bts-research-verify`는 실제 카드 사용·승리·패배·탈출 정산과 저장 복원·보고서 완성·추가 조우·이전 저장을 검사하고 연구 기록과 종료 화면 10개를 캡처합니다. 원정과 연구 프로필 모두 개인 저장과 분리합니다. [연구·검증 기록](docs/validation-research/README.md)을 보관합니다.
 
 ## 안내
 

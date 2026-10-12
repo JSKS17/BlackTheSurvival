@@ -1,0 +1,14 @@
+Temp\NativeResearchPreflight.cs(486,24): warning CS0162: 접근할 수 없는 코드가 있습니다.
+Temp\NativeResearchPreflight.cs(5,223): warning CS0169: 'NativeResearchPreflight.bossGuideScroll' 필드가 사용되지 않았습니다.
+Temp\NativeResearchPreflight.cs(5,196): warning CS0169: 'NativeResearchPreflight.nextEnemyActionAt' 필드가 사용되지 않았습니다.
+Temp\NativeResearchPreflight.cs(5,150): warning CS0414: 'NativeResearchPreflight.lobby' 필드가 할당되었지만 사용되지 않았습니다.
+Temp\NativeResearchPreflight.cs(233,187): warning CS0414: 'NativeResearchPreflight.toastUntil' 필드가 할당되었지만 사용되지 않았습니다.
+Temp\NativeResearchPreflight.cs(233,112): warning CS0414: 'NativeResearchPreflight.researchReadReport' 필드가 할당되었지만 사용되지 않았습니다.
+Temp\NativeResearchPreflight.cs(233,58): warning CS0414: 'NativeResearchPreflight.researchQuery' 필드가 할당되었지만 사용되지 않았습니다.
+Temp\NativeResearchPreflight.cs(5,182): warning CS0414: 'NativeResearchPreflight.mapRow' 필드가 할당되었지만 사용되지 않았습니다.
+Temp\NativeResearchPreflight.cs(5,175): warning CS0414: 'NativeResearchPreflight.mapAct' 필드가 할당되었지만 사용되지 않았습니다.
+﻿BTS RESEARCH LEGACY JSON PASS / missingField=PASS / nullReference=PASS / terminalCases=4 / activeCases=2
+보관한 연구 정산 재시도: Sharing violation on path C:\Users\azxar\BlackTheSurvival\Temp\ResearchSlot\lumia-verification.json.research-pending-24dcbf0c21464c5488a988e1e978788a.json
+BTS RESEARCH FLOW PASS / subjects=91 / actualTasks=3 / loss=PASS / escape=PASS / duplicateReload=PASS / reportCost=12 / snapshot=PASS / encounter=PASS / legacy=PASS / isolatedSave=PASS / readOnly=PASS / pending=PASS
+NATIVE RESEARCH FIXTURE PREFLIGHT PASS / 10 fixture scenarios / actual tasks, settlement, duplicate reload, report, snapshot, encounter, and legacy checks; native Unity JSON and font remain player verification.
+﻿

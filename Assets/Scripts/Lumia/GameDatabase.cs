@@ -32,6 +32,7 @@ namespace Lumia
             EncounterChains.Configure(Events);
             EventPresentation.Configure(Events);
             EventPresentation.Configure(EncounterChains.Events);
+            ResearchEncounters.Configure();
         }
 
         public static CardDef Card(string id) => Cards.Find(x => x.id == id);
@@ -40,7 +41,7 @@ namespace Lumia
         public static GearDef Equipment(string id) => Gear.Find(x => x.id == id);
         public static FoodDef Food(string id) => Foods.Find(x => x.id == id);
         public static ObjectDef Object(string id) => Objects.Find(x => x.id == id);
-        public static EventDef Event(string id) => Events.Find(x => x.id == id) ?? EncounterChains.Event(id);
+        public static EventDef Event(string id) => Events.Find(x => x.id == id) ?? EncounterChains.Event(id) ?? ResearchEncounters.Event(id);
         public static CharacterDef Character(string id) => Characters.Find(x => x.id == id);
         public static int CostForCooldown(float seconds) => CardPresentation.Cost(seconds);
 

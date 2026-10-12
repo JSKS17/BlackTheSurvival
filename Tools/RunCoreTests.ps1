@@ -13,6 +13,8 @@ foreach ($dataFile in @('CardPresentation.cs', 'ClassicRoster.cs', 'RecentRoster
 }
 $arguments += Join-Path $PSScriptRoot 'StrategySmokeTests.cs'
 $arguments += Join-Path $PSScriptRoot 'BossSmokeTests.cs'
+$arguments += @(Get-ChildItem -LiteralPath (Join-Path $projectRoot 'Assets/Scripts/Lumia') -Filter 'Research*.cs' | ForEach-Object { $_.FullName })
+$arguments += @(Get-ChildItem -LiteralPath $PSScriptRoot -Filter 'Research*SmokeTests.cs' | ForEach-Object { $_.FullName })
 $arguments += @(Get-ChildItem -LiteralPath (Join-Path $projectRoot 'Assets/Scripts/Lumia') -Filter 'BossProfiles*.cs' | Where-Object { $_.Name -ne 'BossProfiles.cs' } | ForEach-Object { $_.FullName })
 & $runtimePath @arguments
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

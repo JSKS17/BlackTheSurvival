@@ -112,6 +112,7 @@ namespace Lumia
         // Legacy representative/selected boss history. Actual opponents live on each boss node.
         public List<string> actBosses = new List<string>();
         public int bossAssignmentVersion;
+        public ResearchRunState research;
         public List<MapNode> map = new List<MapNode>();
         public CombatState combat;
         public RewardState rewards;
@@ -213,6 +214,7 @@ namespace Lumia
         public GameEngine(int seed)
         {
             State = new RunState { seed = seed, rngState = seed == 0 ? 1831565813 : seed, weaponGrantVersion=1, energyGrowthVersion=1 };
+            ResearchProgression.EnsureRun(State);
             GenerateMap();
             EnsureBossAssignments();
             State.passiveOffers = Offer(GameDatabase.Passives.Select(x => x.id), 3);
@@ -226,6 +228,7 @@ namespace Lumia
         {
             if (savedState == null || savedState.version < 1 || savedState.version > 2) throw new ArgumentException("지원하지 않는 저장 데이터입니다.");
             State = savedState;
+            ResearchProgression.EnsureRun(State, migrateExisting: true);
             if (State.rewards != null)
             {
                 if (State.rewards.choices == null) State.rewards.choices = new List<string>();
@@ -401,7 +404,17 @@ namespace Lumia
             if (string.IsNullOrEmpty(State.mainRune) || string.IsNullOrEmpty(State.supportRune) || string.IsNullOrEmpty(State.chosenPassive) || State.draftSelected.Count != 3)
                 return Fail("메인·보조 룬, 패시브 1개, 카드 3장을 모두 선택하세요.");
             State.deck.AddRange(State.draftSelected); State.stage = RunStage.Map;
+            ResearchProgression.Begin(State);
             return Say("하나: 연구소의 출구를 찾아야 해. 니아, 길을 보여 줘.");
+        }
+
+        public bool SetResearchUnlocks(IEnumerable<string> subjectIds)
+        {
+            if (State.stage != RunStage.Preparation) return false;
+            ResearchProgression.EnsureRun(State);
+            State.research.unlockedReports = (subjectIds ?? Enumerable.Empty<string>())
+                .Where(id => GameDatabase.Character(id) != null).Distinct().ToList();
+            return true;
         }
 
         public List<MapNode> AvailableNodes()
@@ -629,6 +642,7 @@ namespace Lumia
             var c = State.combat;
             if (!CanPlayCard(handIndex)) return Fail(c != null && c.enemyTurn ? "적의 행동이 끝나기를 기다리세요." : "카드를 사용할 코스트가 부족하거나 사용할 수 없는 손패입니다.");
             var id = c.hand[handIndex]; var card = PlayerCard(id);
+            int researchActionStart = CombatActions.Count;
             int price = EffectiveCardCost(id);
             ConsumeFreeCast(c.freeCasts, id);
             SkillMechanics.ConsumeDiscount(c.playerSkills, id);
@@ -683,6 +697,8 @@ namespace Lumia
             if(statusControl)TraitEvent(false,"control",card,true,dealt);
             if(defenderBlock>0 && c.enemyBlock==0) TraitEvent(true,"block_break",card,landed,dealt);
             Say(card.name + " 사용" + (criticalHits > 0 ? " · 치명타!" : "") + (card.damage > 0 ? " · 피해 " + dealt : "") + (block > 0 ? " · 방어 +" + block : ""));
+            // The played card is complete here. A counter can end combat before the next line returns.
+            ResearchProgression.AfterCard(State, card, skillBefore, landed, dealt, CombatActions.Skip(researchActionStart));
             if (landed && (card.damage > 0 || bonusDamage > 0)) ResolveCounters(true);
             RecordBossProgress(BossMechanics.ObserveCard(c, card, price, directDamage));
             if (State.stage == RunStage.Combat) RefreshEnemyIntent();
@@ -1060,7 +1076,11 @@ namespace Lumia
             if (State.stage != RunStage.Encounter || !State.encounterOffers.Contains(id) || !string.IsNullOrEmpty(State.chosenEventId)) return Fail("제시된 조우 3개 중 하나를 선택하세요.");
             var encounter = GameDatabase.Event(id);
             if (encounter == null) return Fail("선택할 수 없는 조우입니다.");
+            string researchSubject = ResearchEncounters.SubjectForEvent(id);
+            if (researchSubject != null && (!State.research.unlockedReports.Contains(researchSubject)
+                || State.research.completedResearchEvents.Contains(id))) return Fail("아직 해금하지 않았거나 이번 원정에서 마친 연구 조우입니다.");
             State.chosenEventId = id;
+            ResearchProgression.ObserveSubject(State, GameDatabase.Characters.FirstOrDefault(x => x.name == encounter.owner)?.id);
             return Say(encounter.story);
         }
 
@@ -1070,6 +1090,13 @@ namespace Lumia
             var next = NextPromisedEncounter();
             var pendingOwners = new HashSet<string>(State.pendingEncounterFollowups.Select(x => x.owner));
             var ordinary = GameDatabase.Events.Where(x => !x.chainOnly && !pendingOwners.Contains(x.owner)).ToList();
+            for (int i = 0; i < ordinary.Count; ++i)
+            {
+                var subject = GameDatabase.Characters.FirstOrDefault(x => x.name == ordinary[i].owner);
+                var researchEvent = ResearchEncounters.EventForSubject(subject?.id);
+                if (researchEvent != null && State.research.unlockedReports.Contains(subject.id)
+                    && !State.research.completedResearchEvents.Contains(researchEvent.id) && Roll(35)) ordinary[i] = researchEvent;
+            }
             ordinary.AddRange(State.pendingEncounterFollowups.Where(x => x != next).Select(x => GameDatabase.Event(x.eventId)).Where(x => x != null));
             bool featured = next != null && Roll(FollowupOfferChance);
             State.encounterOffers = Offer(ordinary.Select(x => x.id), featured ? 2 : 3);
@@ -1091,6 +1118,7 @@ namespace Lumia
             var ev=GameDatabase.Event(State.chosenEventId);
             if(State.stage!=RunStage.Encounter || ev==null || State.runeChangePending || State.cardUpgradePending || index<0 || index>=ev.options.Length)return false;
             var option=ev.options[index];
+            if (State.research.completedResearchEvents.Contains(ev.id)) return false;
             if (ev.chainOnly && State.completedChainEvents.Contains(ev.id)) return false;
             int totalCreditCost = Math.Max(0, option.creditCost) + (option.effect == "trade_card" || option.effect == "trade_object" ? Math.Max(0, option.amount) : 0);
             if (totalCreditCost > State.credits || (!string.IsNullOrEmpty(option.requiredFoodId) && !State.foods.Contains(option.requiredFoodId))
@@ -1109,6 +1137,7 @@ namespace Lumia
             if(ev==null || index<0 || index>=ev.options.Length)return "선택할 수 없는 행동입니다.";
             if (State.cardUpgradePending) return "먼저 카드 강화를 완료하거나 포기하세요.";
             if (ev.chainOnly && State.completedChainEvents.Contains(ev.id)) return "이미 보상을 받은 후속 조우입니다.";
+            if (State.research.completedResearchEvents.Contains(ev.id)) return "이번 원정에서 이미 마친 연구 조우입니다.";
             var option = ev.options[index];
             if (option.creditCost > State.credits) return "약속에 필요한 크레딧이 부족합니다.";
             if (!string.IsNullOrEmpty(option.requiredFoodId) && !State.foods.Contains(option.requiredFoodId)) return "필요한 음식: " + (GameDatabase.Food(option.requiredFoodId)?.name ?? option.requiredFoodId);
@@ -1130,6 +1159,8 @@ namespace Lumia
             if (State.stage != RunStage.Encounter || e == null || State.runeChangePending || State.cardUpgradePending || index < 0 || index >= e.options.Length) return Fail("조우의 행동을 선택하세요.");
             if(!CanChooseEventOption(index)) return Fail(EventOptionUnavailableReason(index));
             var o = e.options[index]; bool pending = false;
+            if (ResearchEncounters.SubjectForEvent(e.id) != null && !State.research.completedResearchEvents.Contains(e.id))
+                State.research.completedResearchEvents.Add(e.id);
             State.credits -= Math.Max(0, o.creditCost);
             if (!string.IsNullOrEmpty(o.requiredFoodId)) State.foods.Remove(o.requiredFoodId);
             if (!string.IsNullOrEmpty(o.requiredObjectId)) State.objects.Remove(o.requiredObjectId);
@@ -1315,6 +1346,7 @@ namespace Lumia
         {
             if (!interrupted || State.combat?.boss == null) return;
             var phase = BossMechanics.Phase(State.combat);
+            ResearchProgression.BossInterrupted(State, State.combat.boss.phase);
             CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = phase?.signatureCardId, kind = "boss_interrupt", enemy = false });
             Say("공략 성공 · " + phase?.name + " 중단. 다음 플레이어 턴 종료까지 보스가 취약해집니다.");
         }
@@ -1473,6 +1505,7 @@ namespace Lumia
                 if (boss) State.actBosses[State.act - 1] = character.id;
                 if (!boss && !string.IsNullOrEmpty(node.assignedOpponent)) character = combatRoster.FirstOrDefault(x => x.id == node.assignedOpponent) ?? character;
                 c.enemyId = character.id; c.enemyName = (boss ? "보스 · " : "") + character.name;
+                ResearchProgression.ObserveSubject(State, character.id);
                 if (boss && BossMechanics.Profile(character.id) != null) c.boss = new BossBattleState();
                 c.enemyMaxHp = (int)Math.Ceiling((boss ? 80 + level * 8 : 35 + level * 6) * (boss ? 1.40f + (State.act-1)*.40f : 1.15f + (State.act-1)*.30f) + (State.act-1)*15);
                 foreach (var id in character.cards)
@@ -2227,6 +2260,7 @@ namespace Lumia
         private void WinBattle()
         {
             var c = State.combat; var node = ActiveNode(); bool boss = node.kind == ZoneKind.Boss;
+            ResearchProgression.Victory(State, GameDatabase.Character(c.enemyId)?.id, boss);
             TraitEvent(false,"battle_win",null,true);
             int rewardEnergy=EnergyForLevel(State.level);
             var r = new RewardState { boss = boss, source = boss ? RewardSource.Boss : node.kind == ZoneKind.Subject ? RewardSource.Subject : RewardSource.Wildlife, xp = (boss ? 180 : node.kind == ZoneKind.Subject ? 90 : 50) + c.enemyLevel * (boss ? 14 : node.kind == ZoneKind.Subject ? 12 : 9), credits = (boss ? 185 : node.kind == ZoneKind.Subject ? 80 : 48) + c.enemyLevel * 5 + Next(25) + Modifier("reward_credit"), cardBudget = node.kind == ZoneKind.Wildlife ? rewardEnergy - 1 : 0 };
@@ -2288,6 +2322,7 @@ namespace Lumia
         private void CompleteNode()
         {
             var node = ActiveNode(); if (node == null || node.visited) return;
+            ResearchProgression.CompleteNode(State, node.id);
             node.visited = true; State.row = node.row; State.lane = node.lane;
             State.activeNodeId = -1; State.combat = null; State.stage = RunStage.Map;
             State.encounterOffers.Clear(); State.chosenEventId = null;

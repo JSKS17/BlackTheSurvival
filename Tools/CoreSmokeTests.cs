@@ -28,7 +28,9 @@ public static partial class CoreSmokeTests
             BossProfileCoverage(); BossEntryAndReadOnlyGuides(); BossChallengeGoals(); BossPhaseTransitions();
             BossFailureEffects(); BossIntentAndSignature(); BossPersistenceAndMigration();
             BossRestrictionRules(); BossHeavyAttackBoundary(); BossRestrictionPersistence();
-            Console.WriteLine("PASS: " + checks + " assertions across 75 game-rule scenarios.");
+            ResearchCoverageAndExperiments(); ResearchRunSettlement(); ResearchActualCombos();
+            ResearchStoreTransactions(); ResearchEncounterCoverage(); ResearchEncounterOffers();
+            Console.WriteLine("PASS: " + checks + " assertions across 81 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
