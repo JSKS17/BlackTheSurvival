@@ -1,0 +1,7 @@
+Use case: precise-object-edit
+Asset type: standalone pixel-art lobby background layer for the game Black The Survival.
+Input image 1 is the exact edit target, the current wide laboratory lobby illustration.
+Primary request: remove ONLY the seated purple-haired girl Nia from the pink gaming chair. Reconstruct the previously occluded parts of the chair, seat cushion, chair back, armrests, cables and laboratory furnishings in the same pixel art.
+Keep the exact original wide landscape camera, all environment perspective, dark left-half menu negative space, Aglaia research lab architecture, windows, railings, floors and reflections, cyan specimen cylinder, right-side scientific monitors, monitor arm, desk, drink can, rabbit decorations, foreground lab counter, cyan and magenta lighting. The large pink-and-black gaming chair must remain empty at the same position and angle, ready for a separate character overlay. Preserve the seat as a visible landing surface.
+Style: preserve original large, deliberate square pixel edges, dark outlines, cyan-magenta-dark navy palette. This is a backdrop only.
+Constraints: no characters, no person or human silhouette anywhere, no anatomy, no face on the empty chair, no duplicate girl, no replacement creature. No words, labels, UI buttons, title or watermark. Keep the wide 16:9 canvas and all original composition as close as possible.

@@ -25,7 +25,7 @@ namespace Lumia
         {
             public string version, applicationVersion, result = "RUNNING", failure;
             public int width = 1280, height = 720, screenshots, storyScenes, storyFrames;
-            public int backgroundAssets, characterAssets, textMeasurements, criticalViews;
+            public int backgroundAssets, characterAssets, textMeasurements, criticalViews, lobbyViews;
             public bool isolatedSave, pointFilteredAssets, storyResumed, replayReadOnly, personalSavesUnchanged;
             public List<string> views = new List<string>();
             public List<Screenshot> images = new List<Screenshot>();
@@ -99,6 +99,10 @@ namespace Lumia
             Require(result.storyScenes == 3 && result.storyFrames == 12, "All three saved story IDs and twelve frame positions must remain available.");
             game.VerifyLayeredStoryPersistence(); result.storyResumed = result.replayReadOnly = true;
 
+            game.VerifyLayeredLobbyArt();
+            game.ShowLayeredLobbyVerification(true); yield return Capture("lobby_layers"); result.lobbyViews++;
+            game.ShowLayeredLobbyVerification(false); yield return Capture("lobby_ui"); result.lobbyViews++;
+
             foreach (var scene in StoryScenes.All)
             for (int frame = 0; frame < scene.frames.Length; frame++)
             {
@@ -113,7 +117,7 @@ namespace Lumia
                 yield return Capture(view);
                 result.criticalViews++;
             }
-            Require(result.screenshots == 21 && result.views.Distinct().Count() == 21, "Native coverage must contain twelve stories, a replay menu and eight critical screens.");
+            Require(result.screenshots == 23 && result.views.Distinct().Count() == 23, "Native coverage must contain two lobbies, twelve stories, a replay menu and eight critical screens.");
             Require(result.images.All(x => x.width == 1280 && x.height == 720), "Every PNG must preserve native resolution.");
             result.personalAfter = HashPersonal();
             Require(result.personalBefore.All(before => result.personalAfter.Any(after => after.file == before.file && after.sha256 == before.sha256)),

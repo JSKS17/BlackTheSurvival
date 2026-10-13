@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "archive": "BlackTheSurvival-v0.1.27-Windows-x64.zip",
+  "bytes": 124257178,
+  "sha256": "4cfeec79ce67d99673031b1e4c09c4036cdee90ef4031f42b78b29e8fb6ed5ab",
+  "runtimeFiles": 182,
+  "missing": [],
+  "mismatches": [],
+  "excludedPathsTracked": [],
+  "personalSaveTracked": false
+}

@@ -1,0 +1,296 @@
+{
+  "type": "unintegrated_art_prototype",
+  "generated_with": "built-in image_gen.imagegen",
+  "atlas": {
+    "width": 1448,
+    "height": 1086,
+    "columns": 4,
+    "rows": 3,
+    "cell_width": 362,
+    "cell_height": 362,
+    "sha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
+    "original_bytes_preserved": true
+  },
+  "animation": {
+    "fps": 8,
+    "frame_count": 12,
+    "width": 480,
+    "height": 480,
+    "foot_anchor": [
+      170,
+      400
+    ],
+    "cycle_ms": 1500,
+    "loop": 0,
+    "webp_frames": 12,
+    "gif_frames": 12,
+    "gif_frame_ms": [
+      130,
+      120,
+      130,
+      120,
+      130,
+      120,
+      130,
+      120,
+      130,
+      120,
+      130,
+      120
+    ],
+    "gif_total_ms": 1500,
+    "webp_frame_ms": [
+      125,
+      125,
+      125,
+      125,
+      125,
+      125,
+      125,
+      125,
+      125,
+      125,
+      125,
+      125
+    ],
+    "webp_total_ms": 1500
+  },
+  "checks": {
+    "frame_extraction_exact_rgba": true,
+    "integer_placement_exact_rgba": true,
+    "all_12_frames_distinct": true,
+    "webp_visible_rgba_lossless": true,
+    "transparent_pixels_present_each_frame": true,
+    "game_assets_or_scripts_modified": false
+  },
+  "frames": [
+    {
+      "index": 0,
+      "sha256": "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61",
+      "rgba_sha256": "3c2763b8ca6dbb0ad12a6ec6bfec2b861275f236ef47ce72f7e51f5aca235776",
+      "alpha_bbox": [
+        76,
+        68,
+        254,
+        355
+      ],
+      "foot_anchor": [
+        167,
+        354
+      ],
+      "playback_offset": [
+        3,
+        46
+      ]
+    },
+    {
+      "index": 1,
+      "sha256": "bebc437cbb75a729a92830af461848ddc8c9bcf07c45dd13f0c6a1791348847a",
+      "rgba_sha256": "9c3043d6c2a914cc7e7e8407fece3457f59f232b2e4166f27ad27be0e3e18883",
+      "alpha_bbox": [
+        78,
+        73,
+        258,
+        355
+      ],
+      "foot_anchor": [
+        163,
+        354
+      ],
+      "playback_offset": [
+        7,
+        46
+      ]
+    },
+    {
+      "index": 2,
+      "sha256": "afac9a98a7de711218f7eb6a2b3d048018e7799f5e26fa9fdc19c1fe0d5dfed9",
+      "rgba_sha256": "bab789f264fdc7467041247d92828cf2d0c65ca3f91cf8e26050babc41d2c74c",
+      "alpha_bbox": [
+        73,
+        68,
+        276,
+        355
+      ],
+      "foot_anchor": [
+        158,
+        354
+      ],
+      "playback_offset": [
+        12,
+        46
+      ]
+    },
+    {
+      "index": 3,
+      "sha256": "03749043fac1c2f126fa9c02018a824ff15ea516b5ac4b6e65d7a264736d82c1",
+      "rgba_sha256": "46d67aec9f933e4d18c1d23da299d0dbd01a88c2a4830866a575ebbb993c9195",
+      "alpha_bbox": [
+        10,
+        68,
+        328,
+        354
+      ],
+      "foot_anchor": [
+        103,
+        353
+      ],
+      "playback_offset": [
+        67,
+        47
+      ]
+    },
+    {
+      "index": 4,
+      "sha256": "f1da97fb324d77b890feca751705ecc622cdca0b8fd3c93b62445f7e59b3996b",
+      "rgba_sha256": "3785192ef7d19559da8c812534c728a9057da12f56b07f67bae821a21b965e69",
+      "alpha_bbox": [
+        31,
+        44,
+        350,
+        328
+      ],
+      "foot_anchor": [
+        125,
+        327
+      ],
+      "playback_offset": [
+        45,
+        73
+      ]
+    },
+    {
+      "index": 5,
+      "sha256": "b269f884b7f0374bdd76d6a98f0eb29683df7d1bd172f0b9020af55713275b12",
+      "rgba_sha256": "0803eaed99184ae6d409e24fdb2a2ce3ef6985444c3dc3fa7b88427688242f1e",
+      "alpha_bbox": [
+        33,
+        44,
+        349,
+        328
+      ],
+      "foot_anchor": [
+        123,
+        327
+      ],
+      "playback_offset": [
+        47,
+        73
+      ]
+    },
+    {
+      "index": 6,
+      "sha256": "4c40e13d28936e392e9a5ca82313cb42225d44cd3a51f7756ec13b32aed5ed75",
+      "rgba_sha256": "33c445665ab5ebc72d5feb59c9cabeb0cc29e9c3c1c61aea592c3ad37ba49d69",
+      "alpha_bbox": [
+        32,
+        44,
+        348,
+        328
+      ],
+      "foot_anchor": [
+        126,
+        327
+      ],
+      "playback_offset": [
+        44,
+        73
+      ]
+    },
+    {
+      "index": 7,
+      "sha256": "89e34988d2434abbe007ae6afec570632a8196301eb667ffa8989e729c5ef858",
+      "rgba_sha256": "1021d99ab4f019d754e8312c81680acf2ff2b331d5425ec48710cc5e04863f87",
+      "alpha_bbox": [
+        33,
+        44,
+        346,
+        329
+      ],
+      "foot_anchor": [
+        124,
+        328
+      ],
+      "playback_offset": [
+        46,
+        72
+      ]
+    },
+    {
+      "index": 8,
+      "sha256": "0b8294667f8e994e919268e8f92432e2514b6ab23ce73af95f1bb4c2e39702a3",
+      "rgba_sha256": "44901b1c5f9c031adfc3482cdc72875e6c48ed0766b485cb464952146e5dc4bf",
+      "alpha_bbox": [
+        29,
+        9,
+        346,
+        295
+      ],
+      "foot_anchor": [
+        126,
+        294
+      ],
+      "playback_offset": [
+        44,
+        106
+      ]
+    },
+    {
+      "index": 9,
+      "sha256": "0693a88957a3fd60eb764bdcc1b06675f19dfa2f40bff90beb1fd2c43f58f42f",
+      "rgba_sha256": "ddaf07e18832b81d2c986ec98cdda0e25b121c32c78bf112dc6c65dfdecc491d",
+      "alpha_bbox": [
+        29,
+        9,
+        349,
+        295
+      ],
+      "foot_anchor": [
+        125,
+        294
+      ],
+      "playback_offset": [
+        45,
+        106
+      ]
+    },
+    {
+      "index": 10,
+      "sha256": "d7cb5038ece8d85a7de01c48b13a48fb5ca36260661d22c8c1d1b56244836b06",
+      "rgba_sha256": "6b32e9658cfa7abb61705f75738ddc043051e890225641df7ce7fa30779c0c36",
+      "alpha_bbox": [
+        43,
+        12,
+        342,
+        295
+      ],
+      "foot_anchor": [
+        135,
+        294
+      ],
+      "playback_offset": [
+        35,
+        106
+      ]
+    },
+    {
+      "index": 11,
+      "sha256": "34e694d24ab6c7845f708cda1573b7fd56ddc278281eab84b41816ae0a2b3132",
+      "rgba_sha256": "dad6f961f9258f715116fb0642f112e99aa2fb783403780cf405d61e83e9b950",
+      "alpha_bbox": [
+        68,
+        9,
+        244,
+        295
+      ],
+      "foot_anchor": [
+        161,
+        294
+      ],
+      "playback_offset": [
+        9,
+        106
+      ]
+    }
+  ]
+}

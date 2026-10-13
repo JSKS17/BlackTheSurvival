@@ -1,3 +1,5 @@
+> v0.1.27: prologue_2의 니아 눈매와 입을 절제된 표정으로 수정했습니다. [교정 기록](art-lobby-refresh/prologue-face.json)을 참고하세요.
+
 # 컷신 전용 캐릭터 도트 스프라이트
 
 니아 8종과 하나 4종을 기존 전투 스프라이트에서 각각 독립적으로 편집했습니다. 프롤로그·노말·하드 컷신의 배경, 캐릭터, 내레이션, 말풍선은 별도 레이어로 합성합니다.
@@ -40,7 +42,7 @@
 | 자산 | 입력 SHA-256 | 최종 PNG SHA-256 |
 | --- | --- | --- |
 | nia_frustrated | `7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c` | `27924ac37ea8c73729b48545653fd386b84e99b756ccce785d99f39437da1887` |
-| nia_overload | `7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c` | `d5711fb61bce924b4105a0dde54fd3ab8e5c3c7904e64b59e524a2efca79768d` |
+| nia_overload | `d5711fb61bce924b4105a0dde54fd3ab8e5c3c7904e64b59e524a2efca79768d` | `c850878dbdf4585f1d865da62e63ecc60fa499ca5fd7313b465e0162dd3a18dc` |
 | nia_defeated | `7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c` | `b0439b4d8af9114f9b87cb4c84abf1032b9606cbd712fc1fcfe20ff00012aba1` |
 | nia_taunt | `7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c` | `4f47cead9ae1c67b7c31e100b9c68734a6995fbcff41b572e9fea2509c70520b` |
 | nia_cocky | `7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c` | `9bf7c363b9f7e60424dac1985802d1cc8fe76ffb08990121f7145cc81154fefd` |
@@ -75,7 +77,7 @@ Use case: identity-preserve. Asset type: one transparent pixel-art character spr
 - 생성·최종 크기: 1254×1254, RGBA, 투명 배경
 
 ```text
-Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_overload: Nia's VF gamer power overflows; she raises both tiny arms outward and up, with a lively wide grin and bright excited sharp eyes. A few compact magenta arcade square sparks may hover close to her hands, staying a separate-looking sparse accent rather than covering face/body. Her feet remain planted; dramatic triumphant arms but no stretched long limbs. Face and both hands clearly readable.
+Use case: identity-preserve. Asset type: one transparent pixel-art cutscene sprite, nia_overload, for Black The Survival prologue_2. Input image 1 is the EDIT TARGET: current full-body Nia with both arms raised and sparse magenta arcade sparks. Input image 2 is the exact gameplay sprite and identity reference for Nia's restrained, half-lidded horizontal eye shape. Input image 3 (nia_cast) is a supporting pixel style and face identity reference. Primary request: edit ONLY the facial expression of input image 1. Give Nia her recognizable calm, dry, slightly unimpressed gamer expression while her VF power overflows. Her magenta eyes must be horizontally shaped with a straight/relaxed thick upper eyelid and slightly lowered lids, matching image 2 rather than big round eyes. Keep left and right eyes individually visible and clearly separated from her violet bangs. Use a tiny closed horizontal mouth, understated and neutral with at most the faintest one-corner smirk, not an open mouth or a big grin. Do not make her shocked, manic, shouting, angry, or joyfully excited. Preserve image 1's full-body pose, both upraised arms, hand positions, feet, short chibi limbs, head-to-body ratio, violet curled short hair, pink headphones, black/pink cropped jacket and pink striped sleeves, shorts, boots, arcade sparks, outline, palette, square pixel clusters and overall scale/framing. Keep the same crisp low-resolution pixel-art style as the gameplay reference, using uniform chunky square pixel clusters with an approximately 80-logical-pixel canvas suitable for nearest-neighbor display. Eyes and tiny mouth must still read clearly when displayed small. Keep actual transparent alpha background, no scenery or floor, no UI, no lettering, no speech bubble, no watermark. The restrained face is the only intended change.
 ```
 
 ### nia_defeated

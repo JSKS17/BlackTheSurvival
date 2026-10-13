@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "filesChecked": 3221,
+  "byteIdenticalFiles": 3216,
+  "importerNormalizedMetadata": [
+    "Assets/Resources/Lumia/Battle.png.meta",
+    "Assets/Resources/Lumia/CharacterAtlas.png.meta",
+    "Assets/Resources/Lumia/FoodAtlas.png.meta",
+    "Assets/Resources/Lumia/Galmuri11.ttf.meta",
+    "Assets/Resources/Lumia/SubjectAtlas.png.meta"
+  ],
+  "mismatches": [],
+  "oldCombinedLobbyExcluded": true,
+  "animationPrototypeNotIntegrated": true
+}

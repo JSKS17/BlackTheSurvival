@@ -1,0 +1,87 @@
+{
+  "version": "v0.1.27",
+  "asset": "prologue_2 Nia face correction",
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "prompt": "Use case: identity-preserve. Asset type: one transparent pixel-art cutscene sprite, nia_overload, for Black The Survival prologue_2. Input image 1 is the EDIT TARGET: current full-body Nia with both arms raised and sparse magenta arcade sparks. Input image 2 is the exact gameplay sprite and identity reference for Nia's restrained, half-lidded horizontal eye shape. Input image 3 (nia_cast) is a supporting pixel style and face identity reference. Primary request: edit ONLY the facial expression of input image 1. Give Nia her recognizable calm, dry, slightly unimpressed gamer expression while her VF power overflows. Her magenta eyes must be horizontally shaped with a straight/relaxed thick upper eyelid and slightly lowered lids, matching image 2 rather than big round eyes. Keep left and right eyes individually visible and clearly separated from her violet bangs. Use a tiny closed horizontal mouth, understated and neutral with at most the faintest one-corner smirk, not an open mouth or a big grin. Do not make her shocked, manic, shouting, angry, or joyfully excited. Preserve image 1's full-body pose, both upraised arms, hand positions, feet, short chibi limbs, head-to-body ratio, violet curled short hair, pink headphones, black/pink cropped jacket and pink striped sleeves, shorts, boots, arcade sparks, outline, palette, square pixel clusters and overall scale/framing. Keep the same crisp low-resolution pixel-art style as the gameplay reference, using uniform chunky square pixel clusters with an approximately 80-logical-pixel canvas suitable for nearest-neighbor display. Eyes and tiny mouth must still read clearly when displayed small. Keep actual transparent alpha background, no scenery or floor, no UI, no lettering, no speech bubble, no watermark. The restrained face is the only intended change.",
+  "inputs": [
+    {
+      "role": "edit target before v0.1.27 face correction",
+      "path": "Assets/Resources/Lumia/Story/Characters/nia_overload.png",
+      "sha256": "d5711fb61bce924b4105a0dde54fd3ab8e5c3c7904e64b59e524a2efca79768d",
+      "revision": "v0.1.26"
+    },
+    {
+      "role": "gameplay face and identity reference",
+      "path": "Assets/Resources/Lumia/PortraitsReference/nia.png",
+      "sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c"
+    },
+    {
+      "role": "supporting pixel style and face reference",
+      "path": "Assets/Resources/Lumia/Story/Characters/nia_cast.png",
+      "sha256": "42c91bca9be53772b57e515a941a3e155414e1535785fa23914fd796f16f9a40"
+    }
+  ],
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a134e3-bada-7783-974d-5436bd470913/exec-b7872c53-9b6c-4598-9b9f-0e27650d95d8.png",
+  "output_path": "Assets/Resources/Lumia/Story/Characters/nia_overload.png",
+  "generated_and_output_sha256": "c850878dbdf4585f1d865da62e63ecc60fa499ca5fd7313b465e0162dd3a18dc",
+  "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+  "alpha_validation": {
+    "mode": "RGBA",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "c850878dbdf4585f1d865da62e63ecc60fa499ca5fd7313b465e0162dd3a18dc",
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "transparent_pixels": 1201342,
+    "opaque_pixels": 1581,
+    "partial_alpha_pixels": 369593,
+    "alpha_gt_zero_bounds": [
+      0,
+      49,
+      1208,
+      1199
+    ],
+    "alpha_threshold_bounds": {
+      "16": [
+        244,
+        220,
+        1023,
+        1131
+      ],
+      "32": [
+        245,
+        220,
+        1023,
+        1131
+      ],
+      "64": [
+        245,
+        220,
+        1023,
+        1131
+      ],
+      "128": [
+        245,
+        221,
+        1023,
+        1130
+      ]
+    },
+    "thresholds_are_analysis_only": true,
+    "asset_pixels_changed": false
+  },
+  "visual_review": {
+    "expression_pose": "절제된 반쯤 감긴 눈과 작게 닫힌 입으로 교정했습니다. VF 폭주 중 두 팔을 들어 올린 자세를 유지했습니다.",
+    "eyes_separate_and_visible": true,
+    "mouth_separate_and_visible": true,
+    "original_character_hair_outfit_identity_preserved": true,
+    "short_limbs_big_head_pixel_style_preserved": true,
+    "no_background_ui_text_or_speech_bubble": true,
+    "restrained_original_eye_shape": true,
+    "no_exaggerated_open_mouth": true
+  },
+  "previous_revision_sha256": "d5711fb61bce924b4105a0dde54fd3ab8e5c3c7904e64b59e524a2efca79768d"
+}

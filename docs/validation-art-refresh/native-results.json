@@ -1,0 +1,245 @@
+{
+    "version": "0.1.27",
+    "applicationVersion": "0.1.27",
+    "result": "PASS",
+    "failure": "",
+    "width": 1280,
+    "height": 720,
+    "screenshots": 23,
+    "storyScenes": 3,
+    "storyFrames": 12,
+    "backgroundAssets": 6,
+    "characterAssets": 12,
+    "textMeasurements": 24,
+    "criticalViews": 8,
+    "lobbyViews": 2,
+    "isolatedSave": true,
+    "pointFilteredAssets": true,
+    "storyResumed": true,
+    "replayReadOnly": true,
+    "personalSavesUnchanged": true,
+    "views": [
+        "lobby_layers",
+        "lobby_ui",
+        "prologue_1",
+        "prologue_2",
+        "prologue_3",
+        "prologue_4",
+        "normal_1",
+        "normal_2",
+        "normal_3",
+        "normal_4",
+        "hard_1",
+        "hard_2",
+        "hard_3",
+        "hard_4",
+        "story_replay_menu",
+        "critical_normal_detail",
+        "critical_hard_detail",
+        "critical_endless_detail",
+        "critical_endless_field",
+        "critical_endless_preview",
+        "critical_endless_gear",
+        "critical_endless_help",
+        "critical_endless_hit"
+    ],
+    "images": [
+        {
+            "view": "lobby_layers",
+            "sha256": "a3b3398a932c38f90856b616f5de5e63cf624fff5da6324366bf0cf8152c311b",
+            "width": 1280,
+            "height": 720,
+            "bytes": 1234368
+        },
+        {
+            "view": "lobby_ui",
+            "sha256": "5747de7a1d9a74e75fbc96fe70cc6190a0d6c97b4002de176224adc2439f54bd",
+            "width": 1280,
+            "height": 720,
+            "bytes": 826475
+        },
+        {
+            "view": "prologue_1",
+            "sha256": "e8e1e202716f5c7aa39cbe049cfdd26788fc945d715fa3ba50f1ed78eb2923a9",
+            "width": 1280,
+            "height": 720,
+            "bytes": 1031275
+        },
+        {
+            "view": "prologue_2",
+            "sha256": "d68d4d67d66137bfd312bbcdb9482215d2d9d2817a227ae478fb0712548db114",
+            "width": 1280,
+            "height": 720,
+            "bytes": 1163541
+        },
+        {
+            "view": "prologue_3",
+            "sha256": "696c8def377e6770a1596fc14391f72961524fbb500e992a0e4e93b985b49d7d",
+            "width": 1280,
+            "height": 720,
+            "bytes": 1035874
+        },
+        {
+            "view": "prologue_4",
+            "sha256": "5deec0a707b48e72444c51053222d7f9e8df4a20b50078ce449da2e84988c19a",
+            "width": 1280,
+            "height": 720,
+            "bytes": 1188261
+        },
+        {
+            "view": "normal_1",
+            "sha256": "1a501ca1f3f5d219eddf07f50a2dbcb2c6c518a8fec743ec0b161948073cf7ec",
+            "width": 1280,
+            "height": 720,
+            "bytes": 1223592
+        },
+        {
+            "view": "normal_2",
+            "sha256": "7a95a0686eba56778eea07795214827f094e4ce71c54a253669551a5e7e83ddd",
+            "width": 1280,
+            "height": 720,
+            "bytes": 955169
+        },
+        {
+            "view": "normal_3",
+            "sha256": "0f6cea9acb71b43271c38500bfdcbea0d5732831e78308003f70af1f2c42d72e",
+            "width": 1280,
+            "height": 720,
+            "bytes": 964054
+        },
+        {
+            "view": "normal_4",
+            "sha256": "b8717a367f0d76f0276ca302243d83a9f08d5cedf553d5e497e8b0e1b5d62df4",
+            "width": 1280,
+            "height": 720,
+            "bytes": 1188876
+        },
+        {
+            "view": "hard_1",
+            "sha256": "bad07e77011a246074a64125cafadfe6083165e10c9f428fd414cef5f4b4ce07",
+            "width": 1280,
+            "height": 720,
+            "bytes": 1198961
+        },
+        {
+            "view": "hard_2",
+            "sha256": "a893da2f6e756a10b323fa837f1ad14c0210f7a17be1f34943749e11fd176ecf",
+            "width": 1280,
+            "height": 720,
+            "bytes": 887695
+        },
+        {
+            "view": "hard_3",
+            "sha256": "d802c6c61c9d98cc634860532a8ed274474ec605a6abe20db4aa2b1f807334e3",
+            "width": 1280,
+            "height": 720,
+            "bytes": 1160027
+        },
+        {
+            "view": "hard_4",
+            "sha256": "2b41dac492afb6e1923cd0c249ef31e19d7b8389cd33bcf39416473afac42d43",
+            "width": 1280,
+            "height": 720,
+            "bytes": 1069722
+        },
+        {
+            "view": "story_replay_menu",
+            "sha256": "3d2c71fc01d2fff605df498962d47d0a3e4bd78a26967d259659871639dcbea2",
+            "width": 1280,
+            "height": 720,
+            "bytes": 901434
+        },
+        {
+            "view": "critical_normal_detail",
+            "sha256": "b29015e26ef109465befb40a34fb95fa2a5175bbade9fabafec07f9faa974faf",
+            "width": 1280,
+            "height": 720,
+            "bytes": 232304
+        },
+        {
+            "view": "critical_hard_detail",
+            "sha256": "88d30ae520bfccc7ac35e8a3df6e6c16898bdfcff38866d871312241ac386b3f",
+            "width": 1280,
+            "height": 720,
+            "bytes": 232323
+        },
+        {
+            "view": "critical_endless_detail",
+            "sha256": "9c0df9f6d006660dccb5edb153546dc4d4da004d2b258a2402224e3e14ef4c3a",
+            "width": 1280,
+            "height": 720,
+            "bytes": 233162
+        },
+        {
+            "view": "critical_endless_field",
+            "sha256": "c0ce2d5ef29dea539973f0a0a0aac081d379b963f3b97e54e9772c0012914537",
+            "width": 1280,
+            "height": 720,
+            "bytes": 180348
+        },
+        {
+            "view": "critical_endless_preview",
+            "sha256": "d41d4d23dbab430ee43e801d648d0ec1c97cca61ac799b85b73a9b11c993ab04",
+            "width": 1280,
+            "height": 720,
+            "bytes": 212025
+        },
+        {
+            "view": "critical_endless_gear",
+            "sha256": "2c8e5e58413b76dcd030fd692e7e4883ec5a257ce7abd895b0a90e7279d5ca5c",
+            "width": 1280,
+            "height": 720,
+            "bytes": 212197
+        },
+        {
+            "view": "critical_endless_help",
+            "sha256": "b853fe8b9439ed05239504f524a73e6e41ebf41d65a7c0d1e616d7b183ac370c",
+            "width": 1280,
+            "height": 720,
+            "bytes": 248987
+        },
+        {
+            "view": "critical_endless_hit",
+            "sha256": "709e4fb168ebe2797f8d66437d1c42e57a79f07f59d63336e9e5600324fffcd3",
+            "width": 1280,
+            "height": 720,
+            "bytes": 657146
+        }
+    ],
+    "personalBefore": [
+        {
+            "file": "lumia-vf-loop-v1.json",
+            "sha256": "955e3ac2976eb78c5712867ef421c9e7fa67c42328519b6a7f6e7d27a759b242"
+        },
+        {
+            "file": "lumia-vf-loop-v1.json.bak",
+            "sha256": "955e3ac2976eb78c5712867ef421c9e7fa67c42328519b6a7f6e7d27a759b242"
+        },
+        {
+            "file": "bts-research-v1.json",
+            "sha256": "9f7392a0752409ca7d7ccfffffc61f3cf8790cd7052d8fac8185e99933c6b0b0"
+        },
+        {
+            "file": "bts-research-v1.json.bak",
+            "sha256": "9f7392a0752409ca7d7ccfffffc61f3cf8790cd7052d8fac8185e99933c6b0b0"
+        }
+    ],
+    "personalAfter": [
+        {
+            "file": "lumia-vf-loop-v1.json",
+            "sha256": "955e3ac2976eb78c5712867ef421c9e7fa67c42328519b6a7f6e7d27a759b242"
+        },
+        {
+            "file": "lumia-vf-loop-v1.json.bak",
+            "sha256": "955e3ac2976eb78c5712867ef421c9e7fa67c42328519b6a7f6e7d27a759b242"
+        },
+        {
+            "file": "bts-research-v1.json",
+            "sha256": "9f7392a0752409ca7d7ccfffffc61f3cf8790cd7052d8fac8185e99933c6b0b0"
+        },
+        {
+            "file": "bts-research-v1.json.bak",
+            "sha256": "9f7392a0752409ca7d7ccfffffc61f3cf8790cd7052d8fac8185e99933c6b0b0"
+        }
+    ]
+}

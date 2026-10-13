@@ -1,0 +1,84 @@
+{
+  "release": "0.1.27",
+  "generator": "built-in image_gen.imagegen",
+  "image_processing": "None. Original generated PNG bytes copied unchanged; no crop, resize, palette conversion, or alpha edit.",
+  "assets": [
+    {
+      "id": "background",
+      "path": "Assets/Resources/Lumia/Lobby/Background.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a134e4-03d9-74a0-b4ac-1423cc7e34cd/exec-f7ac0043-0f7e-4f91-bdf1-f0ff5b8012e8.png",
+      "sha256": "9373489e3cdd7ed87a151e918981800e5d6445b530bba699d01fd9d5e5210496",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "alpha_zero": 0,
+      "alpha_opaque": 1573352,
+      "alpha_partial": 0,
+      "alpha_bbox": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "alpha64_bbox": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "prompt": "Use case: precise-object-edit\nAsset type: standalone pixel-art lobby background layer for the game Black The Survival.\nInput image 1 is the exact edit target, the current wide laboratory lobby illustration.\nPrimary request: remove ONLY the seated purple-haired girl Nia from the pink gaming chair. Reconstruct the previously occluded parts of the chair, seat cushion, chair back, armrests, cables and laboratory furnishings in the same pixel art.\nKeep the exact original wide landscape camera, all environment perspective, dark left-half menu negative space, Aglaia research lab architecture, windows, railings, floors and reflections, cyan specimen cylinder, right-side scientific monitors, monitor arm, desk, drink can, rabbit decorations, foreground lab counter, cyan and magenta lighting. The large pink-and-black gaming chair must remain empty at the same position and angle, ready for a separate character overlay. Preserve the seat as a visible landing surface.\nStyle: preserve original large, deliberate square pixel edges, dark outlines, cyan-magenta-dark navy palette. This is a backdrop only.\nConstraints: no characters, no person or human silhouette anywhere, no anatomy, no face on the empty chair, no duplicate girl, no replacement creature. No words, labels, UI buttons, title or watermark. Keep the wide 16:9 canvas and all original composition as close as possible.\n",
+      "prompt_path": "docs/art-lobby-refresh/background-prompt.txt",
+      "references": [
+        {
+          "path": "Assets/Resources/Lumia/Lobby.png",
+          "sha256": "4f01341c078f5ffe8eaa89083b467bbac6dce2c5e2c9111a7700216a54d655da"
+        }
+      ]
+    },
+    {
+      "id": "nia",
+      "path": "Assets/Resources/Lumia/Lobby/Nia.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a134e4-03d9-74a0-b4ac-1423cc7e34cd/exec-392c5362-949f-4fe1-9f2d-6602ae43d243.png",
+      "sha256": "d524b438a310b6c0d17f5f5473b6d77a4d9ca8891e401d557ca1b485f0016d8b",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_zero": 1110540,
+      "alpha_opaque": 1126,
+      "alpha_partial": 460850,
+      "alpha_bbox": [
+        0,
+        7,
+        1232,
+        1254
+      ],
+      "alpha64_bbox": [
+        314,
+        171,
+        991,
+        1178
+      ],
+      "prompt": "Use case: style-transfer\nAsset type: transparent full-body lobby character sprite for Black The Survival.\nInput image 1: original lobby illustration is the POSE AND COSTUME reference only.\nInput image 2: actual in-game Nia sprite is the character identity reference.\nInput images 3 and 4: the game's new dedicated Nia cutscene sprites define the required coarse chibi pixel-art style, face and palette.\nPrimary request: create ONE new standalone sprite of Nia, keeping exactly the pose of the girl from image 1 but changing her rendering to match the cute compact pixel-sprite style of images 2-4.\nPose: seated in three-quarter view facing slightly toward the viewer's left, leaned back, BOTH knees drawn up in front of her chest, both small hands visibly gripping a single pink game controller between the chest and knees. Both lower legs bend downward together and two black-and-pink open-toe sandals sit together in front. Preserve this knees-up curled gaming posture; do not turn it into a standing pose, a normal legs-down sitting pose, or a keyboard pose. No chair is included; it will be rendered behind her separately.\nIdentity and clothes: muted purple-mauve bobbed hair with curled side ends and a long angled fringe, pink-and-black over-ear headset, sleepy half-lidded narrow purple-magenta eyes under dark straight upper eyelids, tiny pale pink mouth partly behind a small pink gum bubble, light skin, oversized lavender hood, magenta-and-black checked loose sleeves, cropped black/magenta top, short dark/pink shorts, black fingerless gloves, black-and-pink strapped sandals. Preserve the original costume, not an invented dress or long trousers.\nStyle: bold individual square pixel clusters with a near-80-pixel logical sprite appearance, thick dark purple outlines, compact chibi anatomy, a large readable head, restrained Nia expression, minimal compact nose, clear eyes and hands, limited palette, clean controlled highlights and two-tone shadows. Strong consistent square pixel grid, no painterly shading, no smooth anime line art, no anti-aliasing. Make the two eyes distinct and readable and keep the mouth/gum bubble clear. Proportionally shorten the limbs to match the game sprites while keeping the original knees-up/controller pose.\nComposition: a SINGLE complete isolated character centered on a square genuinely transparent canvas, full hair/headset/body/controller/two feet visible, modest transparent margins all around. No duplicated character, no action sequence.\nConstraints: no background, no chair, no furniture, no floor, no shadow plane, no logo, text, speech bubble, interface or watermark. Actual alpha transparency outside the silhouette. Preserve sprite identity and restrained half-lidded eye shape from the game references; do not give big round surprised eyes.\n",
+      "prompt_path": "docs/art-lobby-refresh/nia-prompt.txt",
+      "references": [
+        {
+          "path": "Assets/Resources/Lumia/Lobby.png",
+          "sha256": "4f01341c078f5ffe8eaa89083b467bbac6dce2c5e2c9111a7700216a54d655da"
+        },
+        {
+          "path": "Assets/Resources/Lumia/PortraitsReference/nia.png",
+          "sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c"
+        },
+        {
+          "path": "Assets/Resources/Lumia/Story/Characters/nia_frustrated.png",
+          "sha256": "27924ac37ea8c73729b48545653fd386b84e99b756ccce785d99f39437da1887"
+        },
+        {
+          "path": "Assets/Resources/Lumia/Story/Characters/nia_cast.png",
+          "sha256": "42c91bca9be53772b57e515a941a3e155414e1535785fa23914fd796f16f9a40"
+        }
+      ]
+    }
+  ],
+  "archived_lobby_input": "ArtSource/Lobby/v0.1.26/Lobby.png"
+}

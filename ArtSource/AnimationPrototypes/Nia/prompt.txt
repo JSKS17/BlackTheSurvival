@@ -1,0 +1,23 @@
+Use case: style-transfer.
+Asset type: an original 12-frame transparent pixel-art character ultimate animation sprite sheet, a prototype preview for Black The Survival, not yet used in the game.
+Input image 1 is NiaH's existing in-game identity and pixel style reference. Input image 2 is a dedicated cast pose reference. Input image 3 is a controller prop reference. Reference identity and costume faithfully, but draw a new coherent sequence.
+Produce ONE 4:3 landscape canvas, arranged in EXACTLY 4 columns and 3 rows of equal square cells, 12 sequential animation frames reading left to right then top to bottom. No drawn grid, no separators, no labels, no numbers, no text, no watermark, truly transparent background.
+In EVERY cell show the SAME NiaH with exactly the same head/body proportions, same full-body scale, same side-facing three-quarter view looking right, same boots planted on one consistent baseline, and the same fixed body pivot in the left-middle of the square cell. Keep ample blank transparent margins inside each cell; no frame may overlap a neighboring cell.
+NiaH identity: short wavy mauve/purple hair with side fringe, pink-lit black headphones, tired narrow half-lidded magenta eyes (small horizontal almond shapes, not round wide eyes), tiny closed mouth or tiny restrained smirk, dark oversized cropped gamer jacket with magenta piping and pale violet hood lining, black/magenta shorts, chunky black/pink boots, small black controller with pink buttons. Preserve her restrained gamer attitude. No shout, no huge grin, no huge mouth, no exaggerated expression, no change of eye shape.
+Style: authentic compact chibi pixel sprite matching the references, roughly 60 logical pixels tall per character, clean square pixel clusters, restrained 3-tone shading, single pixel dark plum outlines, clearly readable face with eye whites and small mouth. Crisp nearest-neighbor pixel edges only, no painterly illustration, no anti-aliasing, no gradients.
+Animation theme: her R 'NiaH's Game World': she taps the controller, briefly channels, creates a VF magenta/cyan rectangular game-world arena in FRONT of her to the right; arcade blocks fall inside the arena, then a contained final pixel burst, then she returns to neutral. The arena and blocks are foreground effects within each individual cell, never behind the whole sheet.
+Draw the actual arms/hands, knee bend, torso lean, jacket hem, hair tips, and controller orientation differently across frames. Do not duplicate one stationary sprite and merely enlarge it or move effects.
+Frame choreography:
+1 neutral half-lidded gaze, controller at waist, no effects.
+2 slight knee bend and controller drawn close to chest, fingers poised.
+3 leans forward slightly and presses a button, one tiny magenta square spark.
+4 straightens, both hands push controller forward, cyan/magenta arena corner brackets start to appear to the right.
+5 channeling pose, shoulders steady, a small faceted pixel shield wraps her torso, rectangular arena outline completes to the right.
+6 thumb presses again, jacket sleeve shifts, one arcade block falls at the top of the arena.
+7 second button press and subtle torso recoil, three small geometric arcade blocks descend inside arena.
+8 bent elbows braced, blocks meet an orderly stepped stack on the arena floor, magenta energy gathers.
+9 decisive final button press, small controlled bright angular cyan-white/magenta pixel burst at arena center, NiaH's entire face remains visible.
+10 eases arms down, burst breaks into a handful of square particles and arena corners dim.
+11 controller returns toward waist, relaxed knees, hair settles, last two square particles.
+12 returns to the same calm full-body stance as frame 1, no effects, for a clean loop.
+Constraints: readable eyes and mouth in all 12 frames; two arms and hands, controller never grows, legs remain intact. Effects may not obscure the face. Keep all cel contents within their cells and consistent foot baseline and scale across all 12. Only NiaH and her ultimate's pixel effects; no additional characters, no scenery.

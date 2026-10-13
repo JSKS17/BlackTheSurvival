@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>니아 · 게임월드 도트 애니메이션 시안</title>
+<style>
+:root{color-scheme:dark;font-family:"Malgun Gothic",system-ui,sans-serif;background:#11151f;color:#edf4fa}*{box-sizing:border-box}body{margin:0;padding:28px 18px}main{max-width:900px;margin:auto}h1{font-size:25px;margin:0 0 10px}p{line-height:1.65;color:#bbc6d5;margin:10px 0}.badge{display:inline-block;font-size:12px;letter-spacing:.05em;border:1px solid #ed66c3;color:#ffa1de;padding:4px 9px;margin-bottom:13px}.stage{width:min(100%,579px);aspect-ratio:1;margin:20px auto;border:2px solid #586678;position:relative;background-color:#202735;background-image:linear-gradient(45deg,#28303f 25%,transparent 25%),linear-gradient(-45deg,#28303f 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#28303f 75%),linear-gradient(-45deg,transparent 75%,#28303f 75%);background-size:32px 32px;background-position:0 0,0 16px,16px -16px,-16px 0;overflow:hidden}.sprite{width:100%;height:100%;background-image:url("nia-ultimate-atlas.png");background-size:400% 300%;background-repeat:no-repeat;image-rendering:pixelated}.controls{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;align-items:center}button,select{font:inherit;padding:9px 14px;background:#273344;border:1px solid #6b7c94;color:#f0f5fb;border-radius:3px;cursor:pointer}button:hover{border-color:#ec66c8}button:focus-visible,select:focus-visible{outline:2px solid #7fe4ef;outline-offset:3px}.status{text-align:center;min-height:25px;color:#8de8ed}details{margin-top:20px;padding:13px;border:1px solid #3a485d}summary{cursor:pointer}.sheet{display:block;width:100%;height:auto;image-rendering:pixelated;margin-top:15px}.note{font-size:13px}a{color:#88e4ed}footer{margin-top:22px;font-size:12px;color:#8592a5}
+</style>
+<main>
+<div class="badge">미적용 애니메이션 시안</div>
+<h1>니아 R · 니아의 게임월드</h1>
+<p>컨트롤러 입력으로 전방에 게임월드를 펼치고, 아케이드 블록을 쌓아 마지막 타격을 터뜨립니다. 니아의 좁은 반눈과 작은 입을 유지한 12프레임 시안입니다.</p>
+<div class="stage" aria-label="니아가 컨트롤러를 조작해 게임월드를 펼치는 12프레임 도트 애니메이션"><div class="sprite" id="sprite"></div></div>
+<div class="controls"><button id="play" type="button">일시 정지</button><button id="previous" type="button" aria-label="이전 프레임">◀ 이전</button><button id="next" type="button" aria-label="다음 프레임">다음 ▶</button><label>속도 <select id="speed"><option value="0.5">0.5배</option><option value="1" selected>1배</option><option value="1.5">1.5배</option></select></label></div>
+<p class="status" id="status" aria-live="off"></p>
+<p class="note">기본 재생은 8fps이며 한 사이클은 1.5초입니다. 프레임을 직접 넘기면 팔·컨트롤러·몸 자세와 블록의 변화를 확인할 수 있습니다.</p>
+<details><summary>전체 프레임 보기</summary><img class="sheet" src="nia-ultimate-atlas.png" alt="왼쪽 위에서 오른쪽 아래 순서로 배치한 니아 궁극기 12프레임"></details>
+<p class="note"><a href="nia-ultimate-preview.webp">투명 애니메이션 WebP</a> · <a href="nia-ultimate-preview.gif">GIF 미리보기</a> · <a href="nia-ultimate-atlas.png">원본 프레임 시트</a></p>
+<footer>이 시안은 게임의 스킬 연출에 연결하지 않았습니다. 생성 원본의 캐릭터·효과 픽셀을 수정하지 않고 프레임 영역만 순서대로 재생합니다.</footer>
+</main>
+<script>
+const sprite=document.querySelector("#sprite"),status=document.querySelector("#status"),play=document.querySelector("#play");
+const labels=["대기","입력 준비","첫 입력","게임월드 전개","보호막·정신 집중","블록 낙하","연속 입력","블록 축적","최종 타격","효과 분산","입력 회수","대기 복귀"];
+let frame=0,playing=true,speed=1,accumulated=0,last=performance.now();
+const anchors=[[167,354],[163,354],[158,354],[103,353],[125,327],[123,327],[126,327],[124,328],[126,294],[125,294],[135,294],[161,294]];
+sprite.style.position="absolute";sprite.style.width=(362/480*100)+"%";sprite.style.height=(362/480*100)+"%";
+function render(){sprite.style.left=((170-anchors[frame][0])/480*100)+"%";sprite.style.top=((400-anchors[frame][1])/480*100)+"%";sprite.style.backgroundPosition=(frame%4/3*100)+"% "+(Math.floor(frame/4)/2*100)+"%";status.textContent=(frame+1)+" / 12 · "+labels[frame];}
+function pause(){playing=false;play.textContent="재생";}
+play.onclick=()=>{playing=!playing;play.textContent=playing?"일시 정지":"재생";last=performance.now();};
+document.querySelector("#previous").onclick=()=>{pause();frame=(frame+11)%12;accumulated=0;render();};
+document.querySelector("#next").onclick=()=>{pause();frame=(frame+1)%12;accumulated=0;render();};
+document.querySelector("#speed").onchange=e=>{speed=Number(e.target.value);};
+function tick(now){const delta=Math.min(now-last,1000);last=now;if(playing){accumulated+=delta*speed;while(accumulated>=125){frame=(frame+1)%12;accumulated-=125;}render();}requestAnimationFrame(tick);}
+render();requestAnimationFrame(tick);
+</script>
+</html>

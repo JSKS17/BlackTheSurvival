@@ -223,7 +223,8 @@ namespace Lumia
 
         void DrawLobby()
         {
-            Tex(new Rect(0, 0, W, H), PixelArt.Background(), ScaleMode.ScaleAndCrop);
+            DrawLobbyArt();
+            if (lobbyArtOnly && LayeredStoryVerificationEnabled) return;
             Fill(new Rect(0, 0, 540, H), new Color(.025f, .06f, .09f, .88f));
             Fill(new Rect(0, 0, W, 5), Mint);
             Txt(new Rect(62, 50, 460, 22), "AGLAIA  /  EXPERIMENT # 00", 14, Mint);
@@ -1627,7 +1628,7 @@ namespace Lumia
         void OnApplicationPause(bool paused) { if (paused) Save(); }
         void OnApplicationQuit() { Save(); }
         void PixelFont(Font rebuilt) { if (rebuilt == font && rebuilt.material && rebuilt.material.mainTexture) rebuilt.material.mainTexture.filterMode = FilterMode.Point; }
-        void OnDestroy() { ReleaseStoryPixelTextures(); Font.textureRebuilt -= PixelFont; foreach (var clip in skillSounds.Values) if (clip) Destroy(clip); }
+        void OnDestroy() { ReleaseStoryPixelTextures(); ReleasePixelLayer(lobbyNiaPixels); Font.textureRebuilt -= PixelFont; foreach (var clip in skillSounds.Values) if (clip) Destroy(clip); }
 
         [Serializable] public sealed class PreviewMeasurement
         {

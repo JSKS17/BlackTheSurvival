@@ -4,7 +4,7 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.26](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.26)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.27](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.27)에 있습니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
 - 완성된 Windows 빌드가 있으면 `Build/Windows/BlackTheSurvival.exe`를 실행하세요. 같은 폴더의 `BlackTheSurvival_Data`, `MonoBleedingEdge`, `UnityPlayer.dll`도 함께 있어야 합니다.
@@ -16,6 +16,10 @@
 하드는 적 체력 25%·직접 공격 피해 10% 증가 규칙을 사용합니다. 무한은 하드 규칙으로 시작하고, 3막 보상과 패시브 선택을 마치면 성장과 덱을 유지하며 다음 3막 주기로 이어집니다. 주기마다 적 체력은 20%p·직접 피해는 5%p 증가하고 두 번째 주기부터 적 레벨은 20입니다. 보스 처치의 최대 코스트 증가는 총 +6까지이며 조우 보너스는 별도입니다. 무한 원정의 **메뉴 → 무한 원정 정산**에서 자발 종료하거나 패배하면 누적 연구 성과를 정산합니다. [모드 규칙과 저장·정산](docs/RUN_MODES.md)을 참고하세요.
 
 로비 오른쪽 니아의 말풍선을 누르면 팁과 농담이 **무작위**로 바뀝니다. 대사 **48개**를 모두 한 번씩 본 뒤 다시 섞으며 바로 같은 대사가 반복되지 않습니다. 대사 클릭은 원정의 난수나 저장 상태를 바꾸지 않습니다. [전체 대사와 작성 근거](docs/LOBBY_DIALOGUE.md)를 보관합니다.
+
+v0.1.27의 로비는 연구소 배경과 니아를 별도 이미지로 표시합니다. 기존 무릎을 세우고 컨트롤러를 잡은 자세와 풍선껌을 유지하면서, 니아를 현재 게임의 도트 스타일로 새로 제작했습니다. 프롤로그 두 번째 컷도 니아의 낮은 눈꺼풀과 작은 입으로 표정을 절제했습니다. [로비 아트 제작 기록](docs/ART_LAYERED_LOBBY.md)을 참고하세요.
+
+니아 필살기 애니메이션은 [별도 프로토타입](docs/ART_NIA_ULTIMATE_PROTOTYPE.md)으로 제공하며 게임에 적용하지 않았습니다. 원본 아틀라스와 재생 미리보기는 `ArtSource/AnimationPrototypes/Nia/`에만 보관합니다.
 
 ## 니아의 튜토리얼과 스토리
 

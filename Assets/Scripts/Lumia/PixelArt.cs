@@ -16,7 +16,7 @@ namespace Lumia
         public static void Ensure()
         {
             if (lobby != null) return;
-            lobby = Load("Lobby") ?? Lab();
+            lobby = Load("Lobby/Background") ?? Lab();
             battle = Load("Battle") ?? Forest();
             atlas = Load("CharacterAtlas");
             foods = Load("FoodAtlas");

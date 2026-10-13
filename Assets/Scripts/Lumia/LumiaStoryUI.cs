@@ -12,13 +12,7 @@ namespace Lumia
         int storyReplayFrame;
         readonly Dictionary<string, Texture2D> storyImages = new Dictionary<string, Texture2D>();
         GUIStyle storyNarrationStyle, storyDialogueStyle;
-        sealed class StoryPixelSprite
-        {
-            public RenderTexture texture;
-            public Rect uv;
-            public int width, height;
-        }
-        readonly Dictionary<string, StoryPixelSprite> storyPixelSprites = new Dictionary<string, StoryPixelSprite>();
+        readonly Dictionary<string, PixelLayerSprite> storyPixelSprites = new Dictionary<string, PixelLayerSprite>();
         StoryCharacterGeometryCatalog storyCharacterGeometry;
 
         public bool StoryVisible
@@ -152,14 +146,10 @@ namespace Lumia
             StoryImage("Backgrounds/" + composition.background);
             foreach (var actor in composition.actors) StoryCharacter(actor.sprite);
         }
-        StoryPixelSprite StoryCharacter(string id)
+        PixelLayerSprite StoryCharacter(string id)
         {
-            StoryPixelSprite sprite;
-            if (storyPixelSprites.TryGetValue(id, out sprite))
-            {
-                if (!sprite.texture.IsCreated()) RefreshStoryPixelTexture(StoryImage("Characters/" + id), sprite.texture);
-                return sprite;
-            }
+            PixelLayerSprite sprite;
+            if (storyPixelSprites.TryGetValue(id, out sprite)) return EnsurePixelLayer(sprite);
             var source = StoryImage("Characters/" + id);
             if (!source) return null;
             if (storyCharacterGeometry == null)
@@ -167,23 +157,9 @@ namespace Lumia
                 var json = Resources.Load<TextAsset>("Lumia/Story/Characters/geometry");
                 storyCharacterGeometry = json ? JsonUtility.FromJson<StoryCharacterGeometryCatalog>(json.text) : new StoryCharacterGeometryCatalog();
             }
-            int size = StoryComposition.LogicalSpriteSize;
             var geometry = storyCharacterGeometry.characters.FirstOrDefault(value => value.id == id);
-            int x0 = geometry == null ? 0 : Mathf.Clamp(Mathf.FloorToInt((float)geometry.left * size / geometry.width), 0, size - 1);
-            int y0 = geometry == null ? 0 : Mathf.Clamp(Mathf.FloorToInt((float)geometry.top * size / geometry.height), 0, size - 1);
-            int x1 = geometry == null ? size : Mathf.Clamp(Mathf.CeilToInt((float)geometry.right * size / geometry.width), x0 + 1, size);
-            int y1 = geometry == null ? size : Mathf.Clamp(Mathf.CeilToInt((float)geometry.bottom * size / geometry.height), y0 + 1, size);
-            var target = new RenderTexture(size, size, 0, RenderTextureFormat.ARGB32) { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp, useMipMap = false, antiAliasing = 1, name = "Story pixels / " + id };
-            RefreshStoryPixelTexture(source, target);
-            sprite = new StoryPixelSprite { texture = target, width = x1 - x0, height = y1 - y0,
-                uv = new Rect((float)x0 / size, 1f - (float)y1 / size, (float)(x1 - x0) / size, (float)(y1 - y0) / size) };
+            sprite = CreatePixelLayer(source, geometry, StoryComposition.LogicalSpriteSize, "Story pixels / " + id);
             storyPixelSprites[id] = sprite; return sprite;
-        }
-        static void RefreshStoryPixelTexture(Texture2D source, RenderTexture target)
-        {
-            target.Create(); var previous = RenderTexture.active; bool srgb = GL.sRGBWrite;
-            try { GL.sRGBWrite = QualitySettings.activeColorSpace == ColorSpace.Linear; Graphics.Blit(source, target); }
-            finally { RenderTexture.active = previous; GL.sRGBWrite = srgb; }
         }
         void DrawStoryComposition(Rect rect, string cut, bool thumbnail = false)
         {
@@ -222,7 +198,7 @@ namespace Lumia
         }
         void ReleaseStoryPixelTextures()
         {
-            foreach (var sprite in storyPixelSprites.Values) { if (sprite.texture) { sprite.texture.Release(); Destroy(sprite.texture); } }
+            foreach (var sprite in storyPixelSprites.Values) ReleasePixelLayer(sprite);
             storyPixelSprites.Clear();
         }
         void PrepareStoryStyles()

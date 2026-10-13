@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "version": "0.1.27",
+  "unity": "6000.3.11f1",
+  "builds": [
+    {
+      "kind": "Development",
+      "result": "Succeeded",
+      "errors": 0,
+      "logSha256": "288c572f4230cfde6e67b93b0b76bee0cb961cb40d46d885688c8da556f5b18e"
+    },
+    {
+      "kind": "Release",
+      "result": "Succeeded",
+      "errors": 0,
+      "logSha256": "de654b0f5a4040b0ba2a1f70508b23944663a2c66b6a2e1c78d8abc2726ce1b5"
+    }
+  ],
+  "lobbyLayersPackaged": true,
+  "lobbyGeometryPackaged": true,
+  "oldCombinedLobbyExcluded": true,
+  "animationPrototypePackaged": false
+}

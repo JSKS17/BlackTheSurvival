@@ -1,0 +1,12 @@
+{
+  "pass": true,
+  "browser": "Chrome headless",
+  "auto_advances": true,
+  "pause_preserves_frame": true,
+  "next_visits_all_12_frames": true,
+  "speed_control": true,
+  "mobile_width": 375,
+  "mobile_horizontal_overflow": false,
+  "page_errors": [],
+  "screenshots": 14
+}
