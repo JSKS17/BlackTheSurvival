@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "matchingFiles": 3224,
+  "allGameplayScriptsMatch": true,
+  "allStoryImagesMatch": true,
+  "version": "0.1.25",
+  "unityNormalizedExistingSettings": [
+    "Assets/DefaultVolumeProfile.asset",
+    "Assets/UniversalRenderPipelineGlobalSettings.asset",
+    "Assets/Settings/UniversalRP.asset",
+    "Assets/Resources/Lumia/Battle.png.meta",
+    "Assets/Resources/Lumia/CharacterAtlas.png.meta",
+    "Assets/Resources/Lumia/FoodAtlas.png.meta",
+    "Assets/Resources/Lumia/Galmuri11.ttf.meta",
+    "Assets/Resources/Lumia/Lobby.png.meta",
+    "Assets/Resources/Lumia/SubjectAtlas.png.meta",
+    "ProjectSettings/ProjectSettings.asset",
+    "ProjectSettings/UnityConnectSettings.asset"
+  ]
+}

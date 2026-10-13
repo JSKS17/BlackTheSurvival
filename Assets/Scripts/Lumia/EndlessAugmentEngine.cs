@@ -226,7 +226,7 @@ namespace Lumia
         {
             if (amount <= 0) return;
             State.combat.block += amount; RecordBossProgress(BossMechanics.ObserveBlock(State.combat, amount));
-            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = source == null ? "basic_guard" : source.id, kind = "augment", block = amount });
+            EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = source == null ? "basic_guard" : source.id, kind = "augment", block = amount });
         }
         void AugmentAfterCard(CardDef card, int price, int energyBefore, int cardBlock)
         {

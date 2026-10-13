@@ -1,0 +1,2 @@
+Unity 6000.3.11f1 / Windows x64 / v0.1.25 / Release
+LUMIA BUILD Succeeded / errors=0

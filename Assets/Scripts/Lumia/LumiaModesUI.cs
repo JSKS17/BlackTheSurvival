@@ -11,21 +11,23 @@ namespace Lumia
     {
         bool modeSelecting, runMenu, endlessConfirm;
         RunMode selectedMode = RunMode.Normal;
-        int lobbyDialogueIndex;
+        int lobbyDialogueIndex = -1;
+        LobbyDialogueShuffle lobbyDialogueShuffle = new LobbyDialogueShuffle(Guid.NewGuid().GetHashCode());
         static readonly Rect LobbyDialogueBox = new Rect(782, 516, 430, 136);
         static readonly Rect LobbyDialogueText = new Rect(803, 553, 388, 58);
 
         void DrawLobbyDialogue()
         {
+            if (lobbyDialogueIndex < 0) AdvanceLobbyDialogue();
             bool hover = LobbyDialogueBox.Contains(Event.current.mousePosition) && topLayer == 0;
             Box(LobbyDialogueBox, new Color(.025f, .06f, .09f, .94f), hover ? Pink : Line);
             Txt(new Rect(803, 528, 320, 22), "니아  /  GAME MASTER", 14, Pink);
             Para(LobbyDialogueText, LobbyDialogue.At(lobbyDialogueIndex), 13, Text);
-            Txt(new Rect(803, 624, 388, 17), "터치하면 다음 대사  >", 11, hover ? Pink : Muted);
+            Txt(new Rect(803, 624, 388, 17), "터치하면 무작위 대사  >", 11, hover ? Pink : Muted);
             if (Hit(LobbyDialogueBox)) AdvanceLobbyDialogue();
         }
 
-        void AdvanceLobbyDialogue() { lobbyDialogueIndex = LobbyDialogue.NextIndex(lobbyDialogueIndex); }
+        void AdvanceLobbyDialogue() { lobbyDialogueIndex = lobbyDialogueShuffle.Next(); }
 
         static string ModeUnlockRequirement(RunMode mode)
         {
@@ -219,7 +221,8 @@ namespace Lumia
             Engine = ModesFixtureRun(80101, RunMode.Normal); lobby = true; Save();
             string before = JsonUtility.ToJson(Engine.State), disk = File.ReadAllText(savePath), profile = JsonUtility.ToJson(researchStore.Profile);
             int rng = Engine.State.rngState, previous = -1; var seen = new HashSet<int>();
-            lobbyDialogueIndex = -1;
+            // Start at the boundary of a fresh shuffle for this isolated UI check.
+            lobbyDialogueShuffle = new LobbyDialogueShuffle(80210);
             for (int index = 0; index < LobbyDialogue.Count; index++)
             {
                 AdvanceLobbyDialogue();
@@ -228,7 +231,7 @@ namespace Lumia
                 previous = lobbyDialogueIndex;
             }
             AdvanceLobbyDialogue();
-            if (lobbyDialogueIndex != 0 || LobbyDialogue.Count < 3) throw new InvalidOperationException("Lobby dialogue must cycle continuously.");
+            if (lobbyDialogueIndex == previous || LobbyDialogue.Count < 3) throw new InvalidOperationException("Lobby dialogue must reshuffle without an immediate repeat.");
             ShowModeSelection();
             if (SelectMode(RunMode.Hard) || SelectMode(RunMode.Endless)) throw new InvalidOperationException("Locked modes must not be selectable.");
             selectedMode = RunMode.Hard;

@@ -25,7 +25,7 @@ namespace Lumia
         public string kind;
         public string traitId;
         public bool enemy;
-        public int damage, block, heal, avoided;
+        public int damage, block, heal, avoided, absorbed;
         public bool critical;
         public int criticalHits;
     }
@@ -126,6 +126,9 @@ namespace Lumia
         public ResearchRunState research;
         public List<MapNode> map = new List<MapNode>();
         public List<MapNode> archivedMapNodes = new List<MapNode>();
+        public StoryRunProgress story;
+        public List<CombatLogEntry> combatHistory = new List<CombatLogEntry>();
+        public int combatHistorySerial;
         public CombatState combat;
         public RewardState rewards;
         public TraitActorState persistentTraits = new TraitActorState();
@@ -243,6 +246,7 @@ namespace Lumia
         {
             if (savedState == null || savedState.version < 1 || savedState.version > 2) throw new ArgumentException("지원하지 않는 저장 데이터입니다.");
             State = savedState;
+            EnsureCombatInformation();
             State.mode = RunModes.ModeFor(State);
             State.endlessCycle = State.mode == RunMode.Endless ? Math.Max(0, State.endlessCycle) : 0;
             if (State.mode != RunMode.Endless) State.endlessRetired = false;
@@ -666,6 +670,8 @@ namespace Lumia
             var id = c.hand[handIndex]; var card = PlayerCard(id);
             int researchActionStart = CombatActions.Count;
             int price = EffectiveCardCost(id);
+            RecordCombatCardStart(card, false, price, c.freeCasts.Any(g => g.cardId == id && g.uses > 0));
+            int poisonBefore = c.enemyPoison, weakBefore = c.enemyWeak, vulnerableBefore = c.enemyVulnerable;
             int augmentEnergyBefore = c.energy;
             ConsumeFreeCast(c.freeCasts, id);
             SkillMechanics.ConsumeDiscount(c.playerSkills, id);
@@ -676,7 +682,7 @@ namespace Lumia
             if (c.retainIndex == handIndex) c.retainIndex = -1;
             else if (c.retainIndex > handIndex) c.retainIndex--;
             if (card.exhaust) c.exhaustPile.Add(id); else c.discardPile.Add(id);
-            int hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0, directDamage = 0;
+            int hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0, directDamage = 0, absorbedTotal = 0;
             int bonusDamage = PlayerBonusDamage(id, price);
             ConsumeAugmentAttack(card, price);
             var incoming=card.damage>0 || bonusDamage>0 ? TraitEvent(true,"before_incoming",card,true) : new TraitResult();int incomingReduction=incoming.damageReduction,defenderBlock=c.enemyBlock;
@@ -691,7 +697,7 @@ namespace Lumia
                 if (id == "basic_attack" && baseDamage > 0 && Roll(CritChance)) { baseDamage = CriticalBaseDamage(baseDamage); criticalHits++; }
                 int damage = Math.Max(0,baseDamage + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.enemyBlock, damage);
                 bonusUsed = true;
-                c.enemyBlock -= absorbed; damage -= absorbed;
+                c.enemyBlock -= absorbed; damage -= absorbed; absorbedTotal += absorbed;
                 int healthDamage = TakeHealthDamage(true, damage); dealt += healthDamage; directDamage += absorbed + healthDamage;
                 RecordBossProgress(BossMechanics.ObserveDamage(c, absorbed));
             }
@@ -704,6 +710,7 @@ namespace Lumia
             c.strength += card.strength;
             if (landed) { c.enemyPoison += card.poison; c.enemyVulnerable = Math.Max(c.enemyVulnerable, card.vulnerable); c.enemyWeak = Math.Max(c.enemyWeak, card.weak); }
             if (card.evasion > 0) { c.evasion = Math.Max(c.evasion, card.evasion); c.evasionTurns = Math.Max(c.evasionTurns, card.duration); }
+            RecordLegacyDebuffs(card, false, landed, poisonBefore, weakBefore, vulnerableBefore);
             c.energy += card.energy;
             DrawCards(card.draw);
             SkillMechanics.AfterCard(c.playerSkills, skillBefore, card, landed, paidCost: price);
@@ -714,7 +721,7 @@ namespace Lumia
             if (RecordLastSkill(c.lastSkills, card)) c.lastSkillCard = id;
             GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills, card.owner), skillBefore, landed);
             int cardHeal=State.hp-beforeHp;
-            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = id, enemy = false, damage = dealt, block = block, heal = cardHeal, avoided = avoided, critical = criticalHits > 0, criticalHits = criticalHits });
+            EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = id, enemy = false, damage = dealt, block = block, heal = cardHeal, avoided = avoided, absorbed = absorbedTotal, critical = criticalHits > 0, criticalHits = criticalHits });
             bool attackAttempt=card.damage>0 || bonusDamage>0;
             ApplyBeforeTraits(false,card,landed && attackAttempt,skillBefore,traitHpBefore);
             AfterCardTraits(false,card,landed,dealt,block,cardHeal,avoided,attackAttempt);
@@ -744,6 +751,7 @@ namespace Lumia
         {
             var c = State.combat;
             if (State.stage != RunStage.Combat || c == null || c.enemyTurn) return Fail("현재 플레이어의 턴이 아닙니다.");
+            RecordCombatInformation(new CombatLogEntry { kind = "turn_end", title = "내 턴 종료", detail = "남은 코스트 " + c.energy + " · 지속 효과와 상대 행동을 처리합니다." });
             AugmentTurnEnd();
             if (c.retainIndex >= 0 && c.retainIndex < c.hand.Count && c.retainUses < 2)
             {
@@ -758,7 +766,7 @@ namespace Lumia
             {
                 int damage = TakeHealthDamage(true,c.enemyPoison);
                 Say(c.enemyName + " 중독 피해 " + damage); c.enemyPoison--;
-                CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = "status_poison", enemy = false, damage = damage });
+                EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = "status_poison", enemy = false, damage = damage });
                 if(damage>0){TraitEvent(true,"damaged",null,true,damage);TraitEvent(true,"low_health",null,true,damage);}
             }
             ResolveSkillTicks(false);
@@ -770,6 +778,7 @@ namespace Lumia
             c.enemyBlock = 0;
             if (c.enemyEvasionTurns > 0 && --c.enemyEvasionTurns == 0) c.enemyEvasion = BaseEnemyEvasion();
             c.enemyTurn = true; c.enemyActionIndex = 0; c.enemyFreeCasts.Clear(); c.enemyFreeCastSources.Clear();
+            RecordCombatInformation(new CombatLogEntry { kind = "turn_start", enemy = true, title = "상대 턴 시작", detail = "상대의 턴 시작 효과와 예정 행동을 처리합니다." });
             c.enemyAvailableEnergy = EnergyForLevel(c.enemyLevel)+TraitMechanics.EnergyBonus(c.enemyTraits)+c.enemyOpeningEnergy;c.enemyOpeningEnergy=0;
             SkillMechanics.StartTurn(c.enemySkills);
             TraitMechanics.StartTurn(c.enemyTraits);
@@ -813,13 +822,15 @@ namespace Lumia
             if(index<c.enemyPlanCosts.Count && c.enemyPlanCosts[index]==0 && CardCost(id)>0 && price>0)
             {Say(c.enemyName+"의 "+card.name+" 할인 연계가 취소되었습니다.");return true;}
             if (price > c.enemyAvailableEnergy) { Say(c.enemyName + "의 " + card.name + " 연계가 취소되었습니다."); return true; }
+            RecordCombatCardStart(card, true, price, freeGranted);
+            int poisonBefore = c.poison, weakBefore = c.weak, vulnerableBefore = c.vulnerable;
             ConsumeFreeCast(c.enemyFreeCasts, id);
             SkillMechanics.ConsumeDiscount(c.enemySkills, id);
             SkillMechanics.ConsumeDiscount(c.enemyTraits.skills,id);
             var skillBefore = SkillMechanics.Clone(c.enemySkills);
             int traitHpBefore=c.enemyHp;
             c.enemyAvailableEnergy -= price; c.enemyAvailableEnergy += card.energy;
-            int damagePerHit = EnemyCardDamage(card), bonusDamage = EnemyTotalBonusDamage(card,c.enemySkills,c.enemyTraits,c.vulnerable), hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0;
+            int damagePerHit = EnemyCardDamage(card), bonusDamage = EnemyTotalBonusDamage(card,c.enemySkills,c.enemyTraits,c.vulnerable), hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0, absorbedTotal = 0;
             var incoming=damagePerHit>0 || bonusDamage>0 ? TraitEvent(false,"before_incoming",card,true) : new TraitResult();int incomingReduction=incoming.damageReduction,defenderBlock=c.block;
             bool landed = damagePerHit == 0 && bonusDamage == 0, bonusUsed = false;
             for (int i = 0; i < hits && State.hp > 0; ++i)
@@ -829,7 +840,7 @@ namespace Lumia
                 landed = true;
                 int baseDamage = damagePerHit;
                 if (id == "basic_attack" && baseDamage > 0 && Roll(EnemyCritChance)) { baseDamage = CriticalBaseDamage(baseDamage); criticalHits++; }
-                int damage = Math.Max(0,RunModes.ScaleEnemyDirectDamage(State, baseDamage + (bonusUsed ? 0 : bonusDamage)) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.block, damage); c.block -= absorbed;
+                int damage = Math.Max(0,RunModes.ScaleEnemyDirectDamage(State, baseDamage + (bonusUsed ? 0 : bonusDamage)) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.block, damage); c.block -= absorbed; absorbedTotal += absorbed;
                 bonusUsed = true;
                 dealt += TakeHealthDamage(false,damage-absorbed);
             }
@@ -841,6 +852,7 @@ namespace Lumia
             c.enemyStrength += card.strength;
             if (landed) { c.poison += card.poison; c.vulnerable = Math.Max(c.vulnerable, card.vulnerable); c.weak = Math.Max(c.weak, card.weak); }
             if (card.evasion > 0 && string.IsNullOrEmpty(c.animal)) { c.enemyEvasion = Math.Max(BaseEnemyEvasion(), card.evasion); c.enemyEvasionTurns = Math.Max(c.enemyEvasionTurns, card.duration); }
+            RecordLegacyDebuffs(card, true, landed, poisonBefore, weakBefore, vulnerableBefore);
             SkillMechanics.AfterCard(c.enemySkills, skillBefore, card, landed, paidCost: price);
             StatusMechanics.CancelMissingInstallations(c.playerStatuses,c.enemySkills);
             StatusMechanics.DamageTaken(c.playerStatuses,dealt);
@@ -848,7 +860,7 @@ namespace Lumia
             RecordLastSkill(c.enemyLastSkills, card);
             GrantFreeCasts(card, c.enemyDeck, c.enemyFreeCasts, c.enemyFreeCastSources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, false, LastSkill(c.enemyLastSkills, card.owner), skillBefore, landed);
             int cardHeal=c.enemyHp-beforeHp;
-            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = id, enemy = true, damage = dealt, block = addedBlock, heal = cardHeal, avoided = avoided, critical = criticalHits > 0, criticalHits = criticalHits });
+            EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = id, enemy = true, damage = dealt, block = addedBlock, heal = cardHeal, avoided = avoided, absorbed = absorbedTotal, critical = criticalHits > 0, criticalHits = criticalHits });
             bool attackAttempt=damagePerHit>0 || bonusDamage>0;
             ApplyBeforeTraits(true,card,landed && attackAttempt,skillBefore,traitHpBefore);
             AfterCardTraits(true,card,landed,dealt,addedBlock,cardHeal,avoided,attackAttempt);
@@ -1374,7 +1386,7 @@ namespace Lumia
             if (!interrupted || State.combat?.boss == null) return;
             var phase = BossMechanics.Phase(State.combat);
             ResearchProgression.BossInterrupted(State, State.combat.boss.phase);
-            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = phase?.signatureCardId, kind = "boss_interrupt", enemy = false });
+            EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = phase?.signatureCardId, kind = "boss_interrupt", enemy = false });
             Say("공략 성공 · " + phase?.name + " 중단. 다음 플레이어 턴 종료까지 보스가 취약해집니다.");
         }
 
@@ -1466,7 +1478,7 @@ namespace Lumia
             int damage = avoided > 0 ? 0 : Math.Max(0, BossStrikeDamage(amount, c.enemyWeak, c.vulnerable, c.enemyStatuses, c.playerStatuses) - incoming.damageReduction);
             int absorbed = Math.Min(c.block, damage); c.block -= absorbed; damage = TakeHealthDamage(false, damage - absorbed);
             StatusMechanics.DamageTaken(c.playerStatuses, damage);
-            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = source, kind = kind, enemy = true, damage = damage, avoided = avoided });
+            EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = source, kind = kind, enemy = true, damage = damage, avoided = avoided });
             if (avoided == 0) TraitEvent(false, "incoming_hit", card, true, damage);
             if (avoided > 0) TraitEvent(false, "evade", card, true, avoided: avoided);
             if (damage > 0) { TraitEvent(false, "damaged", card, true, damage); TraitEvent(false, "low_health", card, true, damage); }
@@ -1502,7 +1514,7 @@ namespace Lumia
                     c.enemyPoison = c.enemyWeak = c.enemyVulnerable = 0; c.enemyStatuses.effects.RemoveAll(x => !x.pending);
                     c.enemyTraits.buffs.RemoveAll(x => x.kind == "heal_reduction" || x.kind == "exposure"); break;
             }
-            CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = phase.signatureCardId, kind = "boss_" + effect.ToString().ToLowerInvariant(), enemy = true, block = block, heal = healed });
+            EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = phase.signatureCardId, kind = "boss_" + effect.ToString().ToLowerInvariant(), enemy = true, block = block, heal = healed });
         }
 
         private void StartBattle(bool wildlife, bool boss)
@@ -1561,6 +1573,7 @@ namespace Lumia
             c.drawPile.AddRange(State.deck); Shuffle(c.drawPile);
             c.enemyDrawPile.AddRange(c.enemyDeck); Shuffle(c.enemyDrawPile);
             Heal(Modifier("battle_start_heal"));
+            RecordCombatInformation(new CombatLogEntry { kind = "battle_start", title = "전투 시작", detail = c.enemyName + " LV." + c.enemyLevel + " · 상대 체력 " + c.enemyHp + "/" + c.enemyMaxHp });
             TraitEvent(false,"battle_start",null,true);TraitEvent(true,"battle_start",null,true);
             c.playerOpeningEnergy=c.energy;c.enemyOpeningEnergy=c.enemyAvailableEnergy;
             Say(c.enemyName + " Lv." + level + " 전투 시작");
@@ -1609,7 +1622,7 @@ namespace Lumia
             int damage=Math.Min(enemy?combat.enemyHp:State.hp,total);
             if(enemy)combat.enemyHp-=damage;else State.hp-=damage;
             if(damage<=0)return;
-            CombatActions.Add(new CombatAction{id=++actionSerial,cardId="ao_dai",kind="deferred_damage",enemy=!enemy,damage=damage});
+            EmitCombatAction(new CombatAction{id=++actionSerial,cardId="ao_dai",kind="deferred_damage",enemy=!enemy,damage=damage});
             Say((enemy?combat.enemyName:"하나")+" 유예 피해 "+damage);
             TraitEvent(enemy,"damaged",null,true,damage);TraitEvent(enemy,"low_health",null,true,damage);
         }
@@ -1622,6 +1635,7 @@ namespace Lumia
             if (retained > 0) c.hand.Add(c.retainedCardId);
             c.retainedCardId = null; c.retainIndex = -1;
             c.turn++; c.energy = MaxEnergy + Modifier("turn_energy")+(first?c.playerOpeningEnergy:0); c.playerOpeningEnergy=0; c.attacksPlayed = 0;
+            RecordCombatInformation(new CombatLogEntry { kind = "turn_start", title = c.turn + "턴 시작", detail = "코스트·필드·턴 시작 효과를 갱신합니다." });
             ResetAugmentTurn();
             PrepareBossNextTurn(); BossMechanics.BeginPlayerTurn(c);
             if (!first) SkillMechanics.StartTurn(c.playerSkills);
@@ -1638,7 +1652,7 @@ namespace Lumia
             {
                 int damage = TakeHealthDamage(false,c.poison);
                 Say("하나 중독 피해 " + damage); c.poison--;
-                CombatActions.Add(new CombatAction { id = ++actionSerial, cardId = "status_poison", enemy = true, damage = damage });
+                EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = "status_poison", enemy = true, damage = damage });
                 if(damage>0){TraitEvent(false,"damaged",null,true,damage);TraitEvent(false,"low_health",null,true,damage);}
             }
             if (CheckBattleEnd()) return;
@@ -2157,7 +2171,7 @@ namespace Lumia
                             buff.amount=Math.Max(buff.amount,pulse.amount);buff.remaining=Math.Max(buff.remaining,Math.Min(2,pulse.duration));break;
                         case "execute":damage=enemy?State.hp:c.enemyHp;if(enemy)State.hp=0;else c.enemyHp=0;break;
                     }
-                    CombatActions.Add(new CombatAction {id=++actionSerial,cardId=pulse.sourceCard,traitId=pulse.sourceId,kind=pulse.kind.StartsWith("status_",StringComparison.Ordinal)?pulse.kind:"trait_"+pulse.kind,enemy=enemy,damage=damage,heal=heal,block=block});
+                    EmitCombatAction(new CombatAction {id=++actionSerial,cardId=pulse.sourceCard,traitId=pulse.sourceId,kind=pulse.kind.StartsWith("status_",StringComparison.Ordinal)?pulse.kind:"trait_"+pulse.kind,enemy=enemy,damage=damage,heal=heal,block=block});
                 }
             }
             finally {resolvingTraits=wasResolving;}
@@ -2180,7 +2194,7 @@ namespace Lumia
                 if (State.hp <= 0) ResolveRevive(false);
                 if (c.enemyHp <= 0) ResolveRevive(true);
             }
-            if (State.hp <= 0) { Lose(); return true; }
+            if (State.hp <= 0) { if (State.stage == RunStage.Combat) RecordCombatInformation(new CombatLogEntry { kind = "battle_end", title = "전투 패배", detail = "하나 체력 0" }); Lose(); return true; }
             if (State.stage == RunStage.Combat && State.combat.enemyHp <= 0) { WinBattle(); return true; }
             return State.stage != RunStage.Combat;
         }
@@ -2190,7 +2204,7 @@ namespace Lumia
             var pulse = SkillMechanics.Revive(enemy ? c.enemySkills : c.playerSkills) ?? SkillMechanics.Revive((enemy?c.enemyTraits:c.playerTraits).skills);
             if (pulse == null) return;
             if (enemy) c.enemyHp = Math.Min(c.enemyMaxHp, pulse.amount); else State.hp = Math.Min(State.maxHp, pulse.amount);
-            CombatActions.Add(new CombatAction { id=++actionSerial, cardId=pulse.sourceCard,traitId=pulse.traitId, kind="revive", enemy=enemy, heal=enemy ? c.enemyHp : State.hp });
+            EmitCombatAction(new CombatAction { id=++actionSerial, cardId=pulse.sourceCard,traitId=pulse.traitId, kind="revive", enemy=enemy, heal=enemy ? c.enemyHp : State.hp });
             Say((enemy ? c.enemyName : "하나") + "의 치명적인 피해를 막고 회복했습니다.");
         }
         private void ResolveSkillTicks(bool enemy)
@@ -2240,7 +2254,7 @@ namespace Lumia
         {
             foreach(var status in StatusMechanics.Snapshot(target))
                 if(!previous.Any(x=>x.kind==status.kind && x.remaining>=status.remaining))
-                    CombatActions.Add(new CombatAction {id=++actionSerial,cardId=status.sourceCard,kind=status.kind,enemy=enemy});
+                    EmitCombatAction(new CombatAction {id=++actionSerial,cardId=status.sourceCard,kind=status.kind,enemy=enemy});
         }
         private void ResolveSkillPulse(SkillPulse pulse, bool enemy)
         {
@@ -2268,7 +2282,7 @@ namespace Lumia
                 }
                 damage = TakeHealthDamage(!enemy,amount);
             }
-            CombatActions.Add(new CombatAction { id=++actionSerial, cardId=pulse.sourceCard,traitId=pulse.traitId, kind=pulse.kind, enemy=enemy, damage=damage, heal=heal, block=block });
+            EmitCombatAction(new CombatAction { id=++actionSerial, cardId=pulse.sourceCard,traitId=pulse.traitId, kind=pulse.kind, enemy=enemy, damage=damage, heal=heal, block=block });
             var card = GameDatabase.Card(pulse.sourceCard);
             if(pulse.kind!="hot" && pulse.kind!="guard")
             {
@@ -2295,6 +2309,7 @@ namespace Lumia
 
         private void WinBattle()
         {
+            RecordCombatInformation(new CombatLogEntry { kind = "battle_end", title = "전투 승리", detail = State.combat.enemyName + " 제압 · 하나 체력 " + State.hp + "/" + State.maxHp });
             var c = State.combat; var node = ActiveNode(); bool boss = node.kind == ZoneKind.Boss;
             int bossEnergyGained = 0;
             ResearchProgression.Victory(State, GameDatabase.Character(c.enemyId)?.id, boss);
@@ -2532,6 +2547,9 @@ namespace Lumia
         private bool Fail(string message) { State.message = message; return false; }
         private bool Say(string message)
         {
+            if (State.stage == RunStage.Combat && State.combat != null && !string.IsNullOrEmpty(message)
+                && (message.Contains("연계가 취소") || message.Contains("사용이 상태이상으로 막혔")))
+                RecordCombatInformation(new CombatLogEntry { kind = "cancelled", enemy = true, title = "상대 행동 취소", detail = message });
             State.message = message; if (!string.IsNullOrEmpty(message)) State.log.Add(message);
             if (State.log.Count > 80) State.log.RemoveAt(0); return true;
         }

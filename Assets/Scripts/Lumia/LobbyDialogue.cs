@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Lumia
 {
-    // Presentation-only rotation: reading or advancing dialogue never touches a run,
+    // Presentation-only dialogue: reading or advancing never touches a run,
     // a save, Unity's random generator, or the engine's deterministic random stream.
     public static class LobbyDialogue
     {
@@ -68,6 +68,29 @@ namespace Lumia
         {
             int wrapped = index % Count;
             return wrapped < 0 ? wrapped + Count : wrapped;
+        }
+    }
+
+    /// <summary>A presentation-only shuffle bag; every line appears once before reshuffling.</summary>
+    public sealed class LobbyDialogueShuffle
+    {
+        readonly Random random;
+        readonly List<int> bag = new List<int>();
+        int previous = -1;
+        public LobbyDialogueShuffle(int seed) { random = new Random(seed); }
+        public int Next()
+        {
+            if (bag.Count == 0)
+            {
+                for (int i = 0; i < LobbyDialogue.Count; i++) bag.Add(i);
+                for (int i = bag.Count - 1; i > 0; i--)
+                {
+                    int j = random.Next(i + 1), swap = bag[i]; bag[i] = bag[j]; bag[j] = swap;
+                }
+                if (bag.Count > 1 && bag[bag.Count - 1] == previous)
+                { int swap = bag[0]; bag[0] = previous; bag[bag.Count - 1] = swap; }
+            }
+            previous = bag[bag.Count - 1]; bag.RemoveAt(bag.Count - 1); return previous;
         }
     }
 }

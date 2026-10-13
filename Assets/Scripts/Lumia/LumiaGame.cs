@@ -63,6 +63,7 @@ namespace Lumia
             bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-augment-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-modes-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
             verify |= Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-face-verify") >= 0;
             verify |= Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-effects-verify") >= 0;
+            verify |= PresentationVerificationEnabled;
             savePath = Path.Combine(Application.persistentDataPath, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
             researchStore = new ResearchStore(Path.Combine(Application.persistentDataPath, verify ? "bts-research-verification.json" : "bts-research-v1.json"),
@@ -117,11 +118,14 @@ namespace Lumia
                 Audio.Configure(sound, volume, musicVolume, effectsVolume);
                 Audio.Tick(lobby, Engine?.State);
             }
+            if (TutorialActive) { UpdateTutorial(); return; }
+            UpdateStoryFlow(); UpdateTutorialOffer();
+            if (StoryVisible || tutorialOffer) return;
             if (Engine == null || lobby) return;
             ConsumeCombatActions();
             var c = Engine.State.combat;
             if (Engine.State.stage == RunStage.Combat && c != null && c.enemyTurn && !effects.Busy && Time.unscaledTime >= nextEnemyActionAt
-                && !modeSelecting && !runMenu && !endlessConfirm && !settings && !inventory && !catalog && !research && !help && !fieldInfo && !enemyLoadout && string.IsNullOrEmpty(inspectBoss) && string.IsNullOrEmpty(inspectGear) && string.IsNullOrEmpty(inspectCard) && string.IsNullOrEmpty(inspectTrait))
+                && !CombatInformationOpen && !modeSelecting && !runMenu && !endlessConfirm && !settings && !inventory && !catalog && !research && !help && !fieldInfo && !enemyLoadout && string.IsNullOrEmpty(inspectBoss) && string.IsNullOrEmpty(inspectGear) && string.IsNullOrEmpty(inspectCard) && string.IsNullOrEmpty(inspectTrait))
             {
                 var previousStage = Engine.State.stage; int previousLevel = Engine.State.level;
                 if (Engine.AdvanceEnemyAction()) { AudioTransition(previousStage, previousLevel); Save(); }
@@ -165,8 +169,10 @@ namespace Lumia
             float ox = (Screen.width - W * scale) / 2, oy = (Screen.height - H * scale) / 2;
             GUI.matrix = Matrix4x4.TRS(new Vector3(ox, oy, 0), Quaternion.identity, new Vector3(scale, scale, 1));
             GUI.color = Color.white;
+            if (StoryVisible) { currentLayer = topLayer = 0; GUI.enabled = true; DrawStoryScene(); return; }
+            if (TutorialActive) { DrawTutorial(); return; }
             currentLayer = 0;
-            topLayer = modeSelecting || runMenu || endlessConfirm ? 7 : !string.IsNullOrEmpty(inspectCard) || !string.IsNullOrEmpty(inspectTrait) || !string.IsNullOrEmpty(inspectGear) ? 6 : fieldInfo || enemyLoadout || !string.IsNullOrEmpty(inspectBoss) ? 5 : help ? 4 : settings ? 3 : inventory ? 2 : catalog || research || !string.IsNullOrEmpty(craftPending) || !string.IsNullOrEmpty(mapIntel) ? 1 : 0;
+            topLayer = tutorialOffer ? 8 : modeSelecting || runMenu || endlessConfirm ? 7 : CombatInformationOpen || !string.IsNullOrEmpty(inspectCard) || !string.IsNullOrEmpty(inspectTrait) || !string.IsNullOrEmpty(inspectGear) ? 6 : fieldInfo || enemyLoadout || !string.IsNullOrEmpty(inspectBoss) ? 5 : help ? 4 : settings ? 3 : inventory ? 2 : catalog || research || !string.IsNullOrEmpty(craftPending) || !string.IsNullOrEmpty(mapIntel) ? 1 : 0;
             GUI.enabled = topLayer == 0;
             Fill(new Rect(-ox / scale, -oy / scale, Screen.width / scale, Screen.height / scale), Ink);
             if (lobby || Engine == null) DrawLobby();
@@ -203,7 +209,9 @@ namespace Lumia
             if (!string.IsNullOrEmpty(inspectCard)) { currentLayer = 6; GUI.enabled = true; DrawCardDetail(); }
             if (!string.IsNullOrEmpty(inspectTrait)) { currentLayer = 6; GUI.enabled = true; DrawTraitDetail(); }
             if (!string.IsNullOrEmpty(inspectGear)) { currentLayer = 6; GUI.enabled = true; DrawGearDetail(); }
+            if (CombatInformationOpen) { currentLayer = 6; GUI.enabled = true; DrawCombatInformationOverlay(); }
             if (modeSelecting || runMenu || endlessConfirm) { currentLayer = 7; GUI.enabled = topLayer == 7; DrawModeDialogs(); }
+            if (tutorialOffer) { currentLayer = 8; GUI.enabled = true; DrawTutorialOffer(); }
             GUI.enabled = true;
             if (Time.unscaledTime < toastUntil)
             {
@@ -228,9 +236,13 @@ namespace Lumia
             if (MenuButton(445, "03", "카드 도감", GameDatabase.Cards.Count + "장의 스킬 기록")) { catalog = true; catalogPage = 0; }
             if (MenuButton(511, "04", "연구 기록", researchStore.Profile.data + " 관측 데이터 · 실험체 연구 보고서")) OpenResearch();
             if (MenuButton(577, "05", "환경 설정", "음량 · 화면 · 접근성")) settings = true;
+            if (Btn(new Rect(62, 642, 202, 24), "니아의 튜토리얼", false, Pink)) StartTutorial();
+            if (Btn(new Rect(278, 642, 202, 24), "이야기 다시 보기", false, Muted)) OpenStoryReplayMenu();
             DrawLobbyDialogue();
             Fill(new Rect(0, 670, W, 50), new Color(.025f, .06f, .09f, .94f));
-            Txt(new Rect(25, 680, 1230, 30), "이 게임은 님블뉴런이 개발한 IP ‘이터널 리턴’을 기반으로 한 비공식 팬 게임입니다. 모든 저작권은 님블뉴런에 귀속됩니다.", 14, Muted, true);
+            Txt(new Rect(12, 679, 275, 16), "개발: 블장", 11, Text);
+            Txt(new Rect(12, 697, 275, 16), "문의: azxar2782@gmail.com", 11, Muted);
+            Para(new Rect(301, 681, 953, 32), "이 게임은 님블뉴런이 개발한 IP ‘이터널 리턴’을 기반으로 한 비공식 팬 게임입니다. 모든 저작권은 님블뉴런에 귀속됩니다.", 12, Muted);
         }
 
         bool MenuButton(float y, string n, string title, string sub, bool enabled = true)
@@ -266,7 +278,7 @@ namespace Lumia
                 var support = GameDatabase.Runes.FirstOrDefault(x => !x.main && x.tree == main.tree);
                 if (support != null) Engine.SetRunes(main.id, support.id);
             }
-            Save();
+            CloseCombatInformation(); InitializeRunStory(); QueueNewRunTutorial(); Save();
             return true;
         }
 
@@ -276,7 +288,7 @@ namespace Lumia
             Fill(new Rect(0, 78, W, 2), Line);
             Txt(new Rect(26, 17, 530, 29), title, 22, Text);
             Txt(new Rect(27, 48, 630, 24), subtitle, 11, Muted);
-            if (Engine == null) return;
+            if (Engine == null || TutorialActive) return;
             var s = Engine.State;
             DrawModeBadge(new Rect(568, 18, 114, 25));
             Txt(new Rect(697, 15, 90, 23), "LV. " + s.level.ToString("00"), 16, Mint);
@@ -284,7 +296,7 @@ namespace Lumia
             Tex(new Rect(985,12,27,27),PixelArt.SystemIcon("credits"),ScaleMode.ScaleToFit);
             Txt(new Rect(1021, 15, 134, 23), s.credits + " CR", 16, Gold);
             Bar(new Rect(799, 46, 170, 7), s.hp, s.maxHp, Pink);
-            if (s.stage != RunStage.Preparation && Btn(new Rect(985, 44, 170, 24), "덱 / 장비 / 가방", false, Muted)) { inventory = true; inventoryScroll = Vector2.zero; }
+            if (!TutorialActive && s.stage != RunStage.Preparation && Btn(new Rect(985, 44, 170, 24), "덱 / 장비 / 가방", false, Muted)) { inventory = true; inventoryScroll = Vector2.zero; }
         }
 
         void DrawPreparation()
@@ -590,7 +602,8 @@ namespace Lumia
                 bool playable = Engine.CanPlayCard(i) && !effects.Casting && Time.unscaledTime >= nextPlayerActionAt;
                 bool selected = c.retainIndex == i;
                 DrawCard(r, hand[i], selected, retainSelecting ? !c.enemyTurn : playable, true);
-                if (selected) { Rect mark = new Rect(r.xMax - 43, r.y + 8, 34, 23); Fill(mark, Ink); Txt(mark, "보관", 10, Gold, true); }
+                DrawCardInformationButton(r, hand[i], i);
+                if (selected) { Rect mark = new Rect(r.xMax - 70, r.y + 8, 34, 23); Fill(mark, Ink); Txt(mark, "보관", 10, Gold, true); }
                 if (Hit(r, retainSelecting ? !c.enemyTurn : playable))
                 {
                     int index = i;
@@ -603,7 +616,7 @@ namespace Lumia
             if (cardUsed) return;
             if (Btn(new Rect(1070, 515, 186, 71), c.enemyTurn ? "상대 행동 중" : "턴 종료  >", true, Gold, !c.enemyTurn && !effects.Casting && Time.unscaledTime >= nextPlayerActionAt)) { if (Act(Engine.BeginEndTurn, "turn.end")) retainSelecting = false; return; }
             if (Btn(new Rect(1070, 601, 186, 38), "회복 아이템", false, Mint, !c.enemyTurn)) { inventory = true; inventoryTab = 2; inventoryScroll = Vector2.zero; }
-            if (s.log.Count > 0) Para(new Rect(1070, 653, 186, 43), s.log[s.log.Count - 1], 11, Muted);
+            DrawCombatInformationButton(new Rect(1070, 653, 186, 38));
         }
 
         void OpenBossGuide(string subjectId)
@@ -1572,6 +1585,7 @@ namespace Lumia
         void Notify(string message) { if (string.IsNullOrEmpty(message)) return; toast = message; toastUntil = Time.unscaledTime + 4; }
         public void Save()
         {
+            if (TutorialActive) return;
             if (Engine == null || !WriteRunSave()) return;
             if (Engine.State.stage != RunStage.Won && Engine.State.stage != RunStage.Lost) return;
             bool wasSettled = Engine.State.research?.settled == true, hadSettlement = Engine.State.research?.settlement != null;
@@ -1583,6 +1597,7 @@ namespace Lumia
         }
         bool WriteRunSave()
         {
+            if (TutorialActive) return false;
             try
             {
                 string json = JsonUtility.ToJson(Engine.State, true);
@@ -1600,6 +1615,8 @@ namespace Lumia
                 var state = ReadRunSave(out recovered);
                 Engine = new GameEngine(state); ResetBossPreviews(); research = false; researchSaveError = ""; lobby = false; modeSelecting = runMenu = endlessConfirm = false; retainSelecting = hyperloopSelecting = false; upgradeSelected = upgradeBranch = mapIntel = inspectBoss = "";
                 prepStep = state.stage == RunStage.Preparation ? string.IsNullOrEmpty(state.chosenPassive) ? 0 : 2 : 0;
+                CloseCombatInformation(); RestoreRunStory();
+                if (state.stage == RunStage.Preparation) QueueNewRunTutorial();
                 AudioCue("game.resume");
                 if (recovered || state.stage == RunStage.Won || state.stage == RunStage.Lost) Save();
                 if (recovered) Notify("백업에서 실험 기록을 불러왔습니다.");

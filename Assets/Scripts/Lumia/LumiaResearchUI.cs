@@ -148,7 +148,8 @@ namespace Lumia
             bool pending = !string.IsNullOrEmpty(researchSaveError) || researchStore.IsReadOnly;
             Txt(new Rect(49, 598, 1182, 25), pending ? "연구 정산이 보류되었습니다. 기록을 저장한 뒤 다시 시도해주세요." : "보유 관측 데이터 " + researchStore.Profile.data + (report?.legacy == true ? " · 새 원정부터 연구 기록이 축적됩니다." : " · 연구 진척과 첫 관측 기록이 보존되었습니다."), 14, pending ? Pink : Muted, true);
             if (pending && Btn(new Rect(935, 133, 297, 31), "연구 정산 다시 시도", false, Pink)) Save();
-            if (Btn(new Rect(48, 641, 554, 48), "로비로 돌아가기", false, Muted)) { lobby = true; Save(); }
+            if (Btn(new Rect(48, 641, 328, 48), "로비로 돌아가기", false, Muted)) { lobby = true; Save(); }
+            DrawCombatInformationButton(new Rect(390, 641, 212, 48));
             if (Btn(new Rect(622, 641, 610, 48), "연구 기록 확인", true, Mint)) { lobby = true; Save(); OpenResearch(); }
         }
 

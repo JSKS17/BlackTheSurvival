@@ -39,7 +39,10 @@ public static partial class CoreSmokeTests
             EndlessEquipmentChoiceAndSave(); EndlessEquipmentCapacityAndCraft(); EndlessEquipmentLegacyAndModes();
             CardClassificationCanonicalRules();
             CombatVisualProfileCoverage();
-            Console.WriteLine("PASS: " + checks + " assertions across 109 game-rule scenarios.");
+            TutorialRulesAndIsolation(); LobbyRandomDialogueIsolation();
+            StorySceneCatalogAndText(); StoryRunResumeAndLegacy(); StoryVictoryAndReplayIsolation();
+            CombatInformationCatalogAndIsolation(); CombatInformationConditionsAndBoss(); CombatInformationHistoryAndSave();
+            Console.WriteLine("PASS: " + checks + " assertions across 117 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
