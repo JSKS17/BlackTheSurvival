@@ -1,0 +1,43 @@
+{
+  "id": "irem",
+  "name": "이렘",
+  "ultimate": "고양이로 펑!",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-7f9942e9-fa85-4659-aff1-cac7adc662d4.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/irem.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 고양이로 펑!"
+    }
+  ],
+  "visual_review": "푸른 눈·살구색 머리·고양이 귀와 의상을 유지했습니다. 6~9프레임은 실제 네발 고양이로 바뀌고 앞발·냥 펀치·앉기 뒤 인간으로 복귀합니다. 4번째 작은 점프는 의도된 모션입니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "a8b9bf6bcfe9f284aeae4eb635fcdbe8dff45ccf4ba5b11da3667f6dc61499b8",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Irem peach-orange hair, cat ears, bright blue eyes, white pink red outfit and headband from portrait. Official R switches human Irem to a cat and back. Animate human idle; cute paws-up hand pose; knees dip; little jump; compact peach-pink transformation puff below visible face; now a small peach-orange cat with blue eyes, red collar and bell, tail curled on SAME ground baseline; cat stretches forepaws; one quick playful cat paw swipe with tiny white streak; sits with proud blue eyes and bell; cat curls into soft pink puff; human form lands paws raised; exact original human idle. Preserve human face rather than Nia eyes, and matching eye color as cat. Do NOT keep a human body with cat ears as transformation: frames 6-9 are a genuine four-legged cat. No huge opaque flash.",
+  "frame_labels": [
+    "인간 준비",
+    "앞발 흉내",
+    "몸 낮추기",
+    "작은 도약",
+    "고양이 변신",
+    "고양이 등장",
+    "앞발 뻗기",
+    "냥 펀치",
+    "고양이 앉기",
+    "인간 변신",
+    "인간 착지",
+    "인간 준비 복귀"
+  ],
+  "intended_airborne_frames": [
+    3,
+    4
+  ]
+}

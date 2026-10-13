@@ -1,0 +1,47 @@
+{
+  "id": "aiden",
+  "name": "에이든",
+  "ultimate": "낙뢰",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-47d2961a-6263-45bb-bf7a-8fec06987277.png",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "a8b2dc68009c787fbff0f3944ff6d817789fedf9145bd2c2b2bd8ae8ecd8f23c",
+  "reference_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\aiden.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+  ],
+  "reference_sha256": [
+    "7f2763c8b8fab8f33ef5690bf871601f1fc06c5ea86fcdcdb714497af9f57042",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "Eternal Return official skill description"
+    }
+  ],
+  "motion_summary": "첫 낙뢰를 지정하고 전기 표식으로 돌진해 두 번째 낙뢰를 터뜨리는 동작",
+  "frame_labels": [
+    "검 대기",
+    "검끝 충전",
+    "지점 지정",
+    "첫 낙뢰",
+    "전하 집중",
+    "표식으로 돌진",
+    "전기 잔상",
+    "두 번째 낙뢰",
+    "검을 내리침",
+    "전류 분산",
+    "검 회수",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [
+    5,
+    6
+  ],
+  "visual_review": "Reviewed generated twelve-frame sheet: identity, facial features, distinct body/weapon motion, skill effects, transparent cells."
+}

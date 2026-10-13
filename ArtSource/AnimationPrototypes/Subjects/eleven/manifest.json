@@ -1,0 +1,39 @@
+{
+  "id": "eleven",
+  "name": "일레븐",
+  "ultimate": "다 덤벼보라구!",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-22341a8d-f876-468d-a1dc-b32dea4368a3.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/eleven.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 다 덤벼보라구!"
+    }
+  ],
+  "visual_review": "밝게 열린 눈·웃는 입·핑크 트윈테일과 버거 포크가 분명히 읽힙니다. 회복 강화 상태 발동 후 양손 휘두름·버거 생성·회수의 실동작이 다릅니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "34565a03d5512a8e887b9dc2d6929ee6e446aa9989b0d29bd7bac253977e44d2",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Eleven pink twin-tail cheerful burger streamer with giant burger fork weapon from portrait. Official R is a regenerating powered-up state that creates burgers through basic attacks, NOT a giant magical vortex. Animate bright ready stance; bracing giant fork; pumping free fist; warm golden-green vitality pulses around her boots; one broad two-handed burger-fork swing; return wind-up; second compact swing; small cute burger pops near fork tip; catching momentum with knee bend; proud fork raise; settle; ready. Preserve big happy open eyes and playful small smile, white/pink clothes. Two tiny burger icons and warm gold healing sparks only, not UI, no healing text.",
+  "frame_labels": [
+    "준비",
+    "포크 잡기",
+    "힘내기 포즈",
+    "재생 발동",
+    "첫 포크 휘두르기",
+    "포크 되감기",
+    "두 번째 휘두르기",
+    "버거 생성",
+    "자세 낮추기",
+    "의기양양",
+    "회수",
+    "준비 복귀"
+  ]
+}

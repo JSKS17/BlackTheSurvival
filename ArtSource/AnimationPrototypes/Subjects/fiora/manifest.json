@@ -1,0 +1,39 @@
+{
+  "id": "fiora",
+  "name": "피오라",
+  "ultimate": "플레슈",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-697cc3f5-3c12-429a-8973-9f37aab96b01.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/fiora.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 실험체 스킬: 플레슈"
+    }
+  ],
+  "visual_review": "갈색 포니테일·리본·초록 눈·펜싱복을 유지했습니다. 각각의 찌르기 사이 팔 회수와 보폭 변화가 있으며 세 번째 찌르기에 가장 큰 흰푸른 검기가 붙습니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "36caecee8f89ec7a09dd24c110a481bfab8c088fd2585a7ce137379a587eb3de",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Fiora brown ponytail with blue ribbon, green eyes, white-and-blue fencing suit and thin rapier from portrait. Official Fleche R is THREE escalating forward thrusts. Animate ready fencing guard; drawing elbow back; first short lunge and narrow white-blue thrust; quick knee and rapier recoil; second deeper forward lunge with blue thrust streak; pull back to compact guard; torso coil for final; strongest long lunge with three sharp silver-blue pointed trails; brief tiny gold touche flash at blade point; retract arm; recover feet; original guard. Three distinct thrusts with actual elbow/body extension and visible recovery, never generic sword circles.",
+  "frame_labels": [
+    "펜싱 준비",
+    "팔꿈치 당기기",
+    "첫 플레슈",
+    "첫 회수",
+    "두 번째 플레슈",
+    "두 번째 회수",
+    "마지막 준비",
+    "세 번째 플레슈",
+    "뚜셰 섬광",
+    "팔 회수",
+    "보폭 정리",
+    "준비 복귀"
+  ]
+}

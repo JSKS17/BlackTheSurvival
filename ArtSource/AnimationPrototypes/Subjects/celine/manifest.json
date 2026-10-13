@@ -1,0 +1,39 @@
+{
+  "id": "celine",
+  "name": "셀린",
+  "ultimate": "자력 융합",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-649ee2ff-707a-46e4-8f32-fe4f69af0f61.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/celine.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 실험체 스킬: 자력 융합"
+    }
+  ],
+  "visual_review": "푸른 단발·황금 눈·주황 작업복과 기폭장치 정체성을 유지했습니다. 코어 투척·자력 회수·폭탄 융합·기폭 대비·회수가 서로 다른 손/몸 자세로 나타납니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "40571479b058bf475126c57240b2d9aaadfa532a7b03f7e48963792422110395",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Celine pale blue short bob, yellow-gold eyes, orange explosives-specialist jumpsuit and small black trigger remote from identity. Official R places a magnetic fusion bomb and draws nearby plasma/empty bombs into it to become larger, then detonates. Animate idle; holding remote up; free hand throws one compact orange-gray core to right at boot level; leaning forward points at core; three tiny plasma bombs appear nearby within same cell; arm pulls back as bombs slide toward core along cyan magnet lines; fused bomb grows in place; trigger-thumb presses with body brace; orange-white contained blast right of her while she crouches shielding with sleeve; smoke fades; remote returns; original idle. No giant robot/cannon, bombs must be mechanical distinct objects not magical orbs. Actual throwing/pulling/bracing motion, face visible.",
+  "frame_labels": [
+    "준비",
+    "기폭 장치 들기",
+    "융합 코어 던지기",
+    "코어 지목",
+    "주변 폭탄 감지",
+    "자력 회수",
+    "융합 완료",
+    "기폭",
+    "폭발 대비",
+    "연기 소멸",
+    "장치 회수",
+    "준비 복귀"
+  ]
+}

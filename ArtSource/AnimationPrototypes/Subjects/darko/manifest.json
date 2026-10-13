@@ -1,0 +1,39 @@
+{
+  "id": "darko",
+  "name": "다르코",
+  "ultimate": "강제집행",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-6c02b23e-ec5a-48d0-b614-214cda1563e2.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/darko.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1954?hl=ko-KR",
+      "title": "님블뉴런 공식 출시 스킬: 강제집행"
+    }
+  ],
+  "visual_review": "안경·회청색 머리·어깨 방망이의 정체성을 유지하며 손 뻗기, 끌기, 내려꽂기 자세를 단계별로 구분했습니다. 일부 충격 잔광은 셀 가장자리와 가까워 재생 시 여백을 확보해야 합니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "37bbfd6d9f149be5b34842d1272a62134e4e0c81d638c5e6da764db50e2cbc63",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Darko, gray teal spiky hair, round glasses, black gray clothes and bat from identity. Official R grabs, drags and slams the captured target into the ground. Without drawing an opponent, animate open grabbing hand reaching right, fist clenching around an abstract tiny violet VF knot, low dragging run with torso forward and bat swept behind, hauling arm upward, violent overhead downward throw, kneeling slam with gold-gray ground impact ring, recoil, stand and reset. Not a bat swing alone: emphasize grabbing and dragging then downward slam. Eyes behind glasses remain readable.",
+  "frame_labels": [
+    "준비",
+    "손 뻗기",
+    "붙잡기",
+    "끌고 가기",
+    "이동 가속",
+    "팔 들어올리기",
+    "내리꽂기 준비",
+    "지면에 내리꽂기",
+    "충격",
+    "반동",
+    "일어서기",
+    "준비 복귀"
+  ]
+}

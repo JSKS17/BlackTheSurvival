@@ -1,0 +1,44 @@
+{
+  "id": "adina",
+  "name": "아디나",
+  "ultimate": "수정구에 비친 운명",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-bb1bd1e4-33d8-4031-ad7c-ef8395770908.png",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "58833e3357058840c032fe1e037a9920268b687a4dec19c9835384d34e261a71",
+  "reference_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\adina.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+  ],
+  "reference_sha256": [
+    "86bd9d25ec7255e5416d40eba53cbafe970acd0fe0537e2629aeb1b3a1b3f437",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "Eternal Return official skill description"
+    }
+  ],
+  "motion_summary": "수정구의 천체를 손짓으로 교환해 운명을 바꾸는 동작",
+  "frame_labels": [
+    "수정구 대기",
+    "손 들어 점성",
+    "수정구 펼치기",
+    "천체 확인",
+    "해와 달 회전",
+    "천체 맞바꾸기",
+    "새 배열 정렬",
+    "운명 확정",
+    "별빛 맥동",
+    "천체 회수",
+    "손 내리기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "Reviewed generated twelve-frame sheet: identity, facial features, distinct body/weapon motion, skill effects, transparent cells."
+}

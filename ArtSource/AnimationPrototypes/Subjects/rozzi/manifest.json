@@ -1,0 +1,39 @@
+{
+  "id": "rozzi",
+  "name": "로지",
+  "ultimate": "셈텍스탄 Mk-II",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-986dd8ab-c254-4bbe-a0c3-fc62f2dcfa27.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/rozzi.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "부착 폭탄 발사·지연 폭발을 총구 조작과 뒤로 젖히는 회수로 표현한 독자 시안.",
+  "frame_labels": [
+    "권총 준비",
+    "상체 오른쪽 회전",
+    "권총 올림",
+    "총구 조준",
+    "폭탄 장전 동작",
+    "폭탄 발사",
+    "발사 반동",
+    "부착 폭탄 점멸",
+    "지연 폭발",
+    "권총 되감기",
+    "몸 정면 회전",
+    "준비 자세 복귀"
+  ],
+  "visual_review": "원본의 로지 눈매·검은 복장, 쇼우의 둥근 얼굴·체형·주방 도구를 유지했습니다. 권총 들기·장전·반동과 호흡·몸 기울임·화염 방사 순서가 셀마다 다릅니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "0917bf8f130f52cd5b58f145c82bbab3f0dd0bc8d649e614ca43e028c53706d4",
+  "width": 1448,
+  "height": 1086
+}

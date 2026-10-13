@@ -1,0 +1,39 @@
+{
+  "id": "priya",
+  "name": "프리야",
+  "ultimate": "대지의 메아리",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-6e5f7014-be45-4125-809a-281268caf75b.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/priya.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "연주에서 퍼지고 되돌아오는 메아리를 꽃과 음파 고리로 표현한 독자 시안.",
+  "frame_labels": [
+    "연주 준비",
+    "악기를 안아 듦",
+    "손가락 이동",
+    "연주 시작",
+    "허리와 팔 회전",
+    "음파 확장",
+    "꽃잎 확산",
+    "메아리 바깥 도달",
+    "되돌아오는 음파",
+    "마지막 연주",
+    "악기 내림",
+    "준비 자세 복귀"
+  ],
+  "visual_review": "12개 셀의 얼굴·복장을 확인했습니다. 프리야의 연주 손과 상체, 리오의 시위와 활·팔 동작이 달라지고 마지막 강한 시전 후 준비 자세로 돌아옵니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "c4edcea532ffecb026a93fc289433e4a80f217967df4a279dbf57d8ea36ef8d3",
+  "width": 1448,
+  "height": 1086
+}

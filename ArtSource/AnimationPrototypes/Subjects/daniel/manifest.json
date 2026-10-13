@@ -1,0 +1,39 @@
+{
+  "id": "daniel",
+  "name": "다니엘",
+  "ultimate": "걸작",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-fa34e732-76f6-4858-8f52-21339155bd43.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/daniel.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 걸작"
+    }
+  ],
+  "visual_review": "원본 보라색 긴 머리와 날카로운 눈매, 가위를 유지했습니다. 그림자 진입부터 반복 절단·이탈·마무리까지 몸의 높이와 팔 동작이 변합니다. 4×3 셀에 연속 동작이 포함됩니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "4a402eaa20e8227528b0cc6c9a4fa5dd08a989218377ee5949be84bc30b142bb",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Daniel's Masterpiece R enters an enemy's shadow, repeatedly cuts from inside, then emerges for a finishing cut. Animate holding scissors low, raising scissors, crouching into a small dark violet oval shadow, sinking torso, only face edge visible, crossing scissor cut flashes above shadow, second sharper cut, spiraling exit, Daniel lunges out with wide opening scissors, sweeping final X cut, landing, restoring rest. No generic enemy silhouette; shadow and scissors communicate intrusion. Preserve pale face, long purple hair, calm narrow eyes and dark striped clothes.",
+  "frame_labels": [
+    "가위 준비",
+    "칼날 올리기",
+    "그림자 진입",
+    "몸 낮추기",
+    "그림자 잠행",
+    "첫 절단",
+    "연속 절단",
+    "그림자 이탈",
+    "가위 돌진",
+    "걸작 마무리",
+    "착지",
+    "준비 복귀"
+  ]
+}

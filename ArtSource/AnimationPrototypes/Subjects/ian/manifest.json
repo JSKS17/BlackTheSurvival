@@ -1,0 +1,45 @@
+{
+  "id": "ian",
+  "name": "이안",
+  "ultimate": "해방 / 넌 벗어날 수 없어",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-b778a047-e492-48e1-a015-70f249b71e5c.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/ian.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 해방 / 넌 벗어날 수 없어"
+    }
+  ],
+  "visual_review": "창백한 금발과 지친 붉은 눈·단검을 유지했습니다. 웅크린 인간에서 귀신이 분리되어 수평 돌진·귀수 공격·되돌아오는 변신이 읽힙니다. 5~8번째의 영체 상승/비행은 의도된 모션입니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "d1d27f9cfd448e305263519b4087ce2c029646a2ecd11dd2f6da3a3f3ce4a217",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Ian pale ash-blonde long hair with red sleepy eyes, brown-black schoollike outfit and small dagger, dark possession aura from portrait. Official R releases a ghost from her body in the chosen direction, leaving human body behind, then becomes human when finished. Show representative transformation: idle troubled human; hand to chest; crouching with trembling shoulders; violet-black ghost claws emerge behind; spectral form erupts forward right with long dark clawed arms while small human body remains left; ghost fully separates lunging low; sweeping claw attack; tall spectral recoil; ghost draws back into her; pale face reappears through fading violet mist; human rises; original idle. Ghost is HER unique possession spirit, not an unrelated monster; preserve distinctive hair/face motifs across forms. No gore, no generic enemy. All fits each cell.",
+  "frame_labels": [
+    "인간 준비",
+    "가슴 잡기",
+    "잠식 저항",
+    "귀수 출현",
+    "귀신 해방",
+    "귀신 돌진",
+    "귀수 공격",
+    "귀신 반동",
+    "인간 쪽으로 회수",
+    "잠식 해제",
+    "몸 일으키기",
+    "인간 준비 복귀"
+  ],
+  "intended_airborne_frames": [
+    4,
+    5,
+    6,
+    7
+  ]
+}

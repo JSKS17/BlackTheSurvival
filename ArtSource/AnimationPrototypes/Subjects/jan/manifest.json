@@ -1,0 +1,40 @@
+{
+  "id": "jan",
+  "name": "얀",
+  "ultimate": "쿼드라곤",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-7bcfbd69-8c7a-473f-98d2-b6f66d0b927e.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/jan.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Jan Quadra's Ring: dark skin, white tied-back dreadlocks, focused amber eyes, handwraps identity. Raise both fists, plant a wide stance and stomp to summon four compact glowing orange ring posts and squared red-orange ring ropes around him. He rotates torso and does one knee thrust and boxing hook within his summoned ring, ropes spring inward once, then dissolve; lower to guard. R identity is a square martial arts ring, NOT dragons or fireballs. Sequence ready, fists raised, stomp, first ropes, completed square ring, left guard, knee forward, right hook, rope recoil, rope fade, settle, ready.",
+  "frame_labels": [
+    "대기",
+    "양 주먹 들기",
+    "중심 낮추기",
+    "링 기둥 소환",
+    "사각 로프 완성",
+    "가드 전환",
+    "무릎차기",
+    "회전 훅",
+    "로프 반동",
+    "링 소멸",
+    "가드 회복",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "피부색·머리·눈매와 가드가 식별됩니다. 사각 링이 등장하고 무릎차기·훅·로프 반동으로 동작이 변화합니다. 12셀입니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "392216d7acdd8491af9281844bd18c2c36fc3671cf5148680c026bb65050a397"
+}

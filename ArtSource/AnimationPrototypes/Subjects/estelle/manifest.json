@@ -1,0 +1,39 @@
+{
+  "id": "estelle",
+  "name": "에스텔",
+  "ultimate": "헬기호출",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-4512faff-c60a-4d64-b1ab-dfa040bd9ad0.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/estelle.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 헬기호출"
+    }
+  ],
+  "visual_review": "갈색 단발과 붉은 눈, 소방복·방패·도끼를 유지했습니다. 무전·신호·물폭탄 대비·웅크림·회수 동작과 작은 헬기/물보라가 원작 R을 나타냅니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "866a0d12bd07cb165fde8e33abaf4a30b341e7c7b5339887cb53b8d0d0925ead",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Estelle brown-haired firefighter red-black uniform, huge rescue shield and red fireaxe from identity. Official self-target R requests helicopter support and releases water bomb on her location. Animate upright guarded idle; briefly lifting hand to radio by cheek; looking upward; extending arm signal; bracing shield up at shoulder without covering eyes; a tiny rescue helicopter appears above-right within its cell; water canister drops at right; crouching behind shield as blue-white water splashes on ground; rising through water droplets; axe lowers to side; shield folds to idle; original idle. Keep helicopter small, no giant scenery. Actual radio arm, signal, knees/shield movements.",
+  "frame_labels": [
+    "준비",
+    "무전기 잡기",
+    "위 확인",
+    "구조 신호",
+    "방패로 대비",
+    "헬기 접근",
+    "물폭탄 투하",
+    "물보라 방어",
+    "몸 일으키기",
+    "도끼 회수",
+    "방패 정리",
+    "준비 복귀"
+  ]
+}

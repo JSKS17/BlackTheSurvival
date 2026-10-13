@@ -1,0 +1,39 @@
+{
+  "id": "yuki",
+  "name": "유키",
+  "ultimate": "화무십일홍",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-c6194d4f-ba7d-4c4c-886b-f83a51255967.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/yuki.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "순간 발도와 납도 때의 두 번째 타격을 검흔·잠깐의 정지·검집 복귀로 표현한 독자 시안.",
+  "frame_labels": [
+    "검집에 손을 얹음",
+    "몸을 낮춤",
+    "발도 준비",
+    "순간 발도",
+    "공간 베기",
+    "검흔을 남김",
+    "납도 준비",
+    "검을 천천히 거둠",
+    "납도 완료·검흔 폭발",
+    "어깨 이완",
+    "교복 자락 정리",
+    "처음 자세 복귀"
+  ],
+  "visual_review": "슈린의 검결·검진·순차 낙검·외곽 회수와 유키의 발도·한 차례 큰 베기·납도 후 검흔 폭발을 확인했습니다. 푸른 효과가 얼굴을 가리지 않습니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "648a580f7f9f9412f8b1d203e097f70f66076032b0b6f6a88dcf7a0d046f0198",
+  "width": 1448,
+  "height": 1086
+}

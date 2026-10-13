@@ -1,0 +1,47 @@
+{
+  "id": "kenneth",
+  "name": "케네스",
+  "ultimate": "화염 분쇄",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-73258fe6-8792-4d77-a758-3cdc256da151.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/kenneth.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1673?hl=ko-KR",
+      "title": "공식 실험체 출시 패치노트"
+    }
+  ],
+  "motion_summary": "Eternal Return Kenneth Fiery Demolition: white hair, red scarf, black-red armour, pale face and stern red eyes per character reference, wielding massive black-red axe. R choreography MUST be uppercut axe slash, TWO spinning airborne cuts, then a heavy downward landing slam. Frames: ready; crouch grasp axe; uppercut slash with orange flame crescent; jump upward; first airborne horizontal spinning cut; body rotates; second airborne cut; axe overhead; plunge; axe slams ground and orange fire shock erupts below face; recover crouch; ready. Airborne frames 4-9 one based, floor origin fixed, keep whole axe and flames inside individual cell. Show actual pose rotation; NOT stationary burning aura.",
+  "frame_labels": [
+    "대기",
+    "올려베기 준비",
+    "도끼 올려베기",
+    "공중 도약",
+    "첫 회전 공격",
+    "회전 전환",
+    "두 번째 회전 공격",
+    "내려찍기 준비",
+    "낙하",
+    "착지 분쇄",
+    "몸 일으키기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "visual_review": "도끼 올려베기, 도약, 두 회전, 낙하 분쇄의 실루엣 변화가 명확합니다. 붉은 눈과 스카프가 유지됩니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "d7a3c57f3dc4f44a7d00efb890f7d4df52e9071a88ee62a0850131bc279ab7b7"
+}

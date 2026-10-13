@@ -1,0 +1,48 @@
+{
+  "id": "abigail",
+  "name": "아비게일",
+  "ultimate": "디멘션 스트라이크",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-27158520-0764-4b3d-9612-2e79c864bdb1.png",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "8e0256dcde015423e64a5a0a90d7ac084a811a248dbd61322e110f042923b95f",
+  "reference_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\abigail.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+  ],
+  "reference_sha256": [
+    "83495f173e2f3bd513fa4739f3e268c3913871d1e8a1d3e29a314232b8a5f9d6",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1381?hl=ko-KR",
+      "title": "Eternal Return official skill description"
+    }
+  ],
+  "motion_summary": "차원 속으로 숨었다가 도끼를 내리치며 착지하는 동작",
+  "frame_labels": [
+    "도끼 대기",
+    "무릎 굽힘",
+    "도끼 들어 올림",
+    "차원 균열",
+    "차원 속 진입",
+    "공중 재등장",
+    "도끼 내리치기",
+    "착지 충격",
+    "좌표 잔광",
+    "충격 분산",
+    "도끼 회수",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [
+    4,
+    5,
+    6
+  ],
+  "visual_review": "Reviewed generated twelve-frame sheet: identity, facial features, distinct body/weapon motion, skill effects, transparent cells."
+}

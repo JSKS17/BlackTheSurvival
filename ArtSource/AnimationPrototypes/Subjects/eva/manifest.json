@@ -1,0 +1,39 @@
+{
+  "id": "eva",
+  "name": "이바",
+  "ultimate": "VF 방출",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-94873248-fd8e-4e20-80a5-8c9c790704ad.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/eva.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: VF 방출"
+    }
+  ],
+  "visual_review": "긴 금발과 차분한 자주색 눈·흰 의상 정체성을 유지했습니다. 손 모으기·무릎 굽힘·양팔 방출·채널링 반동·구체 회수 동작이 구분됩니다. 빔은 일부 셀 가장자리 가까이까지 그려져 미리보기 여백을 확보해야 합니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "e2fd3d9f97f84ffd2ce73f3401f1f28c80eec008c498b5f3b7d89243006f6f3c",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Eva pale blonde-pink long hair, white-black elegant experimental costume, purple floating VF orb from identity. Official R is a channelled directional psychic VF beam. Animate poised idle with orb near hand; eyes focus right; both hands draw violet light toward chest; knees bend; arms extend to right; narrow purple beam begins at palms; wide layered amethyst-white VF stream pulses to right; head/torso leans into channel; sharper last pulse; beam narrows and palms recoil; orbiting orb reforms; original idle. Beam must stop with substantial transparent margin, never crosses a cell. Keep face visible above beam, calm gentle eye shape rather than angry Nia face. Violet/lilac/white with few cyan highlights.",
+  "frame_labels": [
+    "준비",
+    "시선 집중",
+    "VF 모으기",
+    "자세 안정",
+    "손 뻗기",
+    "방출 시작",
+    "VF 연속 방출",
+    "정신 집중",
+    "마지막 맥동",
+    "방출 중단",
+    "구체 회수",
+    "준비 복귀"
+  ]
+}

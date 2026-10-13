@@ -1,0 +1,40 @@
+{
+  "id": "mai",
+  "name": "마이",
+  "ultimate": "익스클루시브",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-c43ab34f-fc98-4c61-9389-cb9063db6d9c.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/mai.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Mai Exclusive: red-orange bob haircut, stylish sharp reddish eyes, tailored dark green/white couture coat with gold trim, silk shawl and fashion scissors exactly per identity. R self-target showcases protective shawl wrapping then healing when released. No extra ally needed. 12 poses ready; raise one hand and catch shawl end; other arm spreads opposite end; sweep cloth around hips; rotate shoulders and wrap shawl around torso below neck; brief protected cocoon with HEAD FULLY EXPOSED; hold gracefully; arms push outward; shawl unfurls in broad green-white/gold silk ribbon curve; small warm gold healing sparkles below chin; gather cloth back onto shoulders; ready. Real arm/torso turn and layered cloth motion, not static shield aura. Cloth must not turn into wings, dress or another person's coat. Tight crisp chunky pixel style.",
+  "frame_labels": [
+    "대기",
+    "숄 한끝 잡기",
+    "반대끝 펼치기",
+    "숄 돌리기",
+    "몸을 숄로 감싸기",
+    "보호 상태",
+    "보호 유지",
+    "양팔로 숄 풀기",
+    "숄 펼치며 회복",
+    "회복 빛",
+    "숄 회수",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "붉은 단발·눈매·금테 초록 숄을 유지합니다. 숄 양끝 들기, 몸 감싸기, 펼치기, 회복, 회수가 나타나며 얼굴은 노출됩니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "b416ed12970ccc223b723e352031834a7e7cd4d9846147cac4dd90839d6996e6"
+}

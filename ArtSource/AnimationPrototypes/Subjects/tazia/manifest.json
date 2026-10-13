@@ -1,0 +1,39 @@
+{
+  "id": "tazia",
+  "name": "타지아",
+  "ultimate": "파라디소",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-05176d52-5ca0-4143-ab90-5da1507db4cc.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/tazia.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "거대한 유리 검 생성과 파괴를 손짓·칼날 충돌·파편 확산으로 재구성한 독자 시안.",
+  "frame_labels": [
+    "유리 칼날 준비",
+    "팔을 들어 올림",
+    "유리 파편 모으기",
+    "손을 앞으로 향함",
+    "거대한 유리 검 형성",
+    "검이 지면으로 내려옴",
+    "칼날 투척 준비",
+    "유리 검을 향해 투척",
+    "검 파괴",
+    "파편 확산",
+    "팔과 칼날 회수",
+    "준비 자세 복귀"
+  ],
+  "visual_review": "타지아의 유리 대검 형성→칼날 투척→파괴와 테오도르의 레일건 견착→발사 반동→총구 회수가 구분됩니다. 두 캐릭터의 눈매와 붉은/푸른 색상 정체성이 유지됩니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "525b5b6dd4f349ae6ca492d7b6308d08419828c0fa80f56fe0257555b36ba1ec",
+  "width": 1448,
+  "height": 1086
+}

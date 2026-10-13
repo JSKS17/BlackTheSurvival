@@ -1,0 +1,40 @@
+{
+  "id": "lucia",
+  "name": "루치아",
+  "ultimate": "총사의 예법",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-42d8f4ab-61f0-4760-b9f4-722273ac370e.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/lucia.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/3783?hl=ko-KR",
+      "title": "공식 실험체 출시 패치노트"
+    }
+  ],
+  "motion_summary": "Eternal Return Lucia Musketeer's Etiquette: long silver-white curled hair, refined cool blue eyes and composed small mouth, aristocratic white/violet-black outfit and thin elegant firearm exactly as identity. R is one powerful straight shot, removes and reapplies crystal on hit. Exact 12 poses: ready; turn torso three-quarter right; raise ornate long-barrel gun; feet brace; support hand steadies barrel; violet/white crystal light condenses at muzzle; aim hold; single powerful violet-white straight shot with crystalline shards extending right; shoulder and hair recoil backward; thin crystal shards reform near muzzle; lower gun gracefully; ready. NOT swords/portals/magic staff, NOT floating generic aura. Face uncovered; angular violet/lavender shot contrast against white hair. Target does not need depicted enemy. IMPORTANT FIX: Make ALL artwork 20% smaller WITHIN every square cell, leaving the outside 15% fully transparent. The shot in frame8 MUST BE A SHORT FINITE CRYSTAL PROJECTILE WITH A VISIBLE POINTED TIP, NOT a long light beam going out of frame. Its full length from muzzle to pointed tip must remain inside the central 70% of the cell; leave ample transparent space to the right of the tip. Maintain chunky pixel cells and clear eyes/mouth, same 4:3 landscape sheet 1448×1086 with exactly4×3 equal squares.",
+  "frame_labels": [
+    "대기",
+    "몸 돌리기",
+    "화기 들어올리기",
+    "발 버티기",
+    "총신 받치기",
+    "수정 광력 모으기",
+    "정밀 조준",
+    "강력한 한 발",
+    "사격 반동",
+    "수정 재형성",
+    "우아하게 화기 내리기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "은발·파란 눈·흰 보라 복장과 장총이 유지됩니다. 조준, 강력한 단발, 반동과 회수를 확인했습니다. 우측 끝을 자르던 광선을 유한한 수정 탄환으로 재생성해 탄환 끝이 셀 안에서 보입니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "4d3f92252985ca27641912935fa8698ccd3f4261f6b155e9b1828177b836f502"
+}

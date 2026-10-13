@@ -1,0 +1,39 @@
+{
+  "id": "tsubame",
+  "name": "츠바메",
+  "ultimate": "오의 - 생사 각인",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-9d8a5a69-d430-4eb9-8876-8e2e6429d8dd.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/tsubame.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1612?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.10 츠바메 출시 스킬"
+    }
+  ],
+  "motion_summary": "최대 표식을 향한 빠른 이동과 베기를 인술 자세·급습·회수로 압축한 독자 시안.",
+  "frame_labels": [
+    "암살 자세",
+    "수리검을 당김",
+    "표식 확인",
+    "몸을 낮춤",
+    "급습 시작",
+    "빠른 이동",
+    "교차 베기",
+    "표식 파열",
+    "착지 제동",
+    "팔 회수",
+    "수리검 정리",
+    "암살 자세 복귀"
+  ],
+  "visual_review": "띠아의 큰 붓 소환·세 색상 획과 츠바메의 표식 확인·낮은 급습·교차 베기·제동을 12셀에서 확인했습니다. 캐릭터 고유 얼굴·복장과 읽히는 작은 입을 유지했습니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "5dd09615e46d3972719b1dbc875a815735d18492da8c43ed094115b40d9cede3",
+  "width": 1448,
+  "height": 1086
+}

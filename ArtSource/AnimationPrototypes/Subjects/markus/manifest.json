@@ -1,0 +1,44 @@
+{
+  "id": "markus",
+  "name": "마커스",
+  "ultimate": "지각변동",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-bb96e1ca-e3dd-4aa7-809a-f3b0626270d2.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/markus.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Markus Earthquake: muscular dark short-haired warrior, stern dark eyes, beard/stubble and rugged black/metal armour, massive broad axe per exact identity. R leaps and SLAMS AXE to create a trapezoid fissured ground effect. Frames: ready; plant feet and lower body; lift axe behind head; jump with knees tucked; airborne axe overhead; body drops with hands driving axe down; axe blade impacts ground; compact orange-gold rock fissure spreads forward-right; ground fragments pop upward and settle while he holds low; pull axe blade free; straighten and restore grip; ready. Airborne frames4-6 one-based. Cracked ground as small floating effect beneath feet only, no actual scenery; keep clear face even on downward motion, axe and rock debris contained with margins. No generic fire tornado.",
+  "frame_labels": [
+    "대기",
+    "몸 낮추기",
+    "도끼 들어올리기",
+    "도약",
+    "공중 내려찍기 준비",
+    "낙하",
+    "도끼 착지 타격",
+    "지각 균열",
+    "균열 충격",
+    "도끼 뽑기",
+    "몸 일으키기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [
+    3,
+    4,
+    5
+  ],
+  "visual_review": "수염·근육·갑옷과 도끼를 유지하며 도약, 공중 내리찍기, 균열과 회수를 확인했습니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "81da064a3b64d409eb63c664965fa9b2fb272543bd3964165e7ab7ad036e9914"
+}

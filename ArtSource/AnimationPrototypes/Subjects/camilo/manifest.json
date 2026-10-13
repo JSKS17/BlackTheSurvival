@@ -1,0 +1,40 @@
+{
+  "id": "camilo",
+  "name": "카밀로",
+  "ultimate": "두엔데",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-25440076-c2b5-4c19-aa66-0e96607d2635.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/camilo.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Camilo Duende: stylish pale blond-white hair with long bangs, red eyes, elegant black suit and open collar, TWO slender swords as exact reference. R is a dancer's forward-and-return dash; dance ends in a strike, not a stationary spin attack. 12 sequential poses: elegant ready with two swords down; raise one sword and bend knee; extend opposite arm and point leading foot; dance glide forward-right with coat and hair flowing; turn hips and sweep first blade; pivot on toe and torso rotates; reverse dance glide toward original position; crossed swords flourish; end with decisive outward double-blade sweep and gold-white arc; bow slightly with swords extended; straighten and lower blades; elegant ready. Distinct dancer footwork and whole-body rotation clear, both eyes and tiny confident smile visible except intentional profile. Keep feet/camera origin consistent, lateral movement is intentional. No rose garden or extra dance partner. Landscape4:3, 4×3 equal square cells, generous transparent margins and contained sword arcs.",
+  "frame_labels": [
+    "대기",
+    "춤 준비",
+    "앞발 내밀기",
+    "전진 춤 이동",
+    "첫 검무",
+    "발끝으로 회전",
+    "되돌아오는 춤",
+    "쌍검 교차",
+    "춤 마지막 타격",
+    "짧은 인사",
+    "검 내리기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "붉은 눈·흰 머리·검은 정장과 쌍검이 유지됩니다. 전진 검무, 발끝 회전, 복귀와 마지막 타격이 분리됩니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "4999168ab275380eae0bcbfab933dc42491a53d5aac213753be274ffa649b3c1"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "sho",
+  "name": "쇼우",
+  "ultimate": "뜨거운 맛",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-4041719b-fddd-46fc-b24b-2970107982b1.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/sho.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "연속 화염 방사를 들이마심·몸 기울임·여섯 화염 박자로 표현한 독자 시안.",
+  "frame_labels": [
+    "웍 준비",
+    "크게 들이마심",
+    "상체 뒤로 기울임",
+    "입을 앞으로 향함",
+    "첫 화염",
+    "두 번째 화염",
+    "세 번째 화염",
+    "네 번째 화염",
+    "다섯 번째 화염",
+    "여섯 번째 화염",
+    "숨 고르기",
+    "웍 준비 복귀"
+  ],
+  "visual_review": "원본의 로지 눈매·검은 복장, 쇼우의 둥근 얼굴·체형·주방 도구를 유지했습니다. 권총 들기·장전·반동과 호흡·몸 기울임·화염 방사 순서가 셀마다 다릅니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "b53198b91dd612fca0eabfc64b80334a8571e579de88002c1fbb0df555cc2d22",
+  "width": 1448,
+  "height": 1086
+}

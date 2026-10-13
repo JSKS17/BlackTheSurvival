@@ -1,0 +1,40 @@
+{
+  "id": "karla",
+  "name": "칼라",
+  "ultimate": "구속의 사슬",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-ed621468-bcbb-4815-9d0a-dbd321c66f62.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/karla.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Karla Shackles: red-haired pirate captain, burgundy tricorn hat with skull emblem, pale face, confident amber eyes, black-red pirate outfit and harpoon crossbow. R launches an enormous anchoring harpoon into the ground, chains spread and tighten then pull inward. Frames: ready; grip harpoon weapon with two hands; raise muzzle; heavy launch recoil; giant harpoon lands low right (inside cell); chains extend from anchor in a small radial pattern; Karla braces and leans back; both hands tug; chains contract sharply around central anchor with bright steel-orange impact; loose chains settle; weapon lowered; ready. No ships, ocean, scenery or actual enemies. Steel chains, orange-gold binding sparks, distinctive pirate face stays unobscured.",
+  "frame_labels": [
+    "대기",
+    "작살 손잡이 잡기",
+    "발사각 올리기",
+    "거대 작살 발사",
+    "작살 고정",
+    "사슬 확장",
+    "몸 버티기",
+    "사슬 당기기",
+    "사슬 수축 충격",
+    "사슬 가라앉기",
+    "무기 내리기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "삼각모자·붉은 머리·작살 화기가 유지됩니다. 들어올림/발사/버티기/당기기 동작과 사슬 수축이 구분됩니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "c289032cd7ab1045d9e78b7799da845cb907b29af97794c8cd9fc9963d57c133"
+}

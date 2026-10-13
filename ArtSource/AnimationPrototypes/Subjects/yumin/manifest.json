@@ -1,0 +1,39 @@
+{
+  "id": "yumin",
+  "name": "유민",
+  "ultimate": "풍류운산",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-a9b13098-fda2-4945-901e-44815ad2a40e.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/yumin.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/2277?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.33 유민 출시 스킬"
+    }
+  ],
+  "motion_summary": "학의 강하 후 재상승을 부채 시전·하강 유도·상승 손짓으로 표현한 독자 시안.",
+  "frame_labels": [
+    "부채를 든 대기",
+    "부채 펼침",
+    "부채를 높이 듦",
+    "하늘을 가리킴",
+    "학 환상 출현",
+    "부채를 내리며 강하 유도",
+    "학 강하 타격",
+    "손목으로 재상승 유도",
+    "학이 다시 날아오름",
+    "부채 접기",
+    "바람을 거둠",
+    "대기 자세 복귀"
+  ],
+  "visual_review": "유민의 부채 시전·학의 강하/재상승과 자히르의 양손 충전·순차 차크람 낙하·회수를 확인했습니다. 긴 검은 머리와 피부·의상 색상 및 눈매 차이가 유지됩니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "78678709bc184d0b1fa3cdacfca6e25e693f44200d116079c0f4e72c3f9e1df9",
+  "width": 1448,
+  "height": 1086
+}

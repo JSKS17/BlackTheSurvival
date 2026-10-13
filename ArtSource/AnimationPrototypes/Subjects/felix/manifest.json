@@ -1,0 +1,39 @@
+{
+  "id": "felix",
+  "name": "펠릭스",
+  "ultimate": "뇌룡격",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-a628cb65-470c-4ae7-b846-499565f75401.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/felix.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 실험체 스킬: 뇌룡격"
+    }
+  ],
+  "visual_review": "금발·초록 눈·창과 의상을 유지했습니다. 충전 자세 낮추기부터 몸통 비틀기·돌진 찌르기·창 회수의 차이가 읽힙니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "eb1d863ab7b31c32a17b9ca364f5caaa3004a7be11ab230840fbd090a8f04f7d",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Felix youthful tan-blond boy, green eyes, white shirt/dark straps and long spear exactly from portrait. R charges energy at spear tip then dashes into a powerful spear thrust. Animate spear resting diagonally; two hands grip and draw spear back; knees lower; tip starts pale gold lightning; twist hips to charge; maximum charge with green-white lightning; explosive forward lunge while spear extends horizontally right; full thrust with compact gold lightning dragon-like streak around point; recoil with bent leading knee; spear sweeps back; stand; exact original idle. Do not summon separate animal. Eye shape lively and determined with small mouth, unlike Nia.",
+  "frame_labels": [
+    "준비",
+    "창 뒤로 당기기",
+    "무릎 굽히기",
+    "창끝 충전",
+    "몸통 비틀기",
+    "최대 충전",
+    "돌진",
+    "뇌룡격 관통",
+    "반동",
+    "창 회수",
+    "일어서기",
+    "준비 복귀"
+  ]
+}

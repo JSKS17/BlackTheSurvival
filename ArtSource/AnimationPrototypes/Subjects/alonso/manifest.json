@@ -1,0 +1,44 @@
+{
+  "id": "alonso",
+  "name": "알론소",
+  "ultimate": "게더링 필드",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-3e8b9e35-bb42-4d2e-b8b0-a4d9ef2811f4.png",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "15bd85a67a9154633a36a870d3176098db6bb76a3d847693b7136f6d6e9b24ef",
+  "reference_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\alonso.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+  ],
+  "reference_sha256": [
+    "8473ef9cfebfaeb54c705794d1deaccd1c50889eb8b48c1a2780fdeb83b0c60e",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1480?hl=ko-KR",
+      "title": "Eternal Return official skill description"
+    }
+  ],
+  "motion_summary": "자기장으로 금속을 끌어모으고 힘을 방출하는 동작",
+  "frame_labels": [
+    "중립 대기",
+    "두 팔 벌림",
+    "자기장 시동",
+    "금속 끌어오기",
+    "금속 공전",
+    "무릎 버티기",
+    "자기장 집중",
+    "팔을 모으기",
+    "에너지 방출",
+    "파편 분산",
+    "팔 내리기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "Reviewed generated twelve-frame sheet: identity, facial features, distinct body/weapon motion, skill effects, transparent cells."
+}

@@ -1,0 +1,44 @@
+{
+  "id": "aya",
+  "name": "아야",
+  "ultimate": "공포탄",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-b6a00863-e164-4ef2-b616-b32a34defa1f.png",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "dc0922c3a12601d3a8e7df89e9819e1cd9dcae0b1d7c6554ecdcfd1ac32fe2e9",
+  "reference_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\aya.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+  ],
+  "reference_sha256": [
+    "dbac0dd61dc70a1b3149a4c0f21912930e8fead18ea42eb29699f74eaabfc592",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "Eternal Return official skill description"
+    }
+  ],
+  "motion_summary": "총을 하늘로 들어 공포탄을 발사하고 원형 충격파를 퍼뜨리는 동작",
+  "frame_labels": [
+    "권총 대기",
+    "주변 확인",
+    "총을 들어 올림",
+    "위로 조준",
+    "발사 준비",
+    "공포탄 발사",
+    "팔 반동",
+    "원형 충격파",
+    "충격파 확산",
+    "총 내리기",
+    "경계 회복",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "Reviewed generated twelve-frame sheet: identity, facial features, distinct body/weapon motion, skill effects, transparent cells."
+}

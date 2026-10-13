@@ -1,0 +1,44 @@
+{
+  "id": "arda",
+  "name": "아르다",
+  "ultimate": "잠들어있는 힘",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-c12440bf-5107-4968-bcd6-54c4cafff0cd.png",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "bbcc8a56cfdad24daa5bade30ed7dc07b279a973dee65bd6738d661f5d285b15",
+  "reference_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\arda.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+  ],
+  "reference_sha256": [
+    "0994ba51b5f3b662e6d75b01c7cf545657216d9ebc219b05d1b5d096f3f1a52c",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1354?hl=ko-KR",
+      "title": "Eternal Return official skill description"
+    }
+  ],
+  "motion_summary": "유물의 봉인을 해독하고 잠들어 있던 힘을 복원하는 동작",
+  "frame_labels": [
+    "유물 대기",
+    "유물 꺼내기",
+    "문양 해독",
+    "손바닥 펼치기",
+    "봉인 풀림",
+    "유물 부유",
+    "고대 힘 발현",
+    "손으로 조율",
+    "강화 맥동",
+    "유물 회수",
+    "옷자락 정리",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "Reviewed generated twelve-frame sheet: identity, facial features, distinct body/weapon motion, skill effects, transparent cells."
+}

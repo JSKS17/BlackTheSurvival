@@ -1,0 +1,48 @@
+{
+  "id": "justyna",
+  "name": "유스티나",
+  "ultimate": "아스트라 버스트",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-eb1e03b7-1faa-4ab6-b641-f6c3737ebe34.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/justyna.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/2513?hl=ko-KR",
+      "title": "공식 실험체 출시 패치노트"
+    }
+  ],
+  "motion_summary": "Eternal Return Justyna Astra Burst: red high ponytail, silver/black futuristic armour, bright alert eyes, goggles resting on head, her futuristic energy gun per reference. R is an aerial maximum-firepower barrage. Frames: ready; knees bend; gun charging; spring upward; airborne with legs tucked and gun pointed diagonally down-right; first blue-white artillery pulse; second pulse with recoil; third rapid pulse with torso tilt; largest final blue/cyan energy burst below-right; descend; land knees bent; ready. Airborne frames 4 through 10 inclusive in one-based counting. Do not replace her weapon with Nia's controller. No face-obscuring beam. Leave at least 12 percent of each cell as transparent margin.",
+  "frame_labels": [
+    "대기",
+    "무릎 굽히기",
+    "아스트라 충전",
+    "도약",
+    "공중 조준",
+    "첫 포격",
+    "반동과 연속 포격",
+    "자세 틀어 포격",
+    "최대 화력",
+    "하강",
+    "착지",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "visual_review": "빨간 포니테일·밝은 파란 눈·에너지 화기가 식별되며 도약, 공중 포격, 반동, 착지가 보입니다. 12셀과 투명 배경을 확인했습니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "eff40de56f8a3678133a2be1d91f37d50869f2711770d40c2327789bceb77f5b"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "lenox",
+  "name": "레녹스",
+  "ultimate": "푸른뱀",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-104cf1b1-9114-4040-85f2-3b11f7ce1e3a.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/lenox.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Lenox Blue Viper: short moss-green hair, clear teal eyes, red-black street fighter outfit per exact reference, long whip. R is TWO QUICK DIAGONAL WHIP LASHES forming an X. No literal snake creature. Frames ready; whip hand behind shoulder; body coils left; first upper-left to lower-right lash with thin cyan trail; first diagonal fully extended; wrist retracts and torso reverses; opposite diagonal windup; second upper-right to lower-left lash; both blue trails briefly form readable X to right of character; long whip falls into loop; return upright; ready. Hands, shoulder, torso and legs visibly brace/change. Cyan/blue whip cuts, tiny restrained sparks, no generic portal and no stationary aura. Keep both eyes/mouth visible and each effect inside its square.",
+  "frame_labels": [
+    "대기",
+    "채찍 손 당기기",
+    "첫 타격 준비",
+    "첫 사선 채찍",
+    "첫 사선 전개",
+    "손목 회수",
+    "반대 사선 준비",
+    "두 번째 사선 채찍",
+    "X자 푸른 궤적",
+    "채찍 늘어뜨리기",
+    "자세 회복",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "짧은 녹색 머리와 푸른 눈·거리 복장을 유지합니다. 첫/반대 사선의 채찍 동작과 X자 푸른 궤적을 확인했습니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "1a8ad9f3a9117ee07a11e85462dba5839dfdf69c2dc1d4a270b4d28dace89617"
+}

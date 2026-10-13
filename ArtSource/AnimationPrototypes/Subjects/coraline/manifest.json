@@ -1,0 +1,39 @@
+{
+  "id": "coraline",
+  "name": "코렐라인",
+  "ultimate": "이세계의 잔영",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-f8d89ab9-99f2-4da1-99cd-dbbeb09bc6e7.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/coraline.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/3444?hl=ko-KR",
+      "title": "님블뉴런 공식 출시 실험체: 이세계의 잔영"
+    }
+  ],
+  "visual_review": "흑백 비대칭 머리·청보라 눈·거울 장식과 드레스를 유지했습니다. 손 들어 거울 열기·반쯤 진입·거울 속 윤곽·출현·강화 공격·회수의 이동 동작이 확인됩니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "8dec5f23337c16348f4b9f3cc7ffcf2653721f4367289558d1b2a70bd779a466",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Coraline two-tone black/white hair, blue-violet eyes, black-white/pink elaborate dress and dark angular purple mirror ornaments from portrait. Official R moves through mirror world untargetably then returns with an empowered attack. Animate idle; hand raises a thin mirror shard; leaning forward; vertical violet-edged oval mirror portal opens immediately to right; stepping through with half her body vanishing; only thin fragmented reflected outline in mirror; exits a short distance right with hair and skirt trailing; arm reaches forward firing one concentrated pink-white empowered arcana ray; torso recoil; turns and mirror shards return; lowers hand; exact original idle. Actual foot step/body translation and emerging pose, not only fading sprite. Preserve asymmetrical hair and eyes, no generic extra girl reflection or scenery. Small mirror opening, effects stay under 78% cell footprint.",
+  "frame_labels": [
+    "준비",
+    "거울 조각 들기",
+    "이동 준비",
+    "거울 입구",
+    "거울 진입",
+    "거울 세계 통과",
+    "새 위치 출현",
+    "강화 공격",
+    "반동",
+    "거울 회수",
+    "손 내리기",
+    "준비 복귀"
+  ]
+}

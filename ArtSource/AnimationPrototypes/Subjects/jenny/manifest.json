@@ -1,0 +1,40 @@
+{
+  "id": "jenny",
+  "name": "제니",
+  "ultimate": "시상식의 여왕",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-fad1835b-9493-456d-9896-a29ab8fefb98.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/jenny.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Jenny Queen of the Awards Ceremony: blonde film star wearing black-red fitted dress, white fur stole, red sunglasses on top of head; preserve elegant eyes and tiny confident smile. R creates an awards stage centered on her then releases a charming finale. Exact 12 poses: elegant ready; hand to chest; extend arm; raise wrist; compact golden circular stage ring appears around feet; confident red-carpet turn of shoulders; other arm sweep; hand raised high; golden spotlight rays burst outward with small pink heart charm accents, NOT face-covering; curtsey follow-through; stole settles; ready. Stage is a magical floor effect only, no actual scenery or curtains.",
+  "frame_labels": [
+    "대기",
+    "손을 가슴으로",
+    "팔 펼치기",
+    "손목 들어올리기",
+    "시상식 무대 생성",
+    "몸 돌려 포즈",
+    "반대팔 펼치기",
+    "절정 포즈",
+    "매혹 피날레",
+    "인사 동작",
+    "숄 가라앉기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "금발·머리 위 선글라스·드레스·숄과 손/몸 포즈 변화가 보입니다. 무대와 매혹이 얼굴을 가리지 않습니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "c77a4dc3cd3a0c91289b523eef53c0e9378c17fb21d6cc6a95e4c9a19a1fbb27"
+}

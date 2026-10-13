@@ -1,0 +1,45 @@
+{
+  "id": "silvia",
+  "name": "실비아",
+  "ultimate": "기동전",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-4ab20c9d-89ff-4073-8689-59c06dccb6f4.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Subjects/silvia/atlas-first-pass.png",
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/silvia.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "바이크 탑승 R을 올라타기·가속·제동·내리기로 압축한 독자 시안.",
+  "frame_labels": [
+    "탑승 준비",
+    "바이크 핸들 잡음",
+    "다리를 넘김",
+    "바이크 착석",
+    "예열",
+    "앞으로 기울여 가속",
+    "짧은 주행",
+    "뒷바퀴 제동",
+    "일어나 내리기",
+    "지면 착지",
+    "바이크 효과 회수",
+    "준비 자세 복귀"
+  ],
+  "visual_review": "11번째 셀의 캐릭터 누락을 내장 이미지 생성 도구로 보정했습니다. 최종 시트 전체 12셀에서 실비아의 얼굴·몸과 탑승·가속·제동·하차·회수 동작을 확인했습니다.",
+  "intended_airborne_frames": [
+    2,
+    3,
+    9
+  ],
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "10da0450baac924b37a2cc6b4353263ff266af9f9a4076234659735eadcb4462",
+  "width": 1448,
+  "height": 1086
+}

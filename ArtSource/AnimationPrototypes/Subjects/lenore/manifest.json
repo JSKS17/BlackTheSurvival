@@ -1,0 +1,40 @@
+{
+  "id": "lenore",
+  "name": "르노어",
+  "ultimate": "고뇌의 광시곡",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-d1b4215f-6afc-4c55-8ab4-ff54becfc97d.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/lenore.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/2038?hl=ko-KR",
+      "title": "공식 실험체 출시 패치노트"
+    }
+  ],
+  "motion_summary": "Eternal Return Lenore Rhapsody of Agony: blue bob hair with long fringe over ONE eye exactly like reference, visible other eye and tiny mouth, refined black/blue musician outfit; plays a VIOLIN with a BOW, not guitar or staff. R launches a haunting wave which expands then ends in a frenzy-inducing finale. Exact 12 poses: violin held low; raise violin to shoulder; bow poised; start downbow; long energetic downbow with first violet-blue musical wave to right; lift bow; vigorous upbow and wave expands; body leans into another stroke; final sweeping bow and large contained blue-violet circular resonance; follow-through; lower bow as wave fades; initial stance. Real left hand on violin neck, right hand bows with distinct arm angles, torso sways. Subtle warped musical rings, no typography/notes as letters, no scenery. Maintain visible eye and mouth.",
+  "frame_labels": [
+    "대기",
+    "바이올린 들어올리기",
+    "활 준비",
+    "연주 시작",
+    "첫 광시곡 파동",
+    "활 전환",
+    "역방향 활질",
+    "몸 기울여 연주",
+    "피날레 공명",
+    "마지막 활질",
+    "활 내리기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "앞머리의 한쪽 눈 가림을 원본처럼 유지하고 다른 눈/입은 보입니다. 바이올린 활질 방향·팔 각도·몸 기울기가 달라지며 광시곡 공명이 전개됩니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "6353b770d471abe2f12f6167e123da1ceefc7967d0080f7c1090551eaace4a30"
+}

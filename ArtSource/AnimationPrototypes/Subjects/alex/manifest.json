@@ -1,0 +1,44 @@
+{
+  "id": "alex",
+  "name": "알렉스",
+  "ultimate": "정밀 폭격",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-5e2b58a2-129f-4925-8f44-b59ca528e079.png",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "b8a0168029b20209f258a4f1ac7c388aa8fd73acf05d297104e47f206be2b008",
+  "reference_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\alex.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+  ],
+  "reference_sha256": [
+    "f488e2f8924a86d42504a171bb90e6dcb23fa0705990fb2bcddf6ca63fa1a8cf",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "Eternal Return official skill description"
+    }
+  ],
+  "motion_summary": "무전으로 목표를 지정한 뒤 위성 미사일과 연속 폭격을 유도하는 동작",
+  "frame_labels": [
+    "작전 대기",
+    "무전기 조작",
+    "목표 지정",
+    "조준 원 생성",
+    "첫 미사일 낙하",
+    "첫 착탄",
+    "연속 미사일",
+    "집중 폭격",
+    "폭격 충격파",
+    "연기 분산",
+    "무전 종료",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "Reviewed generated twelve-frame sheet: identity, facial features, distinct body/weapon motion, skill effects, transparent cells."
+}

@@ -1,0 +1,39 @@
+{
+  "id": "piolo",
+  "name": "피올로",
+  "ultimate": "응징자",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-e6cbb5e6-a6b1-4a3e-a3f8-abea22e29d95.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/piolo.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "응징자의 관통 돌진을 쌍절곤 회전·낮은 전진·회수로 표현한 독자 시안.",
+  "frame_labels": [
+    "쌍절곤 준비",
+    "어깨 뒤로 쌍절곤 회전",
+    "몸 낮춤",
+    "앞발 디딤",
+    "돌진 시작",
+    "낮은 전진",
+    "회전 타격",
+    "관통 후 제동",
+    "쌍절곤 되감기",
+    "앞발 회수",
+    "호흡 정리",
+    "준비 자세 복귀"
+  ],
+  "visual_review": "12개 셀의 얼굴·복장과 실제 팔·다리의 준비·이동·타격·회수 차이를 확인했습니다. 니키는 상승·착지, 피올로는 낮은 직선 돌진·쌍절곤 회전이 분명합니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "034f1feeedd1d3a7d9b38c4c9ee5284c10a8da29751de9fa7c0daa4b73faab8f",
+  "width": 1448,
+  "height": 1086
+}

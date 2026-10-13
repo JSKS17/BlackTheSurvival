@@ -1,0 +1,39 @@
+{
+  "id": "rio",
+  "name": "리오",
+  "ultimate": "연사/정사필중",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-cec5241c-0f13-4831-9bc4-51562933486a.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/rio.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "단궁의 연속 사격과 마지막 강한 화살을 네 차례 시위 동작으로 표현한 독자 시안.",
+  "frame_labels": [
+    "활 준비",
+    "앞발 고정",
+    "첫 조준",
+    "첫 화살 발사",
+    "두 번째 조준",
+    "두 번째 발사",
+    "세 번째 조준",
+    "세 번째 발사",
+    "마지막 화살 힘 모으기",
+    "강한 화살 발사",
+    "시위와 팔 회수",
+    "활 준비 복귀"
+  ],
+  "visual_review": "12개 셀의 얼굴·복장을 확인했습니다. 프리야의 연주 손과 상체, 리오의 시위와 활·팔 동작이 달라지고 마지막 강한 시전 후 준비 자세로 돌아옵니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "020474634f8b58463d9da03f65c3c6cf0f1980abc8e87139178606a882546ac6",
+  "width": 1448,
+  "height": 1086
+}

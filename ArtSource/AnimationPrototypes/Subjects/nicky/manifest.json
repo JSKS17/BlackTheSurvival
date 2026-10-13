@@ -1,0 +1,44 @@
+{
+  "id": "nicky",
+  "name": "니키",
+  "ultimate": "분노의 어퍼컷!",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-99ae21d3-fc4b-40b5-b3b2-e40e36326693.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nicky.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "돌진 후 어퍼컷을 내지르는 R을 분명한 웅크림·도약으로 재구성한 독자 시안.",
+  "frame_labels": [
+    "전투 자세",
+    "주먹 쥠",
+    "무릎 굽힘",
+    "돌진 시작",
+    "몸 낮춰 접근",
+    "어퍼컷 상승",
+    "공중 주먹 뻗기",
+    "최고점",
+    "착지 시작",
+    "무릎으로 충격 흡수",
+    "가드 회수",
+    "전투 자세 복귀"
+  ],
+  "visual_review": "12개 셀의 얼굴·복장과 실제 팔·다리의 준비·이동·타격·회수 차이를 확인했습니다. 니키는 상승·착지, 피올로는 낮은 직선 돌진·쌍절곤 회전이 분명합니다.",
+  "intended_airborne_frames": [
+    6,
+    7,
+    8
+  ],
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "a52dce5ed680f49609a792758a3686304fabda7a95d0cc853d85c3618d45433c",
+  "width": 1448,
+  "height": 1086
+}

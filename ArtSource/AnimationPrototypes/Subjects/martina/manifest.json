@@ -1,0 +1,40 @@
+{
+  "id": "martina",
+  "name": "마르티나",
+  "ultimate": "녹화",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-e9bf66e6-8884-44da-9a82-1fb95ebc1d8b.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/martina.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Martina Record: ash-gray long hair, rectangular black glasses, alert amber eyes, ochre/yellow reporter jacket and brown trousers, shoulder video camera exactly per reference. Use the broadcast form of R as representative: she films a cone, builds sequential pulses, ends in a flash. 12 poses: ready with lowered camera; grip camera handle; raise it to shoulder; front knee bends and viewfinder eye aims; filming begins with tiny red recording LED only (NO letters); turn torso slightly left with cyan/violet camera cone outline projecting right; pan slightly right; brace and zoom by adjusting lens with left hand; final bright compact white-gold shutter pulse within cone; recoil a little; camera lowered and jacket settles; ready. Real hand/camera/torso panning motion, not standing still with rotating FX. Glasses yes because original reporter wears them. Beam/cone must end well before cell border, face remains clear.",
+  "frame_labels": [
+    "대기",
+    "카메라 잡기",
+    "어깨에 카메라 올리기",
+    "뷰파인더 조준",
+    "녹화 시작",
+    "왼쪽으로 팬",
+    "오른쪽으로 팬",
+    "렌즈 조절",
+    "방송 마지막 광격",
+    "카메라 반동",
+    "카메라 내리기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "안경·회색 머리·황색 재킷을 유지합니다. 카메라 들기, 팬, 렌즈 조정과 방송 피날레가 분리됩니다. 촬영 원뿔은 얼굴 우측으로 나갑니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "5db57309e7c1cc91b286a6e0773a1cd5838fb764ff37d9600c0255b30a60707a"
+}

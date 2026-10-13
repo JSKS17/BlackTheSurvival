@@ -1,0 +1,39 @@
+{
+  "id": "hyejin",
+  "name": "혜진",
+  "ultimate": "오대존명왕진",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-c2bcc349-0378-439d-a0a7-519bfa67fdca.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/hyejin.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 오대존명왕진"
+    }
+  ],
+  "visual_review": "보라색 긴 머리·날카로운 보랏빛 눈·한복풍 의상을 유지했습니다. 수인, 부적 올리기, 양팔 전개, 몸 회전, 밀어내기의 몸 동작이 다르고 다섯 부적이 궤도로 움직입니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "ff38675de83e25b2dd48cc5c8cadc5bb6cd860f5bfc5cd0f95ef76126415a602",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Hyejin dark long purple-black hair, sharp violet eyes, traditional white-purple outfit and paper talisman from identity. Official R summons FIVE talismans orbiting her. Animate idle holding talisman; hands meet in ritual seal; lift talisman near shoulder; extend both arms; five small violet glowing paper talismans appear evenly around body; torso turns left as talismans orbit clockwise; sleeve and hair swing; right palm pushes orbit outward and talismans advance; five talismans briefly align in a ring below face, one compact purple pulse; hands pull back and talismans fade; sleeves settle; exact idle. No readable writing on charms, no giant monster faces, no extra sorceress. Actual hand seals and sleeve/torso movement, face kept unobscured.",
+  "frame_labels": [
+    "준비",
+    "수인 맺기",
+    "부적 올리기",
+    "양팔 펼치기",
+    "다섯 부적 소환",
+    "부적 회전",
+    "몸 회전",
+    "영역 밀어내기",
+    "명왕진 발동",
+    "부적 회수",
+    "소매 정리",
+    "준비 복귀"
+  ]
+}

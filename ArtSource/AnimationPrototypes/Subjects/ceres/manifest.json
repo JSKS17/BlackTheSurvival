@@ -1,0 +1,39 @@
+{
+  "id": "ceres",
+  "name": "세레스",
+  "ultimate": "빛에게 바치는 맹세",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-9b22a4e6-559f-4a85-9f9b-02efe1a2965c.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/ceres.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/3867?hl=ko-KR",
+      "title": "님블뉴런 공식 실험체 스킬: 빛에게 바치는 맹세"
+    }
+  ],
+  "visual_review": "은백색 머리·푸른 눈·검과 의상을 유지했습니다. 검 세우기·무릎 굽힘·들어올림·서약 지탱·검 내리기 동작이 이어집니다. 공격이 아닌 보호막 누적 효과입니다. 금빛 효과 외곽에 반투명 도트 입자가 많아 어두운 갤러리 배경에서 확인해야 합니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "ea085144bdbc415ee37530e5fa40c2c48a6877205a3d207775b4604c327eedd3",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Ceres silver-white long hair with dark headpiece, clear cool blue eyes, white-black knightly elegant outfit and gold/white long sword from identity. Official R raises sword while uninterruptibly channeling layered protective shields around herself and allies. Animate poised idle sword diagonally down; hand slides to firm two-handed grip; drawing sword upright before shoulder but never over face; knees bend; lift sword overhead angled toward right; stand tall in solemn vow; warm gold-white light travels up blade; translucent concentric shield rings grow at boots and shoulder sides; taking small stabilizing step with cloak swaying while sword stays raised; sword gradually lowers; gold shields fade; original idle. This is a PROTECTIVE VOW, not an attacking slash. Character must visibly change posture/arms during raise and lower, noble focused face.",
+  "frame_labels": [
+    "준비",
+    "검 손잡이 잡기",
+    "검 세우기",
+    "몸 낮추기",
+    "검 들어올리기",
+    "빛의 맹세",
+    "검에 빛 모으기",
+    "보호막 중첩",
+    "자세 지탱",
+    "검 내리기",
+    "빛 회수",
+    "준비 복귀"
+  ]
+}

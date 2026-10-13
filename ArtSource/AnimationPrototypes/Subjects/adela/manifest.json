@@ -1,0 +1,49 @@
+{
+  "id": "adela",
+  "name": "아델라",
+  "ultimate": "체크메이트",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-6286b3af-97e1-4be2-820d-44a16848f007.png",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "91572b9a035a3626710c057bfaee7dd45a40c20231883ae9bb54132f08bbd4ff",
+  "reference_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\adela.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+  ],
+  "reference_sha256": [
+    "4783794c34f21325f475a344ff030918d2fd9244a9c4d1dc5c92a4e8c2f86914",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "Eternal Return official skill description"
+    }
+  ],
+  "motion_summary": "체스 말을 거느리고 떠올랐다가 착지하며 체스 문양을 터뜨리는 동작",
+  "frame_labels": [
+    "체스 퀸 대기",
+    "손짓 준비",
+    "체스 말 소환",
+    "떠오르기",
+    "공중 지휘",
+    "체스 배치",
+    "하강 준비",
+    "착지",
+    "체크메이트 충격",
+    "체스 말 소멸",
+    "자세 회수",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "visual_review": "Reviewed generated twelve-frame sheet: identity, facial features, distinct body/weapon motion, skill effects, transparent cells."
+}

@@ -1,0 +1,45 @@
+{
+  "id": "william",
+  "name": "윌리엄",
+  "ultimate": "위닝샷",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-3577193c-a955-4f39-8fff-b6e639ecace4.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/william.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "점프 투구와 네 공의 반사를 무릎 끌어올림·공중 투척·착지로 재구성한 독자 시안.",
+  "frame_labels": [
+    "글러브와 공 준비",
+    "투구 손을 뒤로 뺌",
+    "무릎 끌어올림",
+    "점프 시작",
+    "공중 몸통 회전",
+    "높은 위치에서 투구",
+    "공 비행·공중 후속 동작",
+    "공 충돌",
+    "네 공 분산",
+    "착지",
+    "글러브 회수",
+    "투구 준비 복귀"
+  ],
+  "visual_review": "바냐의 날개·손 유도·꿈나비 발사와 윌리엄의 무릎 올리기·공중 투구·네 공 분산·착지가 분명합니다. 얼굴과 눈·입이 효과에 가려지지 않는 것을 확인했습니다.",
+  "intended_airborne_frames": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "1acef44d95dbe3dc2d63fb4e457af03e8931b880a6e7c9ee5e9b278d29207c0e",
+  "width": 1448,
+  "height": 1086
+}

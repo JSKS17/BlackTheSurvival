@@ -1,0 +1,40 @@
+{
+  "id": "luke",
+  "name": "루크",
+  "ultimate": "애프터 서비스",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-dcdb19aa-76ea-4f14-ae78-b7335c379a78.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/luke.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Luke After Service: tousled pale-pink blond hair, sharp amber eyes, black work outfit with yellow details, cleaner's mop weapon from identity. R fires a penetrating bullet from his cleaning tool and physically knocks Luke backward. 12 sequential poses: ready with mop; lift mop horizontally with both hands; slide front hand up shaft; aim mop head forward-right; lean forward and feet brace; orange-white charge at cleaning-tool head; fire ONE compact piercing round to right, fully contained within the cell; torso and mop jerk backward; back foot skids and he leans rearward from recoil; step forward again; lower mop; ready. Not a chainsaw or conventional rifle. Mop shaft and head remain visually recognizable. Warm gold/white muzzle burst and short trail, NO long beam crossing cell border. Expressive sharp eyes and tiny confident mouth.",
+  "frame_labels": [
+    "대기",
+    "청소도구 들기",
+    "손잡이 당기기",
+    "도구 조준",
+    "발로 버티기",
+    "발사 준비",
+    "관통탄 발사",
+    "상체 반동",
+    "뒤로 밀려남",
+    "다시 발 딛기",
+    "청소도구 내리기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "청소도구 총구 조준과 단발 사격, 뒤로 밀리는 반동이 보입니다. 연한 머리·황금 눈·작업복과 대걸레 형태가 유지됩니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "86aee71d9093483eda39272ebc67cb847a50fb8d01a258aa2c871ccacb3e218c"
+}

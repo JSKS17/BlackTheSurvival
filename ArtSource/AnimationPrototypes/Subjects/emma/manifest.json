@@ -1,0 +1,39 @@
+{
+  "id": "emma",
+  "name": "엠마",
+  "ultimate": "Change★",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-4d61e06a-6e20-466a-bd22-b4143d49a8a7.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/emma.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: Change★"
+    }
+  ],
+  "visual_review": "청록 머리와 마술 의상을 유지하며 모자 던지기·소멸·새 위치 출현·흡인·인사 동작을 구분했습니다. 순간이동 2프레임은 의도적으로 인물 없이 모자와 별빛만 나타납니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "3e84b16179f0cb41ca6b0c8c70ab2abe108da102e776c93a6c30a4a4878aec52",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Emma turquoise-haired magician with white costume and rabbit-ear hair silhouette from identity. Official Change teleports to a summoned magic hat, exchanging its position. Show representative HAT R. Animate holding a small black magician hat low to right; flicking wrist and hat appears at right of cell; bending knees; body vanishes in compact white/cyan star puff; only hat stays; Emma emerges at hat's position leaning sideways; left hand sweeps hat toward original position; violet/cyan circular pulling flourish expands low; magician upright ta-da; bows with hat held sideways; straightens; original idle. Real body position changes inside stable camera; hat small enough for margin. Preserve lively distinct eyes and small smile, no other human.",
+  "frame_labels": [
+    "마술 준비",
+    "모자 던지기",
+    "순간이동 준비",
+    "별빛 소멸",
+    "모자 위치 교환",
+    "새 위치 등장",
+    "모자 회수",
+    "흡인 마술",
+    "짜잔 포즈",
+    "인사",
+    "자세 회수",
+    "준비 복귀"
+  ]
+}

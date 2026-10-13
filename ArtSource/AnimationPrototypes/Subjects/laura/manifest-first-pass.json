@@ -1,0 +1,45 @@
+{
+  "id": "laura",
+  "name": "라우라",
+  "ultimate": "황혼의 도둑",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-1f905bb2-f9de-4ada-9365-1516c863dfa5.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/laura.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Laura Twilight Heist: elegant lavender hair and purple eyes, fitted dark purple thief outfit, long whip as identity. R extends whip toward a wall/marked target, pulls herself into a high-speed dash, then flips backward and lands an area strike. No scenery: use only a small violet anchor spark. 12 poses ready, rear-arm windup, whip shoots diagonally upper right, taut whip grips violet anchor, forward lean, dash with coat trailing, arrival, backward somersault with feet overhead but face still partly visible, descending open-body pose, low landing and purple crescent impact, whip recoils, ready. Do not make a static dancing purple aura. Airborne cells 6-9 one based; floor baseline/camera fixed. Restrained confident face not exaggerated scream.",
+  "frame_labels": [
+    "대기",
+    "채찍 휘두르기 준비",
+    "채찍 뻗기",
+    "목표 고정",
+    "돌진 준비",
+    "채찍 타고 돌진",
+    "목표 도착",
+    "뒤로 공중회전",
+    "착지 준비",
+    "착지 충격",
+    "채찍 회수",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "visual_review": "보라 눈·라벤더 머리·채찍을 유지합니다. 채찍 고정, 수평 돌진, 공중 회전, 착지의 큰 자세 변화를 확인했습니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "a502b97c3620caa0e7e47fff1bfbbb369db9518036c6e57c61377925fa5ff8a5"
+}

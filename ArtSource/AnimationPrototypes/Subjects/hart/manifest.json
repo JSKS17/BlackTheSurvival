@@ -1,0 +1,39 @@
+{
+  "id": "hart",
+  "name": "하트",
+  "ultimate": "Peacemaker",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-01c57af4-c1b5-40b1-bd4a-46a3bfb643ba.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/hart.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: Peacemaker"
+    }
+  ],
+  "visual_review": "블론드 단발·베레모·붉은 눈·핑크 기타를 유지했습니다. 리듬에 따라 무릎·허리·운지·스트럼이 변하며 표정도 연주 중 미소로 바뀝니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "964c6f564d01358d6a51151c7dfeff83c3ffd849291e2ece87b72ff74e36b98c",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Hart golden blonde short hair, black beret, pink-red jacket and pink electric guitar from identity. Official R strums guitar in a healing performance that makes everyone dance. Animate guitar idle; lifting fretting hand onto neck; bending knees into rhythm; first strong downstrum; left-right hip sway; rising upstroke with closed joyful eyes; second downstrum; leaning into rock solo with lifted heel; soft pink-gold circular sound rings and a few musical-note-shaped pixels at boot height; last strum; return guitar angle; original idle. Cute focused warm face with distinct eyes when open. No weapon slash, no laser, no extra dancers, no stage/scenery.",
+  "frame_labels": [
+    "연주 준비",
+    "운지 잡기",
+    "박자 타기",
+    "첫 다운 스트럼",
+    "좌우 스웨이",
+    "업 스트럼",
+    "두 번째 다운 스트럼",
+    "솔로 포즈",
+    "회복 음파",
+    "마지막 스트럼",
+    "기타 회수",
+    "준비 복귀"
+  ]
+}

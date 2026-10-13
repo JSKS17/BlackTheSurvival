@@ -1,0 +1,39 @@
+{
+  "id": "theodore",
+  "name": "테오도르",
+  "ultimate": "에너지 필드",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-27f432ba-177f-47ea-9ea8-e4a47c675216.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/theodore.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "최대 충전과 에너지 필드 발사를 총기 견착·반동·과충전 잔광으로 해석한 독자 시안.",
+  "frame_labels": [
+    "레일건 준비",
+    "앞발 고정",
+    "레일건 견착",
+    "어깨로 버팀",
+    "에너지 충전",
+    "최대 충전",
+    "강한 에너지 파동",
+    "발사 반동",
+    "에너지 필드 유지",
+    "총구 내림",
+    "과충전 잔광 회수",
+    "준비 자세 복귀"
+  ],
+  "visual_review": "타지아의 유리 대검 형성→칼날 투척→파괴와 테오도르의 레일건 견착→발사 반동→총구 회수가 구분됩니다. 두 캐릭터의 눈매와 붉은/푸른 색상 정체성이 유지됩니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "c2bc2c6d65c2c94d70f1305ceac7cf5cf5ccefeb0220676cae6edf4b70e9e650",
+  "width": 1448,
+  "height": 1086
+}

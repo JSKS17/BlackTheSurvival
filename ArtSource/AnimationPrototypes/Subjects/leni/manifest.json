@@ -1,0 +1,45 @@
+{
+  "id": "leni",
+  "name": "레니",
+  "ultimate": "스프링! 트랩",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-5395ce85-708a-434c-b382-485c5cf83d23.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/leni.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1545?hl=ko-KR",
+      "title": "공식 실험체 출시 패치노트"
+    }
+  ],
+  "motion_summary": "Eternal Return Leni Spring Trap: short ash-pink girl, black bunny-ear headband, playful round blue eyes, pastel pink/green toy bazooka and black/pink outfit as identity. R installs a spring trap which launches her too. 12 poses ready, squat while taking small spring pad, place pad with hand, compressed spring under front foot, spring suddenly extends, body launches diagonally up-right with delighted but restrained tiny smile, airborne legs tucked and toy gun held to chest, airborne arc leaning forward, descend with hair/bunny ears streaming, land knees bent, regain toy-gun ready grip, ready. Pink/yellow toy sparks compact; no detached rabbit animal and no giant toy carnival background. Airborne 6-9 one based, camera origin fixed and padding ample.",
+  "frame_labels": [
+    "대기",
+    "스프링 꺼내기",
+    "트랩 설치",
+    "스프링 압축",
+    "트랩 튀기기",
+    "공중 발사",
+    "공중 몸 모으기",
+    "비행 궤적",
+    "하강",
+    "착지",
+    "장난감 다시 잡기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "visual_review": "파란 눈·토끼 귀 머리띠·장난감 화기를 유지합니다. 스프링 설치, 압축, 점프, 공중 궤적, 착지가 분리됩니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "4acaa931958485616e692cef14dd735651671bc395f6cc8d2741cd89f30dd561"
+}

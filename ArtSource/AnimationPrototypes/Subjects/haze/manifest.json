@@ -1,0 +1,39 @@
+{
+  "id": "haze",
+  "name": "헤이즈",
+  "ultimate": "로켓 런처",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-f3a89257-8d3e-4b8b-932e-23634139f7c8.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/haze.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 로켓 런처"
+    }
+  ],
+  "visual_review": "회색 긴 머리·차가운 눈·케이스와 전술복을 유지했습니다. 케이스 꺼내기·휘두르기·런처 전개·발사 반동·접어 넣기의 실제 무기 동작을 확인했습니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "7bd77f5e255f61a512da37e673de11b7108654277d1d610b7e66d54328f85fd1",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Haze gray straight long hair covering part of face, red-gray eyes, black tactical coat and huge weapon case from portrait. R swings her weapon case then equips rocket launcher; illustrate transformation and one representative rocket attack. Animate idle with case on back; reaching back; pulling case forward; case sweeps in compact gray arc; locking case open into shoulder launcher; bracing feet with launcher shoulder-high and face visible above; fire orange-white muzzle flash and small red rocket right; recoil knees bending and hair shifting; spent smoke curls; lowering launcher; folding back to case; exact original idle. Real case/arm/torso changes, no generic magical orb.",
+  "frame_labels": [
+    "준비",
+    "케이스 잡기",
+    "앞으로 꺼내기",
+    "케이스 휘두르기",
+    "런처 전개",
+    "조준",
+    "로켓 발사",
+    "발사 반동",
+    "연기 잔광",
+    "런처 내리기",
+    "케이스 회수",
+    "준비 복귀"
+  ]
+}

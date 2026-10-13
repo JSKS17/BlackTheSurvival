@@ -1,0 +1,39 @@
+{
+  "id": "shoichi",
+  "name": "쇼이치",
+  "ultimate": "무자비",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-2f040c92-859c-45ea-9812-c1fa1b3f923a.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/shoichi.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "단검 가방을 휘두르고 사방으로 단검을 뿌리는 R을 회전 동작으로 재구성한 독자 시안.",
+  "frame_labels": [
+    "단검 가방 준비",
+    "가방을 옆으로 듦",
+    "허리 뒤로 회전",
+    "앞발 회전",
+    "가방 휘두르기",
+    "회전 최대점",
+    "네 방향 단검 분산",
+    "회전 마무리",
+    "발 제동",
+    "가방 내림",
+    "안경을 바로잡음",
+    "준비 자세 복귀"
+  ],
+  "visual_review": "12개 셀의 안경·정장·단검 가방을 확인했습니다. 허리 회전과 가방 궤적, 네 방향 단검, 정지 후 안경 정리가 구분됩니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "b650a9e8b5475d9c752de39cbaca11461ca1fd6cf4c9b3b7f0f4ef2d8e5b92f7",
+  "width": 1448,
+  "height": 1086
+}

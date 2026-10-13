@@ -1,0 +1,39 @@
+{
+  "id": "zahir",
+  "name": "자히르",
+  "ultimate": "바르가바스트라",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-69294b4b-b78a-4877-a23c-5a01857547c2.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/zahir.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "힘을 모아 순차 차크람을 퍼붓는 R을 손 모음·양팔 전개·연속 낙하로 해석한 독자 시안.",
+  "frame_labels": [
+    "차크람과 대기",
+    "손을 모음",
+    "힘을 끌어올림",
+    "상체를 뒤로 젖힘",
+    "팔을 크게 펼침",
+    "첫 차크람 낙하",
+    "두 번째 차크람 낙하",
+    "세 번째 차크람 낙하",
+    "마지막 강한 낙하",
+    "팔을 가슴으로 회수",
+    "차크람 잔광 소멸",
+    "대기 자세 복귀"
+  ],
+  "visual_review": "유민의 부채 시전·학의 강하/재상승과 자히르의 양손 충전·순차 차크람 낙하·회수를 확인했습니다. 긴 검은 머리와 피부·의상 색상 및 눈매 차이가 유지됩니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "cd4a24ee56eea93c55537c4cc13b27d227a90aec1b51fd321a73612a909fcf33",
+  "width": 1448,
+  "height": 1086
+}

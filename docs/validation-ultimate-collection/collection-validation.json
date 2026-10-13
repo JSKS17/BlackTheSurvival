@@ -1,0 +1,834 @@
+{
+  "passed": true,
+  "total_subjects": 91,
+  "newly_created": 90,
+  "retained_nia": 1,
+  "total_animation_frames": 1092,
+  "frames_per_subject": 12,
+  "fps": 8,
+  "duration_ms": 1500,
+  "raw_generated_bytes_preserved": true,
+  "game_integration": false,
+  "game_files_unchanged_from": "c41c48550b159a1c3e3159b12a66ff8280901fbb",
+  "subjects": [
+    {
+      "id": "abigail",
+      "name": "아비게일",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "8e0256dcde015423e64a5a0a90d7ac084a811a248dbd61322e110f042923b95f",
+      "gif_sha256": "0766bf94872a33851407eb901b34f77dfb5768dfed7e81cdb8d597cf073f6d39",
+      "webp_sha256": "d2e1ae6e4eb097b79e0efdb3fa0b6ef693ad98739e34c65f98f8cb441e9e94a7"
+    },
+    {
+      "id": "adela",
+      "name": "아델라",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "91572b9a035a3626710c057bfaee7dd45a40c20231883ae9bb54132f08bbd4ff",
+      "gif_sha256": "2f47f32739c1dca26852f1c00f471204c9a3b4d9f8306c557be089f0330a2d6b",
+      "webp_sha256": "15e64039e56e257651f087d83a62346ff40bcd79a721649d4383cbd028e84a47"
+    },
+    {
+      "id": "adina",
+      "name": "아디나",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "58833e3357058840c032fe1e037a9920268b687a4dec19c9835384d34e261a71",
+      "gif_sha256": "23ec02bad4c4019b2453a1a1d6d0432971811e75c89deb5bd48451b794713e48",
+      "webp_sha256": "66f7d8565adfe59dcad1d77694efc7770a6ba7edf01402e197d31c31404076f8"
+    },
+    {
+      "id": "adriana",
+      "name": "아드리아나",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "380aed84d77a1bb33429c462dc4614485931417debd57a7b43ad4820f55f4cc5",
+      "gif_sha256": "6d6eb1a57be2d6a90e9e90a289ce82513b9cd93ccd612b49c59c6e9ba6399042",
+      "webp_sha256": "d3a5242d8830e53cafe0db5f7e0ded56b1bfd268d0cd3d2fd354b0b21a602d6d"
+    },
+    {
+      "id": "aiden",
+      "name": "에이든",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "a8b2dc68009c787fbff0f3944ff6d817789fedf9145bd2c2b2bd8ae8ecd8f23c",
+      "gif_sha256": "f6ddc2299337646190d56760360aa11889da4a0aa926d7e7e2186ca76d896692",
+      "webp_sha256": "9d5edee02ad91be3ce535221c6e81005fdae53f449e11f8e2b00ef0bed155bd8"
+    },
+    {
+      "id": "alex",
+      "name": "알렉스",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "b8a0168029b20209f258a4f1ac7c388aa8fd73acf05d297104e47f206be2b008",
+      "gif_sha256": "e96f1f74f90695f1d6eab5e0eb3f41b8fabb65d02955afa9bf06019eecaa009f",
+      "webp_sha256": "37f7a70dc55af9e33b59c503b43faf8bf0fb1a6b5ebaac57e03d235e2520adc3"
+    },
+    {
+      "id": "alonso",
+      "name": "알론소",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "15bd85a67a9154633a36a870d3176098db6bb76a3d847693b7136f6d6e9b24ef",
+      "gif_sha256": "7ab1a572e62f7451dd45e4ccab9c872b2bbcd77f4be848d6a86e92af91a30e0f",
+      "webp_sha256": "5990d71f24b2f231c3ec362109ac34f956fda7008cf1510ce59dc13ac05a36d6"
+    },
+    {
+      "id": "arda",
+      "name": "아르다",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "bbcc8a56cfdad24daa5bade30ed7dc07b279a973dee65bd6738d661f5d285b15",
+      "gif_sha256": "bb5ca4c8aafd3a0b4d34fc9998d89cf3b560d3877912cebcc71849ee3d8cea8f",
+      "webp_sha256": "753fc17ad1325d7cb2e4f643e2bbd928c726b7b00d835bdf0d03a15fadeb2529"
+    },
+    {
+      "id": "aya",
+      "name": "아야",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "dc0922c3a12601d3a8e7df89e9819e1cd9dcae0b1d7c6554ecdcfd1ac32fe2e9",
+      "gif_sha256": "c21143868bfa7853968d2b9a7b1ec4497db70702eeabd672da589804fd57419d",
+      "webp_sha256": "97d8847445aca7777eebec7afa0aa823ea8dc29ec9c4c5d2015fb20e90dd94f5"
+    },
+    {
+      "id": "barbara",
+      "name": "바바라",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "2f315b673ead6357a69b4e3d833bcb89c856829b9cc0853df83bd75e48b2dc69",
+      "gif_sha256": "98f534a1b7ea057466590dce9bad5d2eaf446ff75635a1a710c9fae5c96070db",
+      "webp_sha256": "c240e22b8b32ece6e3bb4411e7ca4bb457c406c2cf911af23f1482ab174c3a97"
+    },
+    {
+      "id": "bernice",
+      "name": "버니스",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "f0bb41077827ee2de7b4197546578bcd3ae4fe2ab0d65b073078027d6a313dd2",
+      "gif_sha256": "fe341c95279388c9e3f660b08f4063deb5870a432bde485c90b15304ef80e659",
+      "webp_sha256": "ab99280742774a6150059aaac420eecd8d984fbe489bdb9d0c10632580280592"
+    },
+    {
+      "id": "bianca",
+      "name": "비앙카",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "abd53cfac561c32f75a909a0654280396b45a0ef7d39e43f71b43262053b0c84",
+      "gif_sha256": "e116e0b22b17de2e0e785d7e8bd91800dd33b72cbcac7b295240e28bfc3fcf8a",
+      "webp_sha256": "9b23b1de55b71557bb4099e44873a212116efe2c5a84f16f24f9a292e3086c0c"
+    },
+    {
+      "id": "bihyung",
+      "name": "비형",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "16aafce1008a6d8153f456501571d60537c0bf786f934b9d873d4d27e9144f71",
+      "gif_sha256": "6087da43ce79d7247be5c3a34b0519f61e6584c298c7407f519740cc2841d3cc",
+      "webp_sha256": "34c847993dc1727cae579b8d1910bcee162cf60e69212c425137c4217cc8fddb"
+    },
+    {
+      "id": "blair",
+      "name": "블레어",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "267f44149d25ee850bb7b9d9e53e42f70266c015b52cec46ac71e5f4e0e43f6c",
+      "gif_sha256": "8c77d47d660d68d63a9b58f538ead43dcbf9f052c24dc8e0cfd0d4a4b8887967",
+      "webp_sha256": "d48427c1e26fb9d3ddc2ffd0b9759edb1d435e86b42ad931d1083cabbf80b551"
+    },
+    {
+      "id": "camilo",
+      "name": "카밀로",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "4999168ab275380eae0bcbfab933dc42491a53d5aac213753be274ffa649b3c1",
+      "gif_sha256": "3aba99777f15d8fc415dbb22f5159a90a7724238d7ff1dbdbcfbb8f82f14b9d1",
+      "webp_sha256": "a020a20e0ec7c00298428682ef8749011094281a84730dda153cb37d34969ec5"
+    },
+    {
+      "id": "cathy",
+      "name": "캐시",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "7ace34810919d776a921a0936999a71b55866d466e45b804212e8333dcc9171e",
+      "gif_sha256": "aaa5b12c6ea22a39eb573450ce3cd981d9425e44913b52389231439aba4aba76",
+      "webp_sha256": "02e93659e1b6642b08672d9266c9951089adfb4b5ec455375ef78d27ebed68df"
+    },
+    {
+      "id": "celine",
+      "name": "셀린",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "40571479b058bf475126c57240b2d9aaadfa532a7b03f7e48963792422110395",
+      "gif_sha256": "6286557fc77d5450df46eebb6f5107ff9dfe4f6885a60b75d65bce09400a5609",
+      "webp_sha256": "2505d2f360ba048e451348fa186390b3cce65a8ad32469e0bdbb16d45fb521af"
+    },
+    {
+      "id": "ceres",
+      "name": "세레스",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "ea085144bdbc415ee37530e5fa40c2c48a6877205a3d207775b4604c327eedd3",
+      "gif_sha256": "aedd4d4b567a816dae5348791dea86f9ddc734f90dfbac4a75810a965093ecc8",
+      "webp_sha256": "170197ff3ca12328b9b084bf97dcaf165e1e10afbc2a4947c6522bb64f947fae"
+    },
+    {
+      "id": "charlotte",
+      "name": "샬럿",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "2e20dd5bebe08fe3152b32a48462be9de5d0ff08fab4bc1ee9fe2b1396d37a5f",
+      "gif_sha256": "32116c5862bf20c4bcf456d4d1bdce8969d87e97a8838d12892315bd7dd3c2f7",
+      "webp_sha256": "c9a0fbf97627ab431ee0b11b783ec8122b11a562e181099eab6e13e069efbcdf"
+    },
+    {
+      "id": "chiara",
+      "name": "키아라",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "bf47b3181b0b2b63add6dcff307ec94d05d2efbb2fe41e61bd602573314e8df8",
+      "gif_sha256": "9ffb6de66649969f17a69ffdd1348502be6990e4add81055618fc6dcc20125ba",
+      "webp_sha256": "716633d3e5637d9ad84ca64d04bec79a3a5f5deea5801b474d3b43cfc450af45"
+    },
+    {
+      "id": "chloe",
+      "name": "클로에",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "b92fe6f308a1c200c74d48e787fa614bbabc344494d303a902357ab5e7453d7f",
+      "gif_sha256": "0b3401fd6e2a531d0a972dd2c63ac19d8af29d8cc86b12e32c029961ab6484a4",
+      "webp_sha256": "7b4a861321f42e405ad09aeb16e8593e83768cf078a6cdc5529dad80c25567f9"
+    },
+    {
+      "id": "coraline",
+      "name": "코렐라인",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "8dec5f23337c16348f4b9f3cc7ffcf2653721f4367289558d1b2a70bd779a466",
+      "gif_sha256": "5097330199adba5cd0f41b76b01b15c99b2f05558039fe96ac3e25e4e864fd37",
+      "webp_sha256": "7a31a2b2f925ebedabe04285621f6182fc4e563970d118110925a3e067e5f020"
+    },
+    {
+      "id": "craver",
+      "name": "크레이버",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "00d2dafc88bab0e9ff6443d2f3d25a91c2c483e51a18870f9b82df909958f78a",
+      "gif_sha256": "4f7e69856471ee4804c10c321353e807528ed9cc4132856c7611df6842d89260",
+      "webp_sha256": "3825170fc96ab532183641c08ff40f4c977b997982cf3d6544801525b3799b84"
+    },
+    {
+      "id": "dailin",
+      "name": "리 다이린",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "9cff597adba2be937ac74238de49bf2bd412976df8c1ff7c2d9ff66656c6d2d6",
+      "gif_sha256": "ff53fea94f7a090ddd7974ed7fbfc4c73b37578aaf8ce4b47111beca1d44ca12",
+      "webp_sha256": "2aba8b61b6b9f6a1681f8ca83068992eba7586995712c2082049cb8766d10ec1"
+    },
+    {
+      "id": "daniel",
+      "name": "다니엘",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "4a402eaa20e8227528b0cc6c9a4fa5dd08a989218377ee5949be84bc30b142bb",
+      "gif_sha256": "29301d27839e82cbb5eb7e258650390ec5b41bd8ee079ef8abcc77d8f99a9be7",
+      "webp_sha256": "4f0a95278207cd781074031bf701b261f4be5ed17410bc1c011da9bdd8d79b54"
+    },
+    {
+      "id": "darko",
+      "name": "다르코",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "37bbfd6d9f149be5b34842d1272a62134e4e0c81d638c5e6da764db50e2cbc63",
+      "gif_sha256": "96978bb710c444295fb2f8ae2d96c349052ace5a8baf38293ba037ec679bebc4",
+      "webp_sha256": "92421ae6e7cc6bebb1724f55ebdbab631ecbc1d7cb00a72b13d00b285b3753a3"
+    },
+    {
+      "id": "debi_marlene",
+      "name": "데비&마를렌",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "98c3ad753bccdb42ffb71db6d2ea903b2179505005e6ec67f8a1bd3b1cc21693",
+      "gif_sha256": "42ba673db56ec96af1ce5b644754df58882a60ec99a55789584972bbedec57d7",
+      "webp_sha256": "eb24303693c6c4e16e832f8db9c76509fac16e49c8f3d61fd4e4f0fd72c42dcc"
+    },
+    {
+      "id": "echion",
+      "name": "에키온",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "3e50801086902dc76385e307bae64f2e7cff78be2671a6bdde445d617eef7816",
+      "gif_sha256": "60251325b23c6e93ba8b6b7843ad6bdf3a26c17ae73da0446b98ce4edd31c4f5",
+      "webp_sha256": "04a5214d706f642aaf148e708f0fb73bca48f23f88b5febced305e77150124a6"
+    },
+    {
+      "id": "elena",
+      "name": "엘레나",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "3051e0fd74707745996158397a15cee89de5cc9732ae83c9da88927fc18704ee",
+      "gif_sha256": "2235cfb6eeba303274bf25d2f7d992ec44cc0d0ed6951f5817f15687071a31fa",
+      "webp_sha256": "26bf2da3cb5fb4872fe814886249748eade66f10251734861bdb1866c41d4cd8"
+    },
+    {
+      "id": "eleven",
+      "name": "일레븐",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "34565a03d5512a8e887b9dc2d6929ee6e446aa9989b0d29bd7bac253977e44d2",
+      "gif_sha256": "8be77770e52edfd3844c19dbd4dd03724aa6baa7834e28875224e87027e7eba3",
+      "webp_sha256": "8e533d36e94fdb69ecde8b51b145dbbda02acda3a3549e5ea43fbeda33d4f562"
+    },
+    {
+      "id": "emma",
+      "name": "엠마",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "3e84b16179f0cb41ca6b0c8c70ab2abe108da102e776c93a6c30a4a4878aec52",
+      "gif_sha256": "52a6bff2d92eb4c9d68467ed1c054e24601897771610ef9b8638638c9d1d8621",
+      "webp_sha256": "364e4d3dede0fffb0647f34f01e617a9142a3cc89d045d3b55d44677425bda8c"
+    },
+    {
+      "id": "estelle",
+      "name": "에스텔",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "866a0d12bd07cb165fde8e33abaf4a30b341e7c7b5339887cb53b8d0d0925ead",
+      "gif_sha256": "e39f8f5f3d0aaf3a07ed18398e23da8f04b69b8cfc5de5656a96e410faf17e6f",
+      "webp_sha256": "ed100b97bf844ff82a4364737cec7c509012c8216fd7d75c85826bfb90752a59"
+    },
+    {
+      "id": "eva",
+      "name": "이바",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "e2fd3d9f97f84ffd2ce73f3401f1f28c80eec008c498b5f3b7d89243006f6f3c",
+      "gif_sha256": "d6e6314057f917a77be17965a11045fe993578599b4d668382aecc85388fe542",
+      "webp_sha256": "6f8211c0ed19fb690e07eeb8ab019c7b9a325ccf1be5e3801ee9d07daff50db5"
+    },
+    {
+      "id": "felix",
+      "name": "펠릭스",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "eb1d863ab7b31c32a17b9ca364f5caaa3004a7be11ab230840fbd090a8f04f7d",
+      "gif_sha256": "e9f91b04a498e2e478d42c28bdc89d851b92049beaf7f10e3bbed20b2d8212f4",
+      "webp_sha256": "ce5cd3a3ae1621d8e00ceaa81d1f96955de77579c6979b5692483f0cdf4bca24"
+    },
+    {
+      "id": "fenrir",
+      "name": "펜리르",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "50821b9a5075f76d361393d20c2cef97940f38ef3138e3bb3c0dcce0281ac5f1",
+      "gif_sha256": "677c34014b5fef5b2ebe6467523d9c5d6c34e0d086e8708060edd184506d8e5a",
+      "webp_sha256": "73a6870ba40f7d05781586b5dbad55a6324d0a816fabab7959df974fad404d47"
+    },
+    {
+      "id": "fiora",
+      "name": "피오라",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "36caecee8f89ec7a09dd24c110a481bfab8c088fd2585a7ce137379a587eb3de",
+      "gif_sha256": "43cebcea9e19e945b586939cca133adbaa3a0437917638b479dec6bf708237f6",
+      "webp_sha256": "1d4ef8a703825c27f16fb8a1b37a1e264d0259d789be46df6e8115ffa003d39c"
+    },
+    {
+      "id": "garnet",
+      "name": "가넷",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "ad8632ffffdfa3ce7b1a68001808abaeac92ee9765039911fab8bd0034f9f0f0",
+      "gif_sha256": "639c33b4c4eae21ddc5aaec7f2a8b792817f17a80bdeb4d23f1e72eff79a8d45",
+      "webp_sha256": "ad3884f213e69808c4b65e652c79769a851a0e10c7cb946ad2901b78428df521"
+    },
+    {
+      "id": "hart",
+      "name": "하트",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "964c6f564d01358d6a51151c7dfeff83c3ffd849291e2ece87b72ff74e36b98c",
+      "gif_sha256": "58b5a4c1edfe04fcc671166e9497565946513364a0ded6b39543555e86b1833d",
+      "webp_sha256": "7693bd8f42465be77032fbfc6c0c93fa9895ae499b912ac71a1e3c50b30917f3"
+    },
+    {
+      "id": "haze",
+      "name": "헤이즈",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "7bd77f5e255f61a512da37e673de11b7108654277d1d610b7e66d54328f85fd1",
+      "gif_sha256": "20607476a176d5d10b96bc157cc9dbb18fa94b57bc83e58967b2a329f784143d",
+      "webp_sha256": "760ed76db15b814d2e6380c5f27cb20fc32ff80ee6707f5a8579f0612e06a5f1"
+    },
+    {
+      "id": "henry",
+      "name": "헨리",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "a779ffee7da2a2191bf3c4d5c5a4c6072dbd87b0fc6923905fbfe09bcb09ea5e",
+      "gif_sha256": "93371587950680d3c50442fc902f34818b68d12970e5b44174131700591c0e9f",
+      "webp_sha256": "cebdff309185201c551d2c333732ef04df42f30dab06f5a040bd025e3a6a6fdc"
+    },
+    {
+      "id": "hisui",
+      "name": "히스이",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "db53105f57c0de169a31adc6b2ad5a1ee3479ca97f0788277e633c019c60866c",
+      "gif_sha256": "ecbf9b42267a65ae30e74a141ac2efa3b87d67d83b9c3331c5e086f0960a212b",
+      "webp_sha256": "7da5e2e044676cf05f2fb631e82afc92d6668209d9875d67e6227d81de50491b"
+    },
+    {
+      "id": "hyejin",
+      "name": "혜진",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "ff38675de83e25b2dd48cc5c8cadc5bb6cd860f5bfc5cd0f95ef76126415a602",
+      "gif_sha256": "779d74f2ee757123d7d1334bb6d2eaad4d1700d3b811ed897af5aecaa4979eb4",
+      "webp_sha256": "2376262c2f082cac1f289ad36eeb582389751a832f1aafdba1793bfb7847d00b"
+    },
+    {
+      "id": "hyunwoo",
+      "name": "현우",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "aa8a12b801a7e8741d97ce2676c2c1b47de3023a437c084c53acaf25907611e9",
+      "gif_sha256": "f281abc209c6a740cbb0ba63b24dfc2c2bdc29f7eca67e3439827ff7b9c4d5ff",
+      "webp_sha256": "5fd1ecb689054fa49aec277c583e4bb5bbd2b98e068ba4b7d7a8b8ace31595cc"
+    },
+    {
+      "id": "ian",
+      "name": "이안",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "d1d27f9cfd448e305263519b4087ce2c029646a2ecd11dd2f6da3a3f3ce4a217",
+      "gif_sha256": "2593415b30f3a55b001b7b8cce69ca2bd8a65d7419d49245674eb0de1094c10e",
+      "webp_sha256": "db7f5da96c34b806d00b7733524cdcbc0b960b46ee3054efd7f929ba453ca98e"
+    },
+    {
+      "id": "irem",
+      "name": "이렘",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "a8b9bf6bcfe9f284aeae4eb635fcdbe8dff45ccf4ba5b11da3667f6dc61499b8",
+      "gif_sha256": "b5990b98819f5fd766a4646bbce2b793930f89f2aaa481a7d235467be54517a7",
+      "webp_sha256": "5e22a9d822cec9cf56b7479f256c531021631ec81826db3f51197a7a590af883"
+    },
+    {
+      "id": "isaac",
+      "name": "아이작",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "a666a089645d70c0dab8299812297b1d1afdff2d11ad10341400ad808adfcf20",
+      "gif_sha256": "818e62c4122d9eb0bd9d7579f02e5038216382b0c25c9590d921b5a7cc910326",
+      "webp_sha256": "0bb120d0d47f70e0bf71ac61e3865e10ac02b5e63026136cff8593d572d9ea64"
+    },
+    {
+      "id": "isol",
+      "name": "아이솔",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "934dfbdaf2722ed22a39be1fa6524d53f04c99a6b5daad602e55fad4c15e7214",
+      "gif_sha256": "61ebf5eadfa4c497eca7b556eb56ed9eef55e9cc14e8c619eeabea082bc996f6",
+      "webp_sha256": "2635f5fb809d5e0f7556f18f0ed6f0d2254f8367457d1d347991a6e3e0deee28"
+    },
+    {
+      "id": "istvan",
+      "name": "이슈트반",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "6f9fcf9b6722c1b7e185eca0471de8051c1171df042859367b58747a9fb72ccd",
+      "gif_sha256": "5e6a8f8f8efc36b405a35d394cda63b7c20b200a364fda315631ca49e32e25ac",
+      "webp_sha256": "f1487b4e4d28749af716ddc3ca6143263bfa2aae7ef84a51dead3a97636f625d"
+    },
+    {
+      "id": "jackie",
+      "name": "재키",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "41c1dd610a82c521195cb37c27667d039901211ab07f36586a200ec8f2055f8a",
+      "gif_sha256": "f278e6e93010a8a1a6b6d146f1894bf16d29d5a3472b7bf458edb98a28681206",
+      "webp_sha256": "a64145361314a15712802274ea6d25239b166c588b5907a0b0591336252ad25a"
+    },
+    {
+      "id": "jan",
+      "name": "얀",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "392216d7acdd8491af9281844bd18c2c36fc3671cf5148680c026bb65050a397",
+      "gif_sha256": "d1e603bb4b9663380708827edc23e5b155a8b8739d072d5e6ebc85394e4fe51a",
+      "webp_sha256": "9c4b8fbb16d08505d02ac21a617df2c87666381f5e1e3417ac63083f39c359cc"
+    },
+    {
+      "id": "jenny",
+      "name": "제니",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "c77a4dc3cd3a0c91289b523eef53c0e9378c17fb21d6cc6a95e4c9a19a1fbb27",
+      "gif_sha256": "84013b0ee0a7029afb0d8e0128435686d955c1e3a4faef9361690b990db13421",
+      "webp_sha256": "354201bbd67edc1b6ea92541cd3008e789730351d2b040d0ded2e0b733b5f0fb"
+    },
+    {
+      "id": "johann",
+      "name": "요한",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "d16303bc39361937e3af3c0f1c36f12fef687872cb255a54eab5adf9becf1943",
+      "gif_sha256": "c56a686490f76f343738c4ed0357ccfb00265a32a794b5cef438d0b4e0556ac0",
+      "webp_sha256": "09a5082b983015c321820743aed435130439a550263baf95bfed63b17d712d66"
+    },
+    {
+      "id": "justyna",
+      "name": "유스티나",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "eff40de56f8a3678133a2be1d91f37d50869f2711770d40c2327789bceb77f5b",
+      "gif_sha256": "523a6b25291b591cc9c9e75d88b356a8741a59490813eadf6ecbccd8ba46bc5d",
+      "webp_sha256": "461b0eaa071081b3eb8dd0ea2a5bec5c66c72cc2cc523ac3a5b289fe3b8e8eb8"
+    },
+    {
+      "id": "karla",
+      "name": "칼라",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "c289032cd7ab1045d9e78b7799da845cb907b29af97794c8cd9fc9963d57c133",
+      "gif_sha256": "a9868f2bb67f7032df5a8d573f479a2eb97acc7f2dce720880c57b2e8d990c4f",
+      "webp_sha256": "113709cd8cb9c2bcec9a19b1a9d43d156221be2b7a49bba92c69152de90342cc"
+    },
+    {
+      "id": "katja",
+      "name": "카티야",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "a6b6b37cb8de8059c191fcd92de32da8229d2110397df2b0e82be1e18b606b08",
+      "gif_sha256": "f4a04fc4d6ddd83e802c6d799d3e094a69ac96378109b3680eb3736c798df0dc",
+      "webp_sha256": "efd8909231221ace9080630e0784eebdf78e596b3c468b8ee15d25a6ecc1b928"
+    },
+    {
+      "id": "kenneth",
+      "name": "케네스",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "d7a3c57f3dc4f44a7d00efb890f7d4df52e9071a88ee62a0850131bc279ab7b7",
+      "gif_sha256": "89b4115bdf72c55302b7c11087fe4366c9064867fb70cc6514c312b8fc3d6905",
+      "webp_sha256": "96cb957ace23a50d7845d95066e4d470daa04b5b8dad3bb9929b05d528613515"
+    },
+    {
+      "id": "laura",
+      "name": "라우라",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "3e062d86312731d770f4c6c6bc072278b8ebb2712fc48a16e3473a967b03945a",
+      "gif_sha256": "912a8caf61efcf4d4ca0957078547883daea8410d48611e7a268535668703b0e",
+      "webp_sha256": "9e5adf83eeb46e93dc77175b0bcc95fb259d1082791d25088b9cabc97cff57d3"
+    },
+    {
+      "id": "leni",
+      "name": "레니",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "4acaa931958485616e692cef14dd735651671bc395f6cc8d2741cd89f30dd561",
+      "gif_sha256": "e3ddde856cac35749a8beb7a6e449b3168f951176658195541933ed46d5d4cc5",
+      "webp_sha256": "921d63b37228cbb00206b78bc7779c0885821961263fd588a4350ee2d502b5b2"
+    },
+    {
+      "id": "lenore",
+      "name": "르노어",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "6353b770d471abe2f12f6167e123da1ceefc7967d0080f7c1090551eaace4a30",
+      "gif_sha256": "c404538c98a8885a671fc0747b89fde7f68f8bfff20fe660e5f04ee01afa5093",
+      "webp_sha256": "c4f788870797de1a914ba220fbb712eafc9d02808f8dc7b15dcb9e4cedae1c45"
+    },
+    {
+      "id": "lenox",
+      "name": "레녹스",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "1a8ad9f3a9117ee07a11e85462dba5839dfdf69c2dc1d4a270b4d28dace89617",
+      "gif_sha256": "4de5f72f323f822c956e7cfc11338aad38cb6dee2d368428127ed433daed7245",
+      "webp_sha256": "f15b04a475cf0a44108c3a70ff9c7459e80074f308e338c705d643444e24dd32"
+    },
+    {
+      "id": "leon",
+      "name": "레온",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "f16b1b81cec02db2a4bd636c7ee2d9a9f827648021a458dbfbf0133427a1f2a7",
+      "gif_sha256": "c54d365ea86d1dfde371119f8270278124fdb4885aa2e576ecc3a153ee23e6b3",
+      "webp_sha256": "20002035a600305eeaeb5f9017339a1b5a5f8e654061684e7b1a86def4c99a0f"
+    },
+    {
+      "id": "lucia",
+      "name": "루치아",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "4d3f92252985ca27641912935fa8698ccd3f4261f6b155e9b1828177b836f502",
+      "gif_sha256": "1b8a55a44e4b48b13d0f2bf219dc42ee3b2594b8f537c1acb325c397cac392b6",
+      "webp_sha256": "a9f42e06d1d94cee81e4617770f6aca0ba42648f93323c06071d24cb274a74af"
+    },
+    {
+      "id": "luke",
+      "name": "루크",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "86aee71d9093483eda39272ebc67cb847a50fb8d01a258aa2c871ccacb3e218c",
+      "gif_sha256": "de8fc02a76746d5eabf718ebc9afaec2cd1ab8f039653edaaa734ca229cefbf4",
+      "webp_sha256": "7885e37e79ea2b7e9b3f931e384227f8d24ceae79f413979c25fa04cf0610fd9"
+    },
+    {
+      "id": "magnus",
+      "name": "매그너스",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "b3a61da23cdaf3b5d0ef72d1d96b0c0512d4b18188e1a199beb1fff3a1fc47d6",
+      "gif_sha256": "be4b5362595dd7b17e86c11e9df228df1801e31933f8f719fa9374d8c044de58",
+      "webp_sha256": "0a3511bd72eab7e1513e78ed83e75dc491128580ae29584a5fd8dd03088049cc"
+    },
+    {
+      "id": "mai",
+      "name": "마이",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "b416ed12970ccc223b723e352031834a7e7cd4d9846147cac4dd90839d6996e6",
+      "gif_sha256": "c015117dc37b7dc459757a34a3bdd71aadc6c44459bff9f87759fada9d4151aa",
+      "webp_sha256": "2e4b74b9fafb3748fc84a835fd38432f58e3bc7b7bf1799e5311b1550c3fa0e0"
+    },
+    {
+      "id": "markus",
+      "name": "마커스",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "81da064a3b64d409eb63c664965fa9b2fb272543bd3964165e7ab7ad036e9914",
+      "gif_sha256": "91569db77777c1352d23bf4ef18ccebc8bc56702b22fa58797363cd173604990",
+      "webp_sha256": "f092e9cfea9d7bd95a592ef2d58de1388b8605faabfc2fb42029bf3edf90452a"
+    },
+    {
+      "id": "martina",
+      "name": "마르티나",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "5db57309e7c1cc91b286a6e0773a1cd5838fb764ff37d9600c0255b30a60707a",
+      "gif_sha256": "933d7b9ba57e29c215da242704be66fc22e2472c7d27f7f5e813eec5c4837676",
+      "webp_sha256": "42e62f88e06112f42be2cca11f8e833f4cd2f4f491697e60e428a7aae08db5dd"
+    },
+    {
+      "id": "mirka",
+      "name": "미르카",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "8d4a43a7fad7e670e4250a8f748eb7bd583deadde03e2c6c7ec7b99d893642ae",
+      "gif_sha256": "a434d94174f0bd931e33b34bd9a8fa5c45a3a0a556433e949ba0b4227c540635",
+      "webp_sha256": "2b99a231c8e930cd2c3fe73f5fcb41e14583f971f5881499ad83e672b3f62b81"
+    },
+    {
+      "id": "nadine",
+      "name": "나딘",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "fd28a8062c3f9ad410af1bb236c75e874e480f86b41ea715d4a1ffceeee5e0ca",
+      "gif_sha256": "c7ec5068654a97de7e8f02450fefc697ccaca7fd18542a81a2845466ebdbc02f",
+      "webp_sha256": "f05a1b33dbfae8ca7ada9ee468892faf9b3f8efede858fb05b827813971d7797"
+    },
+    {
+      "id": "nathapon",
+      "name": "나타폰",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "3d7ffe63b5982579e8a0a65d788485aed7901a0b5b2806ba86332355dcc4b8f7",
+      "gif_sha256": "e8795eab75f01734e8e0e618bcfe08d672e823815e969636798174d5c9b11bec",
+      "webp_sha256": "58a9b4e36a65a281bb3fae3632a1dda2af4e95f0817fd45fff9e00d506c2e0da"
+    },
+    {
+      "id": "nia",
+      "name": "니아",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
+      "gif_sha256": "7f8e83901be0ef36cdf0af18ffe664e1c9b78075877c33fbdbdbe86e214f16f8",
+      "webp_sha256": "ec8826f2b9541d21d303d8bee3f994433582a3557d8c100a3a347c1c52686618"
+    },
+    {
+      "id": "nicky",
+      "name": "니키",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "a52dce5ed680f49609a792758a3686304fabda7a95d0cc853d85c3618d45433c",
+      "gif_sha256": "a027b24eafa859dca8ec374e7a990009867a4a14fdbab68b4c90ba753f15059f",
+      "webp_sha256": "221a22bb46746c3bcf22f7f8c210275859d9c0a91de802c153d9fba7b4ef8c6f"
+    },
+    {
+      "id": "piolo",
+      "name": "피올로",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "034f1feeedd1d3a7d9b38c4c9ee5284c10a8da29751de9fa7c0daa4b73faab8f",
+      "gif_sha256": "626e5666612887eabc1ce751ed2129226f157d469493d0e3d517bb0c742c9a4e",
+      "webp_sha256": "2bda818883fedeffc5ff216bd09f56512c49192c573d28f97b99c46e6bd74eda"
+    },
+    {
+      "id": "priya",
+      "name": "프리야",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "c4edcea532ffecb026a93fc289433e4a80f217967df4a279dbf57d8ea36ef8d3",
+      "gif_sha256": "0a70d7702f6c40c980e0c46510b5d6341d1a35a3f6114babb54875c9879e9bac",
+      "webp_sha256": "a7466a3575e864fde18b63d259834b971a4fb604a715fe485013a7893664cabc"
+    },
+    {
+      "id": "rio",
+      "name": "리오",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "020474634f8b58463d9da03f65c3c6cf0f1980abc8e87139178606a882546ac6",
+      "gif_sha256": "c9e503b347a2179767ba78c6e7b394e21e618b9a14f0ab6a82af1504bcb2bd0e",
+      "webp_sha256": "bd49890dd096974e93fcb844a1b2231b0f0071e1e3f78274610c75a9ff7a26b8"
+    },
+    {
+      "id": "rozzi",
+      "name": "로지",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "0917bf8f130f52cd5b58f145c82bbab3f0dd0bc8d649e614ca43e028c53706d4",
+      "gif_sha256": "3aa05e317ade7b7f6c677bf6ec797b733310ff8505a5ebe96385b9fe5e21dab0",
+      "webp_sha256": "fa7637c4c073790552d260305f2f9c3b85224bf250b8a7d39874cac270ccf3f4"
+    },
+    {
+      "id": "sho",
+      "name": "쇼우",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "b53198b91dd612fca0eabfc64b80334a8571e579de88002c1fbb0df555cc2d22",
+      "gif_sha256": "baa73f2de58e88ec6b2d935ea305a3c3fda825842007c7247ea177a7d608b7ed",
+      "webp_sha256": "bccf8c8a588cab666bff8a844c91a6d622b21452e7e7722c3ba49bb5332fb0db"
+    },
+    {
+      "id": "shoichi",
+      "name": "쇼이치",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "b650a9e8b5475d9c752de39cbaca11461ca1fd6cf4c9b3b7f0f4ef2d8e5b92f7",
+      "gif_sha256": "a3eb5ebfa597d45bbf8956a7d225bd063d0f13e87060d6568e0717beea5b521d",
+      "webp_sha256": "2a53501380dfdde925ff1bbb82464d99b680262fafd114c55ed7a7a0d6dd179b"
+    },
+    {
+      "id": "silvia",
+      "name": "실비아",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "10da0450baac924b37a2cc6b4353263ff266af9f9a4076234659735eadcb4462",
+      "gif_sha256": "52c4d9fd57a36530aa517c1b1867a87e32f56044264f05046d0afcd37ea9474e",
+      "webp_sha256": "5744f1155f6159f373c7592d9af6e6d769b432f6b73c476260141e8fa5f8fd09"
+    },
+    {
+      "id": "sissela",
+      "name": "시셀라",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "35b843b58ec625feb4a9ce1880231d495b71e5c4a4cc372392ffe2749d2efade",
+      "gif_sha256": "b62e3955bcb9a2d370a9ae409a7f140a29e6b2622fc5ee0926feb0da235080aa",
+      "webp_sha256": "4ac8424a78f2d97eec6b9c92e0afcc8b62a791b51e5abd0c71b3aee7e799fd62"
+    },
+    {
+      "id": "sua",
+      "name": "수아",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "bbb976bdf2ecdad803e2fc840205d6f53b59366b497fbac3c1b9f300d1ed2560",
+      "gif_sha256": "e1fc260ebaeead2f694ed62c87b066593f66765846495268eef01587f0718b44",
+      "webp_sha256": "bbad93f268df7624bb32cf265b0ddf7c688058f4425cc9de5b1a28341abf1209"
+    },
+    {
+      "id": "tazia",
+      "name": "타지아",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "525b5b6dd4f349ae6ca492d7b6308d08419828c0fa80f56fe0257555b36ba1ec",
+      "gif_sha256": "606ee4619651de7af7a5482a9ebc38ae97c8338a96bea4b5b0a8561f138ab7c3",
+      "webp_sha256": "8ff35f5631edf84ebb07c3bc3c4f9f29b3063ea04a05a8ba3b7ceb676e26bf6c"
+    },
+    {
+      "id": "theodore",
+      "name": "테오도르",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "c2bc2c6d65c2c94d70f1305ceac7cf5cf5ccefeb0220676cae6edf4b70e9e650",
+      "gif_sha256": "bef47028b7bbebe29ce25c30f85de44fed52b0c71c30a00e3757c82b6e2264f7",
+      "webp_sha256": "861616c6a8e2018ce45274bde40cc196dbd1d8141a75cb5cb89512117e55f3f6"
+    },
+    {
+      "id": "tia",
+      "name": "띠아",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "97d5b377524d8c338af2ac2eaf00091d5af8005a16cc6d2403750cc9271a6b32",
+      "gif_sha256": "d225d2093c5831171c08bf32668f9003779fdd27c4f700ff98f4a6fb885a1058",
+      "webp_sha256": "f61c5808f6e69221df92073a9e3e65daebf68b95622e7c1af5ad0f87dcebe165"
+    },
+    {
+      "id": "tsubame",
+      "name": "츠바메",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "5dd09615e46d3972719b1dbc875a815735d18492da8c43ed094115b40d9cede3",
+      "gif_sha256": "0974a8a8ee440699051469ff6dff389a25bc1ed41a2d8ea35b1c78e6f2013895",
+      "webp_sha256": "0a61c7e4a55d588ecf80f1abeeaed894f7498cff7387e99579c4b9d24fda7428"
+    },
+    {
+      "id": "vanya",
+      "name": "바냐",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "35462aaeb45364611cb1c29a955296fd16c143f5fc04850f2e186aa5af703e77",
+      "gif_sha256": "04d06afa13ec2b7bb01158543d54c1b128f708cd7924eebf52dfb51199eb8590",
+      "webp_sha256": "20f502ebeda1e641dd2855980838497aa1cf802e5fedcc5c5e5d019a60c6996c"
+    },
+    {
+      "id": "william",
+      "name": "윌리엄",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "1acef44d95dbe3dc2d63fb4e457af03e8931b880a6e7c9ee5e9b278d29207c0e",
+      "gif_sha256": "89c2d70d311609f61528e24adf9a6640f72eda9e6cd978eef4150b1750e2216e",
+      "webp_sha256": "e813ad7d11c3f091fe402af65bd11ed8b99b755680aa904e8d2b1a9863db85b0"
+    },
+    {
+      "id": "xuelin",
+      "name": "슈린",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "5fe2c9ac97d65a98db504828e6b0cc25a45f0d3d5dca9d2cd3049f0ee0bf6dc3",
+      "gif_sha256": "7c40e5cdffaeb6a6abdf826e9994c588f43dc6d4a561be9fb11564b62dc53fb1",
+      "webp_sha256": "7a59a822c291ed67ca513c029bff21c458f4bdef49b365cf2d9fa9ed86996ce8"
+    },
+    {
+      "id": "yuki",
+      "name": "유키",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "648a580f7f9f9412f8b1d203e097f70f66076032b0b6f6a88dcf7a0d046f0198",
+      "gif_sha256": "b8b29f6fe06e8568ca8efd205b01d92416de6805b3b0bb7391b355141d420a00",
+      "webp_sha256": "c9d8e11c7c24a4cb2425469665b7e0ae07c4940b742c9e4db54506b5457326af"
+    },
+    {
+      "id": "yumin",
+      "name": "유민",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "78678709bc184d0b1fa3cdacfca6e25e693f44200d116079c0f4e72c3f9e1df9",
+      "gif_sha256": "c99845b681d19564a4ac9d308b6be7001924928fdf9e29eccfc363f67a36d6ce",
+      "webp_sha256": "8b807cbb8868484b6bcbc1d1259644a7c44dc16359f307453f03a11e73102e57"
+    },
+    {
+      "id": "zahir",
+      "name": "자히르",
+      "frames": 12,
+      "duration_ms": 1500,
+      "atlas_sha256": "cd4a24ee56eea93c55537c4cc13b27d227a90aec1b51fd321a73612a909fcf33",
+      "gif_sha256": "15889b0252f4e7794d3f30e2d4af237330ccc6054ecb7a317e4b3ac705d93fd9",
+      "webp_sha256": "1ce963284a31c96608d31c680415d2d121ee95f8c5b176c02facb634cfff862a"
+    }
+  ]
+}

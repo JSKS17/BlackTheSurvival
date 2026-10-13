@@ -1,0 +1,42 @@
+{
+  "id": "charlotte",
+  "name": "샬럿",
+  "ultimate": "기적 실현",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-17dd98f5-f38a-47c5-acec-65fc83b6ceb5.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/charlotte.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1843?hl=ko-KR",
+      "title": "님블뉴런 공식 실험체 스킬: 기적 실현"
+    }
+  ],
+  "visual_review": "핑크 머리·부드러운 푸른 눈·보넷과 아르카나 장식 정체성을 유지했습니다. 두 손 기도·앉음·양팔 펼침·희망 전하기·회수 동작과 표정 변화를 확인했습니다. 7번째의 작은 부유는 기적 발동 연출의 일부입니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "2e20dd5bebe08fe3152b32a48462be9de5d0ff08fab4bc1ee9fe2b1396d37a5f",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Charlotte long pink hair, gentle blue-gray eyes, white maid/nun-like bonnet and black-white pink costume with luminous blue-white blade-like arcana ornaments from portrait. Official R prepares a miracle then grants brief invulnerability around allies. Animate gentle idle; hands clasp at chest; closes eyes softly; knees and shoulders lower into prayer; opens hands toward sky; blue-white/gold light gathers above palms; rises with open arms and clear face; luminous protective dome outline expands around body, not covering face; hopeful eyes open and hands extend toward right sharing light; arms close gradually; scattered tiny golden-white lights settle; original idle. No staff invented, no angel-human summon, no huge wings added to body. Keep existing arcana ornaments. Actual prayer hands, arm extension and posture movement.",
+  "frame_labels": [
+    "준비",
+    "손 모으기",
+    "기도",
+    "몸 낮추기",
+    "손 펼치기",
+    "기적 집속",
+    "빛 전개",
+    "무적 보호",
+    "희망 전하기",
+    "팔 회수",
+    "빛 정리",
+    "준비 복귀"
+  ],
+  "intended_airborne_frames": [
+    6
+  ]
+}

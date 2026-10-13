@@ -1,0 +1,44 @@
+{
+  "id": "barbara",
+  "name": "바바라",
+  "ultimate": "오버클럭",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-17476cf6-0966-4959-b8cf-e54c04056656.png",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "2f315b673ead6357a69b4e3d833bcb89c856829b9cc0853df83bd75e48b2dc69",
+  "reference_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\barbara.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+  ],
+  "reference_sha256": [
+    "bdcd9124ca2e9a1d1545a94066c57cb787ba0fe82bbd7827e46e36ada9e4f259",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "Eternal Return official skill description"
+    }
+  ],
+  "motion_summary": "장치를 조작해 오버클럭하고 강화 레이저를 시험 발사하는 동작",
+  "frame_labels": [
+    "장치 대기",
+    "조작기 들기",
+    "스위치 조작",
+    "오버클럭 점등",
+    "기계 전개",
+    "포신 충전",
+    "강화 조준",
+    "강화 레이저",
+    "발사 반동",
+    "열기 배출",
+    "장치 회수",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "Reviewed generated twelve-frame sheet: identity, facial features, distinct body/weapon motion, skill effects, transparent cells."
+}

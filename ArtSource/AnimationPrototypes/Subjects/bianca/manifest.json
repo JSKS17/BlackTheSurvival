@@ -1,0 +1,40 @@
+{
+  "id": "bianca",
+  "name": "비앙카",
+  "ultimate": "진조의 군림",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-559658d6-7444-4277-adc0-272d9fe19533.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/bianca.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Bianca Reign of the Vampire Queen: teal bangs and long hair, red eyes, black gothic bonnet and black/crimson lace vampire dress exactly per reference. R chants, fixes a magic circle to ground, then blood magic finale heals herself. 12 poses: ready; tiny haughty smile and hand at chest; raise right hand with delicate curled fingers; both arms spread and crimson rune-like geometric circle appears at feet WITHOUT readable letters; body rises very slightly with arms extended; tilt head and rotate wrist controlling blood magic; circle pulse expands; lean forward and draw both hands inward; compact dark-crimson spike-like waves erupt around ground circle below face; red motes flow toward chest and heal; lower arms as bonnet/ribbons settle; ready. Elegant ritual hand/torso choreography, no bat transform and no coffin. Red effects must not cover face. Landscape4:3, 4×3 equal square cells, 12 distinct poses and transparent generous margins.",
+  "frame_labels": [
+    "대기",
+    "영창 준비",
+    "손 들어올리기",
+    "마법진 생성",
+    "의식 전개",
+    "혈마법 조종",
+    "마법진 파동",
+    "양손 끌어당기기",
+    "진조의 마지막 파동",
+    "혈기 회수",
+    "의식 해제",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "청록 머리·붉은 눈·검은 보닛/고딕 복장을 유지합니다. 영창 손동작, 팔 전개, 혈마법 파동과 회복이 분리됩니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "abd53cfac561c32f75a909a0654280396b45a0ef7d39e43f71b43262053b0c84"
+}

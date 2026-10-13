@@ -1,0 +1,40 @@
+{
+  "id": "blair",
+  "name": "블레어",
+  "ultimate": "XMS-5 활성화 / 끝없는 추적",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-639040f1-8130-4597-955b-423a3bc57dbd.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/blair.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/3127?hl=ko-KR",
+      "title": "공식 실험체 출시 패치노트"
+    }
+  ],
+  "motion_summary": "Eternal Return Blair XMS-5 Activation / Endless Pursuit: very pale long blond-white hair, sharp cold blue-gray eyes, black cropped combat outfit with straps and white jacket draped over shoulders EXACTLY as identity reference. Twin blades that combine into a double-bladed sword; no extra helmet, no hoodie, no coat redesign. R activates enhanced VF-detection then rapidly dashes around detected target and strikes on arrival. 12 poses: ready with twin blades; draw arms inward; small pale blue detection circle appears beside her, never over face; blades angle outward and posture lowers; crouched dash windup; lean hard and rapid forward-right lunge; crossing blade strike at arrival with crisp white/cyan X slashes; pivot on lead foot; second sweeping return blade arc; stand while detector glow recedes; restore blade ready grip; ready. Actual torso, weapon and leg motion changes, not static aura; keep face cold and restrained, eyes distinct from Nia. All blades and short slash trails contained, landscape4:3 equal square12cells with 15% margins.",
+  "frame_labels": [
+    "대기",
+    "양팔 모으기",
+    "XMS-5 탐지 활성화",
+    "칼날 펼치기",
+    "추적 돌진 준비",
+    "빠른 돌진",
+    "도착 칼날 타격",
+    "발로 방향 전환",
+    "칼날 마무리",
+    "탐지 해제",
+    "무기 자세 회복",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "긴 백금발·차가운 파란 눈·검은 전투복과 쌍검을 유지합니다. 탐지 활성화, 낮은 준비 자세, 돌진과 교차 베기를 확인했습니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "267f44149d25ee850bb7b9d9e53e42f70266c015b52cec46ac71e5f4e0e43f6c"
+}

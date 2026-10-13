@@ -1,0 +1,39 @@
+{
+  "id": "henry",
+  "name": "헨리",
+  "ultimate": "시간 재구축 영역",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-51f19eeb-5e1a-43f5-bf6b-6e244db5c66e.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/henry.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/3000?hl=ko-KR",
+      "title": "님블뉴런 공식 실험체 스킬: 시간 재구축 영역"
+    }
+  ],
+  "visual_review": "보랏빛 회색 머리·가라앉은 눈·황금 시계바늘 무기와 코트를 유지했습니다. 바늘 올리기·양팔 펼치기·영역 조작·폭발 마무리의 팔/몸 자세가 변합니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "a779ffee7da2a2191bf3c4d5c5a4c6072dbd87b0fc6923905fbfe09bcb09ea5e",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Henry short asymmetrical muted lavender/silver hair, narrow serious eyes, purple-black coat with gold clock-hand weapons from portrait. Official R spreads a temporal field around himself, slows incoming projectiles and explodes as it expires. Animate idle; raising one golden clock hand; fingers rotating a small clock dial; planting feet and opening both arms; cyan-gold transparent circular clocklike field expands low around him; sweeping arm clockwise; stepping torso with second sweep as clock spokes turn; two tiny static projectile streaks slow near field edge; arms sharply close inward; field collapses into sharp gold-cyan burst right of body; coat and arms settle; original idle. No numerals, no real clock text. Actual arm, torso and foot changes, face visible above ring.",
+  "frame_labels": [
+    "준비",
+    "시계바늘 들기",
+    "시간 조작",
+    "영역 전개",
+    "시간장 확장",
+    "시계방향 손짓",
+    "흐름 제어",
+    "감속 유지",
+    "영역 종료 준비",
+    "시간장 폭발",
+    "자세 회수",
+    "준비 복귀"
+  ]
+}

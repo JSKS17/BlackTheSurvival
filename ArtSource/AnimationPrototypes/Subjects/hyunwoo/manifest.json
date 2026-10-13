@@ -1,0 +1,39 @@
+{
+  "id": "hyunwoo",
+  "name": "현우",
+  "ultimate": "핵펀치",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-5097d705-8a91-4a66-a0c6-e99db10551b1.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/hyunwoo.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 핵펀치"
+    }
+  ],
+  "visual_review": "붉은 머리·강한 눈매·글러브와 교복풍 복장을 유지했습니다. 당김·충전·단 한 번의 직선 핵펀치·팔로스루·회수의 포즈 차이가 분명합니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "aa8a12b801a7e8741d97ce2676c2c1b47de3023a437c084c53acaf25907611e9",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Hyunwoo red spiky hair, intense red/dark eyes, white jacket over black-red shirt, red combat gloves from portrait. Official R charges then delivers one extremely strong punch knocking targets back. Animate boxing idle; drawing right fist back; lowering knees; twisting hips backward; fist glows orange-red; maximum wind-up with arm at rear and weight on rear leg; explosive straight punch forward right; full extension with compact white-orange angular shockwave cone; torso follow-through with front knee bent; retract fist; stand to boxing stance; original idle. Only ONE charged punch, not repeated attacks or uppercut. Maintain recognizable face, eyes and small gritted mouth, arms correctly connected.",
+  "frame_labels": [
+    "권투 준비",
+    "주먹 당기기",
+    "무릎 굽히기",
+    "허리 비틀기",
+    "힘 충전",
+    "최대 장전",
+    "핵펀치 발사",
+    "충격파",
+    "팔로스루",
+    "주먹 회수",
+    "권투 자세",
+    "준비 복귀"
+  ]
+}

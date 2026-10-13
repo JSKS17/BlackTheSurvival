@@ -1,0 +1,363 @@
+{
+  "passed": true,
+  "assembly_version": 4,
+  "id": "tia",
+  "atlas_sha256": "97d5b377524d8c338af2ac2eaf00091d5af8005a16cc6d2403750cc9271a6b32",
+  "manifest_sha256": "1a5c548b0cb9489cc82ba089918ff602b43d9d779df879a0e13df4e41c2592bc",
+  "original_bytes_preserved": true,
+  "frames": 12,
+  "fps": 8,
+  "duration_ms": 1500,
+  "canvas": 602,
+  "cell": [
+    402,
+    399
+  ],
+  "atlas_size": [
+    1448,
+    1086
+  ],
+  "boxes": [
+    [
+      0,
+      0,
+      345,
+      364
+    ],
+    [
+      359,
+      0,
+      711,
+      383
+    ],
+    [
+      711,
+      0,
+      1092,
+      399
+    ],
+    [
+      1092,
+      0,
+      1448,
+      396
+    ],
+    [
+      0,
+      364,
+      381,
+      742
+    ],
+    [
+      381,
+      385,
+      712,
+      752
+    ],
+    [
+      712,
+      399,
+      1085,
+      742
+    ],
+    [
+      1085,
+      396,
+      1448,
+      744
+    ],
+    [
+      0,
+      742,
+      384,
+      1086
+    ],
+    [
+      384,
+      752,
+      698,
+      1086
+    ],
+    [
+      698,
+      742,
+      1100,
+      1086
+    ],
+    [
+      1100,
+      744,
+      1448,
+      1086
+    ]
+  ],
+  "row_cuts": [
+    0,
+    364,
+    748,
+    1086
+  ],
+  "row_ground": [
+    357,
+    356,
+    324
+  ],
+  "normalized_feet": [
+    357,
+    357,
+    357,
+    357,
+    356,
+    356,
+    356,
+    356,
+    323,
+    324,
+    325,
+    325
+  ],
+  "independent_cell_gutters": true,
+  "intended_airborne_frames": [],
+  "offsets": [
+    [
+      100,
+      100
+    ],
+    [
+      97,
+      100
+    ],
+    [
+      87,
+      100
+    ],
+    [
+      106,
+      100
+    ],
+    [
+      100,
+      103
+    ],
+    [
+      119,
+      124
+    ],
+    [
+      88,
+      138
+    ],
+    [
+      99,
+      135
+    ],
+    [
+      100,
+      151
+    ],
+    [
+      122,
+      161
+    ],
+    [
+      74,
+      151
+    ],
+    [
+      114,
+      153
+    ]
+  ],
+  "frame_assembly_exact_rgba": true,
+  "webp_visible_rgba_lossless": true,
+  "frames_distinct": true,
+  "game_integration": false,
+  "webp_frame_ms": [
+    125,
+    125,
+    125,
+    125,
+    125,
+    125,
+    125,
+    125,
+    125,
+    125,
+    125,
+    125
+  ],
+  "animation_sha256": {
+    "preview.gif": "d225d2093c5831171c08bf32668f9003779fdd27c4f700ff98f4a6fb885a1058",
+    "preview.webp": "f61c5808f6e69221df92073a9e3e65daebf68b95622e7c1af5ad0f87dcebe165"
+  },
+  "frame_records": [
+    {
+      "index": 0,
+      "box": [
+        0,
+        0,
+        345,
+        364
+      ],
+      "offset": [
+        100,
+        100
+      ],
+      "cell_rgba_sha256": "2f05640098bc84ef91c22bdc9436aacc8e25c93340b0a360fa107786bf80b322"
+    },
+    {
+      "index": 1,
+      "box": [
+        359,
+        0,
+        711,
+        383
+      ],
+      "offset": [
+        97,
+        100
+      ],
+      "cell_rgba_sha256": "2731b5b53b20f85c2c11edf17a93a5b7b044bff1e1fcf29bf14c28d2ac07131d"
+    },
+    {
+      "index": 2,
+      "box": [
+        711,
+        0,
+        1092,
+        399
+      ],
+      "offset": [
+        87,
+        100
+      ],
+      "cell_rgba_sha256": "88601610f9118d7d863ce7423129acc5c4d5d03bee0e9704f8a7b91bac3be591"
+    },
+    {
+      "index": 3,
+      "box": [
+        1092,
+        0,
+        1448,
+        396
+      ],
+      "offset": [
+        106,
+        100
+      ],
+      "cell_rgba_sha256": "fb7703d1e36aee0a317461ea685f079034b4f7ceac43cae06af7bba77ebc7d3c"
+    },
+    {
+      "index": 4,
+      "box": [
+        0,
+        364,
+        381,
+        742
+      ],
+      "offset": [
+        100,
+        103
+      ],
+      "cell_rgba_sha256": "02d54d66fdeefe13a86a1b8d84b69fff2670a6352b3bce648fddc85276fc661c"
+    },
+    {
+      "index": 5,
+      "box": [
+        381,
+        385,
+        712,
+        752
+      ],
+      "offset": [
+        119,
+        124
+      ],
+      "cell_rgba_sha256": "0fc7846b675c4fb695bcd78c98232ae325c351f14c838cdf5acb5606773249a0"
+    },
+    {
+      "index": 6,
+      "box": [
+        712,
+        399,
+        1085,
+        742
+      ],
+      "offset": [
+        88,
+        138
+      ],
+      "cell_rgba_sha256": "23369ecefca2f11c6909832cf92a6004ff1c5b9dd2c24cc0889bc627a4da8e15"
+    },
+    {
+      "index": 7,
+      "box": [
+        1085,
+        396,
+        1448,
+        744
+      ],
+      "offset": [
+        99,
+        135
+      ],
+      "cell_rgba_sha256": "97daa1a3b5d2ee6b3280a74d47c324562d930b648832af1a4645eefbaf4d97b0"
+    },
+    {
+      "index": 8,
+      "box": [
+        0,
+        742,
+        384,
+        1086
+      ],
+      "offset": [
+        100,
+        151
+      ],
+      "cell_rgba_sha256": "501e887f9d2520f813e6b164ef658a18a054bcc91a2bd2b20effaa58a4829dce"
+    },
+    {
+      "index": 9,
+      "box": [
+        384,
+        752,
+        698,
+        1086
+      ],
+      "offset": [
+        122,
+        161
+      ],
+      "cell_rgba_sha256": "3922b0e7acfbe3134c4e0d23f5bfe5a2d9c6dbe2deb3d076cccf1965067489ff"
+    },
+    {
+      "index": 10,
+      "box": [
+        698,
+        742,
+        1100,
+        1086
+      ],
+      "offset": [
+        74,
+        151
+      ],
+      "cell_rgba_sha256": "abc93c8f48254b469232053461284c2bf854f275030771b672b5aa3723591c2b"
+    },
+    {
+      "index": 11,
+      "box": [
+        1100,
+        744,
+        1448,
+        1086
+      ],
+      "offset": [
+        114,
+        153
+      ],
+      "cell_rgba_sha256": "24923e25e6fb541cdc648fa2d342f463e7f134c4966b9a7c5752ea052fa7e539"
+    }
+  ]
+}

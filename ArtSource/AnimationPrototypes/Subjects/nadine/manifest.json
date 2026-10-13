@@ -1,0 +1,40 @@
+{
+  "id": "nadine",
+  "name": "나딘",
+  "ultimate": "늑대 맹습",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-91031b3b-4151-46a6-8063-9ee82189b61f.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Subjects/nadine/atlas-first-pass.png",
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nadine.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "기본 공격 뒤 늑대가 돌진하는 R을 활 연사와 결합한 독자 시안.",
+  "frame_labels": [
+    "사냥 자세",
+    "왼발 고정",
+    "활을 듦",
+    "첫 발 조준",
+    "첫 발 발사",
+    "두 번째 시위 당김",
+    "두 번째 발사",
+    "세 번째 조준",
+    "세 번째 발사·늑대 출현",
+    "늑대 돌진",
+    "활 회수·늑대 소멸",
+    "사냥 자세 복귀"
+  ],
+  "visual_review": "내장 이미지 생성 도구로 12셀의 본체와 늑대 크기·여백을 교정했습니다. 바닥행 늑대 돌진과 소멸을 각각 한 셀 안에 온전하게 배치했으며, 나딘 얼굴·복장·활과 12동작을 유지했습니다. 원본 첫 시트와 프롬프트·manifest는 별도 보존했습니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "fd28a8062c3f9ad410af1bb236c75e874e480f86b41ea715d4a1ffceeee5e0ca",
+  "width": 1448,
+  "height": 1086
+}

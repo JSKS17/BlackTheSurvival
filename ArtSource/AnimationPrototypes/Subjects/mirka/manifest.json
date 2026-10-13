@@ -1,0 +1,47 @@
+{
+  "id": "mirka",
+  "name": "미르카",
+  "ultimate": "다운버스트",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-16acfa81-b996-466c-94ea-7f616890e436.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/mirka.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/3209?hl=ko-KR",
+      "title": "공식 실험체 출시 패치노트"
+    }
+  ],
+  "motion_summary": "Eternal Return Mirka Downburst: bright pink ponytail, black cap, vivid green eyes, punk black/green work outfit and enormous industrial hammer exactly per identity. R focuses, leaps high, adjusts aerial landing and slams down to launch foes. Frames ready; grip hammer two hands; crouch deep charging blue-green repulse light; jump high with knees tucked; aerial hover holding hammer behind head; tilt airborne body right; reposition midair; point hammer downward; plunge; heavy hammer ground impact with circular cyan/green shockwave and small metal debris below face; stand lifting hammer; ready. Airborne4-9 one based. Fixed camera/ground origin but body height changes. Keep vivid green eyes, pink brows and mouth clearly readable, no eye-covering goggles. Large hammer fully contained inside each square, generous margins. No static aura substitute. CRITICAL CANVAS REQUIREMENT: horizontal LANDSCAPE 4:3 aspect ratio, 1448 pixels wide by 1086 pixels high; each of the 4 columns and 3 rows is a 362-by-362 SQUARE. Do not use a square overall canvas. Every cell must have 10% transparent empty margin. Full hammer and impact visible. Make hammer overhead pose frame5 distinct.",
+  "frame_labels": [
+    "대기",
+    "정신 집중",
+    "도약",
+    "공중 체공",
+    "망치 들어올리기",
+    "착지 지점 조정",
+    "급강하 준비",
+    "급강하",
+    "다운버스트 착지",
+    "착지 충격 회수",
+    "망치 회수",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "visual_review": "분홍 머리·초록 눈·검은 모자와 망치가 유지됩니다. 집중, 도약, 공중 조정, 급강하, 충격 착지 동작이 보이며 가로 4:3의 12 정사각 셀을 확인했습니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "8d4a43a7fad7e670e4250a8f748eb7bd583deadde03e2c6c7ec7b99d893642ae"
+}

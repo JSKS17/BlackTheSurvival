@@ -1,0 +1,39 @@
+{
+  "id": "xuelin",
+  "name": "슈린",
+  "ultimate": "만검귀종",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-d36a28fe-e1b2-415c-a1b3-ce9cc128bddb.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/xuelin.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/2885?hl=ko-KR",
+      "title": "이터널 리턴 공식 8.2 슈린 출시 스킬"
+    }
+  ],
+  "motion_summary": "검진과 낙검을 검결·영역 전개·어검 낙하·회수로 재구성한 독자 시안.",
+  "frame_labels": [
+    "어검 준비",
+    "두 손가락 검결",
+    "어깨 회전",
+    "검진 펼침",
+    "어검 배열",
+    "첫 어검 낙하",
+    "두 번째 낙하",
+    "강화 어검 낙하",
+    "외곽 어검 회수",
+    "검결 거둠",
+    "옷자락 정리",
+    "준비 자세 복귀"
+  ],
+  "visual_review": "슈린의 검결·검진·순차 낙검·외곽 회수와 유키의 발도·한 차례 큰 베기·납도 후 검흔 폭발을 확인했습니다. 푸른 효과가 얼굴을 가리지 않습니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "5fe2c9ac97d65a98db504828e6b0cc25a45f0d3d5dca9d2cd3049f0ee0bf6dc3",
+  "width": 1448,
+  "height": 1086
+}

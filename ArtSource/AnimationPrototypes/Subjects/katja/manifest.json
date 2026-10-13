@@ -1,0 +1,40 @@
+{
+  "id": "katja",
+  "name": "카티야",
+  "ultimate": "정밀 조준",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-13547553-1432-42dd-9efb-37ac7aea3a5f.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/katja.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1765?hl=ko-KR",
+      "title": "공식 실험체 출시 패치노트"
+    }
+  ],
+  "motion_summary": "Eternal Return Katja Precision Aim: silver long ponytail, pale serious teal eyes, NO GLASSES, black/teal sniper outfit and long rifle exactly from reference. R drone scans first, then she fires three progressively stronger precision rounds. Sequence: ready; raise rifle; bend front knee; small drone floats above-right of shoulder and casts compact turquoise scanning reticle to the right; shoulder rifle; first muzzle flash and recoil; re-center; second shot with stronger recoil; brace; third powerful straight teal-white round; lower rifle as drone retreats; ready. Distinct arm and torso recoil, rifle never covers both eyes. No giant portals or unrelated laser cannon. Three shots visually separate. Cell margins generous.",
+  "frame_labels": [
+    "대기",
+    "소총 들기",
+    "무릎 낮추기",
+    "드론 스캔",
+    "어깨 조준",
+    "첫 사격",
+    "반동 회복",
+    "두 번째 사격",
+    "최종탄 준비",
+    "세 번째 사격",
+    "소총 내리기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "안경 없이 청록 눈과 긴 은발·저격소총이 식별됩니다. 드론 스캔 후 세 사격, 반동과 회수가 분리됩니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "a6b6b37cb8de8059c191fcd92de32da8229d2110397df2b0e82be1e18b606b08"
+}

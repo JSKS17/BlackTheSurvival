@@ -1,0 +1,40 @@
+{
+  "id": "jackie",
+  "name": "재키",
+  "ultimate": "전기톱 살인마",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-4f218797-d2e9-4c04-a165-9b121073c819.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/jackie.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Jackie Chainsaw Murderer: white spiky hair, red-black look, lively sharp reddish eyes per identity. Pull out a large chainsaw, start its motor, raise and lean into short slashes, then the R recast Massacre is one wide two-handed sweeping chainsaw attack. White/orange metal teeth sparks and dark red slash trails; no gore. Required sequence: ready, grip saw, motor start, lift saw, windup, small cut, reverse windup, huge horizontal Massacre sweep, follow-through, lower saw, settle, ready.",
+  "frame_labels": [
+    "대기",
+    "전기톱 꺼내기",
+    "시동 걸기",
+    "톱 들어올리기",
+    "베기 준비",
+    "첫 베기",
+    "학살 준비",
+    "학살 크게 휘두르기",
+    "동작 마무리",
+    "톱 내리기",
+    "자세 회복",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "흰 머리·붉은 눈·장비가 유지됩니다. 전기톱 시동, 들어올리기, 학살 휘두르기와 회수 동작을 확인했습니다. 12셀입니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "41c1dd610a82c521195cb37c27667d039901211ab07f36586a200ec8f2055f8a"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "isaac",
+  "name": "아이작",
+  "ultimate": "강탈",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-b19ff55e-d411-45e5-9062-85c702a65e61.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/isaac.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 강탈"
+    }
+  ],
+  "visual_review": "은백발·턱수염·노련한 눈매·코트와 톤파를 유지했습니다. 양팔 들어올리기·진입·지면 내려치기·낮은 반동·어깨 회수가 서로 다른 몸 자세로 표현됩니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "a666a089645d70c0dab8299812297b1d1afdff2d11ad10341400ad808adfcf20",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Isaac mature silver-white swept-back hair, pale gold eyes with sly brows, dark long red-lined coat and black tonfa across shoulder from portrait. Official R slams strongly into a chosen position, pushing unmarked targets outward. Animate idle; gripping tonfa with both hands; lowering hips; drawing arms high; leaning forward into short step; both tonfa sweep overhead; forceful downward slam; crouched impact with dark purple-gold ground burst and outward shock ring; recoil on bent knee; lifting weapons back; shouldering tonfa; original idle. Emphasize crushing downward impact, no robbery bag, no gun, no grabbing an invisible victim. Preserve adult face character and small smirk.",
+  "frame_labels": [
+    "준비",
+    "톤파 잡기",
+    "몸 낮추기",
+    "양팔 들어올리기",
+    "진입",
+    "머리 위 휘두르기",
+    "강하게 내리치기",
+    "충격파",
+    "반동",
+    "무기 들기",
+    "어깨로 회수",
+    "준비 복귀"
+  ]
+}

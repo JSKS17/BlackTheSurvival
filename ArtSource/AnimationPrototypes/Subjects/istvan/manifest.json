@@ -1,0 +1,42 @@
+{
+  "id": "istvan",
+  "name": "이슈트반",
+  "ultimate": "파동 함수 붕괴",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-c0b7378d-3b79-4266-970a-0f3ea61e8359.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/istvan.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/2623?hl=ko-KR",
+      "title": "공식 1.44 이슈트반 출시 패치노트"
+    }
+  ],
+  "motion_summary": "Wave Function Collapse: the scientist crouches, leaps forward to strike a small central quantum point, three translucent alternate Istvan possibilities appear around it and each visibly rushes inward, collapse into one original and recover. Alter clones are required unique summons, not unrelated enemies. Violet/white quantum trails; sharp bespectacled scientist eyes and white coat.",
+  "frame_labels": [
+    "대기",
+    "도약 준비",
+    "몸 도약",
+    "중심 타격",
+    "가능성 분리",
+    "세 얼터 생성",
+    "첫 얼터 돌진",
+    "둘째 얼터 돌진",
+    "셋째 얼터 돌진",
+    "가능성 붕괴",
+    "착지 회복",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [
+    2
+  ],
+  "visual_review": "안경·흰 코트·보라 끝 머리와 세 가능성의 합류를 확인했습니다. 도약과 자세 변화가 있으며 4×3 셀 안에 배치됩니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "6f9fcf9b6722c1b7e185eca0471de8051c1171df042859367b58747a9fb72ccd"
+}

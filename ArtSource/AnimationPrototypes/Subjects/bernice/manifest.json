@@ -1,0 +1,40 @@
+{
+  "id": "bernice",
+  "name": "버니스",
+  "ultimate": "올가미 탄",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-180ab4e5-e5e9-45ad-9f17-65079a690e5a.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/bernice.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Bernice Explosive Bola: rugged blond long-haired hunter, narrow amber eyes with mature face per reference, dark hunting coat and large fur collar, shotgun. R fires a binding bola which wraps, explodes then transfers to next target. No live target needed: visualize three short lasso loops travelling to right, successive binding and compact explosions. 12 poses ready; grasp gun with both hands; lower shoulders and aim; front knee braces; first muzzle kick and steel bola launches; binding rope loop opens beside muzzle; he tracks sight right while first loop tightens; small gold-orange loop burst transfers arc to a second loop; arm re-aim and third looping transfer; last small contained orange burst; recoil recovery; ready. Distinct arms and shoulders animate. Gun not bow. Natural stern eyes, not childlike generic girl's face. Landscape 4:3 canvas, 4 columns × 3 rows equal SQUARE cells, generous margins, all FX contained.",
+  "frame_labels": [
+    "대기",
+    "산탄총 잡기",
+    "조준",
+    "발 버티기",
+    "올가미 탄 발사",
+    "올가미 전개",
+    "속박 추적",
+    "첫 폭발과 전이",
+    "연속 전이",
+    "마지막 올가미 폭발",
+    "반동 회복",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "긴 금발·좁은 눈·모피 사냥복을 유지합니다. 산탄총 조준과 반동, 올가미 탄 전개/폭발/전이가 분리됩니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "f0bb41077827ee2de7b4197546578bcd3ae4fe2ab0d65b073078027d6a313dd2"
+}

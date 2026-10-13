@@ -1,0 +1,43 @@
+{
+  "id": "chloe",
+  "name": "클로에",
+  "ultimate": "생명 공유",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-48ce2cd5-35d4-4ee8-8bdc-0bf05e8c1051.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/chloe.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 생명 공유"
+    }
+  ],
+  "visual_review": "클로에의 회갈색 머리·나른한 눈·갈색 드레스와 작은 은회색 니나 인형을 12셀 모두 유지했습니다. 손가락 조종·생명 연결·니나 도약과 회전·착지·실 회수가 구분됩니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "b92fe6f308a1c200c74d48e787fa614bbabc344494d303a902357ab5e7453d7f",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Chloe long ash-brown hair, gentle sleepy red-gray eyes, brown-white dress and white bow exactly from identity. Include her unique doll Nina visible in portrait at lower-right: a smaller gray-white-haired mechanical marionette with bladed legs and pale frilled doll dress, clearly a doll not a duplicate human Chloe. Both in every cell. Official R links Chloe and Nina, speeds doll and shares life. Animate paired idle; Chloe raises puppeteer hand; fingers spread and thin crimson-white strings reach Nina; Nina leans forward; Chloe steps back and two red-white heartlike light points join through taut life link; Nina short forward leap; doll turns with one bladed leg extending, Chloe's elbow pulls strings; strong horizontal life-link pulse between them below face height; Nina lands back near her; strings slacken; Chloe lowers hand; original paired idle. Actual doll legs/torso and Chloe wrist/arm movement, not stationary aura. No generic robot or teddy bear.",
+  "frame_labels": [
+    "인형과 준비",
+    "조종 손 들기",
+    "생명 실 잇기",
+    "니나 자세 낮추기",
+    "생명 연결",
+    "니나 도약",
+    "인형 회전",
+    "연결 맥동",
+    "니나 착지",
+    "실 회수",
+    "손 내리기",
+    "준비 복귀"
+  ],
+  "intended_airborne_frames": [
+    5,
+    6
+  ]
+}

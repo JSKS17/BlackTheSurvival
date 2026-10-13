@@ -1,0 +1,39 @@
+{
+  "id": "dailin",
+  "name": "리 다이린",
+  "ultimate": "취호격파산",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-773ced0c-827c-4745-a43f-47865466e17e.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/dailin.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 취호격파산"
+    }
+  ],
+  "visual_review": "도트 얼굴과 원본 의상/술병이 읽히며 돌진·장타·팔꿈치·차기·마무리의 몸 동작이 구분됩니다. 4×3 셀에 각 동작이 포함됩니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "9cff597adba2be937ac74238de49bf2bd412976df8c1ff7c2d9ff66656c6d2d6",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Drunken martial artist Li Dailin. R rushes forward into a four-hit suppression combo. Animate loose tipsy guard, dip hips, short forward burst, palm strike, elbow, low twisting kick, rising knee, final heavy palm, backwards settle to tipsy guard. Amber/orange speed swishes and compact pale-gold impacts. Keep flask costume and warm relaxed eyes from identity, not glaring Nia eyes.",
+  "frame_labels": [
+    "취권 준비",
+    "무게중심 낮추기",
+    "돌진 시작",
+    "접근",
+    "첫 장타",
+    "팔꿈치 연타",
+    "회전 차기",
+    "무릎 올리기",
+    "마무리 장타",
+    "충격 잔광",
+    "자세 회수",
+    "취권 준비 복귀"
+  ]
+}

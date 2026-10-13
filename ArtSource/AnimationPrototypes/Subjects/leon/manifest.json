@@ -1,0 +1,47 @@
+{
+  "id": "leon",
+  "name": "레온",
+  "ultimate": "파도타기",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-9146a686-d167-4dc6-aca4-9d2cd96b7906.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/leon.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Leon Surf's Up: athletic brown-haired boy, bright focused blue eyes, blue/white sporty water outfit and headset from exact identity. R summons a wave and RIDES it forward, then leaves a puddle. No surfboard (he uses his body), no real ocean scene. 12 poses: ready; spread hands down; knees bend as water rises; blue curling wave grows beneath rear foot; arms forward and lean onto wave; wave carries him forward with balanced bent knees; wave crest and torso tilted right; body stretched into final push; wave breaks in contained white-blue splash below shoulders; drop into small puddle; stand and lower arms as puddle shrinks; ready. Preserve his face clear above water. Floor/camera origin fixed, body can rise with wave; generous margins and cyan/blue square splash pixels.",
+  "frame_labels": [
+    "대기",
+    "양손 아래로 펼치기",
+    "물 모으기",
+    "파도 형성",
+    "몸을 파도에 싣기",
+    "파도 타고 전진",
+    "파도 위 균형",
+    "밀어내는 마지막 파도",
+    "파도 붕괴",
+    "물웅덩이에 착지",
+    "물 가라앉기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "visual_review": "푸른 눈·헤드셋·스포츠 복장을 유지하며 파도 소환, 타기, 균형, 붕괴 후 착지가 나타납니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "f16b1b81cec02db2a4bd636c7ee2d9a9f827648021a458dbfbf0133427a1f2a7"
+}

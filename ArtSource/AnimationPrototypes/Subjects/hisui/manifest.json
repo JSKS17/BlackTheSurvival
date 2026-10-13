@@ -1,0 +1,39 @@
+{
+  "id": "hisui",
+  "name": "히스이",
+  "ultimate": "모노호시자오 / 츠바메가에시",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-0f09c609-c0dc-4372-a732-df49ca9d126d.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/hisui.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/2401?hl=ko-KR",
+      "title": "님블뉴런 공식 실험체 스킬: 모노호시자오 / 츠바메가에시"
+    }
+  ],
+  "visual_review": "청록 포니테일·붉은 눈·검과 의상의 정체성을 유지했습니다. 긴 검 발도부터 첫/두 번째 베기·중앙 마무리·납도가 서로 다른 몸/검 방향으로 읽힙니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "db53105f57c0de169a31adc6b2ad5a1ee3479ca97f0788277e633c019c60866c",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Hisui dark teal high ponytail, red eyes, black/white/red swordwoman outfit and long red-hilted katana from portrait. R draws very long Monohoshizao then its recast cuts twice and finishes through center. Animate ready sword low; reaching to scabbard; drawing long katana; blade held long diagonal; shoulders twist right; first horizontal red-white slash; reverse twist; second opposite diagonal slash; low center cutting thrust with three converging silver/red strokes; follow-through hair sweeping behind; sheathing; original idle. Keep same katana design, no duplicate swords appearing, proper two-handed grip where needed. Sharp focused eyes distinct from Nia. Deliberate three-hit sword choreography, no generic all-frame aura.",
+  "frame_labels": [
+    "준비",
+    "칼집 잡기",
+    "모노호시자오 발도",
+    "긴 검 자세",
+    "첫 베기 준비",
+    "첫 번째 베기",
+    "반대 방향 회전",
+    "두 번째 베기",
+    "중앙 마무리 베기",
+    "잔심",
+    "납도",
+    "준비 복귀"
+  ]
+}

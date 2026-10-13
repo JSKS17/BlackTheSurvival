@@ -1,0 +1,39 @@
+{
+  "id": "vanya",
+  "name": "바냐",
+  "ultimate": "꿈결 가루",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-dcffb60a-b77a-43ef-ab16-15876234981a.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/vanya.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "꿈나비 환상과 비늘 가루를 날개 펼침·손바닥 유도·환상 발사로 표현한 독자 시안.",
+  "frame_labels": [
+    "나비와 대기",
+    "손을 가슴에 모음",
+    "날개를 펼침",
+    "양팔을 들어 올림",
+    "꿈나비 환상 형성",
+    "나비에 손을 뻗음",
+    "환상 발사",
+    "비늘 가루 확산",
+    "손목으로 궤적 마무리",
+    "날개를 접음",
+    "빛가루 소멸",
+    "대기 자세 복귀"
+  ],
+  "visual_review": "바냐의 날개·손 유도·꿈나비 발사와 윌리엄의 무릎 올리기·공중 투구·네 공 분산·착지가 분명합니다. 얼굴과 눈·입이 효과에 가려지지 않는 것을 확인했습니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "35462aaeb45364611cb1c29a955296fd16c143f5fc04850f2e186aa5af703e77",
+  "width": 1448,
+  "height": 1086
+}

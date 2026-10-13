@@ -1,0 +1,39 @@
+{
+  "id": "nathapon",
+  "name": "나타폰",
+  "ultimate": "셔터 찬스",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-a8edfb40-4fa0-4ed3-8b6c-ba39d8b98e40.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nathapon.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "타이머 촬영과 정지 효과를 카메라 조작·셔터 섬광으로 표현한 독자 시안.",
+  "frame_labels": [
+    "카메라 준비",
+    "카메라를 들어 올림",
+    "렌즈를 바라봄",
+    "구도 조정",
+    "타이머 설정",
+    "셔터를 향해 손 이동",
+    "촬영 자세 고정",
+    "셔터 섬광",
+    "사각 프레임 정지",
+    "카메라 내림",
+    "어깨 이완",
+    "준비 자세 복귀"
+  ],
+  "visual_review": "원본 얼굴·복장과 12개 셀을 확인했습니다. 팔과 무기의 준비·시전·회수 변화, 독립된 효과, 시작과 복귀 자세가 구분됩니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "3d7ffe63b5982579e8a0a65d788485aed7901a0b5b2806ba86332355dcc4b8f7",
+  "width": 1448,
+  "height": 1086
+}

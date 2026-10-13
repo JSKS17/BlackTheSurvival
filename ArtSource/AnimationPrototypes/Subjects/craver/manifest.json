@@ -1,0 +1,47 @@
+{
+  "id": "craver",
+  "name": "크레이버",
+  "ultimate": "쇼다운!",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-e6b04e7e-22c9-4ebe-8e55-a75874db04a9.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/craver.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/3657?hl=ko-KR",
+      "title": "님블뉴런 공식 출시 실험체: 쇼다운!"
+    }
+  ],
+  "visual_review": "붉은 머리·강한 눈매·검붉은 코트와 쌍권총을 유지했습니다. 웅크림·순간이동·공중 출현·양손 교대 난사·마무리 동시 사격·하강·착지의 몸/팔 동작이 구분됩니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "00d2dafc88bab0e9ff6443d2f3d25a91c2c483e51a18870f9b82df909958f78a",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Craver red messy longish hair, fierce red/blue-gray eye shape, black red combat long coat and TWO red-black pistols exactly from portrait. Official R teleports to an airborne target and holds it in air while rapid firing. Without a generic opponent, animate grounded guns-ready idle; crouch and cross two guns; compact red teleport flicker; reappear higher with knees tucked and coat tails floating; both pistols aim toward upper right; alternating rapid-fire left and right pistols with small orange-white muzzle flashes; turning hips midair; final simultaneous two-gun flash with short red bullet streaks stopping inside cell; lowering from air with knees bent; firm landing with red dust; uncross/holster-ready arms; exact original idle. Real suspended airborne pose and gun recoil; no sword/slash, no huge laser, face visible. Camera/ground fixed but intentional flight preserved.",
+  "frame_labels": [
+    "준비",
+    "쌍권총 교차",
+    "순간이동",
+    "공중 출현",
+    "공중 조준",
+    "첫 난사",
+    "반대 손 난사",
+    "동시 마무리 사격",
+    "하강",
+    "착지",
+    "총 회수",
+    "준비 복귀"
+  ],
+  "intended_airborne_frames": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ]
+}

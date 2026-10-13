@@ -1,0 +1,45 @@
+{
+  "id": "chiara",
+  "name": "키아라",
+  "ultimate": "폭주",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-1103b3c2-9cb2-48c3-a3f5-42394644b9d1.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/chiara.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 폭주"
+    }
+  ],
+  "visual_review": "백분홍색 긴 머리·우울한 분홍 눈·검과 고딕 의상을 유지했습니다. 몸 낮추기·날개 전개·상승·기울여 급강하·착지·날개 회수의 변신/비행 동작을 확인했습니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "bf47b3181b0b2b63add6dcff307ec94d05d2efbb2fe41e61bd602573314e8df8",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Chiara very long white-pink hair with dark hair ornament, pale pink-violet eyes, black-white gothic costume and slender rapier from identity. Official R transforms with spreading dark wings; recast Judgment rapidly dives at a target. Animate idle; anxious hand to chest; knees dip and shoulders hunch; black-magenta wings unfold from behind; rising slightly with legs tucked and rapier ready; wings spread wide with face exposed; torso tilts forward; plunging diagonally down-right rapier first; landing in compact dark-magenta judgment burst; wings retract; standing and lowering rapier; exact original idle. Wings are a temporary R transformation, not another creature. Distinct melancholy eyes, not smirking Nia expression. Actual wing/limb/torso and intended flight motion. No gore, keep all wings inside each cell.",
+  "frame_labels": [
+    "준비",
+    "가슴 잡기",
+    "몸 낮추기",
+    "폭주 날개 전개",
+    "상승",
+    "날개 펼치기",
+    "급강하 준비",
+    "심판 낙하",
+    "심판 착지",
+    "날개 회수",
+    "검 정리",
+    "준비 복귀"
+  ],
+  "intended_airborne_frames": [
+    4,
+    5,
+    6,
+    7
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "debi_marlene",
+  "name": "데비&마를렌",
+  "ultimate": "트윈즈 러시",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-ad1e87b6-e15c-4c17-a312-6164921da3ee.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/debi_marlene.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1286?hl=ko-KR",
+      "title": "님블뉴런 공식 출시 스킬: 트윈즈 러시"
+    }
+  ],
+  "visual_review": "청색·적색 쌍둥이 둘이 12셀 모두 등장하며 동시 돌진·검 교차·회전·회수 동작을 확인했습니다. 청적 효과는 셀 가장자리에 가까워 미리보기 여백이 필요합니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "98c3ad753bccdb42ffb71db6d2ea903b2179505005e6ec67f8a1bd3b1cc21693",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Debi AND Marlene twins, two distinct girls BOTH in every cell, preserve exactly the blue black-hat girl and red white-hat girl and their respective blue/red swords from identity. Official Twin Rush has BOTH sisters dash TOGETHER followed by repeated joint attacks. Animate paired idle with side-by-side sisters, both sisters simultaneously lean and dash forward, blue and red blades cross forward together, opposing diagonal sword arcs meet, sisters turn around each other, synchronized crossed finishing swing blue/red, back-to-back finish, reverse steps and original paired idle. Two bodies must perform different poses; no duplicates of one twin, no missing twin. Blue and crimson blade swishes with tiny white hit sparkle.",
+  "frame_labels": [
+    "함께 준비",
+    "붉은 검 준비",
+    "마를렌 돌진",
+    "데비 검 회수",
+    "데비 돌진",
+    "교차 베기",
+    "몸 회전",
+    "동시 검격",
+    "청적 마무리",
+    "등맞대기",
+    "함께 회수",
+    "준비 복귀"
+  ]
+}

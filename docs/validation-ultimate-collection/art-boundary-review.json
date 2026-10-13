@@ -1,0 +1,847 @@
+{
+  "passed": true,
+  "checked_at_utc": "2026-10-13T12:50:57.170684+00:00",
+  "subjects": 90,
+  "frames": 1080,
+  "assembly_version": 4,
+  "game_integration": false,
+  "source_sha_matches_manifests": true,
+  "source_sha_matches_assembly": true,
+  "all_assembly_exact_rgba": true,
+  "all_webp_visible_rgba_lossless": true,
+  "all_animations_12_frames_1500_ms": true,
+  "threshold": {
+    "alpha": 160,
+    "dark_max_rgb": 165,
+    "dark_edge_count": 18,
+    "opaque_edge_count": 55
+  },
+  "initial_fixed_grid_flag_count": 513,
+  "initial_v4_flag_count": 6,
+  "final_current_source_fixed_grid_flag_count": 505,
+  "final_v4_flag_count": 0,
+  "candidates": [],
+  "visual_review": {
+    "abigail": "첫행 발 복원, 다음행 상단 발 조각 제거, 시작/복귀 높이 일치 확인.",
+    "laura": "이전 판에서 별 효과 셀 침범을 발견해 root가 내장 이미지 생성으로 여백 수정. 최종 자동 경계 검사 포함.",
+    "magnus": "본체 이탈 뒤 바이크 단독 전진과 폭발의 의도적 본체 부재, 다음행 잔상 제거 확인.",
+    "kenneth": "도약·공중 회전·낙하에서 머리/도끼/몸 유지 확인.",
+    "istvan": "세 가능성 생성/합류와 본체 복귀의 머리/몸 유지 확인.",
+    "bihyung": "이전 판의 무기 경계 접촉을 발견해 별도 내장 이미지 생성으로 여백 수정. 최종 자동 경계 검사 포함.",
+    "silvia": "frame10 본체·얼굴·바이크 복원 확인.",
+    "nadine": "최종 frame09 늑대 머리·몸·네 발·꼬리 온전함, frame10 이전 셀 반쪽 늑대 제거 확인. 08/09/10 alpha>=160 경계 접촉 0."
+  },
+  "note": "Edge contact is a QA candidate, not automatic proof of clipping. This scan checks visible internal crop boundaries, ignores alpha-zero RGB data and never changes source pixels. Atlas generation/revision provenance remains in each manifest.",
+  "results": [
+    {
+      "id": "abigail",
+      "atlas_sha256": "8e0256dcde015423e64a5a0a90d7ac084a811a248dbd61322e110f042923b95f",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "adela",
+      "atlas_sha256": "91572b9a035a3626710c057bfaee7dd45a40c20231883ae9bb54132f08bbd4ff",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "adina",
+      "atlas_sha256": "58833e3357058840c032fe1e037a9920268b687a4dec19c9835384d34e261a71",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "adriana",
+      "atlas_sha256": "380aed84d77a1bb33429c462dc4614485931417debd57a7b43ad4820f55f4cc5",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "aiden",
+      "atlas_sha256": "a8b2dc68009c787fbff0f3944ff6d817789fedf9145bd2c2b2bd8ae8ecd8f23c",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "alex",
+      "atlas_sha256": "b8a0168029b20209f258a4f1ac7c388aa8fd73acf05d297104e47f206be2b008",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "alonso",
+      "atlas_sha256": "15bd85a67a9154633a36a870d3176098db6bb76a3d847693b7136f6d6e9b24ef",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "arda",
+      "atlas_sha256": "bbcc8a56cfdad24daa5bade30ed7dc07b279a973dee65bd6738d661f5d285b15",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "aya",
+      "atlas_sha256": "dc0922c3a12601d3a8e7df89e9819e1cd9dcae0b1d7c6554ecdcfd1ac32fe2e9",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "barbara",
+      "atlas_sha256": "2f315b673ead6357a69b4e3d833bcb89c856829b9cc0853df83bd75e48b2dc69",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "bernice",
+      "atlas_sha256": "f0bb41077827ee2de7b4197546578bcd3ae4fe2ab0d65b073078027d6a313dd2",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "bianca",
+      "atlas_sha256": "abd53cfac561c32f75a909a0654280396b45a0ef7d39e43f71b43262053b0c84",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "bihyung",
+      "atlas_sha256": "16aafce1008a6d8153f456501571d60537c0bf786f934b9d873d4d27e9144f71",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "blair",
+      "atlas_sha256": "267f44149d25ee850bb7b9d9e53e42f70266c015b52cec46ac71e5f4e0e43f6c",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "camilo",
+      "atlas_sha256": "4999168ab275380eae0bcbfab933dc42491a53d5aac213753be274ffa649b3c1",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "cathy",
+      "atlas_sha256": "7ace34810919d776a921a0936999a71b55866d466e45b804212e8333dcc9171e",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "celine",
+      "atlas_sha256": "40571479b058bf475126c57240b2d9aaadfa532a7b03f7e48963792422110395",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "ceres",
+      "atlas_sha256": "ea085144bdbc415ee37530e5fa40c2c48a6877205a3d207775b4604c327eedd3",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "charlotte",
+      "atlas_sha256": "2e20dd5bebe08fe3152b32a48462be9de5d0ff08fab4bc1ee9fe2b1396d37a5f",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "chiara",
+      "atlas_sha256": "bf47b3181b0b2b63add6dcff307ec94d05d2efbb2fe41e61bd602573314e8df8",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "chloe",
+      "atlas_sha256": "b92fe6f308a1c200c74d48e787fa614bbabc344494d303a902357ab5e7453d7f",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "coraline",
+      "atlas_sha256": "8dec5f23337c16348f4b9f3cc7ffcf2653721f4367289558d1b2a70bd779a466",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "craver",
+      "atlas_sha256": "00d2dafc88bab0e9ff6443d2f3d25a91c2c483e51a18870f9b82df909958f78a",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "dailin",
+      "atlas_sha256": "9cff597adba2be937ac74238de49bf2bd412976df8c1ff7c2d9ff66656c6d2d6",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "daniel",
+      "atlas_sha256": "4a402eaa20e8227528b0cc6c9a4fa5dd08a989218377ee5949be84bc30b142bb",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "darko",
+      "atlas_sha256": "37bbfd6d9f149be5b34842d1272a62134e4e0c81d638c5e6da764db50e2cbc63",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "debi_marlene",
+      "atlas_sha256": "98c3ad753bccdb42ffb71db6d2ea903b2179505005e6ec67f8a1bd3b1cc21693",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "echion",
+      "atlas_sha256": "3e50801086902dc76385e307bae64f2e7cff78be2671a6bdde445d617eef7816",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "elena",
+      "atlas_sha256": "3051e0fd74707745996158397a15cee89de5cc9732ae83c9da88927fc18704ee",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "eleven",
+      "atlas_sha256": "34565a03d5512a8e887b9dc2d6929ee6e446aa9989b0d29bd7bac253977e44d2",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "emma",
+      "atlas_sha256": "3e84b16179f0cb41ca6b0c8c70ab2abe108da102e776c93a6c30a4a4878aec52",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "estelle",
+      "atlas_sha256": "866a0d12bd07cb165fde8e33abaf4a30b341e7c7b5339887cb53b8d0d0925ead",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "eva",
+      "atlas_sha256": "e2fd3d9f97f84ffd2ce73f3401f1f28c80eec008c498b5f3b7d89243006f6f3c",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "felix",
+      "atlas_sha256": "eb1d863ab7b31c32a17b9ca364f5caaa3004a7be11ab230840fbd090a8f04f7d",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "fenrir",
+      "atlas_sha256": "50821b9a5075f76d361393d20c2cef97940f38ef3138e3bb3c0dcce0281ac5f1",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "fiora",
+      "atlas_sha256": "36caecee8f89ec7a09dd24c110a481bfab8c088fd2585a7ce137379a587eb3de",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "garnet",
+      "atlas_sha256": "ad8632ffffdfa3ce7b1a68001808abaeac92ee9765039911fab8bd0034f9f0f0",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "hart",
+      "atlas_sha256": "964c6f564d01358d6a51151c7dfeff83c3ffd849291e2ece87b72ff74e36b98c",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "haze",
+      "atlas_sha256": "7bd77f5e255f61a512da37e673de11b7108654277d1d610b7e66d54328f85fd1",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "henry",
+      "atlas_sha256": "a779ffee7da2a2191bf3c4d5c5a4c6072dbd87b0fc6923905fbfe09bcb09ea5e",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "hisui",
+      "atlas_sha256": "db53105f57c0de169a31adc6b2ad5a1ee3479ca97f0788277e633c019c60866c",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "hyejin",
+      "atlas_sha256": "ff38675de83e25b2dd48cc5c8cadc5bb6cd860f5bfc5cd0f95ef76126415a602",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "hyunwoo",
+      "atlas_sha256": "aa8a12b801a7e8741d97ce2676c2c1b47de3023a437c084c53acaf25907611e9",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "ian",
+      "atlas_sha256": "d1d27f9cfd448e305263519b4087ce2c029646a2ecd11dd2f6da3a3f3ce4a217",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "irem",
+      "atlas_sha256": "a8b9bf6bcfe9f284aeae4eb635fcdbe8dff45ccf4ba5b11da3667f6dc61499b8",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "isaac",
+      "atlas_sha256": "a666a089645d70c0dab8299812297b1d1afdff2d11ad10341400ad808adfcf20",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "isol",
+      "atlas_sha256": "934dfbdaf2722ed22a39be1fa6524d53f04c99a6b5daad602e55fad4c15e7214",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "istvan",
+      "atlas_sha256": "6f9fcf9b6722c1b7e185eca0471de8051c1171df042859367b58747a9fb72ccd",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "jackie",
+      "atlas_sha256": "41c1dd610a82c521195cb37c27667d039901211ab07f36586a200ec8f2055f8a",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "jan",
+      "atlas_sha256": "392216d7acdd8491af9281844bd18c2c36fc3671cf5148680c026bb65050a397",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "jenny",
+      "atlas_sha256": "c77a4dc3cd3a0c91289b523eef53c0e9378c17fb21d6cc6a95e4c9a19a1fbb27",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "johann",
+      "atlas_sha256": "d16303bc39361937e3af3c0f1c36f12fef687872cb255a54eab5adf9becf1943",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "justyna",
+      "atlas_sha256": "eff40de56f8a3678133a2be1d91f37d50869f2711770d40c2327789bceb77f5b",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "karla",
+      "atlas_sha256": "c289032cd7ab1045d9e78b7799da845cb907b29af97794c8cd9fc9963d57c133",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "katja",
+      "atlas_sha256": "a6b6b37cb8de8059c191fcd92de32da8229d2110397df2b0e82be1e18b606b08",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "kenneth",
+      "atlas_sha256": "d7a3c57f3dc4f44a7d00efb890f7d4df52e9071a88ee62a0850131bc279ab7b7",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "laura",
+      "atlas_sha256": "3e062d86312731d770f4c6c6bc072278b8ebb2712fc48a16e3473a967b03945a",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "leni",
+      "atlas_sha256": "4acaa931958485616e692cef14dd735651671bc395f6cc8d2741cd89f30dd561",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "lenore",
+      "atlas_sha256": "6353b770d471abe2f12f6167e123da1ceefc7967d0080f7c1090551eaace4a30",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "lenox",
+      "atlas_sha256": "1a8ad9f3a9117ee07a11e85462dba5839dfdf69c2dc1d4a270b4d28dace89617",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "leon",
+      "atlas_sha256": "f16b1b81cec02db2a4bd636c7ee2d9a9f827648021a458dbfbf0133427a1f2a7",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "lucia",
+      "atlas_sha256": "4d3f92252985ca27641912935fa8698ccd3f4261f6b155e9b1828177b836f502",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "luke",
+      "atlas_sha256": "86aee71d9093483eda39272ebc67cb847a50fb8d01a258aa2c871ccacb3e218c",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "magnus",
+      "atlas_sha256": "b3a61da23cdaf3b5d0ef72d1d96b0c0512d4b18188e1a199beb1fff3a1fc47d6",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "mai",
+      "atlas_sha256": "b416ed12970ccc223b723e352031834a7e7cd4d9846147cac4dd90839d6996e6",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "markus",
+      "atlas_sha256": "81da064a3b64d409eb63c664965fa9b2fb272543bd3964165e7ab7ad036e9914",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "martina",
+      "atlas_sha256": "5db57309e7c1cc91b286a6e0773a1cd5838fb764ff37d9600c0255b30a60707a",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "mirka",
+      "atlas_sha256": "8d4a43a7fad7e670e4250a8f748eb7bd583deadde03e2c6c7ec7b99d893642ae",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "nadine",
+      "atlas_sha256": "fd28a8062c3f9ad410af1bb236c75e874e480f86b41ea715d4a1ffceeee5e0ca",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "nathapon",
+      "atlas_sha256": "3d7ffe63b5982579e8a0a65d788485aed7901a0b5b2806ba86332355dcc4b8f7",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "nicky",
+      "atlas_sha256": "a52dce5ed680f49609a792758a3686304fabda7a95d0cc853d85c3618d45433c",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "piolo",
+      "atlas_sha256": "034f1feeedd1d3a7d9b38c4c9ee5284c10a8da29751de9fa7c0daa4b73faab8f",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "priya",
+      "atlas_sha256": "c4edcea532ffecb026a93fc289433e4a80f217967df4a279dbf57d8ea36ef8d3",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "rio",
+      "atlas_sha256": "020474634f8b58463d9da03f65c3c6cf0f1980abc8e87139178606a882546ac6",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "rozzi",
+      "atlas_sha256": "0917bf8f130f52cd5b58f145c82bbab3f0dd0bc8d649e614ca43e028c53706d4",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "sho",
+      "atlas_sha256": "b53198b91dd612fca0eabfc64b80334a8571e579de88002c1fbb0df555cc2d22",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "shoichi",
+      "atlas_sha256": "b650a9e8b5475d9c752de39cbaca11461ca1fd6cf4c9b3b7f0f4ef2d8e5b92f7",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "silvia",
+      "atlas_sha256": "10da0450baac924b37a2cc6b4353263ff266af9f9a4076234659735eadcb4462",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "sissela",
+      "atlas_sha256": "35b843b58ec625feb4a9ce1880231d495b71e5c4a4cc372392ffe2749d2efade",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "sua",
+      "atlas_sha256": "bbb976bdf2ecdad803e2fc840205d6f53b59366b497fbac3c1b9f300d1ed2560",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "tazia",
+      "atlas_sha256": "525b5b6dd4f349ae6ca492d7b6308d08419828c0fa80f56fe0257555b36ba1ec",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "theodore",
+      "atlas_sha256": "c2bc2c6d65c2c94d70f1305ceac7cf5cf5ccefeb0220676cae6edf4b70e9e650",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "tia",
+      "atlas_sha256": "97d5b377524d8c338af2ac2eaf00091d5af8005a16cc6d2403750cc9271a6b32",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "tsubame",
+      "atlas_sha256": "5dd09615e46d3972719b1dbc875a815735d18492da8c43ed094115b40d9cede3",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "vanya",
+      "atlas_sha256": "35462aaeb45364611cb1c29a955296fd16c143f5fc04850f2e186aa5af703e77",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "william",
+      "atlas_sha256": "1acef44d95dbe3dc2d63fb4e457af03e8931b880a6e7c9ee5e9b278d29207c0e",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "xuelin",
+      "atlas_sha256": "5fe2c9ac97d65a98db504828e6b0cc25a45f0d3d5dca9d2cd3049f0ee0bf6dc3",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "yuki",
+      "atlas_sha256": "648a580f7f9f9412f8b1d203e097f70f66076032b0b6f6a88dcf7a0d046f0198",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "yumin",
+      "atlas_sha256": "78678709bc184d0b1fa3cdacfca6e25e693f44200d116079c0f4e72c3f9e1df9",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    },
+    {
+      "id": "zahir",
+      "atlas_sha256": "cd4a24ee56eea93c55537c4cc13b27d227a90aec1b51fd321a73612a909fcf33",
+      "assembly_version": 4,
+      "frames": 12,
+      "duration_ms": 1500,
+      "exact_rgba": true,
+      "flagged_edges": 0
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "adriana",
+  "name": "아드리아나",
+  "ultimate": "화염 난사",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-787311b4-e48b-4f06-a40f-d41ba9deb95e.png",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "380aed84d77a1bb33429c462dc4614485931417debd57a7b43ad4820f55f4cc5",
+  "reference_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\adriana.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+  ],
+  "reference_sha256": [
+    "3063ee0d35f17a755ac15d829f5a54a2c5e371a0a5bb19406a2f1bd0549a5067",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "Eternal Return official skill description"
+    }
+  ],
+  "motion_summary": "화염병을 뒤로 당겨 던지고 착탄 지점에 불길을 남기는 동작",
+  "frame_labels": [
+    "화염병 대기",
+    "화염병 꺼내기",
+    "팔 뒤로 당김",
+    "앞으로 던지기",
+    "병이 날아감",
+    "화염병 낙하",
+    "착탄",
+    "불길 확산",
+    "화염 유지",
+    "불꽃 가라앉음",
+    "자세 회수",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "Reviewed generated twelve-frame sheet: identity, facial features, distinct body/weapon motion, skill effects, transparent cells."
+}

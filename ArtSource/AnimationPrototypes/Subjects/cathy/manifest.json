@@ -1,0 +1,39 @@
+{
+  "id": "cathy",
+  "name": "캐시",
+  "ultimate": "이머전시 OP",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-480c3867-9be7-4566-a623-f6b75767008f.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/cathy.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 이머전시 OP"
+    }
+  ],
+  "visual_review": "갈색 긴 머리·푸른 눈·흰 의사 코트와 톱을 유지했습니다. 톱 준비와 회전 휘두름·앞으로 낮게 진입·수술 회복 구역·무기 회수 단계가 읽힙니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "7ace34810919d776a921a0936999a71b55866d466e45b804212e8333dcc9171e",
+  "width": 1448,
+  "height": 1086,
+  "motion_summary": "Cathy brown long hair and blue eyes, white doctor coat over dark-blue outfit and surgical saw/scalpel exactly from identity. Official R sweeps a saw while rapidly advancing, leaving a healing strip. Animate composed idle; hands firm on surgical tool; raise saw diagonally behind shoulder; lower knees; accelerate forward; broad saw sweep horizontally right with silver-cyan arc; full forward lunge with trailing white coat; finish sweeping through with pale blue-white surgical trail low behind; green-cyan tiny healing sparkles in that trailing strip; pivot and tool draw-back; coat settles; original idle. No gore, no red blood, no hospital scenery, no generic healing staff. Precise clinical focused eyes, small mouth visible. True moving saw/arms/body sequence, not a teleport or stationary aura.",
+  "frame_labels": [
+    "준비",
+    "수술 도구 잡기",
+    "톱 올리기",
+    "몸 낮추기",
+    "빠른 진입",
+    "톱 휘두르기",
+    "돌진 마무리",
+    "수술 구역 남기기",
+    "회복 잔광",
+    "도구 회수",
+    "코트 정리",
+    "준비 복귀"
+  ]
+}

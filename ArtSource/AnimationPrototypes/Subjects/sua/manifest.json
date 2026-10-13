@@ -1,0 +1,39 @@
+{
+  "id": "sua",
+  "name": "수아",
+  "ultimate": "기억력",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-14cb0281-756e-496b-bef4-fb89902c02a0.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/sua.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "최근 기술을 재현하는 R에서 오딧세이 기억을 선택한 책의 쌍방향 충돌 시안.",
+  "frame_labels": [
+    "책을 든 대기",
+    "책장 펼침",
+    "기억을 떠올림",
+    "손을 들어 지정",
+    "기억의 두 책 출현",
+    "양팔을 벌림",
+    "두 책 중심 이동",
+    "책 충돌",
+    "책갈피 빛 확산",
+    "책을 안음",
+    "기억 빛 소멸",
+    "대기 자세 복귀"
+  ],
+  "visual_review": "원본의 눈매·입과 의상을 확인했습니다. 시셀라는 움츠림에서 양팔 해방으로, 수아는 책 펼침·기억·팔 벌림·책을 안는 회수로 이어집니다. 효과가 눈과 입을 가리지 않습니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "bbb976bdf2ecdad803e2fc840205d6f53b59366b497fbac3c1b9f300d1ed2560",
+  "width": 1448,
+  "height": 1086
+}

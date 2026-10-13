@@ -1,0 +1,40 @@
+{
+  "id": "johann",
+  "name": "요한",
+  "ultimate": "구원의 성역",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-3291cda0-cc56-4262-a166-6d0583356131.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/johann.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Johann Salvation Sanctuary: dark blue-haired gentle-eyed cleric in blue-black/gold vestments and cross pendant as identity, no generic angry face. R pushes enemies outward and creates a healing sanctuary. Exact 12 poses: ready; bow head; bring palms together; lift forearms; open arms outward; white-gold cross halo rises behind upper body without obscuring face; extend palms down as circular gold-white sanctuary expands at feet; rotate torso left and pulse healing; rotate right and second soft pulse; draw hands back; lower arms as halo dissolves; ready. No summoned extra people. Warm white/gold sacred light with subtle pale-blue edge, crisp pixels.",
+  "frame_labels": [
+    "대기",
+    "고개 숙이기",
+    "두 손 모으기",
+    "팔 들어올리기",
+    "양팔 펼치기",
+    "성역 빛 생성",
+    "성역 확장",
+    "첫 회복 파동",
+    "두 번째 회복 파동",
+    "손 모아 회수",
+    "빛 소멸",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "visual_review": "푸른 눈·성직복을 유지하고 기도, 양팔 전개, 회복 파동과 회수가 변화합니다. 12셀 배치와 얼굴 가시성을 확인했습니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "d16303bc39361937e3af3c0f1c36f12fef687872cb255a54eab5adf9becf1943"
+}

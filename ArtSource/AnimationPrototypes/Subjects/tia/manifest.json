@@ -1,0 +1,39 @@
+{
+  "id": "tia",
+  "name": "띠아",
+  "ultimate": "무지개 드로잉",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-81fee098-0a25-4390-aad7-873efd50b11c.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/tia.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "거대한 붓이 무지개를 그리는 R을 손목 시전·붓 쓸기·물감 회수로 해석한 독자 시안.",
+  "frame_labels": [
+    "붓을 든 대기",
+    "붓을 들어 올림",
+    "큰 붓을 부름",
+    "손목 원 그리기",
+    "거대한 붓 출현",
+    "붓이 내려옴",
+    "무지개 획 시작",
+    "넓은 무지개 획",
+    "물감 타격",
+    "붓을 거둠",
+    "마지막 물감 방울",
+    "대기 자세 복귀"
+  ],
+  "visual_review": "띠아의 큰 붓 소환·세 색상 획과 츠바메의 표식 확인·낮은 급습·교차 베기·제동을 12셀에서 확인했습니다. 캐릭터 고유 얼굴·복장과 읽히는 작은 입을 유지했습니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "97d5b377524d8c338af2ac2eaf00091d5af8005a16cc6d2403750cc9271a6b32",
+  "width": 1448,
+  "height": 1086
+}

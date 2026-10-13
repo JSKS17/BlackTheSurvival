@@ -1,0 +1,39 @@
+{
+  "id": "sissela",
+  "name": "시셀라",
+  "ultimate": "모두 해방이에요.",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-db0f6394-3ceb-48f1-9156-097d881521e4.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/sissela.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+    }
+  ],
+  "motion_summary": "집중 후 주변을 타격하는 R을 움츠림·윌슨 공명·파동 해방으로 해석한 독자 시안.",
+  "frame_labels": [
+    "윌슨과 대기",
+    "눈을 감음",
+    "양팔 모음",
+    "윌슨이 위로 오름",
+    "몸을 움츠림",
+    "공명 에너지 축적",
+    "팔을 펴기 시작",
+    "해방 파동",
+    "윌슨 공명 확산",
+    "빛이 잦아듦",
+    "윌슨 회수",
+    "대기 자세 복귀"
+  ],
+  "visual_review": "원본의 눈매·입과 의상을 확인했습니다. 시셀라는 움츠림에서 양팔 해방으로, 수아는 책 펼침·기억·팔 벌림·책을 안는 회수로 이어집니다. 효과가 눈과 입을 가리지 않습니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "35b843b58ec625feb4a9ce1880231d495b71e5c4a4cc372392ffe2749d2efade",
+  "width": 1448,
+  "height": 1086
+}

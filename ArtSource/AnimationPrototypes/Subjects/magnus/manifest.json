@@ -1,0 +1,50 @@
+{
+  "id": "magnus",
+  "name": "매그너스",
+  "ultimate": "폭주 바이크",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-f766ea15-ef1d-4eb7-b1df-81a4d4ef29fa.png",
+  "reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/magnus.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "공식 1.0 실험체 스킬 자료"
+    }
+  ],
+  "motion_summary": "Eternal Return Magnus Bike Escape: bulky biker with orange spiky hair, strong blue eyes, black sleeveless leather outfit and heavy club per reference. R starts a MOTORCYCLE, accelerates riding, then dismounts and sends motorcycle forward to crash. No background road; bike is unique R equipment. Sequence: standing ready; crouch and reach handlebars; black/red motorcycle materializes under him; mount saddle; rev with small wheel smoke; lean forward accelerating; bike wheel lifts slightly and torso leans; jump off bike with boots clearly separated from saddle; motorcycle alone drives forward-right as Magnus lands behind; small contained orange collision burst beside bike, not covering face; motorcycle dissolves and club regripped; standing ready. Keep both Magnus and motorcycle small enough to fit with 15 percent transparent margin in every square; no extra rider. Correct muscular chibi identity, not Nia's slender body.",
+  "frame_labels": [
+    "대기",
+    "핸들 잡기",
+    "바이크 시동",
+    "안장 타기",
+    "엔진 회전",
+    "가속 질주",
+    "최대 질주",
+    "바이크에서 뛰어내리기",
+    "바이크만 전진",
+    "바이크 충돌",
+    "무기 다시 잡기",
+    "대기 복귀"
+  ],
+  "intended_airborne_frames": [
+    7
+  ],
+  "visual_review": "승차, 가속, 바이크 이탈, 바이크 단독 전진/충돌을 확인했습니다. 0-based 8,9는 바이크만 보여주는 R 재사용 연출입니다.",
+  "width": 1448,
+  "height": 1086,
+  "atlas_sha256": "b3a61da23cdaf3b5d0ef72d1d96b0c0512d4b18188e1a199beb1fff3a1fc47d6",
+  "alignment_ignore_frames": [
+    8,
+    9
+  ],
+  "actor_absent_frames": [
+    8,
+    9
+  ]
+}
