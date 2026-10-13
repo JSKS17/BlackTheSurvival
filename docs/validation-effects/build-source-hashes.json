@@ -1,0 +1,297 @@
+[
+  {
+    "file": "Assets/Scripts/Lumia/BossMechanics.cs",
+    "sha256": "a79fbfd376bdf81421ed5a8309997bbd38369b94dd1a8beadb821ef97c6b8b8b",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/BossProfiles.cs",
+    "sha256": "f81492a710118b12eab74150ae1e21fdcf8f06fe6fec26443aba3025903edc40",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/BossProfilesClassic.cs",
+    "sha256": "ca4f7b8855d28af8ec2e45994f70d850c85e70405d7d6c97071b20532a9b5f76",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/BossProfilesRecent.cs",
+    "sha256": "8fd6e29cd8b9579bce018aa39e09a0924adf73db8c4d29578758f620b6b5b349",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/CardPresentation.cs",
+    "sha256": "3eaaceca0824fe46d0ed5ca19202a6c738d30efcfe8a9f905cc8a42a76bb07d7",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/ClassicRoster.cs",
+    "sha256": "64fd30549a97cc428f1376d63b6bb21b21350c36474609b1401aac61d03a7349",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/CombatCardCue.cs",
+    "sha256": "b3ecfb2ccc79b6fba5ffe0ecf067d794cada10be4ea41a847268914e73d399f7",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/CombatEffects.cs",
+    "sha256": "c1d1530e8a03e8c55b5de49540a254674b11916da09facfa616bb276c46612b7",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/CombatEffectsShapes.cs",
+    "sha256": "1ec74f6d84896ccfb9ec71f80398d786c6672983382d121f19ca4332992260df",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/CombatVisualProfiles.cs",
+    "sha256": "4076bbc6ef4a0a745deeb6bbb6a7ae8739da4d55fdb7f7a03c179d89166fed16",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/CrossSubjectSynergies.cs",
+    "sha256": "36c7bdc5f4d778f9e2a85f362db3280f7d20911d43262d4bef1d77a9d5fda81f",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/DataModels.cs",
+    "sha256": "cf533cbafa029caad5fe050558dac57d2c58e5ec9bba08e5a1c4760f419298f8",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/DescriptionSummary.cs",
+    "sha256": "d0261a9fd47c7a7dee1a9ee465df2a91ef51c22c1dfdf304c5aab473bd6b9c69",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EncounterChains.cs",
+    "sha256": "52c51a4cfa1dc86360f746ebaa2665d2a2d8fd964824dddd69a48549236daaa6",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EndlessAugmentEngine.cs",
+    "sha256": "5e6523345bef8f5ebcff58c083e74076f335a6b4787b10d94ec8aa4c70827671",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EndlessAugments.cs",
+    "sha256": "abdbe00b47e5fab1276ba2c63ff5b3e2a82df507374708eebc04b716b90e3ef4",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EquipmentIdentity.cs",
+    "sha256": "541fe7187a077265859980c313ee1d6675b9a930b1294038f52f45b74d4705e2",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EventIdentity.cs",
+    "sha256": "f8899cc081910151a7c8b1991fcb970c2c725b937a385d35e7db3ae85a1f73a8",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/EventPresentation.cs",
+    "sha256": "ba7c370b7ffc5ddcd3fd7c0a40b10e656211053e5a28d7afbdf978628882f53c",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/FreeCastMechanics.cs",
+    "sha256": "499048375a5ae5506a15dd57c3912d254cc9a57de564d60e6d8a2720cf1daf7f",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameAudio.cs",
+    "sha256": "6d59e70dac24989e0786f8874c0f4cca4c3990473e31226d0ea2c3eee443cb4e",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameAudioCatalog.cs",
+    "sha256": "baa5ba76a3bcbbba662ea6f9c7ce55d5f5f33fb803b327e26d1adfb52f91bee7",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameAudioVerification.cs",
+    "sha256": "668bcad02759d870b3c061c1d89ac7dd85e5c4bda1b20b9aff89d6464a202e7f",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameDatabase.cs",
+    "sha256": "362329add8bc83f6faa37f42c23004aca090a0cc42946e3e8ff2fd2ee3498567",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameEngine.cs",
+    "sha256": "f81ab5b0cc07de83c7c20e039c63b60f526544215fdeae02725bf526bc11f0b5",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameIdentity.cs",
+    "sha256": "f535e2e78ff286f48936046d3ce8d03e982f782e725a01a3d4dce6b355d04a89",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/GameIdentityVerification.cs",
+    "sha256": "23122f980042c345b9db53463ec41b2902ff2fcb35fa21d7a3cdffc492ee4624",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LobbyDialogue.cs",
+    "sha256": "6d94ce83ff47be0688df6ddef5ef6503612768bd1ba55761f20c886fa1bb83c4",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaArtVerification.cs",
+    "sha256": "b84377073c77a9472cd26f9310258db0db112699b5edf12175bf4deb76baad19",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaAugmentsUI.cs",
+    "sha256": "0256064ef7d234d3256fb655a3c277422609cdeaddcb2be9af0296c0b8f7b6c7",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaEffectsVerification.cs",
+    "sha256": "f33fbdc1a8483f7f9f3cb1a9972dabe37d174717572d1cf67f2cf306e5e15419",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaGame.cs",
+    "sha256": "2e4b7484ed6125df3d0e12134ffafab4cd5cce58a4963036c065b77839b5439b",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaModesUI.cs",
+    "sha256": "3a2169072aa8601b0e9f7a73e49051b7f39f326fef17d626318673befc7ca251",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaResearchPersistence.cs",
+    "sha256": "4fba0e3871eb2edb25b2d532f8b95a56a945baa75db07377d247e84522f1d2e2",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaResearchUI.cs",
+    "sha256": "9316fac8332357d961700c847629164841765d1fc97c25e6ce7ec04174f3aa7b",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/LumiaVerification.cs",
+    "sha256": "59f97dcc6a79ba3ee1c2b452fa3d5be578ea07c9d8a9c54f1d64240e8b686d36",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/PassiveIdentityClassic.cs",
+    "sha256": "0d39306da051d8cd64555a693a2c5c6ff4df2982441f8edc71aebc51cd7d0279",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/PassiveIdentityCore.cs",
+    "sha256": "81abcdc079d4238332b9d1e96557acd376ca8a4fbcbc746db1a26def24cb2dd7",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/PassiveIdentityRecent.cs",
+    "sha256": "7661273a200f3801c3ece1f85557a01876d6adc84e3ee18781505fbeba20ea82",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/PixelArt.cs",
+    "sha256": "a185cf2673d73a98f7b51fda6a0c7444e8c45b3d86c6478b9fd907ca5a5efeeb",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/RareSkinCatalog.cs",
+    "sha256": "c666fd249207e84c34c65714c3e615f4100d137a12a0c81c0b41bbfbb42788a8",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/RareSkinStories.cs",
+    "sha256": "a14a9158b26048e1e9750462950423a25ab90ac0b2d28d152ddd27fdf36bd18c",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/RecentRoster.cs",
+    "sha256": "ec22a2c96319e2442939f2624178d4299a24ae66f77fe5ac55f444f60845385c",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/ResearchEncounters.cs",
+    "sha256": "9c58c0e37d35ffeee75be8fbbc2fa8141039ce882ba05bf13c7c766cec220139",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/ResearchProgression.cs",
+    "sha256": "adf9ef73e360a12d6f3c4178044c8cb66f3640108b1e7728e3dc218817b462cf",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/ResearchRareEncounters.cs",
+    "sha256": "4cb244d0fe7d07fdc76cf48bcfb5adf351fafe20e0602570828ce6754f3b0465",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/ResearchStore.cs",
+    "sha256": "adb47458b9582be998c7d43f6a57c0f8f992075ac6e64f98d6763235f6978e31",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/RuneIdentityCore.cs",
+    "sha256": "c266a06ddecc73e0d3868e05fe9e854bb5a0436bed29ee17e1a732292b9ec09e",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/RunModes.cs",
+    "sha256": "689fed6d945b9e51fa3377cd0c4dcf2e91fca12d2799a03e4b224cfcded9078a",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/SkillIdentityClassic.cs",
+    "sha256": "1fe8fcdc512bf5a99a931876b284ed50fb5a001e4fb79a96e623e56bd9e4b899",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/SkillIdentityCore.cs",
+    "sha256": "4bc45e7d39c1f060019f410f65ae470567e6c02bc12f790165e98cecbc83c529",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/SkillIdentityRecent.cs",
+    "sha256": "937d20b8ab5291afbbcad7e0939fae3081fb16679cc1940ec357bb34cebb4533",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/SkillMechanics.cs",
+    "sha256": "568be4869c73208936ff9e3510c87e14d7a9f57af8ac5c5e8476325ff93dde20",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/StatusIdentity.cs",
+    "sha256": "2e5b4db255ee8d3fda398d717d55688b471f39f2582598b3b8ae405fccfab24c",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/StatusMechanics.cs",
+    "sha256": "94a5e0cfaaec57da905e1a6d94bf6911c385c6d964753c4e052a7bccacf440d3",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/StrategyMechanics.cs",
+    "sha256": "c9e50ed7ffcf31d9f299e5cfbe2020f23595da8c3996987e8987432d415c8358",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/TraitMechanics.cs",
+    "sha256": "fcd2eca3fdb34c86f9bff3de37610ed1386b851d9153f3051711c1193657b47f",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/TraitPresentation.cs",
+    "sha256": "c4f364781c7cfa34c5c6f19357aedbdd67ef4c55ee85c2d3cd986604720b7b98",
+    "buildMatches": true
+  },
+  {
+    "file": "Assets/Scripts/Lumia/WeaponIdentity.cs",
+    "sha256": "0a1d5ae3f2fc78646f61c7b8b037f0f29c764c0fa7d3ac763dac9b905a67cac0",
+    "buildMatches": true
+  }
+]

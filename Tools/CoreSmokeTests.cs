@@ -38,7 +38,8 @@ public static partial class CoreSmokeTests
             EndlessAugmentSilverCombat(); EndlessAugmentGoldCombat(); EndlessAugmentPrismaticCombat(); EndlessAugmentPersistenceAndIsolation();
             EndlessEquipmentChoiceAndSave(); EndlessEquipmentCapacityAndCraft(); EndlessEquipmentLegacyAndModes();
             CardClassificationCanonicalRules();
-            Console.WriteLine("PASS: " + checks + " assertions across 108 game-rule scenarios.");
+            CombatVisualProfileCoverage();
+            Console.WriteLine("PASS: " + checks + " assertions across 109 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }

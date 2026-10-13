@@ -1,0 +1,245 @@
+{
+  "passed": true,
+  "version": "0.1.24",
+  "cards": 392,
+  "motifs": 32,
+  "motions": 8,
+  "screenshots": 46,
+  "cueLayoutMeasurements": 2352,
+  "coreAssertions": 97661,
+  "coreScenarios": 109,
+  "runtimeErrors": 0,
+  "personalSavesPreserved": true,
+  "images": [
+    {
+      "file": "motif_arcade_player.png",
+      "sha256": "0e335af36ed8bb2003ef9746ebeff7774052f6d4a3433b879ed808ca295e65e9",
+      "bytes": 678954
+    },
+    {
+      "file": "motif_arrow_enemy.png",
+      "sha256": "db067557fac8edde8075cdbe1d7ab227a5691628e1e882aef95dbcfc3e7e8598",
+      "bytes": 678600
+    },
+    {
+      "file": "motif_barrage_player.png",
+      "sha256": "aca23931b1e5f5f65c4e109b25b8b6ee5b1557a8d2230268deab9a99e074f100",
+      "bytes": 679891
+    },
+    {
+      "file": "motif_blade_orbit_enemy.png",
+      "sha256": "39d7fc2a33ae0133f7619cd5ae4764472338ad0bb887a5d390b61c9f7d3eb889",
+      "bytes": 679235
+    },
+    {
+      "file": "motif_blood_player.png",
+      "sha256": "c79805e1c72dfa6b6aee5ebba3bd75ea10b39c85517912bd17f91bb451222d88",
+      "bytes": 679648
+    },
+    {
+      "file": "motif_bomb_enemy.png",
+      "sha256": "65a3a39001d0e97cd0ecfe78afd4b9d75f145fc3531798ce65320c835f07cb6c",
+      "bytes": 678569
+    },
+    {
+      "file": "motif_bullet_player.png",
+      "sha256": "d33016204575da52fc18d1ddcdc8a36ce5b1ad4a50b1a00d554a2d6aea61e7d4",
+      "bytes": 679500
+    },
+    {
+      "file": "motif_camera_enemy.png",
+      "sha256": "a0959fac15eb550f9a90a25ede2a2e207fb58ec251b61c93e9288d9761696858",
+      "bytes": 677535
+    },
+    {
+      "file": "motif_chain_player.png",
+      "sha256": "6a7251402fc273fe9d422fb97a9cfc20d78c1d29d0a37e5a935d7614926fa03f",
+      "bytes": 679820
+    },
+    {
+      "file": "motif_chess_enemy.png",
+      "sha256": "961b5e4da1fa90bb7955116ea9ff0599f3d1c98612f360f50f53bf928df8c851",
+      "bytes": 679824
+    },
+    {
+      "file": "motif_earth_player.png",
+      "sha256": "94adc6aaa04258b521f3467c00d55b97f5ef34ffc20b43a5d1ca50927e8ff358",
+      "bytes": 681832
+    },
+    {
+      "file": "motif_flame_enemy.png",
+      "sha256": "49345f89a1875cf1fc15efdecc59bf79e318410f0b8fa0725a7cd76fc7b7e80b",
+      "bytes": 675554
+    },
+    {
+      "file": "motif_flower_player.png",
+      "sha256": "baca500ad4190db031e8feb05d94e1701f47c56ca9883b42af1dc7df13b4387d",
+      "bytes": 681689
+    },
+    {
+      "file": "motif_heal_enemy.png",
+      "sha256": "6f734bc44501184554d6cdecf9a63350c949e9c587b1b5e0fb417f93ab9391b8",
+      "bytes": 678334
+    },
+    {
+      "file": "motif_ice_player.png",
+      "sha256": "c65dbf65d15b4e862f3fd7b13587fd4fdd0e9eafc9c94981ac7fe42a989fa202",
+      "bytes": 681870
+    },
+    {
+      "file": "motif_lightning_enemy.png",
+      "sha256": "c923b1a058aec43cc8bf8d57e2578aeee0aa49e6b44687ad31e1fc15077932b1",
+      "bytes": 677978
+    },
+    {
+      "file": "motif_music_player.png",
+      "sha256": "7b6267cc16be69910553a4922883a9dfd9d6d6af2af960a3045a6dbc9115960b",
+      "bytes": 679047
+    },
+    {
+      "file": "motif_orb_enemy.png",
+      "sha256": "77184a35d9fea470355ffac814e671358dbafd5177b65f7a374d199d5095810b",
+      "bytes": 678133
+    },
+    {
+      "file": "motif_paper_player.png",
+      "sha256": "85fd0ea28a82e9dc52f69a904d77229952163af9434b5bf80d8fe440a04d47d2",
+      "bytes": 679585
+    },
+    {
+      "file": "motif_poison_enemy.png",
+      "sha256": "b9bb68052a9729f838b42d8c3b3575f1ca44a26a73864c7481e62d1adf9324c7",
+      "bytes": 679358
+    },
+    {
+      "file": "motif_prism_player.png",
+      "sha256": "8d407d1f4ca82fc52a6202a335b4bdd644b1237df69b9d60b284e5db45d05fed",
+      "bytes": 676540
+    },
+    {
+      "file": "motif_puppet_enemy.png",
+      "sha256": "7325b6d72ffa8996cff872e17f4000fc38d45cc339b39d9dcf347a037ab16b37",
+      "bytes": 678694
+    },
+    {
+      "file": "motif_shield_player.png",
+      "sha256": "8feee9fda77f7b221b3e580d864eeddb6d8c59d1a9a9d8cb88bd3bf6c7cf37c3",
+      "bytes": 678364
+    },
+    {
+      "file": "motif_sigil_enemy.png",
+      "sha256": "c05d2ae695e07af35359caa376b741bcd2fbbf383943ce294d5a6e8344058cb0",
+      "bytes": 678561
+    },
+    {
+      "file": "motif_slash_player.png",
+      "sha256": "2854b084d6ac79a5bb77c4dbffd61c5fe0b50f9b3d2bbbea017f3548b70a476a",
+      "bytes": 681149
+    },
+    {
+      "file": "motif_sniper_enemy.png",
+      "sha256": "3bc3b80d6ac8c9f9188459afa0546f8e3a8d5ff921518090a84551ad5e840dc1",
+      "bytes": 672753
+    },
+    {
+      "file": "motif_star_player.png",
+      "sha256": "1a2dfa50a4068ebd5909fc9b3bb7bb40995ba44060670b4e4bccd1aa1c164df4",
+      "bytes": 678384
+    },
+    {
+      "file": "motif_thrust_enemy.png",
+      "sha256": "435c89558aa0911464d8d1c7f9ac030b3c22da155c8bd236ca1fe7c4b989eeb6",
+      "bytes": 681985
+    },
+    {
+      "file": "motif_time_player.png",
+      "sha256": "8a5b73cd775c1605430773dc9b9246f9b0c59cd389e3ab316976e64abd1049be",
+      "bytes": 680250
+    },
+    {
+      "file": "motif_trap_enemy.png",
+      "sha256": "019fa84641918d6090832503e5545fd088647e87c51922d457cdcbc1a820e38d",
+      "bytes": 679668
+    },
+    {
+      "file": "motif_water_player.png",
+      "sha256": "0c464f659f43d7e3de0e3b29bb4e3a364a5863bd2e74dd340cda485dcdf9da5e",
+      "bytes": 677507
+    },
+    {
+      "file": "motif_wind_enemy.png",
+      "sha256": "5eb31403509c35313cf4baf00b8ab2bc3d8698e32409dc00c0a56e59de46610f",
+      "bytes": 677717
+    },
+    {
+      "file": "actual_player_cast_intro.png",
+      "sha256": "c21cb4a8743b90846b635e88c9de8e2dc672393c0d85f70cb35c42d2b8e34e92",
+      "bytes": 648336
+    },
+    {
+      "file": "actual_enemy_cast_intro.png",
+      "sha256": "5af058826746d885999f19afae31ddd3cbbf52e9818a77169b53a4a3842b215a",
+      "bytes": 615362
+    },
+    {
+      "file": "cast_fade.png",
+      "sha256": "cfbc697084db9f01c2b7c72d0ec321ced8df0c2d95dfbee68f5e21c109c642aa",
+      "bytes": 684828
+    },
+    {
+      "file": "movement_depart.png",
+      "sha256": "6c1cb3fc6be9d2b29afde7c2a9633990243b4dfe878c71adf56ace87d3c36af6",
+      "bytes": 653424
+    },
+    {
+      "file": "movement_contact.png",
+      "sha256": "e7e307281747d275b32c276005d3d5174e4ce0f346a5ebc7bd2f52f8406be01e",
+      "bytes": 678563
+    },
+    {
+      "file": "movement_return.png",
+      "sha256": "f817bd06cc72547beb88ea8ca7dc3f7e1594825002e53c020743d7405799b8a5",
+      "bytes": 684938
+    },
+    {
+      "file": "reduced_player.png",
+      "sha256": "43abc0fd17c57bcbea55334c8c072aecb8b9be546c7acd39f697b611a3a5932c",
+      "bytes": 652790
+    },
+    {
+      "file": "reduced_enemy.png",
+      "sha256": "28c12bc7ba415e39007ebaeb2731853493adddaa89967c1759d98dc0ff909cd8",
+      "bytes": 653089
+    },
+    {
+      "file": "secondary_no_card_popup.png",
+      "sha256": "bdfefeb167a9723e3b318edee89fa172bcafd561eb2e0a3aba85b180ef203d48",
+      "bytes": 677758
+    },
+    {
+      "file": "rapid_both_sides.png",
+      "sha256": "c7642f78321ef80e3bd94e5b59b1ecbf43ed7e2d534e16e5e1c75569254167b9",
+      "bytes": 674637
+    },
+    {
+      "file": "movement_blink_contact.png",
+      "sha256": "cdc1a69678d125364fd55c15715b2f18ba7fdbc007289bd0fdf68f0909ef2aed",
+      "bytes": 680379
+    },
+    {
+      "file": "movement_leap_contact.png",
+      "sha256": "310814ea1251657b2a9cc298b7e6d3e6442d66a20590474406cd16f4ca3636f3",
+      "bytes": 678820
+    },
+    {
+      "file": "movement_retreat_contact.png",
+      "sha256": "c32857325ecbcb2850b81acb0659394421f03ba5e711d8817260926280c6af21",
+      "bytes": 675759
+    },
+    {
+      "file": "movement_orbit_contact.png",
+      "sha256": "bec7d4b39e73cdbbec22f776366bfe9ecfbf1359a05d66ce53455dfee73ab8a9",
+      "bytes": 679922
+    }
+  ]
+}

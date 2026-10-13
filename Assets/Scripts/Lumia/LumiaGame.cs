@@ -62,6 +62,7 @@ namespace Lumia
             audioVerification = Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-audio-verify") >= 0;
             bool verify = audioVerification || Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-augment-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-modes-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-art-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-portrait-verify") >= 0 || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-identity-verify") >= 0);
             verify |= Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-face-verify") >= 0;
+            verify |= Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-effects-verify") >= 0;
             savePath = Path.Combine(Application.persistentDataPath, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
             researchStore = new ResearchStore(Path.Combine(Application.persistentDataPath, verify ? "bts-research-verification.json" : "bts-research-v1.json"),
@@ -562,9 +563,8 @@ namespace Lumia
             }
             else Para(new Rect(454, 148, 371, 40), intent, 11, Text);
             float bob = reduceMotion ? 0 : Mathf.Floor(Mathf.Sin(Time.unscaledTime * 2) * 2) * 2;
-            Vector2 po = effects.Offset(false, reduceMotion), eo = effects.Offset(true, reduceMotion);
-            Tex(new Rect(129 + po.x, 169 + bob + po.y, 214, 215), PixelArt.Portrait("hana"), ScaleMode.ScaleToFit);
-            Tex(new Rect(913 + eo.x, 169 - bob + eo.y, 218, 216), PixelArt.Portrait(c.enemyId), ScaleMode.ScaleToFit);
+            effects.DrawActor(new Rect(129, 169 + bob, 214, 215), PixelArt.Portrait("hana"), false, reduceMotion);
+            effects.DrawActor(new Rect(913, 169 - bob, 218, 216), PixelArt.Portrait(c.enemyId), true, reduceMotion);
             Txt(new Rect(142, 388, 188, 22), "하나  ·  방어 " + c.block, 14, Mint, true);
             Txt(new Rect(873, 388, 292, 22), c.enemyName + "  LV." + c.enemyLevel + "  방어 " + c.enemyBlock, 14, Pink, true);
             Bar(new Rect(873, 419, 292, 9), c.enemyHp, c.enemyMaxHp, Pink);
@@ -587,7 +587,7 @@ namespace Lumia
             for (int i = 0; i < hand.Length; i++)
             {
                 Rect r = new Rect(i * 178, 0, 168, 212);
-                bool playable = Engine.CanPlayCard(i) && Time.unscaledTime >= nextPlayerActionAt;
+                bool playable = Engine.CanPlayCard(i) && !effects.Casting && Time.unscaledTime >= nextPlayerActionAt;
                 bool selected = c.retainIndex == i;
                 DrawCard(r, hand[i], selected, retainSelecting ? !c.enemyTurn : playable, true);
                 if (selected) { Rect mark = new Rect(r.xMax - 43, r.y + 8, 34, 23); Fill(mark, Ink); Txt(mark, "보관", 10, Gold, true); }
@@ -601,7 +601,7 @@ namespace Lumia
             }
             GUI.EndScrollView();
             if (cardUsed) return;
-            if (Btn(new Rect(1070, 515, 186, 71), c.enemyTurn ? "상대 행동 중" : "턴 종료  >", true, Gold, !c.enemyTurn && Time.unscaledTime >= nextPlayerActionAt)) { if (Act(Engine.BeginEndTurn, "turn.end")) retainSelecting = false; return; }
+            if (Btn(new Rect(1070, 515, 186, 71), c.enemyTurn ? "상대 행동 중" : "턴 종료  >", true, Gold, !c.enemyTurn && !effects.Casting && Time.unscaledTime >= nextPlayerActionAt)) { if (Act(Engine.BeginEndTurn, "turn.end")) retainSelecting = false; return; }
             if (Btn(new Rect(1070, 601, 186, 38), "회복 아이템", false, Mint, !c.enemyTurn)) { inventory = true; inventoryTab = 2; inventoryScroll = Vector2.zero; }
             if (s.log.Count > 0) Para(new Rect(1070, 653, 186, 43), s.log[s.log.Count - 1], 11, Muted);
         }

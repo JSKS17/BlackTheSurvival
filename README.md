@@ -4,7 +4,7 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.23](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.23)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 배포 버전은 [v0.1.24](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v0.1.24)에 있습니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
 - 완성된 Windows 빌드가 있으면 `Build/Windows/BlackTheSurvival.exe`를 실행하세요. 같은 폴더의 `BlackTheSurvival_Data`, `MonoBleedingEdge`, `UnityPlayer.dll`도 함께 있어야 합니다.
@@ -73,7 +73,9 @@
 | 그래픽 | 80×80 논리 격자를 160×160으로 확대한 기본 치비 스프라이트 92개와 레어 조우 전용 스킨·사복 91개. 카드 392종·패시브 91종, 룬 16종·오브젝트 5종·장비 51종·크레딧·모닥불·지도 4종의 전용 도트 아이콘. 니아 로비, 전투 배경, 야생동물·음식 도트 그림과 한글 도트 글꼴 |
 | 로비 | 모드를 선택하는 새 게임, 이어하기, 환경 설정, 검색 가능한 카드 도감, 클릭하여 순환하는 니아의 창작 대사 48개, 요청한 IP·저작권 문구 |
 | 저장 | 행동마다 자동 저장. 손패·버린 카드·상대 행동·난수 상태까지 복원 |
-| 전투 연출 | 모든 카드에 효과 유형·색·고유 패턴 지정. 도트 탄환·참격·폭발·번개·불꽃·얼음·마법·방어·회복·이동 연출과 8비트 효과음. 적 카드도 순차 재생 |
+| 전투 연출 | 양측 카드 사용 시 짧은 확대 표시, 원작 기술 특징과 아이콘 팔레트를 참고한 32계열 도트 공격, 돌진·후퇴·도약·순간이동·회전과 잔상·피격 반응. 적 카드도 순차 재생. 움직임 줄이기 지원 |
+
+카드를 사용하면 스킬 아이콘·실험체·기술 키·카드명이 약 0.3초 동안 확대되어 나타납니다. 원작 기술과 저장된 원본 아이콘을 참고하여 392종에 32계열 공격 모양과 개별 팔레트를 적용하고, 준비·이동·타격·소멸 순서로 재생합니다. 플레이어와 상대 실험체 모두 돌진·후퇴·도약·순간이동·회전 움직임과 잔상·피격 반응을 사용합니다. 지속 피해·패시브·룬·장비 발동은 별도 작은 효과로 구분하고 카드 확대를 반복하지 않습니다. 움직임 줄이기 설정에서는 확대·이동·회전·잔상 없이 고정 안내와 숫자만 표시합니다. [원작 참고와 연출 규칙](docs/COMBAT_VISUALS.md)을 보관합니다.
 
 기본 92종과 레어 스킨 91종의 실제 게임 리소스를 전수 검토하고, 140종의 희미한 눈·입 픽셀을 개별 보정했습니다. 캐릭터별 눈매와 표정·치아·풍선껌·안경·수염을 유지하며 이미지 크기 160×160, 80×80 논리 격자, 투명 실루엣과 게임 내 표시 크기는 바꾸지 않았습니다. [전후 비교와 보존 검사](docs/art-face-refinement/README.md)를 보관합니다.
 
@@ -133,7 +135,8 @@ Unity의 `Application.persistentDataPath` 아래 `lumia-vf-loop-v1.json`에 원�
 - `EventIdentity.cs`, `EncounterChains.cs`, `EventPresentation.cs`: 기본 조우 91종·후속 조우 8종·총 297개 행동과 고정 보상·거래 대가·약속 표시.
 - `ResearchProgression.cs`, `ResearchStore.cs`, `ResearchEncounters.cs`, `LumiaResearchUI.cs`, `LumiaResearchPersistence.cs`: 원정 종료 정산·91명 연구 과제·영구 보고서·추가 조우 91종·로비 연구 기록과 미정산 보존.
 - `StrategyMechanics.cs`: 원정별 카드 강화 방향과 복사본을 통한 효과 적용. 공유 카드 데이터와 적 기술은 유지합니다.
-- `CombatEffects.cs`: 카드별 도트 애니메이션·피해 숫자·8비트 음향.
+- `CombatEffects.cs` / `CombatEffectsShapes.cs`: 타격 순서·32계열 도트 모양·양측 스프라이트 동작·피해 숫자·음향.
+- `CombatVisualProfiles.cs` / `CombatCardCue.cs`: 카드별 시각 프로필·원본 아이콘 팔레트·짧은 확대 카드 안내.
 - `CrossSubjectSynergies.cs`: 서로 다른 실험체 사이의 8종 연계·유료 준비·턴당 제한·공통 설명. 플레이어·적·예고에 같은 판정을 사용합니다.
 - `GameEngine.cs`: Unity UI와 독립된 규칙·결정론적 난수·진행 상태.
 - `GameIdentity.cs`: 제품 이름과 이전 제품 저장·환경 설정의 자동 이전.
