@@ -1,0 +1,76 @@
+{
+  "id": "nia_challenge",
+  "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-b2937a26-4688-4acf-a81c-499e0bbfd53b.png",
+  "prompt": "Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_challenge: the gamer girl inviting the player to an endless-mode challenge. Hold a small black-and-pink game controller in one tiny hand near her waist, and extend the other short arm toward the viewer invitingly. Crisp playful confident magenta eyes with raised eyebrow and a distinctly visible friendly smug open smile. Controller stays well below her face. Keep source head, ears/headphones, curled hair silhouette, body proportions and costume exactly. No text on controller, no scene or speech bubble.",
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+  "generated_sha256": "ceaf7cd5a0fc140b74681d70e76931db7386fe5cbb5499d3e3b22e16a8668b93",
+  "generated_dimensions": [
+    1254,
+    1254
+  ],
+  "generated_alpha_bounds": [
+    0,
+    9,
+    1226,
+    1230
+  ],
+  "output_path": "Assets/Resources/Lumia/Story/Characters/nia_challenge.png",
+  "output_sha256": "ceaf7cd5a0fc140b74681d70e76931db7386fe5cbb5499d3e3b22e16a8668b93",
+  "output_dimensions": [
+    1254,
+    1254
+  ],
+  "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+  "alpha_validation": {
+    "mode": "RGBA",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "transparent_pixels": 1175427,
+    "opaque_pixels": 1510,
+    "partial_alpha_pixels": 395579,
+    "alpha_gt_zero_bounds": [
+      0,
+      9,
+      1226,
+      1230
+    ],
+    "alpha_threshold_bounds": {
+      "16": [
+        328,
+        155,
+        929,
+        1159
+      ],
+      "64": [
+        328,
+        156,
+        928,
+        1159
+      ],
+      "128": [
+        328,
+        156,
+        928,
+        1159
+      ]
+    },
+    "thresholds_are_analysis_only": true,
+    "asset_pixels_changed": false
+  },
+  "source_and_output_sha_verified": true,
+  "visual_review": {
+    "expression_pose": "게임패드·도전 권유",
+    "eyes_separate_and_visible": true,
+    "mouth_separate_and_visible": true,
+    "original_character_hair_outfit_identity_preserved": true,
+    "short_limbs_big_head_pixel_style_preserved": true,
+    "no_background_ui_text_or_speech_bubble": true
+  }
+}

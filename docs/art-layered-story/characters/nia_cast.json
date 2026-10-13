@@ -1,0 +1,76 @@
+{
+  "id": "nia_cast",
+  "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-d8ec722b-aac2-462d-b338-f750f28da729.png",
+  "prompt": "Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_cast: mischievously using her VF arcade powers again. Extend ONE short forearm forward with open tiny palm, the other hand held compactly near her waist. Sly excited half-lidded magenta eyes and a clearly visible little open smile. A very small cluster of magenta square arcade particles close above the open palm, not a background, no ring or full portal, no particles on her face. Stand three-quarter right; keep the exact source silhouette, ear/headphone/head/body ratio and original outfit.",
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+  "generated_sha256": "42c91bca9be53772b57e515a941a3e155414e1535785fa23914fd796f16f9a40",
+  "generated_dimensions": [
+    1254,
+    1254
+  ],
+  "generated_alpha_bounds": [
+    33,
+    31,
+    1222,
+    1230
+  ],
+  "output_path": "Assets/Resources/Lumia/Story/Characters/nia_cast.png",
+  "output_sha256": "42c91bca9be53772b57e515a941a3e155414e1535785fa23914fd796f16f9a40",
+  "output_dimensions": [
+    1254,
+    1254
+  ],
+  "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+  "alpha_validation": {
+    "mode": "RGBA",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "transparent_pixels": 1189995,
+    "opaque_pixels": 2164,
+    "partial_alpha_pixels": 380357,
+    "alpha_gt_zero_bounds": [
+      33,
+      31,
+      1222,
+      1230
+    ],
+    "alpha_threshold_bounds": {
+      "16": [
+        361,
+        187,
+        1003,
+        1176
+      ],
+      "64": [
+        361,
+        188,
+        1003,
+        1175
+      ],
+      "128": [
+        362,
+        188,
+        1003,
+        1175
+      ]
+    },
+    "thresholds_are_analysis_only": true,
+    "asset_pixels_changed": false
+  },
+  "source_and_output_sha_verified": true,
+  "visual_review": {
+    "expression_pose": "분홍 VF 입자를 손에 띄운 시전",
+    "eyes_separate_and_visible": true,
+    "mouth_separate_and_visible": true,
+    "original_character_hair_outfit_identity_preserved": true,
+    "short_limbs_big_head_pixel_style_preserved": true,
+    "no_background_ui_text_or_speech_bubble": true
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "nia_cocky",
+  "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-7958faaf-2cae-42ea-bbc9-ed0e24f57005.png",
+  "prompt": "Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_cocky: a smug gamer boss boasts about stronger versions of herself. Stand planted with both very short arms folded across her little jacket, chin slightly raised. Confident half-lidded magenta eyes with asymmetric sly eyebrows and a crisp small smug side-smile. Two clearly visible eyes and a separate mouth, not identical neutral eye expression. Keep reference head/ear/headphone/hair proportions exactly. No extra characters or clones; ONE full-body transparent sprite only.",
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+  "generated_sha256": "9bf7c363b9f7e60424dac1985802d1cc8fe76ffb08990121f7145cc81154fefd",
+  "generated_dimensions": [
+    1254,
+    1254
+  ],
+  "generated_alpha_bounds": [
+    49,
+    21,
+    1234,
+    1237
+  ],
+  "output_path": "Assets/Resources/Lumia/Story/Characters/nia_cocky.png",
+  "output_sha256": "9bf7c363b9f7e60424dac1985802d1cc8fe76ffb08990121f7145cc81154fefd",
+  "output_dimensions": [
+    1254,
+    1254
+  ],
+  "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+  "alpha_validation": {
+    "mode": "RGBA",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "transparent_pixels": 1215675,
+    "opaque_pixels": 1509,
+    "partial_alpha_pixels": 355332,
+    "alpha_gt_zero_bounds": [
+      49,
+      21,
+      1234,
+      1237
+    ],
+    "alpha_threshold_bounds": {
+      "16": [
+        347,
+        169,
+        924,
+        1136
+      ],
+      "64": [
+        348,
+        169,
+        923,
+        1136
+      ],
+      "128": [
+        348,
+        170,
+        923,
+        1136
+      ]
+    },
+    "thresholds_are_analysis_only": true,
+    "asset_pixels_changed": false
+  },
+  "source_and_output_sha_verified": true,
+  "visual_review": {
+    "expression_pose": "팔짱·최약체 농담의 허세",
+    "eyes_separate_and_visible": true,
+    "mouth_separate_and_visible": true,
+    "original_character_hair_outfit_identity_preserved": true,
+    "short_limbs_big_head_pixel_style_preserved": true,
+    "no_background_ui_text_or_speech_bubble": true
+  }
+}

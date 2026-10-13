@@ -1,4 +1,6 @@
-# 스토리 컷신 아트와 생성 프롬프트
+> v0.1.26에서는 아래 합성 일러스트를 런타임에서 제외하고 `ArtSource/Story/v0.1.25/`에 보관합니다. 현재 컷신은 배경·전용 표정/포즈 스프라이트·말풍선·텍스트의 독립 레이어로 구성합니다.
+
+# v0.1.25 스토리 컷신 아트와 생성 프롬프트
 
 프롤로그 4컷·노말 엔딩 4컷·하드 엔딩 4컷, 총 12장의 독립 배경을 built-in `image_gen`으로 제작했습니다. CLI/API fallback과 외부 이미지 후처리는 사용하지 않았습니다. 선택한 생성 PNG를 바이트 그대로 프로젝트에 복사했습니다.
 
@@ -28,18 +30,18 @@
 
 | 파일 | 크기 | 장면 |
 |---|---|---|
-| [prologue_1.png](../Assets/Resources/Lumia/Story/prologue_1.png) | 1672×941 | 루미아 섬에서 PC게임 금단증상을 겪고 있는 니아.. |
-| [prologue_2.png](../Assets/Resources/Lumia/Story/prologue_2.png) | 1672×941 | 슬더스를 하고 싶은 마음에 VF 능력이 폭주해 루미아 섬을 변형시킨다! |
-| [prologue_3.png](../Assets/Resources/Lumia/Story/prologue_3.png) | 1672×941 | 평소처럼 실험을 진행하다가 말려든 연구원 하나.. |
-| [prologue_4.png](../Assets/Resources/Lumia/Story/prologue_4.png) | 1671×941 | 과연 하나는 끝까지 나아가 루미아 섬을 돌려놓을 수 있을 것인가? |
-| [normal_1.png](../Assets/Resources/Lumia/Story/normal_1.png) | 1672×941 | 니아를 쓰러트리고 루미아 섬을 돌려놓은 하나..? |
-| [normal_2.png](../Assets/Resources/Lumia/Story/normal_2.png) | 1672×941 | 그런데 그 때, 니아가 나타났다! / 니아: 여기서 끝이 아니다! |
-| [normal_3.png](../Assets/Resources/Lumia/Story/normal_3.png) | 1672×941 | 니아: 방금 네가 쓰러트린 건 우리 니아들 중 최약체.. |
-| [normal_4.png](../Assets/Resources/Lumia/Story/normal_4.png) | 1672×941 | 과연 하나는 다시 루미아 섬을 돌려놓을 수 있을 것인가? |
-| [hard_1.png](../Assets/Resources/Lumia/Story/hard_1.png) | 1672×941 | 이번에야말로 니아를 쓰러트리고 루미아 섬을 돌려놓은 하나.. |
-| [hard_2.png](../Assets/Resources/Lumia/Story/hard_2.png) | 1672×941 | 라는 꿈을 꾼 니아.. / 니아: 아, 망할 꿈. |
-| [hard_3.png](../Assets/Resources/Lumia/Story/hard_3.png) | 1672×941 | 재밌는 꿈을 꾼 니아가 다시 VF 능력을 사용한다! |
-| [hard_4.png](../Assets/Resources/Lumia/Story/hard_4.png) | 1672×941 | 니아: 이번엔 ‘무한 모드’에 도전해보는 게 어때? |
+| [prologue_1.png](../ArtSource/Story/v0.1.25/prologue_1.png) | 1672×941 | 루미아 섬에서 PC게임 금단증상을 겪고 있는 니아.. |
+| [prologue_2.png](../ArtSource/Story/v0.1.25/prologue_2.png) | 1672×941 | 슬더스를 하고 싶은 마음에 VF 능력이 폭주해 루미아 섬을 변형시킨다! |
+| [prologue_3.png](../ArtSource/Story/v0.1.25/prologue_3.png) | 1672×941 | 평소처럼 실험을 진행하다가 말려든 연구원 하나.. |
+| [prologue_4.png](../ArtSource/Story/v0.1.25/prologue_4.png) | 1671×941 | 과연 하나는 끝까지 나아가 루미아 섬을 돌려놓을 수 있을 것인가? |
+| [normal_1.png](../ArtSource/Story/v0.1.25/normal_1.png) | 1672×941 | 니아를 쓰러트리고 루미아 섬을 돌려놓은 하나..? |
+| [normal_2.png](../ArtSource/Story/v0.1.25/normal_2.png) | 1672×941 | 그런데 그 때, 니아가 나타났다! / 니아: 여기서 끝이 아니다! |
+| [normal_3.png](../ArtSource/Story/v0.1.25/normal_3.png) | 1672×941 | 니아: 방금 네가 쓰러트린 건 우리 니아들 중 최약체.. |
+| [normal_4.png](../ArtSource/Story/v0.1.25/normal_4.png) | 1672×941 | 과연 하나는 다시 루미아 섬을 돌려놓을 수 있을 것인가? |
+| [hard_1.png](../ArtSource/Story/v0.1.25/hard_1.png) | 1672×941 | 이번에야말로 니아를 쓰러트리고 루미아 섬을 돌려놓은 하나.. |
+| [hard_2.png](../ArtSource/Story/v0.1.25/hard_2.png) | 1672×941 | 라는 꿈을 꾼 니아.. / 니아: 아, 망할 꿈. |
+| [hard_3.png](../ArtSource/Story/v0.1.25/hard_3.png) | 1672×941 | 재밌는 꿈을 꾼 니아가 다시 VF 능력을 사용한다! |
+| [hard_4.png](../ArtSource/Story/v0.1.25/hard_4.png) | 1672×941 | 니아: 이번엔 ‘무한 모드’에 도전해보는 게 어때? |
 
 ## 정확한 생성 프롬프트
 

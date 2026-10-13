@@ -1,0 +1,113 @@
+{
+  "alphaThreshold": 32,
+  "characters": [
+    {
+      "id": "hana_determined",
+      "width": 1254,
+      "height": 1254,
+      "left": 370,
+      "top": 323,
+      "right": 925,
+      "bottom": 1151
+    },
+    {
+      "id": "hana_relieved",
+      "width": 1254,
+      "height": 1254,
+      "left": 373,
+      "top": 318,
+      "right": 896,
+      "bottom": 1133
+    },
+    {
+      "id": "hana_startled",
+      "width": 1254,
+      "height": 1254,
+      "left": 345,
+      "top": 266,
+      "right": 957,
+      "bottom": 1162
+    },
+    {
+      "id": "hana_work",
+      "width": 1254,
+      "height": 1254,
+      "left": 356,
+      "top": 293,
+      "right": 919,
+      "bottom": 1143
+    },
+    {
+      "id": "nia_cast",
+      "width": 1254,
+      "height": 1254,
+      "left": 361,
+      "top": 188,
+      "right": 1003,
+      "bottom": 1175
+    },
+    {
+      "id": "nia_challenge",
+      "width": 1254,
+      "height": 1254,
+      "left": 328,
+      "top": 155,
+      "right": 928,
+      "bottom": 1159
+    },
+    {
+      "id": "nia_cocky",
+      "width": 1254,
+      "height": 1254,
+      "left": 347,
+      "top": 169,
+      "right": 924,
+      "bottom": 1136
+    },
+    {
+      "id": "nia_defeated",
+      "width": 1254,
+      "height": 1254,
+      "left": 346,
+      "top": 370,
+      "right": 922,
+      "bottom": 1135
+    },
+    {
+      "id": "nia_frustrated",
+      "width": 1254,
+      "height": 1254,
+      "left": 346,
+      "top": 178,
+      "right": 947,
+      "bottom": 1160
+    },
+    {
+      "id": "nia_overload",
+      "width": 1254,
+      "height": 1254,
+      "left": 257,
+      "top": 223,
+      "right": 1010,
+      "bottom": 1129
+    },
+    {
+      "id": "nia_taunt",
+      "width": 1254,
+      "height": 1254,
+      "left": 351,
+      "top": 188,
+      "right": 934,
+      "bottom": 1156
+    },
+    {
+      "id": "nia_wake",
+      "width": 1254,
+      "height": 1254,
+      "left": 353,
+      "top": 187,
+      "right": 911,
+      "bottom": 1133
+    }
+  ]
+}

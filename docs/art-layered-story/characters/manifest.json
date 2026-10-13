@@ -1,0 +1,927 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "assets": 12,
+  "transparent_background": true,
+  "final_pixels_changed_after_generation": false,
+  "final_dimensions": [
+    1254,
+    1254
+  ],
+  "runtime_logical_sprite_size": 80,
+  "runtime_filter": "Point",
+  "original_game_portraits_changed": false,
+  "records": [
+    {
+      "id": "nia_frustrated",
+      "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-482581e0-1b4b-4271-8f75-06f8e95838e5.png",
+      "prompt": "Use case: identity-preserve. Asset type: one transparent pixel-art character sprite for a layered game cutscene. Edit target: the attached ORIGINAL 160x160 Nia game sprite. Make exactly ONE variant named nia_frustrated: she cannot play PC games and sulks, sitting low or standing with shoulders drooped, one tiny hand resting under her chin, annoyed half-lidded eyes and a clearly visible small pout. Preserve this EXACT character's original sprite design: violet-pink curled short hair with dark pink headphones, black/pink cropped jacket and striped pink sleeves, tiny dark shorts/skirt, black/pink boots. Keep the reference's very squat 2-head-tall chibi proportions, oversized round head, extremely short arms/legs, side-view three-quarter facing right. Keep its low-resolution pixel count, blocky hard-edged pixel clusters, dark 1-logical-pixel outline, limited palette and tiny crisp facial features. Only change expression and arm/leg pose, not outfit, face identity, hair shape or body proportions. Eyes and mouth must be distinct and separated, not obscured by hair. True transparent background with intact alpha; no ground, no shadow plate, no scene, no UI, no lettering or speech bubble. One whole character fully inside canvas with margin. This is a sprite edit, NOT a high-detail anime illustration, NOT smooth painting, NOT a large-head portrait crop. Prefer matching the source 160x160 canvas/logical 80x80 pixel grid; if generated at higher resolution, maintain obviously large uniform square pixels and identical sprite silhouette scale/proportions.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+      "generated_sha256": "27924ac37ea8c73729b48545653fd386b84e99b756ccce785d99f39437da1887",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_alpha_bounds": [
+        63,
+        136,
+        1184,
+        1230
+      ],
+      "output_path": "Assets/Resources/Lumia/Story/Characters/nia_frustrated.png",
+      "output_sha256": "27924ac37ea8c73729b48545653fd386b84e99b756ccce785d99f39437da1887",
+      "output_dimensions": [
+        1254,
+        1254
+      ],
+      "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+      "alpha_validation": {
+        "mode": "RGBA",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "transparent_pixels": 1195334,
+        "opaque_pixels": 1807,
+        "partial_alpha_pixels": 375375,
+        "alpha_gt_zero_bounds": [
+          63,
+          136,
+          1184,
+          1230
+        ],
+        "alpha_threshold_bounds": {
+          "16": [
+            346,
+            178,
+            947,
+            1160
+          ],
+          "64": [
+            347,
+            179,
+            947,
+            1159
+          ],
+          "128": [
+            347,
+            179,
+            946,
+            1159
+          ]
+        },
+        "thresholds_are_analysis_only": true,
+        "asset_pixels_changed": false
+      },
+      "source_and_output_sha_verified": true,
+      "visual_review": {
+        "expression_pose": "PC 게임을 못 해 부루퉁한 표정·턱을 괸 손",
+        "eyes_separate_and_visible": true,
+        "mouth_separate_and_visible": true,
+        "original_character_hair_outfit_identity_preserved": true,
+        "short_limbs_big_head_pixel_style_preserved": true,
+        "no_background_ui_text_or_speech_bubble": true
+      }
+    },
+    {
+      "id": "nia_overload",
+      "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-4c7b40f4-5c67-4b25-8120-ac2d29900b53.png",
+      "prompt": "Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_overload: Nia's VF gamer power overflows; she raises both tiny arms outward and up, with a lively wide grin and bright excited sharp eyes. A few compact magenta arcade square sparks may hover close to her hands, staying a separate-looking sparse accent rather than covering face/body. Her feet remain planted; dramatic triumphant arms but no stretched long limbs. Face and both hands clearly readable.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+      "generated_sha256": "d5711fb61bce924b4105a0dde54fd3ab8e5c3c7904e64b59e524a2efca79768d",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_alpha_bounds": [
+        0,
+        103,
+        1206,
+        1254
+      ],
+      "output_path": "Assets/Resources/Lumia/Story/Characters/nia_overload.png",
+      "output_sha256": "d5711fb61bce924b4105a0dde54fd3ab8e5c3c7904e64b59e524a2efca79768d",
+      "output_dimensions": [
+        1254,
+        1254
+      ],
+      "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+      "alpha_validation": {
+        "mode": "RGBA",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "transparent_pixels": 1203710,
+        "opaque_pixels": 1437,
+        "partial_alpha_pixels": 367369,
+        "alpha_gt_zero_bounds": [
+          0,
+          103,
+          1206,
+          1254
+        ],
+        "alpha_threshold_bounds": {
+          "16": [
+            253,
+            223,
+            1015,
+            1129
+          ],
+          "64": [
+            258,
+            223,
+            1010,
+            1128
+          ],
+          "128": [
+            258,
+            223,
+            1010,
+            1128
+          ]
+        },
+        "thresholds_are_analysis_only": true,
+        "asset_pixels_changed": false
+      },
+      "source_and_output_sha_verified": true,
+      "visual_review": {
+        "expression_pose": "VF 폭주·두 팔을 들어 올린 자세",
+        "eyes_separate_and_visible": true,
+        "mouth_separate_and_visible": true,
+        "original_character_hair_outfit_identity_preserved": true,
+        "short_limbs_big_head_pixel_style_preserved": true,
+        "no_background_ui_text_or_speech_bubble": true
+      }
+    },
+    {
+      "id": "nia_defeated",
+      "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-8425edf6-6e8d-4470-bf10-68636ca077cc.png",
+      "prompt": "Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_defeated: she is comically out of breath after losing a game battle, sitting on the ground with knees bent and tiny booted legs in front, shoulders slumped and both little hands resting beside her knees. Clear tired half-lidded magenta eyes and small open panting mouth, still recognizable rather than a blank face. Exhausted cartoon expression only: no injuries, no bruises, no tears, no violence. Keep the original big head and very tiny body/short limbs. Fully show both boots inside the transparent canvas.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+      "generated_sha256": "b0439b4d8af9114f9b87cb4c84abf1032b9606cbd712fc1fcfe20ff00012aba1",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_alpha_bounds": [
+        0,
+        65,
+        1218,
+        1214
+      ],
+      "output_path": "Assets/Resources/Lumia/Story/Characters/nia_defeated.png",
+      "output_sha256": "b0439b4d8af9114f9b87cb4c84abf1032b9606cbd712fc1fcfe20ff00012aba1",
+      "output_dimensions": [
+        1254,
+        1254
+      ],
+      "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+      "alpha_validation": {
+        "mode": "RGBA",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "transparent_pixels": 1252589,
+        "opaque_pixels": 1215,
+        "partial_alpha_pixels": 318712,
+        "alpha_gt_zero_bounds": [
+          0,
+          65,
+          1218,
+          1214
+        ],
+        "alpha_threshold_bounds": {
+          "16": [
+            346,
+            370,
+            922,
+            1135
+          ],
+          "64": [
+            346,
+            370,
+            921,
+            1135
+          ],
+          "128": [
+            347,
+            370,
+            921,
+            1134
+          ]
+        },
+        "thresholds_are_analysis_only": true,
+        "asset_pixels_changed": false
+      },
+      "source_and_output_sha_verified": true,
+      "visual_review": {
+        "expression_pose": "패배 후 앉아서 숨을 고르는 표정",
+        "eyes_separate_and_visible": true,
+        "mouth_separate_and_visible": true,
+        "original_character_hair_outfit_identity_preserved": true,
+        "short_limbs_big_head_pixel_style_preserved": true,
+        "no_background_ui_text_or_speech_bubble": true
+      }
+    },
+    {
+      "id": "nia_taunt",
+      "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-99cc5a22-c91a-4ffb-9e0e-6c7afb8f0e7c.png",
+      "prompt": "Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_taunt: lively smug challenger announcing that the game is not over. Stand with one little hand raised by her shoulder with index finger lifted, the other hand on her hip. Confident sharp half-lidded magenta eyes and an unmistakable small playful open grin. Keep the same original ear/headphone and hair proportions, short curled hair silhouette and tiny body. Compact pose suitable next to a speech bubble, but draw NO bubble or text.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+      "generated_sha256": "4f47cead9ae1c67b7c31e100b9c68734a6995fbcff41b572e9fea2509c70520b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_alpha_bounds": [
+        49,
+        35,
+        1214,
+        1159
+      ],
+      "output_path": "Assets/Resources/Lumia/Story/Characters/nia_taunt.png",
+      "output_sha256": "4f47cead9ae1c67b7c31e100b9c68734a6995fbcff41b572e9fea2509c70520b",
+      "output_dimensions": [
+        1254,
+        1254
+      ],
+      "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+      "alpha_validation": {
+        "mode": "RGBA",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "transparent_pixels": 1194608,
+        "opaque_pixels": 616,
+        "partial_alpha_pixels": 377292,
+        "alpha_gt_zero_bounds": [
+          49,
+          35,
+          1214,
+          1159
+        ],
+        "alpha_threshold_bounds": {
+          "16": [
+            350,
+            187,
+            934,
+            1157
+          ],
+          "64": [
+            351,
+            188,
+            934,
+            1156
+          ],
+          "128": [
+            351,
+            188,
+            933,
+            1156
+          ]
+        },
+        "thresholds_are_analysis_only": true,
+        "asset_pixels_changed": false
+      },
+      "source_and_output_sha_verified": true,
+      "visual_review": {
+        "expression_pose": "끝이 아니라며 한 손을 든 도발",
+        "eyes_separate_and_visible": true,
+        "mouth_separate_and_visible": true,
+        "original_character_hair_outfit_identity_preserved": true,
+        "short_limbs_big_head_pixel_style_preserved": true,
+        "no_background_ui_text_or_speech_bubble": true
+      }
+    },
+    {
+      "id": "nia_cocky",
+      "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-7958faaf-2cae-42ea-bbc9-ed0e24f57005.png",
+      "prompt": "Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_cocky: a smug gamer boss boasts about stronger versions of herself. Stand planted with both very short arms folded across her little jacket, chin slightly raised. Confident half-lidded magenta eyes with asymmetric sly eyebrows and a crisp small smug side-smile. Two clearly visible eyes and a separate mouth, not identical neutral eye expression. Keep reference head/ear/headphone/hair proportions exactly. No extra characters or clones; ONE full-body transparent sprite only.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+      "generated_sha256": "9bf7c363b9f7e60424dac1985802d1cc8fe76ffb08990121f7145cc81154fefd",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_alpha_bounds": [
+        49,
+        21,
+        1234,
+        1237
+      ],
+      "output_path": "Assets/Resources/Lumia/Story/Characters/nia_cocky.png",
+      "output_sha256": "9bf7c363b9f7e60424dac1985802d1cc8fe76ffb08990121f7145cc81154fefd",
+      "output_dimensions": [
+        1254,
+        1254
+      ],
+      "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+      "alpha_validation": {
+        "mode": "RGBA",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "transparent_pixels": 1215675,
+        "opaque_pixels": 1509,
+        "partial_alpha_pixels": 355332,
+        "alpha_gt_zero_bounds": [
+          49,
+          21,
+          1234,
+          1237
+        ],
+        "alpha_threshold_bounds": {
+          "16": [
+            347,
+            169,
+            924,
+            1136
+          ],
+          "64": [
+            348,
+            169,
+            923,
+            1136
+          ],
+          "128": [
+            348,
+            170,
+            923,
+            1136
+          ]
+        },
+        "thresholds_are_analysis_only": true,
+        "asset_pixels_changed": false
+      },
+      "source_and_output_sha_verified": true,
+      "visual_review": {
+        "expression_pose": "팔짱·최약체 농담의 허세",
+        "eyes_separate_and_visible": true,
+        "mouth_separate_and_visible": true,
+        "original_character_hair_outfit_identity_preserved": true,
+        "short_limbs_big_head_pixel_style_preserved": true,
+        "no_background_ui_text_or_speech_bubble": true
+      }
+    },
+    {
+      "id": "nia_wake",
+      "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-cb530328-3aeb-46ee-a148-d482c76cdcca.png",
+      "prompt": "Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_wake: Nia has just awoken from an annoying dream. Sleepy grumpy half-open sharp magenta eyes, lowered brows and a clearly separate small open crooked irritated mouth. One tiny hand rests against the side of her headphone/cheek, NOT covering either eye; the other hangs at her side. Slightly slouched posture with knees relaxed. Keep BOTH eyes and mouth visible and the original tiny limbs/head ratio. No bed, no chair, no dream cloud, no sleep letters or other text.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+      "generated_sha256": "7b61b15dca50b5e09a6713703b4ba61b48d8330d5cd586d081096342f34764b3",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_alpha_bounds": [
+        41,
+        83,
+        1194,
+        1230
+      ],
+      "output_path": "Assets/Resources/Lumia/Story/Characters/nia_wake.png",
+      "output_sha256": "7b61b15dca50b5e09a6713703b4ba61b48d8330d5cd586d081096342f34764b3",
+      "output_dimensions": [
+        1254,
+        1254
+      ],
+      "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+      "alpha_validation": {
+        "mode": "RGBA",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "transparent_pixels": 1227572,
+        "opaque_pixels": 1229,
+        "partial_alpha_pixels": 343715,
+        "alpha_gt_zero_bounds": [
+          41,
+          83,
+          1194,
+          1230
+        ],
+        "alpha_threshold_bounds": {
+          "16": [
+            353,
+            186,
+            911,
+            1133
+          ],
+          "64": [
+            353,
+            187,
+            911,
+            1133
+          ],
+          "128": [
+            354,
+            187,
+            911,
+            1132
+          ]
+        },
+        "thresholds_are_analysis_only": true,
+        "asset_pixels_changed": false
+      },
+      "source_and_output_sha_verified": true,
+      "visual_review": {
+        "expression_pose": "꿈에서 깬 졸리고 짜증 난 표정",
+        "eyes_separate_and_visible": true,
+        "mouth_separate_and_visible": true,
+        "original_character_hair_outfit_identity_preserved": true,
+        "short_limbs_big_head_pixel_style_preserved": true,
+        "no_background_ui_text_or_speech_bubble": true
+      }
+    },
+    {
+      "id": "nia_cast",
+      "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-d8ec722b-aac2-462d-b338-f750f28da729.png",
+      "prompt": "Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_cast: mischievously using her VF arcade powers again. Extend ONE short forearm forward with open tiny palm, the other hand held compactly near her waist. Sly excited half-lidded magenta eyes and a clearly visible little open smile. A very small cluster of magenta square arcade particles close above the open palm, not a background, no ring or full portal, no particles on her face. Stand three-quarter right; keep the exact source silhouette, ear/headphone/head/body ratio and original outfit.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+      "generated_sha256": "42c91bca9be53772b57e515a941a3e155414e1535785fa23914fd796f16f9a40",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_alpha_bounds": [
+        33,
+        31,
+        1222,
+        1230
+      ],
+      "output_path": "Assets/Resources/Lumia/Story/Characters/nia_cast.png",
+      "output_sha256": "42c91bca9be53772b57e515a941a3e155414e1535785fa23914fd796f16f9a40",
+      "output_dimensions": [
+        1254,
+        1254
+      ],
+      "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+      "alpha_validation": {
+        "mode": "RGBA",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "transparent_pixels": 1189995,
+        "opaque_pixels": 2164,
+        "partial_alpha_pixels": 380357,
+        "alpha_gt_zero_bounds": [
+          33,
+          31,
+          1222,
+          1230
+        ],
+        "alpha_threshold_bounds": {
+          "16": [
+            361,
+            187,
+            1003,
+            1176
+          ],
+          "64": [
+            361,
+            188,
+            1003,
+            1175
+          ],
+          "128": [
+            362,
+            188,
+            1003,
+            1175
+          ]
+        },
+        "thresholds_are_analysis_only": true,
+        "asset_pixels_changed": false
+      },
+      "source_and_output_sha_verified": true,
+      "visual_review": {
+        "expression_pose": "분홍 VF 입자를 손에 띄운 시전",
+        "eyes_separate_and_visible": true,
+        "mouth_separate_and_visible": true,
+        "original_character_hair_outfit_identity_preserved": true,
+        "short_limbs_big_head_pixel_style_preserved": true,
+        "no_background_ui_text_or_speech_bubble": true
+      }
+    },
+    {
+      "id": "nia_challenge",
+      "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-b2937a26-4688-4acf-a81c-499e0bbfd53b.png",
+      "prompt": "Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_challenge: the gamer girl inviting the player to an endless-mode challenge. Hold a small black-and-pink game controller in one tiny hand near her waist, and extend the other short arm toward the viewer invitingly. Crisp playful confident magenta eyes with raised eyebrow and a distinctly visible friendly smug open smile. Controller stays well below her face. Keep source head, ears/headphones, curled hair silhouette, body proportions and costume exactly. No text on controller, no scene or speech bubble.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+      "generated_sha256": "ceaf7cd5a0fc140b74681d70e76931db7386fe5cbb5499d3e3b22e16a8668b93",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_alpha_bounds": [
+        0,
+        9,
+        1226,
+        1230
+      ],
+      "output_path": "Assets/Resources/Lumia/Story/Characters/nia_challenge.png",
+      "output_sha256": "ceaf7cd5a0fc140b74681d70e76931db7386fe5cbb5499d3e3b22e16a8668b93",
+      "output_dimensions": [
+        1254,
+        1254
+      ],
+      "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+      "alpha_validation": {
+        "mode": "RGBA",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "transparent_pixels": 1175427,
+        "opaque_pixels": 1510,
+        "partial_alpha_pixels": 395579,
+        "alpha_gt_zero_bounds": [
+          0,
+          9,
+          1226,
+          1230
+        ],
+        "alpha_threshold_bounds": {
+          "16": [
+            328,
+            155,
+            929,
+            1159
+          ],
+          "64": [
+            328,
+            156,
+            928,
+            1159
+          ],
+          "128": [
+            328,
+            156,
+            928,
+            1159
+          ]
+        },
+        "thresholds_are_analysis_only": true,
+        "asset_pixels_changed": false
+      },
+      "source_and_output_sha_verified": true,
+      "visual_review": {
+        "expression_pose": "게임패드·도전 권유",
+        "eyes_separate_and_visible": true,
+        "mouth_separate_and_visible": true,
+        "original_character_hair_outfit_identity_preserved": true,
+        "short_limbs_big_head_pixel_style_preserved": true,
+        "no_background_ui_text_or_speech_bubble": true
+      }
+    },
+    {
+      "id": "hana_work",
+      "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/hana.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-956ea0e4-3622-42cc-a9d1-98c06544c9a7.png",
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent low-resolution pixel-art cutscene character. Edit target: ORIGINAL 160x160 Hana game sprite supplied. Preserve her exact warm brown short bob/side tufts, little yellow hair clips, round amber eyes, fair skin, white lab coat with gold trim over green blouse, dark shorts and small black boots. Preserve the source's squat 2-head-tall chibi silhouette, oversized round head, tiny short arms/legs, original low pixel count, square hard-edged clusters, dark 1-logical-pixel outline and limited original palette. Only change expression and specified small-arm pose; keep hair/head/ear proportions and character/costume identity. Make eye whites, amber irises and small separate mouth clear. Full body inside square canvas with margin, genuine transparent alpha, no ground/shadow plate/scene/UI/text/bubbles. No generic detailed anime, smooth painting, long limbs or mature tall body. Prefer source160x160/80logicalgrid; higher-resolution output must keep uniformly large square pixels and original tiny-body proportions. Variant hana_work: calmly conducting a routine experiment. Stand three-quarter facing right, holding a small dark clipboard near her waist with one tiny hand and a little pen in the other. Focused friendly amber eyes and a clearly visible small attentive closed smile. Clipboard must not cover face and contains no readable lettering. Original outfit and short arms unchanged.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "input_sha256": "b481c31267ae4f86616c471eb18328d13f4d79c1d2ee18e40a7b787ebca88268",
+      "generated_sha256": "411c7dd02ef1c89e78c51e34bb3fdb9bdf8c8fedcb0f36b9fb6fe73052b62633",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_alpha_bounds": [
+        33,
+        37,
+        1180,
+        1206
+      ],
+      "output_path": "Assets/Resources/Lumia/Story/Characters/hana_work.png",
+      "output_sha256": "411c7dd02ef1c89e78c51e34bb3fdb9bdf8c8fedcb0f36b9fb6fe73052b62633",
+      "output_dimensions": [
+        1254,
+        1254
+      ],
+      "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+      "alpha_validation": {
+        "mode": "RGBA",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "transparent_pixels": 1252342,
+        "opaque_pixels": 1805,
+        "partial_alpha_pixels": 318369,
+        "alpha_gt_zero_bounds": [
+          33,
+          37,
+          1180,
+          1206
+        ],
+        "alpha_threshold_bounds": {
+          "16": [
+            356,
+            293,
+            919,
+            1143
+          ],
+          "64": [
+            356,
+            294,
+            919,
+            1142
+          ],
+          "128": [
+            357,
+            294,
+            918,
+            1142
+          ]
+        },
+        "thresholds_are_analysis_only": true,
+        "asset_pixels_changed": false
+      },
+      "source_and_output_sha_verified": true,
+      "visual_review": {
+        "expression_pose": "클립보드와 펜을 든 실험 자세",
+        "eyes_separate_and_visible": true,
+        "mouth_separate_and_visible": true,
+        "original_character_hair_outfit_identity_preserved": true,
+        "short_limbs_big_head_pixel_style_preserved": true,
+        "no_background_ui_text_or_speech_bubble": true
+      }
+    },
+    {
+      "id": "hana_startled",
+      "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/hana.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-00e96ab2-c13b-4d09-96f4-3fd8bb39c811.png",
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent low-resolution pixel-art cutscene character. Edit target: ORIGINAL 160x160 Hana game sprite supplied. Preserve her exact warm brown short bob/side tufts, little yellow hair clips, round amber eyes, fair skin, white lab coat with gold trim over green blouse, dark shorts and small black boots. Preserve the source's squat 2-head-tall chibi silhouette, oversized round head, tiny short arms/legs, original low pixel count, square hard-edged clusters, dark 1-logical-pixel outline and limited original palette. Only change expression and specified small-arm pose; keep hair/head/ear proportions and character/costume identity. Make eye whites, amber irises and small separate mouth clear. Full body inside square canvas with margin, genuine transparent alpha, no ground/shadow plate/scene/UI/text/bubbles. No generic detailed anime, smooth painting, long limbs or mature tall body. Prefer source160x160/80logicalgrid; higher-resolution output must keep uniformly large square pixels and original tiny-body proportions. Variant hana_startled: startled as a VF portal interrupts her experiment. Lean her tiny body slightly backward, both little arms lifted near her chest with open hands, clutching a small clipboard in one hand but below her face. Wide clearly drawn amber eyes, raised brows, and small separate round surprised O-shaped mouth. One boot shifted back, still short compact legs and source 2-head proportions. No portal/background, no flying paper or punctuation symbols, only this full character.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "input_sha256": "b481c31267ae4f86616c471eb18328d13f4d79c1d2ee18e40a7b787ebca88268",
+      "generated_sha256": "620e537becc3a6ac5b24a34ca0cf3a1a2c1f438d35856d842f13cd73dfc7df77",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_alpha_bounds": [
+        0,
+        32,
+        1224,
+        1254
+      ],
+      "output_path": "Assets/Resources/Lumia/Story/Characters/hana_startled.png",
+      "output_sha256": "620e537becc3a6ac5b24a34ca0cf3a1a2c1f438d35856d842f13cd73dfc7df77",
+      "output_dimensions": [
+        1254,
+        1254
+      ],
+      "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+      "alpha_validation": {
+        "mode": "RGBA",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "transparent_pixels": 1224521,
+        "opaque_pixels": 1939,
+        "partial_alpha_pixels": 346056,
+        "alpha_gt_zero_bounds": [
+          0,
+          32,
+          1224,
+          1254
+        ],
+        "alpha_threshold_bounds": {
+          "16": [
+            345,
+            266,
+            957,
+            1162
+          ],
+          "64": [
+            346,
+            266,
+            957,
+            1161
+          ],
+          "128": [
+            346,
+            266,
+            956,
+            1161
+          ]
+        },
+        "thresholds_are_analysis_only": true,
+        "asset_pixels_changed": false
+      },
+      "source_and_output_sha_verified": true,
+      "visual_review": {
+        "expression_pose": "눈을 크게 뜬 놀람·작은 열린 입",
+        "eyes_separate_and_visible": true,
+        "mouth_separate_and_visible": true,
+        "original_character_hair_outfit_identity_preserved": true,
+        "short_limbs_big_head_pixel_style_preserved": true,
+        "no_background_ui_text_or_speech_bubble": true
+      }
+    },
+    {
+      "id": "hana_determined",
+      "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/hana.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-d6453d32-bae0-4efa-8748-6aab679cc213.png",
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent low-resolution pixel-art cutscene character. Edit target: ORIGINAL 160x160 Hana game sprite supplied. Preserve her exact warm brown short bob/side tufts, little yellow hair clips, round amber eyes, fair skin, white lab coat with gold trim over green blouse, dark shorts and small black boots. Preserve the source's squat 2-head-tall chibi silhouette, oversized round head, tiny short arms/legs, original low pixel count, square hard-edged clusters, dark 1-logical-pixel outline and limited original palette. Only change expression and specified small-arm pose; keep hair/head/ear proportions and character/costume identity. Make eye whites, amber irises and small separate mouth clear. Full body inside square canvas with margin, genuine transparent alpha, no ground/shadow plate/scene/UI/text/bubbles. No generic detailed anime, smooth painting, long limbs or mature tall body. Prefer source160x160/80logicalgrid; higher-resolution output must keep uniformly large square pixels and original tiny-body proportions. Variant hana_determined: the researcher steels herself to restore Lumia Island. Stand three-quarter right in a firm compact stance, a tiny clenched fist held near her chest and a small clipboard tucked low under the other arm. Clearly visible amber eyes with slightly determined lowered brows, and separate small resolute closed smile. Keep her friendly identity, not angry/hostile. No adventure backpack or new costume; source white/gold lab coat, green blouse and tiny legs unchanged. No environmental objects or text.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "input_sha256": "b481c31267ae4f86616c471eb18328d13f4d79c1d2ee18e40a7b787ebca88268",
+      "generated_sha256": "3a269af33ca497d18f117553f84487e80399293ee7f1efba2b52237f5b7badc2",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_alpha_bounds": [
+        25,
+        52,
+        1202,
+        1228
+      ],
+      "output_path": "Assets/Resources/Lumia/Story/Characters/hana_determined.png",
+      "output_sha256": "3a269af33ca497d18f117553f84487e80399293ee7f1efba2b52237f5b7badc2",
+      "output_dimensions": [
+        1254,
+        1254
+      ],
+      "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+      "alpha_validation": {
+        "mode": "RGBA",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "transparent_pixels": 1265434,
+        "opaque_pixels": 1307,
+        "partial_alpha_pixels": 305775,
+        "alpha_gt_zero_bounds": [
+          25,
+          52,
+          1202,
+          1228
+        ],
+        "alpha_threshold_bounds": {
+          "16": [
+            369,
+            323,
+            925,
+            1151
+          ],
+          "64": [
+            370,
+            324,
+            924,
+            1151
+          ],
+          "128": [
+            370,
+            324,
+            924,
+            1150
+          ]
+        },
+        "thresholds_are_analysis_only": true,
+        "asset_pixels_changed": false
+      },
+      "source_and_output_sha_verified": true,
+      "visual_review": {
+        "expression_pose": "주먹을 쥔 결의·굳은 눈썹",
+        "eyes_separate_and_visible": true,
+        "mouth_separate_and_visible": true,
+        "original_character_hair_outfit_identity_preserved": true,
+        "short_limbs_big_head_pixel_style_preserved": true,
+        "no_background_ui_text_or_speech_bubble": true
+      }
+    },
+    {
+      "id": "hana_relieved",
+      "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/hana.png",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-eebe9784-8985-4cb6-af37-030e3b6205f4.png",
+      "prompt": "Use case: identity-preserve. Asset type: ONE transparent low-resolution pixel-art cutscene character. Edit target: ORIGINAL 160x160 Hana game sprite supplied. Preserve her exact warm brown short bob/side tufts, little yellow hair clips, round amber eyes, fair skin, white lab coat with gold trim over green blouse, dark shorts and small black boots. Preserve the source's squat 2-head-tall chibi silhouette, oversized round head, tiny short arms/legs, original low pixel count, square hard-edged clusters, dark 1-logical-pixel outline and limited original palette. Only change expression and specified small-arm pose; keep hair/head/ear proportions and character/costume identity. Make eye whites, amber irises and small separate mouth clear. Full body inside square canvas with margin, genuine transparent alpha, no ground/shadow plate/scene/UI/text/bubbles. No generic detailed anime, smooth painting, long limbs or mature tall body. Prefer source160x160/80logicalgrid; higher-resolution output must keep uniformly large square pixels and original tiny-body proportions. Variant hana_relieved: relaxed relieved after escaping the game world. One tiny hand rests gently on her upper chest, the other lowers her small clipboard beside her hip; shoulders relaxed and boots together. Soft openly visible amber eyes with clear whites and round irises, relaxed brows and a clearly separate small warm happy smile. BOTH eyes remain open rather than generic closed happy arcs. Preserve source hair/head/ear ratio, tiny body and exact original coat/blouse/shorts/boots. No celebratory symbols, background, text or speech bubble.",
+      "tool": "built-in image_gen.imagegen",
+      "transparent_background": true,
+      "input_sha256": "b481c31267ae4f86616c471eb18328d13f4d79c1d2ee18e40a7b787ebca88268",
+      "generated_sha256": "f1cfe65a573f009dd92cd38d38bd0908336d497f2d6bb63e1667dea195635ab1",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_alpha_bounds": [
+        0,
+        32,
+        1218,
+        1238
+      ],
+      "output_path": "Assets/Resources/Lumia/Story/Characters/hana_relieved.png",
+      "output_sha256": "f1cfe65a573f009dd92cd38d38bd0908336d497f2d6bb63e1667dea195635ab1",
+      "output_dimensions": [
+        1254,
+        1254
+      ],
+      "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+      "alpha_validation": {
+        "mode": "RGBA",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_min": 0,
+        "alpha_max": 255,
+        "transparent_pixels": 1292219,
+        "opaque_pixels": 675,
+        "partial_alpha_pixels": 279622,
+        "alpha_gt_zero_bounds": [
+          0,
+          32,
+          1218,
+          1238
+        ],
+        "alpha_threshold_bounds": {
+          "16": [
+            373,
+            317,
+            896,
+            1133
+          ],
+          "64": [
+            374,
+            318,
+            896,
+            1133
+          ],
+          "128": [
+            374,
+            318,
+            895,
+            1132
+          ]
+        },
+        "thresholds_are_analysis_only": true,
+        "asset_pixels_changed": false
+      },
+      "source_and_output_sha_verified": true,
+      "visual_review": {
+        "expression_pose": "안도·편안한 눈과 웃는 입",
+        "eyes_separate_and_visible": true,
+        "mouth_separate_and_visible": true,
+        "original_character_hair_outfit_identity_preserved": true,
+        "short_limbs_big_head_pixel_style_preserved": true,
+        "no_background_ui_text_or_speech_bubble": true
+      }
+    }
+  ]
+}

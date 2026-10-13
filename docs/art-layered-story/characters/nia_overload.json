@@ -1,0 +1,76 @@
+{
+  "id": "nia_overload",
+  "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-4c7b40f4-5c67-4b25-8120-ac2d29900b53.png",
+  "prompt": "Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_overload: Nia's VF gamer power overflows; she raises both tiny arms outward and up, with a lively wide grin and bright excited sharp eyes. A few compact magenta arcade square sparks may hover close to her hands, staying a separate-looking sparse accent rather than covering face/body. Her feet remain planted; dramatic triumphant arms but no stretched long limbs. Face and both hands clearly readable.",
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+  "generated_sha256": "d5711fb61bce924b4105a0dde54fd3ab8e5c3c7904e64b59e524a2efca79768d",
+  "generated_dimensions": [
+    1254,
+    1254
+  ],
+  "generated_alpha_bounds": [
+    0,
+    103,
+    1206,
+    1254
+  ],
+  "output_path": "Assets/Resources/Lumia/Story/Characters/nia_overload.png",
+  "output_sha256": "d5711fb61bce924b4105a0dde54fd3ab8e5c3c7904e64b59e524a2efca79768d",
+  "output_dimensions": [
+    1254,
+    1254
+  ],
+  "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+  "alpha_validation": {
+    "mode": "RGBA",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "transparent_pixels": 1203710,
+    "opaque_pixels": 1437,
+    "partial_alpha_pixels": 367369,
+    "alpha_gt_zero_bounds": [
+      0,
+      103,
+      1206,
+      1254
+    ],
+    "alpha_threshold_bounds": {
+      "16": [
+        253,
+        223,
+        1015,
+        1129
+      ],
+      "64": [
+        258,
+        223,
+        1010,
+        1128
+      ],
+      "128": [
+        258,
+        223,
+        1010,
+        1128
+      ]
+    },
+    "thresholds_are_analysis_only": true,
+    "asset_pixels_changed": false
+  },
+  "source_and_output_sha_verified": true,
+  "visual_review": {
+    "expression_pose": "VF 폭주·두 팔을 들어 올린 자세",
+    "eyes_separate_and_visible": true,
+    "mouth_separate_and_visible": true,
+    "original_character_hair_outfit_identity_preserved": true,
+    "short_limbs_big_head_pixel_style_preserved": true,
+    "no_background_ui_text_or_speech_bubble": true
+  }
+}

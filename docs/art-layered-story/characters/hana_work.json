@@ -1,0 +1,76 @@
+{
+  "id": "hana_work",
+  "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/hana.png",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-956ea0e4-3622-42cc-a9d1-98c06544c9a7.png",
+  "prompt": "Use case: identity-preserve. Asset type: ONE transparent low-resolution pixel-art cutscene character. Edit target: ORIGINAL 160x160 Hana game sprite supplied. Preserve her exact warm brown short bob/side tufts, little yellow hair clips, round amber eyes, fair skin, white lab coat with gold trim over green blouse, dark shorts and small black boots. Preserve the source's squat 2-head-tall chibi silhouette, oversized round head, tiny short arms/legs, original low pixel count, square hard-edged clusters, dark 1-logical-pixel outline and limited original palette. Only change expression and specified small-arm pose; keep hair/head/ear proportions and character/costume identity. Make eye whites, amber irises and small separate mouth clear. Full body inside square canvas with margin, genuine transparent alpha, no ground/shadow plate/scene/UI/text/bubbles. No generic detailed anime, smooth painting, long limbs or mature tall body. Prefer source160x160/80logicalgrid; higher-resolution output must keep uniformly large square pixels and original tiny-body proportions. Variant hana_work: calmly conducting a routine experiment. Stand three-quarter facing right, holding a small dark clipboard near her waist with one tiny hand and a little pen in the other. Focused friendly amber eyes and a clearly visible small attentive closed smile. Clipboard must not cover face and contains no readable lettering. Original outfit and short arms unchanged.",
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "input_sha256": "b481c31267ae4f86616c471eb18328d13f4d79c1d2ee18e40a7b787ebca88268",
+  "generated_sha256": "411c7dd02ef1c89e78c51e34bb3fdb9bdf8c8fedcb0f36b9fb6fe73052b62633",
+  "generated_dimensions": [
+    1254,
+    1254
+  ],
+  "generated_alpha_bounds": [
+    33,
+    37,
+    1180,
+    1206
+  ],
+  "output_path": "Assets/Resources/Lumia/Story/Characters/hana_work.png",
+  "output_sha256": "411c7dd02ef1c89e78c51e34bb3fdb9bdf8c8fedcb0f36b9fb6fe73052b62633",
+  "output_dimensions": [
+    1254,
+    1254
+  ],
+  "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+  "alpha_validation": {
+    "mode": "RGBA",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "transparent_pixels": 1252342,
+    "opaque_pixels": 1805,
+    "partial_alpha_pixels": 318369,
+    "alpha_gt_zero_bounds": [
+      33,
+      37,
+      1180,
+      1206
+    ],
+    "alpha_threshold_bounds": {
+      "16": [
+        356,
+        293,
+        919,
+        1143
+      ],
+      "64": [
+        356,
+        294,
+        919,
+        1142
+      ],
+      "128": [
+        357,
+        294,
+        918,
+        1142
+      ]
+    },
+    "thresholds_are_analysis_only": true,
+    "asset_pixels_changed": false
+  },
+  "source_and_output_sha_verified": true,
+  "visual_review": {
+    "expression_pose": "클립보드와 펜을 든 실험 자세",
+    "eyes_separate_and_visible": true,
+    "mouth_separate_and_visible": true,
+    "original_character_hair_outfit_identity_preserved": true,
+    "short_limbs_big_head_pixel_style_preserved": true,
+    "no_background_ui_text_or_speech_bubble": true
+  }
+}

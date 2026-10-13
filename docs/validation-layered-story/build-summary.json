@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "version": "0.1.26",
+  "unity": "6000.3.11f1",
+  "builds": [
+    {
+      "kind": "Development",
+      "result": "Succeeded",
+      "errors": 0,
+      "logSha256": "98c0c38fd5d482b23920a7527c90c6af2a75fd0d7888a02167dfbe36f176df76"
+    },
+    {
+      "kind": "Release",
+      "result": "Succeeded",
+      "errors": 0,
+      "logSha256": "4a8318adb03a199a40e4c480b0819422f5516327798239d6aff3913cc84d8cd1"
+    }
+  ],
+  "newStoryTextures": 18,
+  "geometryPackaged": true,
+  "legacyBakedResourcesExcluded": true,
+  "pointFilteredAssets": true
+}

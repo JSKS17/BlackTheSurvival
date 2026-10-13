@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "filesChecked": 3210,
+  "byteIdenticalFiles": 3204,
+  "importerNormalizedMetadata": [
+    "Assets/Resources/Lumia/Battle.png.meta",
+    "Assets/Resources/Lumia/CharacterAtlas.png.meta",
+    "Assets/Resources/Lumia/FoodAtlas.png.meta",
+    "Assets/Resources/Lumia/Galmuri11.ttf.meta",
+    "Assets/Resources/Lumia/Lobby.png.meta",
+    "Assets/Resources/Lumia/SubjectAtlas.png.meta"
+  ],
+  "normalization": "Existing LumiaProjectSetup pixel/font import rules only.",
+  "mismatches": [],
+  "archivedBakedArtExcluded": true
+}

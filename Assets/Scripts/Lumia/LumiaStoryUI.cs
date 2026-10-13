@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Lumia
@@ -11,6 +12,14 @@ namespace Lumia
         int storyReplayFrame;
         readonly Dictionary<string, Texture2D> storyImages = new Dictionary<string, Texture2D>();
         GUIStyle storyNarrationStyle, storyDialogueStyle;
+        sealed class StoryPixelSprite
+        {
+            public RenderTexture texture;
+            public Rect uv;
+            public int width, height;
+        }
+        readonly Dictionary<string, StoryPixelSprite> storyPixelSprites = new Dictionary<string, StoryPixelSprite>();
+        StoryCharacterGeometryCatalog storyCharacterGeometry;
 
         public bool StoryVisible
         {
@@ -66,10 +75,12 @@ namespace Lumia
             Txt(new Rect(1100, 26, 145, 25), (index + 1) + " / " + scene.frames.Length, 17, Mint, true);
             Rect canvas = new Rect(32, 82, 1216, 514);
             Box(canvas, Panel, Line);
-            var image = StoryImage(frame.image);
-            if (image) Tex(new Rect(canvas.x + 2, canvas.y + 2, canvas.width - 4, canvas.height - 4), image, ScaleMode.ScaleToFit);
-            else DrawStoryFallback(canvas, scene.id, index);
+            // Load the complete set first. A cut never paints its background while actors are still loading.
+            PrepareStoryComposition(frame.image);
+            DrawStoryComposition(new Rect(canvas.x + 2, canvas.y + 2, canvas.width - 4, canvas.height - 4), frame.image);
             PrepareStoryStyles();
+            Rect bubble = StoryBubbleRect(frame, canvas);
+            if (!string.IsNullOrEmpty(frame.dialogue)) DrawStoryBubble(bubble);
             if (!string.IsNullOrEmpty(frame.narration))
             {
                 float height = storyNarrationStyle.CalcHeight(new GUIContent(frame.narration), 1120) + 26;
@@ -77,7 +88,7 @@ namespace Lumia
                 Fill(narration, new Color(.025f, .045f, .075f, .91f));
                 GUI.Label(new Rect(narration.x + 18, narration.y + 12, narration.width - 36, narration.height - 24), frame.narration, storyNarrationStyle);
             }
-            if (!string.IsNullOrEmpty(frame.dialogue)) DrawStoryDialogue(frame, canvas);
+            if (!string.IsNullOrEmpty(frame.dialogue)) DrawStoryDialogueText(frame, bubble);
             Txt(new Rect(34, 607, 1210, 21), storyReplaying ? "스토리 다시보기 · 원정 진행과 보상은 바뀌지 않습니다." : "이전 · 다음으로 컷을 넘길 수 있습니다. 건너뛰어도 원정과 탈출 보상은 그대로 이어집니다.", 12, Muted);
             if (Btn(new Rect(34, 647, 172, 42), storyReplaying ? "다시보기 종료" : "건너뛰기", false, Muted)) { FinishStoryDisplay(); return; }
             if (Btn(new Rect(222, 647, 172, 42), "<  이전", false, Mint, index > 0))
@@ -115,9 +126,8 @@ namespace Lumia
                 var scene = StoryScenes.All[index]; bool unlocked = StoryScenes.ReplayAvailable(scene.id, researchStore?.Profile);
                 Rect card = new Rect(62 + index * 390, 200, 376, 350);
                 Box(card, Panel, unlocked ? Pink : Line);
-                var preview = StoryImage(scene.frames[0].image);
-                if (preview) Tex(new Rect(card.x + 12, card.y + 12, 352, 198), preview, ScaleMode.ScaleToFit);
-                else Tex(new Rect(card.x + 12, card.y + 12, 352, 198), PixelArt.Background(), ScaleMode.ScaleAndCrop);
+                PrepareStoryComposition(scene.frames[0].image);
+                DrawStoryComposition(new Rect(card.x + 12, card.y + 12, 352, 198), scene.frames[0].image, true);
                 Para(new Rect(card.x + 18, card.y + 227, 340, 54), scene.title, 20, unlocked ? Text : Muted);
                 Txt(new Rect(card.x + 18, card.y + 290, 340, 23), unlocked ? "4컷 · 다시보기" : scene.id == StoryScenes.NormalEnding ? "노말 모드 탈출 후 해금" : "하드 모드 탈출 후 해금", 13, unlocked ? Mint : Muted);
                 if (Hit(card, unlocked)) { OpenStoryReplay(scene.id); return; }
@@ -135,13 +145,85 @@ namespace Lumia
             }
             return image;
         }
-        void DrawStoryFallback(Rect rect, string scene, int index)
+        void PrepareStoryComposition(string cut)
         {
-            Tex(new Rect(rect.x + 2, rect.y + 2, rect.width - 4, rect.height - 4), PixelArt.Background(), ScaleMode.ScaleAndCrop);
-            Fill(new Rect(rect.x + 2, rect.y + 2, rect.width - 4, rect.height - 4), new Color(.02f, .035f, .06f, .32f));
-            if (scene == StoryScenes.Prologue || index == 0)
-                Tex(new Rect(230, 218, 275, 320), PixelArt.Portrait("hana"), ScaleMode.ScaleToFit);
-            Tex(new Rect(scene == StoryScenes.HardEnding ? 540 : 805, 208, 275, 330), PixelArt.Portrait("nia"), ScaleMode.ScaleToFit);
+            var composition = StoryComposition.For(cut);
+            if (composition == null) return;
+            StoryImage("Backgrounds/" + composition.background);
+            foreach (var actor in composition.actors) StoryCharacter(actor.sprite);
+        }
+        StoryPixelSprite StoryCharacter(string id)
+        {
+            StoryPixelSprite sprite;
+            if (storyPixelSprites.TryGetValue(id, out sprite))
+            {
+                if (!sprite.texture.IsCreated()) RefreshStoryPixelTexture(StoryImage("Characters/" + id), sprite.texture);
+                return sprite;
+            }
+            var source = StoryImage("Characters/" + id);
+            if (!source) return null;
+            if (storyCharacterGeometry == null)
+            {
+                var json = Resources.Load<TextAsset>("Lumia/Story/Characters/geometry");
+                storyCharacterGeometry = json ? JsonUtility.FromJson<StoryCharacterGeometryCatalog>(json.text) : new StoryCharacterGeometryCatalog();
+            }
+            int size = StoryComposition.LogicalSpriteSize;
+            var geometry = storyCharacterGeometry.characters.FirstOrDefault(value => value.id == id);
+            int x0 = geometry == null ? 0 : Mathf.Clamp(Mathf.FloorToInt((float)geometry.left * size / geometry.width), 0, size - 1);
+            int y0 = geometry == null ? 0 : Mathf.Clamp(Mathf.FloorToInt((float)geometry.top * size / geometry.height), 0, size - 1);
+            int x1 = geometry == null ? size : Mathf.Clamp(Mathf.CeilToInt((float)geometry.right * size / geometry.width), x0 + 1, size);
+            int y1 = geometry == null ? size : Mathf.Clamp(Mathf.CeilToInt((float)geometry.bottom * size / geometry.height), y0 + 1, size);
+            var target = new RenderTexture(size, size, 0, RenderTextureFormat.ARGB32) { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp, useMipMap = false, antiAliasing = 1, name = "Story pixels / " + id };
+            RefreshStoryPixelTexture(source, target);
+            sprite = new StoryPixelSprite { texture = target, width = x1 - x0, height = y1 - y0,
+                uv = new Rect((float)x0 / size, 1f - (float)y1 / size, (float)(x1 - x0) / size, (float)(y1 - y0) / size) };
+            storyPixelSprites[id] = sprite; return sprite;
+        }
+        static void RefreshStoryPixelTexture(Texture2D source, RenderTexture target)
+        {
+            target.Create(); var previous = RenderTexture.active; bool srgb = GL.sRGBWrite;
+            try { GL.sRGBWrite = QualitySettings.activeColorSpace == ColorSpace.Linear; Graphics.Blit(source, target); }
+            finally { RenderTexture.active = previous; GL.sRGBWrite = srgb; }
+        }
+        void DrawStoryComposition(Rect rect, string cut, bool thumbnail = false)
+        {
+            var composition = StoryComposition.For(cut);
+            if (composition == null) { Fill(rect, Panel); return; }
+            var background = StoryImage("Backgrounds/" + composition.background);
+            if (background) Tex(rect, background, ScaleMode.ScaleAndCrop); else Tex(rect, PixelArt.BattleBackground(), ScaleMode.ScaleAndCrop);
+            GUI.BeginGroup(rect);
+            Rect local = new Rect(0, 0, rect.width, rect.height);
+            DrawStoryFieldEffect(local, composition.fieldEffect);
+            foreach (var actor in composition.actors)
+            {
+                var sprite = StoryCharacter(actor.sprite); if (sprite == null) continue;
+                float factor = thumbnail ? rect.height / 510f : 1;
+                float width = sprite.width * actor.pixelScale * factor, height = sprite.height * actor.pixelScale * factor;
+                Rect body = new Rect(Mathf.Round(rect.width * actor.centerX - width / 2), Mathf.Round(rect.height * actor.baseline - height), Mathf.Round(width), Mathf.Round(height));
+                if (composition.fieldEffect != "dream") Fill(new Rect(body.center.x - width * .28f, body.yMax - 5 * factor, width * .56f, 7 * factor), new Color(.02f,.025f,.045f,.4f));
+                Rect uv = sprite.uv; if (actor.flip) { uv.x += uv.width; uv.width = -uv.width; }
+                Color old = GUI.color; GUI.color = new Color(1, 1, 1, actor.opacity);
+                GUI.DrawTextureWithTexCoords(body, sprite.texture, uv, true); GUI.color = old;
+            }
+            GUI.EndGroup();
+        }
+        void DrawStoryFieldEffect(Rect rect, string effect)
+        {
+            if (effect == "none") return;
+            if (effect == "dream") { Fill(rect, new Color(.82f,.72f,.94f,.13f)); return; }
+            Color color = effect == "glitch" ? new Color(.43f,.9f,.81f,.65f) : new Color(.89f,.35f,.75f,.65f);
+            for (int index = 0; index < 7; index++)
+            {
+                float x = rect.width * (.12f + index * .125f), y = rect.height * (.36f + (index % 3) * .16f);
+                float size = rect.height * (effect == "portal" ? .04f : .025f);
+                Fill(new Rect(Mathf.Round(x), Mathf.Round(y), Mathf.Round(size), Mathf.Round(size)), color);
+                Fill(new Rect(Mathf.Round(x + size), Mathf.Round(y + size), Mathf.Round(size * 2), Mathf.Round(size * .35f)), color);
+            }
+        }
+        void ReleaseStoryPixelTextures()
+        {
+            foreach (var sprite in storyPixelSprites.Values) { if (sprite.texture) { sprite.texture.Release(); Destroy(sprite.texture); } }
+            storyPixelSprites.Clear();
         }
         void PrepareStoryStyles()
         {
@@ -151,18 +233,24 @@ namespace Lumia
             storyDialogueStyle = new GUIStyle(wrapped) { fontSize = 23, alignment = TextAnchor.MiddleLeft, wordWrap = true };
             storyDialogueStyle.normal.textColor = Ink;
         }
-        void DrawStoryDialogue(StoryFrame frame, Rect canvas)
+        Rect StoryBubbleRect(StoryFrame frame, Rect canvas)
         {
             string dialogue = StoryDialogueText(frame);
             float height = storyDialogueStyle.CalcHeight(new GUIContent(dialogue), 472) + 64;
-            Rect bubble = new Rect(canvas.xMax - 546, canvas.yMax - height - 26, 520, height);
+            return new Rect(canvas.xMax - 546, canvas.yMax - height - 26, 520, height);
+        }
+        void DrawStoryBubble(Rect bubble)
+        {
             Box(bubble, C("f4eff4"), Pink);
-            Txt(new Rect(bubble.x + 20, bubble.y + 13, bubble.width - 40, 24), frame.speaker, 15, C("88516f"));
-            GUI.Label(new Rect(bubble.x + 24, bubble.y + 43, bubble.width - 48, height - 56), dialogue, storyDialogueStyle);
             // A pixel-stepped tail stays inside the image, separate from the navigation bar.
             Fill(new Rect(bubble.x + 40, bubble.yMax - 1, 24, 10), Pink);
             Fill(new Rect(bubble.x + 44, bubble.yMax - 1, 16, 8), C("f4eff4"));
             Fill(new Rect(bubble.x + 44, bubble.yMax + 9, 12, 6), Pink);
+        }
+        void DrawStoryDialogueText(StoryFrame frame, Rect bubble)
+        {
+            Txt(new Rect(bubble.x + 20, bubble.y + 13, bubble.width - 40, 24), frame.speaker, 15, C("88516f"));
+            GUI.Label(new Rect(bubble.x + 24, bubble.y + 43, bubble.width - 48, bubble.height - 56), StoryDialogueText(frame), storyDialogueStyle);
         }
         static string StoryDialogueText(StoryFrame frame) => frame.image == "normal_3" ? frame.dialogue.Replace("건 우리", "건\n우리") : frame.dialogue;
 
@@ -173,8 +261,9 @@ namespace Lumia
             foreach (var scene in StoryScenes.All)
             foreach (var frame in scene.frames)
             {
-                var image = StoryImage(frame.image);
-                if (!image) throw new InvalidOperationException("Story resource is missing: Lumia/Story/" + frame.image);
+                var composition = StoryComposition.For(frame.image);
+                var image = StoryImage("Backgrounds/" + composition.background);
+                if (!image) throw new InvalidOperationException("Story background is missing: " + composition.background);
                 if (image.filterMode != FilterMode.Point) throw new InvalidOperationException("Story resource must use point filtering: " + frame.image);
                 assets++;
                 if (font) font.RequestCharactersInTexture(frame.narration + frame.dialogue, 23, FontStyle.Normal);
@@ -189,7 +278,7 @@ namespace Lumia
 
         public void ShowStoryVerification(string id, int frame)
         {
-            if (!PresentationVerificationEnabled) return;
+            if (!PresentationVerificationEnabled && !LayeredStoryVerificationEnabled) return;
             CloseStoryLayers(); CloseStoryReplay(); lobby = true;
             if (id == "menu") { storyReplayMenu = true; return; }
             var scene = StoryScenes.Find(id);

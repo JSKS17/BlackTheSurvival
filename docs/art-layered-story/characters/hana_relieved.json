@@ -1,0 +1,76 @@
+{
+  "id": "hana_relieved",
+  "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/hana.png",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-eebe9784-8985-4cb6-af37-030e3b6205f4.png",
+  "prompt": "Use case: identity-preserve. Asset type: ONE transparent low-resolution pixel-art cutscene character. Edit target: ORIGINAL 160x160 Hana game sprite supplied. Preserve her exact warm brown short bob/side tufts, little yellow hair clips, round amber eyes, fair skin, white lab coat with gold trim over green blouse, dark shorts and small black boots. Preserve the source's squat 2-head-tall chibi silhouette, oversized round head, tiny short arms/legs, original low pixel count, square hard-edged clusters, dark 1-logical-pixel outline and limited original palette. Only change expression and specified small-arm pose; keep hair/head/ear proportions and character/costume identity. Make eye whites, amber irises and small separate mouth clear. Full body inside square canvas with margin, genuine transparent alpha, no ground/shadow plate/scene/UI/text/bubbles. No generic detailed anime, smooth painting, long limbs or mature tall body. Prefer source160x160/80logicalgrid; higher-resolution output must keep uniformly large square pixels and original tiny-body proportions. Variant hana_relieved: relaxed relieved after escaping the game world. One tiny hand rests gently on her upper chest, the other lowers her small clipboard beside her hip; shoulders relaxed and boots together. Soft openly visible amber eyes with clear whites and round irises, relaxed brows and a clearly separate small warm happy smile. BOTH eyes remain open rather than generic closed happy arcs. Preserve source hair/head/ear ratio, tiny body and exact original coat/blouse/shorts/boots. No celebratory symbols, background, text or speech bubble.",
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "input_sha256": "b481c31267ae4f86616c471eb18328d13f4d79c1d2ee18e40a7b787ebca88268",
+  "generated_sha256": "f1cfe65a573f009dd92cd38d38bd0908336d497f2d6bb63e1667dea195635ab1",
+  "generated_dimensions": [
+    1254,
+    1254
+  ],
+  "generated_alpha_bounds": [
+    0,
+    32,
+    1218,
+    1238
+  ],
+  "output_path": "Assets/Resources/Lumia/Story/Characters/hana_relieved.png",
+  "output_sha256": "f1cfe65a573f009dd92cd38d38bd0908336d497f2d6bb63e1667dea195635ab1",
+  "output_dimensions": [
+    1254,
+    1254
+  ],
+  "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+  "alpha_validation": {
+    "mode": "RGBA",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "transparent_pixels": 1292219,
+    "opaque_pixels": 675,
+    "partial_alpha_pixels": 279622,
+    "alpha_gt_zero_bounds": [
+      0,
+      32,
+      1218,
+      1238
+    ],
+    "alpha_threshold_bounds": {
+      "16": [
+        373,
+        317,
+        896,
+        1133
+      ],
+      "64": [
+        374,
+        318,
+        896,
+        1133
+      ],
+      "128": [
+        374,
+        318,
+        895,
+        1132
+      ]
+    },
+    "thresholds_are_analysis_only": true,
+    "asset_pixels_changed": false
+  },
+  "source_and_output_sha_verified": true,
+  "visual_review": {
+    "expression_pose": "안도·편안한 눈과 웃는 입",
+    "eyes_separate_and_visible": true,
+    "mouth_separate_and_visible": true,
+    "original_character_hair_outfit_identity_preserved": true,
+    "short_limbs_big_head_pixel_style_preserved": true,
+    "no_background_ui_text_or_speech_bubble": true
+  }
+}

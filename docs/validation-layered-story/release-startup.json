@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "gameVersion": "0.1.26",
+  "title": "Black The Survival",
+  "responding": true,
+  "runtimeErrors": 0,
+  "engineShutdownMessages": [
+    "Curl error 42: Callback aborted"
+  ],
+  "personalSavePreserved": true,
+  "researchProfilePreserved": true,
+  "developmentVerifierDisabled": true
+}

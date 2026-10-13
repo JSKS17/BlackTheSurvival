@@ -141,6 +141,7 @@ namespace Lumia
         public const float PassiveSkillOfferMultiplier = 1.5f;
         public const int StartingMaxEnergy = 5;
         public const int CriticalChanceCap = 30;
+        public const int EndlessCriticalChanceCap = 100;
         public const int WildlifeBasicAttackDropChance = 3;
         public const int WildlifeMeatDropChance = 50;
         public const int SecurityConsolePrice = 40;
@@ -157,8 +158,9 @@ namespace Lumia
         public int PlayerBaseEnergy { get { return StartingMaxEnergy + Math.Max(0, State.maxEnergyBonus); } }
         public int MaxEnergy { get { return PlayerBaseEnergy + (State.stage==RunStage.Combat && State.combat!=null ? TraitMechanics.EnergyBonus(State.combat.playerTraits) : 0); } }
         public int DefeatedBossCount { get { return State.bossVictories; } }
-        public int CritChance { get { return Math.Min(CriticalChanceCap, Math.Max(0, EquipmentSum(g => g.critChance))); } }
-        public int EnemyCritChance { get { return State.combat == null || !string.IsNullOrEmpty(State.combat.animal) ? 0 : Math.Min(CriticalChanceCap, Math.Max(0, EnemyEquipmentSum(g => g.critChance))); } }
+        public int DynamicCriticalChanceCap { get { return RunModes.ModeFor(State) == RunMode.Endless ? EndlessCriticalChanceCap : CriticalChanceCap; } }
+        public int CritChance { get { return Math.Min(DynamicCriticalChanceCap, Math.Max(0, EquipmentSum(g => g.critChance))); } }
+        public int EnemyCritChance { get { return State.combat == null || !string.IsNullOrEmpty(State.combat.animal) ? 0 : Math.Min(DynamicCriticalChanceCap, Math.Max(0, EnemyEquipmentSum(g => g.critChance))); } }
         public int NextLevelXp { get { return 50 + State.level * 12; } }
         public int TotalAttack { get { return EquipmentSum(g => g.attack); } }
         public int TotalBlock { get { return EquipmentSum(g => g.block); } }

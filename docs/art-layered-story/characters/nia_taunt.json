@@ -1,0 +1,76 @@
+{
+  "id": "nia_taunt",
+  "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-99cc5a22-c91a-4ffb-9e0e-6c7afb8f0e7c.png",
+  "prompt": "Use case: identity-preserve. Asset type: exactly one transparent low-resolution pixel-art cutscene character. Edit target: the ORIGINAL 160x160 Nia game sprite supplied. Preserve its exact violet-pink short curled hair, pink headphones, black/pink cropped jacket with striped pink sleeves, tiny dark shorts/skirt, black/pink boots and skin/eye palette. Preserve its squat 2-head-tall chibi silhouette, oversized round head, extremely short little arms and legs, original low pixel count, uniform square pixel clusters, dark 1-logical-pixel outline and limited palette. Only modify expression and the specified pose. Keep hair/face/outfit identity; eyes and mouth must remain clearly separated and visible. Fully inside square canvas with margins, actual transparent alpha, no background/ground/scene/UI/text/bubble, no smooth anime illustration or high-detail redraw. Prefer source160x160/80logicalgrid; if larger output retain obvious uniformly large square pixels and the exact tiny-body proportions. Variant nia_taunt: lively smug challenger announcing that the game is not over. Stand with one little hand raised by her shoulder with index finger lifted, the other hand on her hip. Confident sharp half-lidded magenta eyes and an unmistakable small playful open grin. Keep the same original ear/headphone and hair proportions, short curled hair silhouette and tiny body. Compact pose suitable next to a speech bubble, but draw NO bubble or text.",
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+  "generated_sha256": "4f47cead9ae1c67b7c31e100b9c68734a6995fbcff41b572e9fea2509c70520b",
+  "generated_dimensions": [
+    1254,
+    1254
+  ],
+  "generated_alpha_bounds": [
+    49,
+    35,
+    1214,
+    1159
+  ],
+  "output_path": "Assets/Resources/Lumia/Story/Characters/nia_taunt.png",
+  "output_sha256": "4f47cead9ae1c67b7c31e100b9c68734a6995fbcff41b572e9fea2509c70520b",
+  "output_dimensions": [
+    1254,
+    1254
+  ],
+  "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+  "alpha_validation": {
+    "mode": "RGBA",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "transparent_pixels": 1194608,
+    "opaque_pixels": 616,
+    "partial_alpha_pixels": 377292,
+    "alpha_gt_zero_bounds": [
+      49,
+      35,
+      1214,
+      1159
+    ],
+    "alpha_threshold_bounds": {
+      "16": [
+        350,
+        187,
+        934,
+        1157
+      ],
+      "64": [
+        351,
+        188,
+        934,
+        1156
+      ],
+      "128": [
+        351,
+        188,
+        933,
+        1156
+      ]
+    },
+    "thresholds_are_analysis_only": true,
+    "asset_pixels_changed": false
+  },
+  "source_and_output_sha_verified": true,
+  "visual_review": {
+    "expression_pose": "끝이 아니라며 한 손을 든 도발",
+    "eyes_separate_and_visible": true,
+    "mouth_separate_and_visible": true,
+    "original_character_hair_outfit_identity_preserved": true,
+    "short_limbs_big_head_pixel_style_preserved": true,
+    "no_background_ui_text_or_speech_bubble": true
+  }
+}

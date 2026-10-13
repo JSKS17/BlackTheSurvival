@@ -1,0 +1,76 @@
+{
+  "id": "nia_frustrated",
+  "input_path": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nia.png",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a133f4-c725-73f2-8ad4-5d15dad4c27b/exec-482581e0-1b4b-4271-8f75-06f8e95838e5.png",
+  "prompt": "Use case: identity-preserve. Asset type: one transparent pixel-art character sprite for a layered game cutscene. Edit target: the attached ORIGINAL 160x160 Nia game sprite. Make exactly ONE variant named nia_frustrated: she cannot play PC games and sulks, sitting low or standing with shoulders drooped, one tiny hand resting under her chin, annoyed half-lidded eyes and a clearly visible small pout. Preserve this EXACT character's original sprite design: violet-pink curled short hair with dark pink headphones, black/pink cropped jacket and striped pink sleeves, tiny dark shorts/skirt, black/pink boots. Keep the reference's very squat 2-head-tall chibi proportions, oversized round head, extremely short arms/legs, side-view three-quarter facing right. Keep its low-resolution pixel count, blocky hard-edged pixel clusters, dark 1-logical-pixel outline, limited palette and tiny crisp facial features. Only change expression and arm/leg pose, not outfit, face identity, hair shape or body proportions. Eyes and mouth must be distinct and separated, not obscured by hair. True transparent background with intact alpha; no ground, no shadow plate, no scene, no UI, no lettering or speech bubble. One whole character fully inside canvas with margin. This is a sprite edit, NOT a high-detail anime illustration, NOT smooth painting, NOT a large-head portrait crop. Prefer matching the source 160x160 canvas/logical 80x80 pixel grid; if generated at higher resolution, maintain obviously large uniform square pixels and identical sprite silhouette scale/proportions.",
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "input_sha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+  "generated_sha256": "27924ac37ea8c73729b48545653fd386b84e99b756ccce785d99f39437da1887",
+  "generated_dimensions": [
+    1254,
+    1254
+  ],
+  "generated_alpha_bounds": [
+    63,
+    136,
+    1184,
+    1230
+  ],
+  "output_path": "Assets/Resources/Lumia/Story/Characters/nia_frustrated.png",
+  "output_sha256": "27924ac37ea8c73729b48545653fd386b84e99b756ccce785d99f39437da1887",
+  "output_dimensions": [
+    1254,
+    1254
+  ],
+  "export": "byte-for-byte copy of built-in generated transparent PNG; no resampling/cropping/painting/color/alpha edits",
+  "alpha_validation": {
+    "mode": "RGBA",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "alpha_min": 0,
+    "alpha_max": 255,
+    "transparent_pixels": 1195334,
+    "opaque_pixels": 1807,
+    "partial_alpha_pixels": 375375,
+    "alpha_gt_zero_bounds": [
+      63,
+      136,
+      1184,
+      1230
+    ],
+    "alpha_threshold_bounds": {
+      "16": [
+        346,
+        178,
+        947,
+        1160
+      ],
+      "64": [
+        347,
+        179,
+        947,
+        1159
+      ],
+      "128": [
+        347,
+        179,
+        946,
+        1159
+      ]
+    },
+    "thresholds_are_analysis_only": true,
+    "asset_pixels_changed": false
+  },
+  "source_and_output_sha_verified": true,
+  "visual_review": {
+    "expression_pose": "PC 게임을 못 해 부루퉁한 표정·턱을 괸 손",
+    "eyes_separate_and_visible": true,
+    "mouth_separate_and_visible": true,
+    "original_character_hair_outfit_identity_preserved": true,
+    "short_limbs_big_head_pixel_style_preserved": true,
+    "no_background_ui_text_or_speech_bubble": true
+  }
+}
