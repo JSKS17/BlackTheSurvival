@@ -1,0 +1,71 @@
+{
+  "revision": "polish5-20261014",
+  "subject": "darko",
+  "tool": "built-in image_gen.imagegen",
+  "intent": "precise-object-edit",
+  "source_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-70de-7693-a238-83741e98395a\\exec-9fae85df-3ff4-427f-a33c-af7accbf6717.png",
+  "selected_sha256": "b631c0d1ac29ab01fbd969bedbd001602ab6dec113a1044a3745d81df18996c3",
+  "saved_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014\\darko\\generated-sheet.png",
+  "input_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Subjects\\darko\\generated-sheet.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Subjects\\darko\\official-reference.png"
+  ],
+  "input_roles": [
+    "edit target",
+    "official costume and hair material reference only"
+  ],
+  "input_sha256": [
+    "54d4b06b6fa516e88b972f8d69a010c91627b0ee4e1ae1c71d925ac85a2d0f84",
+    "d50d5b64e36286d3f1fbdc2c76ad0f0ab79a02cb43d05ff8a53ed1d43edd03d0"
+  ],
+  "prompt_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014\\darko\\edit-prompt.txt",
+  "prompt": "Precise local edit of Image 1, the existing 12-frame 4 by 3 Darko sprite sheet. Image 2 is costume material reference only. Preserve the same sheet dimensions, every pose and expression, chibi ratio, silhouette, body and foot position, gray dummy positions, weapon positions and direction, teal/gold effects and transparent gutters. NO redesign or motion changes.\n\nChange ONLY INTERNAL PIXEL DETAILS in the current hair and costume, a modest upgrade with substantially crisper pixel craft:\n- Keep gray-teal hair color, size, silhouette and locks. Add several discrete 4–6px square/stair-step HIGHLIGHT CLUSTERS and darker shadow CLUSTERS inside the existing locks to separate the spiky planes. Use 4 or 5 solid colors, NO blended gradients, soft texture, thin painted strands, dithering or antialiasing.\n- Keep coat, shirt, trousers and accessories exactly the current shapes. Sharpen coat's rectangular taupe patterned trim into clearer stepped motifs; add compact 3–5px square fold/light planes on the navy fabric, a few silver chain and gold coin reflection blocks and cuff/lapel fold accents.\n- Keep the existing face and red eye untouched, no glasses. Keep weapon and effects unchanged.\nVisible main pixel size, black outline, two-head style and all motions must remain the approved image 1 style. No smoothing or painterly rendering. No new effects, garments, accessories, text, grids, cell borders or background. Genuine transparency. Preserve every frame as the same original action and spacing, completely within its separate cell.\n",
+  "transparent_background": true,
+  "size": [
+    1448,
+    1086
+  ],
+  "attempts": [
+    {
+      "source_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-70de-7693-a238-83741e98395a\\exec-716946e0-65ef-4f28-8a62-798030e9bb57.png",
+      "sha256": "25ae5abc9aa2608b98bbc5fc49a77f0e705a71126db0e926401a3cacc712ac6f",
+      "prompt_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014\\darko\\initial-edit-prompt.txt",
+      "selected": false,
+      "reason": "added shading looked less deliberately block-shaped than requested"
+    },
+    {
+      "source_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-70de-7693-a238-83741e98395a\\exec-9fae85df-3ff4-427f-a33c-af7accbf6717.png",
+      "sha256": "b631c0d1ac29ab01fbd969bedbd001602ab6dec113a1044a3745d81df18996c3",
+      "prompt_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014\\darko\\edit-prompt.txt",
+      "selected": true
+    }
+  ],
+  "visual_review": {
+    "method": "view_image entire original, official reference and both generated candidates; read-only alpha and per-cell bounding-box inspection",
+    "twelve_frames": true,
+    "four_columns_three_rows": true,
+    "pose_sequence_preserved_visually": true,
+    "two_head_style_preserved_visually": true,
+    "face_and_identity_preserved_visually": true,
+    "existing_effect_positions_preserved_visually": true,
+    "no_visible_cross_cell_overlap": true,
+    "details_added": "harder stair-step hair highlight/shadow clusters, coat folds and trim and compact metal/fabric reflections",
+    "character_checks": [
+      "no glasses; red visible eye; fringe covers other eye; original flat oval weapon and black shaft; grab/drag/lift/slam/recover sequence unchanged"
+    ],
+    "limitations": "Image generator retouches pixels; frame semantics and silhouettes were checked visually, not asserted as byte-identical to the original. Final normalized atlas and browser playback remain root integration checks."
+  },
+  "alpha_inspection": {
+    "alpha_0_pixels": 1148069,
+    "alpha_255_pixels": 1193,
+    "intermediate_alpha_pixels": 423266,
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "hidden_rgb_under_alpha_zero_is_not_opaque_background": true
+  },
+  "production_changed": false
+}

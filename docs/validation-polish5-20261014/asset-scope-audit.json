@@ -1,0 +1,146 @@
+{
+  "passed": true,
+  "revision": "chibi2-polish-20261014",
+  "subjects_modified": 5,
+  "frames": 60,
+  "subjects": [
+    {
+      "id": "darko",
+      "raw_sha256": "b631c0d1ac29ab01fbd969bedbd001602ab6dec113a1044a3745d81df18996c3",
+      "atlas_sha256": "0640d249c70c7aef16a59fe541314600d8cf55cc80922586b73276bbcc5780f6",
+      "frames": 12,
+      "source_rgba_preserved": true,
+      "transparent_guard": 24,
+      "grounded_feet_aligned": true,
+      "gif_full_canvas_and_disposal2": true,
+      "webp_visible_rgba_lossless": true
+    },
+    {
+      "id": "garnet",
+      "raw_sha256": "054380e30212e9b41e9d87936844b6bcc9b5a95303d0f671ad66380c694938d1",
+      "atlas_sha256": "fecf3f7e0cc22557a0b2fcbbbe025d729972ff5642a8e7998958bc437fd1bd05",
+      "frames": 12,
+      "source_rgba_preserved": true,
+      "transparent_guard": 24,
+      "grounded_feet_aligned": true,
+      "gif_full_canvas_and_disposal2": true,
+      "webp_visible_rgba_lossless": true
+    },
+    {
+      "id": "martina",
+      "raw_sha256": "a8de99557f5b519505dc56ad695e54a39ed16d2e34396e5f2d1bfb0d8a961f54",
+      "atlas_sha256": "280a2c9a51bb2e7a7b2eb456559144385b8479fd0699b4fd3da92768b617814d",
+      "frames": 12,
+      "source_rgba_preserved": true,
+      "transparent_guard": 24,
+      "grounded_feet_aligned": true,
+      "gif_full_canvas_and_disposal2": true,
+      "webp_visible_rgba_lossless": true
+    },
+    {
+      "id": "nadine",
+      "raw_sha256": "8b35c783b140b18dc8e6eb41f26f44c1543509a4cf0a6b766c8eb5fd7924e3ac",
+      "atlas_sha256": "199594da694e1e63bc252879335c5bd9fac5dd42d50868a398d51ca3517ba469",
+      "frames": 12,
+      "source_rgba_preserved": true,
+      "transparent_guard": 24,
+      "grounded_feet_aligned": true,
+      "gif_full_canvas_and_disposal2": true,
+      "webp_visible_rgba_lossless": true
+    },
+    {
+      "id": "tia",
+      "raw_sha256": "85ec1e0d410abf0011e0b0fcde6274b3f561346c45db46c47b3d6f1155c6f10b",
+      "atlas_sha256": "f838320431640cb807fa33a91855c357300a905a79bc2e7065f88a8532df4c95",
+      "frames": 12,
+      "source_rgba_preserved": true,
+      "transparent_guard": 24,
+      "grounded_feet_aligned": true,
+      "gif_full_canvas_and_disposal2": true,
+      "webp_visible_rgba_lossless": true
+    }
+  ],
+  "unchanged_subjects": 86,
+  "unchanged_files": 664,
+  "unchanged_files_sha256_verified": true,
+  "game_files_changed": [],
+  "garnet_hair_only_proof": {
+    "passed": true,
+    "operation": "FFmpeg binary maskedmerge planes=7 of built-in tool hair RGB; original alpha and all unselected RGBA preserved",
+    "original_sha256": "d4d6c4544450a2162762c609c7aca4c14545b90a476fece27b25f403c33009d0",
+    "tool_output_sha256": "1537c0080fc15c463d204f344ffae072c3ef71923e8ed7e8e2cfda026e15d2d9",
+    "final_sha256": "054380e30212e9b41e9d87936844b6bcc9b5a95303d0f671ad66380c694938d1",
+    "mask_sha256": "d0db2cf634b55e045ea4d1a5fdca6e4a2898f3857ff39db41ff3e10684617213",
+    "original_alpha_exact": true,
+    "unselected_rgba_exact": true,
+    "selected_rgb_from_tool_exact": true,
+    "coffin_only_frames_7_8_exact": true,
+    "source_dimensions": [
+      1448,
+      1086
+    ],
+    "selected_pixels": 123600,
+    "frames": [
+      {
+        "index": 0,
+        "changed_rgb_pixels": 13094,
+        "selected_pixels": 13094
+      },
+      {
+        "index": 1,
+        "changed_rgb_pixels": 14608,
+        "selected_pixels": 14608
+      },
+      {
+        "index": 2,
+        "changed_rgb_pixels": 11552,
+        "selected_pixels": 11552
+      },
+      {
+        "index": 3,
+        "changed_rgb_pixels": 13050,
+        "selected_pixels": 13050
+      },
+      {
+        "index": 4,
+        "changed_rgb_pixels": 13442,
+        "selected_pixels": 13442
+      },
+      {
+        "index": 5,
+        "changed_rgb_pixels": 12246,
+        "selected_pixels": 12248
+      },
+      {
+        "index": 6,
+        "changed_rgb_pixels": 8209,
+        "selected_pixels": 8209
+      },
+      {
+        "index": 7,
+        "changed_rgb_pixels": 0,
+        "selected_pixels": 0
+      },
+      {
+        "index": 8,
+        "changed_rgb_pixels": 0,
+        "selected_pixels": 0
+      },
+      {
+        "index": 9,
+        "changed_rgb_pixels": 12564,
+        "selected_pixels": 12564
+      },
+      {
+        "index": 10,
+        "changed_rgb_pixels": 12553,
+        "selected_pixels": 12553
+      },
+      {
+        "index": 11,
+        "changed_rgb_pixels": 12280,
+        "selected_pixels": 12280
+      }
+    ]
+  }
+}

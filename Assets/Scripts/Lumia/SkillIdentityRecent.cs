@@ -69,7 +69,10 @@ namespace Lumia
             p["garnet_q"] = M(d:5,hits:2,weak:1,rules:Pain(R("bonus_damage",n:6,need:"embrace"),R("consume","embrace",n:1,hit:true)));
             p["garnet_w"] = M(block:8,heal:3,rules:new[]{R("bonus_heal",n:3,scale:"pain",cap:3),R("delayed_damage","pain_release","억누른 고통 방출",6,delay:1),R("delayed_damage","charged_pain","충전된 고통",10,delay:1,need:"pain",at:3),R("discount",n:1,target:"garnet_q",need:"pain"),R("discount",n:2,target:"garnet_e",need:"pain",at:2),R("consume","pain")});
             p["garnet_e"] = M(d:9,evade:15,weak:1,rules:Pain(R("bonus_damage",n:6,need:"embrace"),R("consume","embrace",n:1,hit:true)));
-            p["garnet_r"] = M(d:12,weak:1,rules:new[]{R("set","embrace","철처녀 표식",1,cap:1,hit:true),R("delayed_damage","iron_maiden","처형식 압박",14,delay:1,hit:true)});
+            p["garnet_r"] = M(d:8,weak:1,rules:new[]{R("set","embrace","철처녀 표식",1,cap:1,hit:true),R("delayed_damage","iron_maiden","처형식 압박",8,delay:1,hit:true)});
+            p["garnet_r"].freeCastTargets = new[] { "garnet_r" };
+            p["garnet_r"].freeCastCount = 1;
+            p["garnet_r"].freeCastOnHit = true;
 
             p["yumin_q"] = M(d:3,hits:3,rules:Wind(R("bonus_damage",n:7,need:"wind")));
             p["yumin_w"] = M(d:8,weak:1,rules:Wind(R("bonus_damage",n:6,need:"wind")));

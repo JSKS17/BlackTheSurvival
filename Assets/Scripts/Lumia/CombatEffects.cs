@@ -15,7 +15,8 @@ namespace Lumia
             public RuneDef rune;
             public GearDef gear;
             public CombatVisualProfile profile;
-            public bool direct;
+            public UltimateAnimationDef ultimate;
+            public bool direct, reduced;
             public float start, duration;
             public Color color, accent;
             public int seed;
@@ -26,12 +27,14 @@ namespace Lumia
         readonly Dictionary<int, GUIStyle> numberStyles = new Dictionary<int, GUIStyle>();
         GUIStyle sourceFont;
         float verificationProgress = -1;
+        float pausedAt = -1;
+        float Clock { get { return pausedAt >= 0 ? pausedAt : Time.unscaledTime; } }
         public bool Busy
         {
             get
             {
                 for (int i = bursts.Count - 1; i >= 0; i--)
-                    if (Age(bursts[i]) < bursts[i].duration * .94f) return true;
+                    if (Age(bursts[i]) < bursts[i].duration * (bursts[i].ultimate != null ? 1 : .94f)) return true;
                 return false;
             }
         }
@@ -40,20 +43,48 @@ namespace Lumia
             get
             {
                 for (int i = bursts.Count - 1; i >= 0; i--)
-                    if (bursts[i].direct && Age(bursts[i]) < Mathf.Min(.32f, bursts[i].duration * .42f)) return true;
+                    if (bursts[i].direct && Age(bursts[i]) < (bursts[i].ultimate != null ? bursts[i].duration : Mathf.Min(.32f, bursts[i].duration * .42f))) return true;
                 return false;
             }
         }
 
-        public void Clear() { bursts.Clear(); verificationProgress = -1; }
+        public bool UltimateBusy
+        {
+            get { foreach (var b in bursts) if (b.ultimate != null && Alive(b)) return true; return false; }
+        }
+        public string UltimateSubject
+        {
+            get { for (int i = bursts.Count - 1; i >= 0; i--) if (bursts[i].ultimate != null && Alive(bursts[i])) return bursts[i].ultimate.id; return null; }
+        }
+        public int UltimateFrame(bool reduced)
+        {
+            for (int i = bursts.Count - 1; i >= 0; i--)
+                if (bursts[i].ultimate != null && Alive(bursts[i]))
+                {
+                    float elapsed = Age(bursts[i]) - (bursts[i].reduced ? CombatCardCue.ReducedRevealSeconds : CombatCardCue.RevealSeconds);
+                    return elapsed < 0 ? -1 : UltimateAnimations.FrameIndex(bursts[i].ultimate, elapsed, bursts[i].reduced);
+                }
+            return -1;
+        }
+        public void Clear() { bursts.Clear(); verificationProgress = pausedAt = -1; }
+        public void Pause(bool paused)
+        {
+            if (paused && pausedAt < 0) pausedAt = Time.unscaledTime;
+            else if (!paused && pausedAt >= 0)
+            {
+                float delay = Time.unscaledTime - pausedAt;
+                foreach (var burst in bursts) burst.start += delay;
+                pausedAt = -1;
+            }
+        }
         public void FreezeForVerification(float normalized) { verificationProgress = Mathf.Clamp01(normalized); }
         public void ResumeVerification()
         {
             if (verificationProgress >= 0)
-                foreach (var b in bursts) b.start = Time.unscaledTime - verificationProgress * b.duration;
+                foreach (var b in bursts) b.start = Clock - verificationProgress * b.duration;
             verificationProgress = -1;
         }
-        float Age(Burst b) { return verificationProgress >= 0 ? verificationProgress * b.duration : Time.unscaledTime - b.start; }
+        float Age(Burst b) { return verificationProgress >= 0 ? verificationProgress * b.duration : Clock - b.start; }
         float Progress(Burst b) { return Mathf.Clamp01(Age(b) / b.duration); }
         bool Alive(Burst b) { return Age(b) < b.duration; }
 
@@ -68,19 +99,22 @@ namespace Lumia
                 : action.kind == "deferred_damage" ? GameDatabase.Equipment(action.cardId) : null;
             bool direct = card != null && string.IsNullOrEmpty(action.kind) && string.IsNullOrEmpty(action.traitId);
             var profile = CombatVisualProfiles.For(card);
+            var ultimate = direct ? UltimateAnimations.For(card) : null;
             Color color = Html(profile.primary, new Color(.57f, .87f, .74f));
             Color accent = Html(profile.accent, Color.white);
             if (passive != null) color = new Color(.84f, .66f, .96f);
             if (rune != null) color = new Color(.94f, .78f, .47f);
             if (gear != null) color = new Color(.96f, .72f, .43f);
             float duration = reduced ? .24f : direct ? Mathf.Clamp(profile.duration, .62f, 1.08f) : .52f;
+            if (ultimate != null)
+                duration = (reduced ? CombatCardCue.ReducedRevealSeconds + UltimateAnimations.ReducedSeconds : CombatCardCue.RevealSeconds + ultimate.Duration);
             if (bursts.Count >= MaxBursts)
             {
                 int remove = bursts.FindIndex(b => !b.direct);
                 bursts.RemoveAt(remove < 0 ? 0 : remove);
             }
             bursts.Add(new Burst { action = action, card = card, passive = passive, rune = rune, gear = gear,
-                profile = profile, direct = direct, start = Time.unscaledTime, duration = duration,
+                profile = profile, ultimate = ultimate, direct = direct, reduced = reduced, start = Clock, duration = duration,
                 color = color, accent = accent, seed = profile.seed ^ (action.id * 31 & 255) });
             return duration;
         }
@@ -134,8 +168,9 @@ namespace Lumia
             Matrix4x4 oldMatrix = GUI.matrix;
             try
             {
-                if (reduced) { GUI.DrawTexture(rect, texture, ScaleMode.ScaleToFit, true); return; }
                 var b = ActorCast(enemy);
+                if (b != null && b.ultimate != null) reduced = b.reduced;
+                if (reduced) { GUI.DrawTexture(rect, texture, ScaleMode.ScaleToFit, true); return; }
                 Vector2 offset = b == null ? Vector2.zero : ActorMotion(b, enemy, Progress(b));
                 float rotation = 0, squash = 0, fade = 1;
                 float p = b == null ? 1 : Progress(b);
@@ -203,23 +238,28 @@ namespace Lumia
                 if (primary == null && bursts[i].direct) primary = bursts[i];
             }
             int reactionIndex = 0;
+            // Accessibility changes take effect on the next cast, keeping this atlas timeline internally consistent.
+            bool primaryReduced = primary != null && primary.ultimate != null ? primary.reduced : reduced;
+            bool ultimateVisible = primary != null && primary.ultimate != null
+                && Age(primary) >= (primaryReduced ? CombatCardCue.ReducedRevealSeconds : CombatCardCue.RevealSeconds);
             foreach (var b in bursts)
             {
                 if (!Alive(b)) continue;
+                bool motionReduced = b.ultimate != null ? b.reduced : reduced;
                 float p = Progress(b);
                 Vector2 source = b.action.enemy ? new Vector2(1015, 282) : new Vector2(232, 282);
                 Vector2 target = b.action.enemy ? new Vector2(232, 282) : new Vector2(1015, 282);
                 bool status = (b.action.kind ?? "").StartsWith("status_", StringComparison.Ordinal);
                 bool attack = status || b.action.damage > 0 || b.action.avoided > 0 || b.card != null && (b.card.damage > 0 || b.card.poison > 0 || b.card.weak > 0 || b.card.vulnerable > 0);
-                float impactAt = reduced ? 0 : b.direct ? Mathf.Clamp(b.profile.impactAt, .28f, .72f) : .12f;
+                float impactAt = motionReduced ? 0 : b.direct ? Mathf.Clamp(b.profile.impactAt, .28f, .72f) : .12f;
                 float hitProgress = Mathf.Clamp01((p - impactAt) / Mathf.Max(.1f, 1 - impactAt));
                 float alpha = Mathf.Min(1, (1 - p) * 3.5f);
                 Color color = WithAlpha(b.color, alpha), accent = WithAlpha(b.accent, alpha);
-                if (b.direct && !reduced)
+                if (b.direct && !motionReduced && !(b.ultimate != null && ultimateVisible))
                     Spell(b.profile, b.card, source, target, p, color, accent, b.seed, attack);
-                else if (!b.direct && !reduced)
+                else if (!b.direct && !motionReduced)
                     Reaction(b, attack ? target : source, p, color, accent);
-                else if (p < .85f)
+                else if (motionReduced && p < .85f)
                 {
                     // Reduced motion is spatially static: no travel, zoom, flash, orbit or recoil.
                     Vector2 at = attack ? target : source;
@@ -229,15 +269,15 @@ namespace Lumia
                 }
                 if (p >= impactAt)
                 {
-                    if (b.action.block > 0 && !reduced) Shield(source, hitProgress, WithAlpha(new Color(.57f, .87f, .74f), alpha), b.seed, true);
-                    if (b.action.heal > 0 && !reduced) Heal(source, hitProgress, WithAlpha(new Color(.65f, .91f, .57f), alpha), b.seed);
+                    if (b.action.block > 0 && !motionReduced) Shield(source, hitProgress, WithAlpha(new Color(.57f, .87f, .74f), alpha), b.seed, true);
+                    if (b.action.heal > 0 && !motionReduced) Heal(source, hitProgress, WithAlpha(new Color(.65f, .91f, .57f), alpha), b.seed);
                     int lane = b.direct ? 0 : 1 + reactionIndex++ % 3;
-                    float lift = reduced ? 0 : hitProgress * 22;
+                    float lift = motionReduced ? 0 : hitProgress * 22;
                     float y = b.direct ? -62 - lift : -48 + lane * 21 - lift * .6f;
                     string label = b.direct ? "" : ReactionIdentity(b) + " ";
                     if (b.action.damage > 0) Number(font, target + new Vector2(0, y), label + (b.action.critical ? "치명타! −" : "−") + b.action.damage,
                         WithAlpha(b.action.critical ? new Color(1f, .82f, .39f) : new Color(1f, .58f, .51f), alpha), b.action.critical ? 24 : b.direct ? 21 : 13, b.direct ? 260 : 320);
-                    if (b.action.critical && !reduced) Star(target, 25 * (1 - hitProgress), accent, 4, 0);
+                    if (b.action.critical && !motionReduced) Star(target, 25 * (1 - hitProgress), accent, 4, 0);
                     if (b.direct && b.card.damage > 0 && b.action.damage == 0 && b.action.avoided == 0) Number(font, target + new Vector2(0, y), "직접 피해 0", color, 16);
                     if (b.action.avoided > 0) Number(font, target + new Vector2(0, -32 - lift), "회피!" + (b.action.avoided > 1 ? " ×" + b.action.avoided : ""), WithAlpha(new Color(.56f, .84f, .96f), alpha), 17);
                     if (b.action.heal > 0) Number(font, source + new Vector2(0, y), label + "+" + b.action.heal, WithAlpha(new Color(.65f, .91f, .57f), alpha), b.direct ? 20 : 13, 320);
@@ -247,9 +287,12 @@ namespace Lumia
                 }
             }
             if (primary != null)
-                CombatCardCue.Draw(primary.action, primary.card, primary.profile, Progress(primary), primary.duration, font, reduced);
+                CombatCardCue.Draw(primary.action, primary.card, primary.profile, Progress(primary), primary.duration, font, primaryReduced);
             var banner = primary ?? fallback;
-            if (banner != null) DrawBanner(banner, font);
+            if (banner != null && !ultimateVisible) DrawBanner(banner, font);
+            if (ultimateVisible)
+                UltimateAnimations.Draw(primary.ultimate, primary.card, primary.action.enemy,
+                    Age(primary) - (primaryReduced ? CombatCardCue.ReducedRevealSeconds : CombatCardCue.RevealSeconds), primaryReduced, font);
         }
 
         void DrawBanner(Burst b, GUIStyle font)

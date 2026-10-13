@@ -26,7 +26,7 @@ namespace Lumia
     {
         public int sequence, nodeId, act, turn;
         public string opponent, kind, cardId, traitId, title, detail;
-        public bool enemy, critical;
+        public bool enemy, critical, execution;
         public int damage, block, heal, avoided, absorbed, paidCost = -1;
     }
 
@@ -194,6 +194,19 @@ namespace Lumia
             result.criticalChance = id == "basic_attack" ? enemy ? EnemyCritChance : CritChance : 0;
             result.damageNote = "일반 적중을 가정한 직접 피해 합계입니다. 현재 방어도·회피·피격 패시브·치명타·체력 제한은 차감하지 않았습니다. 설치물·지속 피해·후속 패시브 피해는 별도입니다.";
             result.conditions = CombatInformation.Conditions(card, actor);
+            if (card.id == "garnet_r")
+            {
+                int targetHp = enemy ? State.hp : c.enemyHp, targetMaxHp = enemy ? State.maxHp : c.enemyMaxHp;
+                bool mark = SkillMechanics.Resource(actor, card.owner, "embrace") > 0;
+                bool ready = FreeCastMechanics.GarnetExecutionReady(card, actor, result.hasFreeCast, targetHp, targetMaxHp);
+                result.conditions.Add(new CardConditionPreview {
+                    condition="이번 턴 무료 재사용 · 철처녀 표식 · 사용 전 체력 " + FreeCastMechanics.GarnetExecutionPercent + "% 이하 · 적중",
+                    effect="방어도를 무시하고 적의 남은 체력을 모두 없애 처형합니다.",
+                    current="무료 사용권 " + result.freeUses + "회 · 철처녀 표식 " + (mark ? "활성" : "없음") + " · 대상 체력 " + targetHp + "/" + targetMaxHp,
+                    met=ready, requiresHit=true,
+                    result=ready ? "현재 처형 조건 충족 · 재사용이 적중해야 처형" : "현재 처형 조건 미충족 · 일반 피해 적용" });
+                result.damageNote += " 가넷의 처형은 위 직접 피해와 별도로 표시한 조건을 확인하며, 재사용 피해를 주기 전 체력으로 판정합니다.";
+            }
             if (!enemy) InformationBossWarning(result, card);
             return result;
         }
@@ -216,6 +229,7 @@ namespace Lumia
             else if (phase.goal == BossGoal.NoHeavyHit)
             {
                 int ceiling = result.normalDamage;
+                if (FreeCastMechanics.GarnetExecutionReady(card, c.playerSkills, result.hasFreeCast, c.enemyHp, c.enemyMaxHp)) ceiling = Math.Max(ceiling, c.enemyHp);
                 if (result.criticalChance > 0) ceiling += (CriticalBaseDamage(CardDamage(card.id)) - CardDamage(card.id)) * result.hits;
                 result.bossPossibleViolation = ceiling >= Math.Max(1, phase.goalAmount);
                 result.bossWarning = "직접 피해 " + Math.Max(1, phase.goalAmount) + " 이상이면 금지 조건을 위반합니다. 방어도에 준 피해도 포함합니다. " + (result.bossPossibleViolation ? "이 카드의 일반 적중·치명타 예상치가 금지 기준에 닿을 수 있습니다." : "현재 예상치는 금지 기준 미만입니다. 실제 피해로 판정합니다.");
@@ -274,12 +288,13 @@ namespace Lumia
             if (action.block > 0) parts.Add("방어도 +" + action.block);
             if (action.heal > 0) parts.Add("체력 회복 +" + action.heal);
             if (action.critical) parts.Add("치명타 " + Math.Max(1, action.criticalHits) + "회");
+            if (action.execution) parts.Add("처형 · 재사용 전 체력 " + FreeCastMechanics.GarnetExecutionPercent + "% 이하");
             if (status) parts.Add(target + " · " + StatusMechanics.Name(action.kind.Substring(7)));
             if (!direct && !status && !string.IsNullOrEmpty(action.kind)) parts.Add(InformationKind(action.kind));
             if (parts.Count == 0) parts.Add(direct ? "직접 피해·방어·회복 수치 없음 · 카드의 조건·필드 효과를 처리했습니다." : "효과 발동");
             RecordCombatInformation(new CombatLogEntry { kind = direct ? "card_result" : status ? "debuff" : "effect", cardId = action.cardId, traitId = action.traitId,
                 title = identity + (direct ? " 결과" : " 발동"), detail = string.Join(" · ", parts), enemy = action.enemy,
-                damage = action.damage, block = action.block, heal = action.heal, avoided = action.avoided, absorbed = action.absorbed, critical = action.critical });
+                damage = action.damage, block = action.block, heal = action.heal, avoided = action.avoided, absorbed = action.absorbed, critical = action.critical, execution = action.execution });
         }
         static string InformationKind(string kind)
         {

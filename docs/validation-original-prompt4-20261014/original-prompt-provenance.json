@@ -1,0 +1,320 @@
+{
+  "commit": "41ab261d3e12c6d8079292a03b73000750afcc53",
+  "commit_summary": "41ab261d3e12c6d8079292a03b73000750afcc53 2026-10-13 21:54:18 +0900 Add standalone ultimate animation previews for all subjects",
+  "note": "Exact byte extraction of initial generation prompts and corresponding metadata from Git objects. No latest-sheet art referenced.",
+  "subjects": [
+    {
+      "id": "martina",
+      "extracted": [
+        {
+          "source_git_path": "ArtSource/AnimationPrototypes/Subjects/martina/prompt.txt",
+          "destination": "Temp/OriginalPrompt4_20261014/original/martina/prompt.txt",
+          "sha256": "81d857dcfb23f6a8bfcc925195db8bd9386013ab63f91af947b642dd02d3202f",
+          "bytes": 1949,
+          "git_blob": "6032854a0704292c079f8f589b7df8bcced4ab92"
+        },
+        {
+          "source_git_path": "ArtSource/AnimationPrototypes/Subjects/martina/manifest.json",
+          "destination": "Temp/OriginalPrompt4_20261014/original/martina/manifest.json",
+          "sha256": "38209f5bc3a6731ae7c69666b15505188890ad57c9321127a74e7fd82ee1faaa",
+          "bytes": 2295,
+          "git_blob": "40feff7564d14ea8f9dd406d96f40645522ab054"
+        }
+      ],
+      "initial_atlas": {
+        "git_path": "ArtSource/AnimationPrototypes/Subjects/martina/atlas.png",
+        "sha256": "5db57309e7c1cc91b286a6e0773a1cd5838fb764ff37d9600c0255b30a60707a",
+        "bytes": 1773659,
+        "git_blob": "7bcb9500fbe2d32851590586d60a4a70f5f2f53e"
+      },
+      "original_generation_metadata": {
+        "id": "martina",
+        "name": "마르티나",
+        "ultimate": "녹화",
+        "columns": 4,
+        "rows": 3,
+        "fps": 8,
+        "tool": "built-in image_gen.imagegen",
+        "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-e9bf66e6-8884-44da-9a82-1fb95ebc1d8b.png",
+        "reference_paths": [
+          "Assets/Resources/Lumia/PortraitsReference/martina.png",
+          "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+        ],
+        "sources": [
+          {
+            "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+            "title": "공식 1.0 실험체 스킬 자료"
+          }
+        ],
+        "motion_summary": "Eternal Return Martina Record: ash-gray long hair, rectangular black glasses, alert amber eyes, ochre/yellow reporter jacket and brown trousers, shoulder video camera exactly per reference. Use the broadcast form of R as representative: she films a cone, builds sequential pulses, ends in a flash. 12 poses: ready with lowered camera; grip camera handle; raise it to shoulder; front knee bends and viewfinder eye aims; filming begins with tiny red recording LED only (NO letters); turn torso slightly left with cyan/violet camera cone outline projecting right; pan slightly right; brace and zoom by adjusting lens with left hand; final bright compact white-gold shutter pulse within cone; recoil a little; camera lowered and jacket settles; ready. Real hand/camera/torso panning motion, not standing still with rotating FX. Glasses yes because original reporter wears them. Beam/cone must end well before cell border, face remains clear.",
+        "frame_labels": [
+          "대기",
+          "카메라 잡기",
+          "어깨에 카메라 올리기",
+          "뷰파인더 조준",
+          "녹화 시작",
+          "왼쪽으로 팬",
+          "오른쪽으로 팬",
+          "렌즈 조절",
+          "방송 마지막 광격",
+          "카메라 반동",
+          "카메라 내리기",
+          "대기 복귀"
+        ],
+        "intended_airborne_frames": [],
+        "visual_review": "안경·회색 머리·황색 재킷을 유지합니다. 카메라 들기, 팬, 렌즈 조정과 방송 피날레가 분리됩니다. 촬영 원뿔은 얼굴 우측으로 나갑니다.",
+        "width": 1448,
+        "height": 1086,
+        "atlas_sha256": "5db57309e7c1cc91b286a6e0773a1cd5838fb764ff37d9600c0255b30a60707a"
+      },
+      "references": [
+        {
+          "path_at_original_generation": "Assets/Resources/Lumia/PortraitsReference/martina.png",
+          "currently_exists": true,
+          "current_sha256": "0e7a21f1ab838ebeb2a29077f9bf8146862396b015e16b846df1693f6ec4e229",
+          "current_bytes": 8659
+        },
+        {
+          "path_at_original_generation": "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png",
+          "currently_exists": true,
+          "current_sha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
+          "current_bytes": 1637772
+        }
+      ]
+    },
+    {
+      "id": "tia",
+      "extracted": [
+        {
+          "source_git_path": "ArtSource/AnimationPrototypes/Subjects/tia/prompt.txt",
+          "destination": "Temp/OriginalPrompt4_20261014/original/tia/prompt.txt",
+          "sha256": "0b45599fb7e36e64b54f3b86fa14d55f9f2c769c33557973f7872e85d444fabb",
+          "bytes": 2229,
+          "git_blob": "5937bed42489e56680efec7afd3f85c62c714eab"
+        },
+        {
+          "source_git_path": "ArtSource/AnimationPrototypes/Subjects/tia/manifest.json",
+          "destination": "Temp/OriginalPrompt4_20261014/original/tia/manifest.json",
+          "sha256": "1a5c548b0cb9489cc82ba089918ff602b43d9d779df879a0e13df4e41c2592bc",
+          "bytes": 1528,
+          "git_blob": "021b338fd78e883792e893986386c747ff1ea208"
+        }
+      ],
+      "initial_atlas": {
+        "git_path": "ArtSource/AnimationPrototypes/Subjects/tia/atlas.png",
+        "sha256": "97d5b377524d8c338af2ac2eaf00091d5af8005a16cc6d2403750cc9271a6b32",
+        "bytes": 1933340,
+        "git_blob": "6350e0de9002b47d53ecd9023ab64937e3b4674f"
+      },
+      "original_generation_metadata": {
+        "id": "tia",
+        "name": "띠아",
+        "ultimate": "무지개 드로잉",
+        "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-81fee098-0a25-4390-aad7-873efd50b11c.png",
+        "reference_paths": [
+          "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/tia.png",
+          "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+        ],
+        "sources": [
+          {
+            "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+            "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+          }
+        ],
+        "motion_summary": "거대한 붓이 무지개를 그리는 R을 손목 시전·붓 쓸기·물감 회수로 해석한 독자 시안.",
+        "frame_labels": [
+          "붓을 든 대기",
+          "붓을 들어 올림",
+          "큰 붓을 부름",
+          "손목 원 그리기",
+          "거대한 붓 출현",
+          "붓이 내려옴",
+          "무지개 획 시작",
+          "넓은 무지개 획",
+          "물감 타격",
+          "붓을 거둠",
+          "마지막 물감 방울",
+          "대기 자세 복귀"
+        ],
+        "visual_review": "띠아의 큰 붓 소환·세 색상 획과 츠바메의 표식 확인·낮은 급습·교차 베기·제동을 12셀에서 확인했습니다. 캐릭터 고유 얼굴·복장과 읽히는 작은 입을 유지했습니다.",
+        "columns": 4,
+        "rows": 3,
+        "fps": 8,
+        "tool": "built-in image_gen.imagegen",
+        "atlas_sha256": "97d5b377524d8c338af2ac2eaf00091d5af8005a16cc6d2403750cc9271a6b32",
+        "width": 1448,
+        "height": 1086
+      },
+      "references": [
+        {
+          "path_at_original_generation": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/tia.png",
+          "currently_exists": true,
+          "current_sha256": "7c6baac6f4ad8c34a1aae99db2378ff56ad01e6df43b1c2d9acfedb7aea002ce",
+          "current_bytes": 11064
+        },
+        {
+          "path_at_original_generation": "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png",
+          "currently_exists": true,
+          "current_sha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
+          "current_bytes": 1637772
+        }
+      ]
+    },
+    {
+      "id": "darko",
+      "extracted": [
+        {
+          "source_git_path": "ArtSource/AnimationPrototypes/Subjects/darko/prompt.txt",
+          "destination": "Temp/OriginalPrompt4_20261014/original/darko/prompt.txt",
+          "sha256": "fb5161aaf240169fcc6d57c915cb11ceec5fe301d7f8145469f03faa798a4060",
+          "bytes": 1859,
+          "git_blob": "6098688fbbce6ddeec19bb9794f640a0efe6ae62"
+        },
+        {
+          "source_git_path": "ArtSource/AnimationPrototypes/Subjects/darko/manifest.json",
+          "destination": "Temp/OriginalPrompt4_20261014/original/darko/manifest.json",
+          "sha256": "0c8061c8d9c7693d9f5a857bdc7b70a14d3503f68254f468a4133a58a1388a09",
+          "bytes": 1949,
+          "git_blob": "d39dae96ee94c911861d6d6a675bb6ea3cee7fb5"
+        }
+      ],
+      "initial_atlas": {
+        "git_path": "ArtSource/AnimationPrototypes/Subjects/darko/atlas.png",
+        "sha256": "37bbfd6d9f149be5b34842d1272a62134e4e0c81d638c5e6da764db50e2cbc63",
+        "bytes": 1854313,
+        "git_blob": "41bcc47cde6d6eaa7fafd3463cf0c73c91fdd1b5"
+      },
+      "original_generation_metadata": {
+        "id": "darko",
+        "name": "다르코",
+        "ultimate": "강제집행",
+        "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-6c02b23e-ec5a-48d0-b614-214cda1563e2.png",
+        "reference_paths": [
+          "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/darko.png",
+          "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+        ],
+        "sources": [
+          {
+            "url": "https://playeternalreturn.com/posts/news/1954?hl=ko-KR",
+            "title": "님블뉴런 공식 출시 스킬: 강제집행"
+          }
+        ],
+        "visual_review": "안경·회청색 머리·어깨 방망이의 정체성을 유지하며 손 뻗기, 끌기, 내려꽂기 자세를 단계별로 구분했습니다. 일부 충격 잔광은 셀 가장자리와 가까워 재생 시 여백을 확보해야 합니다.",
+        "columns": 4,
+        "rows": 3,
+        "fps": 8,
+        "tool": "built-in image_gen.imagegen",
+        "atlas_sha256": "37bbfd6d9f149be5b34842d1272a62134e4e0c81d638c5e6da764db50e2cbc63",
+        "width": 1448,
+        "height": 1086,
+        "motion_summary": "Darko, gray teal spiky hair, round glasses, black gray clothes and bat from identity. Official R grabs, drags and slams the captured target into the ground. Without drawing an opponent, animate open grabbing hand reaching right, fist clenching around an abstract tiny violet VF knot, low dragging run with torso forward and bat swept behind, hauling arm upward, violent overhead downward throw, kneeling slam with gold-gray ground impact ring, recoil, stand and reset. Not a bat swing alone: emphasize grabbing and dragging then downward slam. Eyes behind glasses remain readable.",
+        "frame_labels": [
+          "준비",
+          "손 뻗기",
+          "붙잡기",
+          "끌고 가기",
+          "이동 가속",
+          "팔 들어올리기",
+          "내리꽂기 준비",
+          "지면에 내리꽂기",
+          "충격",
+          "반동",
+          "일어서기",
+          "준비 복귀"
+        ]
+      },
+      "references": [
+        {
+          "path_at_original_generation": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/darko.png",
+          "currently_exists": true,
+          "current_sha256": "693abb44f3703cd88901a222cc35cd0fb1ab5f86ff012d5dc8b616580e2dfc52",
+          "current_bytes": 8023
+        },
+        {
+          "path_at_original_generation": "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png",
+          "currently_exists": true,
+          "current_sha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
+          "current_bytes": 1637772
+        }
+      ]
+    },
+    {
+      "id": "nadine",
+      "extracted": [
+        {
+          "source_git_path": "ArtSource/AnimationPrototypes/Subjects/nadine/prompt-first-pass.txt",
+          "destination": "Temp/OriginalPrompt4_20261014/original/nadine/prompt.txt",
+          "sha256": "91225d1e218f92ab7612c1d8005aef712ef85cfa56963fbf79efaee0f9e18f94",
+          "bytes": 1759,
+          "git_blob": "14ebea9b950f59887f9dba5f2605a2d8d20d4152"
+        },
+        {
+          "source_git_path": "ArtSource/AnimationPrototypes/Subjects/nadine/manifest-first-pass.json",
+          "destination": "Temp/OriginalPrompt4_20261014/original/nadine/manifest.json",
+          "sha256": "727a124b847b87b2fbc4d26610edb5667d8aac11e7180ee0209288039d1dec3c",
+          "bytes": 1437,
+          "git_blob": "9cb07150e31716839f2025331db5b61965185650"
+        }
+      ],
+      "initial_atlas": {
+        "git_path": "ArtSource/AnimationPrototypes/Subjects/nadine/atlas-first-pass.png",
+        "sha256": "6f24804df39fa771c39af5fcda160e5cb6d9323fd9a50447d2a21903549e4949",
+        "bytes": 1770675,
+        "git_blob": "35ecf205abcd79e3b38bf9b3a5f0aae3f1fb3d2e"
+      },
+      "original_generation_metadata": {
+        "id": "nadine",
+        "name": "나딘",
+        "ultimate": "늑대 맹습",
+        "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-58a460e7-3b92-45e4-91d5-77bc91529523.png",
+        "reference_paths": [
+          "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nadine.png",
+          "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+        ],
+        "sources": [
+          {
+            "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+            "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
+          }
+        ],
+        "motion_summary": "기본 공격 뒤 늑대가 돌진하는 R을 활 연사와 결합한 독자 시안.",
+        "frame_labels": [
+          "사냥 자세",
+          "왼발 고정",
+          "활을 듦",
+          "첫 발 조준",
+          "첫 발 발사",
+          "두 번째 시위 당김",
+          "두 번째 발사",
+          "세 번째 조준",
+          "세 번째 발사·늑대 출현",
+          "늑대 돌진",
+          "활 회수·늑대 소멸",
+          "사냥 자세 복귀"
+        ],
+        "visual_review": "원본 얼굴·복장과 12개 셀을 확인했습니다. 팔과 무기의 준비·시전·회수 변화, 독립된 효과, 시작과 복귀 자세가 구분됩니다.",
+        "columns": 4,
+        "rows": 3,
+        "fps": 8,
+        "tool": "built-in image_gen.imagegen",
+        "atlas_sha256": "6f24804df39fa771c39af5fcda160e5cb6d9323fd9a50447d2a21903549e4949",
+        "width": 1448,
+        "height": 1086
+      },
+      "references": [
+        {
+          "path_at_original_generation": "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/nadine.png",
+          "currently_exists": true,
+          "current_sha256": "310dbfb872e73cfda511a10c24e6d0c99513e1212228450c15992f004a2531a4",
+          "current_bytes": 9386
+        },
+        {
+          "path_at_original_generation": "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png",
+          "currently_exists": true,
+          "current_sha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
+          "current_bytes": 1637772
+        }
+      ]
+    }
+  ]
+}

@@ -397,6 +397,11 @@ namespace Lumia
         {
             var result = new List<ConditionEffect>();
             if (card == null || card.mechanics == null) return result;
+            if (card.id == "garnet_r") result.Add(new ConditionEffect {
+                key="garnet_execution|recast|hit",
+                condition="이번 턴에 얻은 무료 사용권으로 재사용하고, 적에게 철처녀 표식이 남아 있으며, 사용 전 적의 체력이 최대 체력의 " + FreeCastMechanics.GarnetExecutionPercent + "% 이하이고 공격이 적중하면",
+                effect="방어도를 무시하고 적의 남은 체력을 모두 없애 처형합니다",
+                note="처형 조건은 재사용 피해를 주기 전 체력으로 판정합니다. 가넷 Q·E가 철처녀 표식을 소모했다면 처형되지 않습니다. 보스에게도 같은 체력 비율을 적용하며, 치명상 방지 효과는 기존 규칙대로 적용됩니다." });
             foreach (var rule in card.mechanics.rules ?? new SkillRule[0])
             {
                 string label = new[] { "gain", "set", "consume" }.Contains(rule.op) ? ResourceName(card, rule.key ?? rule.op) : rule.label ?? ResourceName(card, rule.key ?? rule.op);

@@ -2,37 +2,53 @@
   "id": "bihyung",
   "name": "비형",
   "ultimate": "신명나게 놀아보자!",
-  "columns": 4,
-  "rows": 3,
-  "fps": 8,
-  "tool": "built-in image_gen.imagegen",
-  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-93b0e003-af26-4ea1-b87c-ca6f2f592d7a.png",
-  "reference_paths": [
-    "ArtSource/AnimationPrototypes/Subjects/bihyung/atlas-first-pass.png",
-    "Assets/Resources/Lumia/PortraitsReference/bihyung.png",
-    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
-  ],
   "sources": [
     {
       "url": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
-      "title": "공식 실험체 출시 패치노트"
+      "title": "공식 비형 실험체 출시 및 스킬 설명"
+    },
+    {
+      "url": "https://cdn.playeternalreturn.com/2026%2F05%2F13%2F1778649894514-Full_Bihyung_00.png",
+      "title": "원작 기본 전신 원화 · 공식 자료"
     }
   ],
-  "motion_summary": "Eternal Return Bihyung Let's Have Some Fun: green hair, red small horns, sharp playful red eyes NO GLASSES, traditional/modern black-white-red outfit and enormous dark spiked goblin club exactly per reference. R leaps, wears dokkaebi invisibility hat, grows large and slams ground. 12 frames ready; squat with club; spring upward; airborne raise small traditional dokkaebi cap in free hand; put cap on head (do NOT hide eyes); body grows to 125% size while airborne, still inside cell; lift club overhead; plunge; strong ground slam with cyan/green ghost-fire circular shock, eyes clear; giant stance with small goblin flame motes; cap removed and shrink back; ready. Size change intentional ONLY for R growth, camera/floor fixed. Use actual hand/club/body movement, not a static aura. No other characters/spirits with faces. Landscape4:3, 4×3 equal square cells, generous 15% margin even giant frame.",
   "frame_labels": [
     "대기",
     "도약 준비",
-    "날아오르기",
-    "감투 꺼내기",
-    "도깨비 감투 착용",
-    "거대화",
-    "방망이 들어올리기",
-    "급강하",
-    "강하게 내려치기",
-    "거대 상태",
-    "감투 해제와 축소",
+    "뛰어오르기",
+    "방망이 들어 올리기",
+    "공중 거대화",
+    "내려치기 준비",
+    "방망이 내리치기",
+    "거대 착지와 타격",
+    "충격파",
+    "방망이 회수",
+    "원래 크기로 복귀",
     "대기 복귀"
   ],
+  "tool": "built-in image_gen.imagegen",
+  "intent": "New two-head coarse pixel animation matching original Nia pixel-to-image ratio",
+  "target_head_body_ratio": 2,
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a11b0b-8163-7693-bdd7-3bc64571a398/exec-53238e64-d17b-4103-a2fa-1aa7956bc416.png",
+  "reference_paths": [
+    "ArtSource/AnimationPrototypes/Style/chibi2-reference.png",
+    "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+    "ArtSource/AnimationPrototypes/Subjects/bihyung/official-reference.png"
+  ],
+  "reference_sha256": [
+    "1791664646896afe4d7a33a208c2e301b2daa2c978ca1c43e57fb043431b10c6",
+    "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61",
+    "21f41e68185e57d6b475ade5c538a540fd16a1d30aa40938bab8164e909fbb0b"
+  ],
+  "reference_roles": [
+    "two-head coarse-pixel style master",
+    "original Nia native 362px pixel-size ratio",
+    "official original full-body identity"
+  ],
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "ground_alignment": "per-frame",
   "intended_airborne_frames": [
     2,
     3,
@@ -40,14 +56,78 @@
     5,
     6
   ],
-  "visual_review": "내장 imagegen 1회로 셀 간 여백을 다시 제작했습니다. 이전 셀의 방망이 조각이 다음 셀에 넘어오는 문제가 없어졌으며 초록 머리·붉은 눈·안경 없음·큰 도깨비 방망이·감투와 도약/거대화/급강하/착지 12동작을 유지합니다. 생성 원본 PNG를 그대로 복사했으며 픽셀 편집이나 리사이즈를 하지 않았습니다.",
-  "width": 1448,
-  "height": 1086,
-  "atlas_sha256": "16aafce1008a6d8153f456501571d60537c0bf786f934b9d873d4d27e9144f71",
-  "prior_atlas_sha256": "fe7ec823a37d51121fed3ad724aea1e049b5491c4610a45225011d41f6103ad9",
-  "first_pass_files": [
-    "atlas-first-pass.png",
-    "prompt-first-pass.txt",
-    "manifest-first-pass.json"
-  ]
+  "alignment_ignore_frames": [],
+  "actor_absent_frames": [],
+  "frame_layout": "fixed-grid",
+  "frame_gutter": 24,
+  "preview_revision": "chibi2-20261014",
+  "motion_summary": "도약하며 방망이를 들어 올리고 공중에서 거대화한 뒤 내려치며 착지합니다. 충격파가 사라지면 원래 크기로 복귀합니다.",
+  "candidate_status": "selected; artwork and ground review passed; game not integrated",
+  "visual_review": "원작 황금색 눈·윙크·흰/회색 부츠·기계 방망이를 대조했습니다. 니아 기준 큰 도트와 2등신 실루엣이며, 도약→공중 거대화→방망이 내리치기→착지를 연결했습니다. 실제 부츠 기준점을 사용해 접지 높이와 도약 높이를 정수 배치로 보정합니다.",
+  "atlas_sha256": "cd5068b2bb7267392e25c4a19663bcbe2578b33a55230a6bd336a4cd5eb4735a",
+  "width": 2088,
+  "height": 1566,
+  "generated_source_sha256": "f06baaf98f017b3ba572e1bcdf8393c1d8f420e7feb4c9e7a0de93438c7c8501",
+  "generated_source_file": "generated-sheet.png",
+  "normalization": "normalization.json",
+  "foot_anchors": {
+    "2": [
+      895,
+      353
+    ],
+    "3": [
+      1290,
+      361
+    ],
+    "4": [
+      290,
+      715
+    ],
+    "5": [
+      458,
+      718
+    ],
+    "6": [
+      898,
+      709
+    ],
+    "7": [
+      1165,
+      711
+    ],
+    "8": [
+      115,
+      1033
+    ]
+  },
+  "airborne_lift": {
+    "2": 35,
+    "3": 60,
+    "4": 50,
+    "5": 35,
+    "6": 15
+  },
+  "tool_input_paths_at_generation": [
+    "C:/Users/azxar/BlackTheSurvival/Temp/Chibi2Redraw/style/bihyung-master.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+    "C:/Users/azxar/BlackTheSurvival/Temp/Chibi3Redraw/references/bihyung-official-full.png"
+  ],
+  "normalization_required": false,
+  "game_integrated": false,
+  "style_references": [
+    {
+      "path": "ArtSource/AnimationPrototypes/Style/chibi2-reference.png",
+      "role": "two-head large-pixel drawing style",
+      "sha256": "1791664646896afe4d7a33a208c2e301b2daa2c978ca1c43e57fb043431b10c6"
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+      "role": "original native362px Nia pixel-to-image ratio",
+      "sha256": "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61"
+    }
+  ],
+  "official_reference_file": "official-reference.png",
+  "official_reference_sha256": "21f41e68185e57d6b475ade5c538a540fd16a1d30aa40938bab8164e909fbb0b",
+  "official_reference_source": "https://cdn.playeternalreturn.com/2026%2F05%2F13%2F1778649894514-Full_Bihyung_00.png",
+  "historical_edit_inputs_not_redistributed": true
 }

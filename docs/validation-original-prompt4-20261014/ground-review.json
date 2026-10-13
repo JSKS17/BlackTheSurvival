@@ -1,0 +1,645 @@
+{
+  "timestamp_utc": "2026-10-13T19:33:20.828929+00:00",
+  "scope": "Read-only independent visual review of four fresh initial-prompt generations, all 48 frames. No art, production, code, or documentation mutations.",
+  "coordinate_space": "absolute pixel coordinates in exact generated-sheet.png RGBA",
+  "subjects": [
+    {
+      "id": "darko",
+      "source_sha256": "617e2476c5e04348f81e795715a62b25aa36fd15fc2fee8855bd6226a3979bb0",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "normalization_sha256_at_review": "ed6a99f1f24c81cc588f6ec71866d3e503c0a8236571d514b721c261537d232c",
+      "frames_visually_reviewed": 12,
+      "style_and_identity": "Returns to early Nia-style large-headed short-bodied sprite with gray-teal hair planes and a visible small mouth. No glasses; patterned black/gold coat remains recognizable. Grab, low drag, overhead haul, slam and recovery are distinct.",
+      "ground_review": "Standing and dragging shoes are readable in frames 1-7 and 10-12. Frame 8 (index7) shoes are fully obscured by the impact pool. Frame 9 (index8) has a visible left shoe whose sole sits above the pool, so the heuristic pool bottom must not define its sole.",
+      "recommended_foot_anchors": {
+        "8": [
+          100,
+          1017
+        ]
+      },
+      "recommended_alignment_ignore_frames": [
+        7
+      ],
+      "foot_anchor_evidence": [
+        {
+          "index": 8,
+          "source_xy": [
+            100,
+            1017
+          ],
+          "rgba": [
+            24,
+            19,
+            33,
+            252
+          ],
+          "identification": "Visible dark outer edge of the left shoe below its pale sole stripe and above the gray/gold impact pool.",
+          "heuristic_source_y": 1049,
+          "recommended_source_y": 1017
+        }
+      ],
+      "exceptions": [
+        {
+          "index": 7,
+          "type": "impact-ground; shoes obscured",
+          "reason": "Do not assert a shoe sole anchor on the ground pool. It is not a jump. Ignore exact sole alignment for this one frame; preserve the composition and document its impact-ground reference instead."
+        }
+      ],
+      "source_rgba_exact_for_all_crops": true,
+      "crop_proof": [
+        {
+          "index": 0,
+          "source_box": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "ab1e63e9ef00a0340cb4a5a0cb668917c86b4cf7f934e72a8545c6801de4c097"
+        },
+        {
+          "index": 1,
+          "source_box": [
+            362,
+            0,
+            724,
+            362
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "64e813ca82c2dff3d0be52c93023674add13b3d1c6114e8eb0bf3b590c79e935"
+        },
+        {
+          "index": 2,
+          "source_box": [
+            724,
+            0,
+            1086,
+            362
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "b4a51caca7ceb3cab005e56c1baa5fa8998e119269308a6a26fda55c04830cd0"
+        },
+        {
+          "index": 3,
+          "source_box": [
+            1086,
+            0,
+            1448,
+            362
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "8258598134194ed032c5af83ad578b3ea470001419767b1922e11736897e72d9"
+        },
+        {
+          "index": 4,
+          "source_box": [
+            0,
+            362,
+            364,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "9547a59fc1d604211bd990c4915c7b8044ea74a53c584c9aa89657ac5ccd7c13"
+        },
+        {
+          "index": 5,
+          "source_box": [
+            364,
+            362,
+            724,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "8ef9ab80ad05276d77e2784d4e7dd3bd570390661014a1bf2fe15021a0e7f095"
+        },
+        {
+          "index": 6,
+          "source_box": [
+            724,
+            362,
+            1086,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "2043f465b7aa6ba7d4aba11ef7a72233d8ee5ac15b1da170c6fad22ce279ac22"
+        },
+        {
+          "index": 7,
+          "source_box": [
+            1086,
+            362,
+            1448,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "f7abe33f0ef387fb8c564120788b16ec20359061745536b9b4c35ffcb7ec17ca"
+        },
+        {
+          "index": 8,
+          "source_box": [
+            0,
+            724,
+            362,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "aa3dca8da90f96c140dd88d854514786ccee0db34a4c4e82299046d5fbb8ae0b"
+        },
+        {
+          "index": 9,
+          "source_box": [
+            362,
+            724,
+            724,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "531175f875e59132456890dca6eee25aa460ed9b2d857cc4c56322bbf4dd22f0"
+        },
+        {
+          "index": 10,
+          "source_box": [
+            724,
+            724,
+            1086,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "ad2ac25697db22fb6d497583fd690ce1a319026b47ac24fb64e649c6313a509d"
+        },
+        {
+          "index": 11,
+          "source_box": [
+            1086,
+            724,
+            1448,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "7755fb7d51173659d19e2aaf375646ff99702e583e70274d4b185d49a420fc77"
+        }
+      ],
+      "fixed_grid_24px_guard_passed": true
+    },
+    {
+      "id": "martina",
+      "source_sha256": "18025e9944c3832c58c4eac922f912c127e3f5df0a6279bf60f0ce790f8a63a7",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "normalization_sha256_at_review": "d70319e5fea2afa31298b3fbd337249957274e16d045e0e7a89d8a610daf768a",
+      "frames_visually_reviewed": 12,
+      "style_and_identity": "Early Nia-style large head and short body, broad ash-brown hair planes, mustard coat, blue visible eye and opaque black eye patch. Camera raise, pan, lens adjustment, burst, lower and reset remain readable. No restored rectangular glasses.",
+      "ground_review": "All 12 frames have visible shoe soles. Heuristic readings follow shoes rather than camera beams or shutter particles.",
+      "recommended_foot_anchors": {},
+      "recommended_alignment_ignore_frames": [],
+      "foot_anchor_evidence": [],
+      "exceptions": [],
+      "source_rgba_exact_for_all_crops": true,
+      "crop_proof": [
+        {
+          "index": 0,
+          "source_box": [
+            0,
+            0,
+            362,
+            366
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "daeabb8b289deef7087a61fe1c3d6596fa5e5db4c7edc8a41718b78d029b62bc"
+        },
+        {
+          "index": 1,
+          "source_box": [
+            362,
+            0,
+            724,
+            366
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "2e3797e1497d0a5ef789b2fcfe44fca7bcd50ea9cfd2def6b01bd8326870436e"
+        },
+        {
+          "index": 2,
+          "source_box": [
+            724,
+            0,
+            1086,
+            366
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "4c8dee4707e85a1a654b1ddfb5369f7793c0f452a96fcb3820234e3feec91985"
+        },
+        {
+          "index": 3,
+          "source_box": [
+            1086,
+            0,
+            1448,
+            366
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "fbe8e0f168f261a43fe3b990aee31eacd7483c271909771791e20e90aed2b016"
+        },
+        {
+          "index": 4,
+          "source_box": [
+            0,
+            366,
+            362,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "a07eda3edc39a829b43a7729fcd5da0c48a838b71861034048451d46ceff5c49"
+        },
+        {
+          "index": 5,
+          "source_box": [
+            362,
+            366,
+            724,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "128cb9861bba16f17933cf2d35871fa3126c34c2d823324d0a44fb18b41eefa6"
+        },
+        {
+          "index": 6,
+          "source_box": [
+            724,
+            366,
+            1086,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "5b40ac9aa1e1aa85691d4eb9b7db827e89720e1009580fa8662b70b403495874"
+        },
+        {
+          "index": 7,
+          "source_box": [
+            1086,
+            366,
+            1448,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "5e0f08fd868bc4f0e57735fcd67331d50e44b9402f570f644b3ee4ac1ec821aa"
+        },
+        {
+          "index": 8,
+          "source_box": [
+            0,
+            724,
+            363,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "ec3bb1ecb1d4c83d2371fdc39e8befbbce3bad3efbf16550a9999abb1073c619"
+        },
+        {
+          "index": 9,
+          "source_box": [
+            363,
+            724,
+            724,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "914c6ba9bec83e07f46c05f37d2808807c35931bbbaa2546810d1d2e6e1bd710"
+        },
+        {
+          "index": 10,
+          "source_box": [
+            724,
+            724,
+            1086,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "56c6bceed66c23724d0c9ada66c9ee117baf7410048d0a48ca26ab60ecadcf7b"
+        },
+        {
+          "index": 11,
+          "source_box": [
+            1086,
+            724,
+            1448,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "ca3f44569c8ddea85c422b466505abc6c598e9bfecfaf90e57505292f2b86487"
+        }
+      ],
+      "fixed_grid_24px_guard_passed": true
+    },
+    {
+      "id": "nadine",
+      "source_sha256": "ff794b88fe4a4b19dd78fd008514cdc8b7b55ee52044838825b23d0c8d37433e",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "normalization_sha256_at_review": "2dea5fd44a271b5bf7546f7d3938072252d218a0321a5a86cd992cad4b9fbf7f",
+      "frames_visually_reviewed": 12,
+      "style_and_identity": "Early Nia-style hunter with orange hood, dark high ponytail, feather, clear eyes/mouth, compact limbs and crossbow. Wolf pounce and shooting sequence read clearly. Face uses a light warm skin plane; no further repaint performed in this review.",
+      "ground_review": "All 12 frames have a visible boot contact. Wolf extends below and beside the boot region in frames9-11, but heuristic y1019 still follows the visible boot sole, not the wolf. Frame10 visible left boot inspected in a native crop.",
+      "recommended_foot_anchors": {},
+      "recommended_alignment_ignore_frames": [],
+      "foot_anchor_evidence": [],
+      "exceptions": [],
+      "source_rgba_exact_for_all_crops": true,
+      "crop_proof": [
+        {
+          "index": 0,
+          "source_box": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "ba67c17dccc7f49fb2df8709ae784e16fdcc128ec9d492762134f00f769adfaf"
+        },
+        {
+          "index": 1,
+          "source_box": [
+            362,
+            0,
+            724,
+            362
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "af03911c59b84283758daa6fd9e62c41423d75e0523aea48c8305b816ea3730e"
+        },
+        {
+          "index": 2,
+          "source_box": [
+            724,
+            0,
+            1086,
+            362
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "9e987d2a56c93f03df0be807f7fb29435294073c30e63e701870bee36b1dc30f"
+        },
+        {
+          "index": 3,
+          "source_box": [
+            1086,
+            0,
+            1448,
+            362
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "744b0d600d62ab0577582f4e1277d8af16bd0cae8aaded8b22a28d2cb7c68b6d"
+        },
+        {
+          "index": 4,
+          "source_box": [
+            0,
+            362,
+            383,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "a1c84dd1bed09dc5371247323bc1f8f43f1ffec8e2e0d4b6e83cc88ebb4a232e"
+        },
+        {
+          "index": 5,
+          "source_box": [
+            383,
+            362,
+            724,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "86b634c272499a68601305e69948e7e25250896f9eb076ff2fadfcd35f8f7169"
+        },
+        {
+          "index": 6,
+          "source_box": [
+            724,
+            362,
+            1105,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "289270588a0c1c4d0e37427f614596c240c6da3197bbb7a911a06f0a6367fe2a"
+        },
+        {
+          "index": 7,
+          "source_box": [
+            1105,
+            362,
+            1448,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "861950cc3634db16996f09146a2ad130635ac3be59972c42ba7d9cbd7067d2b4"
+        },
+        {
+          "index": 8,
+          "source_box": [
+            0,
+            724,
+            367,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "acfc7a9b726672f58e780b2c2d9254c88d288f67b961e942f86b921c4df5b6aa"
+        },
+        {
+          "index": 9,
+          "source_box": [
+            367,
+            724,
+            757,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "4920cbafc2761530bac38063e2fbf9f446ea3cfaa37db19cb1d10b8a126a9508"
+        },
+        {
+          "index": 10,
+          "source_box": [
+            757,
+            724,
+            1096,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "f5f5310b0a99495cce29d565a663fb21509517ad59106f177058e542faabb0cf"
+        },
+        {
+          "index": 11,
+          "source_box": [
+            1096,
+            724,
+            1448,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "5d2b31645ca63b94799e313751696f5ee3d5fbd05c7b3c976fd38b91f884e46c"
+        }
+      ],
+      "fixed_grid_24px_guard_passed": true
+    },
+    {
+      "id": "tia",
+      "source_sha256": "29a40848c42260faf63a71f2c68a45df19c192dd086907c7e63034ff644e2f1a",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "normalization_sha256_at_review": "d38839d019f2e0db2a8f96aadc50ca1e7cc09d5e233b6dd155ff76a63e8e4ee2",
+      "frames_visually_reviewed": 12,
+      "style_and_identity": "Early Nia-style large head and short limbs, light brown side-bun hair planes, readable warm eyes/mouth, artist coat, brush and three paint colors. Giant-brush sweep is readable with the original initial-prompt sequence.",
+      "ground_review": "All 12 frames have visible shoes. Frame5 giant brush and frame9 paint splash stay away from the relevant sole measurement; final three paint droplets do not supply the measured baseline.",
+      "recommended_foot_anchors": {},
+      "recommended_alignment_ignore_frames": [],
+      "foot_anchor_evidence": [],
+      "exceptions": [],
+      "source_rgba_exact_for_all_crops": true,
+      "crop_proof": [
+        {
+          "index": 0,
+          "source_box": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "5ee970aeb5378991c5ebb5a53281e234a375306bab397e1b580308d71bf82396"
+        },
+        {
+          "index": 1,
+          "source_box": [
+            362,
+            0,
+            724,
+            362
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "9b07e1ec8615ff88c4a6f1c8e7197191d54e91ad3c8cee1fc54db48c5ec8c71c"
+        },
+        {
+          "index": 2,
+          "source_box": [
+            724,
+            0,
+            1086,
+            362
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "5c42c0554899ef207a98930a7416c51ceede09d611c766213d596ec1bcab9077"
+        },
+        {
+          "index": 3,
+          "source_box": [
+            1086,
+            0,
+            1448,
+            362
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "e2f7ffc057bbc73c1377be115860a7f7567ea99cab0f1255a8a668a0a0eca98b"
+        },
+        {
+          "index": 4,
+          "source_box": [
+            0,
+            362,
+            363,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "4f8908ba8e21dbed72d865b753f528c652e8b8cc9b81a71ebe441ff3955bda79"
+        },
+        {
+          "index": 5,
+          "source_box": [
+            363,
+            362,
+            721,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "44053ab6b9cd86a641c158f2555c72ab9963cca3745b0282a833cda037e280f4"
+        },
+        {
+          "index": 6,
+          "source_box": [
+            721,
+            362,
+            1086,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "f60a94d0d033b60139838e294ae0c8a28947b72cb12632546ac7d90d1340341c"
+        },
+        {
+          "index": 7,
+          "source_box": [
+            1086,
+            362,
+            1448,
+            724
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "8df9b3752f4940fc5f2f578272714777d1fe2ec4bb04ab790ed24976432a3ca3"
+        },
+        {
+          "index": 8,
+          "source_box": [
+            0,
+            724,
+            378,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "18cabb28449215ca11bd2779f4ca7dbc36c07afead28c7c59a5d85f1d66b9ca4"
+        },
+        {
+          "index": 9,
+          "source_box": [
+            378,
+            724,
+            724,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "157b1a5834607b1ad44a13200c669c0372c26f6aa61b30ade3684b729e67c566"
+        },
+        {
+          "index": 10,
+          "source_box": [
+            724,
+            724,
+            1086,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "0869ab225d74f8467c2ff55279f9c143bacf34710cf2758befb4f178626627bd"
+        },
+        {
+          "index": 11,
+          "source_box": [
+            1086,
+            724,
+            1448,
+            1086
+          ],
+          "rgba_copy_exact": true,
+          "source_rgba_sha256": "4d82117e9e22670cd8d590de623d2a43db0d39adafd2cfc1f825406eeac6bcb6"
+        }
+      ],
+      "fixed_grid_24px_guard_passed": true
+    }
+  ]
+}

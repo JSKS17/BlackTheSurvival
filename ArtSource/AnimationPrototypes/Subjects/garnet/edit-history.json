@@ -1,0 +1,91 @@
+{
+  "id": "garnet",
+  "tool": "built-in image_gen.imagegen",
+  "intent": "precise-object-edit",
+  "prompt": "Use case: precise-object-edit. Asset: existing 12-frame 4×3 transparent pixel-art ultimate animation sheet. Image1 is the EDIT TARGET; image2 is the authentic Garnet official illustration, HAIR COLOR reference only.\n\nChange ONLY the COLOR PALETTE OF GARNET'S HAIR in image1, consistently in every frame where hair is visible. Her current hair is too white. Match the official hair's cool steel/slate-blue GREY base: darker desaturated blue-grey midtones, deep charcoal blue-grey shadows, pale silver-blue highlight patches. Hair highlights must remain clearly stepped in the SAME existing large pixel shading planes, with highest light limited to small silver-blue accents; no white mass and no purple tint. Use image2's crown and long side locks as hair-color reference, not the bright metal weapon.\n\nABSOLUTE INVARIANTS: do not redraw, reposition or alter ANYTHING except existing HAIR RGB colors. Preserve the existing hair silhouette, strand shapes, individual shading-pixel placement, outline, alpha, all facial features and expressions, eye red, mouth, skin, anatomy/proportions, clothing, weapon, Iron Maiden opening/closing, chains, red effects, every pose, spacing and all12 frame contents. Keep frame8 and9 coffin-only with no invented visible hair. Preserve transparency and canvas4×3 layout, existing pixels' outlines and existing motion. No new details, no restyling, no added or removed objects, no perspective change, no camera change, no text. Treat this as a narrowly masked hair-only color edit: unchanged regions must remain identical. Return the exact same whole animation sheet with only the hair palette correction.",
+  "input_paths": [
+    "ArtSource/AnimationPrototypes/Subjects/garnet/generated-sheet.png",
+    "ArtSource/AnimationPrototypes/Subjects/garnet/official-reference.png"
+  ],
+  "source_path": "C:/Users/azxar/.codex/generated_images/01a11b0b-8163-7693-bdd7-3bc64571a398/exec-366e51fa-56c9-4431-bf5d-f496f5ffab87.png",
+  "visual_review": "Official cool steel-blue grey hair midtones and stepped silver-blue highlights; only selected original hair RGB composited from built-in edit. Original alpha, outline geometry and every unselected RGBA pixel preserved exactly.",
+  "postprocess": {
+    "passed": true,
+    "operation": "FFmpeg binary maskedmerge planes=7 of built-in tool hair RGB; original alpha and all unselected RGBA preserved",
+    "original_sha256": "d4d6c4544450a2162762c609c7aca4c14545b90a476fece27b25f403c33009d0",
+    "tool_output_sha256": "1537c0080fc15c463d204f344ffae072c3ef71923e8ed7e8e2cfda026e15d2d9",
+    "final_sha256": "054380e30212e9b41e9d87936844b6bcc9b5a95303d0f671ad66380c694938d1",
+    "mask_sha256": "d0db2cf634b55e045ea4d1a5fdca6e4a2898f3857ff39db41ff3e10684617213",
+    "original_alpha_exact": true,
+    "unselected_rgba_exact": true,
+    "selected_rgb_from_tool_exact": true,
+    "coffin_only_frames_7_8_exact": true,
+    "source_dimensions": [
+      1448,
+      1086
+    ],
+    "selected_pixels": 123600,
+    "frames": [
+      {
+        "index": 0,
+        "changed_rgb_pixels": 13094,
+        "selected_pixels": 13094
+      },
+      {
+        "index": 1,
+        "changed_rgb_pixels": 14608,
+        "selected_pixels": 14608
+      },
+      {
+        "index": 2,
+        "changed_rgb_pixels": 11552,
+        "selected_pixels": 11552
+      },
+      {
+        "index": 3,
+        "changed_rgb_pixels": 13050,
+        "selected_pixels": 13050
+      },
+      {
+        "index": 4,
+        "changed_rgb_pixels": 13442,
+        "selected_pixels": 13442
+      },
+      {
+        "index": 5,
+        "changed_rgb_pixels": 12246,
+        "selected_pixels": 12248
+      },
+      {
+        "index": 6,
+        "changed_rgb_pixels": 8209,
+        "selected_pixels": 8209
+      },
+      {
+        "index": 7,
+        "changed_rgb_pixels": 0,
+        "selected_pixels": 0
+      },
+      {
+        "index": 8,
+        "changed_rgb_pixels": 0,
+        "selected_pixels": 0
+      },
+      {
+        "index": 9,
+        "changed_rgb_pixels": 12564,
+        "selected_pixels": 12564
+      },
+      {
+        "index": 10,
+        "changed_rgb_pixels": 12553,
+        "selected_pixels": 12553
+      },
+      {
+        "index": 11,
+        "changed_rgb_pixels": 12280,
+        "selected_pixels": 12280
+      }
+    ]
+  }
+}

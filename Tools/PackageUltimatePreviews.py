@@ -29,7 +29,14 @@ def main():
             assert report["passed"] and report["assembly_version"] >= 4
             assert report["atlas_sha256"] == meta["atlas_sha256"] == sha(prefix / "atlas.png")
             assert report["manifest_sha256"] == sha(prefix / "manifest.json")
-            assert sha(Path(meta["generated_path"])) == meta["atlas_sha256"], item["id"]
+            if meta.get("generated_source_file"):
+                raw = prefix / meta["generated_source_file"]
+                normalization = json.loads((prefix / meta["normalization"]).read_text(encoding="utf-8"))
+                assert sha(raw) == meta["generated_source_sha256"] == normalization["generated_source_sha256"]
+                assert normalization["source_rgba_preserved"] and normalization["source_boxes_disjoint"]
+                assert normalization["atlas_sha256"] == meta["atlas_sha256"]
+            else:
+                assert sha(Path(meta["generated_path"])) == meta["atlas_sha256"], item["id"]
             assert meta["tool"] == "built-in image_gen.imagegen" and len(meta["frame_labels"]) == 12
             assert meta["sources"] and (prefix / "prompt.txt").stat().st_size > 100
             for name, digest in report["animation_sha256"].items():

@@ -1,0 +1,81 @@
+{
+  "id": "nadine",
+  "tool": "built-in image_gen.imagegen",
+  "intent": "precise-object-edit",
+  "prompt": "Use case: precise-object-edit.\nAsset type: existing 12-frame transparent pixel-art ultimate animation sprite sheet, 4 columns by 3 rows.\nInput image 1 is the EDIT TARGET. This is an incremental detail pass, not a redesign or a new animation. Preserve the exact current Nadine chibi drawing style, current head/body proportions, frame order, pose silhouettes, facing, hands, crossbow orientation, facial expression, warm brown skin tone, orange hood/cape, dark high ponytail with feather, clothing construction, weapon, lighting direction, and all existing blue attack/wolf effects. Preserve the current 12 distinct poses and exact action timing. In particular keep frame 5's very short nearby blue bolt, frames 9 and 10's compact low wolf beside her ankle, frame 11's small dissolving blue pixels, and frame 12's clean rest pose. Do not enlarge the wolf or projectile and do not change their placements.\nChange ONLY a modest amount of pixel shading and material detail on Nadine's HAIR and CLOTHES throughout all twelve frames. Add a few crisp square-pixel medium-brown ponytail highlight clusters that follow the same locks and brighter block reflections on the same upper-left planes, with deeper dark-brown shadow planes. Add restrained blocky orange/gold hood and cape highlights, darker orange underside folds, a few clearly separated square-pixel cloth seams and dark trouser/kneepad highlights. The newly added details should make the existing outfit readable without adding accessories, altering its shapes, or making the figure more realistic. Roughly 15-20 percent more discrete shading information, not a dense noisy redraw. Keep the current broad color planes, head shape, large expressive eyes, and coarse pixel size; add only a limited number of smaller pixel clusters where these clothing/hair surfaces need definition.\nReduce line antialiasing: use sharp stair-stepped pixel contours, opaque flat-color square clusters, and a clean dark pixel outline. No blurry gradients, airbrushing, translucent edge glow, smooth vector lines, fine single-pixel speckles, or texture noise. The result must still look like the same sprite artist drew the same animation.\nComposition locked: maintain exactly 4 equal columns and 3 equal rows, twelve complete nonoverlapping frames, no grid lines/numbers/text. Keep ample transparent gutters around each whole sprite and effect, never crossing a cell boundary. Keep identical grounded shoe baseline across the twelve frames and retain the original per-frame horizontal locations. Preserve genuine RGBA transparent background. Do not paint background colors, a checkerboard, contact shadows, or a floor. Do not change any part of the character besides the requested local hair/clothing shading detail and crisper pixel edges.\n",
+  "prompt_file": "edit-prompt.txt",
+  "input_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Subjects\\nadine\\generated-sheet.png"
+  ],
+  "input_roles": [
+    "edit target: current approved chibi2 sprite sheet"
+  ],
+  "input_sha256": [
+    "2437d16ae28a9f667cdd83b0e028045c7702d11785849402534ab6a525eb3431"
+  ],
+  "generated_source_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-abff-7671-9b45-4d61bf00a882\\exec-658df1d9-a75f-4453-a269-8bb1f410a7d1.png",
+  "generated_source_sha256": "8b35c783b140b18dc8e6eb41f26f44c1543509a4cf0a6b766c8eb5fd7924e3ac",
+  "output_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014\\nadine\\generated-sheet.png",
+  "output_sha256": "8b35c783b140b18dc8e6eb41f26f44c1543509a4cf0a6b766c8eb5fd7924e3ac",
+  "width": 1448,
+  "height": 1086,
+  "mode": "RGBA",
+  "grid": {
+    "columns": 4,
+    "rows": 3,
+    "frame_count": 12
+  },
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "review": {
+    "scope": "Existing exact sprite-sheet edit. Same 12 actions, outfit, warm skin, weapon, proportions and compact wolf retained; local block highlights in ponytail, hood/cape and dark clothing added.",
+    "visual_checks": [
+      "All 12 frame gestures match input: rest, raise, aim, charge, short bolt, recoil, aim, blue summon, compact wolf, wolf lunge, blue dissolve, rest.",
+      "Brown skin/orange hood/high ponytail/white feather/crossbow identity kept.",
+      "Existing broad dark-brown hair planes gained restrained warm block highlight clusters, orange hood/cape contrast increased, and boots/trouser seams have a little clearer material shading.",
+      "No new accessories, animation beats, head/body redesign, or large projectile."
+    ],
+    "limitations": "The edit keeps coarse broad pixel planes and stair-stepped silhouettes; some fine contour pixels remain. Root normalization/animated browser review required."
+  },
+  "game_integrated": false,
+  "raw_partition_recommendation": {
+    "row_cuts": [
+      0,
+      400,
+      740,
+      1086
+    ],
+    "column_cuts_by_row": [
+      [
+        0,
+        370,
+        770,
+        1130,
+        1448
+      ],
+      [
+        0,
+        390,
+        745,
+        1125,
+        1448
+      ],
+      [
+        0,
+        370,
+        750,
+        1120,
+        1448
+      ]
+    ]
+  },
+  "raw_partition_note": "Image groups are 4x3, but raw visual gutters are not exactly equal-cell362. Recommended cuts were read-only alpha projection inspected. Fixed-grid normalization must pad/translate crops; do not uniformly crop362 cells. Tia middle-row adjacent effect valleys have some alpha<64 fringe pixels; no opaque content >=64 crosses the recommended valley."
+}

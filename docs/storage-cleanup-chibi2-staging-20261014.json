@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-14",
+  "reason": "Discarded 3/2.5-head drafts and duplicated 2-head generation/assembly staging, after final originals, prompts, official references and validation evidence were preserved",
+  "workspace_root": "C:/Users/azxar/BlackTheSurvival",
+  "targets": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Chibi2Redraw",
+      "files": 84,
+      "bytes": 46503883,
+      "deleted": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Chibi3Redraw",
+      "files": 92,
+      "bytes": 62194418,
+      "deleted": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\UltimateAssembly",
+      "files": 156,
+      "bytes": 25403287,
+      "deleted": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\chibi-c-fix-meta.json",
+      "files": 1,
+      "bytes": 7884,
+      "deleted": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\chibi-c-sissela-history.json",
+      "files": 1,
+      "bytes": 4066,
+      "deleted": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\chibi2-c-labels.json",
+      "files": 1,
+      "bytes": 2076,
+      "deleted": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\chibi2-followup-darko.json",
+      "files": 1,
+      "bytes": 2646,
+      "deleted": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\chibi2-followup-echion.json",
+      "files": 1,
+      "bytes": 2518,
+      "deleted": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\chibi2-followup-elena.json",
+      "files": 1,
+      "bytes": 2291,
+      "deleted": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\chibi2-followup-martina.json",
+      "files": 1,
+      "bytes": 1849,
+      "deleted": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\chibi2-followup-sissela.json",
+      "files": 1,
+      "bytes": 2415,
+      "deleted": true
+    }
+  ],
+  "total_files": 340,
+  "total_bytes": 134127333,
+  "free_bytes_before": 5717188608,
+  "free_bytes_after": 5851799552,
+  "preserved": [
+    "ArtSource/AnimationPrototypes",
+    "docs/validation-chibi2-20261014",
+    "Build/Windows",
+    "Temp/UltimateGalleryServer.pid",
+    "Temp/UltimateGalleryServer.stdout.log",
+    "Temp/UltimateGalleryServer.stderr.log"
+  ],
+  "external_generated_image_cache": "Not touched: outside workspace"
+}

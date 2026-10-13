@@ -1,0 +1,1218 @@
+{
+  "passed": true,
+  "preparation_only": false,
+  "html_sha256": "00d18c58983bb08f5fd2770d7c61293501e23305270bdfe5af5b1feed7f352c5",
+  "subjects_expected": 91,
+  "subjects_ready": 91,
+  "subjects_checked": 91,
+  "frames_checked": 1140,
+  "checks": [
+    {
+      "name": "catalogue count and usable subject buttons",
+      "passed": true
+    },
+    {
+      "name": "all ready subjects select correctly and render all 12 frames within stage",
+      "passed": true,
+      "subjects": 91,
+      "frames": 1092
+    },
+    {
+      "name": "search: Korean character name",
+      "passed": true,
+      "query": "니아",
+      "matches": [
+        "nia"
+      ]
+    },
+    {
+      "name": "search: case-insensitive English ID",
+      "passed": true,
+      "query": "CrAvEr",
+      "matches": [
+        "craver"
+      ]
+    },
+    {
+      "name": "search: ultimate name",
+      "passed": true,
+      "query": "죽음의 무도",
+      "matches": [
+        "elena"
+      ]
+    },
+    {
+      "name": "search: trimmed ultimate search",
+      "passed": true,
+      "query": "  취호격파산  ",
+      "matches": [
+        "dailin"
+      ]
+    },
+    {
+      "name": "empty search feedback and reset",
+      "passed": true
+    },
+    {
+      "name": "play, pause, and 0.5x / 1x / 1.5x playback controls",
+      "passed": true
+    },
+    {
+      "name": "expandable 12-frame original atlas loads",
+      "passed": true
+    },
+    {
+      "name": "375px mobile layout and representative 12-frame bounds",
+      "passed": true,
+      "mobile": [
+        {
+          "id": "nia",
+          "viewport": 375,
+          "document": 375,
+          "body": 375
+        },
+        {
+          "id": "chloe",
+          "viewport": 375,
+          "document": 375,
+          "body": 375
+        },
+        {
+          "id": "irem",
+          "viewport": 375,
+          "document": 375,
+          "body": 375
+        },
+        {
+          "id": "craver",
+          "viewport": 375,
+          "document": 375,
+          "body": 375
+        }
+      ]
+    },
+    {
+      "name": "direct subject hash opens matching animation",
+      "passed": true
+    },
+    {
+      "name": "no JavaScript, console, or failed-resource errors",
+      "passed": true
+    }
+  ],
+  "subjects": [
+    {
+      "id": "abigail",
+      "name": "아비게일",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "adela",
+      "name": "아델라",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "adina",
+      "name": "아디나",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "adriana",
+      "name": "아드리아나",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "aiden",
+      "name": "에이든",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "alex",
+      "name": "알렉스",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "alonso",
+      "name": "알론소",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "arda",
+      "name": "아르다",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "aya",
+      "name": "아야",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1716,
+        1287
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "barbara",
+      "name": "바바라",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "bernice",
+      "name": "버니스",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "bianca",
+      "name": "비앙카",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "bihyung",
+      "name": "비형",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        2088,
+        1566
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "blair",
+      "name": "블레어",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "camilo",
+      "name": "카밀로",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "cathy",
+      "name": "캐시",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "celine",
+      "name": "셀린",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "ceres",
+      "name": "세레스",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "charlotte",
+      "name": "샬럿",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "chiara",
+      "name": "키아라",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "chloe",
+      "name": "클로에",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "coraline",
+      "name": "코렐라인",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "craver",
+      "name": "크레이버",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "dailin",
+      "name": "리 다이린",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "daniel",
+      "name": "다니엘",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "darko",
+      "name": "다르코",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1884,
+        1413
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "debi_marlene",
+      "name": "데비&마를렌",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "echion",
+      "name": "에키온",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        2000,
+        1500
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "elena",
+      "name": "엘레나",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1932,
+        1449
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "eleven",
+      "name": "일레븐",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "emma",
+      "name": "엠마",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "estelle",
+      "name": "에스텔",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "eva",
+      "name": "이바",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "felix",
+      "name": "펠릭스",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "fenrir",
+      "name": "펜리르",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "fiora",
+      "name": "피오라",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "garnet",
+      "name": "가넷",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1848,
+        1386
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "hart",
+      "name": "하트",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "haze",
+      "name": "헤이즈",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "henry",
+      "name": "헨리",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "hisui",
+      "name": "히스이",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "hyejin",
+      "name": "혜진",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "hyunwoo",
+      "name": "현우",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "ian",
+      "name": "이안",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "irem",
+      "name": "이렘",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1928,
+        1446
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "isaac",
+      "name": "아이작",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "isol",
+      "name": "아이솔",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1820,
+        1365
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "istvan",
+      "name": "이슈트반",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "jackie",
+      "name": "재키",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1828,
+        1371
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "jan",
+      "name": "얀",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "jenny",
+      "name": "제니",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "johann",
+      "name": "요한",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "justyna",
+      "name": "유스티나",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "karla",
+      "name": "칼라",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "katja",
+      "name": "카티야",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "kenneth",
+      "name": "케네스",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "laura",
+      "name": "라우라",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "leni",
+      "name": "레니",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "lenore",
+      "name": "르노어",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "lenox",
+      "name": "레녹스",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "leon",
+      "name": "레온",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "lucia",
+      "name": "루치아",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "luke",
+      "name": "루크",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "magnus",
+      "name": "매그너스",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "mai",
+      "name": "마이",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "markus",
+      "name": "마커스",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "martina",
+      "name": "마르티나",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1728,
+        1296
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "mirka",
+      "name": "미르카",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "nadine",
+      "name": "나딘",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1808,
+        1356
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "nathapon",
+      "name": "나타폰",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "nia",
+      "name": "니아",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "nicky",
+      "name": "니키",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "piolo",
+      "name": "피올로",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "priya",
+      "name": "프리야",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "rio",
+      "name": "리오",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "rozzi",
+      "name": "로지",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "sho",
+      "name": "쇼우",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "shoichi",
+      "name": "쇼이치",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "silvia",
+      "name": "실비아",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "sissela",
+      "name": "시셀라",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1868,
+        1401
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "sua",
+      "name": "수아",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "tazia",
+      "name": "타지아",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "theodore",
+      "name": "테오도르",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "tia",
+      "name": "띠아",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1880,
+        1410
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "tsubame",
+      "name": "츠바메",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "vanya",
+      "name": "바냐",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "william",
+      "name": "윌리엄",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "xuelin",
+      "name": "슈린",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "yuki",
+      "name": "유키",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "yumin",
+      "name": "유민",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    },
+    {
+      "id": "zahir",
+      "name": "자히르",
+      "frames_checked": 12,
+      "atlas_loaded": true,
+      "atlas_dimensions": [
+        1448,
+        1086
+      ],
+      "bounds_passed": true
+    }
+  ],
+  "screenshots": [
+    "gallery-desktop-nia.png",
+    "gallery-desktop-twins.png",
+    "gallery-desktop-chiara.png",
+    "gallery-desktop-craver.png",
+    "gallery-mobile-nia.png",
+    "gallery-mobile-chloe.png",
+    "gallery-mobile-irem.png"
+  ],
+  "screenshot_provenance": [
+    {
+      "file": "gallery-desktop-nia.png",
+      "source": "Playwright page.screenshot; original PNG bytes, no image editing",
+      "subject": "nia",
+      "frame": 9,
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "full_page": true,
+      "width": 1440,
+      "height": 1154,
+      "sha256": "1ca7d3cf6284f4beff40a50b811a8acda688b57f15e63e694625af1167a0b56d"
+    },
+    {
+      "file": "gallery-desktop-twins.png",
+      "source": "Playwright page.screenshot; original PNG bytes, no image editing",
+      "subject": "debi_marlene",
+      "frame": 7,
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "full_page": true,
+      "width": 1440,
+      "height": 1191,
+      "sha256": "26bdf36e2cbd7d5394b9e142bdebd8063295ae1cd6d12c3b1b9a69c0f4a2eae5"
+    },
+    {
+      "file": "gallery-desktop-chiara.png",
+      "source": "Playwright page.screenshot; original PNG bytes, no image editing",
+      "subject": "chiara",
+      "frame": 8,
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "full_page": true,
+      "width": 1440,
+      "height": 1191,
+      "sha256": "c2eaaf8e951a8ce7fc48f38fbd73d13892784409b72316bb413b2d0de0a67ffc"
+    },
+    {
+      "file": "gallery-desktop-craver.png",
+      "source": "Playwright page.screenshot; original PNG bytes, no image editing",
+      "subject": "craver",
+      "frame": 7,
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "full_page": true,
+      "width": 1440,
+      "height": 1191,
+      "sha256": "2b603bd014b4256457b474d772d5797477b573ef6c0fff933a02215e7a2b3600"
+    },
+    {
+      "file": "gallery-mobile-nia.png",
+      "source": "Playwright page.screenshot; original PNG bytes, no image editing",
+      "subject": "nia",
+      "frame": 9,
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "full_page": true,
+      "width": 375,
+      "height": 1425,
+      "sha256": "6933c7d7bb02f738eef35f0b30d2ca22bff701930a74a0bb317576591d19f41c"
+    },
+    {
+      "file": "gallery-mobile-chloe.png",
+      "source": "Playwright page.screenshot; original PNG bytes, no image editing",
+      "subject": "chloe",
+      "frame": 7,
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "full_page": true,
+      "width": 375,
+      "height": 1439,
+      "sha256": "e8fb875daac0cbce7a1a91880629456cdbf4d77e714425afdae39e825f130dfd"
+    },
+    {
+      "file": "gallery-mobile-irem.png",
+      "source": "Playwright page.screenshot; original PNG bytes, no image editing",
+      "subject": "irem",
+      "frame": 8,
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "full_page": true,
+      "width": 375,
+      "height": 1525,
+      "sha256": "e282d27b59fe9a779d992a4e4f733bc53340a093b73a88a8fb707798507caa04"
+    }
+  ],
+  "browser_errors": [],
+  "browser_version": "154.0.8037.98",
+  "completed_at": "2026-10-13T18:39:02.689Z"
+}

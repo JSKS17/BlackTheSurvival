@@ -1,0 +1,217 @@
+{
+  "passed": true,
+  "http_status": 200,
+  "subjects_ready": 91,
+  "revised_subjects": 13,
+  "assets_checked": 26,
+  "assets": [
+    {
+      "id": "aya",
+      "asset": "atlas",
+      "url": "Subjects/aya/atlas.png?v=redraw-20261014-0081b92fe2a5",
+      "bytes": 1317382,
+      "sha256": "0081b92fe2a58b7612982396ca673055bf1a813fd32135ad95d0a1eb39d88ae5",
+      "matches_local": true
+    },
+    {
+      "id": "aya",
+      "asset": "original",
+      "url": "Subjects/aya/original-reference.png?v=redraw-20261014-0081b92fe2a5",
+      "bytes": 20707,
+      "sha256": "73fc6b2f605af68fdc36a30153d8995261d851d4c7ba87c134086e04c3bb3612",
+      "matches_local": true
+    },
+    {
+      "id": "bihyung",
+      "asset": "atlas",
+      "url": "Subjects/bihyung/atlas.png?v=redraw-20261014-aadd17dc665b",
+      "bytes": 2053185,
+      "sha256": "aadd17dc665b9ba16bad99ae60fcdbbd56f6b5ca6c47e59aea0c193809f4c4f1",
+      "matches_local": true
+    },
+    {
+      "id": "bihyung",
+      "asset": "original",
+      "url": "Subjects/bihyung/original-reference.png?v=redraw-20261014-aadd17dc665b",
+      "bytes": 24755,
+      "sha256": "e02d3ae783f21d51cbc09b9713360ab90ceee83fe6168e29562b7d345b1d1973",
+      "matches_local": true
+    },
+    {
+      "id": "darko",
+      "asset": "atlas",
+      "url": "Subjects/darko/atlas.png?v=redraw-20261014-1f596b8fc516",
+      "bytes": 2147282,
+      "sha256": "1f596b8fc51689f7e68b3b641a6d60f690ad7698089a3153d6f91a57bec1c174",
+      "matches_local": true
+    },
+    {
+      "id": "darko",
+      "asset": "original",
+      "url": "Subjects/darko/original-reference.png?v=redraw-20261014-1f596b8fc516",
+      "bytes": 23819,
+      "sha256": "4ba64a4ed9c67314fcdae30917114e292382280f266944c59ff303c912e7140c",
+      "matches_local": true
+    },
+    {
+      "id": "echion",
+      "asset": "atlas",
+      "url": "Subjects/echion/atlas.png?v=redraw-20261014-30290f473854",
+      "bytes": 1754571,
+      "sha256": "30290f4738541d25de0342b5f5533b6787bd305d6b71ee099048a9afb710f5ea",
+      "matches_local": true
+    },
+    {
+      "id": "echion",
+      "asset": "original",
+      "url": "Subjects/echion/original-reference.png?v=redraw-20261014-30290f473854",
+      "bytes": 18748,
+      "sha256": "ee75392de8f7a16bb4a7ac608cdcfae2cef20c56c8fd8bced17f8e106a03fce7",
+      "matches_local": true
+    },
+    {
+      "id": "elena",
+      "asset": "atlas",
+      "url": "Subjects/elena/atlas.png?v=redraw-20261014-e19395ddaf21",
+      "bytes": 2248886,
+      "sha256": "e19395ddaf21afa2a3d99a247ad18baea6806c6fbfb5c5377ccfb7b4ee149885",
+      "matches_local": true
+    },
+    {
+      "id": "elena",
+      "asset": "original",
+      "url": "Subjects/elena/original-reference.png?v=redraw-20261014-e19395ddaf21",
+      "bytes": 24091,
+      "sha256": "726ef6bfa63098850541b191a6d41557ac626b8f8770625cbf607cf7ca52abfd",
+      "matches_local": true
+    },
+    {
+      "id": "garnet",
+      "asset": "atlas",
+      "url": "Subjects/garnet/atlas.png?v=redraw-20261014-36047fb9fc1a",
+      "bytes": 1803440,
+      "sha256": "36047fb9fc1ab44ee6ac63718e2a5a296937352b5cea8010eb9bca410c069d6b",
+      "matches_local": true
+    },
+    {
+      "id": "garnet",
+      "asset": "original",
+      "url": "Subjects/garnet/original-reference.png?v=redraw-20261014-36047fb9fc1a",
+      "bytes": 26597,
+      "sha256": "1341e7427f5b67ff145da2b72747dcdd894f447e739734f415b76e7fcf4b5c4e",
+      "matches_local": true
+    },
+    {
+      "id": "irem",
+      "asset": "atlas",
+      "url": "Subjects/irem/atlas.png?v=redraw-20261014-86e723dd1846",
+      "bytes": 1462419,
+      "sha256": "86e723dd1846d0c9713533fd162bccb0a0ae99b88b2d25cfb6e9c68bc8061187",
+      "matches_local": true
+    },
+    {
+      "id": "irem",
+      "asset": "original",
+      "url": "Subjects/irem/original-reference.png?v=redraw-20261014-86e723dd1846",
+      "bytes": 21833,
+      "sha256": "9f1e94f3950b791892b6adbbf9670fae1321ab77626bfaa51ad63d04d9b028d9",
+      "matches_local": true
+    },
+    {
+      "id": "isol",
+      "asset": "atlas",
+      "url": "Subjects/isol/atlas.png?v=redraw-20261014-3c770ca69cc1",
+      "bytes": 1629076,
+      "sha256": "3c770ca69cc106f173368cb99385bc04a5a1ee892d3810c826427f556cad64c4",
+      "matches_local": true
+    },
+    {
+      "id": "isol",
+      "asset": "original",
+      "url": "Subjects/isol/original-reference.png?v=redraw-20261014-3c770ca69cc1",
+      "bytes": 21119,
+      "sha256": "6c01a1ae5212f034c883ea8d63bfa0b576457b4851b4bbe29265abb0043230a0",
+      "matches_local": true
+    },
+    {
+      "id": "jackie",
+      "asset": "atlas",
+      "url": "Subjects/jackie/atlas.png?v=redraw-20261014-ea7708b09964",
+      "bytes": 1915272,
+      "sha256": "ea7708b09964e6e9ec15b2359b363eaf03908c030103c3639c6ffd4654ab3bf1",
+      "matches_local": true
+    },
+    {
+      "id": "jackie",
+      "asset": "original",
+      "url": "Subjects/jackie/original-reference.png?v=redraw-20261014-ea7708b09964",
+      "bytes": 23383,
+      "sha256": "499fb26f7357b000e88e7502ef017328e33888bbdab87a0f51009016f21ec1b8",
+      "matches_local": true
+    },
+    {
+      "id": "martina",
+      "asset": "atlas",
+      "url": "Subjects/martina/atlas.png?v=redraw-20261014-c388e693d442",
+      "bytes": 1767723,
+      "sha256": "c388e693d442039a7aa5c9d77b3d388ebaa447936b3502733a13ae0aa094cb11",
+      "matches_local": true
+    },
+    {
+      "id": "martina",
+      "asset": "original",
+      "url": "Subjects/martina/original-reference.png?v=redraw-20261014-c388e693d442",
+      "bytes": 20456,
+      "sha256": "7abe5c053b2f2906f8f6d73f8e855a75a163e5f32e12954ffe5c27774b9d398d",
+      "matches_local": true
+    },
+    {
+      "id": "nadine",
+      "asset": "atlas",
+      "url": "Subjects/nadine/atlas.png?v=redraw-20261014-72c2a024bb82",
+      "bytes": 1697067,
+      "sha256": "72c2a024bb826b2438af852ef6be49e89cd1c99efc5e90e053786adbbb410ec9",
+      "matches_local": true
+    },
+    {
+      "id": "nadine",
+      "asset": "original",
+      "url": "Subjects/nadine/original-reference.png?v=redraw-20261014-72c2a024bb82",
+      "bytes": 21241,
+      "sha256": "687c737a1487bc4621a5ad972c8f7217537974bbcd76eb9c78849df76218fe82",
+      "matches_local": true
+    },
+    {
+      "id": "sissela",
+      "asset": "atlas",
+      "url": "Subjects/sissela/atlas.png?v=redraw-20261014-cc2dd4d0053a",
+      "bytes": 2273459,
+      "sha256": "cc2dd4d0053abd479e8f88db89458f73432fafd1255e52f96bee2c3db27e02ec",
+      "matches_local": true
+    },
+    {
+      "id": "sissela",
+      "asset": "original",
+      "url": "Subjects/sissela/original-reference.png?v=redraw-20261014-cc2dd4d0053a",
+      "bytes": 25294,
+      "sha256": "3b3c4d7e799678ac3208d689ca3a87b46a94b61c839a87ebfdd0750ad4bab2bc",
+      "matches_local": true
+    },
+    {
+      "id": "tia",
+      "asset": "atlas",
+      "url": "Subjects/tia/atlas.png?v=redraw-20261014-3c10d48fc4d2",
+      "bytes": 1892699,
+      "sha256": "3c10d48fc4d2710840abaa10541f6744be00c05806f4f46c50344594e4a1f960",
+      "matches_local": true
+    },
+    {
+      "id": "tia",
+      "asset": "original",
+      "url": "Subjects/tia/original-reference.png?v=redraw-20261014-3c10d48fc4d2",
+      "bytes": 24871,
+      "sha256": "9df550130aff64d6fb4e4756e58a7d563552bacacedf53dee4b73ac259accd71",
+      "matches_local": true
+    }
+  ]
+}

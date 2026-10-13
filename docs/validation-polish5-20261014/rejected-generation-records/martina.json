@@ -1,0 +1,71 @@
+{
+  "revision": "polish5-20261014",
+  "subject": "martina",
+  "tool": "built-in image_gen.imagegen",
+  "intent": "precise-object-edit",
+  "source_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-70de-7693-a238-83741e98395a\\exec-67a4803b-5bcc-42c4-88c4-d1821aa5b1a8.png",
+  "selected_sha256": "a8de99557f5b519505dc56ad695e54a39ed16d2e34396e5f2d1bfb0d8a961f54",
+  "saved_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014\\martina\\generated-sheet.png",
+  "input_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Subjects\\martina\\generated-sheet.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Subjects\\martina\\official-reference.png"
+  ],
+  "input_roles": [
+    "edit target",
+    "official costume and hair material reference only"
+  ],
+  "input_sha256": [
+    "ccc36fcb62465d04afbf99560783e7849e66055d9fd8398cbdd62e7dc1bf5b44",
+    "8815a6dd36ad3a0bb2785d5b77fd54b06562678abf5c6cf15982d69a6142eda1"
+  ],
+  "prompt_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014\\martina\\edit-prompt.txt",
+  "prompt": "Precise local edit of Image 1, the existing 12-frame 4 by 3 Martina sprite sheet. Image 2 is costume material reference only. Preserve the same sheet dimensions, every pose and expression, two-head ratio, silhouette, body and foot position, camera position/angle/lens direction and blue/orange effects, empty transparent gutters. The visible brown/blue haze is hidden RGB under transparent alpha, not an intended background. Preserve actual transparency. NO redesign or motion changes.\n\nChange ONLY INTERNAL PIXEL DETAILS in the current hair and costume, a modest upgrade with substantially crisper pixel craft:\n- Keep gray-brown hair color, size, silhouette and exact cream-colored front streak. Add discrete 4–6px square/stair-step HIGHLIGHT CLUSTERS and darker shadow CLUSTERS inside the existing locks to separate their planes. Use 4 or 5 solid colors. NO blended gradients, soft texture, thin painted strands, dithering or antialiasing.\n- Keep mustard coat, vest, belt, pouches, ripped teal jeans and boots exactly the current shapes. Add compact 3–5px square honey-gold highlight planes and ochre/brown shadow folds on existing coat lapels, shoulders, sleeve and tails. Make existing seams/cuff/belt/buckle highlights clearer in stepped square clusters; add a few denim fold and boot leather reflections. Do not change the jean tears or accessories.\n- Face, eye/eyepatch and facial expressions are untouched. The opaque black eyepatch with tiny cross decoration must stay opaque; do not make glasses/monocle. Keep camcorder and effects unchanged; its black/red lens stays on the viewer-left end.\nVisible main pixel size, black outline, two-head style and all motions remain the approved image 1 style. No smoothing or painterly rendering. No new effects, garments, accessories, text, grids, cell borders or background. Genuine transparency. Every frame stays entirely in the same separate cell.\n",
+  "transparent_background": true,
+  "size": [
+    1536,
+    1024
+  ],
+  "attempts": [
+    {
+      "source_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-70de-7693-a238-83741e98395a\\exec-47b1c9b5-3f70-4184-a852-6fe81057719f.png",
+      "sha256": "51571a291560995544e6471da5e9ed5af43b0efdc7c8dae83e2d7c91b355e80b",
+      "prompt_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014\\martina\\initial-edit-prompt.txt",
+      "selected": false,
+      "reason": "added shading looked less deliberately block-shaped than requested"
+    },
+    {
+      "source_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-70de-7693-a238-83741e98395a\\exec-67a4803b-5bcc-42c4-88c4-d1821aa5b1a8.png",
+      "sha256": "a8de99557f5b519505dc56ad695e54a39ed16d2e34396e5f2d1bfb0d8a961f54",
+      "prompt_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014\\martina\\edit-prompt.txt",
+      "selected": true
+    }
+  ],
+  "visual_review": {
+    "method": "view_image entire original, official reference and both generated candidates; read-only alpha and per-cell bounding-box inspection",
+    "twelve_frames": true,
+    "four_columns_three_rows": true,
+    "pose_sequence_preserved_visually": true,
+    "two_head_style_preserved_visually": true,
+    "face_and_identity_preserved_visually": true,
+    "existing_effect_positions_preserved_visually": true,
+    "no_visible_cross_cell_overlap": true,
+    "details_added": "harder stair-step hair highlight/shadow clusters, coat folds and trim and compact metal/fabric reflections",
+    "character_checks": [
+      "opaque black eyepatch remains opaque, blue visible eye; cream forelock unchanged; camera lens remains viewer-left; coat/teal-jeans/boots intact; existing flash/rewind/recover sequence unchanged"
+    ],
+    "limitations": "Image generator retouches pixels; frame semantics and silhouettes were checked visually, not asserted as byte-identical to the original. Final normalized atlas and browser playback remain root integration checks."
+  },
+  "alpha_inspection": {
+    "alpha_0_pixels": 963539,
+    "alpha_255_pixels": 0,
+    "intermediate_alpha_pixels": 609325,
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "hidden_rgb_under_alpha_zero_is_not_opaque_background": true
+  },
+  "production_changed": false
+}

@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-14",
+  "status": "complete",
+  "notice": "2026-10-14 저장공간 정리로 사용하지 않는 이전 합성본 PNG·meta를 제거했습니다. 현재 배경·캐릭터 레이어와 과거 검증 PNG·로그는 유지했습니다.",
+  "deleted_files": 26,
+  "deleted_bytes": 32952107,
+  "recoverable_git_commit": "41ab261d3e12c6d8079292a03b73000750afcc53",
+  "folders": [
+    {
+      "path": "ArtSource/Story/v0.1.25",
+      "files": 24,
+      "bytes": 30991841
+    },
+    {
+      "path": "ArtSource/Lobby/v0.1.26",
+      "files": 2,
+      "bytes": 1960266
+    }
+  ],
+  "validation_evidence_deleted": false,
+  "runtime_and_production_reference_count": 0,
+  "current_runtime_assets": {
+    "story_backgrounds": "Assets/Resources/Lumia/Story/Backgrounds/",
+    "story_characters": "Assets/Resources/Lumia/Story/Characters/",
+    "lobby_background": "Assets/Resources/Lumia/Lobby/Background.png",
+    "lobby_character": "Assets/Resources/Lumia/Lobby/Nia.png"
+  },
+  "files": [
+    {
+      "path": "ArtSource/Lobby/v0.1.26/Lobby.png",
+      "bytes": 1957024,
+      "git_blob": "36d2d8871523f0d2241f32c9a39df7e8e4c16ef0"
+    },
+    {
+      "path": "ArtSource/Lobby/v0.1.26/Lobby.png.meta",
+      "bytes": 3242,
+      "git_blob": "374b737b704255eff0a8ac21c91dae12c6b4043c"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/hard_1.png",
+      "bytes": 2917506,
+      "git_blob": "19c0f90b2cf04879a58bb2db7357d4048a0726b8"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/hard_1.png.meta",
+      "bytes": 2769,
+      "git_blob": "ca890e4bd98013bbdc5c9e55912dbf30ea97367c"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/hard_2.png",
+      "bytes": 2263464,
+      "git_blob": "28eca8d51b1421ce10fb1937f2c80ca40d866f64"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/hard_2.png.meta",
+      "bytes": 2769,
+      "git_blob": "b830ced096a4368b913f722e265d04f536b3f048"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/hard_3.png",
+      "bytes": 2545270,
+      "git_blob": "eebb5875f829bfeec81dbd081b800a596f2dd45e"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/hard_3.png.meta",
+      "bytes": 2769,
+      "git_blob": "f4bc80b5417fcfa1db59e5676d4f7682b7d04eb3"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/hard_4.png",
+      "bytes": 2538195,
+      "git_blob": "a118c10fee2e050cb02d0a6213df2479fff67d25"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/hard_4.png.meta",
+      "bytes": 2769,
+      "git_blob": "5eebdd6b395e5756981d8286a4fadcf6ab3682b4"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/normal_1.png",
+      "bytes": 2759197,
+      "git_blob": "9301e12a7df85668420d10c4de8027812aadc3a4"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/normal_1.png.meta",
+      "bytes": 2769,
+      "git_blob": "8c5ead08e6bd3284ecc341876f811d691bb83b3c"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/normal_2.png",
+      "bytes": 2821220,
+      "git_blob": "65a70c597226daa96f16d6b2d896509b057037f8"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/normal_2.png.meta",
+      "bytes": 2769,
+      "git_blob": "c15248d0348ae4522e7fa7a75eb96d033eceb473"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/normal_3.png",
+      "bytes": 2645322,
+      "git_blob": "156522f2ec27da24d5b2e2b418749a5dfd2d0ea8"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/normal_3.png.meta",
+      "bytes": 2769,
+      "git_blob": "a50931e6601a443408fd106077bdfa5efc86a7e7"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/normal_4.png",
+      "bytes": 2797238,
+      "git_blob": "0900e5dad31ff2f85540e1c06e499bbcb4086786"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/normal_4.png.meta",
+      "bytes": 2769,
+      "git_blob": "e001505868685dd5a50f5bf94ddebf5c691cec4d"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/prologue_1.png",
+      "bytes": 2141818,
+      "git_blob": "cea5f285fabdb72ddb1a74b038d26b7339c1b412"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/prologue_1.png.meta",
+      "bytes": 2769,
+      "git_blob": "71745e519bd2ef9ac8f0658e70a8db4b7d81e26f"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/prologue_2.png",
+      "bytes": 2692097,
+      "git_blob": "162425bae5983ecf4ffd405dfaee57d158028e6f"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/prologue_2.png.meta",
+      "bytes": 2769,
+      "git_blob": "76a7bbb17f4e5a0eb4e76140c6ef2c30d5cb3768"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/prologue_3.png",
+      "bytes": 2355770,
+      "git_blob": "03ff0d1fb3780aa4fbda2c29a389fe3df3d0abb1"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/prologue_3.png.meta",
+      "bytes": 2769,
+      "git_blob": "1cde7c699b3c726501a31604baa906bf746616aa"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/prologue_4.png",
+      "bytes": 2481516,
+      "git_blob": "615e309a52c37b587480e3dbc63cfd76757eeaba"
+    },
+    {
+      "path": "ArtSource/Story/v0.1.25/prologue_4.png.meta",
+      "bytes": 2769,
+      "git_blob": "4a87a54e6e0a9e2b16ec3d958388fb8a7f830ecd"
+    }
+  ]
+}

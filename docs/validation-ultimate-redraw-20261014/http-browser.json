@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:61624/index.html?revision=redraw-20261014-final#bihyung",
+  "browser": "154.0.8037.98",
+  "subjects": 91,
+  "selected": "bihyung",
+  "frame": 7,
+  "originalComparisonOpen": true,
+  "screenshot": "gallery-original-comparison.png"
+}

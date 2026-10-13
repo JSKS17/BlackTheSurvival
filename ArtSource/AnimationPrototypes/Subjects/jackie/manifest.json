@@ -6,35 +6,89 @@
   "rows": 3,
   "fps": 8,
   "tool": "built-in image_gen.imagegen",
-  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-4f218797-d2e9-4c04-a165-9b121073c819.png",
+  "intent": "new TWO-HEAD large-pixel drawing from new proof, native Nia density and actual official full-body identity; no rejected atlas input",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a1360a-3105-7073-b185-6153d810d413\\exec-f9bb4f91-554a-4aa9-a6e0-d9510c8e6a75.png",
+  "generated_source_file": "generated-sheet.png",
   "reference_paths": [
-    "Assets/Resources/Lumia/PortraitsReference/jackie.png",
-    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+    "ArtSource/AnimationPrototypes/Style/chibi2-reference.png",
+    "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+    "ArtSource/AnimationPrototypes/Subjects/jackie/official-reference.png"
+  ],
+  "reference_roles": [
+    "two-head proportions and large-square pixel rendering ONLY",
+    "original native362px Nia pixel-to-image density ONLY",
+    "actual official default full-body character identity ONLY"
   ],
   "sources": [
     {
+      "url": "https://playeternalreturn.com/fankit",
+      "title": "공식 기본 전신 팬키트"
+    },
+    {
       "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
-      "title": "공식 1.0 실험체 스킬 자료"
+      "title": "공식 원작 R 설명"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1q2-9boaWBFQTKOgnYzJDg4gPfJvgV26y",
+      "title": "원작 기본 전신 원화 · 공식 자료"
     }
   ],
-  "motion_summary": "Eternal Return Jackie Chainsaw Murderer: white spiky hair, red-black look, lively sharp reddish eyes per identity. Pull out a large chainsaw, start its motor, raise and lean into short slashes, then the R recast Massacre is one wide two-handed sweeping chainsaw attack. White/orange metal teeth sparks and dark red slash trails; no gore. Required sequence: ready, grip saw, motor start, lift saw, windup, small cut, reverse windup, huge horizontal Massacre sweep, follow-through, lower saw, settle, ready.",
-  "frame_labels": [
-    "대기",
-    "전기톱 꺼내기",
-    "시동 걸기",
-    "톱 들어올리기",
-    "베기 준비",
-    "첫 베기",
-    "학살 준비",
-    "학살 크게 휘두르기",
-    "동작 마무리",
-    "톱 내리기",
-    "자세 회복",
-    "대기 복귀"
-  ],
+  "target_head_body": 2,
+  "pixel_goal": "60-72 logical pixels per360cell;large4-6screenpixel square clusters",
+  "ground_alignment": "per-frame",
   "intended_airborne_frames": [],
-  "visual_review": "흰 머리·붉은 눈·장비가 유지됩니다. 전기톱 시동, 들어올리기, 학살 휘두르기와 회수 동작을 확인했습니다. 12셀입니다.",
-  "width": 1448,
-  "height": 1086,
-  "atlas_sha256": "41c1dd610a82c521195cb37c27667d039901211ab07f36586a200ec8f2055f8a"
+  "preview_revision": "chibi2-20261014",
+  "frame_layout": "fixed-grid",
+  "frame_gutter": 24,
+  "frame_labels": [
+    "도끼 대기",
+    "도끼 내리기",
+    "전기톱 시동",
+    "전기톱 회전",
+    "뒤로 준비",
+    "베기 시작",
+    "정면 베기",
+    "베기 마무리",
+    "손잡이 회수",
+    "잔여 효과 감소",
+    "전기톱 대기",
+    "도끼 대기 복귀"
+  ],
+  "motion_summary": "ready → switch/start chainsaw → rev → wide body-driven chainsaw swing → brief sweep → safe ready",
+  "visual_review": "Native tool output inspected: ivory hair/orange waist-jacket and paintbrush/white socks respectively maintained, larger heads and block hair shading. Fixed-grid isolation still requires root partition QA.",
+  "width": 1828,
+  "height": 1371,
+  "generated_source_sha256": "4fc69ee543cc1fb16d6d3c3aabe372c55165771f7672e043bff1d9b7c97a63bc",
+  "reference_sha256": [
+    "1791664646896afe4d7a33a208c2e301b2daa2c978ca1c43e57fb043431b10c6",
+    "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61",
+    "a1426c8865a4966c4f076c9b93e55f9c39e94e122fd05d88e9dba15a58c0facd"
+  ],
+  "atlas_sha256": "2c3ff3b683ef1ad791dcb1d2fe0ca12a959fc69755f884b958cf0ecae2c99405",
+  "normalization": "normalization.json",
+  "tool_input_paths_at_generation": [
+    "Temp/Chibi2Redraw/style/bihyung-master.png",
+    "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+    "Temp/Chibi3Redraw/references/jackie-official-full.png"
+  ],
+  "target_head_body_ratio": 2,
+  "normalization_required": false,
+  "candidate_status": "selected; artwork and ground review passed; game not integrated",
+  "game_integrated": false,
+  "style_references": [
+    {
+      "path": "ArtSource/AnimationPrototypes/Style/chibi2-reference.png",
+      "role": "two-head large-pixel drawing style",
+      "sha256": "1791664646896afe4d7a33a208c2e301b2daa2c978ca1c43e57fb043431b10c6"
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+      "role": "original native362px Nia pixel-to-image ratio",
+      "sha256": "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61"
+    }
+  ],
+  "official_reference_file": "official-reference.png",
+  "official_reference_sha256": "a1426c8865a4966c4f076c9b93e55f9c39e94e122fd05d88e9dba15a58c0facd",
+  "official_reference_source": "https://drive.google.com/uc?export=download&id=1q2-9boaWBFQTKOgnYzJDg4gPfJvgV26y",
+  "historical_edit_inputs_not_redistributed": true
 }

@@ -1,0 +1,91 @@
+{
+  "id": "darko",
+  "original_prompt_git_commit": "41ab261d3e12c6d8079292a03b73000750afcc53",
+  "original_prompt_git_path": "ArtSource/AnimationPrototypes/Subjects/darko/prompt.txt",
+  "original_prompt_git_blob": "6098688fbbce6ddeec19bb9794f640a0efe6ae62",
+  "original_prompt_sha256": "fb5161aaf240169fcc6d57c915cb11ceec5fe301d7f8145469f03faa798a4060",
+  "original_prompt_preserved_verbatim_as_prefix": true,
+  "prompt_file": "prompt.txt",
+  "operation": "fresh generate using original first-pass prompt plus minimal identity errata, no rejected animation edit",
+  "reference_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\darko.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+  ],
+  "reference_roles": [
+    "original first-pass subject identity sprite; errata override accidental reference glasses and preserve authentic identity",
+    "original approved Nia ultimate animation style only"
+  ],
+  "reference_sha256": [
+    "693abb44f3703cd88901a222cc35cd0fb1ab5f86ff012d5dc8b616580e2dfc52",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "tool": "built-in image_gen.imagegen",
+  "game_integrated": false,
+  "generated_source_path": "C:/Users/azxar/.codex/generated_images/01a136b7-e9d9-74d3-8e73-aec5aae34bb6/exec-883de406-00d2-4e4c-9dc7-c9f700ee309b.png",
+  "generated_source_sha256": "617e2476c5e04348f81e795715a62b25aa36fd15fc2fee8855bd6226a3979bb0",
+  "output_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\OriginalPrompt4_20261014\\darko\\generated-sheet.png",
+  "output_sha256": "617e2476c5e04348f81e795715a62b25aa36fd15fc2fee8855bd6226a3979bb0",
+  "width": 1448,
+  "height": 1086,
+  "mode": "RGBA",
+  "grid": {
+    "columns": 4,
+    "rows": 3,
+    "frame_count": 12
+  },
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "prompt_sha256": "c968415cf7057aca56ad41512a82508a46e55080f8de83ef02dc696e9a9a9015",
+  "transparent_background": true,
+  "visual_review": {
+    "method": "direct view_image original identity sprite, original Nia atlas, official full-body check and generated sheet; PIL read-only alpha inspection",
+    "twelve_poses": true,
+    "style": "returned to the original Nia outline/shading/large-eyed chibi style using exact first-pass prompt plus only identity errata; no recent atlas, ratio-master or edit pass input",
+    "identity_checks": [
+      "No glasses in any pose; gray-teal spiky fringe, reddish visible eye, small sly smile, geometric gold-tan coat markings and gold neck metal.",
+      "Hand reach, grab teal knot, low forward drag, arm raised, down-slam, recoil and reset. Weapon remains on shoulder rather than replacing the R with a bat attack."
+    ],
+    "limitations": "Raw generation groups are 4x3 but source gutters are not perfectly uniform. Root must partition/pad/translate without resampling and check final playback. Some extremely faint alpha fringe remains in outer transparent margins; no alpha>=64 content touches any outer sheet edge."
+  },
+  "visible_outer_edge_pixels_alpha_ge64": {
+    "left": 0,
+    "right": 0,
+    "top": 0,
+    "bottom": 0
+  },
+  "raw_partition_recommendation": {
+    "row_cuts": [
+      0,
+      362,
+      734,
+      1086
+    ],
+    "column_cuts_by_row": [
+      [
+        0,
+        335,
+        720,
+        1068,
+        1448
+      ],
+      [
+        0,
+        386,
+        716,
+        1077,
+        1448
+      ],
+      [
+        0,
+        383,
+        725,
+        1067,
+        1448
+      ]
+    ]
+  },
+  "raw_partition_note": "Read-only alpha projection valley recommendations; some extremely faint fringe pixels may fall on valleys but no alpha>=64 visible content crosses these cuts. Full RGBA raw source must remain unchanged; use integer translation and padding only.",
+  "raw_output_sha256": "617e2476c5e04348f81e795715a62b25aa36fd15fc2fee8855bd6226a3979bb0"
+}

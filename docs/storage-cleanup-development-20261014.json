@@ -1,0 +1,3564 @@
+{
+  "date": "2026-10-13T23:59:15.1087964+09:00",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "free_before": 511467520,
+  "free_after": 10411732992,
+  "reclaimed_bytes": 9794027047,
+  "removed": [
+    {
+      "path": "Temp/ArtManifestExport",
+      "bytes": 347816
+    },
+    {
+      "path": "Temp/ArtPipelineQA",
+      "bytes": 6580193
+    },
+    {
+      "path": "Temp/AudioAcquisition",
+      "bytes": 13558352
+    },
+    {
+      "path": "Temp/AudioAudit",
+      "bytes": 1254375
+    },
+    {
+      "path": "Temp/AudioTools",
+      "bytes": 2649788
+    },
+    {
+      "path": "Temp/BlairCorrection",
+      "bytes": 2750841
+    },
+    {
+      "path": "Temp/BossBaseline",
+      "bytes": 3929918
+    },
+    {
+      "path": "Temp/BossPathsSlot",
+      "bytes": 20250
+    },
+    {
+      "path": "Temp/DescriptionAudit",
+      "bytes": 858112
+    },
+    {
+      "path": "Temp/FaceAuditDefault",
+      "bytes": 3965537
+    },
+    {
+      "path": "Temp/FaceAuditRare",
+      "bytes": 5691692
+    },
+    {
+      "path": "Temp/FaceMouthReview",
+      "bytes": 1904626
+    },
+    {
+      "path": "Temp/FaceWork",
+      "bytes": 1708749
+    },
+    {
+      "path": "Temp/GroupingGameplaySnapshot",
+      "bytes": 1950018
+    },
+    {
+      "path": "Temp/LayeredStoryArt",
+      "bytes": 42212
+    },
+    {
+      "path": "Temp/LegacyNamedBuild-20261009-002903",
+      "bytes": 102578406
+    },
+    {
+      "path": "Temp/LumiaVerification",
+      "bytes": 1600963
+    },
+    {
+      "path": "Temp/MechanicsSaveVerification",
+      "bytes": 30713
+    },
+    {
+      "path": "Temp/ModeUnlockTests",
+      "bytes": 0
+    },
+    {
+      "path": "Temp/RareRejected",
+      "bytes": 1275752
+    },
+    {
+      "path": "Temp/RareSkinNotices",
+      "bytes": 16290553
+    },
+    {
+      "path": "Temp/ReferenceChibi",
+      "bytes": 30910
+    },
+    {
+      "path": "Temp/ResearchSlot",
+      "bytes": 46635
+    },
+    {
+      "path": "Temp/ResearchStoreTests",
+      "bytes": 0
+    },
+    {
+      "path": "Temp/ResetBaseline",
+      "bytes": 1506475
+    },
+    {
+      "path": "Temp/SpriteCorrections",
+      "bytes": 3451
+    },
+    {
+      "path": "Temp/StoryArt",
+      "bytes": 161806
+    },
+    {
+      "path": "Temp/SynergyBaseline",
+      "bytes": 1376789
+    },
+    {
+      "path": "Temp/UltimateAssembly",
+      "bytes": 207217990
+    },
+    {
+      "path": "Temp/UltimatePublication",
+      "bytes": 0
+    },
+    {
+      "path": "Temp/UltimateQA",
+      "bytes": 650661
+    },
+    {
+      "path": "Temp/UltimateRequestedFixesUI",
+      "bytes": 1257961
+    },
+    {
+      "path": "Temp/UltimateStylePending",
+      "bytes": 47651778
+    },
+    {
+      "path": "Temp/UnityBuildVerification",
+      "bytes": 3538582728
+    },
+    {
+      "path": "Temp/ApplyElenaEyeFinal.py",
+      "bytes": 1651
+    },
+    {
+      "path": "Temp/ApplyRequestedUltimateFixes.py",
+      "bytes": 1554
+    },
+    {
+      "path": "Temp/ArtRefreshDevelopmentBuild.log",
+      "bytes": 633670
+    },
+    {
+      "path": "Temp/ArtRefreshNativePlayer.log",
+      "bytes": 22640
+    },
+    {
+      "path": "Temp/ArtRefreshReleaseBuild.log",
+      "bytes": 621446
+    },
+    {
+      "path": "Temp/ArtRefreshReleaseNotes.txt",
+      "bytes": 1369
+    },
+    {
+      "path": "Temp/ArtRefreshReleasePlayer.log",
+      "bytes": 2122
+    },
+    {
+      "path": "Temp/AssembleRequestedUltimates.py",
+      "bytes": 1173
+    },
+    {
+      "path": "Temp/AssembleUltimateStylePending.py",
+      "bytes": 1357
+    },
+    {
+      "path": "Temp/AudioArchiveFinal.log",
+      "bytes": 398
+    },
+    {
+      "path": "Temp/AudioCoreTests.log",
+      "bytes": 321
+    },
+    {
+      "path": "Temp/AudioDescriptionAudit.log",
+      "bytes": 3624
+    },
+    {
+      "path": "Temp/AudioDesignedCheck.log",
+      "bytes": 201
+    },
+    {
+      "path": "Temp/AudioFinalUiPlayer.log",
+      "bytes": 206254
+    },
+    {
+      "path": "Temp/AudioGitPush.log",
+      "bytes": 86
+    },
+    {
+      "path": "Temp/AudioNativePlayer.log",
+      "bytes": 4919
+    },
+    {
+      "path": "Temp/AudioRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/AuditBossLabels.cs",
+      "bytes": 1293
+    },
+    {
+      "path": "Temp/AuditBossLabels.exe",
+      "bytes": 56320
+    },
+    {
+      "path": "Temp/AugmentBalance.log",
+      "bytes": 3495
+    },
+    {
+      "path": "Temp/AugmentCore.log",
+      "bytes": 652
+    },
+    {
+      "path": "Temp/AugmentPersonalBaseline.json",
+      "bytes": 411
+    },
+    {
+      "path": "Temp/AugmentReleasePersonalBaseline.json",
+      "bytes": 145
+    },
+    {
+      "path": "Temp/AugmentRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/AugmentUiPlayer.log",
+      "bytes": 47536
+    },
+    {
+      "path": "Temp/AugmentVerificationBackup-lumia-vf-loop-v1.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/AugmentVerificationBackup-lumia-vf-loop-v1.json.bak",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/bihyung-padding-edit.json",
+      "bytes": 2202
+    },
+    {
+      "path": "Temp/BinaryStatesCoreTests.log",
+      "bytes": 195
+    },
+    {
+      "path": "Temp/BossBalance.log",
+      "bytes": 3486
+    },
+    {
+      "path": "Temp/BossCatalog.tsv",
+      "bytes": 83020
+    },
+    {
+      "path": "Temp/BossCoreTests.log",
+      "bytes": 477
+    },
+    {
+      "path": "Temp/BossDescriptionAudit.log",
+      "bytes": 2849
+    },
+    {
+      "path": "Temp/BossFinalUiPlayer.log",
+      "bytes": 116093
+    },
+    {
+      "path": "Temp/BossLabels.tsv",
+      "bytes": 6007
+    },
+    {
+      "path": "Temp/BossPathsBalance.log",
+      "bytes": 3495
+    },
+    {
+      "path": "Temp/BossPathsCore.log",
+      "bytes": 477
+    },
+    {
+      "path": "Temp/BossPathsRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/BossPathsSaveBaseline.json",
+      "bytes": 134
+    },
+    {
+      "path": "Temp/BossPathsUiPlayer.log",
+      "bytes": 41137
+    },
+    {
+      "path": "Temp/BossReferences.tsv",
+      "bytes": 33711
+    },
+    {
+      "path": "Temp/BossRestrictionsCompile.dll",
+      "bytes": 587264
+    },
+    {
+      "path": "Temp/BossRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/BossSaveBeforeQa.json",
+      "bytes": 35828
+    },
+    {
+      "path": "Temp/BossSaveBeforeQa.sha256",
+      "bytes": 66
+    },
+    {
+      "path": "Temp/BossUiBadge.py",
+      "bytes": 648
+    },
+    {
+      "path": "Temp/BossUiFixturePolish.py",
+      "bytes": 2994
+    },
+    {
+      "path": "Temp/BossUiFixtures.py",
+      "bytes": 14002
+    },
+    {
+      "path": "Temp/BossUiLayoutAudit.py",
+      "bytes": 3163
+    },
+    {
+      "path": "Temp/BossUiPanels.py",
+      "bytes": 5245
+    },
+    {
+      "path": "Temp/BossUiPlayer.log",
+      "bytes": 66472
+    },
+    {
+      "path": "Temp/BossUiPlayer.pid",
+      "bytes": 7
+    },
+    {
+      "path": "Temp/BossUiVerifyEntry.py",
+      "bytes": 1419
+    },
+    {
+      "path": "Temp/BossUiWildlifeBadge.py",
+      "bytes": 1075
+    },
+    {
+      "path": "Temp/BossVarietyBalance.log",
+      "bytes": 3486
+    },
+    {
+      "path": "Temp/BossVarietyCore.log",
+      "bytes": 477
+    },
+    {
+      "path": "Temp/BossVarietyLegacyPreflight.log",
+      "bytes": 651
+    },
+    {
+      "path": "Temp/BossVarietyRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/BossVarietySaveBaseline.json",
+      "bytes": 134
+    },
+    {
+      "path": "Temp/BossVarietyUiPlayer.log",
+      "bytes": 39386
+    },
+    {
+      "path": "Temp/BriefDescriptionAudit.log",
+      "bytes": 2456
+    },
+    {
+      "path": "Temp/BtsAudioFinalPlayer.log",
+      "bytes": 2444
+    },
+    {
+      "path": "Temp/BtsAugmentFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsBossFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsBossPathsFinalPlayer.log",
+      "bytes": 1888
+    },
+    {
+      "path": "Temp/BtsBossVarietyFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsCampFinalPlayer.log",
+      "bytes": 2032
+    },
+    {
+      "path": "Temp/BtsChibiFinalPlayer.log",
+      "bytes": 2032
+    },
+    {
+      "path": "Temp/BtsDebuffFinalPlayer.log",
+      "bytes": 2444
+    },
+    {
+      "path": "Temp/BtsEffectsFinalPlayer.log",
+      "bytes": 2444
+    },
+    {
+      "path": "Temp/BtsFaceFinalPlayer.log",
+      "bytes": 2650
+    },
+    {
+      "path": "Temp/BtsFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsGroupingFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsIdentityFinalPlayer.log",
+      "bytes": 2032
+    },
+    {
+      "path": "Temp/BtsIdentityPreview.log",
+      "bytes": 71147
+    },
+    {
+      "path": "Temp/BtsIdentityVerification.log",
+      "bytes": 9376
+    },
+    {
+      "path": "Temp/BtsJennyFinalPlayer.log",
+      "bytes": 2032
+    },
+    {
+      "path": "Temp/BtsKioskFinalPlayer.log",
+      "bytes": 2444
+    },
+    {
+      "path": "Temp/BtsMigrationBaseline.json",
+      "bytes": 164
+    },
+    {
+      "path": "Temp/BtsModesFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsRareSkinsFinalPlayer.log",
+      "bytes": 2650
+    },
+    {
+      "path": "Temp/BtsResearchFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsResetFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsRewardFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsScreensVerification.log",
+      "bytes": 26427
+    },
+    {
+      "path": "Temp/BtsSpriteFixFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsStrategyFinalPlayer.log",
+      "bytes": 2444
+    },
+    {
+      "path": "Temp/BtsSummaryFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsSynergyFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsSystemFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BtsWildlifeFinalPlayer.log",
+      "bytes": 2238
+    },
+    {
+      "path": "Temp/BuildCombatVisualPalettes.py",
+      "bytes": 3541
+    },
+    {
+      "path": "Temp/CalibratePreviewWrap.py",
+      "bytes": 806
+    },
+    {
+      "path": "Temp/CampCoreTests.log",
+      "bytes": 321
+    },
+    {
+      "path": "Temp/CampPersonalSaveBefore.json",
+      "bytes": 90
+    },
+    {
+      "path": "Temp/CampRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/CampUiPlayer.log",
+      "bytes": 36139
+    },
+    {
+      "path": "Temp/CampUiProcess.json",
+      "bytes": 94
+    },
+    {
+      "path": "Temp/CardClassificationCoreTests.log",
+      "bytes": 856
+    },
+    {
+      "path": "Temp/CardClassificationOnly.cs",
+      "bytes": 622
+    },
+    {
+      "path": "Temp/CardClassificationOnly.exe",
+      "bytes": 4608
+    },
+    {
+      "path": "Temp/CardClassificationOnly.log",
+      "bytes": 62
+    },
+    {
+      "path": "Temp/CheckGalleryConnection.mjs",
+      "bytes": 1644
+    },
+    {
+      "path": "Temp/CheckLineEnd.py",
+      "bytes": 291
+    },
+    {
+      "path": "Temp/CheckPendingStyleBoundaries.py",
+      "bytes": 1302
+    },
+    {
+      "path": "Temp/CheckRevisedGalleryHTTP.mjs",
+      "bytes": 3031
+    },
+    {
+      "path": "Temp/ChibiAudioPlayer.log",
+      "bytes": 4913
+    },
+    {
+      "path": "Temp/ChibiFinalUiPlayer.log",
+      "bytes": 206249
+    },
+    {
+      "path": "Temp/ChibiPortraitPlayer.log",
+      "bytes": 4789
+    },
+    {
+      "path": "Temp/ChibiRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/CollectEffectsVerification.py",
+      "bytes": 3319
+    },
+    {
+      "path": "Temp/CollectFaceVerification.py",
+      "bytes": 4538
+    },
+    {
+      "path": "Temp/CombatEffectsAudio.txt",
+      "bytes": 1335
+    },
+    {
+      "path": "Temp/CombatVisualReferences.png",
+      "bytes": 460793
+    },
+    {
+      "path": "Temp/ConditionalRecastCore.log",
+      "bytes": 321
+    },
+    {
+      "path": "Temp/ConditionalRecastDescription.log",
+      "bytes": 3624
+    },
+    {
+      "path": "Temp/CoreKioskCriticalBalance.log",
+      "bytes": 3474
+    },
+    {
+      "path": "Temp/CoreKioskCriticalUpdatedPolicy.log",
+      "bytes": 3483
+    },
+    {
+      "path": "Temp/CoreTests.exe",
+      "bytes": 1267200
+    },
+    {
+      "path": "Temp/CorrectSpriteIdentities.py",
+      "bytes": 5290
+    },
+    {
+      "path": "Temp/CreateGroupingGameplaySnapshot.py",
+      "bytes": 3340
+    },
+    {
+      "path": "Temp/CrossDescriptionsCompile.exe",
+      "bytes": 536576
+    },
+    {
+      "path": "Temp/CrossTestsCompile.exe",
+      "bytes": 663552
+    },
+    {
+      "path": "Temp/dak-0.js",
+      "bytes": 20369
+    },
+    {
+      "path": "Temp/dak-1.js",
+      "bytes": 13649
+    },
+    {
+      "path": "Temp/dak-2.js",
+      "bytes": 236811
+    },
+    {
+      "path": "Temp/dak-app.js",
+      "bytes": 1649852
+    },
+    {
+      "path": "Temp/dak-jackie-skills.html",
+      "bytes": 678661
+    },
+    {
+      "path": "Temp/dak-jackie.html",
+      "bytes": 678086
+    },
+    {
+      "path": "Temp/dak-jackie.json",
+      "bytes": 1985895
+    },
+    {
+      "path": "Temp/dak-skills-source.js",
+      "bytes": 10982
+    },
+    {
+      "path": "Temp/dak-skills.json",
+      "bytes": 355204
+    },
+    {
+      "path": "Temp/dak-tactical-skills.json",
+      "bytes": 14850
+    },
+    {
+      "path": "Temp/DebuffDescriptionAudit.log",
+      "bytes": 2754
+    },
+    {
+      "path": "Temp/DebuffFinalUiPlayer.log",
+      "bytes": 98841
+    },
+    {
+      "path": "Temp/DocumentLayeredStoryCharacters.py",
+      "bytes": 7862
+    },
+    {
+      "path": "Temp/DumpBossCatalog.cs",
+      "bytes": 969
+    },
+    {
+      "path": "Temp/DumpBossCatalog.exe",
+      "bytes": 55296
+    },
+    {
+      "path": "Temp/EffectsCoreTests.log",
+      "bytes": 652
+    },
+    {
+      "path": "Temp/EffectsPersonalBaseline.json",
+      "bytes": 594
+    },
+    {
+      "path": "Temp/EffectsReleaseNotes.txt",
+      "bytes": 1245
+    },
+    {
+      "path": "Temp/EffectsReleasePersonalBaseline.json",
+      "bytes": 300
+    },
+    {
+      "path": "Temp/EffectsRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/EffectsUiPlayer.log",
+      "bytes": 67212
+    },
+    {
+      "path": "Temp/EffectsVerificationBackup-bts-research-v1.json",
+      "bytes": 11477
+    },
+    {
+      "path": "Temp/EffectsVerificationBackup-bts-research-v1.json.bak",
+      "bytes": 11477
+    },
+    {
+      "path": "Temp/EffectsVerificationBackup-lumia-vf-loop-v1.json",
+      "bytes": 48499
+    },
+    {
+      "path": "Temp/EffectsVerificationBackup-lumia-vf-loop-v1.json.bak",
+      "bytes": 48499
+    },
+    {
+      "path": "Temp/ElenaEyeFinal.json",
+      "bytes": 1443
+    },
+    {
+      "path": "Temp/EndlessAugmentsCatalog.dll",
+      "bytes": 10752
+    },
+    {
+      "path": "Temp/EquipmentCoreSmokeTests.cs",
+      "bytes": 215054
+    },
+    {
+      "path": "Temp/EquipmentReviewChecks.cs",
+      "bytes": 4172
+    },
+    {
+      "path": "Temp/EquipmentReviewCoreTests.cs",
+      "bytes": 214987
+    },
+    {
+      "path": "Temp/EquipmentReviewTests.exe",
+      "bytes": 1159680
+    },
+    {
+      "path": "Temp/EquipmentTests.exe",
+      "bytes": 1156096
+    },
+    {
+      "path": "Temp/EventIdentityTable.md",
+      "bytes": 7209
+    },
+    {
+      "path": "Temp/ExportLayeredStoryCharacters.py",
+      "bytes": 2688
+    },
+    {
+      "path": "Temp/ExportUltimateRoster.cs",
+      "bytes": 306
+    },
+    {
+      "path": "Temp/ExportUltimateRoster.exe",
+      "bytes": 4608
+    },
+    {
+      "path": "Temp/ExtractNativeBossPathsPreflight.py",
+      "bytes": 3524
+    },
+    {
+      "path": "Temp/ExtractNativeBossPreflight.py",
+      "bytes": 4283
+    },
+    {
+      "path": "Temp/ExtractNativeBossVarietyPreflight.py",
+      "bytes": 2823
+    },
+    {
+      "path": "Temp/ExtractNativeResearchPreflight.py",
+      "bytes": 4136
+    },
+    {
+      "path": "Temp/ExtractNativeRewardPreflight.py",
+      "bytes": 2871
+    },
+    {
+      "path": "Temp/ExtractNativeStrategyPreflight.py",
+      "bytes": 2944
+    },
+    {
+      "path": "Temp/FaceBaselineVerification.json",
+      "bytes": 95960
+    },
+    {
+      "path": "Temp/FaceCoreTests.log",
+      "bytes": 652
+    },
+    {
+      "path": "Temp/FaceDescriptionAudit.log",
+      "bytes": 3642
+    },
+    {
+      "path": "Temp/FaceGameplayBackup-bts-research-v1.json",
+      "bytes": 11477
+    },
+    {
+      "path": "Temp/FaceGameplayBackup-bts-research-v1.json.bak",
+      "bytes": 11477
+    },
+    {
+      "path": "Temp/FaceGameplayBackup-lumia-vf-loop-v1.json",
+      "bytes": 62519
+    },
+    {
+      "path": "Temp/FaceGameplayBackup-lumia-vf-loop-v1.json.bak",
+      "bytes": 62519
+    },
+    {
+      "path": "Temp/FaceGameplayPersonalBaseline.json",
+      "bytes": 594
+    },
+    {
+      "path": "Temp/FaceGameplayPlayer.log",
+      "bytes": 79914
+    },
+    {
+      "path": "Temp/FacePersonalBaseline.json",
+      "bytes": 594
+    },
+    {
+      "path": "Temp/FaceReleasePersonalBaseline.json",
+      "bytes": 300
+    },
+    {
+      "path": "Temp/FaceRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/FaceUiPlayer.log",
+      "bytes": 5010
+    },
+    {
+      "path": "Temp/FaceVerificationBackup-bts-research-v1.json",
+      "bytes": 11477
+    },
+    {
+      "path": "Temp/FaceVerificationBackup-bts-research-v1.json.bak",
+      "bytes": 11477
+    },
+    {
+      "path": "Temp/FaceVerificationBackup-lumia-vf-loop-v1.json",
+      "bytes": 62519
+    },
+    {
+      "path": "Temp/FaceVerificationBackup-lumia-vf-loop-v1.json.bak",
+      "bytes": 62519
+    },
+    {
+      "path": "Temp/FinalizeEffectsValidation.py",
+      "bytes": 2762
+    },
+    {
+      "path": "Temp/FinalizeFaceValidation.py",
+      "bytes": 2788
+    },
+    {
+      "path": "Temp/FinalizeLauraRepair.py",
+      "bytes": 1537
+    },
+    {
+      "path": "Temp/FinalizeUltimateRepair.py",
+      "bytes": 1299
+    },
+    {
+      "path": "Temp/gallery-preparation.json",
+      "bytes": 3623
+    },
+    {
+      "path": "Temp/GarnetRepairJob.json",
+      "bytes": 1960
+    },
+    {
+      "path": "Temp/GenerateInstrumentalMusic.log",
+      "bytes": 433
+    },
+    {
+      "path": "Temp/github-archive-validation.json",
+      "bytes": 376
+    },
+    {
+      "path": "Temp/github-art-refresh-archive-validation.json",
+      "bytes": 397
+    },
+    {
+      "path": "Temp/github-art-refresh-publication.json",
+      "bytes": 787
+    },
+    {
+      "path": "Temp/github-art-refresh-release-asset.json",
+      "bytes": 411
+    },
+    {
+      "path": "Temp/github-art-refresh-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-audio-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-audio-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-audio-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-audio-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-augments-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-augments-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-augments-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-augments-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-boss-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-boss-paths-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-boss-paths-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-boss-paths-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-boss-paths-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-boss-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-boss-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-boss-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-boss-variety-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-boss-variety-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-boss-variety-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-boss-variety-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-camp-rest-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-camp-rest-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-camp-rest-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-camp-rest-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-chibi-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-chibi-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-chibi-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-chibi-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-debuff-archive-validation.json",
+      "bytes": 395
+    },
+    {
+      "path": "Temp/github-debuff-publication.json",
+      "bytes": 781
+    },
+    {
+      "path": "Temp/github-debuff-release-asset.json",
+      "bytes": 407
+    },
+    {
+      "path": "Temp/github-debuff-release.json",
+      "bytes": 299
+    },
+    {
+      "path": "Temp/github-effects-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-effects-publication.json",
+      "bytes": 952
+    },
+    {
+      "path": "Temp/github-effects-release-asset.json",
+      "bytes": 431
+    },
+    {
+      "path": "Temp/github-effects-release.json",
+      "bytes": 319
+    },
+    {
+      "path": "Temp/github-faces-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-faces-publication.json",
+      "bytes": 952
+    },
+    {
+      "path": "Temp/github-faces-release-asset.json",
+      "bytes": 431
+    },
+    {
+      "path": "Temp/github-faces-release.json",
+      "bytes": 319
+    },
+    {
+      "path": "Temp/github-final-verification.json",
+      "bytes": 704
+    },
+    {
+      "path": "Temp/github-grouping-archive-validation.json",
+      "bytes": 395
+    },
+    {
+      "path": "Temp/github-grouping-publication.json",
+      "bytes": 781
+    },
+    {
+      "path": "Temp/github-grouping-release-asset.json",
+      "bytes": 407
+    },
+    {
+      "path": "Temp/github-grouping-release.json",
+      "bytes": 299
+    },
+    {
+      "path": "Temp/github-jenny-archive-validation.json",
+      "bytes": 395
+    },
+    {
+      "path": "Temp/github-jenny-publication.json",
+      "bytes": 781
+    },
+    {
+      "path": "Temp/github-jenny-release-asset.json",
+      "bytes": 407
+    },
+    {
+      "path": "Temp/github-jenny-release.json",
+      "bytes": 299
+    },
+    {
+      "path": "Temp/github-kiosk-archive-validation.json",
+      "bytes": 395
+    },
+    {
+      "path": "Temp/github-kiosk-publication.json",
+      "bytes": 781
+    },
+    {
+      "path": "Temp/github-kiosk-release-asset.json",
+      "bytes": 407
+    },
+    {
+      "path": "Temp/github-kiosk-release.json",
+      "bytes": 299
+    },
+    {
+      "path": "Temp/github-layered-story-archive-validation.json",
+      "bytes": 397
+    },
+    {
+      "path": "Temp/github-layered-story-publication.json",
+      "bytes": 787
+    },
+    {
+      "path": "Temp/github-layered-story-release-asset.json",
+      "bytes": 411
+    },
+    {
+      "path": "Temp/github-layered-story-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-modes-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-modes-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-modes-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-modes-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-presentation-archive-validation.json",
+      "bytes": 397
+    },
+    {
+      "path": "Temp/github-presentation-publication.json",
+      "bytes": 787
+    },
+    {
+      "path": "Temp/github-presentation-release-asset.json",
+      "bytes": 411
+    },
+    {
+      "path": "Temp/github-presentation-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-publication.json",
+      "bytes": 213
+    },
+    {
+      "path": "Temp/github-rare-skins-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-rare-skins-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-rare-skins-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-rare-skins-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-release-asset.json",
+      "bytes": 321
+    },
+    {
+      "path": "Temp/github-release.json",
+      "bytes": 236
+    },
+    {
+      "path": "Temp/github-research-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-research-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-research-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-research-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-reset-archive-validation.json",
+      "bytes": 395
+    },
+    {
+      "path": "Temp/github-reset-publication.json",
+      "bytes": 781
+    },
+    {
+      "path": "Temp/github-reset-release-asset.json",
+      "bytes": 407
+    },
+    {
+      "path": "Temp/github-reset-release.json",
+      "bytes": 299
+    },
+    {
+      "path": "Temp/github-reward-limit-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-reward-limit-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-reward-limit-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-reward-limit-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-sprite-fix-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-sprite-fix-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-sprite-fix-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-sprite-fix-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-strategy-archive-validation.json",
+      "bytes": 396
+    },
+    {
+      "path": "Temp/github-strategy-publication.json",
+      "bytes": 786
+    },
+    {
+      "path": "Temp/github-strategy-release-asset.json",
+      "bytes": 410
+    },
+    {
+      "path": "Temp/github-strategy-release.json",
+      "bytes": 301
+    },
+    {
+      "path": "Temp/github-summary-archive-validation.json",
+      "bytes": 395
+    },
+    {
+      "path": "Temp/github-summary-publication.json",
+      "bytes": 781
+    },
+    {
+      "path": "Temp/github-summary-release-asset.json",
+      "bytes": 407
+    },
+    {
+      "path": "Temp/github-summary-release.json",
+      "bytes": 299
+    },
+    {
+      "path": "Temp/github-synergy-archive-validation.json",
+      "bytes": 395
+    },
+    {
+      "path": "Temp/github-synergy-publication.json",
+      "bytes": 781
+    },
+    {
+      "path": "Temp/github-synergy-release-asset.json",
+      "bytes": 407
+    },
+    {
+      "path": "Temp/github-synergy-release.json",
+      "bytes": 299
+    },
+    {
+      "path": "Temp/github-ultimate-archive-validation.json",
+      "bytes": 326
+    },
+    {
+      "path": "Temp/github-ultimate-publication.json",
+      "bytes": 859
+    },
+    {
+      "path": "Temp/github-ultimate-release-asset.json",
+      "bytes": 458
+    },
+    {
+      "path": "Temp/github-ultimate-release.json",
+      "bytes": 351
+    },
+    {
+      "path": "Temp/github-wildlife-archive-validation.json",
+      "bytes": 395
+    },
+    {
+      "path": "Temp/github-wildlife-publication.json",
+      "bytes": 781
+    },
+    {
+      "path": "Temp/github-wildlife-release-asset.json",
+      "bytes": 407
+    },
+    {
+      "path": "Temp/github-wildlife-release.json",
+      "bytes": 299
+    },
+    {
+      "path": "Temp/GitHubArtRefreshPublication.ps1",
+      "bytes": 8494
+    },
+    {
+      "path": "Temp/GitHubAudioPublication.ps1",
+      "bytes": 9530
+    },
+    {
+      "path": "Temp/GitHubAugmentPublication.ps1",
+      "bytes": 9042
+    },
+    {
+      "path": "Temp/GitHubBossPathsPublication.ps1",
+      "bytes": 8962
+    },
+    {
+      "path": "Temp/GitHubBossPublication.ps1",
+      "bytes": 8909
+    },
+    {
+      "path": "Temp/GitHubBossVarietyPublication.ps1",
+      "bytes": 9098
+    },
+    {
+      "path": "Temp/GitHubCampPublication.ps1",
+      "bytes": 8736
+    },
+    {
+      "path": "Temp/GitHubChibiPublication.ps1",
+      "bytes": 9781
+    },
+    {
+      "path": "Temp/GitHubDebuffPublication.ps1",
+      "bytes": 8988
+    },
+    {
+      "path": "Temp/GitHubEffectsPublication.ps1",
+      "bytes": 8562
+    },
+    {
+      "path": "Temp/GitHubFaceNotesRepair.json",
+      "bytes": 1622
+    },
+    {
+      "path": "Temp/GitHubFacePublication.ps1",
+      "bytes": 9386
+    },
+    {
+      "path": "Temp/GitHubGroupingPublication.ps1",
+      "bytes": 9370
+    },
+    {
+      "path": "Temp/GitHubJennyPublication.ps1",
+      "bytes": 8946
+    },
+    {
+      "path": "Temp/GitHubKioskPublication.ps1",
+      "bytes": 9576
+    },
+    {
+      "path": "Temp/GitHubLayeredStoryPublication.ps1",
+      "bytes": 8508
+    },
+    {
+      "path": "Temp/GitHubModesPublication.ps1",
+      "bytes": 9236
+    },
+    {
+      "path": "Temp/GitHubPresentationPublication.ps1",
+      "bytes": 8594
+    },
+    {
+      "path": "Temp/GitHubPublication.ps1",
+      "bytes": 5764
+    },
+    {
+      "path": "Temp/GitHubRareSkinsPublication.ps1",
+      "bytes": 9059
+    },
+    {
+      "path": "Temp/GitHubResearchPublication.ps1",
+      "bytes": 9136
+    },
+    {
+      "path": "Temp/GitHubResetPublication.ps1",
+      "bytes": 9144
+    },
+    {
+      "path": "Temp/GitHubRewardPublication.ps1",
+      "bytes": 8784
+    },
+    {
+      "path": "Temp/GitHubSpriteFixPublication.ps1",
+      "bytes": 8513
+    },
+    {
+      "path": "Temp/GitHubStrategyPublication.ps1",
+      "bytes": 9044
+    },
+    {
+      "path": "Temp/GitHubSummaryPublication.ps1",
+      "bytes": 9067
+    },
+    {
+      "path": "Temp/GitHubSynergyPublication.ps1",
+      "bytes": 9606
+    },
+    {
+      "path": "Temp/GitHubUltimatePublication.ps1",
+      "bytes": 8684
+    },
+    {
+      "path": "Temp/GitHubWildlifePublication.ps1",
+      "bytes": 9274
+    },
+    {
+      "path": "Temp/GoldenWillowEvent.html",
+      "bytes": 103290
+    },
+    {
+      "path": "Temp/GroupingCoreTests.log",
+      "bytes": 321
+    },
+    {
+      "path": "Temp/GroupingCoverage.txt",
+      "bytes": 3801
+    },
+    {
+      "path": "Temp/GroupingDescriptionAudit.log",
+      "bytes": 2849
+    },
+    {
+      "path": "Temp/GroupingFinalUiPlayer.log",
+      "bytes": 111494
+    },
+    {
+      "path": "Temp/GroupingRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/hana_determined_imagegen.json",
+      "bytes": 1886
+    },
+    {
+      "path": "Temp/hana_relieved_imagegen.json",
+      "bytes": 1912
+    },
+    {
+      "path": "Temp/hana_startled_imagegen.json",
+      "bytes": 1854
+    },
+    {
+      "path": "Temp/hana_work_imagegen.json",
+      "bytes": 1736
+    },
+    {
+      "path": "Temp/IdentityArtPlayer.log",
+      "bytes": 4796
+    },
+    {
+      "path": "Temp/IdentityDescriptionAudit.log",
+      "bytes": 2450
+    },
+    {
+      "path": "Temp/IdentityFinalUiPlayer.log",
+      "bytes": 71142
+    },
+    {
+      "path": "Temp/InspectLobbyArt.py",
+      "bytes": 2941
+    },
+    {
+      "path": "Temp/InspectMechanicsScreens.py",
+      "bytes": 1672
+    },
+    {
+      "path": "Temp/InspectMouthPixels.py",
+      "bytes": 2720
+    },
+    {
+      "path": "Temp/install-bihyung-padding-edit.py",
+      "bytes": 1882
+    },
+    {
+      "path": "Temp/InstallAudioRelease.ps1",
+      "bytes": 4780
+    },
+    {
+      "path": "Temp/InstallAugmentRelease.ps1",
+      "bytes": 6137
+    },
+    {
+      "path": "Temp/InstallBossPathsRelease.ps1",
+      "bytes": 4793
+    },
+    {
+      "path": "Temp/InstallBossRelease.ps1",
+      "bytes": 4777
+    },
+    {
+      "path": "Temp/InstallBossVarietyRelease.ps1",
+      "bytes": 4799
+    },
+    {
+      "path": "Temp/InstallCampRelease.ps1",
+      "bytes": 4782
+    },
+    {
+      "path": "Temp/InstallChibiRelease.ps1",
+      "bytes": 4790
+    },
+    {
+      "path": "Temp/InstallDebuffRelease.ps1",
+      "bytes": 4791
+    },
+    {
+      "path": "Temp/InstallEffectsRelease.ps1",
+      "bytes": 6136
+    },
+    {
+      "path": "Temp/InstallFaceRelease.ps1",
+      "bytes": 6122
+    },
+    {
+      "path": "Temp/InstallGroupingRelease.ps1",
+      "bytes": 4796
+    },
+    {
+      "path": "Temp/InstallIdentityRelease.ps1",
+      "bytes": 3379
+    },
+    {
+      "path": "Temp/InstallJennyRelease.ps1",
+      "bytes": 4785
+    },
+    {
+      "path": "Temp/InstallKioskRelease.ps1",
+      "bytes": 4789
+    },
+    {
+      "path": "Temp/InstallModesRelease.ps1",
+      "bytes": 6126
+    },
+    {
+      "path": "Temp/InstallRareSkinsRelease.ps1",
+      "bytes": 6147
+    },
+    {
+      "path": "Temp/InstallRequestedStylePreviews.py",
+      "bytes": 6001
+    },
+    {
+      "path": "Temp/InstallResearchRelease.ps1",
+      "bytes": 6141
+    },
+    {
+      "path": "Temp/InstallResetRelease.ps1",
+      "bytes": 4791
+    },
+    {
+      "path": "Temp/InstallRewardRelease.ps1",
+      "bytes": 4789
+    },
+    {
+      "path": "Temp/InstallSpriteFixRelease.ps1",
+      "bytes": 4801
+    },
+    {
+      "path": "Temp/InstallStrategyRelease.ps1",
+      "bytes": 4789
+    },
+    {
+      "path": "Temp/InstallSummaryRelease.ps1",
+      "bytes": 4793
+    },
+    {
+      "path": "Temp/InstallSynergyRelease.ps1",
+      "bytes": 4794
+    },
+    {
+      "path": "Temp/InstallSystemRelease.ps1",
+      "bytes": 3369
+    },
+    {
+      "path": "Temp/InstallWildlifeRelease.ps1",
+      "bytes": 4797
+    },
+    {
+      "path": "Temp/IntegrateResearchUi.py",
+      "bytes": 5065
+    },
+    {
+      "path": "Temp/irem-full-review-crop.png",
+      "bytes": 18348
+    },
+    {
+      "path": "Temp/jackie-result.png",
+      "bytes": 138217
+    },
+    {
+      "path": "Temp/JennyFinalUiPlayer.log",
+      "bytes": 181358
+    },
+    {
+      "path": "Temp/JennyRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/KioskCoreTests.log",
+      "bytes": 190
+    },
+    {
+      "path": "Temp/KioskDescriptionAudit.log",
+      "bytes": 2451
+    },
+    {
+      "path": "Temp/KioskFinalUiPlayer.log",
+      "bytes": 87385
+    },
+    {
+      "path": "Temp/KioskRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/LauraRepairJob.json",
+      "bytes": 1734
+    },
+    {
+      "path": "Temp/LayeredDevelopmentBuild.log",
+      "bytes": 637410
+    },
+    {
+      "path": "Temp/LayeredDevelopmentFinalBuild.log",
+      "bytes": 618654
+    },
+    {
+      "path": "Temp/LayeredNativeFinalPlayer.log",
+      "bytes": 21044
+    },
+    {
+      "path": "Temp/LayeredNativePlayer.log",
+      "bytes": 21046
+    },
+    {
+      "path": "Temp/LayeredReleaseBuild.log",
+      "bytes": 621479
+    },
+    {
+      "path": "Temp/LayeredStoryReleaseNotes.txt",
+      "bytes": 1149
+    },
+    {
+      "path": "Temp/LayeredStoryReleasePlayer.log",
+      "bytes": 2128
+    },
+    {
+      "path": "Temp/LoadoutBalance.log",
+      "bytes": 3508
+    },
+    {
+      "path": "Temp/LoadoutCoreTests.log",
+      "bytes": 190
+    },
+    {
+      "path": "Temp/lumia-verification.json",
+      "bytes": 24099
+    },
+    {
+      "path": "Temp/LumiaArtScreens.log",
+      "bytes": 2106
+    },
+    {
+      "path": "Temp/LumiaArtScreensFinal.log",
+      "bytes": 4762
+    },
+    {
+      "path": "Temp/LumiaBuild.log",
+      "bytes": 625116
+    },
+    {
+      "path": "Temp/LumiaFinalArtPlayer.log",
+      "bytes": 2228
+    },
+    {
+      "path": "Temp/LumiaGameScreensArt.log",
+      "bytes": 22972
+    },
+    {
+      "path": "Temp/LumiaReleaseSmoke.log",
+      "bytes": 2228
+    },
+    {
+      "path": "Temp/LumiaScreens.log",
+      "bytes": 22967
+    },
+    {
+      "path": "Temp/MechanicsBalance.log",
+      "bytes": 3532
+    },
+    {
+      "path": "Temp/MechanicsCoreTests.log",
+      "bytes": 195
+    },
+    {
+      "path": "Temp/MechanicsNativePlayer.log",
+      "bytes": 45933
+    },
+    {
+      "path": "Temp/MechanicsScreensContact.png",
+      "bytes": 1471135
+    },
+    {
+      "path": "Temp/ModesBalance.log",
+      "bytes": 3495
+    },
+    {
+      "path": "Temp/ModesCore.log",
+      "bytes": 635
+    },
+    {
+      "path": "Temp/ModesPersonalBaseline.json",
+      "bytes": 411
+    },
+    {
+      "path": "Temp/ModesReleasePersonalBaseline.json",
+      "bytes": 145
+    },
+    {
+      "path": "Temp/ModesRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/ModesUiPlayer.log",
+      "bytes": 45634
+    },
+    {
+      "path": "Temp/ModesVerificationBackup-lumia-vf-loop-v1.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/ModesVerificationBackup-lumia-vf-loop-v1.json.bak",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/MouthCandidates.py",
+      "bytes": 763
+    },
+    {
+      "path": "Temp/NativeBossPathsPreflight.cs",
+      "bytes": 19868
+    },
+    {
+      "path": "Temp/NativeBossPathsPreflight.exe",
+      "bytes": 881152
+    },
+    {
+      "path": "Temp/NativeBossPathsPreflight.log",
+      "bytes": 1065
+    },
+    {
+      "path": "Temp/NativeBossPreflight.cs",
+      "bytes": 15574
+    },
+    {
+      "path": "Temp/NativeBossPreflight.exe",
+      "bytes": 877568
+    },
+    {
+      "path": "Temp/NativeBossPreflight.log",
+      "bytes": 651
+    },
+    {
+      "path": "Temp/NativeBossVarietyPreflight.cs",
+      "bytes": 18566
+    },
+    {
+      "path": "Temp/NativeBossVarietyPreflight.exe",
+      "bytes": 866816
+    },
+    {
+      "path": "Temp/NativeBossVarietyPreflight.log",
+      "bytes": 973
+    },
+    {
+      "path": "Temp/NativeResearchPreflight.cs",
+      "bytes": 50840
+    },
+    {
+      "path": "Temp/NativeResearchPreflight.exe",
+      "bytes": 1019392
+    },
+    {
+      "path": "Temp/NativeResearchPreflight.log",
+      "bytes": 2038
+    },
+    {
+      "path": "Temp/NativeRewardPreflight.cs",
+      "bytes": 12368
+    },
+    {
+      "path": "Temp/NativeRewardPreflight.exe",
+      "bytes": 845824
+    },
+    {
+      "path": "Temp/NativeRewardPreflight.log",
+      "bytes": 1406
+    },
+    {
+      "path": "Temp/NativeStrategyPreflight.cs",
+      "bytes": 14936
+    },
+    {
+      "path": "Temp/NativeStrategyPreflight.exe",
+      "bytes": 747008
+    },
+    {
+      "path": "Temp/nia_cast_imagegen.json",
+      "bytes": 1794
+    },
+    {
+      "path": "Temp/nia_challenge_imagegen.json",
+      "bytes": 1811
+    },
+    {
+      "path": "Temp/nia_cocky_imagegen.json",
+      "bytes": 1777
+    },
+    {
+      "path": "Temp/nia_defeated_imagegen.json",
+      "bytes": 1814
+    },
+    {
+      "path": "Temp/nia_frustrated_imagegen.json",
+      "bytes": 1857
+    },
+    {
+      "path": "Temp/nia_overload_imagegen.json",
+      "bytes": 1705
+    },
+    {
+      "path": "Temp/nia_taunt_imagegen.json",
+      "bytes": 1735
+    },
+    {
+      "path": "Temp/nia_wake_imagegen.json",
+      "bytes": 1766
+    },
+    {
+      "path": "Temp/NiaPrototypeAnchors.py",
+      "bytes": 513
+    },
+    {
+      "path": "Temp/NiaPrototypeValidate.py",
+      "bytes": 3173
+    },
+    {
+      "path": "Temp/NormalizeBossLabels.py",
+      "bytes": 1271
+    },
+    {
+      "path": "Temp/NormalizeBossPathTests.py",
+      "bytes": 1701
+    },
+    {
+      "path": "Temp/NormalizeResearchUi.py",
+      "bytes": 641
+    },
+    {
+      "path": "Temp/NormalizeStrategyUi.py",
+      "bytes": 136
+    },
+    {
+      "path": "Temp/PackageArtRefreshArchive.py",
+      "bytes": 781
+    },
+    {
+      "path": "Temp/PackageAudioRelease.ps1",
+      "bytes": 1928
+    },
+    {
+      "path": "Temp/PackageAugmentRelease.ps1",
+      "bytes": 2664
+    },
+    {
+      "path": "Temp/PackageBossPathsRelease.ps1",
+      "bytes": 1937
+    },
+    {
+      "path": "Temp/PackageBossRelease.ps1",
+      "bytes": 1926
+    },
+    {
+      "path": "Temp/PackageBossVarietyRelease.ps1",
+      "bytes": 1941
+    },
+    {
+      "path": "Temp/PackageCampRelease.ps1",
+      "bytes": 1931
+    },
+    {
+      "path": "Temp/PackageChibiRelease.ps1",
+      "bytes": 1938
+    },
+    {
+      "path": "Temp/PackageEffectsArchive.py",
+      "bytes": 762
+    },
+    {
+      "path": "Temp/PackageEffectsRelease.ps1",
+      "bytes": 2706
+    },
+    {
+      "path": "Temp/PackageFaceArchive.py",
+      "bytes": 762
+    },
+    {
+      "path": "Temp/PackageFaceRelease.ps1",
+      "bytes": 2695
+    },
+    {
+      "path": "Temp/PackageGroupingRelease.ps1",
+      "bytes": 1939
+    },
+    {
+      "path": "Temp/PackageJennyRelease.ps1",
+      "bytes": 1931
+    },
+    {
+      "path": "Temp/PackageLayeredStoryArchive.py",
+      "bytes": 783
+    },
+    {
+      "path": "Temp/PackageModesRelease.ps1",
+      "bytes": 2657
+    },
+    {
+      "path": "Temp/PackagePresentationArchive.py",
+      "bytes": 797
+    },
+    {
+      "path": "Temp/PackageRareSkinsRelease.ps1",
+      "bytes": 2670
+    },
+    {
+      "path": "Temp/PackageResearchRelease.ps1",
+      "bytes": 2666
+    },
+    {
+      "path": "Temp/PackageResetRelease.ps1",
+      "bytes": 1937
+    },
+    {
+      "path": "Temp/PackageRewardRelease.ps1",
+      "bytes": 1936
+    },
+    {
+      "path": "Temp/PackageSpriteFixRelease.ps1",
+      "bytes": 1945
+    },
+    {
+      "path": "Temp/PackageStrategyRelease.ps1",
+      "bytes": 1934
+    },
+    {
+      "path": "Temp/PackageSynergyRelease.ps1",
+      "bytes": 1938
+    },
+    {
+      "path": "Temp/PackageWildlifeRelease.ps1",
+      "bytes": 1921
+    },
+    {
+      "path": "Temp/PortraitPlayer.log",
+      "bytes": 4800
+    },
+    {
+      "path": "Temp/PreflightPrepFix.py",
+      "bytes": 448
+    },
+    {
+      "path": "Temp/PrepareAudioRelease.py",
+      "bytes": 3650
+    },
+    {
+      "path": "Temp/PrepareAugmentRelease.py",
+      "bytes": 1947
+    },
+    {
+      "path": "Temp/PrepareBlairCorrection.py",
+      "bytes": 5306
+    },
+    {
+      "path": "Temp/PrepareBossPathsQa.py",
+      "bytes": 312
+    },
+    {
+      "path": "Temp/PrepareBossPathsRelease.py",
+      "bytes": 2386
+    },
+    {
+      "path": "Temp/PrepareBossRelease.py",
+      "bytes": 2235
+    },
+    {
+      "path": "Temp/PrepareBossVarietyRelease.py",
+      "bytes": 2484
+    },
+    {
+      "path": "Temp/PrepareCampRelease.py",
+      "bytes": 2829
+    },
+    {
+      "path": "Temp/PrepareChibiRelease.py",
+      "bytes": 7328
+    },
+    {
+      "path": "Temp/PrepareDebuffRelease.py",
+      "bytes": 2545
+    },
+    {
+      "path": "Temp/PrepareEffectsNotes.py",
+      "bytes": 2419
+    },
+    {
+      "path": "Temp/PrepareEffectsRelease.py",
+      "bytes": 863
+    },
+    {
+      "path": "Temp/PrepareFaceVerification.py",
+      "bytes": 2092
+    },
+    {
+      "path": "Temp/PrepareGroupingRelease.py",
+      "bytes": 3715
+    },
+    {
+      "path": "Temp/PrepareJennyRelease.py",
+      "bytes": 3421
+    },
+    {
+      "path": "Temp/PrepareKioskRelease.py",
+      "bytes": 3070
+    },
+    {
+      "path": "Temp/PrepareModesRelease.py",
+      "bytes": 2220
+    },
+    {
+      "path": "Temp/PrepareRareSkinsRelease.py",
+      "bytes": 3392
+    },
+    {
+      "path": "Temp/PrepareResearchRelease.py",
+      "bytes": 5396
+    },
+    {
+      "path": "Temp/PrepareResetRelease.py",
+      "bytes": 3671
+    },
+    {
+      "path": "Temp/PrepareRewardRelease.py",
+      "bytes": 2101
+    },
+    {
+      "path": "Temp/PrepareSecondaryFacePatches.py",
+      "bytes": 4359
+    },
+    {
+      "path": "Temp/PrepareSpriteFixValidation.py",
+      "bytes": 664
+    },
+    {
+      "path": "Temp/PrepareStrategyRelease.py",
+      "bytes": 2368
+    },
+    {
+      "path": "Temp/PrepareSynergyBaseline.py",
+      "bytes": 737
+    },
+    {
+      "path": "Temp/PrepareSynergyRelease.py",
+      "bytes": 3871
+    },
+    {
+      "path": "Temp/PrepareWildlifeRelease.py",
+      "bytes": 2470
+    },
+    {
+      "path": "Temp/PresentationDevelopmentBuild.log",
+      "bytes": 635073
+    },
+    {
+      "path": "Temp/PresentationDevelopmentFinalBuild.log",
+      "bytes": 616412
+    },
+    {
+      "path": "Temp/PresentationDevelopmentSymbolBuild.log",
+      "bytes": 623737
+    },
+    {
+      "path": "Temp/PresentationReleaseBuild.log",
+      "bytes": 620538
+    },
+    {
+      "path": "Temp/PresentationReleaseFinalBuild.log",
+      "bytes": 622171
+    },
+    {
+      "path": "Temp/PresentationReleaseNotes.txt",
+      "bytes": 2053
+    },
+    {
+      "path": "Temp/PresentationReleasePlayer.log",
+      "bytes": 2301
+    },
+    {
+      "path": "Temp/PresentationUiFinalPlayer.log",
+      "bytes": 6665
+    },
+    {
+      "path": "Temp/PresentationUiPlayer.log",
+      "bytes": 6664
+    },
+    {
+      "path": "Temp/PresentationUiSymbolPlayer.log",
+      "bytes": 6771
+    },
+    {
+      "path": "Temp/PreserveCampTextFormat.py",
+      "bytes": 1030
+    },
+    {
+      "path": "Temp/PreservePreviewToolLineEndings.py",
+      "bytes": 875
+    },
+    {
+      "path": "Temp/PreserveTiaStyleInput.py",
+      "bytes": 868
+    },
+    {
+      "path": "Temp/PreserveValidationLineEndings.py",
+      "bytes": 703
+    },
+    {
+      "path": "Temp/PrintTraitGrouping.ps1",
+      "bytes": 1182
+    },
+    {
+      "path": "Temp/RareJackieSearch.html",
+      "bytes": 51012
+    },
+    {
+      "path": "Temp/RareJackieSearch.json",
+      "bytes": 3283
+    },
+    {
+      "path": "Temp/RareMechanicsAssetValidation.json",
+      "bytes": 2121
+    },
+    {
+      "path": "Temp/RareMechanicsPreflight.cs",
+      "bytes": 997
+    },
+    {
+      "path": "Temp/RareMechanicsPreflight.exe",
+      "bytes": 995328
+    },
+    {
+      "path": "Temp/RareMechanicsPreflight.log",
+      "bytes": 115
+    },
+    {
+      "path": "Temp/RareOfficialApp.js",
+      "bytes": 120887
+    },
+    {
+      "path": "Temp/RareOfficialBoard.js",
+      "bytes": 279586
+    },
+    {
+      "path": "Temp/RareOfficialNews.html",
+      "bytes": 49471
+    },
+    {
+      "path": "Temp/RareSkinBatchInputs.py",
+      "bytes": 581
+    },
+    {
+      "path": "Temp/RareSkinsBalance.log",
+      "bytes": 3495
+    },
+    {
+      "path": "Temp/RareSkinsCore.log",
+      "bytes": 651
+    },
+    {
+      "path": "Temp/RareSkinsPersonalBaseline.json",
+      "bytes": 411
+    },
+    {
+      "path": "Temp/RareSkinsReleasePersonalBaseline.json",
+      "bytes": 145
+    },
+    {
+      "path": "Temp/RareSkinsRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/RareSkinsUiPlayer.log",
+      "bytes": 39734
+    },
+    {
+      "path": "Temp/RareSkinsVerificationBackup-lumia-vf-loop-v1.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/RareSkinsVerificationBackup-lumia-vf-loop-v1.json.bak",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/ReadBossReferences.cs",
+      "bytes": 651
+    },
+    {
+      "path": "Temp/ReadBossReferences.exe",
+      "bytes": 6144
+    },
+    {
+      "path": "Temp/ReadBossViewNames.py",
+      "bytes": 304
+    },
+    {
+      "path": "Temp/ReadRareMechanicsInputs.py",
+      "bytes": 710
+    },
+    {
+      "path": "Temp/RecentRosterChecks.exe",
+      "bytes": 24064
+    },
+    {
+      "path": "Temp/RecordAudioScreens.py",
+      "bytes": 4144
+    },
+    {
+      "path": "Temp/RecordAugmentScreens.py",
+      "bytes": 3649
+    },
+    {
+      "path": "Temp/RecordBossPathsScreens.py",
+      "bytes": 4305
+    },
+    {
+      "path": "Temp/RecordBossScreens.py",
+      "bytes": 4019
+    },
+    {
+      "path": "Temp/RecordBossVarietyScreens.py",
+      "bytes": 4458
+    },
+    {
+      "path": "Temp/RecordCampScreens.py",
+      "bytes": 3229
+    },
+    {
+      "path": "Temp/RecordChibiPortraits.py",
+      "bytes": 9973
+    },
+    {
+      "path": "Temp/RecordChibiScreens.py",
+      "bytes": 4265
+    },
+    {
+      "path": "Temp/RecordDebuffScreens.py",
+      "bytes": 3322
+    },
+    {
+      "path": "Temp/RecordGroupingScreens.py",
+      "bytes": 3010
+    },
+    {
+      "path": "Temp/RecordIdentityScreens.py",
+      "bytes": 1973
+    },
+    {
+      "path": "Temp/RecordJennyScreens.py",
+      "bytes": 3211
+    },
+    {
+      "path": "Temp/RecordKioskScreens.py",
+      "bytes": 3118
+    },
+    {
+      "path": "Temp/RecordModesScreens.py",
+      "bytes": 3868
+    },
+    {
+      "path": "Temp/RecordRareSkinsScreens.py",
+      "bytes": 4400
+    },
+    {
+      "path": "Temp/RecordResearchScreens.py",
+      "bytes": 3890
+    },
+    {
+      "path": "Temp/RecordResetBalance.py",
+      "bytes": 1685
+    },
+    {
+      "path": "Temp/RecordResetScreens.py",
+      "bytes": 3552
+    },
+    {
+      "path": "Temp/RecordRewardScreens.py",
+      "bytes": 3970
+    },
+    {
+      "path": "Temp/RecordSpriteFixPortraits.py",
+      "bytes": 10169
+    },
+    {
+      "path": "Temp/RecordStrategyScreens.py",
+      "bytes": 3688
+    },
+    {
+      "path": "Temp/RecordSummaryScreens.py",
+      "bytes": 2904
+    },
+    {
+      "path": "Temp/RecordSynergyScreens.py",
+      "bytes": 3271
+    },
+    {
+      "path": "Temp/RecordSystemScreens.py",
+      "bytes": 2093
+    },
+    {
+      "path": "Temp/RecordUltimateRequestedFixD.py",
+      "bytes": 1569
+    },
+    {
+      "path": "Temp/RecordUltimateStyleD.py",
+      "bytes": 1975
+    },
+    {
+      "path": "Temp/RecordWildlifeScreens.py",
+      "bytes": 2947
+    },
+    {
+      "path": "Temp/RedHeartEvent.html",
+      "bytes": 103395
+    },
+    {
+      "path": "Temp/RedHeartEvent.js",
+      "bytes": 9712
+    },
+    {
+      "path": "Temp/RepairFaceReleaseNotes.py",
+      "bytes": 3764
+    },
+    {
+      "path": "Temp/RequestedStyleRootJobs.json",
+      "bytes": 6914
+    },
+    {
+      "path": "Temp/RequestedUltimateRootFinal.json",
+      "bytes": 4745
+    },
+    {
+      "path": "Temp/RequestedUltimateRootFixes.json",
+      "bytes": 5561
+    },
+    {
+      "path": "Temp/ResearchBalance.log",
+      "bytes": 3495
+    },
+    {
+      "path": "Temp/ResearchCore.log",
+      "bytes": 651
+    },
+    {
+      "path": "Temp/ResearchHelp.py",
+      "bytes": 811
+    },
+    {
+      "path": "Temp/ResearchPersonalBaseline.json",
+      "bytes": 411
+    },
+    {
+      "path": "Temp/ResearchReleasePersonalBaseline.json",
+      "bytes": 145
+    },
+    {
+      "path": "Temp/ResearchRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/ResearchUiPlayer.log",
+      "bytes": 35463
+    },
+    {
+      "path": "Temp/ResearchVerificationBackup-lumia-vf-loop-v1.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/ResearchVerificationBackup-lumia-vf-loop-v1.json.bak",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/ResearchVerificationFlag.py",
+      "bytes": 1877
+    },
+    {
+      "path": "Temp/ResetAuditCompile.exe",
+      "bytes": 667136
+    },
+    {
+      "path": "Temp/ResetBalance.log",
+      "bytes": 3498
+    },
+    {
+      "path": "Temp/ResetBaselineBalance.log",
+      "bytes": 3497
+    },
+    {
+      "path": "Temp/ResetDescriptionAudit.log",
+      "bytes": 3624
+    },
+    {
+      "path": "Temp/ResetFinalUiPlayer.log",
+      "bytes": 205122
+    },
+    {
+      "path": "Temp/ResetRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/RewardBalance.log",
+      "bytes": 3486
+    },
+    {
+      "path": "Temp/RewardCoreTests.log",
+      "bytes": 477
+    },
+    {
+      "path": "Temp/RewardRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/RewardSaveBaseline.json",
+      "bytes": 105
+    },
+    {
+      "path": "Temp/RewardUiPlayer.log",
+      "bytes": 28164
+    },
+    {
+      "path": "Temp/RewriteBossPathTests.py",
+      "bytes": 12405
+    },
+    {
+      "path": "Temp/root-ultimate-save-2.json",
+      "bytes": 15545
+    },
+    {
+      "path": "Temp/root-ultimate-save-3.json",
+      "bytes": 15963
+    },
+    {
+      "path": "Temp/root-ultimate-save.json",
+      "bytes": 8038
+    },
+    {
+      "path": "Temp/RunAugmentUi.ps1",
+      "bytes": 2026
+    },
+    {
+      "path": "Temp/RunBossPathsUi.ps1",
+      "bytes": 1699
+    },
+    {
+      "path": "Temp/RunBossVarietyUi.ps1",
+      "bytes": 1692
+    },
+    {
+      "path": "Temp/RunChibiPlayers.ps1",
+      "bytes": 2453
+    },
+    {
+      "path": "Temp/RunEffectsUi.ps1",
+      "bytes": 2028
+    },
+    {
+      "path": "Temp/RunEquipmentReviewTests.ps1",
+      "bytes": 3496
+    },
+    {
+      "path": "Temp/RunEquipmentTests.ps1",
+      "bytes": 3419
+    },
+    {
+      "path": "Temp/RunFaceGameplayUi.ps1",
+      "bytes": 2024
+    },
+    {
+      "path": "Temp/RunFaceUi.ps1",
+      "bytes": 2013
+    },
+    {
+      "path": "Temp/RunModesUi.ps1",
+      "bytes": 2015
+    },
+    {
+      "path": "Temp/RunNativeBossPathsPreflight.ps1",
+      "bytes": 2703
+    },
+    {
+      "path": "Temp/RunNativeBossPreflight.ps1",
+      "bytes": 2688
+    },
+    {
+      "path": "Temp/RunNativeBossVarietyPreflight.ps1",
+      "bytes": 2709
+    },
+    {
+      "path": "Temp/RunNativeResearchPreflight.ps1",
+      "bytes": 2974
+    },
+    {
+      "path": "Temp/RunNativeRewardPreflight.ps1",
+      "bytes": 2694
+    },
+    {
+      "path": "Temp/RunNativeStrategyPreflight.ps1",
+      "bytes": 2402
+    },
+    {
+      "path": "Temp/RunRareMechanicsPreflight.ps1",
+      "bytes": 2952
+    },
+    {
+      "path": "Temp/RunRareSkinsUi.ps1",
+      "bytes": 2035
+    },
+    {
+      "path": "Temp/RunResearchUi.ps1",
+      "bytes": 2010
+    },
+    {
+      "path": "Temp/RunSpriteFixPortraits.ps1",
+      "bytes": 2254
+    },
+    {
+      "path": "Temp/save-ultimate-b.py",
+      "bytes": 888
+    },
+    {
+      "path": "Temp/SaveBeforeAudioUpdate.json",
+      "bytes": 39448
+    },
+    {
+      "path": "Temp/SaveBeforeAugmentUpdate.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/SaveBeforeBossPathsUpdate.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/SaveBeforeBossPathsVerification.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/SaveBeforeBossUpdate.json",
+      "bytes": 35828
+    },
+    {
+      "path": "Temp/SaveBeforeBossVarietyUpdate.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/SaveBeforeBossVarietyVerification.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/SaveBeforeCampUpdate.json",
+      "bytes": 34261
+    },
+    {
+      "path": "Temp/SaveBeforeChibiUpdate.json",
+      "bytes": 39448
+    },
+    {
+      "path": "Temp/SaveBeforeDebuffUpdate.json",
+      "bytes": 27273
+    },
+    {
+      "path": "Temp/SaveBeforeEffectsProfileUpdate-bts-research-v1.json",
+      "bytes": 11477
+    },
+    {
+      "path": "Temp/SaveBeforeEffectsProfileUpdate-bts-research-v1.json.bak",
+      "bytes": 11477
+    },
+    {
+      "path": "Temp/SaveBeforeEffectsUpdate.json",
+      "bytes": 48499
+    },
+    {
+      "path": "Temp/SaveBeforeFaceProfileUpdate-bts-research-v1.json",
+      "bytes": 11477
+    },
+    {
+      "path": "Temp/SaveBeforeFaceProfileUpdate-bts-research-v1.json.bak",
+      "bytes": 11477
+    },
+    {
+      "path": "Temp/SaveBeforeFaceUpdate.json",
+      "bytes": 62518
+    },
+    {
+      "path": "Temp/SaveBeforeGroupingUpdate.json",
+      "bytes": 55179
+    },
+    {
+      "path": "Temp/SaveBeforeIdentityUpdate.json",
+      "bytes": 26541
+    },
+    {
+      "path": "Temp/SaveBeforeJennyUpdate.json",
+      "bytes": 62357
+    },
+    {
+      "path": "Temp/SaveBeforeKioskUpdate.json",
+      "bytes": 26541
+    },
+    {
+      "path": "Temp/SaveBeforeModesUpdate.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/SaveBeforeRareSkinsUpdate.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/SaveBeforeResearchUpdate.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/SaveBeforeResetUpdate.json",
+      "bytes": 39448
+    },
+    {
+      "path": "Temp/SaveBeforeRewardUpdate.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/SaveBeforeRewardVerification.json",
+      "bytes": 64006
+    },
+    {
+      "path": "Temp/SaveBeforeSpriteFixUpdate.json",
+      "bytes": 39448
+    },
+    {
+      "path": "Temp/SaveBeforeStrategyUpdate.json",
+      "bytes": 34261
+    },
+    {
+      "path": "Temp/SaveBeforeSummaryUpdate.json",
+      "bytes": 26541
+    },
+    {
+      "path": "Temp/SaveBeforeSynergyUpdate.json",
+      "bytes": 62357
+    },
+    {
+      "path": "Temp/SaveBeforeSystemUpdate.json",
+      "bytes": 25601
+    },
+    {
+      "path": "Temp/SaveBeforeWildlifeUpdate.json",
+      "bytes": 32684
+    },
+    {
+      "path": "Temp/SaveImmediatelyBeforeRewardVerification.json",
+      "bytes": 36244
+    },
+    {
+      "path": "Temp/SaveUltimateGroup4.py",
+      "bytes": 1160
+    },
+    {
+      "path": "Temp/SaveUltimateStylePending.py",
+      "bytes": 1624
+    },
+    {
+      "path": "Temp/SpriteFixPortraitPlayer.log",
+      "bytes": 4790
+    },
+    {
+      "path": "Temp/StateDescriptionProbe.cs",
+      "bytes": 2379
+    },
+    {
+      "path": "Temp/StateDescriptionProbe.exe",
+      "bytes": 6656
+    },
+    {
+      "path": "Temp/StateDescriptionProbe.log",
+      "bytes": 81
+    },
+    {
+      "path": "Temp/StatusReviewAudit.cs",
+      "bytes": 1950
+    },
+    {
+      "path": "Temp/StatusReviewAudit.exe",
+      "bytes": 7680
+    },
+    {
+      "path": "Temp/StrategyCoreTests.log",
+      "bytes": 472
+    },
+    {
+      "path": "Temp/StrategyFixtureEntry.py",
+      "bytes": 3402
+    },
+    {
+      "path": "Temp/StrategyHyperloopFixture.py",
+      "bytes": 1380
+    },
+    {
+      "path": "Temp/StrategyRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/StrategySaveBeforeQa.json",
+      "bytes": 86
+    },
+    {
+      "path": "Temp/StrategyUiEdit.py",
+      "bytes": 8811
+    },
+    {
+      "path": "Temp/StrategyUiFixes.py",
+      "bytes": 1234
+    },
+    {
+      "path": "Temp/StrategyUiHelpFix.py",
+      "bytes": 1047
+    },
+    {
+      "path": "Temp/StrategyUiPlayer.log",
+      "bytes": 66106
+    },
+    {
+      "path": "Temp/StrategyUiPolish.py",
+      "bytes": 3823
+    },
+    {
+      "path": "Temp/StrategyUiPromise.py",
+      "bytes": 708
+    },
+    {
+      "path": "Temp/StrategyUiStock.py",
+      "bytes": 1597
+    },
+    {
+      "path": "Temp/StrategyUiUpgrade.py",
+      "bytes": 6888
+    },
+    {
+      "path": "Temp/StrategyUiVerification.py",
+      "bytes": 13969
+    },
+    {
+      "path": "Temp/SummaryFinalUiPid.txt",
+      "bytes": 7
+    },
+    {
+      "path": "Temp/SummaryFinalUiPlayer.log",
+      "bytes": 78228
+    },
+    {
+      "path": "Temp/SummaryFontFirstPid.txt",
+      "bytes": 6
+    },
+    {
+      "path": "Temp/SummaryFontFirstPlayer.log",
+      "bytes": 5651
+    },
+    {
+      "path": "Temp/SummertimeEvent.html",
+      "bytes": 98839
+    },
+    {
+      "path": "Temp/SynergyBalanceAfter.log",
+      "bytes": 3497
+    },
+    {
+      "path": "Temp/SynergyBalanceBefore.log",
+      "bytes": 3497
+    },
+    {
+      "path": "Temp/SynergyCoreTests.log",
+      "bytes": 321
+    },
+    {
+      "path": "Temp/SynergyDescriptionAudit.log",
+      "bytes": 3602
+    },
+    {
+      "path": "Temp/SynergyFinalUiPlayer.log",
+      "bytes": 181153
+    },
+    {
+      "path": "Temp/SynergyRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/SystemArtPlayer.log",
+      "bytes": 4798
+    },
+    {
+      "path": "Temp/SystemArtProgress.json",
+      "bytes": 74116
+    },
+    {
+      "path": "Temp/SystemFinalUiPlayer.log",
+      "bytes": 58536
+    },
+    {
+      "path": "Temp/SystemUiPlayer.log",
+      "bytes": 57384
+    },
+    {
+      "path": "Temp/testmusic.ogg",
+      "bytes": 4333
+    },
+    {
+      "path": "Temp/TraitGroupingPrint.cs",
+      "bytes": 1096
+    },
+    {
+      "path": "Temp/TraitGroupingPrint.exe",
+      "bytes": 450048
+    },
+    {
+      "path": "Temp/TraitGroupingRoster.txt",
+      "bytes": 114392
+    },
+    {
+      "path": "Temp/ultimate-group-1.json",
+      "bytes": 14794
+    },
+    {
+      "path": "Temp/ultimate-group-2.json",
+      "bytes": 14795
+    },
+    {
+      "path": "Temp/ultimate-group-3.json",
+      "bytes": 19281
+    },
+    {
+      "path": "Temp/ultimate-group-4.json",
+      "bytes": 15891
+    },
+    {
+      "path": "Temp/ultimate-group4-save-10.json",
+      "bytes": 8935
+    },
+    {
+      "path": "Temp/ultimate-group4-save-11.json",
+      "bytes": 8939
+    },
+    {
+      "path": "Temp/ultimate-group4-save-12.json",
+      "bytes": 3243
+    },
+    {
+      "path": "Temp/ultimate-group4-save-2.json",
+      "bytes": 8217
+    },
+    {
+      "path": "Temp/ultimate-group4-save-3.json",
+      "bytes": 8474
+    },
+    {
+      "path": "Temp/ultimate-group4-save-4.json",
+      "bytes": 8124
+    },
+    {
+      "path": "Temp/ultimate-group4-save-5.json",
+      "bytes": 8595
+    },
+    {
+      "path": "Temp/ultimate-group4-save-6.json",
+      "bytes": 8461
+    },
+    {
+      "path": "Temp/ultimate-group4-save-7.json",
+      "bytes": 8902
+    },
+    {
+      "path": "Temp/ultimate-group4-save-8.json",
+      "bytes": 9042
+    },
+    {
+      "path": "Temp/ultimate-group4-save-9.json",
+      "bytes": 8901
+    },
+    {
+      "path": "Temp/ultimate-group4-save.json",
+      "bytes": 7543
+    },
+    {
+      "path": "Temp/ultimate-requested-fix-irem.json",
+      "bytes": 2874
+    },
+    {
+      "path": "Temp/ultimate-requested-fix-isol.json",
+      "bytes": 2079
+    },
+    {
+      "path": "Temp/ultimate-requested-fix-jackie-tia.json",
+      "bytes": 4410
+    },
+    {
+      "path": "Temp/ultimate-requested-fix-martina.json",
+      "bytes": 3751
+    },
+    {
+      "path": "Temp/ultimate-roster.tsv",
+      "bytes": 51212
+    },
+    {
+      "path": "Temp/ultimate-save-cathy.json",
+      "bytes": 3970
+    },
+    {
+      "path": "Temp/ultimate-save-celine.json",
+      "bytes": 4147
+    },
+    {
+      "path": "Temp/ultimate-save-ceres.json",
+      "bytes": 4341
+    },
+    {
+      "path": "Temp/ultimate-save-charlotte.json",
+      "bytes": 4187
+    },
+    {
+      "path": "Temp/ultimate-save-chiara.json",
+      "bytes": 4168
+    },
+    {
+      "path": "Temp/ultimate-save-chloe.json",
+      "bytes": 4521
+    },
+    {
+      "path": "Temp/ultimate-save-coraline.json",
+      "bytes": 4337
+    },
+    {
+      "path": "Temp/ultimate-save-craver.json",
+      "bytes": 4304
+    },
+    {
+      "path": "Temp/ultimate-save-dailin.json",
+      "bytes": 3066
+    },
+    {
+      "path": "Temp/ultimate-save-daniel.json",
+      "bytes": 3464
+    },
+    {
+      "path": "Temp/ultimate-save-darko.json",
+      "bytes": 3477
+    },
+    {
+      "path": "Temp/ultimate-save-debi_marlene.json",
+      "bytes": 3804
+    },
+    {
+      "path": "Temp/ultimate-save-echion.json",
+      "bytes": 3578
+    },
+    {
+      "path": "Temp/ultimate-save-elena.json",
+      "bytes": 3680
+    },
+    {
+      "path": "Temp/ultimate-save-eleven.json",
+      "bytes": 3710
+    },
+    {
+      "path": "Temp/ultimate-save-emma.json",
+      "bytes": 3879
+    },
+    {
+      "path": "Temp/ultimate-save-estelle.json",
+      "bytes": 3729
+    },
+    {
+      "path": "Temp/ultimate-save-eva.json",
+      "bytes": 3829
+    },
+    {
+      "path": "Temp/ultimate-save-felix.json",
+      "bytes": 3619
+    },
+    {
+      "path": "Temp/ultimate-save-fenrir.json",
+      "bytes": 3708
+    },
+    {
+      "path": "Temp/ultimate-save-fiora.json",
+      "bytes": 3713
+    },
+    {
+      "path": "Temp/ultimate-save-garnet.json",
+      "bytes": 3968
+    },
+    {
+      "path": "Temp/ultimate-save-hart.json",
+      "bytes": 3687
+    },
+    {
+      "path": "Temp/ultimate-save-haze.json",
+      "bytes": 3729
+    },
+    {
+      "path": "Temp/ultimate-save-henry.json",
+      "bytes": 3985
+    },
+    {
+      "path": "Temp/ultimate-save-hisui.json",
+      "bytes": 3918
+    },
+    {
+      "path": "Temp/ultimate-save-hyejin.json",
+      "bytes": 3901
+    },
+    {
+      "path": "Temp/ultimate-save-hyunwoo.json",
+      "bytes": 3744
+    },
+    {
+      "path": "Temp/ultimate-save-ian.json",
+      "bytes": 4349
+    },
+    {
+      "path": "Temp/ultimate-save-irem.json",
+      "bytes": 4143
+    },
+    {
+      "path": "Temp/ultimate-save-isaac.json",
+      "bytes": 3719
+    },
+    {
+      "path": "Temp/ultimate-style-isol-jackie.json",
+      "bytes": 6543
+    },
+    {
+      "path": "Temp/ultimate-style-tia.json",
+      "bytes": 3339
+    },
+    {
+      "path": "Temp/ultimate-tia-margin-final.json",
+      "bytes": 2142
+    },
+    {
+      "path": "Temp/ultimate-v4-assembly.log",
+      "bytes": 1574
+    },
+    {
+      "path": "Temp/ultimate-v4-boundary-scan-final.json",
+      "bytes": 24543
+    },
+    {
+      "path": "Temp/ultimate-v4-boundary-scan.json",
+      "bytes": 1592
+    },
+    {
+      "path": "Temp/UltimateAnimationReleaseNotes.txt",
+      "bytes": 1033
+    },
+    {
+      "path": "Temp/UltimateCorrectionsBaseline.json",
+      "bytes": 69688
+    },
+    {
+      "path": "Temp/UltimateGalleryConnection.json",
+      "bytes": 164
+    },
+    {
+      "path": "Temp/UltimateGalleryConnection.png",
+      "bytes": 103027
+    },
+    {
+      "path": "Temp/UltimateRequestedBoundaryReview.json",
+      "bytes": 24
+    },
+    {
+      "path": "Temp/ultimates-c-validation.json",
+      "bytes": 12655
+    },
+    {
+      "path": "Temp/UpdateEffectsDocs.py",
+      "bytes": 2118
+    },
+    {
+      "path": "Temp/UpdateEquipmentTip.py",
+      "bytes": 508
+    },
+    {
+      "path": "Temp/UpdateFaceFeatureDocs.py",
+      "bytes": 6746
+    },
+    {
+      "path": "Temp/UpdateResearchPreflightQueue.py",
+      "bytes": 1260
+    },
+    {
+      "path": "Temp/UpdateUltimatePreviewCache.py",
+      "bytes": 1219
+    },
+    {
+      "path": "Temp/ValidateRareMechanicsAssets.py",
+      "bytes": 2151
+    },
+    {
+      "path": "Temp/VerifyArtRefreshArchive.py",
+      "bytes": 3723
+    },
+    {
+      "path": "Temp/VerifyArtRefreshStartup.ps1",
+      "bytes": 3228
+    },
+    {
+      "path": "Temp/VerifyAudioArchive.py",
+      "bytes": 3677
+    },
+    {
+      "path": "Temp/VerifyAugmentArchive.py",
+      "bytes": 3767
+    },
+    {
+      "path": "Temp/VerifyBossArchive.py",
+      "bytes": 3675
+    },
+    {
+      "path": "Temp/VerifyBossPathsArchive.py",
+      "bytes": 3687
+    },
+    {
+      "path": "Temp/VerifyBossVarietyArchive.py",
+      "bytes": 3691
+    },
+    {
+      "path": "Temp/VerifyCampArchive.py",
+      "bytes": 3685
+    },
+    {
+      "path": "Temp/VerifyChibiArchive.py",
+      "bytes": 3687
+    },
+    {
+      "path": "Temp/VerifyDebuffArchive.py",
+      "bytes": 3685
+    },
+    {
+      "path": "Temp/VerifyEffectsArchive.py",
+      "bytes": 3765
+    },
+    {
+      "path": "Temp/VerifyFaceArchive.py",
+      "bytes": 3761
+    },
+    {
+      "path": "Temp/VerifyGroupingArchive.py",
+      "bytes": 3688
+    },
+    {
+      "path": "Temp/VerifyJennyArchive.py",
+      "bytes": 3680
+    },
+    {
+      "path": "Temp/VerifyKioskArchive.py",
+      "bytes": 3684
+    },
+    {
+      "path": "Temp/VerifyLayeredStoryArchive.py",
+      "bytes": 3729
+    },
+    {
+      "path": "Temp/VerifyLayeredStoryStartup.ps1",
+      "bytes": 3242
+    },
+    {
+      "path": "Temp/VerifyModesArchive.py",
+      "bytes": 3761
+    },
+    {
+      "path": "Temp/VerifyNiaAnimationPrototype.cjs",
+      "bytes": 2501
+    },
+    {
+      "path": "Temp/VerifyNiaWebpDuration.py",
+      "bytes": 742
+    },
+    {
+      "path": "Temp/VerifyPresentationArchive.py",
+      "bytes": 3796
+    },
+    {
+      "path": "Temp/VerifyPresentationStartup.ps1",
+      "bytes": 2884
+    },
+    {
+      "path": "Temp/VerifyPublicationArchive.py",
+      "bytes": 1992
+    },
+    {
+      "path": "Temp/VerifyRareSkinsArchive.py",
+      "bytes": 3771
+    },
+    {
+      "path": "Temp/VerifyResearchArchive.py",
+      "bytes": 3767
+    },
+    {
+      "path": "Temp/VerifyResetArchive.py",
+      "bytes": 3686
+    },
+    {
+      "path": "Temp/VerifyRewardArchive.py",
+      "bytes": 3691
+    },
+    {
+      "path": "Temp/VerifySpriteFixArchive.py",
+      "bytes": 3626
+    },
+    {
+      "path": "Temp/VerifyStrategyArchive.py",
+      "bytes": 3683
+    },
+    {
+      "path": "Temp/VerifySummaryArchive.py",
+      "bytes": 3617
+    },
+    {
+      "path": "Temp/VerifySynergyArchive.py",
+      "bytes": 3687
+    },
+    {
+      "path": "Temp/VerifyWildlifeArchive.py",
+      "bytes": 3689
+    },
+    {
+      "path": "Temp/WildlifeCoreBalance.log",
+      "bytes": 3494
+    },
+    {
+      "path": "Temp/WildlifeDescriptionAudit.log",
+      "bytes": 2759
+    },
+    {
+      "path": "Temp/WildlifeFinalUiPlayer.log",
+      "bytes": 104599
+    },
+    {
+      "path": "Temp/WildlifeRuntimeCompile.log",
+      "bytes": 32
+    },
+    {
+      "path": "Temp/WildlifeSupplyCoreTests.log",
+      "bytes": 321
+    },
+    {
+      "path": "Temp/WriteAugmentValidation.py",
+      "bytes": 5233
+    },
+    {
+      "path": "Temp/WriteBossDocs.py",
+      "bytes": 12019
+    },
+    {
+      "path": "Temp/WriteModesValidation.py",
+      "bytes": 6467
+    },
+    {
+      "path": "Temp/WriteRareSkinsValidation.py",
+      "bytes": 8203
+    },
+    {
+      "path": "Temp/WriteResearchValidation.py",
+      "bytes": 8322
+    },
+    {
+      "path": "Temp/WriteUltimateCollectionDocs.py",
+      "bytes": 8769
+    },
+    {
+      "path": "Build/LayeredStory-v0.1.26",
+      "bytes": 315288940
+    },
+    {
+      "path": "Build/Presentation-v0.1.25",
+      "bytes": 268100813
+    },
+    {
+      "path": "Build/Windows",
+      "bytes": 211386729
+    },
+    {
+      "path": "Build/BlackTheSurvival-UltimateAnimationPrototypes-v1.zip",
+      "bytes": 350760177
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.0-Windows-x64.zip",
+      "bytes": 68845677
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.1-Windows-x64.zip",
+      "bytes": 68853639
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.10-Windows-x64.zip",
+      "bytes": 88146783
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.11-Windows-x64.zip",
+      "bytes": 92908907
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.12-Windows-x64.zip",
+      "bytes": 92909101
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.13-Windows-x64.zip",
+      "bytes": 92912470
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.14-Windows-x64.zip",
+      "bytes": 92928815
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.15-Windows-x64.zip",
+      "bytes": 92959010
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.16-Windows-x64.zip",
+      "bytes": 92962017
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.17-Windows-x64.zip",
+      "bytes": 92967864
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.18-Windows-x64.zip",
+      "bytes": 92974818
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.19-Windows-x64.zip",
+      "bytes": 93023101
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.2-Windows-x64.zip",
+      "bytes": 68882950
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.20-Windows-x64.zip",
+      "bytes": 93909045
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.21-Windows-x64.zip",
+      "bytes": 93918515
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.22-Windows-x64.zip",
+      "bytes": 93929280
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.23-Windows-x64.zip",
+      "bytes": 92652000
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.24-Windows-x64.zip",
+      "bytes": 92682065
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.25-Windows-x64.zip",
+      "bytes": 138878856
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.26-Windows-x64.zip",
+      "bytes": 123263578
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.27-Windows-x64.zip",
+      "bytes": 124257178
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.3-Windows-x64.zip",
+      "bytes": 68884100
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.4-Windows-x64.zip",
+      "bytes": 68884992
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.5-Windows-x64.zip",
+      "bytes": 68888112
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.6-Windows-x64.zip",
+      "bytes": 68888932
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.7-Windows-x64.zip",
+      "bytes": 68903154
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.8-Windows-x64.zip",
+      "bytes": 68903197
+    },
+    {
+      "path": "Build/BlackTheSurvival-v0.1.9-Windows-x64.zip",
+      "bytes": 68905806
+    },
+    {
+      "path": "Build/ArtRefresh-v0.1.27",
+      "bytes": 0
+    },
+    {
+      "path": "Library",
+      "bytes": 2068422583
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/aya",
+      "bytes": 6915167
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/bihyung",
+      "bytes": 9782358
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/darko",
+      "bytes": 10939029
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/echion",
+      "bytes": 7051367
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/elena",
+      "bytes": 10117639
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/garnet",
+      "bytes": 10015698
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/irem",
+      "bytes": 6455622
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/isol",
+      "bytes": 5860584
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/jackie",
+      "bytes": 7376372
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/martina",
+      "bytes": 10305690
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/nadine",
+      "bytes": 7876890
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/sissela",
+      "bytes": 7546171
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Subjects/tia",
+      "bytes": 9395890
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/REQUESTED_FIXES_20261013.md",
+      "bytes": 3121
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/REQUESTED_FIXES_20261013.json",
+      "bytes": 11140
+    }
+  ],
+  "preserved": [
+    "Assets",
+    "Packages",
+    "ProjectSettings",
+    ".git",
+    "Build/Windows",
+    "approved 78 ultimate animations",
+    "original sprites and references",
+    "live preview server",
+    "Tools/.runtime/ffmpeg.exe"
+  ]
+}

@@ -2,38 +2,145 @@
   "id": "sissela",
   "name": "시셀라",
   "ultimate": "모두 해방이에요.",
-  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-db0f6394-3ceb-48f1-9156-097d881521e4.png",
-  "reference_paths": [
-    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/sissela.png",
-    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
-  ],
-  "sources": [
-    {
-      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
-      "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
-    }
-  ],
-  "motion_summary": "집중 후 주변을 타격하는 R을 움츠림·윌슨 공명·파동 해방으로 해석한 독자 시안.",
-  "frame_labels": [
-    "윌슨과 대기",
-    "눈을 감음",
-    "양팔 모음",
-    "윌슨이 위로 오름",
-    "몸을 움츠림",
-    "공명 에너지 축적",
-    "팔을 펴기 시작",
-    "해방 파동",
-    "윌슨 공명 확산",
-    "빛이 잦아듦",
-    "윌슨 회수",
-    "대기 자세 복귀"
-  ],
-  "visual_review": "원본의 눈매·입과 의상을 확인했습니다. 시셀라는 움츠림에서 양팔 해방으로, 수아는 책 펼침·기억·팔 벌림·책을 안는 회수로 이어집니다. 효과가 눈과 입을 가리지 않습니다.",
   "columns": 4,
   "rows": 3,
   "fps": 8,
   "tool": "built-in image_gen.imagegen",
-  "atlas_sha256": "35b843b58ec625feb4a9ce1880231d495b71e5c4a4cc372392ffe2749d2efade",
-  "width": 1448,
-  "height": 1086
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-4fafbba2-fdb8-40b7-97a9-d92e225046d3.png",
+  "raw_filename": "generated-sheet.png",
+  "reference_paths": [
+    "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-b5f7811a-8dbf-4638-ab7f-c0aff91ec152.png"
+  ],
+  "reference_roles": [
+    "Fresh2-head atlas single edit target: containment and bold pixel correction only."
+  ],
+  "official_reference_sources": [
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1l5ugC9WWIiYHkvwQOYBjubqugNmst1Zi",
+      "title": "Official Eternal Return default full-body fan-kit illustration"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 시셀라 모두 해방이에요."
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1l5ugC9WWIiYHkvwQOYBjubqugNmst1Zi",
+      "title": "원작 기본 전신 원화 · 공식 자료"
+    }
+  ],
+  "motion_summary": "손을 가슴으로 모아 정신집중 후 두 팔을 펼치며 자신 주변에 어두운 청색 폭발을 방출하고 몸을 웅크린 반동 후 복귀합니다.",
+  "frame_labels": [
+    "IV폴 곁 피곤한 대기",
+    "눈감고 손 모으기",
+    "가슴 고리 앞 정신집중",
+    "무릎을 굽힌 집중",
+    "고개 숙여 청색 힘 집중",
+    "청안 열고 긴장",
+    "팔과 소매 펼치기",
+    "자신 주변 어두운 폭발",
+    "웅크린 반동",
+    "몸을 세우고 가슴 손",
+    "목 고리 만지며 안정",
+    "피곤한 대기 복귀"
+  ],
+  "intended_airborne_frames": [],
+  "ground_alignment": "per-frame",
+  "preview_revision": "chibi2-20261014",
+  "design_intent": {
+    "heads_tall": 2,
+    "head_fraction": 0.5,
+    "body_fraction": 0.5,
+    "pixel_cluster_screen_px": [
+      4,
+      6
+    ],
+    "hair_shading_planes": [
+      3,
+      4
+    ],
+    "standing_body_target_px": [
+      180,
+      210
+    ],
+    "baseline_local_y": 310
+  },
+  "normalization_required": false,
+  "frame_layout": "fixed-grid",
+  "frame_gutter": 24,
+  "visual_review": "직접 검토: 머리는 몸 약절반이고 청안/처진 작은입·흰 거즈/회색머리·환자복·검은 목구속구/고리·붕대 맨다리/흰 부츠를 유지했습니다. 한쪽 IV폴 전체와 흰 둥근 가시 윌슨/파란 눈·작은 삼각 입이 이어집니다. 손을 모아 웅크린 집중→팔을 펼친 자기주변 폭발→웅크린 반동이 보이며 천사/치유광선으로 바뀌지 않았습니다. 8폭발폭을 줄여 여백을 확보했습니다. IV하드웨어/의상 작은선이 남아 모든 픽셀4~6px격자를 주장하지 않습니다. root 경계/발 정렬 검사 대기.",
+  "generation_history": [
+    {
+      "prompt": "Create a BRAND-NEW character-specific ultimate animation sheet. Exactly12 sequential frames,4columns×3rows, transparent RGBA. References: 1 is the APPROVED LARGE-PIXEL TWO-HEAD STYLE MASTER, use its coarse block rendering and head/body ratio only. 2 is original Nia's362px animation frame, controlling pixel-to-canvas scale/readability only. 3 is authentic original full-body character illustration, IDENTITY/CLOTHES/PROP/FACE only. DO NOT render the fine detail or adult proportions of ref3. Do NOT copy Bihyung or Nia's face/hair/clothes/weapon.\n\nTRUE TWO-HEAD CHIBI: head including hair crown-to-chin is HALF the standing crown-to-sole body height; the compact torso+short legs together are the other half. Body~180-210px high in a360px cell, head~90-105px. Same skull size, torso/limb lengths and camera/scale across12 frames. Knees/torso may bend but never stretch into2.5/3heads. Every planted sole lies at the SAME per-cell ground baseline, no invented jump or hover. Raised freefoot okay only if other foot remains planted.\n\nMUCH BIGGER PIXELS: looks like a tiny60-72logical-pixel cell magnified5× with HARD square nearest-neighbor blocks. Minimum visible logical strokes/outline clusters~4-6physicalpixels in a360px cell. Use BOLD connected dark stepped outlines and visibly square chunky edges. No1px fine linework, hair strands, cloth stitch grain, gradients, soft glow noise, smooth anime rendering. Simplify official microdetails into SINGLE LARGE PIXEL blocks. Hair only3-4 distinct BIG angular shadow/mid/light masses and connected highlights, as reference1. Eye-white/colorediris/darkupperlid and mouth need clear separate LARGE readable pixel clusters, not glossy generic animeeyes. Keep each original face expression.\n\nSmall figures with VERY WIDE EMPTY GUTTERS. In every~360×360 cell ALL body/weapon/props/effects together fit inside a~250×250px box, at least40-50px fully transparent on top,bottom,left,right. Effects and weapons never cross a cell boundary or sheet outside. Transparent alpha truly empty outside scene, no fog/noise speckles. No background/grid/labels/text/numbers/checkerboard. No image-to-image repaint of an old atlas; draw all12 new physical poses.\n\nSISSELA authenticfullidentityONLY: shortwhite/graybob, straightfringehidesherLEFTeye/viewerRIGHT whitegauzedressing; thindarkpatternedheadband+smallahoge, NOnursecap. OnevisibleBLUEeye withtired/slightlysadcalmlid and tinyrestraineddarkpinkmouth. Sicklypale. OfficialPATIENTgownwhitegray, looseflaringsleeves/ruffles+darkcheckedcenterpanel; BLACKMETALNECKRESTRAINT withLARGEMETALCHESTRINGandCHAIN (notmaiduniform,notnurse). BarelegswithasymmetricalWHITEBANDAGESanddressingpads, WHITE laceupankleboots/darklaces, NOTblackstockings/shoes. OnecompleteIVpoleonviewerLEFTwithbag/tubes/wheelbaseinall12, IVbaglogoisPRINTEDflatmark. OneWilsonwhiteROUNDORBlikeballwithsmalltriangularSPIKES,roundBLUEeyes/tinyBLUEtrianglemouth asofficialpropiconref4. Wilsonnotanimal/starfish/floaterheadwithhair.\n\nR=calmchannel→delayedDARKBLUEself-inclusiveexplosivearea→recoilrecover, NOThealingangelbeam/crosses.12newposes:1 tiredquietidlewithpolebeside;2 eyescloseandhandslowerinward;3 bringhandstochestnearneckring;4 crouchslightlyhandsclasped/Wilsonrises;5 concentrateheadbowed/compactbluearc;6 openblueeyehandstense;7 elbowsopen/sleevesflare;8 armsopenwidewithSHORTdarkblueexplosivejaggedringbehindbody;9 hunchinkneerecoil/headlower;10 straightenhandatgownchest;11 touchneckring/calm;12 originaltiredidle. Same IVpoleatleftandWilsonatrightall12, height+skullsizeconstant. Noairbornejump. BigheadHALFhumanbodyheight,compactbody~200px. Entirepole+Wilson+burstwithin250×250scene,50pxtransparentguttersallcells. Finechain/ruffles/IVhardwarebecomebigpixelmarksnotfinedetail.",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-b5f7811a-8dbf-4638-ab7f-c0aff91ec152.png",
+      "reference_paths": [
+        "C:/Users/azxar/BlackTheSurvival/Temp/Chibi2Redraw/style/bihyung-master.png",
+        "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+        "C:/Users/azxar/BlackTheSurvival/Temp/Chibi3Redraw/references/sissela-official-full.png",
+        "C:/Users/azxar/BlackTheSurvival/docs/art-chibi/skill-references/sissela_q.png"
+      ],
+      "reference_roles": [
+        "Approved coarse TWO-HEAD style only",
+        "Original Nia animation pixel-to-image scale only",
+        "Official full-body Sissela identity only",
+        "Official Wilson Q companion design only"
+      ]
+    },
+    {
+      "prompt": "Edit this NEW2-head12-frame atlas only. Keep the exact character identity, original outfit, individual eye shape/mouth, all12 physical motions and compact HEAD=HALF body ratio. Do not import Bihyung/Nia identity. Make complete actor/props/effects about70% current linear size and center each scene inside its owncell with45-50px FULLY EMPTY TRANSPARENT gutters on all4sides. Supporting feet stay on a fixedper-cell floorline, same body/limb/skullsizeall12. Do not addjump/hover.\n\nKeep pixel blocks BIG as figurebecomessmaller: drawbodyabout40-44logicalpixels high magnified5×, head20-22logicalpixels high. BOLD4-6screenpxhard-squareclusters, connected stepped dark outlines, no1px hairstrands/clothgrain/fineembroidery/glowfog. Hair3-4BIGangularshadow/mid/lightplanesandjoinedblocks. Readablewhiteeye/colorediris/darklidandmouthpixel. Entireprops/effectsscene<=250pxwide/high; no neighboringcell intrusion or outside clipping. Transparentalpha,4columns3rows12poses, nogrid/text/scenery.\nSissela: retainONEvisibleBLUEeye/tiredlid+tinyquietmouth, whitegauze+fringeoverothereye; originalWHITE-GRAYPATIENTgownwithdarkcenter/blackmetalneckringandchain, asymmetricWHITEbandagesonBARElegs, WHITEankleboots. No nursehat/maid/blackstockings. Keep completeIVpoleleftwithonebag/wheels/tubes, printedbaglogoisnotalivecompanion. WilsonrightisWHITE ROUNDORBINSHAPE withFOURSMALLTRIANGULARSPIKES,roundBLUEeyesandtinybluetrainglemouth. Do notmakeoctagonstarfishbodyorbluehair. Reduceframe8darkblueburstRADIUSby40%, keepself-inclusiveexplosionbehindSissela withouttouchingedge. Nocross/healbeam. Rhandschest→armsopen→recoilretained.",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-4fafbba2-fdb8-40b7-97a9-d92e225046d3.png",
+      "generated_source_sha256": "7bf2dd72afee819a98229004226b0d482570122ec7f6d48d08959a6482d55bd7",
+      "reference_paths": [
+        "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-b5f7811a-8dbf-4638-ab7f-c0aff91ec152.png"
+      ],
+      "reference_sha256": {
+        "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-b5f7811a-8dbf-4638-ab7f-c0aff91ec152.png": "d62279879f76255c78d632b7de1454660a72f8d31edecba1288a89f32ab00c35"
+      }
+    }
+  ],
+  "width": 1868,
+  "height": 1401,
+  "generated_sheet_sha256": "7bf2dd72afee819a98229004226b0d482570122ec7f6d48d08959a6482d55bd7",
+  "source_sheet_sha256": "7bf2dd72afee819a98229004226b0d482570122ec7f6d48d08959a6482d55bd7",
+  "generated_source_sha256": "7bf2dd72afee819a98229004226b0d482570122ec7f6d48d08959a6482d55bd7",
+  "reference_sha256": [
+    "d62279879f76255c78d632b7de1454660a72f8d31edecba1288a89f32ab00c35"
+  ],
+  "prompt_sha256": "f317081913a06af89122e3c885de173bf8f277dce352041f8ab64d1a37eec59d",
+  "raw_outer_edge_opaque_counts": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "candidate_status": "selected; artwork and ground review passed; game not integrated",
+  "official_reference_paths": [
+    "Temp/Chibi3Redraw/references/sissela-official-full.png",
+    "docs/art-chibi/skill-references/sissela_q.png"
+  ],
+  "official_reference_sha256": "3bc8c4105a43770dd6d153b0e7b9fb9615688bfc9dbf34366ddf9ff98383d9ee",
+  "atlas_sha256": "6781449a92acf56dcd9fea5b57d4e7227fb21e91ab4c93d87e50c6477d708a85",
+  "generated_source_file": "generated-sheet.png",
+  "normalization": "normalization.json",
+  "tool_input_paths_at_generation": [
+    "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-b5f7811a-8dbf-4638-ab7f-c0aff91ec152.png"
+  ],
+  "target_head_body_ratio": 2,
+  "game_integrated": false,
+  "style_references": [
+    {
+      "path": "ArtSource/AnimationPrototypes/Style/chibi2-reference.png",
+      "role": "two-head large-pixel drawing style",
+      "sha256": "1791664646896afe4d7a33a208c2e301b2daa2c978ca1c43e57fb043431b10c6"
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+      "role": "original native362px Nia pixel-to-image ratio",
+      "sha256": "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61"
+    }
+  ],
+  "official_reference_file": "official-reference.png",
+  "official_reference_source": "https://drive.google.com/uc?export=download&id=1l5ugC9WWIiYHkvwQOYBjubqugNmst1Zi",
+  "historical_edit_inputs_not_redistributed": true
 }

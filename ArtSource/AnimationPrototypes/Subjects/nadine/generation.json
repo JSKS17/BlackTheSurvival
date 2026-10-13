@@ -1,0 +1,91 @@
+{
+  "id": "nadine",
+  "original_prompt_git_commit": "41ab261d3e12c6d8079292a03b73000750afcc53",
+  "original_prompt_git_path": "ArtSource/AnimationPrototypes/Subjects/nadine/prompt-first-pass.txt",
+  "original_prompt_git_blob": "14ebea9b950f59887f9dba5f2605a2d8d20d4152",
+  "original_prompt_sha256": "91225d1e218f92ab7612c1d8005aef712ef85cfa56963fbf79efaee0f9e18f94",
+  "original_prompt_preserved_verbatim_as_prefix": true,
+  "prompt_file": "prompt.txt",
+  "operation": "fresh generate using original first-pass prompt plus minimal identity errata, no rejected animation edit",
+  "reference_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\nadine.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+  ],
+  "reference_roles": [
+    "original first-pass subject identity sprite; errata override accidental reference glasses and preserve authentic identity",
+    "original approved Nia ultimate animation style only"
+  ],
+  "reference_sha256": [
+    "310dbfb872e73cfda511a10c24e6d0c99513e1212228450c15992f004a2531a4",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "tool": "built-in image_gen.imagegen",
+  "game_integrated": false,
+  "generated_source_path": "C:/Users/azxar/.codex/generated_images/01a136b7-e9d9-74d3-8e73-aec5aae34bb6/exec-5a051dc6-cfb3-4f99-81f5-e1c22419bada.png",
+  "generated_source_sha256": "ff794b88fe4a4b19dd78fd008514cdc8b7b55ee52044838825b23d0c8d37433e",
+  "output_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\OriginalPrompt4_20261014\\nadine\\generated-sheet.png",
+  "output_sha256": "ff794b88fe4a4b19dd78fd008514cdc8b7b55ee52044838825b23d0c8d37433e",
+  "width": 1448,
+  "height": 1086,
+  "mode": "RGBA",
+  "grid": {
+    "columns": 4,
+    "rows": 3,
+    "frame_count": 12
+  },
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "prompt_sha256": "4e58e89b2b265e1de6221f45f95819ca3cb972112e9b63f110dea2ab2128c73d",
+  "transparent_background": true,
+  "visual_review": {
+    "method": "direct view_image original identity sprite, original Nia atlas, official full-body check and generated sheet; PIL read-only alpha inspection",
+    "twelve_poses": true,
+    "style": "returned to the original Nia outline/shading/large-eyed chibi style using exact first-pass prompt plus only identity errata; no recent atlas, ratio-master or edit pass input",
+    "identity_checks": [
+      "Consistent warm brown skin shading, orange cap/cape, dark high ponytail with feather, dark fitted hunting outfit/kneepads and compact dark crossbow.",
+      "Aim and three distinct release/recoil sequences; one dark-brown/amber wolf materializes low, pounces and dissolves before returning to rest."
+    ],
+    "limitations": "Raw generation groups are 4x3 but source gutters are not perfectly uniform. Root must partition/pad/translate without resampling and check final playback. Some extremely faint alpha fringe remains in outer transparent margins; no alpha>=64 content touches any outer sheet edge."
+  },
+  "visible_outer_edge_pixels_alpha_ge64": {
+    "left": 0,
+    "right": 0,
+    "top": 0,
+    "bottom": 0
+  },
+  "raw_partition_recommendation": {
+    "row_cuts": [
+      0,
+      388,
+      718,
+      1086
+    ],
+    "column_cuts_by_row": [
+      [
+        0,
+        340,
+        715,
+        1060,
+        1448
+      ],
+      [
+        0,
+        390,
+        705,
+        1112,
+        1448
+      ],
+      [
+        0,
+        375,
+        757,
+        1120,
+        1448
+      ]
+    ]
+  },
+  "raw_partition_note": "Read-only alpha projection valley recommendations; some extremely faint fringe pixels may fall on valleys but no alpha>=64 visible content crosses these cuts. Full RGBA raw source must remain unchanged; use integer translation and padding only.",
+  "raw_output_sha256": "ff794b88fe4a4b19dd78fd008514cdc8b7b55ee52044838825b23d0c8d37433e"
+}

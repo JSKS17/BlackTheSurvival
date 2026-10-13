@@ -12,4 +12,4 @@
 
 스토리 ID·컷 번호를 보존해 v0.1.25의 진행 중 컷을 복원합니다. 다시보기는 원정·연구·저장 파일을 바꾸지 않습니다. 개발 검증은 전용 저장 파일을 사용하고 개인 저장 4개의 SHA-256을 전후 비교합니다. 개발 검증 플래그는 배포 빌드에서 활성화되지 않습니다.
 
-v0.1.25의 통합 컷 일러스트는 `ArtSource/Story/v0.1.25/`에 보관하고 런타임 Resources에서 제외했습니다. 컷별 레이어 구성은 `StoryComposition.cs`, 표시 및 말풍선은 `LumiaStoryUI.cs`에서 관리합니다.
+v0.1.25의 통합 컷 일러스트는 런타임 Resources에서 제외했고, 2026-10-14 저장공간 정리로 이전 합성본을 제거했습니다. 현재 `Assets/Resources/Lumia/Story/Backgrounds/`와 `Characters/` 레이어 및 이 폴더의 검증 자료는 유지합니다. 컷별 레이어 구성은 `StoryComposition.cs`, 표시 및 말풍선은 `LumiaStoryUI.cs`에서 관리합니다.

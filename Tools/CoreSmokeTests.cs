@@ -42,9 +42,10 @@ public static partial class CoreSmokeTests
             TutorialRulesAndIsolation(); LobbyRandomDialogueIsolation();
             StorySceneCatalogAndText(); StoryRunResumeAndLegacy(); StoryVictoryAndReplayIsolation();
             CombatInformationCatalogAndIsolation(); CombatInformationConditionsAndBoss(); CombatInformationHistoryAndSave();
+            GarnetExecutionAndRecall();
             LayeredStoryCompositionsAndProgress();
             EndlessCriticalCapsAndSave(); EndlessCriticalGuaranteedHits(); EndlessCriticalEnemyAndPreview();
-            Console.WriteLine("PASS: " + checks + " assertions across 121 game-rule scenarios.");
+            Console.WriteLine("PASS: " + checks + " assertions across 122 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }

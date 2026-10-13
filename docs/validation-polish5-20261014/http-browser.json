@@ -1,0 +1,140 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:61624/index.html?revision=polish5-20261014-final#garnet",
+  "browser": "154.0.8037.98",
+  "subjects": 91,
+  "modified_subjects": 5,
+  "no_accumulated_frame_effects": [
+    {
+      "id": "garnet",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "darko",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "martina",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "nadine",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "tia",
+      "frame1_matches_fresh_after_frame8": true
+    }
+  ],
+  "captures": [
+    {
+      "id": "garnet",
+      "frame": 1,
+      "file": "http-garnet-frame01.png",
+      "sha256": "612e289f453f08070b4ca351e67132f70b86bfa81d211edf16ad4ae5688ebd88",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "garnet",
+      "frame": 6,
+      "file": "http-garnet-frame06.png",
+      "sha256": "dec1970483c510800ef78bdd42c2fe940bbfb646853f7472fab0960798514b46",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "darko",
+      "frame": 1,
+      "file": "http-darko-frame01.png",
+      "sha256": "58d2d5aeacd8bd78f205ee9a332ffbdd73c000c476ba815a8397c7d795d92923",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "darko",
+      "frame": 6,
+      "file": "http-darko-frame06.png",
+      "sha256": "92fecdc79a8e9e07857daff8cbc3dd682357a86b98fe5c4649f7d30af3b346e2",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "martina",
+      "frame": 1,
+      "file": "http-martina-frame01.png",
+      "sha256": "b5aef011ba49e47447a89ef2cee633bf967a29dacdee3a99348673a259a13b6a",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "martina",
+      "frame": 6,
+      "file": "http-martina-frame06.png",
+      "sha256": "642193d60732e85aba7e13e4b064433cf51ad2c4696bfeb234118e71159d24de",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "nadine",
+      "frame": 1,
+      "file": "http-nadine-frame01.png",
+      "sha256": "11dda4f6c4e66954c1d05968920e44b6c3fadb130804231eee11c3d61e9d08cb",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "nadine",
+      "frame": 6,
+      "file": "http-nadine-frame06.png",
+      "sha256": "a7afff5c6d09d16faad3e85a53d26910702bee95364f459e057fd1890ac9530a",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "tia",
+      "frame": 1,
+      "file": "http-tia-frame01.png",
+      "sha256": "6070635582fdf4c1d23af86c822cd3323c79e5ed99f1e279289dc478c549c7bd",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "tia",
+      "frame": 6,
+      "file": "http-tia-frame06.png",
+      "sha256": "77b1ddadba937bb5d89ce4e81761f1b689512fdfd9c5478e3643ab45d8bf0e00",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "tia",
+      "frame": 5,
+      "file": "http-tia-frame05.png",
+      "sha256": "3bc20acbe315e90922933a6ca403a3cd1042b90d6c9e284f977dabb0be7df819",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "tia",
+      "frame": 11,
+      "file": "http-tia-frame11.png",
+      "sha256": "c7e46a9efd057024bd0602b85790ab4fa8c0a3b7f94d21df339e5a74db03ab34",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    }
+  ],
+  "browser_errors": []
+}

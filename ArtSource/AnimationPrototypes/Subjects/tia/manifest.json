@@ -2,10 +2,10 @@
   "id": "tia",
   "name": "띠아",
   "ultimate": "무지개 드로잉",
-  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13502-4472-7f01-b754-dbffa3cb350e\\exec-81fee098-0a25-4390-aad7-873efd50b11c.png",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a136b8-39b5-7592-97a8-e1d0e3858b4e/exec-69fd35a4-c1b7-49ee-972d-206c7b458aa0.png",
   "reference_paths": [
-    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/tia.png",
-    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\tia.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
   ],
   "sources": [
     {
@@ -13,7 +13,6 @@
       "title": "이터널 리턴 공식 1.0.0 실험체 스킬"
     }
   ],
-  "motion_summary": "거대한 붓이 무지개를 그리는 R을 손목 시전·붓 쓸기·물감 회수로 해석한 독자 시안.",
   "frame_labels": [
     "붓을 든 대기",
     "붓을 들어 올림",
@@ -28,12 +27,130 @@
     "마지막 물감 방울",
     "대기 자세 복귀"
   ],
-  "visual_review": "띠아의 큰 붓 소환·세 색상 획과 츠바메의 표식 확인·낮은 급습·교차 베기·제동을 12셀에서 확인했습니다. 캐릭터 고유 얼굴·복장과 읽히는 작은 입을 유지했습니다.",
+  "visual_review": {
+    "status": "PASS: fresh first candidate selected after root visible-alpha and shared partition QA",
+    "checked": [
+      "Fresh 12-pose four-column three-row transparent sheet.",
+      "Large head, short limbs, readable amber eyes and mouth, warm light-brown side-bun hair and yellow ribbon.",
+      "Brown/yellow artist outfit and white socks/shoes consistent across frames.",
+      "Brush rises and sweeps to lower-right RGB curve, followed by color droplets and idle return.",
+      "Head and hair pixel clusters visibly closer to original approved Nia style than polished rejected atlas."
+    ],
+    "notes": [
+      "Root visually reviewed and confirmed the new design is closer to original approved Nia.",
+      "Raw dimensions 1448 x 1086. Alpha 0..255. All four external edges contain zero visible pixels at alpha >=64 and alpha >=160. Nonzero edge counts were only very faint alpha remnants, not visible source clipping.",
+      "Root Normalize.shared_partition inspection found row cuts362/724 and all12 disjoint source boxes PASS. No regeneration or style-changing detail edit needed.",
+      "Tool output preserves original RGBA; root performs mechanical normalization only."
+    ]
+  },
   "columns": 4,
   "rows": 3,
   "fps": 8,
   "tool": "built-in image_gen.imagegen",
-  "atlas_sha256": "97d5b377524d8c338af2ac2eaf00091d5af8005a16cc6d2403750cc9271a6b32",
-  "width": 1448,
-  "height": 1086
+  "preview_revision": "nia-style-original-prompt-20261014",
+  "generation_mode": "fresh generation from recovered original creation prompt; rejected sheets not inputs",
+  "generated_source_sha256": "29a40848c42260faf63a71f2c68a45df19c192dd086907c7e63034ff644e2f1a",
+  "generated_sheet_sha256": "29a40848c42260faf63a71f2c68a45df19c192dd086907c7e63034ff644e2f1a",
+  "reference_sha256": [
+    "7c6baac6f4ad8c34a1aae99db2378ff56ad01e6df43b1c2d9acfedb7aea002ce",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "reference_roles": [
+    "Original 128px character identity reference",
+    "First approved Nia animation STYLE reference only"
+  ],
+  "original_prompt_file": "original-prompt.txt",
+  "generation_record": "generation.json",
+  "original_prompt_sha256": "0b45599fb7e36e64b54f3b86fa14d55f9f2c769c33557973f7872e85d444fabb",
+  "original_prompt_origin": "41ab261",
+  "ground_alignment": "per-frame",
+  "foot_anchors": {},
+  "frame_layout": "fixed-grid",
+  "frame_gutter": 24,
+  "normalization_required": false,
+  "game_integrated": false,
+  "generation_history": [
+    {
+      "prompt": "Use case: stylized-concept. Asset: a transparent pixel sprite animation atlas for a preview, not a game integration. Make exactly ONE 4-column by 3-row sheet, 12 equal square cells, read left to right then top to bottom, overall 4:3. Aim for 1536x1152. Image 1 is the exact subject identity reference; Image 2 is only the accepted chibi chunky-pixel animation style reference. Preserve the subject's outfit, hair, skin, distinct eye shape, eye color and small readable mouth, not Nia's face. Large head, short limbs, bold dark outlines, visibly square pixel clusters, limited 3-tone shading, no antialiasing, no painted texture. Body about 52% cell height leaving generous margins for motion and effects. All 12 cells same scale and camera; starting/resting body pivot x=43%, grounded feet baseline y=83%, controlled motion around that pivot, frame12 returns to frame1. Real torso, legs, arms and weapon choreography, no repeated static sprite with only VFX. Crisp full-body character in every cell, face always readable. Keep all effects within each cell, no clipping or overlap. Actual transparent background. No labels, text, numbers, grid lines, scenery, UI or watermark. 8fps, twelve poses for a 1.5s loop.\nGround baseline is fixed floor/camera reference, not pinning the feet; authentic fast dash may move 10% cell width. All content including effects must be contained within generous empty transparent margins.\nTia / Rainbow Draw: long golden braided hair, dark artist beret and ornate yellow/brown/black artist outfit, large amber eyes and small curious mouth from reference. Her R summons a GIANT PAINTBRUSH that paints a rainbow at a designated spot. Row1 idle with ordinary brush, raise brush, free hand casts outward, swirl wrist in a small circle. Row2 one giant brush materializes to right upper side, brush tip sweeps down, starts painting red/yellow/blue curved band, sweeps a full rainbow semicircle at right and below shoulder (not over face). Row3 paint hits in multicolored pixel splash, ordinary brush draws back, last three color droplets settle, idle. Body leans and elbow/wrist change each step; giant brush has visible wooden handle and colored bristles. No text, literal rainbow letters or extra human.\nIdentity correction to the original subject sentence above: follow Image 1 exactly. Tia has warm light-brown hair with a side bun and yellow ribbon, amber eyes, a brown artist coat with yellow trim over her white collar and yellow bow, brown shorts, white socks and gold-strapped shoes. No beret, no invented golden braid. Keep the RGB paint curve and the final settling droplets continuous from one frame to the next, with no detached sudden new final splash. Everything else follows the original prompt above.\n",
+      "generation": {
+        "subject": "tia",
+        "preview_revision": "original-prompt4-20261014",
+        "generation_mode": "built-in image_gen generate with references, not edit",
+        "origin_commit": "41ab261d3e12c6d8079292a03b73000750afcc53",
+        "origin_path": "ArtSource/AnimationPrototypes/Subjects/tia/prompt.txt",
+        "prompt_restoration": "Original prompt restored verbatim, with appended minimal identity correction and existing droplet continuity errata. No current rejected atlas or chibi2 master used.",
+        "exact_tool_prompt": "Use case: stylized-concept. Asset: a transparent pixel sprite animation atlas for a preview, not a game integration. Make exactly ONE 4-column by 3-row sheet, 12 equal square cells, read left to right then top to bottom, overall 4:3. Aim for 1536x1152. Image 1 is the exact subject identity reference; Image 2 is only the accepted chibi chunky-pixel animation style reference. Preserve the subject's outfit, hair, skin, distinct eye shape, eye color and small readable mouth, not Nia's face. Large head, short limbs, bold dark outlines, visibly square pixel clusters, limited 3-tone shading, no antialiasing, no painted texture. Body about 52% cell height leaving generous margins for motion and effects. All 12 cells same scale and camera; starting/resting body pivot x=43%, grounded feet baseline y=83%, controlled motion around that pivot, frame12 returns to frame1. Real torso, legs, arms and weapon choreography, no repeated static sprite with only VFX. Crisp full-body character in every cell, face always readable. Keep all effects within each cell, no clipping or overlap. Actual transparent background. No labels, text, numbers, grid lines, scenery, UI or watermark. 8fps, twelve poses for a 1.5s loop.\nGround baseline is fixed floor/camera reference, not pinning the feet; authentic fast dash may move 10% cell width. All content including effects must be contained within generous empty transparent margins.\nTia / Rainbow Draw: long golden braided hair, dark artist beret and ornate yellow/brown/black artist outfit, large amber eyes and small curious mouth from reference. Her R summons a GIANT PAINTBRUSH that paints a rainbow at a designated spot. Row1 idle with ordinary brush, raise brush, free hand casts outward, swirl wrist in a small circle. Row2 one giant brush materializes to right upper side, brush tip sweeps down, starts painting red/yellow/blue curved band, sweeps a full rainbow semicircle at right and below shoulder (not over face). Row3 paint hits in multicolored pixel splash, ordinary brush draws back, last three color droplets settle, idle. Body leans and elbow/wrist change each step; giant brush has visible wooden handle and colored bristles. No text, literal rainbow letters or extra human.\nIdentity correction to the original subject sentence above: follow Image 1 exactly. Tia has warm light-brown hair with a side bun and yellow ribbon, amber eyes, a brown artist coat with yellow trim over her white collar and yellow bow, brown shorts, white socks and gold-strapped shoes. No beret, no invented golden braid. Keep the RGB paint curve and the final settling droplets continuous from one frame to the next, with no detached sudden new final splash. Everything else follows the original prompt above.",
+        "tool": "image_gen__imagegen",
+        "transparent_background": true,
+        "source_path": "C:/Users/azxar/.codex/generated_images/01a136b8-39b5-7592-97a8-e1d0e3858b4e/exec-69fd35a4-c1b7-49ee-972d-206c7b458aa0.png",
+        "files": [
+          {
+            "path": "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\tia.png",
+            "bytes": 11064,
+            "sha256": "7c6baac6f4ad8c34a1aae99db2378ff56ad01e6df43b1c2d9acfedb7aea002ce"
+          },
+          {
+            "path": "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png",
+            "bytes": 1637772,
+            "sha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+          },
+          {
+            "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\OriginalPrompt4_20261014\\tia\\generated-sheet.png",
+            "bytes": 1786949,
+            "sha256": "29a40848c42260faf63a71f2c68a45df19c192dd086907c7e63034ff644e2f1a"
+          },
+          {
+            "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\OriginalPrompt4_20261014\\tia\\original-prompt.txt",
+            "bytes": 2230,
+            "sha256": "b6c3daa7b836c03c0c38ba7d5531236fce06675416984ba2d65ba88241fe8aca"
+          },
+          {
+            "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\OriginalPrompt4_20261014\\tia\\prompt.txt",
+            "bytes": 2742,
+            "sha256": "9f64fa6b3e11279952dcf72e8ae7c4dc0e8c887573f38804ed2025815cfe64f9"
+          }
+        ],
+        "reference_roles": [
+          "existing 128px Tia sprite: identity only",
+          "original approved Nia ultimate atlas: chunky-pixel chibi animation style only"
+        ],
+        "visual_review": {
+          "status": "PASS: fresh first candidate selected after root visible-alpha and shared partition QA",
+          "checked": [
+            "Fresh 12-pose four-column three-row transparent sheet.",
+            "Large head, short limbs, readable amber eyes and mouth, warm light-brown side-bun hair and yellow ribbon.",
+            "Brown/yellow artist outfit and white socks/shoes consistent across frames.",
+            "Brush rises and sweeps to lower-right RGB curve, followed by color droplets and idle return.",
+            "Head and hair pixel clusters visibly closer to original approved Nia style than polished rejected atlas."
+          ],
+          "notes": [
+            "Root visually reviewed and confirmed the new design is closer to original approved Nia.",
+            "Raw dimensions 1448 x 1086. Alpha 0..255. All four external edges contain zero visible pixels at alpha >=64 and alpha >=160. Nonzero edge counts were only very faint alpha remnants, not visible source clipping.",
+            "Root Normalize.shared_partition inspection found row cuts362/724 and all12 disjoint source boxes PASS. No regeneration or style-changing detail edit needed.",
+            "Tool output preserves original RGBA; root performs mechanical normalization only."
+          ]
+        },
+        "game_integrated": false,
+        "raw_output_sha256": "29a40848c42260faf63a71f2c68a45df19c192dd086907c7e63034ff644e2f1a",
+        "original_prompt_sha256": "b6c3daa7b836c03c0c38ba7d5531236fce06675416984ba2d65ba88241fe8aca",
+        "original_prompt_verbatim_git_sha256": "0b45599fb7e36e64b54f3b86fa14d55f9f2c769c33557973f7872e85d444fabb",
+        "original_prompt_export_note": "Preserved original-prompt.txt restored to exact Git bytes by removing one export-added final LF; actual image-generation prompt and output unchanged"
+      }
+    }
+  ],
+  "official_reference_file": "official-reference.png",
+  "official_reference_sha256": "be8583bf11a9cac1e3885558fa249cfcc6ef954bed45e466844120db03a1c42e",
+  "official_reference_source": "https://drive.google.com/uc?export=download&id=13sziUMnQpWT4hy9QjLuXo8gpSvUbSx9g",
+  "style_references": [
+    {
+      "path": "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png",
+      "role": "Original approved drawing style",
+      "sha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+    }
+  ],
+  "atlas_sha256": "ec240d954d0d9ee2712363ec70d5b49433fa933c95a6f60d666045f6465bd58a",
+  "width": 1860,
+  "height": 1395,
+  "generated_source_file": "generated-sheet.png",
+  "normalization": "normalization.json"
 }

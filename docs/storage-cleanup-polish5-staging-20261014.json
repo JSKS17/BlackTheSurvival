@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-14",
+  "reason": "Five-character targeted polish staging removed after final files, tool outputs, exact prompts, Garnet reproducible hair-only merge inputs and validation evidence were preserved",
+  "targets": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014",
+      "files": 96,
+      "bytes": 50383431,
+      "deleted": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\UltimateAssembly",
+      "files": 60,
+      "bytes": 11093383,
+      "deleted": true
+    }
+  ],
+  "total_files": 156,
+  "total_bytes": 61476814,
+  "free_bytes_before": 5604618240,
+  "free_bytes_after": 5666496512,
+  "preserved": [
+    "ArtSource/AnimationPrototypes",
+    "docs/validation-polish5-20261014",
+    "Build/Windows",
+    "Temp/UltimateGalleryServer.pid",
+    "Temp/UltimateGalleryServer.stdout.log",
+    "Temp/UltimateGalleryServer.stderr.log"
+  ]
+}

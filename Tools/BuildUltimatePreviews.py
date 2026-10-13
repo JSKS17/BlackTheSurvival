@@ -9,11 +9,22 @@ import struct
 import traceback
 from pathlib import Path
 from PIL import Image
+from MediaRuntime import ffmpeg_path
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / "ArtSource/AnimationPrototypes"
-FFMPEG = ROOT / "Temp/AudioTools/imageio_ffmpeg/binaries/ffmpeg-win-x86_64-v7.1.exe"
+FFMPEG = ffmpeg_path()
 ASSEMBLY_VERSION = 4
+FIXED_GRID_ASSEMBLY_VERSION = 5
+
+def desired_assembly_version(manifest):
+    """Keep the approved legacy previews cached while opting new sheets into v5."""
+    layout = manifest.get("frame_layout")
+    if layout is None:
+        return ASSEMBLY_VERSION
+    if layout == "fixed-grid":
+        return FIXED_GRID_ASSEMBLY_VERSION
+    raise ValueError(f"Unsupported frame_layout: {layout!r}")
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -91,21 +102,103 @@ def frame_boxes(atlas):
         boxes = refined
     return boxes, coarse_rows
 
+def assert_disjoint_boxes(boxes, size):
+    """A source pixel must never belong to more than one animation frame."""
+    width, height = size
+    for index, (left, top, right, bottom) in enumerate(boxes):
+        assert 0 <= left < right <= width and 0 <= top < bottom <= height, (index, boxes[index], size)
+        for other_index, (other_left, other_top, other_right, other_bottom) in enumerate(boxes[:index]):
+            overlap_width = min(right, other_right) - max(left, other_left)
+            overlap_height = min(bottom, other_bottom) - max(top, other_top)
+            assert overlap_width <= 0 or overlap_height <= 0, ("Overlapping frame cells", other_index, index, boxes[other_index], boxes[index])
+
+def fixed_grid_boxes(atlas, manifest):
+    """Read exact 4 x 3 cells; fail rather than erase artwork crossing a guard."""
+    assert manifest.get("columns", 4) == 4 and manifest.get("rows", 3) == 3, "Fixed-grid sheets require 4 columns and 3 rows"
+    gutter = manifest.get("frame_gutter")
+    assert type(gutter) is int and gutter >= 20, "Fixed-grid frame_gutter must be an integer of at least 20 source pixels"
+    width, height = atlas.size
+    columns = [round(width * index / 4) for index in range(5)]
+    rows = [round(height * index / 3) for index in range(4)]
+    boxes = [[columns[col], rows[row], columns[col+1], rows[row+1]] for row in range(3) for col in range(4)]
+    assert_disjoint_boxes(boxes, atlas.size)
+    assert sum((right-left)*(bottom-top) for left, top, right, bottom in boxes) == width*height
+    records, violations = [], []
+    for index, box in enumerate(boxes):
+        alpha = atlas.getchannel("A").crop(box)
+        cell_width, cell_height = alpha.size
+        assert gutter * 2 < min(alpha.size), ("Gutter leaves no cell interior", index, gutter, alpha.size)
+        bands = {
+            "left": (0, 0, gutter, cell_height),
+            "right": (cell_width-gutter, 0, cell_width, cell_height),
+            "top": (0, 0, cell_width, gutter),
+            "bottom": (0, cell_height-gutter, cell_width, cell_height),
+        }
+        sides = {}
+        for side, band in bands.items():
+            histogram = alpha.crop(band).histogram()
+            sides[side] = dict(alpha_nonzero=sum(histogram[1:]), alpha_ge_64=sum(histogram[64:]), alpha_ge_160=sum(histogram[160:]))
+            if sides[side]["alpha_ge_64"]:
+                violations.append(dict(frame=index+1, side=side, **sides[side]))
+        records.append(dict(index=index, box=box, gutter=gutter, sides=sides))
+    assert not violations, "Fixed-grid visible artwork enters the transparent guard; regenerate this sheet without masking pixels: " + json.dumps(violations, ensure_ascii=False)
+    return boxes, rows, dict(layout="fixed-grid", gutter=gutter, alpha_failure_threshold=64,
+                             alpha_solid_threshold=160, boxes_disjoint=True, cells_cover_atlas=True,
+                             guard_passed=True, cells=records)
+
 def assemble(folder):
     manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8-sig"))
+    assembly_version = desired_assembly_version(manifest)
     source = folder / "atlas.png"
     original_hash = digest(source)
     assert original_hash == manifest["atlas_sha256"], source
+    normalization_sha256 = None
+    normalization = None
+    if manifest.get("normalization"):
+        assert assembly_version == FIXED_GRID_ASSEMBLY_VERSION, "Normalized sheets require fixed-grid assembly"
+        normalization_path = folder / manifest["normalization"]
+        generated_path = folder / manifest["generated_source_file"]
+        assert normalization_path.resolve().is_relative_to(folder.resolve()) and generated_path.resolve().is_relative_to(folder.resolve()), "Normalized source references must stay in their subject folder"
+        normalization = json.loads(normalization_path.read_text(encoding="utf-8-sig"))
+        assert normalization.get("passed") and normalization.get("source_rgba_preserved") and normalization.get("source_pixels_partitioned_exactly_once"), normalization_path
+        assert normalization.get("atlas_sha256") == original_hash, normalization_path
+        assert normalization.get("generated_source_sha256") == manifest["generated_source_sha256"] == digest(generated_path), generated_path
+        assert len(normalization.get("frame_records", [])) == 12 and all(record["source_rgba_sha256"] == record["normalized_rgba_sha256"] for record in normalization["frame_records"]), normalization_path
+        normalization_sha256 = digest(normalization_path)
+    preserve_normalized_ground = manifest.get("ground_alignment") == "per-frame"
+    requested_airborne_lifts = manifest.get("airborne_lift", {})
+    assert isinstance(requested_airborne_lifts, dict), "airborne_lift must be a frame-to-height object"
+    requested_airborne_lifts = {str(int(index)): lift for index, lift in requested_airborne_lifts.items()}
+    assert not requested_airborne_lifts or preserve_normalized_ground, "airborne_lift requires verified per-frame ground alignment"
+    if preserve_normalized_ground:
+        assert normalization is not None and normalization.get("ground_alignment") == "per-frame" and normalization.get("grounded_feet_aligned"), "Per-frame ground alignment requires verified normalization evidence"
+        ground_values = normalization.get("grounded_output_foot_y", {})
+        assert set(ground_values) == {str(index) for index in normalization["grounded_frames"]} and len(set(ground_values.values())) <= 1, "Normalized grounded-foot evidence is incomplete or inconsistent"
+        assert normalization.get("airborne_lift", {}) == requested_airborne_lifts, "Normalized airborne lifts differ from the current manifest; normalize the original source again"
+        if requested_airborne_lifts:
+            proof = normalization.get("airborne_lift_proof", {})
+            assert normalization.get("airborne_lift_verified") and ground_values and set(proof) == set(requested_airborne_lifts), "Normalized airborne-lift proof is missing or incomplete"
+            for index, lift in requested_airborne_lifts.items():
+                record = proof[index]
+                assert type(lift) is int and lift >= 0 and int(index) in manifest.get("intended_airborne_frames", []), ("Invalid airborne-lift declaration", index, lift)
+                assert record["requested_lift"] == lift and record["source_nominal_foot_y"]+record["translation_y"] == record["applied_nominal_foot_y"] == record["target_nominal_foot_y"] == normalization["ground_reference_y"]-lift, ("Airborne nominal foot height does not match its proof", index)
+                assert record["normalized_ground_reference_y"] == next(iter(ground_values.values())) and record["normalized_cell_foot_y"] == record["normalized_ground_reference_y"]-lift, ("Airborne output foot height does not match its proof", index)
     report_path = folder / "validation.json"
     if report_path.exists():
         previous = json.loads(report_path.read_text(encoding="utf-8-sig"))
-        if previous.get("assembly_version") == ASSEMBLY_VERSION and previous.get("atlas_sha256") == original_hash and previous.get("manifest_sha256") == digest(folder / "manifest.json") and all((folder / x).is_file() for x in ["preview.gif", "preview.webp", "thumbnail.png"]):
+        if previous.get("passed") and previous.get("assembly_version") == assembly_version and previous.get("atlas_sha256") == original_hash and previous.get("manifest_sha256") == digest(folder / "manifest.json") and previous.get("normalization_sha256") == normalization_sha256 and (assembly_version != FIXED_GRID_ASSEMBLY_VERSION or previous.get("outer_padding") == 32) and (not preserve_normalized_ground or previous.get("normalization_ground_alignment_preserved")) and (not requested_airborne_lifts or previous.get("normalization_airborne_lift_preserved")) and all((folder / x).is_file() for x in ["preview.gif", "preview.webp", "thumbnail.png"]):
             return manifest["id"], "cached"
     with Image.open(source) as original:
         atlas = original.convert("RGBA")
     w, h = atlas.size
-    assert w % 4 == 0 and h % 3 == 0 and w // 4 == h // 3, source
-    boxes, row_cuts = frame_boxes(atlas)
+    # Built-in edits can differ by one pixel at the outer edge. Keep their raw
+    # bytes and find real cell gutters instead of resampling to a divisible size.
+    assert w >= 4 and h >= 3 and abs(w * 3 - h * 4) <= 12, source
+    grid_report = None
+    if assembly_version == FIXED_GRID_ASSEMBLY_VERSION:
+        boxes, row_cuts, grid_report = fixed_grid_boxes(atlas, manifest)
+    else:
+        boxes, row_cuts = frame_boxes(atlas)
     frames = [atlas.crop(box) for box in boxes]
     cw, ch = max(frame.width for frame in frames), max(frame.height for frame in frames)
     assert all(frame.getchannel("A").histogram()[0] > 0 for frame in frames), source
@@ -125,9 +218,13 @@ def assemble(folder):
         medians.append(int(statistics.median(candidates)) if candidates else None)
     ground = medians[0] or next((value for value in medians if value is not None), ch - 20)
     medians = [value if value is not None else ground for value in medians]
-    pad = max(96, max(cw,ch) // 4)
+    row_corrections = [0, 0, 0] if preserve_normalized_ground else [ground-value for value in medians]
+    # v5 already has at least 20px of empty guard inside every normalized cell.
+    # A second large legacy margin would needlessly shrink the art in the fixed
+    # preview viewport. Keep a modest outer margin without resampling any pixels.
+    pad = 32 if assembly_version == FIXED_GRID_ASSEMBLY_VERSION else max(96, max(cw,ch) // 4)
     relative = [[boxes[i][0] - round(i%4*w/4),
-                 boxes[i][1] - round(i//4*h/3) + ground - medians[i // 4]] for i in range(12)]
+                 boxes[i][1] - round(i//4*h/3) + row_corrections[i // 4]] for i in range(12)]
     origin_x = max(pad, -min(offset[0] for offset in relative))
     origin_y = max(pad, -min(offset[1] for offset in relative))
     offsets = [[origin_x+x, origin_y+y] for x,y in relative]
@@ -147,19 +244,32 @@ def assemble(folder):
         records.append(dict(index=i, box=boxes[i], offset=[dx, dy], cell_rgba_sha256=hashlib.sha256(frame.tobytes()).hexdigest()))
     pattern = work / "frame-%02d.png"
     run("-framerate", 8, "-i", pattern, "-c:v", "libwebp_anim", "-lossless", 1, "-compression_level", 4, "-loop", 0, "-threads", 1, folder / "preview.webp")
-    run("-framerate", 8, "-i", pattern, "-filter_complex", "[0:v]split[a][b];[a]palettegen=reserve_transparent=1[p];[b][p]paletteuse=dither=bayer:alpha_threshold=64", "-loop", 0, "-final_delay", 12, "-threads", 1, folder / "preview.gif")
+    # v5 writes the entire transparent canvas on every GIF frame. Combined with
+    # disposal=2 this prevents a previous frame's effect from surviving a redraw.
+    # Keep v4's encoding unchanged for the approved, already assembled sheets.
+    gif_options = ["-gifflags", 0] if assembly_version == FIXED_GRID_ASSEMBLY_VERSION else []
+    run("-framerate", 8, "-i", pattern, "-filter_complex", "[0:v]split[a][b];[a]palettegen=reserve_transparent=1[p];[b][p]paletteuse=dither=bayer:alpha_threshold=64", *gif_options, "-loop", 0, "-final_delay", 12, "-threads", 1, folder / "preview.gif")
     (folder / "thumbnail.png").write_bytes((work / "frame-00.png").read_bytes())
-    durations = []
+    durations, gif_disposal, gif_rectangles = [], [], []
     with Image.open(folder / "preview.gif") as gif, Image.open(folder / "preview.webp") as webp:
         assert gif.n_frames == webp.n_frames == 12, source
         for i in range(12):
             gif.seek(i); durations.append(gif.info["duration"])
+            gif_disposal.append(gif.disposal_method)
+            gif_rectangles.append(list(gif.tile[0][1]))
             webp.seek(i)
             with Image.open(work / f"frame-{i:02d}.png") as image:
                 reference = image.convert("RGBA")
             decoded = webp.convert("RGBA")
             assert decoded.getchannel("A").tobytes() == reference.getchannel("A").tobytes(), (source, i)
             assert all(a == b for a, b in zip(reference.get_flattened_data(), decoded.get_flattened_data()) if a[3]), (source, i)
+            if assembly_version == FIXED_GRID_ASSEMBLY_VERSION:
+                assert gif.disposal_method == 2, ("GIF must clear its preceding frame", source, i, gif.disposal_method)
+                assert gif_rectangles[-1] == [0, 0, canvas, canvas], ("GIF must encode a full frame", source, i, gif_rectangles[-1])
+                # GIF has one-bit transparency. Check its decoded mask against
+                # the actual palette threshold rather than assuming disposal works.
+                expected_alpha = reference.getchannel("A").point(lambda value: 255 if value >= 64 else 0)
+                assert gif.convert("RGBA").getchannel("A").tobytes() == expected_alpha.tobytes(), ("GIF alpha contains a previous-frame fragment", source, i)
     assert sum(durations) == 1500, source
     encoded = (folder / "preview.webp").read_bytes()
     position = 12; webp_durations = []
@@ -168,12 +278,24 @@ def assemble(folder):
         if tag == b"ANMF": webp_durations.append(int.from_bytes(encoded[position+20:position+23], "little"))
         position += 8 + length + length % 2
     assert len(webp_durations) == 12 and sum(webp_durations) == 1500, (source, webp_durations)
-    report = dict(passed=True, assembly_version=ASSEMBLY_VERSION, id=manifest["id"], atlas_sha256=original_hash, manifest_sha256=digest(folder / "manifest.json"), original_bytes_preserved=digest(source) == original_hash,
-                  frames=12, fps=8, duration_ms=sum(durations), canvas=canvas, cell=[cw, ch], atlas_size=[w,h], boxes=boxes, row_cuts=row_cuts,
-                  row_ground=medians, normalized_feet=normalized_feet, independent_cell_gutters=True,
+    report = dict(passed=True, assembly_version=assembly_version, id=manifest["id"], atlas_sha256=original_hash, manifest_sha256=digest(folder / "manifest.json"), original_bytes_preserved=digest(source) == original_hash,
+                  frames=12, fps=8, duration_ms=sum(durations), canvas=canvas, outer_padding=pad, cell=[cw, ch], atlas_size=[w,h], boxes=boxes, row_cuts=row_cuts,
+                  row_ground=medians, normalized_feet=normalized_feet, independent_cell_gutters=grid_report is None,
                   intended_airborne_frames=sorted(airborne), offsets=offsets,
                   frame_assembly_exact_rgba=True, webp_visible_rgba_lossless=True, frames_distinct=True,
                   game_integration=False, webp_frame_ms=webp_durations, animation_sha256={name: digest(folder / name) for name in ["preview.gif", "preview.webp"]}, frame_records=records)
+    if grid_report is not None:
+        report.update(fixed_grid=grid_report, gif_full_frames=True, gif_disposal=gif_disposal,
+                      gif_frame_rectangles=gif_rectangles, gif_decoded_alpha_matches=True)
+    if normalization_sha256 is not None:
+        report.update(normalization_sha256=normalization_sha256, generated_source_sha256=manifest["generated_source_sha256"],
+                      generated_source_rgba_preserved=True)
+    if preserve_normalized_ground:
+        report.update(normalization_ground_alignment_preserved=True, row_ground_corrections=row_corrections,
+                      normalization_grounded_output_foot_y=normalization["grounded_output_foot_y"])
+    if requested_airborne_lifts:
+        report.update(normalization_airborne_lift_preserved=True,
+                      normalization_airborne_lift_proof=normalization["airborne_lift_proof"])
     report_path.write_bytes((json.dumps(report, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))
     return manifest["id"], "assembled"
 
@@ -186,12 +308,26 @@ def catalog():
             item.update(ready=True, gif="Nia/nia-ultimate-preview.gif", webp="Nia/nia-ultimate-preview.webp", atlas="Nia/nia-ultimate-atlas.png", detail="Nia/preview.html", labels=["대기", "입력 준비", "첫 입력", "게임월드 전개", "보호막", "블록 낙하", "연속 입력", "블록 축적", "최종 타격", "효과 분산", "입력 회수", "대기 복귀"], cols=4, rows=3, cell=362, canvas=480, atlas_size=[1448,1086], boxes=[[i%4*362,i//4*362,(i%4+1)*362,(i//4+1)*362] for i in range(12)], offsets=[[170-a,400-b] for a,b in [[167,354],[163,354],[158,354],[103,353],[125,327],[123,327],[126,327],[124,328],[126,294],[125,294],[135,294],[161,294]]])
         else:
             folder = BASE / "Subjects" / character["id"]
-            item["ready"] = (folder / "validation.json").exists() and json.loads((folder / "validation.json").read_text(encoding="utf-8-sig")).get("assembly_version") == ASSEMBLY_VERSION
+            meta = json.loads((folder / "manifest.json").read_text(encoding="utf-8-sig")) if (folder / "manifest.json").is_file() else {}
+            result = json.loads((folder / "validation.json").read_text(encoding="utf-8-sig")) if (folder / "validation.json").is_file() else {}
+            item["ready"] = bool(result.get("passed")) and result.get("assembly_version") == desired_assembly_version(meta)
+            if desired_assembly_version(meta) == FIXED_GRID_ASSEMBLY_VERSION:
+                item["ready"] = item["ready"] and (folder / "atlas.png").is_file() and result.get("atlas_sha256") == digest(folder / "atlas.png") and result.get("manifest_sha256") == digest(folder / "manifest.json")
             if item["ready"]:
-                meta = json.loads((folder / "manifest.json").read_text(encoding="utf-8-sig"))
-                result = json.loads((folder / "validation.json").read_text(encoding="utf-8-sig"))
                 prefix = "Subjects/" + character["id"] + "/"
                 item.update(gif=prefix+"preview.gif", webp=prefix+"preview.webp", atlas=prefix+"atlas.png", thumb=prefix+"thumbnail.png", labels=meta["frame_labels"], motion=" → ".join(meta["frame_labels"][i] for i in [1,4,8,10]), sources=meta["sources"], cols=4, rows=3, cell=result["cell"][0], canvas=result["canvas"], offsets=result["offsets"], atlas_size=result["atlas_size"], boxes=result["boxes"])
+                if result.get("fixed_grid"):
+                    item.update(frame_layout="fixed-grid", frame_gutter=result["fixed_grid"]["gutter"])
+                if (folder / "original-reference.png").is_file():
+                    item["original"] = prefix + "original-reference.png"
+                if (folder / "official-reference.png").is_file():
+                    item["official"] = prefix + "official-reference.png"
+                if meta.get("preview_revision", "").startswith(("nia-style-", "chibi2-")):
+                    item["style_ref"] = "Nia/frames/frame-00.png"
+                if meta.get("generated_source_file"):
+                    item["raw"] = prefix + meta["generated_source_file"]
+                if meta.get("preview_revision"):
+                    item["revision"] = meta["preview_revision"] + "-" + result["atlas_sha256"][:12]
         output.append(item)
     template = (ROOT / "Tools/UltimateGallery.template.html").read_text(encoding="utf-8")
     data = json.dumps(output, ensure_ascii=False).replace("</", "<\\/")

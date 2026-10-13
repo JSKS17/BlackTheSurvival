@@ -6,35 +6,108 @@
   "rows": 3,
   "fps": 8,
   "tool": "built-in image_gen.imagegen",
-  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-d19e-7c63-971c-97eb2a4dcfdc\\exec-3dc24e52-e8d9-47a9-a07a-4969d6fc07b7.png",
+  "intent": "new TWO-HEAD large-pixel drawing from new proof, native Nia density and actual official full-body identity; no rejected atlas input",
+  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a1360a-3105-7073-b185-6153d810d413\\exec-f7471acb-c1eb-4805-90aa-b4ce0cf33400.png",
+  "generated_source_file": "generated-sheet.png",
   "reference_paths": [
-    "Assets/Resources/Lumia/PortraitsReference/isol.png",
-    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+    "ArtSource/AnimationPrototypes/Style/chibi2-reference.png",
+    "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+    "ArtSource/AnimationPrototypes/Subjects/isol/official-reference.png"
+  ],
+  "reference_roles": [
+    "two-head proportions and large-square pixel rendering ONLY",
+    "original native362px Nia pixel-to-image density ONLY",
+    "actual official default full-body character identity ONLY"
   ],
   "sources": [
     {
+      "url": "https://playeternalreturn.com/fankit",
+      "title": "공식 기본 전신 팬키트"
+    },
+    {
       "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
-      "title": "공식 1.0 실험체 스킬 자료"
+      "title": "공식 원작 R 설명"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1IM9jCTg_7fJU68jk2YNZ5RMwYbCbvICh",
+      "title": "원작 기본 전신 원화 · 공식 자료"
     }
   ],
-  "motion_summary": "Mok bomb placement: crouch and set proximity bomb, retreat and guard, bomb arms then detonates in a compact orange shock blast; return to stance. Soldier must visibly lower body, extend hand, stand and step back.",
+  "target_head_body": 2,
+  "pixel_goal": "60-72 logical pixels per360cell;large4-6screenpixel square clusters",
+  "ground_alignment": "per-frame",
+  "intended_airborne_frames": [],
+  "preview_revision": "chibi2-20261014",
+  "frame_layout": "fixed-grid",
+  "frame_gutter": 24,
   "frame_labels": [
     "대기",
-    "폭탄 꺼내기",
-    "몸 낮추기",
-    "폭탄 내려놓기",
-    "손 떼기",
-    "뒤로 물러서기",
-    "무기 들어 경계",
-    "폭탄 감지",
-    "폭탄 폭발",
-    "충격파 소멸",
-    "자세 회복",
+    "장비에 손 뻗기",
+    "지뢰 꺼내기",
+    "무릎 굽히기",
+    "지뢰 설치",
+    "일어서기",
+    "지뢰 활성화",
+    "발동 예고",
+    "폭발",
+    "연기 감소",
+    "잔여 연기",
     "대기 복귀"
   ],
-  "intended_airborne_frames": [],
-  "visual_review": "군복·붉은 스카프·눈매가 식별되며 웅크림, 설치, 후퇴, 경계와 폭발이 분리됩니다. 4×3 셀 안에 배치됩니다.",
-  "width": 1448,
-  "height": 1086,
-  "atlas_sha256": "934dfbdaf2722ed22a39be1fa6524d53f04c99a6b5daad602e55fad4c15e7214"
+  "motion_summary": "ready → take MOK mine → crouch and place → arm and stand → trigger compact explosion → smoke fades",
+  "visual_review": "Native tool output inspected: clearly enlarged head/shorter body and broader block shading than2.5candidate. Quantitative pixel density and complete scene isolation require final root QA; Nadine wolf scenes9-10 remain wide.",
+  "width": 1820,
+  "height": 1365,
+  "generated_source_sha256": "d19f9543c93a1f6d7390766e61fc44d5b0ebb2fa31067fc3020912933e92a06f",
+  "reference_sha256": [
+    "1791664646896afe4d7a33a208c2e301b2daa2c978ca1c43e57fb043431b10c6",
+    "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61",
+    "6a89caffe3ec95d84facad5c68f069b24b02e00de9e9bcef12ddce6de704b251"
+  ],
+  "atlas_sha256": "3e93b599c37be0de05ba6e1610be92614af35a4b5dcb862a051ff93a2b779ee8",
+  "normalization": "normalization.json",
+  "foot_anchors": {
+    "4": [
+      200,
+      691
+    ],
+    "5": [
+      470,
+      690
+    ],
+    "6": [
+      825,
+      690
+    ],
+    "7": [
+      1195,
+      690
+    ]
+  },
+  "foot_anchor_review_sha256": "d19f9543c93a1f6d7390766e61fc44d5b0ebb2fa31067fc3020912933e92a06f",
+  "tool_input_paths_at_generation": [
+    "Temp/Chibi2Redraw/style/bihyung-master.png",
+    "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+    "Temp/Chibi3Redraw/references/isol-official-full.png"
+  ],
+  "target_head_body_ratio": 2,
+  "normalization_required": false,
+  "candidate_status": "selected; artwork and ground review passed; game not integrated",
+  "game_integrated": false,
+  "style_references": [
+    {
+      "path": "ArtSource/AnimationPrototypes/Style/chibi2-reference.png",
+      "role": "two-head large-pixel drawing style",
+      "sha256": "1791664646896afe4d7a33a208c2e301b2daa2c978ca1c43e57fb043431b10c6"
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+      "role": "original native362px Nia pixel-to-image ratio",
+      "sha256": "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61"
+    }
+  ],
+  "official_reference_file": "official-reference.png",
+  "official_reference_sha256": "6a89caffe3ec95d84facad5c68f069b24b02e00de9e9bcef12ddce6de704b251",
+  "official_reference_source": "https://drive.google.com/uc?export=download&id=1IM9jCTg_7fJU68jk2YNZ5RMwYbCbvICh",
+  "historical_edit_inputs_not_redistributed": true
 }

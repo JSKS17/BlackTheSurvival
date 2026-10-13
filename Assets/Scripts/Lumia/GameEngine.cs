@@ -26,7 +26,7 @@ namespace Lumia
         public string traitId;
         public bool enemy;
         public int damage, block, heal, avoided, absorbed;
-        public bool critical;
+        public bool critical, execution;
         public int criticalHits;
     }
 
@@ -672,7 +672,11 @@ namespace Lumia
             var id = c.hand[handIndex]; var card = PlayerCard(id);
             int researchActionStart = CombatActions.Count;
             int price = EffectiveCardCost(id);
-            RecordCombatCardStart(card, false, price, c.freeCasts.Any(g => g.cardId == id && g.uses > 0));
+            bool freeGranted = c.freeCasts.Any(g => g.cardId == id && g.uses > 0);
+            bool garnetRecall = FreeCastMechanics.GarnetRecallBeforeExhaust(card, freeGranted, c.freeCastSources);
+            bool garnetExecution = FreeCastMechanics.GarnetExecutionReady(card, c.playerSkills, freeGranted, c.enemyHp, c.enemyMaxHp);
+            bool execution = false;
+            RecordCombatCardStart(card, false, price, freeGranted);
             int poisonBefore = c.enemyPoison, weakBefore = c.enemyWeak, vulnerableBefore = c.enemyVulnerable;
             int augmentEnergyBefore = c.energy;
             ConsumeFreeCast(c.freeCasts, id);
@@ -683,7 +687,7 @@ namespace Lumia
             c.energy -= price; c.hand.RemoveAt(handIndex);
             if (c.retainIndex == handIndex) c.retainIndex = -1;
             else if (c.retainIndex > handIndex) c.retainIndex--;
-            if (card.exhaust) c.exhaustPile.Add(id); else c.discardPile.Add(id);
+            if (card.exhaust && !garnetRecall) c.exhaustPile.Add(id); else c.discardPile.Add(id);
             int hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0, directDamage = 0, absorbedTotal = 0;
             int bonusDamage = PlayerBonusDamage(id, price);
             ConsumeAugmentAttack(card, price);
@@ -694,6 +698,13 @@ namespace Lumia
                 if (card.damage <= 0 && bonusDamage <= 0) break;
                 if (Roll(EnemyEvasion)) { avoided++; Say(c.enemyName + "이(가) 공격을 회피했습니다."); continue; }
                 landed = true;
+                if (garnetExecution)
+                {
+                    int remainingHp = c.enemyHp;
+                    c.enemyHp = 0; dealt += remainingHp; directDamage += remainingHp; execution = true;
+                    BossMechanics.CheckPhase(c); RecordBossProgress(BossMechanics.ObserveDamage(c, remainingHp));
+                    break;
+                }
                 int baseDamage = CardDamage(id);
                 // Only the universal basic attack's own hit is multiplied. Skill/passive bonus pulses remain separate.
                 if (id == "basic_attack" && baseDamage > 0 && Roll(CritChance)) { baseDamage = CriticalBaseDamage(baseDamage); criticalHits++; }
@@ -721,16 +732,21 @@ namespace Lumia
             bool statusControl=ApplyCardStatuses(false,skillBefore,card,landed);
             RecallSkillDiscounts(c.playerSkills, skillBefore, State.deck, c.hand, c.drawPile, c.discardPile, true);
             if (RecordLastSkill(c.lastSkills, card)) c.lastSkillCard = id;
+            if (garnetRecall && !landed)
+            {
+                int missedCopy = c.discardPile.LastIndexOf(id);
+                if (missedCopy >= 0) { c.discardPile.RemoveAt(missedCopy); c.exhaustPile.Add(id); }
+            }
             GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills, card.owner), skillBefore, landed);
             int cardHeal=State.hp-beforeHp;
-            EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = id, enemy = false, damage = dealt, block = block, heal = cardHeal, avoided = avoided, absorbed = absorbedTotal, critical = criticalHits > 0, criticalHits = criticalHits });
+            EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = id, enemy = false, damage = dealt, block = block, heal = cardHeal, avoided = avoided, absorbed = absorbedTotal, critical = criticalHits > 0, criticalHits = criticalHits, execution = execution });
             bool attackAttempt=card.damage>0 || bonusDamage>0;
             ApplyBeforeTraits(false,card,landed && attackAttempt,skillBefore,traitHpBefore);
             AfterCardTraits(false,card,landed,dealt,block,cardHeal,avoided,attackAttempt);
             AugmentAfterCard(card, price, augmentEnergyBefore, block);
             if(statusControl)TraitEvent(false,"control",card,true,dealt);
             if(defenderBlock>0 && c.enemyBlock==0) TraitEvent(true,"block_break",card,landed,dealt);
-            Say(card.name + " 사용" + (criticalHits > 0 ? " · 치명타!" : "") + (card.damage > 0 ? " · 피해 " + dealt : "") + (block > 0 ? " · 방어 +" + block : ""));
+            Say(card.name + " 사용" + (execution ? " · 처형!" : "") + (criticalHits > 0 ? " · 치명타!" : "") + (card.damage > 0 ? " · 피해 " + dealt : "") + (block > 0 ? " · 방어 +" + block : ""));
             // The played card is complete here. A counter can end combat before the next line returns.
             ResearchProgression.AfterCard(State, card, skillBefore, landed, dealt, CombatActions.Skip(researchActionStart));
             if (landed && (card.damage > 0 || bonusDamage > 0)) ResolveCounters(true);
@@ -755,6 +771,7 @@ namespace Lumia
             if (State.stage != RunStage.Combat || c == null || c.enemyTurn) return Fail("현재 플레이어의 턴이 아닙니다.");
             RecordCombatInformation(new CombatLogEntry { kind = "turn_end", title = "내 턴 종료", detail = "남은 코스트 " + c.energy + " · 지속 효과와 상대 행동을 처리합니다." });
             AugmentTurnEnd();
+            if (FreeCastMechanics.ExpireGarnetRecall(c)) Say("무료 재사용을 마치지 않은 처형식이 소멸했습니다.");
             if (c.retainIndex >= 0 && c.retainIndex < c.hand.Count && c.retainUses < 2)
             {
                 c.retainedCardId = c.hand[c.retainIndex]; c.hand.RemoveAt(c.retainIndex); c.retainUses++;
@@ -817,6 +834,8 @@ namespace Lumia
             if (card == null) return true;
             if(!StatusMechanics.CanUse(c.enemyStatuses,card)){Say(c.enemyName+"의 "+card.name+" 사용이 상태이상으로 막혔습니다.");return true;}
             bool freeGranted = c.enemyFreeCasts.Any(g => g.cardId == id && g.uses > 0);
+            bool garnetExecution = FreeCastMechanics.GarnetExecutionReady(card, c.enemySkills, freeGranted, State.hp, State.maxHp);
+            bool execution = false;
             bool plannedFree = index < c.enemyPlanFreeCast.Count && c.enemyPlanFreeCast[index];
             // A predicted reset may have recalled this exact copy. A missed source must not turn it into a second paid cast.
             if (plannedFree && !freeGranted) { Say(c.enemyName + "의 " + card.name + " 연계가 취소되었습니다."); return true; }
@@ -840,6 +859,11 @@ namespace Lumia
                 if (damagePerHit == 0 && bonusDamage == 0) break;
                 if (Roll(Evasion)) { avoided++; Say("하나가 " + card.name + "을(를) 회피했습니다."); continue; }
                 landed = true;
+                if (garnetExecution)
+                {
+                    dealt += State.hp; State.hp = 0; execution = true;
+                    break;
+                }
                 int baseDamage = damagePerHit;
                 if (id == "basic_attack" && baseDamage > 0 && Roll(EnemyCritChance)) { baseDamage = CriticalBaseDamage(baseDamage); criticalHits++; }
                 int damage = Math.Max(0,RunModes.ScaleEnemyDirectDamage(State, baseDamage + (bonusUsed ? 0 : bonusDamage)) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.block, damage); c.block -= absorbed; absorbedTotal += absorbed;
@@ -862,13 +886,13 @@ namespace Lumia
             RecordLastSkill(c.enemyLastSkills, card);
             GrantFreeCasts(card, c.enemyDeck, c.enemyFreeCasts, c.enemyFreeCastSources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, false, LastSkill(c.enemyLastSkills, card.owner), skillBefore, landed);
             int cardHeal=c.enemyHp-beforeHp;
-            EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = id, enemy = true, damage = dealt, block = addedBlock, heal = cardHeal, avoided = avoided, absorbed = absorbedTotal, critical = criticalHits > 0, criticalHits = criticalHits });
+            EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = id, enemy = true, damage = dealt, block = addedBlock, heal = cardHeal, avoided = avoided, absorbed = absorbedTotal, critical = criticalHits > 0, criticalHits = criticalHits, execution = execution });
             bool attackAttempt=damagePerHit>0 || bonusDamage>0;
             ApplyBeforeTraits(true,card,landed && attackAttempt,skillBefore,traitHpBefore);
             AfterCardTraits(true,card,landed,dealt,addedBlock,cardHeal,avoided,attackAttempt);
             if(statusControl)TraitEvent(true,"control",card,true,dealt);
             if(defenderBlock>0 && c.block==0) TraitEvent(false,"block_break",card,landed,dealt);
-            Say(c.enemyName + " · " + card.name + (criticalHits > 0 ? " · 치명타!" : "") + (card.damage > 0 ? " · 피해 " + dealt : ""));
+            Say(c.enemyName + " · " + card.name + (execution ? " · 처형!" : "") + (criticalHits > 0 ? " · 치명타!" : "") + (card.damage > 0 ? " · 피해 " + dealt : ""));
             if (landed && (damagePerHit > 0 || bonusDamage > 0)) ResolveCounters(false);
             CheckBattleEnd();
             return true;
@@ -917,7 +941,9 @@ namespace Lumia
                 if (grant == null) { grant = new FreeCastGrant { cardId = target }; grants.Add(grant); }
                 grant.uses += card.freeCastCount;
                 // Recall an actual owned copy. Exhausted cards stay exhausted and no new cards are created.
-                if (!recall || hand.Contains(target) || hand.Count >= 12) continue;
+                // Garnet temporarily withheld exhaustion from this played copy. Recall that
+                // copy even when an independently owned duplicate is already in hand.
+                if (!recall || hand.Count >= 12 || (hand.Contains(target) && card.id != "garnet_r")) continue;
                 int index = discard.LastIndexOf(target);
                 if (index >= 0) { discard.RemoveAt(index); hand.Add(target); continue; }
                 index = draw.LastIndexOf(target);
@@ -1698,6 +1724,8 @@ namespace Lumia
                     string id = c.enemyHand[index]; var card = GameDatabase.Card(id);
                     if (card == null) { c.enemyHand.RemoveAt(index); continue; }
                     bool freeGranted = grants.Any(g => g.cardId == id && g.uses > 0);
+                    bool garnetRecall = FreeCastMechanics.GarnetRecallBeforeExhaust(card, freeGranted, sources);
+                    bool garnetExecution = FreeCastMechanics.GarnetExecutionReady(card, skillPlan, freeGranted, planTargetHp, State.maxHp);
                     int price = freeGranted ? 0 : Math.Max(0, CardCost(id) + StatusMechanics.CostPenalty(planStatuses,card) - Math.Max(SkillMechanics.Discount(skillPlan,id),SkillMechanics.Discount(traitPlan.skills,id)));
                     ConsumeFreeCast(grants, id);
                     SkillMechanics.ConsumeDiscount(skillPlan, id);
@@ -1710,12 +1738,12 @@ namespace Lumia
                     if(card.damage>0 || planExtra>0)planExtra+=beforeTraits.bonus.damage+TraitMechanics.DamageBonus(traitPlan)+TraitMechanics.EmpowerBonus(traitPlan,card);
                     if(planWeak>0)planExtra=planExtra*3/4;if(c.vulnerable>1)planExtra=planExtra*3/2;
                     int raw=EnemyDirectHitTotal(CalculateEnemyDamage(card,planStrength,Math.Max(0,c.vulnerable-1),weak:planWeak),planExtra,Math.Max(1,card.hits));
-                    int absorbed=Math.Min(planTargetBlock,raw);planTargetBlock-=absorbed;int actualDamage=Math.Min(planTargetHp,raw-absorbed);planTargetHp-=actualDamage;
+                    int absorbed=garnetExecution?0:Math.Min(planTargetBlock,raw);planTargetBlock-=absorbed;int actualDamage=garnetExecution?planTargetHp:Math.Min(planTargetHp,raw-absorbed);planTargetHp-=actualDamage;
                     int healed=Math.Min(c.enemyMaxHp-planHp,(EnemyAuxiliaryValue(card,card.heal)+bonuses.heal)*(100-Math.Max(TraitMechanics.HealingReduction(traitPlan),StatusMechanics.HealingReduction(c.enemyStatuses)))/100);planHp+=healed;planStrength+=card.strength;
                     available+=beforeTraits.pulses.Where(x=>x.kind=="energy").Sum(x=>x.amount);
                     available -= price; available += card.energy;
                     c.enemyHand.RemoveAt(index); c.enemyPlan.Add(id); c.enemyPlanCosts.Add(price); c.enemyPlanFreeCast.Add(freeGranted);
-                    if (card.exhaust) c.enemyExhaustPile.Add(id); else c.enemyDiscardPile.Add(id);
+                    if (card.exhaust && !garnetRecall) c.enemyExhaustPile.Add(id); else c.enemyDiscardPile.Add(id);
                     DrawInto(c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, card.draw);
                     RecordLastSkill(history, card);
                     SkillMechanics.AfterCard(skillPlan, before, card, true, paidCost: price);
@@ -1909,6 +1937,7 @@ namespace Lumia
             var sources = c.enemyTurn ? c.enemyFreeCastSources.ToList() : new List<string>();
             var history = c.enemyLastSkills.Select(x => new SkillHistory { owner=x.owner, cardId=x.cardId }).ToList();
             var defenderTraits=TraitMechanics.Clone(c.playerTraits);
+            var defenderSkills=SkillMechanics.Clone(c.playerSkills);
             var attackerStatuses=StatusMechanics.Clone(c.enemyStatuses);var defenderStatuses=StatusMechanics.Clone(c.playerStatuses);
             int available=c.enemyTurn?c.enemyAvailableEnergy:EnergyForLevel(c.enemyLevel)+TraitMechanics.EnergyBonus(c.enemyTraits)+c.enemyOpeningEnergy;
             c.intentDamage = c.intentBlock = 0;
@@ -1934,6 +1963,7 @@ namespace Lumia
                 if (card == null) continue;
                 if(!StatusMechanics.CanUse(attackerStatuses,card))continue;
                 bool freeGranted=grants.Any(x=>x.cardId==id && x.uses>0);
+                bool garnetExecution=FreeCastMechanics.GarnetExecutionReady(card,skillPreview,freeGranted,defenderHp,State.maxHp);
                 bool plannedFree=intentIndex<c.enemyPlanFreeCast.Count && c.enemyPlanFreeCast[intentIndex];
                 // Re-evaluate the plan's resets against this cloned state. A new player
                 // action can remove their preparation without changing the saved plan.
@@ -1952,9 +1982,9 @@ namespace Lumia
                 int baseRaw=CalculateEnemyDamage(card,strength,vulnerable,TraitMechanics.Exposure(defenderTraits),weak,attackerStatuses,defenderStatuses);
                 // CalculateEnemyDamage already includes the live status modifiers; this preview uses its cloned state.
                 int raw=EnemyDirectHitTotal(baseRaw,StatusMechanics.Damage(attackerStatuses,defenderStatuses,extra),Math.Max(1,card.hits));
-                c.intentDamage+=raw;c.intentBlock+=EnemyAuxiliaryValue(card,card.block)+bonuses.block+beforeTraits.bonus.block;
+                c.intentDamage+=garnetExecution?defenderHp:raw;c.intentBlock+=EnemyAuxiliaryValue(card,card.block)+bonuses.block+beforeTraits.bonus.block;
                 int previousDefenderBlock=defenderBlock;
-                int absorbed=Math.Min(defenderBlock,raw);defenderBlock-=absorbed;int actualDamage=Math.Min(defenderHp,raw-absorbed);defenderHp-=actualDamage;
+                int absorbed=garnetExecution?0:Math.Min(defenderBlock,raw);defenderBlock-=absorbed;int actualDamage=garnetExecution?defenderHp:Math.Min(defenderHp,raw-absorbed);defenderHp-=actualDamage;
                 StatusMechanics.DamageTaken(defenderStatuses,actualDamage);
                 int cardHeal=Math.Min(c.enemyMaxHp-actorHp,(EnemyAuxiliaryValue(card,card.heal)+bonuses.heal)*(100-Math.Max(TraitMechanics.HealingReduction(traitPreview),StatusMechanics.HealingReduction(attackerStatuses)))/100);actorHp+=cardHeal;
                 strength += card.strength;
@@ -1992,6 +2022,12 @@ namespace Lumia
                 }
                 // Intent shows raw damage assuming hits land; blocks and evasion are resolved in combat.
                 vulnerable = Math.Max(vulnerable, card.vulnerable);
+                if (garnetExecution && defenderHp <= 0)
+                {
+                    var prevention = SkillMechanics.Revive(defenderSkills) ?? SkillMechanics.Revive(defenderTraits.skills);
+                    if (prevention == null) return; // The battle ends here; its installed pressure never ticks.
+                    defenderHp = Math.Min(State.maxHp, prevention.amount);
+                }
             }
             // Scheduled effects fire before the next player turn and are part of this intent.
             int damageBudget=40,supportBudget=25;

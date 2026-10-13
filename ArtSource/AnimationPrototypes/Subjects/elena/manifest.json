@@ -2,38 +2,137 @@
   "id": "elena",
   "name": "엘레나",
   "ultimate": "죽음의 무도",
-  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-dfe9c0c6-e1ae-416d-bd68-645637acef01.png",
-  "reference_paths": [
-    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/elena.png",
-    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
-  ],
-  "sources": [
-    {
-      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
-      "title": "님블뉴런 공식 1.0.0 실험체: 죽음의 무도"
-    }
-  ],
-  "visual_review": "푸른 트윈테일과 차가운 눈매를 유지했습니다. 무릎 굽힘·활주·회전·레이피어 지목·얼음 솟기·회수까지 구분됩니다. 빙결 효과 외곽은 셀 경계와 가까워 프레임 재생 여백이 필요합니다.",
   "columns": 4,
   "rows": 3,
   "fps": 8,
   "tool": "built-in image_gen.imagegen",
-  "atlas_sha256": "3051e0fd74707745996158397a15cee89de5cc9732ae83c9da88927fc18704ee",
-  "width": 1448,
-  "height": 1086,
-  "motion_summary": "Elena, icy blue twin-tail hair, skating dress and slender rapier exactly from portrait. Official R creates a circular ice zone with suddenly rising ice in its central area. Animate elegant skating idle; bent knee wind-up; gliding short arc; opening arms and rapier sideways; half-turn spin; upright dancer pose; pointing rapier toward right; circular pale cyan frost spreading outward; central jagged ice crystals erupt right of her; finishing spin; shallow skate stop; original idle. Real leg/skate and arm changes, no huge opaque ice in front of face. Ice blue white with restrained indigo shadows.",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-633c1f8d-34cd-431b-bc60-42e392c19d8f.png",
+  "raw_filename": "generated-sheet.png",
+  "reference_paths": [
+    "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-b138ba70-f86e-4c43-9001-4dd6ea33019d.png"
+  ],
+  "reference_roles": [
+    "Fresh2-head atlas single edit target: containment and bold pixel correction only."
+  ],
+  "official_reference_sources": [
+    {
+      "url": "https://drive.google.com/uc?export=download&id=19JanZrpuH_vVlLsF5ZlQDT9s4ifyuTzB",
+      "title": "Official Eternal Return default full-body fan-kit illustration"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: 엘레나 죽음의 무도"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=19JanZrpuH_vVlLsF5ZlQDT9s4ifyuTzB",
+      "title": "원작 기본 전신 원화 · 공식 자료"
+    }
+  ],
+  "motion_summary": "얼음 위에서 준비→작은 글라이드→한 발 회전→검으로 지정→얼음장 전개와 유지→잔해 후 준비로 복귀합니다.",
   "frame_labels": [
-    "스케이트 준비",
-    "무릎 굽히기",
-    "호를 그리며 활주",
-    "팔 벌리기",
-    "회전",
-    "무도 자세",
-    "빙결 지목",
-    "얼음 지대 형성",
-    "중심 얼음 솟기",
-    "마무리 회전",
-    "활주 멈추기",
-    "준비 복귀"
-  ]
+    "스케이트와 검 준비",
+    "무릎 굽혀 지지",
+    "작은 지상 글라이드",
+    "검과 자유팔 펼치기",
+    "한 발 지지 회전",
+    "자유발 들고 균형",
+    "검으로 얼음장 지정",
+    "작은 얼음장 전개",
+    "얼음장 유지하며 검 들기",
+    "얼음장 유지하며 무릎 굽히기",
+    "얼음장 유지하며 복귀",
+    "작은 얼음잔해와 준비"
+  ],
+  "intended_airborne_frames": [],
+  "ground_alignment": "per-frame",
+  "preview_revision": "chibi2-20261014",
+  "design_intent": {
+    "heads_tall": 2,
+    "head_fraction": 0.5,
+    "body_fraction": 0.5,
+    "pixel_cluster_screen_px": [
+      4,
+      6
+    ],
+    "hair_shading_planes": [
+      3,
+      4
+    ],
+    "standing_body_target_px": [
+      180,
+      210
+    ],
+    "baseline_local_y": 310
+  },
+  "normalization_required": false,
+  "frame_layout": "fixed-grid",
+  "frame_gutter": 24,
+  "visual_review": "직접 검토: 머리는 몸의 약절반, 청안/중립 입·얼음색 양갈래·눈꽃·하늘색 전체 타이츠와 칼날 스케이트를 유지했습니다. 준비/글라이드/한 발 회전/검지정/얼음장 동작이 보이고 8~11에 얼음장이 지속됩니다. 12는 줄어든 얼음조각이 남습니다. 본체/효과를 줄여 셀 사이 여백을 확보했습니다. 일부 검/장식 미세 픽셀이 남고 9프레임 검이 얼굴 일부를 잠깐 가립니다. root 경계/발 정렬 검사 대기.",
+  "generation_history": [
+    {
+      "prompt": "Create a BRAND-NEW character-specific ultimate animation sheet. Exactly12 sequential frames,4columns×3rows, transparent RGBA. References: 1 is the APPROVED LARGE-PIXEL TWO-HEAD STYLE MASTER, use its coarse block rendering and head/body ratio only. 2 is original Nia's362px animation frame, controlling pixel-to-canvas scale/readability only. 3 is authentic original full-body character illustration, IDENTITY/CLOTHES/PROP/FACE only. DO NOT render the fine detail or adult proportions of ref3. Do NOT copy Bihyung or Nia's face/hair/clothes/weapon.\n\nTRUE TWO-HEAD CHIBI: head including hair crown-to-chin is HALF the standing crown-to-sole body height; the compact torso+short legs together are the other half. Body~180-210px high in a360px cell, head~90-105px. Same skull size, torso/limb lengths and camera/scale across12 frames. Knees/torso may bend but never stretch into2.5/3heads. Every planted sole lies at the SAME per-cell ground baseline, no invented jump or hover. Raised freefoot okay only if other foot remains planted.\n\nMUCH BIGGER PIXELS: looks like a tiny60-72logical-pixel cell magnified5× with HARD square nearest-neighbor blocks. Minimum visible logical strokes/outline clusters~4-6physicalpixels in a360px cell. Use BOLD connected dark stepped outlines and visibly square chunky edges. No1px fine linework, hair strands, cloth stitch grain, gradients, soft glow noise, smooth anime rendering. Simplify official microdetails into SINGLE LARGE PIXEL blocks. Hair only3-4 distinct BIG angular shadow/mid/light masses and connected highlights, as reference1. Eye-white/colorediris/darkupperlid and mouth need clear separate LARGE readable pixel clusters, not glossy generic animeeyes. Keep each original face expression.\n\nSmall figures with VERY WIDE EMPTY GUTTERS. In every~360×360 cell ALL body/weapon/props/effects together fit inside a~250×250px box, at least40-50px fully transparent on top,bottom,left,right. Effects and weapons never cross a cell boundary or sheet outside. Transparent alpha truly empty outside scene, no fog/noise speckles. No background/grid/labels/text/numbers/checkerboard. No image-to-image repaint of an old atlas; draw all12 new physical poses.\n\nELENA officialidentityONLY: long paleICEBLUE twin tails, silver angular icecrown ornaments, coolCYAN/TURQUOISE open eyes with her own composed slightlycool lids, tinyneutralmouth (notangrygrin/notNiahalfeyes). Blue layered skatingdress/paleblueruffles, LARGE snowflakechestbrooch. OPAQUE PALE ICE-BLUE FULL TIGHTS down legs, SILVER/WHITE BLADED ICE SKATES (notbareknees,notordinaryblueboots). Thin silverblueRAPIER withsnowflakeguard. Simplify allruffles/jewelpatterns intolargecoarsepixel shapes.\n\nKeep cartoonTWOHEADS body: largeheadhalfheight, compacttinybody/legsotherhalf, approximately200pxhumantall ineachcell. Make hair1solidbroadshadowmass+midplane+2joinedhighlightplanes, notfinehairstrands. Eachiris only2logicalcoloredpixelblocks, distinct white/darklid, shortcalmmouth.\n\nR=skatingpreparation→glidingturn→designatedicearea→persistenticefield.12distinctnewposes:1 rapierdown/onefootready;2 kneebendandskatesbrace;3 smallgroundedglideto side withtorsolean;4 armextendsrapieroutandfreearmbalances;5 turn/spinwithoneplantedskate, veryshortbluearc;6 freefootraisedbehindwithothersupporting;7 rapierpointdownandicebeginsbeneathblade;8 groundedstancespreadwithCOMPACTicefield;9 liftbladeoverforearmwhilefieldremains;10 bendkneeswithfieldstillthere;11 straightenandlowerfreehand,fieldstillvisible;12 readyagainwithonlysmallremainingiceshards. FIELDclearlyvisibleframes8,9,10,11; nofacecoveringglacier. NOairbornejump, eachframehasgroundedskateatconstantbaseline. Effects/body/sword/hair allwithin250pxscene; icearcsandlonghairshortenvisuallyasneededtoleave50pxfullyemptygutters, notwide acrosscell.",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-b138ba70-f86e-4c43-9001-4dd6ea33019d.png",
+      "reference_paths": [
+        "C:/Users/azxar/BlackTheSurvival/Temp/Chibi2Redraw/style/bihyung-master.png",
+        "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+        "C:/Users/azxar/BlackTheSurvival/Temp/Chibi3Redraw/references/elena-official-full.png"
+      ]
+    },
+    {
+      "prompt": "Edit this NEW2-head12-frame atlas only. Keep the exact character identity, original outfit, individual eye shape/mouth, all12 physical motions and compact HEAD=HALF body ratio. Do not import Bihyung/Nia identity. Make complete actor/props/effects about70% current linear size and center each scene inside its owncell with45-50px FULLY EMPTY TRANSPARENT gutters on all4sides. Supporting feet stay on a fixedper-cell floorline, same body/limb/skullsizeall12. Do not addjump/hover.\n\nKeep pixel blocks BIG as figurebecomessmaller: drawbodyabout40-44logicalpixels high magnified5×, head20-22logicalpixels high. BOLD4-6screenpxhard-squareclusters, connected stepped dark outlines, no1px hairstrands/clothgrain/fineembroidery/glowfog. Hair3-4BIGangularshadow/mid/lightplanesandjoinedblocks. Readablewhiteeye/colorediris/darklidandmouthpixel. Entireprops/effectsscene<=250pxwide/high; no neighboringcell intrusion or outside clipping. Transparentalpha,4columns3rows12poses, nogrid/text/scenery.\nElena: maintain original cool cyan eyes/calm smallmouth, longicebluehair/silvericeornaments/snowflakebrooch/BLUEskatingdress. ShewearsOPAQUEPALEICEBLUEtightsandSILVER-WHITEskatebootswithVISIBLEMETALBLADES, notordinarynavyboots; simplify skates into silverwhiteblocks+darkblade. The sword in frame4 must SHORTEN tofitclear45pxrightpadding. COMPACTICEFIELDpresentframes8,9,10,11only andreduceicewidthby35% inallthese; frame12 MUSTreturnidlewithonly2-3smallshards/NOcompleteicefield. Iceeffectsnevercoverfaceand NEVERreachneighbor/outeredge. Allposesgrounded, singlefreelegmayraisebutone skatealwayssupports.",
+      "generated_path": "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-633c1f8d-34cd-431b-bc60-42e392c19d8f.png",
+      "generated_source_sha256": "0f7d0432806b63e196e71202d6841c310bb4b2807aa85d30345cde1d9e89e226",
+      "reference_paths": [
+        "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-b138ba70-f86e-4c43-9001-4dd6ea33019d.png"
+      ],
+      "reference_sha256": {
+        "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-b138ba70-f86e-4c43-9001-4dd6ea33019d.png": "1cfbd09eac76002e329eeec70897cee94ea53856e561dfbc3b80ff1590be35bf"
+      }
+    }
+  ],
+  "width": 1932,
+  "height": 1449,
+  "generated_sheet_sha256": "0f7d0432806b63e196e71202d6841c310bb4b2807aa85d30345cde1d9e89e226",
+  "source_sheet_sha256": "0f7d0432806b63e196e71202d6841c310bb4b2807aa85d30345cde1d9e89e226",
+  "generated_source_sha256": "0f7d0432806b63e196e71202d6841c310bb4b2807aa85d30345cde1d9e89e226",
+  "reference_sha256": [
+    "1cfbd09eac76002e329eeec70897cee94ea53856e561dfbc3b80ff1590be35bf"
+  ],
+  "prompt_sha256": "723cf0accd840e33978bb546feb4aeb9ff20e7d79ae3666680f2ec5bf9f480e5",
+  "raw_outer_edge_opaque_counts": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "candidate_status": "selected; artwork and ground review passed; game not integrated",
+  "official_reference_paths": [
+    "Temp/Chibi3Redraw/references/elena-official-full.png"
+  ],
+  "official_reference_sha256": "a943569c176c0a53e10384bfa72f6f74fcca1e53aab4bff9021ee0d0ac6f1c6f",
+  "atlas_sha256": "09c60bce7177f183b937f37e883379ed130514a0df58c86486afbd24ce92ff59",
+  "generated_source_file": "generated-sheet.png",
+  "normalization": "normalization.json",
+  "tool_input_paths_at_generation": [
+    "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-b138ba70-f86e-4c43-9001-4dd6ea33019d.png"
+  ],
+  "target_head_body_ratio": 2,
+  "game_integrated": false,
+  "style_references": [
+    {
+      "path": "ArtSource/AnimationPrototypes/Style/chibi2-reference.png",
+      "role": "two-head large-pixel drawing style",
+      "sha256": "1791664646896afe4d7a33a208c2e301b2daa2c978ca1c43e57fb043431b10c6"
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+      "role": "original native362px Nia pixel-to-image ratio",
+      "sha256": "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61"
+    }
+  ],
+  "official_reference_file": "official-reference.png",
+  "official_reference_source": "https://drive.google.com/uc?export=download&id=19JanZrpuH_vVlLsF5ZlQDT9s4ifyuTzB",
+  "historical_edit_inputs_not_redistributed": true
 }

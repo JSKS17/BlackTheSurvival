@@ -198,5 +198,18 @@
       "mode": "RGB",
       "opaque": true
     }
-  ]
+  ],
+  "historical_storage_cleanup": {
+    "date": "2026-10-14",
+    "notice": "2026-10-14 저장공간 정리로 사용하지 않는 이전 합성본 PNG·meta를 제거했습니다. 현재 배경·캐릭터 레이어와 과거 검증 PNG·로그는 유지했습니다.",
+    "removed_unused_archive": "ArtSource/Story/v0.1.25/",
+    "original_input_and_output_paths_are_historical": true,
+    "recoverable_git_commit": "41ab261d3e12c6d8079292a03b73000750afcc53",
+    "current_runtime_assets": {
+      "story_backgrounds": "Assets/Resources/Lumia/Story/Backgrounds/",
+      "story_characters": "Assets/Resources/Lumia/Story/Characters/",
+      "lobby_background": "Assets/Resources/Lumia/Lobby/Background.png",
+      "lobby_character": "Assets/Resources/Lumia/Lobby/Nia.png"
+    }
+  }
 }

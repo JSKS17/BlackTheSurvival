@@ -1,0 +1,5170 @@
+{
+  "review_kind": "Read-only exact-source partition/RGBA preservation plus approximate visual grounding review",
+  "target_heads": 2,
+  "source_hash_specific": true,
+  "scope": "No source, manifest, normalized atlas or code modified. Only this QA JSON is written. No claim of uniform64-logical-pixel art.",
+  "subjects": {
+    "bihyung": {
+      "source_sha256": "f06baaf98f017b3ba572e1bcdf8393c1d8f420e7feb4c9e7a0de93438c7c8501",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "visual_qa": {
+        "essential_foot_anchors": {
+          "2": [
+            895,
+            353
+          ],
+          "3": [
+            1290,
+            361
+          ],
+          "4": [
+            290,
+            715
+          ],
+          "5": [
+            458,
+            718
+          ],
+          "6": [
+            898,
+            709
+          ],
+          "7": [
+            1165,
+            711
+          ],
+          "8": [
+            115,
+            1033
+          ]
+        },
+        "suggested_airborne_lift": {
+          "2": 35,
+          "3": 60,
+          "4": 50,
+          "5": 35,
+          "6": 15
+        },
+        "foot_issues": [
+          {
+            "index": 6,
+            "heuristic_y": 719,
+            "actual_y": 709,
+            "cause": "hammer below boot"
+          },
+          {
+            "index": 7,
+            "heuristic_y": 727,
+            "actual_y": 711,
+            "cause": "impact FX below boot"
+          },
+          {
+            "index": 8,
+            "heuristic_y": 1066,
+            "actual_y": 1033,
+            "cause": "impact FX below boot"
+          }
+        ],
+        "visual": "Standing form is visually close to the requested 2-head chibi proportions. Larger hair planes and broad pixel clusters are clearer than earlier versions. Intentional giant/airborne poses are excluded from standing size comparison. Swing and impact progress without a mirrored frame; hammer/horns remain recognisable. Raw airborne feet stay close to the old floor and benefit from explicit lift. These lift suggestions apply only to this source hash, not earlier 2.5-head art."
+      },
+      "source_bytes_unchanged": true,
+      "recommended_anchor_pixels": {
+        "2": {
+          "point": [
+            895,
+            353
+          ],
+          "rgba": [
+            7,
+            3,
+            4,
+            237
+          ]
+        },
+        "3": {
+          "point": [
+            1290,
+            361
+          ],
+          "rgba": [
+            10,
+            5,
+            6,
+            203
+          ]
+        },
+        "4": {
+          "point": [
+            290,
+            715
+          ],
+          "rgba": [
+            8,
+            5,
+            7,
+            237
+          ]
+        },
+        "5": {
+          "point": [
+            458,
+            718
+          ],
+          "rgba": [
+            13,
+            3,
+            8,
+            204
+          ]
+        },
+        "6": {
+          "point": [
+            898,
+            709
+          ],
+          "rgba": [
+            11,
+            3,
+            5,
+            223
+          ]
+        },
+        "7": {
+          "point": [
+            1165,
+            711
+          ],
+          "rgba": [
+            0,
+            0,
+            0,
+            251
+          ]
+        },
+        "8": {
+          "point": [
+            115,
+            1033
+          ],
+          "rgba": [
+            0,
+            0,
+            0,
+            252
+          ]
+        }
+      },
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          362,
+          365
+        ],
+        [
+          362,
+          0,
+          725,
+          365
+        ],
+        [
+          725,
+          0,
+          1086,
+          365
+        ],
+        [
+          1086,
+          0,
+          1448,
+          365
+        ],
+        [
+          0,
+          365,
+          362,
+          731
+        ],
+        [
+          362,
+          365,
+          724,
+          731
+        ],
+        [
+          724,
+          365,
+          1086,
+          731
+        ],
+        [
+          1086,
+          365,
+          1448,
+          731
+        ],
+        [
+          0,
+          731,
+          362,
+          1086
+        ],
+        [
+          362,
+          731,
+          724,
+          1086
+        ],
+        [
+          724,
+          731,
+          1086,
+          1086
+        ],
+        [
+          1086,
+          731,
+          1448,
+          1086
+        ]
+      ],
+      "rows": [
+        0,
+        365,
+        731,
+        1086
+      ],
+      "columns": [
+        [
+          0,
+          362,
+          725,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 365,
+          "band": [
+            0,
+            364,
+            1448,
+            366
+          ],
+          "alpha_nonzero": 385,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 731,
+          "band": [
+            0,
+            730,
+            1448,
+            732
+          ],
+          "alpha_nonzero": 743,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            0,
+            363,
+            365
+          ],
+          "alpha_nonzero": 4,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 725,
+          "band": [
+            724,
+            0,
+            726,
+            365
+          ],
+          "alpha_nonzero": 58,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            0,
+            1087,
+            365
+          ],
+          "alpha_nonzero": 10,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            365,
+            363,
+            731
+          ],
+          "alpha_nonzero": 17,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            365,
+            725,
+            731
+          ],
+          "alpha_nonzero": 10,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            365,
+            1087,
+            731
+          ],
+          "alpha_nonzero": 8,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            731,
+            363,
+            1086
+          ],
+          "alpha_nonzero": 277,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            731,
+            725,
+            1086
+          ],
+          "alpha_nonzero": 23,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            731,
+            1087,
+            1086
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "714a9c4c5166503f3cb23d479617e8042a974d680ab1754728db5b502a1ca3db"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "c4ea7ae9254a5546943a713d7befe7db879cd45643e6a2934d1366f28aa7ba09"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "022e4ecf270cf274e423367adbb965248536e1fd82a3c7d7121f3930db61f23c"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "6c93651819ddad8d268de592847aa1dc6c2f67711f7e575b0bded8b1e48f2d97"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "05ac940b08719f4921a7cc7246fd307eb12507348acf697c50f0b27a3d3bcf88"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "662088ea556eaa0ac35ef0263b8298cf08ba6960f092daef0fe1f04c343e3ad8"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "d0d78ec70582433ed24273ad0a6735fde0a9ee95a5db0a2f2bd075ab2f5ffabd"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "94467f34f59c7aaf8d05d088c0279b18bf9cbdf56cd0fa7d482fcbf35b2e2ed1"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "da6bb5c0eb8b75f23145c88a4dba2d31069627ee9bfbbbde05d1da2b5e1c1e94"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "bac84664cc7375b18e82ddd6c1b7240d134fd8f85575c23bfbbe18fad20927c2"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "812d9851ec48a2f15b3fdfec2ece796bb16fa566f3dbcf8d0661051cd6020f3b"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "3d61a13d8ba3b787924ed0f6367984cf72065cf7917f92c3bddb21a97b7700e9"
+        }
+      ],
+      "normalized_atlas_sha256": "cd5068b2bb7267392e25c4a19663bcbe2578b33a55230a6bd336a4cd5eb4735a",
+      "normalization_grounded_output_y": {
+        "0": 445,
+        "1": 445,
+        "7": 445,
+        "8": 445,
+        "9": 445,
+        "10": 445,
+        "11": 445
+      },
+      "normalization_sha256": "05ac4437dafde8e4c7817145055a6e1f484cfba886f3204c201584f40d0358c1",
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "airborne_lift_proof": {
+        "2": {
+          "requested_lift": 35,
+          "source_nominal_foot_y": 353,
+          "translation_y": -31,
+          "target_nominal_foot_y": 322,
+          "applied_nominal_foot_y": 322,
+          "normalized_cell_foot_y": 410,
+          "normalized_ground_reference_y": 445
+        },
+        "3": {
+          "requested_lift": 60,
+          "source_nominal_foot_y": 361,
+          "translation_y": -64,
+          "target_nominal_foot_y": 297,
+          "applied_nominal_foot_y": 297,
+          "normalized_cell_foot_y": 385,
+          "normalized_ground_reference_y": 445
+        },
+        "4": {
+          "requested_lift": 50,
+          "source_nominal_foot_y": 353,
+          "translation_y": -46,
+          "target_nominal_foot_y": 307,
+          "applied_nominal_foot_y": 307,
+          "normalized_cell_foot_y": 395,
+          "normalized_ground_reference_y": 445
+        },
+        "5": {
+          "requested_lift": 35,
+          "source_nominal_foot_y": 356,
+          "translation_y": -34,
+          "target_nominal_foot_y": 322,
+          "applied_nominal_foot_y": 322,
+          "normalized_cell_foot_y": 410,
+          "normalized_ground_reference_y": 445
+        },
+        "6": {
+          "requested_lift": 15,
+          "source_nominal_foot_y": 347,
+          "translation_y": -5,
+          "target_nominal_foot_y": 342,
+          "applied_nominal_foot_y": 342,
+          "normalized_cell_foot_y": 430,
+          "normalized_ground_reference_y": 445
+        }
+      },
+      "recommended_anchors_present_in_manifest": true
+    },
+    "aya": {
+      "source_sha256": "b573a2a53dcbfa912e96dc8adc65d16a0e1226ea6336d5790c30eb608483d12e",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "visual_qa": {
+        "essential_foot_anchors": {},
+        "foot_issues": [],
+        "visual": "Large head and short body are near the current chibi target; not an exact numerical 2-head certificate. Head/limb scale appears consistent while the rifle rises and recoils. Boot baselines match heuristic readings; all poses remain grounded. Broad brown hair shading planes are present. No mandatory manual foot anchor found."
+      },
+      "source_bytes_unchanged": true,
+      "recommended_anchor_pixels": {},
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          362,
+          356
+        ],
+        [
+          362,
+          0,
+          724,
+          356
+        ],
+        [
+          724,
+          0,
+          1086,
+          356
+        ],
+        [
+          1086,
+          0,
+          1448,
+          356
+        ],
+        [
+          0,
+          356,
+          362,
+          724
+        ],
+        [
+          362,
+          356,
+          724,
+          724
+        ],
+        [
+          724,
+          356,
+          1086,
+          724
+        ],
+        [
+          1086,
+          356,
+          1448,
+          724
+        ],
+        [
+          0,
+          724,
+          362,
+          1086
+        ],
+        [
+          362,
+          724,
+          724,
+          1086
+        ],
+        [
+          724,
+          724,
+          1086,
+          1086
+        ],
+        [
+          1086,
+          724,
+          1448,
+          1086
+        ]
+      ],
+      "rows": [
+        0,
+        356,
+        724,
+        1086
+      ],
+      "columns": [
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 356,
+          "band": [
+            0,
+            355,
+            1448,
+            357
+          ],
+          "alpha_nonzero": 1255,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 724,
+          "band": [
+            0,
+            723,
+            1448,
+            725
+          ],
+          "alpha_nonzero": 875,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            0,
+            363,
+            356
+          ],
+          "alpha_nonzero": 71,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            0,
+            725,
+            356
+          ],
+          "alpha_nonzero": 58,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            0,
+            1087,
+            356
+          ],
+          "alpha_nonzero": 50,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            356,
+            363,
+            724
+          ],
+          "alpha_nonzero": 154,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            356,
+            725,
+            724
+          ],
+          "alpha_nonzero": 186,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            356,
+            1087,
+            724
+          ],
+          "alpha_nonzero": 258,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            724,
+            363,
+            1086
+          ],
+          "alpha_nonzero": 247,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            724,
+            725,
+            1086
+          ],
+          "alpha_nonzero": 26,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            724,
+            1087,
+            1086
+          ],
+          "alpha_nonzero": 37,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "f6f8ba58f01ab57b6f0bdee67f7d154b60dcf407688a862c642834656a2eab78"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "c4ce4ee33eb125910195b4ab6bfe5c335e0bb214597a62c1731b008189c3830b"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "7c1c5a4c80e070ca6240fa4251f7f15077660fdd16526f9db12dcf52ee9bdc37"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "95444f0452154fa465693c72984799d456b1e9ece35a80dee78350885fb8dfba"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "ff8f5332c40dca1b8576e4c0b2b08c0b9021c54d3d1044683000b72aa00d1706"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "bbc7c63de01a5d1eafb18f0f62be4b1b9a5af4b5ab8942a599120223f0f5d4c3"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "3635c4b6f7b6391a9f53ac65177023fe943908b36ba5a25bdd4427b324c28fb8"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "dd8fe0ebf3690ce96806b2317317504d406422c6f0942b38edd29afbc2ed1795"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "97958f586fecfb78a652c5f32ec0a63bcaf03fa82f899c67669e9e0777432c92"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "a75748a83ff8daa297b99026a54bea32d53ef1bdf793ce7c7d29150f39b5acc9"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "3be6bff1aeec1d471358eb010f1fd65bd454f3664dbc3403f22b47e64b3964a3"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "026d6c76d5909f324fc2234dbda02e182521c7303229d5ee27888b5c90b72f27"
+        }
+      ],
+      "normalized_atlas_sha256": "9f905f2eef33a6756f8bc0d21a09460e5e4324c5ece4a3f44023e6c6aef4d731",
+      "normalization_grounded_output_y": {
+        "0": 381,
+        "1": 381,
+        "2": 381,
+        "3": 381,
+        "4": 381,
+        "5": 381,
+        "6": 381,
+        "7": 381,
+        "8": 381,
+        "9": 381,
+        "10": 381,
+        "11": 381
+      },
+      "normalization_sha256": "67dfe20adb37486a084ad441bedeb6559000a3cb5ccfa180e3a056f2cf466548",
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "airborne_lift_proof": {},
+      "recommended_anchors_present_in_manifest": true
+    },
+    "garnet": {
+      "source_sha256": "d4d6c4544450a2162762c609c7aca4c14545b90a476fece27b25f403c33009d0",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "visual_qa": {
+        "essential_foot_anchors": {},
+        "foot_issues": [],
+        "visual": "Large head/short body silhouette is near 2 heads. Boot heels are the heuristic low silhouette on visible-actor frames; coffin-only frames7,8 are correctly excluded. Hair has distinct pale highlight, lavender middle, grey shadow and dark outline. No mandatory manual foot anchor found; this check does not assess original weapon identity."
+      },
+      "source_bytes_unchanged": true,
+      "recommended_anchor_pixels": {},
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          362,
+          362
+        ],
+        [
+          362,
+          0,
+          711,
+          362
+        ],
+        [
+          711,
+          0,
+          1100,
+          362
+        ],
+        [
+          1100,
+          0,
+          1448,
+          362
+        ],
+        [
+          0,
+          362,
+          363,
+          700
+        ],
+        [
+          363,
+          362,
+          724,
+          700
+        ],
+        [
+          724,
+          362,
+          1086,
+          700
+        ],
+        [
+          1086,
+          362,
+          1448,
+          700
+        ],
+        [
+          0,
+          700,
+          361,
+          1086
+        ],
+        [
+          361,
+          700,
+          724,
+          1086
+        ],
+        [
+          724,
+          700,
+          1086,
+          1086
+        ],
+        [
+          1086,
+          700,
+          1448,
+          1086
+        ]
+      ],
+      "rows": [
+        0,
+        362,
+        700,
+        1086
+      ],
+      "columns": [
+        [
+          0,
+          362,
+          711,
+          1100,
+          1448
+        ],
+        [
+          0,
+          363,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          361,
+          724,
+          1086,
+          1448
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 362,
+          "band": [
+            0,
+            361,
+            1448,
+            363
+          ],
+          "alpha_nonzero": 438,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 700,
+          "band": [
+            0,
+            699,
+            1448,
+            701
+          ],
+          "alpha_nonzero": 440,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            0,
+            363,
+            362
+          ],
+          "alpha_nonzero": 20,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 711,
+          "band": [
+            710,
+            0,
+            712,
+            362
+          ],
+          "alpha_nonzero": 152,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1100,
+          "band": [
+            1099,
+            0,
+            1101,
+            362
+          ],
+          "alpha_nonzero": 94,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 363,
+          "band": [
+            362,
+            362,
+            364,
+            700
+          ],
+          "alpha_nonzero": 106,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            362,
+            725,
+            700
+          ],
+          "alpha_nonzero": 80,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            362,
+            1087,
+            700
+          ],
+          "alpha_nonzero": 16,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 361,
+          "band": [
+            360,
+            700,
+            362,
+            1086
+          ],
+          "alpha_nonzero": 85,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            700,
+            725,
+            1086
+          ],
+          "alpha_nonzero": 147,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            700,
+            1087,
+            1086
+          ],
+          "alpha_nonzero": 25,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "23d9d7b375e73f054352f63936966b1d38188b98b21782403f0e330f3fec0084"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "f608b5dc3b567612538216a601265ab8f5007d45141852eb503a5230451a7b78"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "af5d01f7c3bf94fb374275ab7a371b5b6b502b1faf4880796e4236e423e07ad2"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "e25e1a7165216b402c124dbb23487dd5f9667e33ebf0ec1a382f4548e2413e61"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "5a5a7b69b39d4764bac1c96d0ea685a2a6f0a1328187210ead302f080e5a7300"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "bc967b63fe6c1169cdfb950e382d36bef9c2c4cad8d939af37c40a604b3f7810"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "c136fca9efd494262a72ff37718cad2918962da02d4687446ad57beb0fe3f99f"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "708b9e78aef2dba393005468597b58f031b0505b1c6a7a104c26e9b06f77bbe4"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "b37da2fd0e1fbd319015207776117158e1b71eda81268b9e3698d1e2775ca69a"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "89bee1c092fcbc2dd9e7a3c5bd1121e52752f9bad2cc63bb053cdab836cc70b0"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "76e266a1f9710dc20ec8bd096068d92ff9eb3e02bedb7f936dacf2e915b87fa9"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "a121ca2a402fa70dc030eb9477b0f425114af887b198978938110d0cfe77ba10"
+        }
+      ],
+      "normalized_atlas_sha256": "6dacef5247a2a6582e288c36b0861bd593e4e38d52816c6ce0f08d11eb559312",
+      "normalization_grounded_output_y": {
+        "0": 380,
+        "1": 380,
+        "2": 380,
+        "3": 380,
+        "4": 380,
+        "5": 380,
+        "6": 380,
+        "9": 380,
+        "10": 380,
+        "11": 380
+      },
+      "normalization_sha256": "ec52c2993793a83dcf2577454585713f27701be928246f14408d4ab56bc6cea7",
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "airborne_lift_proof": {},
+      "recommended_anchors_present_in_manifest": true
+    },
+    "isol": {
+      "source_sha256": "d19f9543c93a1f6d7390766e61fc44d5b0ebb2fa31067fc3020912933e92a06f",
+      "source_size": [
+        1447,
+        1087
+      ],
+      "visual_qa": {
+        "essential_foot_anchors": {
+          "4": [
+            200,
+            691
+          ],
+          "5": [
+            470,
+            690
+          ],
+          "6": [
+            825,
+            690
+          ],
+          "7": [
+            1195,
+            690
+          ]
+        },
+        "foot_issues": [
+          {
+            "index": 4,
+            "heuristic_y": 695,
+            "actual_y": 691,
+            "cause": "placed mine below the body boots"
+          },
+          {
+            "index": 5,
+            "heuristic_y": 695,
+            "actual_y": 690,
+            "cause": "placed mine below the body boots"
+          },
+          {
+            "index": 6,
+            "heuristic_y": 696,
+            "actual_y": 690,
+            "cause": "placed mine below the body boots"
+          },
+          {
+            "index": 7,
+            "heuristic_y": 695,
+            "actual_y": 690,
+            "cause": "placed mine below the body boots"
+          }
+        ],
+        "visual": "Head/body is near2-head chibi; brown hair planes and clear face remain readable. Facing, shovel/launcher and bomb placement are consistent. Kneeling does not change body scale. All poses are grounded; manual anchors on planted-mine frames prevent 4-6px foot drift."
+      },
+      "source_bytes_unchanged": true,
+      "recommended_anchor_pixels": {
+        "4": {
+          "point": [
+            200,
+            691
+          ],
+          "rgba": [
+            19,
+            13,
+            8,
+            172
+          ]
+        },
+        "5": {
+          "point": [
+            470,
+            690
+          ],
+          "rgba": [
+            4,
+            3,
+            3,
+            254
+          ]
+        },
+        "6": {
+          "point": [
+            825,
+            690
+          ],
+          "rgba": [
+            3,
+            3,
+            1,
+            251
+          ]
+        },
+        "7": {
+          "point": [
+            1195,
+            690
+          ],
+          "rgba": [
+            2,
+            3,
+            2,
+            243
+          ]
+        }
+      },
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          362,
+          362
+        ],
+        [
+          362,
+          0,
+          724,
+          362
+        ],
+        [
+          724,
+          0,
+          1085,
+          362
+        ],
+        [
+          1085,
+          0,
+          1447,
+          362
+        ],
+        [
+          0,
+          362,
+          362,
+          725
+        ],
+        [
+          362,
+          362,
+          724,
+          725
+        ],
+        [
+          724,
+          362,
+          1085,
+          725
+        ],
+        [
+          1085,
+          362,
+          1447,
+          725
+        ],
+        [
+          0,
+          725,
+          366,
+          1087
+        ],
+        [
+          366,
+          725,
+          724,
+          1087
+        ],
+        [
+          724,
+          725,
+          1085,
+          1087
+        ],
+        [
+          1085,
+          725,
+          1447,
+          1087
+        ]
+      ],
+      "rows": [
+        0,
+        362,
+        725,
+        1087
+      ],
+      "columns": [
+        [
+          0,
+          362,
+          724,
+          1085,
+          1447
+        ],
+        [
+          0,
+          362,
+          724,
+          1085,
+          1447
+        ],
+        [
+          0,
+          366,
+          724,
+          1085,
+          1447
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 362,
+          "band": [
+            0,
+            361,
+            1447,
+            363
+          ],
+          "alpha_nonzero": 92,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 725,
+          "band": [
+            0,
+            724,
+            1447,
+            726
+          ],
+          "alpha_nonzero": 76,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            0,
+            363,
+            362
+          ],
+          "alpha_nonzero": 22,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            0,
+            725,
+            362
+          ],
+          "alpha_nonzero": 37,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1085,
+          "band": [
+            1084,
+            0,
+            1086,
+            362
+          ],
+          "alpha_nonzero": 53,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            362,
+            363,
+            725
+          ],
+          "alpha_nonzero": 28,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            362,
+            725,
+            725
+          ],
+          "alpha_nonzero": 33,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1085,
+          "band": [
+            1084,
+            362,
+            1086,
+            725
+          ],
+          "alpha_nonzero": 20,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 366,
+          "band": [
+            365,
+            725,
+            367,
+            1087
+          ],
+          "alpha_nonzero": 121,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            725,
+            725,
+            1087
+          ],
+          "alpha_nonzero": 57,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1085,
+          "band": [
+            1084,
+            725,
+            1086,
+            1087
+          ],
+          "alpha_nonzero": 24,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "61cb2321e883a7b8fe782d770419230207a4125316f1b90adeb8a19db657c279"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "377dac1f8074561fd9db9a1a68f6d9d0407d78999eaafe2b13fb075c49eaec8e"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "f51936905a1623502bc52cbf7b9dfb75c16fdd68175c7fa8c323206255b6265b"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "32b17cf085666d37991166928bd73790669da9ca040a84b7456b00c8f66be2fd"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "f40ed06c9a7b82940ede5e935f864fe96a68d7630e01d3081ff0fbad3390ef24"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "294b396519024ca47ceff8234d71b4bb06648ef48a78dc53ce9d751dd723606d"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "4c6a304cef55a128be8eafbad49949ca7dcac3a73dca051f7e0a348a7892a5a4"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "9d02bba5190b91482a083cc20da69ef8978abb3280b6eca00b9cc77eb29edbdb"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "e7fb36f31380f63b02a1183d551a6b6929917ddb527b87838c65cb8ce43eaf7e"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "c79eedb93d9303146bc3b6ee08b227ffaf283b97bf90b13534cf19101f7380b9"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "aa98a34602b3468d3627fdb83edd675a1f99a1ac6c9c8eeaf6a5ac52060e9b17"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "341e4ba2b0380004b742fd52ab187d8b639e78130128832fbc62ab60e3892485"
+        }
+      ],
+      "normalized_atlas_sha256": "3e93b599c37be0de05ba6e1610be92614af35a4b5dcb862a051ff93a2b779ee8",
+      "normalization_grounded_output_y": {
+        "0": 378,
+        "1": 378,
+        "2": 378,
+        "3": 378,
+        "4": 378,
+        "5": 378,
+        "6": 378,
+        "7": 378,
+        "8": 378,
+        "9": 378,
+        "10": 378,
+        "11": 378
+      },
+      "normalization_sha256": "9cb9accba5c7450ab44d9fb809ef3451e04c1677fc1d520f7210ce6c26ed46c2",
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "airborne_lift_proof": {},
+      "recommended_anchors_present_in_manifest": true
+    },
+    "nadine": {
+      "source_sha256": "2437d16ae28a9f667cdd83b0e028045c7702d11785849402534ab6a525eb3431",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "visual_qa": {
+        "essential_foot_anchors": {},
+        "foot_issues": [],
+        "visual": "Reviewed corrected source2437d16a. Compact arrows/wolves now fit separate frames and shared partition passes. Supporting boots are as low as or lower than wolf paws; no mandatory foot anchor found. Hood/head and short body are near2-head chibi, with consistent posture/scale. Earlier partition failure applies only to the replaced source."
+      },
+      "source_bytes_unchanged": true,
+      "recommended_anchor_pixels": {},
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          362,
+          369
+        ],
+        [
+          362,
+          0,
+          724,
+          369
+        ],
+        [
+          724,
+          0,
+          1104,
+          369
+        ],
+        [
+          1104,
+          0,
+          1448,
+          369
+        ],
+        [
+          0,
+          369,
+          382,
+          724
+        ],
+        [
+          382,
+          369,
+          724,
+          724
+        ],
+        [
+          724,
+          369,
+          1097,
+          724
+        ],
+        [
+          1097,
+          369,
+          1448,
+          724
+        ],
+        [
+          0,
+          724,
+          362,
+          1086
+        ],
+        [
+          362,
+          724,
+          732,
+          1086
+        ],
+        [
+          732,
+          724,
+          1086,
+          1086
+        ],
+        [
+          1086,
+          724,
+          1448,
+          1086
+        ]
+      ],
+      "rows": [
+        0,
+        369,
+        724,
+        1086
+      ],
+      "columns": [
+        [
+          0,
+          362,
+          724,
+          1104,
+          1448
+        ],
+        [
+          0,
+          382,
+          724,
+          1097,
+          1448
+        ],
+        [
+          0,
+          362,
+          732,
+          1086,
+          1448
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 369,
+          "band": [
+            0,
+            368,
+            1448,
+            370
+          ],
+          "alpha_nonzero": 781,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 724,
+          "band": [
+            0,
+            723,
+            1448,
+            725
+          ],
+          "alpha_nonzero": 1,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            0,
+            363,
+            369
+          ],
+          "alpha_nonzero": 1,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            0,
+            725,
+            369
+          ],
+          "alpha_nonzero": 14,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1104,
+          "band": [
+            1103,
+            0,
+            1105,
+            369
+          ],
+          "alpha_nonzero": 33,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 382,
+          "band": [
+            381,
+            369,
+            383,
+            724
+          ],
+          "alpha_nonzero": 64,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            369,
+            725,
+            724
+          ],
+          "alpha_nonzero": 2,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1097,
+          "band": [
+            1096,
+            369,
+            1098,
+            724
+          ],
+          "alpha_nonzero": 31,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            724,
+            363,
+            1086
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 732,
+          "band": [
+            731,
+            724,
+            733,
+            1086
+          ],
+          "alpha_nonzero": 47,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            724,
+            1087,
+            1086
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "46e3ace8523e731c1b2f8813c103ce8d0a710163c8f9b565e83afc58ba6b2348"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "83959ee1b77e0fad7009db0533023d0b43d3919f6e96c7c66cec5ec4af525b96"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "3b3561409db5b54d8aeedbf98f4f9604f925b374aeb9bc76cc92a54801519227"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "71a2da6586119706705a23247c7532e8d03d80dda48a5b7c58330e015928dd97"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "a3ac4f8a9ef507ffc8e88d5668b974d40120710e69bcfb57968aeb3f7fcc8149"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "8c9a803c83d9143e87e218827d6e48d47dd9c4342be0af7850e4e324ac8c0334"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "105e24b429c89c064dc3e65bfc5bbd5c39073dd4a87e08107dde734ffaa33feb"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "0605c2a057d876d0fdf0688c7eb1474de8f32450ba385658e7b399ef01b5cd97"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "887294273b5fc11cdd3752fe7f0a2a99d7c225e6546877ccff1205ea7264ef06"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "f10b3262d2dbe726d5d8937632308e1bece56ca909fea57b045a14f6cb84af4a"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "d4f95f42d3741675920a8f672abbeaaad90740d01f59b55037dd0076f92a715c"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "e6151ea9b91f27dc1728e3b2551fdc1962aa7bdef02b890da0dbd9eaadfea0ad"
+        }
+      ],
+      "normalized_atlas_sha256": "8e4a66d002b2bf8e2137cbaf906231f49b557f80af6c39cc3dca5cee6a1988fc",
+      "normalization_sha256": "2c00d47667bc89b88bb070faeb3a94971ebfbbdc1b6490b627f9ca7ae3a46fa8",
+      "normalization_grounded_output_y": {
+        "0": 389,
+        "1": 389,
+        "2": 389,
+        "3": 389,
+        "4": 389,
+        "5": 389,
+        "6": 389,
+        "7": 389,
+        "8": 389,
+        "9": 389,
+        "10": 389,
+        "11": 389
+      },
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "airborne_lift_proof": {},
+      "recommended_anchors_present_in_manifest": true
+    },
+    "darko": {
+      "visual_qa": {
+        "essential_foot_anchors": {
+          "3": [
+            1258,
+            344
+          ],
+          "4": [
+            138,
+            680
+          ]
+        },
+        "foot_issues": [
+          {
+            "index": 3,
+            "heuristic_y": 348,
+            "actual_y": 344,
+            "cause": "dummy/teal ground effect below boots"
+          },
+          {
+            "index": 4,
+            "heuristic_y": 684,
+            "actual_y": 680,
+            "cause": "dummy/teal ground effect below boots"
+          }
+        ],
+        "visual": "Two-head-like standing silhouette and large grey hair planes are readable. Darko stays grounded while the dummy moves. Tiny near-floor dummy/FX pixels require two real-shoe anchors; the kneeling/occluded support in frame9 is not confidently re-anchored."
+      },
+      "source_sha256": "54d4b06b6fa516e88b972f8d69a010c91627b0ee4e1ae1c71d925ac85a2d0f84",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          362,
+          362
+        ],
+        [
+          362,
+          0,
+          724,
+          362
+        ],
+        [
+          724,
+          0,
+          1086,
+          362
+        ],
+        [
+          1086,
+          0,
+          1448,
+          362
+        ],
+        [
+          0,
+          362,
+          362,
+          724
+        ],
+        [
+          362,
+          362,
+          724,
+          724
+        ],
+        [
+          724,
+          362,
+          1086,
+          724
+        ],
+        [
+          1086,
+          362,
+          1448,
+          724
+        ],
+        [
+          0,
+          724,
+          362,
+          1086
+        ],
+        [
+          362,
+          724,
+          724,
+          1086
+        ],
+        [
+          724,
+          724,
+          1086,
+          1086
+        ],
+        [
+          1086,
+          724,
+          1448,
+          1086
+        ]
+      ],
+      "rows": [
+        0,
+        362,
+        724,
+        1086
+      ],
+      "columns": [
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 362,
+          "band": [
+            0,
+            361,
+            1448,
+            363
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 724,
+          "band": [
+            0,
+            723,
+            1448,
+            725
+          ],
+          "alpha_nonzero": 62,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            0,
+            363,
+            362
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            0,
+            725,
+            362
+          ],
+          "alpha_nonzero": 5,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            0,
+            1087,
+            362
+          ],
+          "alpha_nonzero": 5,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            362,
+            363,
+            724
+          ],
+          "alpha_nonzero": 8,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            362,
+            725,
+            724
+          ],
+          "alpha_nonzero": 3,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            362,
+            1087,
+            724
+          ],
+          "alpha_nonzero": 11,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            724,
+            363,
+            1086
+          ],
+          "alpha_nonzero": 8,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            724,
+            725,
+            1086
+          ],
+          "alpha_nonzero": 3,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            724,
+            1087,
+            1086
+          ],
+          "alpha_nonzero": 1,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "a25c52d2f98ce859159d61fcc1a5d243fd8bf521c446742e4e9b90f3d52aab3a"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "20ec9d099fd240543c4d84eae946b66cff04763a343652c7cb0d670913663468"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "af79a6dcd9c11e62a3967ee24636c520abffb1febf2459d51e20679b557a5e2d"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "dcd99a33abf619d86e710da5f2a83a680486fd87a60674ba4c7d056cd0ff2718"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "042a4ce99bc16a9e6e27880c48c0c113a671a4e1582b42e952046c368277f00f"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "c7d43aa0192e90c1fd99d09e85c9475db963b5f02e073da152ad07d833fa9044"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "6c3d87d45ab088c1ae460bc27565b73af3d0e2959c717ac6e242c7ada880616a"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "4c1400b5b29135614743d03aed1bda46b6656e693dc2d1cadf5891b07e36bab0"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "79148ff42e6c04769e3919a2a36aaf5d3c222aab203d907e1bc63582702592c2"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "db7ba02ecc91e5df50c976f29d13b1910accb6fb23f4102afa1e0116b96b9cc1"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "f741da865c4dd8cd1c219ba2adba602d7d2a28ec81fa7d8e72608533b4ce9ac9"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "3b03c850828ecee23e8e80650f7dfc2b70af465ded4699eae2a40ab8fa929e71"
+        }
+      ],
+      "normalized_atlas_sha256": "d5675c03842a320ae310f4b6a456da4e8ca112168d8d113a991d607c1b5e8a9f",
+      "normalization_sha256": "93c84dd1407aa7bd99107b6bdeea5e1f603ce981cacb643273d5c35c8defdb5c",
+      "normalization_grounded_output_y": {
+        "0": 368,
+        "1": 368,
+        "2": 368,
+        "3": 368,
+        "4": 368,
+        "5": 368,
+        "6": 368,
+        "7": 368,
+        "8": 368,
+        "9": 368,
+        "10": 368,
+        "11": 368
+      },
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "source_bytes_unchanged": true,
+      "airborne_lift_proof": {},
+      "recommended_anchor_pixels": {
+        "3": {
+          "point": [
+            1258,
+            344
+          ],
+          "rgba": [
+            8,
+            8,
+            11,
+            204
+          ]
+        },
+        "4": {
+          "point": [
+            138,
+            680
+          ],
+          "rgba": [
+            3,
+            3,
+            4,
+            222
+          ]
+        }
+      },
+      "recommended_anchors_present_in_manifest": true
+    },
+    "echion": {
+      "visual_qa": {
+        "essential_foot_anchors": {},
+        "foot_issues": [],
+        "visual": "Standing head/body is near the current2-head chibi target; broad lavender/dark hair planes, central grin and magenta eyes remain legible. Boot heels are at the heuristic baselines. Arm/FX reach around the feet but do not extend below the supporting boot baseline enough to require an anchor."
+      },
+      "source_sha256": "5b23b9dbd2982c98458911f05fc98828e74bbdb8c0170e5cb7d71f370d3717f5",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          362,
+          380
+        ],
+        [
+          362,
+          0,
+          724,
+          380
+        ],
+        [
+          724,
+          0,
+          1086,
+          380
+        ],
+        [
+          1086,
+          0,
+          1448,
+          380
+        ],
+        [
+          0,
+          380,
+          362,
+          724
+        ],
+        [
+          362,
+          380,
+          724,
+          724
+        ],
+        [
+          724,
+          380,
+          1086,
+          724
+        ],
+        [
+          1086,
+          380,
+          1448,
+          724
+        ],
+        [
+          0,
+          724,
+          362,
+          1086
+        ],
+        [
+          362,
+          724,
+          724,
+          1086
+        ],
+        [
+          724,
+          724,
+          1086,
+          1086
+        ],
+        [
+          1086,
+          724,
+          1448,
+          1086
+        ]
+      ],
+      "rows": [
+        0,
+        380,
+        724,
+        1086
+      ],
+      "columns": [
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 380,
+          "band": [
+            0,
+            379,
+            1448,
+            381
+          ],
+          "alpha_nonzero": 808,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 724,
+          "band": [
+            0,
+            723,
+            1448,
+            725
+          ],
+          "alpha_nonzero": 16,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            0,
+            363,
+            380
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            0,
+            725,
+            380
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            0,
+            1087,
+            380
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            380,
+            363,
+            724
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            380,
+            725,
+            724
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            380,
+            1087,
+            724
+          ],
+          "alpha_nonzero": 4,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            724,
+            363,
+            1086
+          ],
+          "alpha_nonzero": 2,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            724,
+            725,
+            1086
+          ],
+          "alpha_nonzero": 2,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            724,
+            1087,
+            1086
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "fa6747f1fe33a221f99ae277fc8df162b84e7583d18a328695c71f813a0962b0"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "fe8a64cbda9f87cefb3ac5658e9bf17038970c78c4eb510de1d71debc2eae7c1"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "16bdad004fa4297f1074941fa5e79fa23dbd79e0351dff176dc43ee38b108534"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "23099f8d2b7258c5c82417cae0869226d12cc2c8eda3c947313f4f9e809f4e85"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "8fa94d3d7ed2c429c26857d6176c1e16f386c11efa586bf612c88708a46fcdcd"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "41a107cae7a38b3cf3dae72e610cf452ecc193c789052b3b977f8407a5c2526a"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "615744e670849e388d7a868f10f9351d553a8f23e972161fbc946815159b8622"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "1fcaf19fb3d5d8fd6a7fd2f0cdd8a8d2a8c5e008af0b6b45164f67e35b5cf395"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "bef07b7473a2d9983fed4b60342d380ae59cad76424760b69d40e763039a7ea0"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "88c5006fd918628846c4bb572e2d33ba1808d46e978670cf05f903e7487e210a"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "11cad159ca149374c5bb8850b430c18b90eb413e1823d3fe91aa833bad97a8ae"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "79df27b2510bf78f6b606b10e9bb949cb5693a1cae2faf941ac879a0c6180f26"
+        }
+      ],
+      "normalized_atlas_sha256": "b3784a0c3e1d3b10ba57ec231cd13ec8c399065e8be3e38379d5134d82665769",
+      "normalization_sha256": "c1f373eef3ef86f2b21c8822dd36cfeb1dab59504eb279d77fcf9ed61cc704c5",
+      "normalization_grounded_output_y": {
+        "0": 400,
+        "1": 400,
+        "2": 400,
+        "3": 400,
+        "4": 400,
+        "5": 400,
+        "6": 400,
+        "7": 400,
+        "8": 400,
+        "9": 400,
+        "10": 400,
+        "11": 400
+      },
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "source_bytes_unchanged": true,
+      "airborne_lift_proof": {},
+      "recommended_anchor_pixels": {},
+      "recommended_anchors_present_in_manifest": true
+    },
+    "elena": {
+      "visual_qa": {
+        "essential_foot_anchors": {},
+        "foot_issues": [],
+        "visual": "Reviewed corrected source0f7d0432. Compact figure is near2 heads with large blue shading planes. Pivoting/knee bends lower the head without changing skull size. Actual planted boot soles match the heuristic values; bright ice below boots does not become the dark-foot measurement. No mandatory anchor found."
+      },
+      "source_sha256": "0f7d0432806b63e196e71202d6841c310bb4b2807aa85d30345cde1d9e89e226",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          362,
+          365
+        ],
+        [
+          362,
+          0,
+          724,
+          365
+        ],
+        [
+          724,
+          0,
+          1086,
+          365
+        ],
+        [
+          1086,
+          0,
+          1448,
+          365
+        ],
+        [
+          0,
+          365,
+          362,
+          724
+        ],
+        [
+          362,
+          365,
+          724,
+          724
+        ],
+        [
+          724,
+          365,
+          1086,
+          724
+        ],
+        [
+          1086,
+          365,
+          1448,
+          724
+        ],
+        [
+          0,
+          724,
+          362,
+          1086
+        ],
+        [
+          362,
+          724,
+          724,
+          1086
+        ],
+        [
+          724,
+          724,
+          1086,
+          1086
+        ],
+        [
+          1086,
+          724,
+          1448,
+          1086
+        ]
+      ],
+      "rows": [
+        0,
+        365,
+        724,
+        1086
+      ],
+      "columns": [
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 365,
+          "band": [
+            0,
+            364,
+            1448,
+            366
+          ],
+          "alpha_nonzero": 760,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 724,
+          "band": [
+            0,
+            723,
+            1448,
+            725
+          ],
+          "alpha_nonzero": 159,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            0,
+            363,
+            365
+          ],
+          "alpha_nonzero": 170,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            0,
+            725,
+            365
+          ],
+          "alpha_nonzero": 92,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            0,
+            1087,
+            365
+          ],
+          "alpha_nonzero": 91,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            365,
+            363,
+            724
+          ],
+          "alpha_nonzero": 156,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            365,
+            725,
+            724
+          ],
+          "alpha_nonzero": 42,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            365,
+            1087,
+            724
+          ],
+          "alpha_nonzero": 30,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            724,
+            363,
+            1086
+          ],
+          "alpha_nonzero": 35,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            724,
+            725,
+            1086
+          ],
+          "alpha_nonzero": 51,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            724,
+            1087,
+            1086
+          ],
+          "alpha_nonzero": 56,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "8b0a2eec6d8b7f95c1df773fd616335b437b65f1f409d43a2b00ada6054c8101"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "b67c27ce815ec26b8eb5e41aa4ab6a09375808f1750a6bd72a835cbacbebde32"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "ffb624c87516e7d742cc331b00f1f95ba3f8e8a61186764e57848ce61ca147bd"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "88310ff6407bb0cd887a66fcd9331ae00767724ee76fbe76ed399dbc1168a25f"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "60fb575d5ee5ec2a409950f3ee5145734ad9a7e074121c2f14761638d049b58e"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "d65c200109bdd49d9c024b5ccd036453007b43f21a7c305c38ea187f181ea339"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "1869d5a84ac386825ab17e2484030355acf5407644c2baeafb5ab8c383cb6e87"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "a25e48993dd4666bb0088f51f52f2bad369c98c915ea73a498a3a95a1ff1b93a"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "6549b8cad0872c0f42c112472cc44ef881cbcfdd3afa51ef606a2451eb441fc1"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "524fb28d7524816ca5142d56b5627fcdbf1f341df8248d1c996cafee0721097e"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "11254912a43193ca2ad9b8bc3a50b72878d5dcb75a9947f17958716498db745f"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "5990f2ef3b7e5a2a08f488eca4aa36b2c348d65a7ce6845359d15c25ddea4ea6"
+        }
+      ],
+      "normalized_atlas_sha256": "09c60bce7177f183b937f37e883379ed130514a0df58c86486afbd24ce92ff59",
+      "normalization_sha256": "2f9bb2c32074cb0fdad1fb21d212e2c700c26506eeb5a2cc8fa19e648b79ac56",
+      "normalization_grounded_output_y": {
+        "0": 385,
+        "1": 385,
+        "2": 385,
+        "3": 385,
+        "4": 385,
+        "5": 385,
+        "6": 385,
+        "7": 385,
+        "8": 385,
+        "9": 385,
+        "10": 385,
+        "11": 385
+      },
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "source_bytes_unchanged": true,
+      "airborne_lift_proof": {},
+      "recommended_anchor_pixels": {},
+      "recommended_anchors_present_in_manifest": true
+    },
+    "martina": {
+      "visual_qa": {
+        "essential_foot_anchors": {},
+        "foot_issues": [],
+        "visual": "Reviewed corrected/final sourceccc36fcb rather than sourcee470. Large head and clear dark eyepatch/camera remain consistent; boots match measured baselines. Actual alpha0 samples prove the apparent brown gradient in hidden RGB is transparent. No mandatory foot anchor found.",
+        "transparency_note": "Current frozen sourceccc36 has verified alpha0 background samples. The earlier concern based on the displayed appearance alone should not be treated as proof about an older source alpha channel. Preserve hidden RGB bytes without interpreting their colour as opaque background."
+      },
+      "source_sha256": "ccc36fcb62465d04afbf99560783e7849e66055d9fd8398cbdd62e7dc1bf5b44",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          384,
+          341
+        ],
+        [
+          384,
+          0,
+          768,
+          341
+        ],
+        [
+          768,
+          0,
+          1152,
+          341
+        ],
+        [
+          1152,
+          0,
+          1536,
+          341
+        ],
+        [
+          0,
+          341,
+          384,
+          683
+        ],
+        [
+          384,
+          341,
+          768,
+          683
+        ],
+        [
+          768,
+          341,
+          1152,
+          683
+        ],
+        [
+          1152,
+          341,
+          1536,
+          683
+        ],
+        [
+          0,
+          683,
+          384,
+          1024
+        ],
+        [
+          384,
+          683,
+          768,
+          1024
+        ],
+        [
+          768,
+          683,
+          1152,
+          1024
+        ],
+        [
+          1152,
+          683,
+          1536,
+          1024
+        ]
+      ],
+      "rows": [
+        0,
+        341,
+        683,
+        1024
+      ],
+      "columns": [
+        [
+          0,
+          384,
+          768,
+          1152,
+          1536
+        ],
+        [
+          0,
+          384,
+          768,
+          1152,
+          1536
+        ],
+        [
+          0,
+          384,
+          768,
+          1152,
+          1536
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 341,
+          "band": [
+            0,
+            340,
+            1536,
+            342
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 683,
+          "band": [
+            0,
+            682,
+            1536,
+            684
+          ],
+          "alpha_nonzero": 5,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 384,
+          "band": [
+            383,
+            0,
+            385,
+            341
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 768,
+          "band": [
+            767,
+            0,
+            769,
+            341
+          ],
+          "alpha_nonzero": 2,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1152,
+          "band": [
+            1151,
+            0,
+            1153,
+            341
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 384,
+          "band": [
+            383,
+            341,
+            385,
+            683
+          ],
+          "alpha_nonzero": 2,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 768,
+          "band": [
+            767,
+            341,
+            769,
+            683
+          ],
+          "alpha_nonzero": 12,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1152,
+          "band": [
+            1151,
+            341,
+            1153,
+            683
+          ],
+          "alpha_nonzero": 2,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 384,
+          "band": [
+            383,
+            683,
+            385,
+            1024
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 768,
+          "band": [
+            767,
+            683,
+            769,
+            1024
+          ],
+          "alpha_nonzero": 3,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1152,
+          "band": [
+            1151,
+            683,
+            1153,
+            1024
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "25c421fec98714177e205c8906c8613a473b85a7890a7b0245fd22ee2926c9af"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "bad0292d5d0b7791a8e4133275225e485d4e2c82aee466f668fe877c01146e25"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "3f81c16bb2b09b43fc97fd002681f5381f4b3f7d1eb019ef2b079231980d626e"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "e8203678f6310bddae6c98f211a14339f84ac2debd30b63a6d37c6045f198876"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "9462d7fa437dfbd51ac554bee90704793ebecb9a954370abf1a4981bad487b02"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "a09f294eaa8e6f1dbedfb13c69567310c026ed355595412c8a603ced2f631b33"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "e717fd0ce7ec8004f83903385249847f7a919c9f8c354aa8eb2f3d758321e7fb"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "c8e5237d69a8e849a0288685afc07339c3632f346fd9fa14b3f75fffa19ac6b8"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "53fc444ae7637342fca95163d3187acbcacc97fe0eda34596e6179c40ff3c00a"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "06cb24734af768fdd5879dcb5617494a9baf5d0d926495d3e150174057f10095"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "d854b3c9ec6aa209c2e1f69dbd42cfe5a00d5737342de3bfb634b433da77246d"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "4ebb8fdc402a7f023a29117b5469cb91ec5a0223f56147acfadc39a08e6490c9"
+        }
+      ],
+      "normalized_atlas_sha256": "b2050d96729eecbc6c668d250eb82bb71a6ba62b2117db3d8cf3fe7a6e9353ac",
+      "normalization_sha256": "28555b96b540bf67bce81595cfb5fef6eff95bb49c2833d8d81b0bcf5729c54d",
+      "normalization_grounded_output_y": {
+        "0": 358,
+        "1": 358,
+        "2": 358,
+        "3": 358,
+        "4": 358,
+        "5": 358,
+        "6": 358,
+        "7": 358,
+        "8": 358,
+        "9": 358,
+        "10": 358,
+        "11": 358
+      },
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "source_bytes_unchanged": true,
+      "airborne_lift_proof": {},
+      "recommended_anchor_pixels": {},
+      "recommended_anchors_present_in_manifest": true,
+      "alpha_samples": {
+        "(0, 0)": [
+          5,
+          4,
+          4,
+          0
+        ],
+        "(350, 20)": [
+          41,
+          32,
+          26,
+          0
+        ],
+        "(750, 680)": [
+          54,
+          56,
+          57,
+          0
+        ],
+        "(1500, 1000)": [
+          50,
+          36,
+          17,
+          0
+        ]
+      }
+    },
+    "sissela": {
+      "visual_qa": {
+        "essential_foot_anchors": {},
+        "foot_issues": [],
+        "visual": "Reviewed corrected source7bf2dd72. Small2-head chibi figure, calm blue eye and3-4 silver hair planes are readable. IV stand is higher than boot/support baseline; kneeling frames preserve posture. Heuristic baselines match actual soles/support line, so no mandatory anchor found."
+      },
+      "source_sha256": "7bf2dd72afee819a98229004226b0d482570122ec7f6d48d08959a6482d55bd7",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          362,
+          362
+        ],
+        [
+          362,
+          0,
+          724,
+          362
+        ],
+        [
+          724,
+          0,
+          1086,
+          362
+        ],
+        [
+          1086,
+          0,
+          1448,
+          362
+        ],
+        [
+          0,
+          362,
+          362,
+          724
+        ],
+        [
+          362,
+          362,
+          724,
+          724
+        ],
+        [
+          724,
+          362,
+          1086,
+          724
+        ],
+        [
+          1086,
+          362,
+          1448,
+          724
+        ],
+        [
+          0,
+          724,
+          362,
+          1086
+        ],
+        [
+          362,
+          724,
+          724,
+          1086
+        ],
+        [
+          724,
+          724,
+          1086,
+          1086
+        ],
+        [
+          1086,
+          724,
+          1448,
+          1086
+        ]
+      ],
+      "rows": [
+        0,
+        362,
+        724,
+        1086
+      ],
+      "columns": [
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 362,
+          "band": [
+            0,
+            361,
+            1448,
+            363
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 724,
+          "band": [
+            0,
+            723,
+            1448,
+            725
+          ],
+          "alpha_nonzero": 22,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            0,
+            363,
+            362
+          ],
+          "alpha_nonzero": 2,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            0,
+            725,
+            362
+          ],
+          "alpha_nonzero": 3,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            0,
+            1087,
+            362
+          ],
+          "alpha_nonzero": 11,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            362,
+            363,
+            724
+          ],
+          "alpha_nonzero": 5,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            362,
+            725,
+            724
+          ],
+          "alpha_nonzero": 20,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            362,
+            1087,
+            724
+          ],
+          "alpha_nonzero": 1,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            724,
+            363,
+            1086
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            724,
+            725,
+            1086
+          ],
+          "alpha_nonzero": 15,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            724,
+            1087,
+            1086
+          ],
+          "alpha_nonzero": 63,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "32826316a5dc27213ddf686f2a80d9b95a2a3302c6bd6a8a95068964549f30dc"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "4da9705d7312a8f933848e98dae75298ec6efa71091192814b1a6c62b7314bd7"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "920094a31086616d91226dd649f24468aaf0e2ee8c7cf4afe7398d8c0a27bacb"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "96258e2db1a8783e0ef2c24e43772cc2d8d48cf09488c37dcd21c3cbc0431231"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "3155f0dffe5f7b3831ec967663c27e317dca2148627f095e3e9eb7768cf68fd5"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "9e8e04386690008c1c223c7dcaea9830fba775d2991b96905c4877f022c7c52c"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "4d650eec31db8039a68e8c3a9626cf37f44e50aa4ffbf5f82a8ed4492e98b8a8"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "eefbc4d642a979f0379c8afff3ea7660410b92ed9fa6d1688f7544a57a076286"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "483f5df67ba5efaee9ccb877d7f8c95bf595a0e038098c5a26673542b1e86e45"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "1b0a2e7326abf9c9634b529506b89e5340df33a378eef89dfbb966d2843abd9c"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "0902b997ebf547ee0a152551fceba5dafbded38585713c1ea57c1527c9ff5eba"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "3f700f7d2afe98592c8f447f4601733558abeb1082cbc945c38acfe17489a1fe"
+        }
+      ],
+      "normalized_atlas_sha256": "6781449a92acf56dcd9fea5b57d4e7227fb21e91ab4c93d87e50c6477d708a85",
+      "normalization_sha256": "094cef920965eeebdc3e248b76174a8d0f003acb98506887680b3b4f4e11ffe8",
+      "normalization_grounded_output_y": {
+        "0": 343,
+        "1": 343,
+        "2": 343,
+        "3": 343,
+        "4": 343,
+        "5": 343,
+        "6": 343,
+        "7": 343,
+        "8": 343,
+        "9": 343,
+        "10": 343,
+        "11": 343
+      },
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "source_bytes_unchanged": true,
+      "airborne_lift_proof": {},
+      "recommended_anchor_pixels": {},
+      "recommended_anchors_present_in_manifest": true
+    },
+    "tia": {
+      "visual_qa": {
+        "essential_foot_anchors": {
+          "0": [
+            188,
+            360
+          ],
+          "8": [
+            165,
+            1060
+          ],
+          "11": [
+            1242,
+            1060
+          ]
+        },
+        "foot_issues": [
+          {
+            "index": 0,
+            "heuristic_y": 372,
+            "actual_y": 360,
+            "cause": "brush tip below boot sole"
+          },
+          {
+            "index": 8,
+            "heuristic_y": 1064,
+            "actual_y": 1060,
+            "cause": "brush tip below boot sole"
+          },
+          {
+            "index": 11,
+            "heuristic_y": 1065,
+            "actual_y": 1060,
+            "cause": "brush tip below boot sole"
+          }
+        ],
+        "visual": "Large head/short body and broad warm-brown hair planes are near the current style target. Torso bends without a jump. Paint droplets in recovery shrink rather than appearing as an unrelated final blob. Three low brush-tip frames need real-boot anchors."
+      },
+      "source_sha256": "fd72e06aeb3a8ce08c5e9b8c2d66d928977f7409ccacc8fc87082b3eddfc721c",
+      "source_size": [
+        1447,
+        1087
+      ],
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          362,
+          376
+        ],
+        [
+          362,
+          0,
+          718,
+          376
+        ],
+        [
+          718,
+          0,
+          1040,
+          376
+        ],
+        [
+          1040,
+          0,
+          1447,
+          376
+        ],
+        [
+          0,
+          376,
+          377,
+          725
+        ],
+        [
+          377,
+          376,
+          724,
+          725
+        ],
+        [
+          724,
+          376,
+          1068,
+          725
+        ],
+        [
+          1068,
+          376,
+          1447,
+          725
+        ],
+        [
+          0,
+          725,
+          362,
+          1087
+        ],
+        [
+          362,
+          725,
+          724,
+          1087
+        ],
+        [
+          724,
+          725,
+          1085,
+          1087
+        ],
+        [
+          1085,
+          725,
+          1447,
+          1087
+        ]
+      ],
+      "rows": [
+        0,
+        376,
+        725,
+        1087
+      ],
+      "columns": [
+        [
+          0,
+          362,
+          718,
+          1040,
+          1447
+        ],
+        [
+          0,
+          377,
+          724,
+          1068,
+          1447
+        ],
+        [
+          0,
+          362,
+          724,
+          1085,
+          1447
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 376,
+          "band": [
+            0,
+            375,
+            1447,
+            377
+          ],
+          "alpha_nonzero": 77,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 725,
+          "band": [
+            0,
+            724,
+            1447,
+            726
+          ],
+          "alpha_nonzero": 176,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            0,
+            363,
+            376
+          ],
+          "alpha_nonzero": 47,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 718,
+          "band": [
+            717,
+            0,
+            719,
+            376
+          ],
+          "alpha_nonzero": 72,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1040,
+          "band": [
+            1039,
+            0,
+            1041,
+            376
+          ],
+          "alpha_nonzero": 186,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 377,
+          "band": [
+            376,
+            376,
+            378,
+            725
+          ],
+          "alpha_nonzero": 257,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            376,
+            725,
+            725
+          ],
+          "alpha_nonzero": 282,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1068,
+          "band": [
+            1067,
+            376,
+            1069,
+            725
+          ],
+          "alpha_nonzero": 259,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            725,
+            363,
+            1087
+          ],
+          "alpha_nonzero": 10,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            725,
+            725,
+            1087
+          ],
+          "alpha_nonzero": 141,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1085,
+          "band": [
+            1084,
+            725,
+            1086,
+            1087
+          ],
+          "alpha_nonzero": 0,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "9ce851a9d6eef91cf723ea01a991aeb95d2aa01a93dea8e2e86c8c5d7de751f9"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "684116f53c98b90fddb54aa7bc8d8052566da1991f946ad7e72307b07f9be8b7"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "7ebe19e8f77f56608d424c300ab33540241ea742b44713b86f4d09ecf6589933"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "cb9f89b6d62b2a920aaae6ddab9cfbe85bad6fa66dabe0796fc70b8a50c438ca"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "376d93687fc70f884da2e575e82c49b72ecc2c39b5f34584b3ea240d177bbf6e"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "fc08cd214be0e4411947617444b283e4c4e4ada0d46b37bd610252607e6377de"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "f5e7f5027e057ccac293eb34e82b9b5f86a132075a60bccef67154a8aebcfe45"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "615ea708ea8cdb780393a4ce0a5029867a417c72602128b7448c595c8fe593ed"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "81f792c6c67c719f0a201b499eb07e62b3ebcaeabf26bb33c2a01633c8123899"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "18eb0c103b723d905faf7b08c9a82ff74882b88614f2b6fa39d02ed59dc1e006"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "ad74033f14b1aa24d57ad41f97ced66263cc9671b07fda25df3d9e329d4f93f5"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "9823e00fd6f150784e4a091b31cd1d18f0aa33ae982da6c288721c3ecd6d5c0c"
+        }
+      ],
+      "normalized_atlas_sha256": "be75c9dc6b227bd0cb9aefa18f99809bce1bae55d8e56cab3cfa98d14e31f402",
+      "normalization_sha256": "0740380e48744b8c9830143ef7c173ec81d14a62e0a75325f33e9521f47233c3",
+      "normalization_grounded_output_y": {
+        "0": 402,
+        "1": 402,
+        "2": 402,
+        "3": 402,
+        "4": 402,
+        "5": 402,
+        "6": 402,
+        "7": 402,
+        "8": 402,
+        "9": 402,
+        "10": 402,
+        "11": 402
+      },
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "source_bytes_unchanged": true,
+      "airborne_lift_proof": {},
+      "recommended_anchor_pixels": {
+        "0": {
+          "point": [
+            188,
+            360
+          ],
+          "rgba": [
+            4,
+            0,
+            0,
+            224
+          ]
+        },
+        "8": {
+          "point": [
+            165,
+            1060
+          ],
+          "rgba": [
+            28,
+            17,
+            14,
+            172
+          ]
+        },
+        "11": {
+          "point": [
+            1242,
+            1060
+          ],
+          "rgba": [
+            23,
+            14,
+            13,
+            172
+          ]
+        }
+      },
+      "recommended_anchors_present_in_manifest": true
+    },
+    "irem": {
+      "visual_qa": {
+        "essential_foot_anchors": {},
+        "foot_issues": [],
+        "optional_airborne_lift": {
+          "3": 30
+        },
+        "visual": "Human form is near2 heads with broad orange hair shading. Intended cat transformation changes body shape and is excluded from human-scale comparison. Cat paws have connected dark outlines reaching the heuristic baseline, not an isolated detached ground shadow. No mandatory manual anchor found. Frame3 can use an optional30px lift to make its hop visible. Transform-cloud frames4,9 have no visible real foot; do not invent a real-foot anchor or use a head measurement as an airborne foot."
+      },
+      "source_sha256": "5d424ee77eb72f70cd76479a71f93bbb3215819bc2f671405e15e1acc3afe7fb",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          362,
+          385
+        ],
+        [
+          362,
+          0,
+          724,
+          385
+        ],
+        [
+          724,
+          0,
+          1086,
+          385
+        ],
+        [
+          1086,
+          0,
+          1448,
+          385
+        ],
+        [
+          0,
+          385,
+          362,
+          719
+        ],
+        [
+          362,
+          385,
+          724,
+          719
+        ],
+        [
+          724,
+          385,
+          1086,
+          719
+        ],
+        [
+          1086,
+          385,
+          1448,
+          719
+        ],
+        [
+          0,
+          719,
+          362,
+          1086
+        ],
+        [
+          362,
+          719,
+          724,
+          1086
+        ],
+        [
+          724,
+          719,
+          1086,
+          1086
+        ],
+        [
+          1086,
+          719,
+          1448,
+          1086
+        ]
+      ],
+      "rows": [
+        0,
+        385,
+        719,
+        1086
+      ],
+      "columns": [
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 385,
+          "band": [
+            0,
+            384,
+            1448,
+            386
+          ],
+          "alpha_nonzero": 885,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 719,
+          "band": [
+            0,
+            718,
+            1448,
+            720
+          ],
+          "alpha_nonzero": 457,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            0,
+            363,
+            385
+          ],
+          "alpha_nonzero": 6,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            0,
+            725,
+            385
+          ],
+          "alpha_nonzero": 10,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            0,
+            1087,
+            385
+          ],
+          "alpha_nonzero": 42,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            385,
+            363,
+            719
+          ],
+          "alpha_nonzero": 6,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            385,
+            725,
+            719
+          ],
+          "alpha_nonzero": 41,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            385,
+            1087,
+            719
+          ],
+          "alpha_nonzero": 20,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            719,
+            363,
+            1086
+          ],
+          "alpha_nonzero": 12,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            719,
+            725,
+            1086
+          ],
+          "alpha_nonzero": 84,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            719,
+            1087,
+            1086
+          ],
+          "alpha_nonzero": 21,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "9a8e88ac80ccd98c34b6aba820d874fe97f0bd8df3e3c0b843999c0e9efaaa6d"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "0134a3d6fdf3468d1f5d420a0dd465ccdcf95b7540034ea6cddc244efa6f2373"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "f2671ca86d0615005514cb2ece0bb976bd1439b88e051243b5b655cb3c1d307b"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "bfb46f3b319aee2d9d1c84f78359a41e809602221a1bd11f0cb95c4a6e8c21fb"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "0e3a65ddc1b08510391c618fa141593158af0dd6737c09a63ccd895f428537be"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "e1a4c5b658b83c72aa51cd224333e8da805eaf083bc690f781cf5c6619f22340"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "a4c7c754c415ef6aa6e1ffe04ed6b08548dbc5264b94d617f443a50a686f76cd"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "08142a3a85cab1935ed7da384ff75b33d1ce8459884276e9f121eed93dcfd833"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "c3be7af60962e9c8e4a26989d187ba21503c5bbbad43a4ca7ccfaaebcd6623d4"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "e74c140e67a6693aab8a6a4936e7cc7ac0e780bfb8414cd24d89cf64e0b73071"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "e3ac490fae80f9a6e0cd1f8c960537cac915b0791aba3a3030d936619d59f928"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "8ac5d755d0b5c9eea51cc92aebe30716fe960f42aa67c76a0e2b6fe09415cd91"
+        }
+      ],
+      "normalized_atlas_sha256": "456619e8c84458ff89894a6e2e76392f42f98f2e8e2ad8f68198718369c53c2d",
+      "normalization_sha256": "d97af39094edeafc23c999da17640235cbca096e33dc3ce30229ae17ba8bee28",
+      "normalization_grounded_output_y": {
+        "0": 431,
+        "1": 431,
+        "2": 431,
+        "5": 431,
+        "6": 431,
+        "7": 431,
+        "8": 431,
+        "10": 431,
+        "11": 431
+      },
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "source_bytes_unchanged": true,
+      "airborne_lift_proof": {
+        "3": {
+          "requested_lift": 30,
+          "source_nominal_foot_y": 377,
+          "translation_y": -30,
+          "target_nominal_foot_y": 347,
+          "applied_nominal_foot_y": 347,
+          "normalized_cell_foot_y": 401,
+          "normalized_ground_reference_y": 431
+        }
+      },
+      "recommended_anchor_pixels": {},
+      "recommended_anchors_present_in_manifest": true
+    },
+    "jackie": {
+      "visual_qa": {
+        "essential_foot_anchors": {},
+        "foot_issues": [],
+        "visual": "Large white-haired head and short body are near2 heads. Supporting boots match the measured baselines while knees bend through a grounded chainsaw swing. Hair highlight/middle/shadow planes are readable. No stray lower-left effect appears in frame11, and no mandatory foot anchor is needed."
+      },
+      "source_sha256": "4fc69ee543cc1fb16d6d3c3aabe372c55165771f7672e043bff1d9b7c97a63bc",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "partition_passed": true,
+      "source_boxes": [
+        [
+          0,
+          0,
+          362,
+          362
+        ],
+        [
+          362,
+          0,
+          724,
+          362
+        ],
+        [
+          724,
+          0,
+          1086,
+          362
+        ],
+        [
+          1086,
+          0,
+          1448,
+          362
+        ],
+        [
+          0,
+          362,
+          362,
+          724
+        ],
+        [
+          362,
+          362,
+          724,
+          724
+        ],
+        [
+          724,
+          362,
+          1086,
+          724
+        ],
+        [
+          1086,
+          362,
+          1448,
+          724
+        ],
+        [
+          0,
+          724,
+          364,
+          1086
+        ],
+        [
+          364,
+          724,
+          724,
+          1086
+        ],
+        [
+          724,
+          724,
+          1086,
+          1086
+        ],
+        [
+          1086,
+          724,
+          1448,
+          1086
+        ]
+      ],
+      "rows": [
+        0,
+        362,
+        724,
+        1086
+      ],
+      "columns": [
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          364,
+          724,
+          1086,
+          1448
+        ]
+      ],
+      "boundaries": [
+        {
+          "label": "row-1/2",
+          "axis": "y",
+          "position": 362,
+          "band": [
+            0,
+            361,
+            1448,
+            363
+          ],
+          "alpha_nonzero": 85,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2/3",
+          "axis": "y",
+          "position": 724,
+          "band": [
+            0,
+            723,
+            1448,
+            725
+          ],
+          "alpha_nonzero": 327,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            0,
+            363,
+            362
+          ],
+          "alpha_nonzero": 4,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            0,
+            725,
+            362
+          ],
+          "alpha_nonzero": 22,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-1-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            0,
+            1087,
+            362
+          ],
+          "alpha_nonzero": 3,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-1/2",
+          "axis": "x",
+          "position": 362,
+          "band": [
+            361,
+            362,
+            363,
+            724
+          ],
+          "alpha_nonzero": 19,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            362,
+            725,
+            724
+          ],
+          "alpha_nonzero": 22,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-2-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            362,
+            1087,
+            724
+          ],
+          "alpha_nonzero": 22,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-1/2",
+          "axis": "x",
+          "position": 364,
+          "band": [
+            363,
+            724,
+            365,
+            1086
+          ],
+          "alpha_nonzero": 139,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-2/3",
+          "axis": "x",
+          "position": 724,
+          "band": [
+            723,
+            724,
+            725,
+            1086
+          ],
+          "alpha_nonzero": 20,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        },
+        {
+          "label": "row-3-column-3/4",
+          "axis": "x",
+          "position": 1086,
+          "band": [
+            1085,
+            724,
+            1087,
+            1086
+          ],
+          "alpha_nonzero": 8,
+          "alpha_ge_64": 0,
+          "alpha_ge_160": 0
+        }
+      ],
+      "independent_rgba_crop_checks": [
+        {
+          "index": 0,
+          "exact_rgba": true,
+          "rgba_sha256": "055539028a943736e1c121b674d4b2923dd1b708c7fa54cc78bab75767045ac5"
+        },
+        {
+          "index": 1,
+          "exact_rgba": true,
+          "rgba_sha256": "8431b7bca0307656baa869ca2df7f289df1d91950bbc8d812b30a7fc021a75fc"
+        },
+        {
+          "index": 2,
+          "exact_rgba": true,
+          "rgba_sha256": "010fc6e2d2589e2d898b2aa978b3b14d810312d3a364471c7e5e651ad0c745c1"
+        },
+        {
+          "index": 3,
+          "exact_rgba": true,
+          "rgba_sha256": "ab7bdfb1284d4ed4e4d92855aad485a1a08e7ffc86f89b4b698688ab89e887f8"
+        },
+        {
+          "index": 4,
+          "exact_rgba": true,
+          "rgba_sha256": "68ffae82e22eb36d01d7d3c5c3101bca4725df6fbd9e277c15aec7b58acd4e52"
+        },
+        {
+          "index": 5,
+          "exact_rgba": true,
+          "rgba_sha256": "e7730f4376f87b8f803deb96ab3dbe1dc9376a336f7a30f055bb93e7fab7f442"
+        },
+        {
+          "index": 6,
+          "exact_rgba": true,
+          "rgba_sha256": "96b241718a367a33b4607162f3a49a079ffeac66fab9a3832467e05880888869"
+        },
+        {
+          "index": 7,
+          "exact_rgba": true,
+          "rgba_sha256": "0495e679bc6e9a2a1d298e134ee20c257b4836e9cf6f8aef8d26feadc8c9b25b"
+        },
+        {
+          "index": 8,
+          "exact_rgba": true,
+          "rgba_sha256": "5d8f8e91b7d23e3e7e7a60bdd84cb552cbfa31d4068a6b2257766faec38d5038"
+        },
+        {
+          "index": 9,
+          "exact_rgba": true,
+          "rgba_sha256": "8abc8e7fa8a793ab94ab4f696618726365351db7f071cd81a9a72e7ce3e871b5"
+        },
+        {
+          "index": 10,
+          "exact_rgba": true,
+          "rgba_sha256": "496c6cc95a1c9fd201bac47f53b9f29a25bb7346d3696e6c8584e12f4fc803b9"
+        },
+        {
+          "index": 11,
+          "exact_rgba": true,
+          "rgba_sha256": "4d3f5d0d1d91593b355d3241fef1a09b567ed9802c30d5087160619dfea84dde"
+        }
+      ],
+      "normalized_atlas_sha256": "2c3ff3b683ef1ad791dcb1d2fe0ca12a959fc69755f884b958cf0ecae2c99405",
+      "normalization_sha256": "db86c63e34bf3e549bbb1dc6c633bc8c469d15278a18889ff100ca17ef766ba8",
+      "normalization_grounded_output_y": {
+        "0": 378,
+        "1": 378,
+        "2": 378,
+        "3": 378,
+        "4": 378,
+        "5": 378,
+        "6": 378,
+        "7": 378,
+        "8": 378,
+        "9": 378,
+        "10": 378,
+        "11": 378
+      },
+      "guard24_passed": true,
+      "source_pixels_partitioned_exactly_once": true,
+      "source_bytes_unchanged": true,
+      "airborne_lift_proof": {},
+      "recommended_anchor_pixels": {},
+      "recommended_anchors_present_in_manifest": true
+    }
+  },
+  "all_subjects_checked": 13,
+  "total_independent_rgba_frames_checked": 156,
+  "all_partition_disjoint": true,
+  "all_guard24_passed": true,
+  "no_code_or_assets_modified": true,
+  "summary": [
+    {
+      "id": "aya",
+      "source_sha256": "b573a2a53dcbfa912e96dc8adc65d16a0e1226ea6336d5790c30eb608483d12e",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    },
+    {
+      "id": "bihyung",
+      "source_sha256": "f06baaf98f017b3ba572e1bcdf8393c1d8f420e7feb4c9e7a0de93438c7c8501",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    },
+    {
+      "id": "darko",
+      "source_sha256": "54d4b06b6fa516e88b972f8d69a010c91627b0ee4e1ae1c71d925ac85a2d0f84",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    },
+    {
+      "id": "echion",
+      "source_sha256": "5b23b9dbd2982c98458911f05fc98828e74bbdb8c0170e5cb7d71f370d3717f5",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    },
+    {
+      "id": "elena",
+      "source_sha256": "0f7d0432806b63e196e71202d6841c310bb4b2807aa85d30345cde1d9e89e226",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    },
+    {
+      "id": "garnet",
+      "source_sha256": "d4d6c4544450a2162762c609c7aca4c14545b90a476fece27b25f403c33009d0",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    },
+    {
+      "id": "irem",
+      "source_sha256": "5d424ee77eb72f70cd76479a71f93bbb3215819bc2f671405e15e1acc3afe7fb",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    },
+    {
+      "id": "isol",
+      "source_sha256": "d19f9543c93a1f6d7390766e61fc44d5b0ebb2fa31067fc3020912933e92a06f",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    },
+    {
+      "id": "jackie",
+      "source_sha256": "4fc69ee543cc1fb16d6d3c3aabe372c55165771f7672e043bff1d9b7c97a63bc",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    },
+    {
+      "id": "martina",
+      "source_sha256": "ccc36fcb62465d04afbf99560783e7849e66055d9fd8398cbdd62e7dc1bf5b44",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    },
+    {
+      "id": "nadine",
+      "source_sha256": "2437d16ae28a9f667cdd83b0e028045c7702d11785849402534ab6a525eb3431",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    },
+    {
+      "id": "sissela",
+      "source_sha256": "7bf2dd72afee819a98229004226b0d482570122ec7f6d48d08959a6482d55bd7",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    },
+    {
+      "id": "tia",
+      "source_sha256": "fd72e06aeb3a8ce08c5e9b8c2d66d928977f7409ccacc8fc87082b3eddfc721c",
+      "rgba_frames_checked": 12,
+      "partition": true,
+      "guard": true,
+      "recommended_anchors_applied": true
+    }
+  ]
+}

@@ -1,0 +1,4111 @@
+{
+  "created_utc": "2026-10-13T18:58:55.005099+00:00",
+  "targets": [
+    "darko",
+    "garnet",
+    "martina",
+    "nadine",
+    "tia"
+  ],
+  "preserved_subject_count": 86,
+  "preserved_file_count": 664,
+  "preserved_subject_files": {
+    "abigail": {
+      "ArtSource/AnimationPrototypes/Subjects/abigail/atlas.png": {
+        "bytes": 1729798,
+        "sha256": "8e0256dcde015423e64a5a0a90d7ac084a811a248dbd61322e110f042923b95f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/abigail/manifest.json": {
+        "bytes": 1610,
+        "sha256": "d28473fbecf2cbe457353085791b444748cde8a84b57674f27a99726ddc2635b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/abigail/preview.gif": {
+        "bytes": 482108,
+        "sha256": "0766bf94872a33851407eb901b34f77dfb5768dfed7e81cdb8d597cf073f6d39"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/abigail/preview.webp": {
+        "bytes": 1273978,
+        "sha256": "d2e1ae6e4eb097b79e0efdb3fa0b6ef693ad98739e34c65f98f8cb441e9e94a7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/abigail/prompt.txt": {
+        "bytes": 2274,
+        "sha256": "d86bf3513ca7e3e6381e39f1c0ebecdbda423d5a360649d412954107b0226886"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/abigail/thumbnail.png": {
+        "bytes": 179305,
+        "sha256": "9b69678e0f22f368102d5e4a6217c221716ad8072eee161c5cac029eb920f85c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/abigail/validation.json": {
+        "bytes": 5366,
+        "sha256": "c8e5875ba867d4d38b25210ea74277d01e54a6c2cfb4e2b80fcbd6ca6293b4e0"
+      }
+    },
+    "adela": {
+      "ArtSource/AnimationPrototypes/Subjects/adela/atlas.png": {
+        "bytes": 1860770,
+        "sha256": "91572b9a035a3626710c057bfaee7dd45a40c20231883ae9bb54132f08bbd4ff"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adela/manifest.json": {
+        "bytes": 1613,
+        "sha256": "332a0522fc569ccdee304023e2e8976b96e9bc8af1439aea7b913ab604e9a4a4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adela/preview.gif": {
+        "bytes": 521889,
+        "sha256": "2f47f32739c1dca26852f1c00f471204c9a3b4d9f8306c557be089f0330a2d6b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adela/preview.webp": {
+        "bytes": 1348808,
+        "sha256": "15e64039e56e257651f087d83a62346ff40bcd79a721649d4383cbd028e84a47"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adela/prompt.txt": {
+        "bytes": 2387,
+        "sha256": "d430b9894aa279a985f780b321d7e081710e6cbf1edc5697da4de08342c9f006"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adela/thumbnail.png": {
+        "bytes": 138619,
+        "sha256": "094c0c7493db184b631da325a7702dd6ae3b752554ccbb8a2d575559ce050d13"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adela/validation.json": {
+        "bytes": 5365,
+        "sha256": "d77dcf6725ebab974a5b38908d5834aa62de34ef33b567f9fe216d0fe542a086"
+      }
+    },
+    "adina": {
+      "ArtSource/AnimationPrototypes/Subjects/adina/atlas.png": {
+        "bytes": 1978714,
+        "sha256": "58833e3357058840c032fe1e037a9920268b687a4dec19c9835384d34e261a71"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adina/manifest.json": {
+        "bytes": 1588,
+        "sha256": "81fbe3297034cd7968f5c462db24b08ea83d632bede8ac28247e1f358ae4131b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adina/preview.gif": {
+        "bytes": 627429,
+        "sha256": "23ec02bad4c4019b2453a1a1d6d0432971811e75c89deb5bd48451b794713e48"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adina/preview.webp": {
+        "bytes": 1512342,
+        "sha256": "66f7d8565adfe59dcad1d77694efc7770a6ba7edf01402e197d31c31404076f8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adina/prompt.txt": {
+        "bytes": 2248,
+        "sha256": "48041141a3a035cccca3932ad55b9f36fb080e3f8b883187bea8921609b7f2e1"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adina/thumbnail.png": {
+        "bytes": 199617,
+        "sha256": "8c8fa2d661c45a3d7a09234c53f430b58c8a9b2c95faffc4e139598205d062b0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adina/validation.json": {
+        "bytes": 5315,
+        "sha256": "880c43c08492caf122cd1f9d03b3ab2c544ec7f12914beccea1edd042eb6243d"
+      }
+    },
+    "adriana": {
+      "ArtSource/AnimationPrototypes/Subjects/adriana/atlas.png": {
+        "bytes": 1450046,
+        "sha256": "380aed84d77a1bb33429c462dc4614485931417debd57a7b43ad4820f55f4cc5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adriana/manifest.json": {
+        "bytes": 1590,
+        "sha256": "6abd6062f4e1f6160dd70005c424c77540280fac8bce4f9973d940cd48e0d33c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adriana/preview.gif": {
+        "bytes": 452201,
+        "sha256": "6d6eb1a57be2d6a90e9e90a289ce82513b9cd93ccd612b49c59c6e9ba6399042"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adriana/preview.webp": {
+        "bytes": 1186370,
+        "sha256": "d3a5242d8830e53cafe0db5f7e0ded56b1bfd268d0cd3d2fd354b0b21a602d6d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adriana/prompt.txt": {
+        "bytes": 2300,
+        "sha256": "ed422a96105b0bbc338d0ac4dec912e145e117495e5008f1f655545f2d4de8b4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adriana/thumbnail.png": {
+        "bytes": 159803,
+        "sha256": "48445d0ba0c0907cd55968fdad614530881348e7d9fd22c8405b489fde17a605"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/adriana/validation.json": {
+        "bytes": 5327,
+        "sha256": "3cf5d2898a8f931e0543ba33510c2d3eb61db3e6f403e29fffc6e4240c64c6e9"
+      }
+    },
+    "aiden": {
+      "ArtSource/AnimationPrototypes/Subjects/aiden/atlas.png": {
+        "bytes": 1697801,
+        "sha256": "a8b2dc68009c787fbff0f3944ff6d817789fedf9145bd2c2b2bd8ae8ecd8f23c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aiden/manifest.json": {
+        "bytes": 1586,
+        "sha256": "de667e5a6e3641ebcc22cae7020a73952f784a903751e8d91b89bd1ef728fc78"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aiden/preview.gif": {
+        "bytes": 386454,
+        "sha256": "f6ddc2299337646190d56760360aa11889da4a0aa926d7e7e2186ca76d896692"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aiden/preview.webp": {
+        "bytes": 1251494,
+        "sha256": "9d5edee02ad91be3ce535221c6e81005fdae53f449e11f8e2b00ef0bed155bd8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aiden/prompt.txt": {
+        "bytes": 2319,
+        "sha256": "4050763e5c88ec4a9ae93fe9cd3548c1f72ad2387b7b2ff758067084a57d45e4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aiden/thumbnail.png": {
+        "bytes": 152745,
+        "sha256": "5ce567ff1ab3098846d00bb9020bab1d74af321e59f2de2148b729b84cb7007b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aiden/validation.json": {
+        "bytes": 5357,
+        "sha256": "a94b7a45f8ef1100722893d6ab0255e98548b80cc95dfdd2bfbba86d00aadfd6"
+      }
+    },
+    "alex": {
+      "ArtSource/AnimationPrototypes/Subjects/alex/atlas.png": {
+        "bytes": 1490838,
+        "sha256": "b8a0168029b20209f258a4f1ac7c388aa8fd73acf05d297104e47f206be2b008"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/alex/manifest.json": {
+        "bytes": 1584,
+        "sha256": "49312236fd8d7742b605d5af950b10c9ee8356c305ef3615e0e7f374d44f6e00"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/alex/preview.gif": {
+        "bytes": 410198,
+        "sha256": "e96f1f74f90695f1d6eab5e0eb3f41b8fabb65d02955afa9bf06019eecaa009f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/alex/preview.webp": {
+        "bytes": 1134590,
+        "sha256": "37f7a70dc55af9e33b59c503b43faf8bf0fb1a6b5ebaac57e03d235e2520adc3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/alex/prompt.txt": {
+        "bytes": 2276,
+        "sha256": "8107556e6558414ea7b5124b8a41a8acce0177aa3e81363461359e362992baf5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/alex/thumbnail.png": {
+        "bytes": 130921,
+        "sha256": "e35071c10d8a0da1ec8d6bc6972c33cef28d886f37f305bc6537f09c159473b9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/alex/validation.json": {
+        "bytes": 5338,
+        "sha256": "8bbd699fb460ea627160fb838333959d4b5be761f9f9ee5d57651fbc5d2124d1"
+      }
+    },
+    "alonso": {
+      "ArtSource/AnimationPrototypes/Subjects/alonso/atlas.png": {
+        "bytes": 1723581,
+        "sha256": "15bd85a67a9154633a36a870d3176098db6bb76a3d847693b7136f6d6e9b24ef"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/alonso/manifest.json": {
+        "bytes": 1571,
+        "sha256": "033c861090e61345911162459e3fdadca0882e965cf0ef5b3310b58c92cf811d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/alonso/preview.gif": {
+        "bytes": 500165,
+        "sha256": "7ab1a572e62f7451dd45e4ccab9c872b2bbcd77f4be848d6a86e92af91a30e0f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/alonso/preview.webp": {
+        "bytes": 1322070,
+        "sha256": "5990d71f24b2f231c3ec362109ac34f956fda7008cf1510ce59dc13ac05a36d6"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/alonso/prompt.txt": {
+        "bytes": 2343,
+        "sha256": "f3ac425ddc6a69f50f4f1a4d505bed8b9062a2dad2e067aaea9e2b28bc3da46e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/alonso/thumbnail.png": {
+        "bytes": 163141,
+        "sha256": "d6b6d3a37d32796332503c0905cfd21eafbf83428506b2f3ff76cf27eba0e325"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/alonso/validation.json": {
+        "bytes": 5330,
+        "sha256": "6f9007836d45c07e847f09d567e3da7ea1d49409875bdcf27e4e887ad02011ba"
+      }
+    },
+    "arda": {
+      "ArtSource/AnimationPrototypes/Subjects/arda/atlas.png": {
+        "bytes": 1593526,
+        "sha256": "bbcc8a56cfdad24daa5bade30ed7dc07b279a973dee65bd6738d661f5d285b15"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/arda/manifest.json": {
+        "bytes": 1575,
+        "sha256": "998c19570ab3f9eabad71777020182d1a19a6c76bd7bcc3035701cd15af160a3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/arda/preview.gif": {
+        "bytes": 471138,
+        "sha256": "bb5ca4c8aafd3a0b4d34fc9998d89cf3b560d3877912cebcc71849ee3d8cea8f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/arda/preview.webp": {
+        "bytes": 1228032,
+        "sha256": "753fc17ad1325d7cb2e4f643e2bbd928c726b7b00d835bdf0d03a15fadeb2529"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/arda/prompt.txt": {
+        "bytes": 2301,
+        "sha256": "b4793b2b28c12f5d2e04e812e997b1b173bbeeb9a87d0ba10a7ac25f99415844"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/arda/thumbnail.png": {
+        "bytes": 168775,
+        "sha256": "573bf439854c74bccf39c0d24261f8578b7cb2864694dbd14d2be790c8f7110d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/arda/validation.json": {
+        "bytes": 5340,
+        "sha256": "7be52bfad52e132d0ebfcd60e1a700ec88a29606310b7d2e7d9bf9509d4b3102"
+      }
+    },
+    "aya": {
+      "ArtSource/AnimationPrototypes/Subjects/aya/atlas.png": {
+        "bytes": 1855802,
+        "sha256": "9f905f2eef33a6756f8bc0d21a09460e5e4324c5ece4a3f44023e6c6aef4d731"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aya/generated-sheet.png": {
+        "bytes": 1490290,
+        "sha256": "b573a2a53dcbfa912e96dc8adc65d16a0e1226ea6336d5790c30eb608483d12e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aya/manifest.json": {
+        "bytes": 3734,
+        "sha256": "4fc848168fa0856a43f1efdce6f9312def5cf7aa06dcaa6303b88d71db84280d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aya/normalization.json": {
+        "bytes": 23419,
+        "sha256": "67dfe20adb37486a084ad441bedeb6559000a3cb5ccfa180e3a056f2cf466548"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aya/official-reference.png": {
+        "bytes": 663869,
+        "sha256": "829abe983c50334949f52194af1f1ebe4053c96021050648f927c2cdb0d5d0d5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aya/original-reference.png": {
+        "bytes": 20707,
+        "sha256": "73fc6b2f605af68fdc36a30153d8995261d851d4c7ba87c134086e04c3bb3612"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aya/preview.gif": {
+        "bytes": 417861,
+        "sha256": "c90cf2e6fb872c2cea591036c917d7697e208461f4653452e7759729c62c64e2"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aya/preview.webp": {
+        "bytes": 1053796,
+        "sha256": "18e42d5f0b9927ac425032f4321f44357ac51df7dc77c783e6047f506c9f729e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aya/prompt.txt": {
+        "bytes": 2203,
+        "sha256": "7d4ef27f38d293988cc5de3dcf01fd4954592c37aecbe0be104bfdc0481b87cf"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aya/thumbnail.png": {
+        "bytes": 141367,
+        "sha256": "49040cce861b8399d4301c1ea9a33f3b131a0c65ce72cde5496e70679c305527"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/aya/validation.json": {
+        "bytes": 15064,
+        "sha256": "c0861d0ad906840f6ad751eefe3c907a459486067d83a36093ee630d52932a8f"
+      }
+    },
+    "barbara": {
+      "ArtSource/AnimationPrototypes/Subjects/barbara/atlas.png": {
+        "bytes": 1606688,
+        "sha256": "2f315b673ead6357a69b4e3d833bcb89c856829b9cc0853df83bd75e48b2dc69"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/barbara/manifest.json": {
+        "bytes": 1579,
+        "sha256": "448fac3058e5542ee0df59dda000dcc1269774d60a5100d687da6bebc04e7dc4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/barbara/preview.gif": {
+        "bytes": 511598,
+        "sha256": "98f534a1b7ea057466590dce9bad5d2eaf446ff75635a1a710c9fae5c96070db"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/barbara/preview.webp": {
+        "bytes": 1269080,
+        "sha256": "c240e22b8b32ece6e3bb4411e7ca4bb457c406c2cf911af23f1482ab174c3a97"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/barbara/prompt.txt": {
+        "bytes": 2412,
+        "sha256": "cc511c938a81a0af29d1e37c7773ece2302aa4dd4887ed49faa1d285c9dd730b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/barbara/thumbnail.png": {
+        "bytes": 191297,
+        "sha256": "db08ebd3bd72f3e4310e5f5f0399f8d94371200f7eaad45107d23e4111ffa150"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/barbara/validation.json": {
+        "bytes": 5327,
+        "sha256": "1f6dd8dd674d4403259e36f549c0758c0443fd0b8ab0f53cae139cafc98c7e2a"
+      }
+    },
+    "bernice": {
+      "ArtSource/AnimationPrototypes/Subjects/bernice/atlas.png": {
+        "bytes": 1488997,
+        "sha256": "f0bb41077827ee2de7b4197546578bcd3ae4fe2ab0d65b073078027d6a313dd2"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bernice/manifest.json": {
+        "bytes": 2241,
+        "sha256": "52e89e2f1f41818fcd73dac3a4fb6537a596e59d023ecc07edd903ca9f0dd3d9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bernice/preview.gif": {
+        "bytes": 439257,
+        "sha256": "fe341c95279388c9e3f660b08f4063deb5870a432bde485c90b15304ef80e659"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bernice/preview.webp": {
+        "bytes": 1149984,
+        "sha256": "ab99280742774a6150059aaac420eecd8d984fbe489bdb9d0c10632580280592"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bernice/prompt.txt": {
+        "bytes": 1959,
+        "sha256": "586b636e40f38ecae90b968cb2aa91fe230aff28f8500c2d03bb1f4f06cae6af"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bernice/thumbnail.png": {
+        "bytes": 156795,
+        "sha256": "df08f1d4b2df228425d0f3121c5392c0b98b07abed7b80bb02a08f8241f5da6c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bernice/validation.json": {
+        "bytes": 5339,
+        "sha256": "aa088e1251cedebd77a4f4185cfd1437d8579d656804b06060265d59497ddbde"
+      }
+    },
+    "bianca": {
+      "ArtSource/AnimationPrototypes/Subjects/bianca/atlas.png": {
+        "bytes": 2165588,
+        "sha256": "abd53cfac561c32f75a909a0654280396b45a0ef7d39e43f71b43262053b0c84"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bianca/manifest.json": {
+        "bytes": 2275,
+        "sha256": "6b104a75bfd3decb1053929f902a5a15003375816ade3304f7a76530a0fa25b8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bianca/preview.gif": {
+        "bytes": 655291,
+        "sha256": "e116e0b22b17de2e0e785d7e8bd91800dd33b72cbcac7b295240e28bfc3fcf8a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bianca/preview.webp": {
+        "bytes": 1663818,
+        "sha256": "9b23b1de55b71557bb4099e44873a212116efe2c5a84f16f24f9a292e3086c0c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bianca/prompt.txt": {
+        "bytes": 1973,
+        "sha256": "9262cbef3856a6d1f5543090b6363c9ca526fde8ebb22bdbe76964a02e4c45a5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bianca/thumbnail.png": {
+        "bytes": 185490,
+        "sha256": "00ba2a1e3d64a06034b0bf17b381c62e178c66f31d665030ea75ad0cc713f443"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bianca/validation.json": {
+        "bytes": 5334,
+        "sha256": "7e60a79a1aba864ea7363e73f66f2298c718d2a56b63a701b882793f098307aa"
+      }
+    },
+    "bihyung": {
+      "ArtSource/AnimationPrototypes/Subjects/bihyung/atlas.png": {
+        "bytes": 2499588,
+        "sha256": "cd5068b2bb7267392e25c4a19663bcbe2578b33a55230a6bd336a4cd5eb4735a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bihyung/generated-sheet.png": {
+        "bytes": 1871567,
+        "sha256": "f06baaf98f017b3ba572e1bcdf8393c1d8f420e7feb4c9e7a0de93438c7c8501"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bihyung/manifest.json": {
+        "bytes": 4641,
+        "sha256": "2e2b31a34511c7a86f951aac662b8c976d007b6dad1fbbc7337b1f027fdbbc7b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bihyung/normalization.json": {
+        "bytes": 25021,
+        "sha256": "05ac4437dafde8e4c7817145055a6e1f484cfba886f3204c201584f40d0358c1"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bihyung/official-reference.png": {
+        "bytes": 1525679,
+        "sha256": "21f41e68185e57d6b475ade5c538a540fd16a1d30aa40938bab8164e909fbb0b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bihyung/original-reference.png": {
+        "bytes": 24755,
+        "sha256": "e02d3ae783f21d51cbc09b9713360ab90ceee83fe6168e29562b7d345b1d1973"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bihyung/preview.gif": {
+        "bytes": 607140,
+        "sha256": "fd912bf72c7b529b6c5d8604c2e9afa795e8bb918f83acdb03037cd12f246598"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bihyung/preview.webp": {
+        "bytes": 1402352,
+        "sha256": "07448b72bfba450c87c4c7206eed9b9c9c167a5c49d44ff111f098774f5e52d8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bihyung/prompt.txt": {
+        "bytes": 2411,
+        "sha256": "988dad3980ce30008f924327b60e29e81a1bb83beb4fcafd45d93b63fe997cf2"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bihyung/thumbnail.png": {
+        "bytes": 167511,
+        "sha256": "7b4bd7ed986ef746e578d0fb2a1a033fdbd360609b179805723f8e65fb551bed"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/bihyung/validation.json": {
+        "bytes": 16486,
+        "sha256": "414de7bdfa603f3a8f453ea8106a175faadec4700488aff42d16d5fa285ea385"
+      }
+    },
+    "blair": {
+      "ArtSource/AnimationPrototypes/Subjects/blair/atlas.png": {
+        "bytes": 1897902,
+        "sha256": "267f44149d25ee850bb7b9d9e53e42f70266c015b52cec46ac71e5f4e0e43f6c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/blair/manifest.json": {
+        "bytes": 2413,
+        "sha256": "fb5f4b892c34b67445345bd5c4c96d08a73d7592e611724a377a548fd6e7b854"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/blair/preview.gif": {
+        "bytes": 524685,
+        "sha256": "8c77d47d660d68d63a9b58f538ead43dcbf9f052c24dc8e0cfd0d4a4b8887967"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/blair/preview.webp": {
+        "bytes": 1364132,
+        "sha256": "d48427c1e26fb9d3ddc2ffd0b9759edb1d435e86b42ad931d1083cabbf80b551"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/blair/prompt.txt": {
+        "bytes": 2065,
+        "sha256": "50de71e8c2c258c610f0ada81b4413cb682a53842bcc8701a85637028db3f025"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/blair/thumbnail.png": {
+        "bytes": 182970,
+        "sha256": "102d2c7696e5097698b964e7dc2dd7a6043066135901dad20e3a9d71531f6100"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/blair/validation.json": {
+        "bytes": 5335,
+        "sha256": "6a0d22f1b74e8763c67668a002c6e315328c386d26114d0f6f3d9e07f3849ec7"
+      }
+    },
+    "camilo": {
+      "ArtSource/AnimationPrototypes/Subjects/camilo/atlas.png": {
+        "bytes": 1921554,
+        "sha256": "4999168ab275380eae0bcbfab933dc42491a53d5aac213753be274ffa649b3c1"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/camilo/manifest.json": {
+        "bytes": 2334,
+        "sha256": "26e5e1cf23627a8ee5365384ef76e40da1959528ee3634a0e0cc3a03bf31ff61"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/camilo/preview.gif": {
+        "bytes": 514954,
+        "sha256": "3aba99777f15d8fc415dbb22f5159a90a7724238d7ff1dbdbcfbb8f82f14b9d1"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/camilo/preview.webp": {
+        "bytes": 1371838,
+        "sha256": "a020a20e0ec7c00298428682ef8749011094281a84730dda153cb37d34969ec5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/camilo/prompt.txt": {
+        "bytes": 2063,
+        "sha256": "36623a1929da1a18b5f8a6efa857a3deabf2ae575673392ae4bc1b34589d181b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/camilo/thumbnail.png": {
+        "bytes": 183593,
+        "sha256": "f2827df662500db28f54d679d59d7841b6824e06e7de82b6b51ef668af7b9492"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/camilo/validation.json": {
+        "bytes": 5342,
+        "sha256": "7ee9f58d4ba51197aeffaab3b020d8c5946d02a620307725d5ef1f4d540a3941"
+      }
+    },
+    "cathy": {
+      "ArtSource/AnimationPrototypes/Subjects/cathy/atlas.png": {
+        "bytes": 1425020,
+        "sha256": "7ace34810919d776a921a0936999a71b55866d466e45b804212e8333dcc9171e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/cathy/manifest.json": {
+        "bytes": 2147,
+        "sha256": "8b78c48fe6120156cb222eb27f0b2ca256523c8cada15b57f288d272e3b05394"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/cathy/preview.gif": {
+        "bytes": 444801,
+        "sha256": "aaa5b12c6ea22a39eb573450ce3cd981d9425e44913b52389231439aba4aba76"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/cathy/preview.webp": {
+        "bytes": 1115610,
+        "sha256": "02e93659e1b6642b08672d9266c9951089adfb4b5ec455375ef78d27ebed68df"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/cathy/prompt.txt": {
+        "bytes": 2170,
+        "sha256": "b5dea5294a2a27f6aa21743ac3c06603af3bf8ab7aab2c196623153ff3ee5a94"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/cathy/thumbnail.png": {
+        "bytes": 154123,
+        "sha256": "df2d1e8d8616399acce502518dd273b134b98f616d6624f521a443d884ba8872"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/cathy/validation.json": {
+        "bytes": 5343,
+        "sha256": "41a64dbec6bbfbfa7fa5e8bc4b30a11f584dc80e39edb5c27d36e65bf6320b47"
+      }
+    },
+    "celine": {
+      "ArtSource/AnimationPrototypes/Subjects/celine/atlas.png": {
+        "bytes": 1592125,
+        "sha256": "40571479b058bf475126c57240b2d9aaadfa532a7b03f7e48963792422110395"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/celine/manifest.json": {
+        "bytes": 2193,
+        "sha256": "09d31cb433111b5d823148eb66cc7d986443430a9925381ea0ddb836e436cf05"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/celine/preview.gif": {
+        "bytes": 454038,
+        "sha256": "6286557fc77d5450df46eebb6f5107ff9dfe4f6885a60b75d65bce09400a5609"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/celine/preview.webp": {
+        "bytes": 1249240,
+        "sha256": "2505d2f360ba048e451348fa186390b3cce65a8ad32469e0bdbb16d45fb521af"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/celine/prompt.txt": {
+        "bytes": 2285,
+        "sha256": "d4e987c8ed94db32fab0254007d15df6730f85a4f257baf95a730bcfb401867e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/celine/thumbnail.png": {
+        "bytes": 138817,
+        "sha256": "0b7c0413e4daa4b3a09383ba407da03abc3aaf6060a72049c569e96500e0ce2c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/celine/validation.json": {
+        "bytes": 5330,
+        "sha256": "2e1817b488909f559daf60896fc2eb4b2de2371f9187c6130230f6d281c5fa2b"
+      }
+    },
+    "ceres": {
+      "ArtSource/AnimationPrototypes/Subjects/ceres/atlas.png": {
+        "bytes": 2289644,
+        "sha256": "ea085144bdbc415ee37530e5fa40c2c48a6877205a3d207775b4604c327eedd3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/ceres/manifest.json": {
+        "bytes": 2364,
+        "sha256": "9fd4f49d982ed7668f6f71681e5b91b35c124754c89d799087a275aea07726a7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/ceres/preview.gif": {
+        "bytes": 553942,
+        "sha256": "aedd4d4b567a816dae5348791dea86f9ddc734f90dfbac4a75810a965093ecc8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/ceres/preview.webp": {
+        "bytes": 1553720,
+        "sha256": "170197ff3ca12328b9b084bf97dcaf165e1e10afbc2a4947c6522bb64f947fae"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/ceres/prompt.txt": {
+        "bytes": 2308,
+        "sha256": "f177bf59a4fa5a33101643f0e6bda0a19d2a3e5b9b1fc985cba83742a3d5d3cc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/ceres/thumbnail.png": {
+        "bytes": 176829,
+        "sha256": "cf0bc33674b4fe97d2637541ec8aa20c41828d8d31eadcfe502da072a843905d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/ceres/validation.json": {
+        "bytes": 5335,
+        "sha256": "e7f3279bd0d9d3766fec677c7bde7d84864a5dae576265b8c97e90f863dbd429"
+      }
+    },
+    "charlotte": {
+      "ArtSource/AnimationPrototypes/Subjects/charlotte/atlas.png": {
+        "bytes": 2178566,
+        "sha256": "2e20dd5bebe08fe3152b32a48462be9de5d0ff08fab4bc1ee9fe2b1396d37a5f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/charlotte/manifest.json": {
+        "bytes": 2279,
+        "sha256": "57fb72a06e933f6cddc6fd864f26b01c830fac779a76152ac357831d493952aa"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/charlotte/preview.gif": {
+        "bytes": 578188,
+        "sha256": "32116c5862bf20c4bcf456d4d1bdce8969d87e97a8838d12892315bd7dd3c2f7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/charlotte/preview.webp": {
+        "bytes": 1580042,
+        "sha256": "c9a0fbf97627ab431ee0b11b783ec8122b11a562e181099eab6e13e069efbcdf"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/charlotte/prompt.txt": {
+        "bytes": 2251,
+        "sha256": "2709e146ed09e9d64a5ee5294dd331618c9e1a60c5afe8fbe255f5c90746306f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/charlotte/thumbnail.png": {
+        "bytes": 206219,
+        "sha256": "df93a8dc5b8acf508014b254cbd730f19d8619ecdd04b8b4c53c7fd9f57488c6"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/charlotte/validation.json": {
+        "bytes": 5352,
+        "sha256": "2fa49b6371af456eff1822eccc33e58ffbeb8c621845c6fec528bf4123bcaecf"
+      }
+    },
+    "chiara": {
+      "ArtSource/AnimationPrototypes/Subjects/chiara/atlas.png": {
+        "bytes": 2035552,
+        "sha256": "bf47b3181b0b2b63add6dcff307ec94d05d2efbb2fe41e61bd602573314e8df8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/chiara/manifest.json": {
+        "bytes": 2220,
+        "sha256": "1584fdb2f7665259ed7561eaed1044865ad065cec259aeaa20df101e1aa358f0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/chiara/preview.gif": {
+        "bytes": 546866,
+        "sha256": "9ffb6de66649969f17a69ffdd1348502be6990e4add81055618fc6dcc20125ba"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/chiara/preview.webp": {
+        "bytes": 1512846,
+        "sha256": "716633d3e5637d9ad84ca64d04bec79a3a5f5deea5801b474d3b43cfc450af45"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/chiara/prompt.txt": {
+        "bytes": 2306,
+        "sha256": "3f0e2d85ac988064b5bed7ef425bc9cc1e88dbc8570d85bd64fd584fd80769b2"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/chiara/thumbnail.png": {
+        "bytes": 172055,
+        "sha256": "f5abc0ec89a372d1a75d65b2bda498b6c784ce401e54ac5406c95a2c2ce13cef"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/chiara/validation.json": {
+        "bytes": 5352,
+        "sha256": "ef6c252ac91ebde61dae44be7c6b6af9063204ebcb6ca3e62574c68ec0d44c66"
+      }
+    },
+    "chloe": {
+      "ArtSource/AnimationPrototypes/Subjects/chloe/atlas.png": {
+        "bytes": 1955602,
+        "sha256": "b92fe6f308a1c200c74d48e787fa614bbabc344494d303a902357ab5e7453d7f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/chloe/manifest.json": {
+        "bytes": 2396,
+        "sha256": "c78f3267450595c258b0004451d9bd8221ca5916ebce070a8e815d702e7a031e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/chloe/preview.gif": {
+        "bytes": 563179,
+        "sha256": "0b3401fd6e2a531d0a972dd2c63ac19d8af29d8cc86b12e32c029961ab6484a4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/chloe/preview.webp": {
+        "bytes": 1409574,
+        "sha256": "7b4a861321f42e405ad09aeb16e8593e83768cf078a6cdc5529dad80c25567f9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/chloe/prompt.txt": {
+        "bytes": 2473,
+        "sha256": "0ea843d0342477fe1909050ad9dd10b2bc0faf1650463de37871bb4da30a476a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/chloe/thumbnail.png": {
+        "bytes": 181540,
+        "sha256": "a37bfc8c39530edc59dfd8546d8b778eb4e1ec452f6a959b558044544bc294af"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/chloe/validation.json": {
+        "bytes": 5337,
+        "sha256": "4e7733af24b128fb7ff63d88d8b190211004aec814c1c03e161eb7a5ba496bb4"
+      }
+    },
+    "coraline": {
+      "ArtSource/AnimationPrototypes/Subjects/coraline/atlas.png": {
+        "bytes": 2033552,
+        "sha256": "8dec5f23337c16348f4b9f3cc7ffcf2653721f4367289558d1b2a70bd779a466"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/coraline/manifest.json": {
+        "bytes": 2275,
+        "sha256": "dc4a6daeef9e41bd91c48aef211bfe15e243a3f6e0b3c298e2930dd1d5fd8563"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/coraline/preview.gif": {
+        "bytes": 547834,
+        "sha256": "5097330199adba5cd0f41b76b01b15c99b2f05558039fe96ac3e25e4e864fd37"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/coraline/preview.webp": {
+        "bytes": 1514488,
+        "sha256": "7a31a2b2f925ebedabe04285621f6182fc4e563970d118110925a3e067e5f020"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/coraline/prompt.txt": {
+        "bytes": 2393,
+        "sha256": "4741214be89aecf72b9dbdf299ae1083285b05aec408c309fb3611b14efa7d4e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/coraline/thumbnail.png": {
+        "bytes": 189572,
+        "sha256": "bcdf82f0614c91e703af2e7503b39b75a3c760b8193247a5dbb380193937c129"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/coraline/validation.json": {
+        "bytes": 5340,
+        "sha256": "036426e342460785e9540ea8d69f7473f3d897bdd0e6e1a0bf1aff10e1720e78"
+      }
+    },
+    "craver": {
+      "ArtSource/AnimationPrototypes/Subjects/craver/atlas.png": {
+        "bytes": 1630252,
+        "sha256": "00d2dafc88bab0e9ff6443d2f3d25a91c2c483e51a18870f9b82df909958f78a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/craver/manifest.json": {
+        "bytes": 2308,
+        "sha256": "2698e2369f5e5b7a2ac97db04e7063d635249ed016b3d6472b9977a99f8689a9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/craver/preview.gif": {
+        "bytes": 503477,
+        "sha256": "4f7e69856471ee4804c10c321353e807528ed9cc4132856c7611df6842d89260"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/craver/preview.webp": {
+        "bytes": 1282524,
+        "sha256": "3825170fc96ab532183641c08ff40f4c977b997982cf3d6544801525b3799b84"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/craver/prompt.txt": {
+        "bytes": 2364,
+        "sha256": "bef6e5727838ab9f8471b97f57dba96dd779ecb107da91b0f881395681c60b73"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/craver/thumbnail.png": {
+        "bytes": 174438,
+        "sha256": "aea59f994fd74c981b691b1fe317e89b2ec67502f3106fe4a3ffcf38176fc96a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/craver/validation.json": {
+        "bytes": 5384,
+        "sha256": "0b72b6e1f50be0ea8a70ca7e0f0dbd05d00b791fef0555e17a129a6ed6469d33"
+      }
+    },
+    "dailin": {
+      "ArtSource/AnimationPrototypes/Subjects/dailin/atlas.png": {
+        "bytes": 1711399,
+        "sha256": "9cff597adba2be937ac74238de49bf2bd412976df8c1ff7c2d9ff66656c6d2d6"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/dailin/manifest.json": {
+        "bytes": 1714,
+        "sha256": "3054e5c2476dbe6fb9836c897ff24f3942847ea30af355ba909c8a3389412542"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/dailin/preview.gif": {
+        "bytes": 552473,
+        "sha256": "ff53fea94f7a090ddd7974ed7fbfc4c73b37578aaf8ce4b47111beca1d44ca12"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/dailin/preview.webp": {
+        "bytes": 1370756,
+        "sha256": "2aba8b61b6b9f6a1681f8ca83068992eba7586995712c2082049cb8766d10ec1"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/dailin/prompt.txt": {
+        "bytes": 1699,
+        "sha256": "b3a8314289c8e2878f96fd47f83b36cf4c4b8d976efb1ca4342089b5035e2e61"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/dailin/thumbnail.png": {
+        "bytes": 170681,
+        "sha256": "2c52bd49c6578b21283af7a05452b8b1f0f685becac2aeec3c27480c2b1356c2"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/dailin/validation.json": {
+        "bytes": 5330,
+        "sha256": "a2c5626e7aa097a4cbf12eb40fed38718fa895020c72aac8300f8bf1106a3bc5"
+      }
+    },
+    "daniel": {
+      "ArtSource/AnimationPrototypes/Subjects/daniel/atlas.png": {
+        "bytes": 1506301,
+        "sha256": "4a402eaa20e8227528b0cc6c9a4fa5dd08a989218377ee5949be84bc30b142bb"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/daniel/manifest.json": {
+        "bytes": 1933,
+        "sha256": "0698d0d7491d33b7328d75dc2bacf0196203caec758359b441c841593b443b1b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/daniel/preview.gif": {
+        "bytes": 423508,
+        "sha256": "29301d27839e82cbb5eb7e258650390ec5b41bd8ee079ef8abcc77d8f99a9be7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/daniel/preview.webp": {
+        "bytes": 1149114,
+        "sha256": "4f0a95278207cd781074031bf701b261f4be5ed17410bc1c011da9bdd8d79b54"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/daniel/prompt.txt": {
+        "bytes": 1878,
+        "sha256": "a6ff229df6daa062d904342de4514a79898b132a7df99363878273e4fed42cd8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/daniel/thumbnail.png": {
+        "bytes": 159841,
+        "sha256": "d9dff28c010a1456a77fd75dbdd6079e9c7179538575e46dffe185db7acb7714"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/daniel/validation.json": {
+        "bytes": 5342,
+        "sha256": "24d6658c143d7f7bb3187a8d6ca1d546040722ff41c049d2f1bec2057a60acd8"
+      }
+    },
+    "debi_marlene": {
+      "ArtSource/AnimationPrototypes/Subjects/debi_marlene/atlas.png": {
+        "bytes": 2184033,
+        "sha256": "98c3ad753bccdb42ffb71db6d2ea903b2179505005e6ec67f8a1bd3b1cc21693"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/debi_marlene/manifest.json": {
+        "bytes": 2112,
+        "sha256": "d53bebb8b72a090be0c9205e714f8c4d26e42a805b858408bc88e667d4fc80e7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/debi_marlene/preview.gif": {
+        "bytes": 596606,
+        "sha256": "42ba673db56ec96af1ce5b644754df58882a60ec99a55789584972bbedec57d7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/debi_marlene/preview.webp": {
+        "bytes": 1706202,
+        "sha256": "eb24303693c6c4e16e832f8db9c76509fac16e49c8f3d61fd4e4f0fd72c42dcc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/debi_marlene/prompt.txt": {
+        "bytes": 2023,
+        "sha256": "6d2cdabceb89c37c2aafce9a463bbb399356fd317697b507e8021e03540e656e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/debi_marlene/thumbnail.png": {
+        "bytes": 203355,
+        "sha256": "861a9570c8f69d8299ac14538d9413f56152ea80c77bc4c1818722f77802b679"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/debi_marlene/validation.json": {
+        "bytes": 5328,
+        "sha256": "bc0cecfca018071f0cb0d37226a381b32ebe1b70ac9bf8fb464085af80eac6e2"
+      }
+    },
+    "echion": {
+      "ArtSource/AnimationPrototypes/Subjects/echion/atlas.png": {
+        "bytes": 1258922,
+        "sha256": "b3784a0c3e1d3b10ba57ec231cd13ec8c399065e8be3e38379d5134d82665769"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/echion/generated-sheet.png": {
+        "bytes": 974242,
+        "sha256": "5b23b9dbd2982c98458911f05fc98828e74bbdb8c0170e5cb7d71f370d3717f5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/echion/manifest.json": {
+        "bytes": 11660,
+        "sha256": "332da51565e29f122649869ad368eeb2d47b2ebeae469b69d16a5698841819b3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/echion/normalization.json": {
+        "bytes": 23436,
+        "sha256": "c1f373eef3ef86f2b21c8822dd36cfeb1dab59504eb279d77fcf9ed61cc704c5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/echion/official-reference.png": {
+        "bytes": 1066911,
+        "sha256": "f960bf836f1e6da8ce9878190dbcb44989d51a3146879197a595faff9df5f824"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/echion/original-reference.png": {
+        "bytes": 18748,
+        "sha256": "ee75392de8f7a16bb4a7ac608cdcfae2cef20c56c8fd8bced17f8e106a03fce7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/echion/preview.gif": {
+        "bytes": 326942,
+        "sha256": "13208b22f8f70011058048eb3c946c5b44154bd0befb549fa52e39eadf567f6d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/echion/preview.webp": {
+        "bytes": 716984,
+        "sha256": "c4f2c6e3c36aa82eb0a23e7d1b5d24c46247f8367509422d37ae392acc1961b3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/echion/prompt.txt": {
+        "bytes": 1844,
+        "sha256": "30694657416ffb1eb9f9d51bd08898d8d16c0e0554745d09da7fd1f6e3c5236f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/echion/thumbnail.png": {
+        "bytes": 101727,
+        "sha256": "039bd3d686ea58f8ead0ba327b8e029e51ca5b24a19c78d643c49df93f348c92"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/echion/validation.json": {
+        "bytes": 15110,
+        "sha256": "2294ac4cb9cf7185cd882236296fe7263fb93171c48a4bce6ecdb984a0bbbc0d"
+      }
+    },
+    "elena": {
+      "ArtSource/AnimationPrototypes/Subjects/elena/atlas.png": {
+        "bytes": 1576454,
+        "sha256": "09c60bce7177f183b937f37e883379ed130514a0df58c86486afbd24ce92ff59"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/elena/generated-sheet.png": {
+        "bytes": 1301253,
+        "sha256": "0f7d0432806b63e196e71202d6841c310bb4b2807aa85d30345cde1d9e89e226"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/elena/manifest.json": {
+        "bytes": 11590,
+        "sha256": "edabcd5326a414422043c2df49b6de3e5be2507ee13b0323c8bbe41f77c7a0e9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/elena/normalization.json": {
+        "bytes": 23432,
+        "sha256": "2f9bb2c32074cb0fdad1fb21d212e2c700c26506eeb5a2cc8fa19e648b79ac56"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/elena/official-reference.png": {
+        "bytes": 1645838,
+        "sha256": "a943569c176c0a53e10384bfa72f6f74fcca1e53aab4bff9021ee0d0ac6f1c6f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/elena/original-reference.png": {
+        "bytes": 24091,
+        "sha256": "726ef6bfa63098850541b191a6d41557ac626b8f8770625cbf607cf7ca52abfd"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/elena/preview.gif": {
+        "bytes": 375992,
+        "sha256": "67af04caa1679b701f7945de7161ae3137201defe697b72377d736b157df822a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/elena/preview.webp": {
+        "bytes": 985612,
+        "sha256": "323e515c3855a095804c37f9fa094cc1c492840900ce679fae1f591b27386bf7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/elena/prompt.txt": {
+        "bytes": 1596,
+        "sha256": "723cf0accd840e33978bb546feb4aeb9ff20e7d79ae3666680f2ec5bf9f480e5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/elena/thumbnail.png": {
+        "bytes": 129385,
+        "sha256": "9900097e9b916b2cafaf65047d6fabd8b196a2c17e15415784fae235aebb1e27"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/elena/validation.json": {
+        "bytes": 15066,
+        "sha256": "4e6264161e5f178501b8d263aaa569ea912044b63ced3f5c8a9f7f2d7efeae22"
+      }
+    },
+    "eleven": {
+      "ArtSource/AnimationPrototypes/Subjects/eleven/atlas.png": {
+        "bytes": 2090446,
+        "sha256": "34565a03d5512a8e887b9dc2d6929ee6e446aa9989b0d29bd7bac253977e44d2"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/eleven/manifest.json": {
+        "bytes": 2029,
+        "sha256": "0f2706cf0fb4de1e9e53db1032457b00061a8b08c3533d58cca600a7ab776ea6"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/eleven/preview.gif": {
+        "bytes": 590189,
+        "sha256": "8be77770e52edfd3844c19dbd4dd03724aa6baa7834e28875224e87027e7eba3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/eleven/preview.webp": {
+        "bytes": 1619618,
+        "sha256": "8e533d36e94fdb69ecde8b51b145dbbda02acda3a3549e5ea43fbeda33d4f562"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/eleven/prompt.txt": {
+        "bytes": 2028,
+        "sha256": "c195accaf8f23dfec7fefe3938d4a33fe6ea09a64accfaaf433322a0d204615d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/eleven/thumbnail.png": {
+        "bytes": 199731,
+        "sha256": "170bede78d45e194a606886df89290b7b4792d445736b8933fcb1ab7f3f6f324"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/eleven/validation.json": {
+        "bytes": 5340,
+        "sha256": "8c423c48d1f8f6b9d21d782338862f2810f04acaab1b31c49b73492f04fd2ed9"
+      }
+    },
+    "emma": {
+      "ArtSource/AnimationPrototypes/Subjects/emma/atlas.png": {
+        "bytes": 2015257,
+        "sha256": "3e84b16179f0cb41ca6b0c8c70ab2abe108da102e776c93a6c30a4a4878aec52"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/emma/manifest.json": {
+        "bytes": 2116,
+        "sha256": "41aa6f7d59e585905ad6a734011e1906b9bf077073ab5af5787588515cdf5d02"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/emma/preview.gif": {
+        "bytes": 526624,
+        "sha256": "52a6bff2d92eb4c9d68467ed1c054e24601897771610ef9b8638638c9d1d8621"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/emma/preview.webp": {
+        "bytes": 1505696,
+        "sha256": "364e4d3dede0fffb0647f34f01e617a9142a3cc89d045d3b55d44677425bda8c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/emma/prompt.txt": {
+        "bytes": 2110,
+        "sha256": "ad991341bb0cfcc9dd9df0cba74eb51fc26fcdd576869bc7d15639336ec1e518"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/emma/thumbnail.png": {
+        "bytes": 220344,
+        "sha256": "9e54fa8afe527173dbf7ff5348d8bbefbf4a25cef6c59b816a15c5db2567a083"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/emma/validation.json": {
+        "bytes": 5340,
+        "sha256": "1f3e9627a78e2766a03313b6245d916235c2b87aa3e908f20efd5452da5d6cf4"
+      }
+    },
+    "estelle": {
+      "ArtSource/AnimationPrototypes/Subjects/estelle/atlas.png": {
+        "bytes": 1615353,
+        "sha256": "866a0d12bd07cb165fde8e33abaf4a30b341e7c7b5339887cb53b8d0d0925ead"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/estelle/manifest.json": {
+        "bytes": 2027,
+        "sha256": "51b25d8f19eef2f581959b6a56236a9505dd26179b44a7d9acadfebf55c1ec63"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/estelle/preview.gif": {
+        "bytes": 485500,
+        "sha256": "e39f8f5f3d0aaf3a07ed18398e23da8f04b69b8cfc5de5656a96e410faf17e6f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/estelle/preview.webp": {
+        "bytes": 1275834,
+        "sha256": "ed100b97bf844ff82a4364737cec7c509012c8216fd7d75c85826bfb90752a59"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/estelle/prompt.txt": {
+        "bytes": 2049,
+        "sha256": "ac17e0829f68ddbacef7cca9a1cbb37d8f176b14d0ee41dc1c010219eacce385"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/estelle/thumbnail.png": {
+        "bytes": 186650,
+        "sha256": "e63cc4c50e9aaccc9b34f6e094aba5252b942c54fadaaf17bc1467905becbcf8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/estelle/validation.json": {
+        "bytes": 5341,
+        "sha256": "d6dc445e024576b7a086970800e633a3412a3cd602cd1586ac22949b86284afd"
+      }
+    },
+    "eva": {
+      "ArtSource/AnimationPrototypes/Subjects/eva/atlas.png": {
+        "bytes": 2168098,
+        "sha256": "e2fd3d9f97f84ffd2ce73f3401f1f28c80eec008c498b5f3b7d89243006f6f3c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/eva/manifest.json": {
+        "bytes": 2116,
+        "sha256": "eb8553923232b526ce96852e92383b461b18cb1a627d6ed60109d1d3a9a5d7bb"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/eva/preview.gif": {
+        "bytes": 608922,
+        "sha256": "d6e6314057f917a77be17965a11045fe993578599b4d668382aecc85388fe542"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/eva/preview.webp": {
+        "bytes": 1612442,
+        "sha256": "6f8211c0ed19fb690e07eeb8ab019c7b9a325ccf1be5e3801ee9d07daff50db5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/eva/prompt.txt": {
+        "bytes": 2060,
+        "sha256": "2531b9472ae920dd210c9997c7c5655d7265c8ef998e450475cf43fe26d2ecd4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/eva/thumbnail.png": {
+        "bytes": 213113,
+        "sha256": "287c126913ba06f9f07d8c68dcff65bd19a6db05661934ce2bd75ef4213b6a94"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/eva/validation.json": {
+        "bytes": 5319,
+        "sha256": "b612a66463e368441ff50fb1a626d3f36703f1bd5f41741656ba554a60493551"
+      }
+    },
+    "felix": {
+      "ArtSource/AnimationPrototypes/Subjects/felix/atlas.png": {
+        "bytes": 1778492,
+        "sha256": "eb1d863ab7b31c32a17b9ca364f5caaa3004a7be11ab230840fbd090a8f04f7d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/felix/manifest.json": {
+        "bytes": 1942,
+        "sha256": "616c82c76edd7caf878af5eb5898e631fbc50003f4860611848f5688e873b3d0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/felix/preview.gif": {
+        "bytes": 399256,
+        "sha256": "e9f91b04a498e2e478d42c28bdc89d851b92049beaf7f10e3bbed20b2d8212f4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/felix/preview.webp": {
+        "bytes": 1242724,
+        "sha256": "ce5cd3a3ae1621d8e00ceaa81d1f96955de77579c6979b5692483f0cdf4bca24"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/felix/prompt.txt": {
+        "bytes": 2008,
+        "sha256": "19b5d47717f231e1d1e9372c6a545a5945c26dee65fd7fedeaad46a1c76a78c7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/felix/thumbnail.png": {
+        "bytes": 139119,
+        "sha256": "27020f255b68a49ffa08f33cd7f34256e54647be26044cee43c29bb87fa71de0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/felix/validation.json": {
+        "bytes": 5333,
+        "sha256": "724e494452e7c6f2ced4c69f4943d67e3d86be9a57295fdffbc947119462648c"
+      }
+    },
+    "fenrir": {
+      "ArtSource/AnimationPrototypes/Subjects/fenrir/atlas.png": {
+        "bytes": 1926601,
+        "sha256": "50821b9a5075f76d361393d20c2cef97940f38ef3138e3bb3c0dcce0281ac5f1"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/fenrir/manifest.json": {
+        "bytes": 2047,
+        "sha256": "2eecdf56b324ff030e879a4cd49b9e5c1a5a4bcf0f4b7fe75eae208b5f3e2511"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/fenrir/preview.gif": {
+        "bytes": 513269,
+        "sha256": "677c34014b5fef5b2ebe6467523d9c5d6c34e0d086e8708060edd184506d8e5a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/fenrir/preview.webp": {
+        "bytes": 1497240,
+        "sha256": "73a6870ba40f7d05781586b5dbad55a6324d0a816fabab7959df974fad404d47"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/fenrir/prompt.txt": {
+        "bytes": 2004,
+        "sha256": "d6e2dadb770f94465d9a42652bf3118739a504dd2979810c10ff96b51a44d11b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/fenrir/thumbnail.png": {
+        "bytes": 169162,
+        "sha256": "509a174496f7402af2354ee20c2db31ce81f43caf91fff7a5ee8b28166a4d19d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/fenrir/validation.json": {
+        "bytes": 5351,
+        "sha256": "c924bc61343d0fa9fd1fe6c18cc21a50bd244a0c3d6b2eba10adb73d43e47fdd"
+      }
+    },
+    "fiora": {
+      "ArtSource/AnimationPrototypes/Subjects/fiora/atlas.png": {
+        "bytes": 1557187,
+        "sha256": "36caecee8f89ec7a09dd24c110a481bfab8c088fd2585a7ce137379a587eb3de"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/fiora/manifest.json": {
+        "bytes": 2014,
+        "sha256": "d43243f7161c389ffdaf792e016be82651ed4b3008c497c967fdf64e7ff43465"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/fiora/preview.gif": {
+        "bytes": 451480,
+        "sha256": "43cebcea9e19e945b586939cca133adbaa3a0437917638b479dec6bf708237f6"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/fiora/preview.webp": {
+        "bytes": 1184804,
+        "sha256": "1d4ef8a703825c27f16fb8a1b37a1e264d0259d789be46df6e8115ffa003d39c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/fiora/prompt.txt": {
+        "bytes": 2030,
+        "sha256": "45a00623893731c7ade6293c783d2effa890e1e5a76651c73a16cba8ef472f23"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/fiora/thumbnail.png": {
+        "bytes": 162134,
+        "sha256": "9cce48b4c92c703b18f1610d908f898d56b30c857063f78a871fccf57dc1eaea"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/fiora/validation.json": {
+        "bytes": 5343,
+        "sha256": "fe315f007e4792b5769be5b6fc1de9a1f7cffbb4618f7e562fe762a2b69c8f5a"
+      }
+    },
+    "hart": {
+      "ArtSource/AnimationPrototypes/Subjects/hart/atlas.png": {
+        "bytes": 1609013,
+        "sha256": "964c6f564d01358d6a51151c7dfeff83c3ffd849291e2ece87b72ff74e36b98c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hart/manifest.json": {
+        "bytes": 1995,
+        "sha256": "0b0afe7b202153f54d71050be23e8b9d0be0c61aeeb15cea7c79ab2a263c3559"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hart/preview.gif": {
+        "bytes": 475657,
+        "sha256": "58b5a4c1edfe04fcc671166e9497565946513364a0ded6b39543555e86b1833d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hart/preview.webp": {
+        "bytes": 1281928,
+        "sha256": "7693bd8f42465be77032fbfc6c0c93fa9895ae499b912ac71a1e3c50b30917f3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hart/prompt.txt": {
+        "bytes": 2039,
+        "sha256": "2b4aa271e7b0e2e59f0f0c2c24d2871981810ed546d680f97ebf50f468ccea51"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hart/thumbnail.png": {
+        "bytes": 151381,
+        "sha256": "0979d945f0ac9d70e1a12db22ec803ed96074a51f62f6e2ae1c6ce30392b5268"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hart/validation.json": {
+        "bytes": 5328,
+        "sha256": "eee0482005d317307fcfe1d011b6c360fecd4b4a67c9b70e7c95b466b25f5353"
+      }
+    },
+    "haze": {
+      "ArtSource/AnimationPrototypes/Subjects/haze/atlas.png": {
+        "bytes": 1431298,
+        "sha256": "7bd77f5e255f61a512da37e673de11b7108654277d1d610b7e66d54328f85fd1"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/haze/manifest.json": {
+        "bytes": 2030,
+        "sha256": "c1bc97b8224330ef8bf1ffa1e22eee76a4deda2872ad1f786cb8f84ed4cbdf9d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/haze/preview.gif": {
+        "bytes": 547919,
+        "sha256": "20607476a176d5d10b96bc157cc9dbb18fa94b57bc83e58967b2a329f784143d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/haze/preview.webp": {
+        "bytes": 1009064,
+        "sha256": "760ed76db15b814d2e6380c5f27cb20fc32ff80ee6707f5a8579f0612e06a5f1"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/haze/prompt.txt": {
+        "bytes": 2046,
+        "sha256": "637d7aaa5ca3be49db6889221929f794c95757ae9bc715c32a288ad08b0d6f0d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/haze/thumbnail.png": {
+        "bytes": 150627,
+        "sha256": "beedacb35307ba6a9aa2de7d1ba9f346765c45f918b97a0c71217eaf2d3ab3c7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/haze/validation.json": {
+        "bytes": 5322,
+        "sha256": "b5484fcb29851d96bd1f8128e8a24574bf0c5cec8a2c0412be77f56e008a5d96"
+      }
+    },
+    "henry": {
+      "ArtSource/AnimationPrototypes/Subjects/henry/atlas.png": {
+        "bytes": 2202683,
+        "sha256": "a779ffee7da2a2191bf3c4d5c5a4c6072dbd87b0fc6923905fbfe09bcb09ea5e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/henry/manifest.json": {
+        "bytes": 2160,
+        "sha256": "e7d89780be39f36781e98d4f6389baee405d97b5ad64092ebee4e328231ccdae"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/henry/preview.gif": {
+        "bytes": 503058,
+        "sha256": "93371587950680d3c50442fc902f34818b68d12970e5b44174131700591c0e9f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/henry/preview.webp": {
+        "bytes": 1573200,
+        "sha256": "cebdff309185201c551d2c333732ef04df42f30dab06f5a040bd025e3a6a6fdc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/henry/prompt.txt": {
+        "bytes": 2156,
+        "sha256": "e218affcb9ed76d28e1fe8f696e48cb4486b7cb9477c5de3579d119f25cffff4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/henry/thumbnail.png": {
+        "bytes": 173024,
+        "sha256": "3dee12dc599359ce2f2f0321a5bbf018b9929be94eeff1d8deabc8cd5b1a2f53"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/henry/validation.json": {
+        "bytes": 5327,
+        "sha256": "768b29a3f4e7bbe4b20aa0f4161cd4790054141643adeb1e0182f9cf8077b47e"
+      }
+    },
+    "hisui": {
+      "ArtSource/AnimationPrototypes/Subjects/hisui/atlas.png": {
+        "bytes": 2047912,
+        "sha256": "db53105f57c0de169a31adc6b2ad5a1ee3479ca97f0788277e633c019c60866c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hisui/manifest.json": {
+        "bytes": 2143,
+        "sha256": "c3202703757caba18b46d6006f9a554d95e82a7d45955077db72bc1a5a981e87"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hisui/preview.gif": {
+        "bytes": 497560,
+        "sha256": "ecbf9b42267a65ae30e74a141ac2efa3b87d67d83b9c3331c5e086f0960a212b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hisui/preview.webp": {
+        "bytes": 1496448,
+        "sha256": "7da5e2e044676cf05f2fb631e82afc92d6668209d9875d67e6227d81de50491b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hisui/prompt.txt": {
+        "bytes": 2106,
+        "sha256": "1793f5932b470c9a8b8e3162d7f7b4a0cd69120c9fba9cded788e0d3c078c2e6"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hisui/thumbnail.png": {
+        "bytes": 180348,
+        "sha256": "333ebd878583800375877f5e9774b363ee9ff9a49c45c9aba6c1992fd360e57f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hisui/validation.json": {
+        "bytes": 5335,
+        "sha256": "8e17f6051fa872165fe35ee9e242b0f3b5688a01110e852f9674ad81f01c07a4"
+      }
+    },
+    "hyejin": {
+      "ArtSource/AnimationPrototypes/Subjects/hyejin/atlas.png": {
+        "bytes": 1861453,
+        "sha256": "ff38675de83e25b2dd48cc5c8cadc5bb6cd860f5bfc5cd0f95ef76126415a602"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hyejin/manifest.json": {
+        "bytes": 2132,
+        "sha256": "d9b5bd407bcce289c63eaa65013c79a8fc1eb07be5a4140a61b24f3168cfd7ea"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hyejin/preview.gif": {
+        "bytes": 557351,
+        "sha256": "779d74f2ee757123d7d1334bb6d2eaad4d1700d3b811ed897af5aecaa4979eb4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hyejin/preview.webp": {
+        "bytes": 1441684,
+        "sha256": "2376262c2f082cac1f289ad36eeb582389751a832f1aafdba1793bfb7847d00b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hyejin/prompt.txt": {
+        "bytes": 2116,
+        "sha256": "50c3162e10a140e7fb2e1f66f5e2f152ff61590e02d2afead8d929d8167f80df"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hyejin/thumbnail.png": {
+        "bytes": 170397,
+        "sha256": "2e7617c4843b07888bac4d9e0861130ecd143b5633094d91ba590c37c55ea946"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hyejin/validation.json": {
+        "bytes": 5318,
+        "sha256": "a333ced2bdcfd11ce0728ac64d39fffa0666c6399ddf7eda5b712b6490fd1e53"
+      }
+    },
+    "hyunwoo": {
+      "ArtSource/AnimationPrototypes/Subjects/hyunwoo/atlas.png": {
+        "bytes": 1625090,
+        "sha256": "aa8a12b801a7e8741d97ce2676c2c1b47de3023a437c084c53acaf25907611e9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hyunwoo/manifest.json": {
+        "bytes": 2027,
+        "sha256": "9085d8b256b07df868d468c8d47a2370692813de93e68293ce7745764bf731e0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hyunwoo/preview.gif": {
+        "bytes": 449711,
+        "sha256": "f281abc209c6a740cbb0ba63b24dfc2c2bdc29f7eca67e3439827ff7b9c4d5ff"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hyunwoo/preview.webp": {
+        "bytes": 1302390,
+        "sha256": "5fd1ecb689054fa49aec277c583e4bb5bbd2b98e068ba4b7d7a8b8ace31595cc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hyunwoo/prompt.txt": {
+        "bytes": 2064,
+        "sha256": "61b765b05837d71b1ab66455055d79e6884286b726bc6c0b84f3fa255a3704f3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hyunwoo/thumbnail.png": {
+        "bytes": 157275,
+        "sha256": "8bc2adb0b89308cd5fdcc51cdaf8490aa47eba78d73c887c44ab889f5be1c80a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/hyunwoo/validation.json": {
+        "bytes": 5333,
+        "sha256": "b8114d73360bd1f84ccf7c9beb70c4b295cbf0b8b23a662333fdce7d2028c4ef"
+      }
+    },
+    "ian": {
+      "ArtSource/AnimationPrototypes/Subjects/ian/atlas.png": {
+        "bytes": 1971993,
+        "sha256": "d1d27f9cfd448e305263519b4087ce2c029646a2ecd11dd2f6da3a3f3ce4a217"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/ian/manifest.json": {
+        "bytes": 2356,
+        "sha256": "93ff987b51d6e8c4440767bd32f2782ad0029f57e611f5fd08655ea2b4a9886e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/ian/preview.gif": {
+        "bytes": 541076,
+        "sha256": "2593415b30f3a55b001b7b8cce69ca2bd8a65d7419d49245674eb0de1094c10e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/ian/preview.webp": {
+        "bytes": 1485852,
+        "sha256": "db7f5da96c34b806d00b7733524cdcbc0b960b46ee3054efd7f929ba453ca98e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/ian/prompt.txt": {
+        "bytes": 2367,
+        "sha256": "35eef6300809bf015b282e53fa32ebb817c6d646c92cfed89dbe7b1396796734"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/ian/thumbnail.png": {
+        "bytes": 197701,
+        "sha256": "99a6e683876e47e2dfa3e0de76bdb2a46913ccf9b402d538c7bca00717fc3f0f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/ian/validation.json": {
+        "bytes": 5373,
+        "sha256": "50350e534b2d8a7f12f87e9b0e31f3c0c1c7abefec19059849b6c1ddf163b51d"
+      }
+    },
+    "irem": {
+      "ArtSource/AnimationPrototypes/Subjects/irem/atlas.png": {
+        "bytes": 1938409,
+        "sha256": "456619e8c84458ff89894a6e2e76392f42f98f2e8e2ad8f68198718369c53c2d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/irem/generated-sheet.png": {
+        "bytes": 1455032,
+        "sha256": "5d424ee77eb72f70cd76479a71f93bbb3215819bc2f671405e15e1acc3afe7fb"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/irem/manifest.json": {
+        "bytes": 4119,
+        "sha256": "b8866a7b31801481107dcc0f077b383111a4dad151ee64bc4af8db796c0281d3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/irem/normalization.json": {
+        "bytes": 23806,
+        "sha256": "d97af39094edeafc23c999da17640235cbca096e33dc3ce30229ae17ba8bee28"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/irem/official-reference.png": {
+        "bytes": 1322466,
+        "sha256": "f677fc5851c3da3be05a3e41cf274b41e166870d1f48240544efbd009965852d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/irem/original-reference.png": {
+        "bytes": 21833,
+        "sha256": "9f1e94f3950b791892b6adbbf9670fae1321ab77626bfaa51ad63d04d9b028d9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/irem/preview.gif": {
+        "bytes": 451460,
+        "sha256": "ef4020ef88284d2db1f3ef1208dc863a7ad3aef1947616997dd54a65dcb93216"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/irem/preview.webp": {
+        "bytes": 1105230,
+        "sha256": "17c53c7db7cf43725bf4717eb31bb25513369811371f7098bc82521bbf968bdc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/irem/prompt.txt": {
+        "bytes": 2463,
+        "sha256": "5670573245190eda739a70ac690b1135e5e89f0646021e8692fc02a6af8b8fdb"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/irem/thumbnail.png": {
+        "bytes": 193453,
+        "sha256": "52a3bcb3ad724d0e35468c4845d1fb3d8fa3facb16b23bb1f58448bac52d6038"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/irem/validation.json": {
+        "bytes": 15396,
+        "sha256": "4ed1bcacb5db9d219325121172bd0200d6849bf3a1ba5a0d43bfed9c56345524"
+      }
+    },
+    "isaac": {
+      "ArtSource/AnimationPrototypes/Subjects/isaac/atlas.png": {
+        "bytes": 1681734,
+        "sha256": "a666a089645d70c0dab8299812297b1d1afdff2d11ad10341400ad808adfcf20"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isaac/manifest.json": {
+        "bytes": 2021,
+        "sha256": "c275a0d745e4ef82dd995c2b0ceba6de4e48113de5214c97ba26aa30b4e8bde2"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isaac/preview.gif": {
+        "bytes": 489403,
+        "sha256": "818e62c4122d9eb0bd9d7579f02e5038216382b0c25c9590d921b5a7cc910326"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isaac/preview.webp": {
+        "bytes": 1264756,
+        "sha256": "0bb120d0d47f70e0bf71ac61e3865e10ac02b5e63026136cff8593d572d9ea64"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isaac/prompt.txt": {
+        "bytes": 2045,
+        "sha256": "f99f603046491dfcc7f898d153375c19ce3e17d677b1bd812a7eb413d8fa44d3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isaac/thumbnail.png": {
+        "bytes": 175382,
+        "sha256": "c16f33aa56b07cd96356ed6972ad5f22816528cf9cebf6784cc7350b9fade119"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isaac/validation.json": {
+        "bytes": 5333,
+        "sha256": "3484945ca4370a0c80222720e1b8c75e9222a0d9b17ddbfe2379bc18a20e5740"
+      }
+    },
+    "isol": {
+      "ArtSource/AnimationPrototypes/Subjects/isol/atlas.png": {
+        "bytes": 1964924,
+        "sha256": "3e93b599c37be0de05ba6e1610be92614af35a4b5dcb862a051ff93a2b779ee8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isol/generated-sheet.png": {
+        "bytes": 1473453,
+        "sha256": "d19f9543c93a1f6d7390766e61fc44d5b0ebb2fa31067fc3020912933e92a06f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isol/manifest.json": {
+        "bytes": 4399,
+        "sha256": "221f1a6dd4c32e3079edf6d3681f9acaf3246632110f7dad78c90dc2ee844c5e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isol/normalization.json": {
+        "bytes": 23416,
+        "sha256": "9cb9accba5c7450ab44d9fb809ef3451e04c1677fc1d520f7210ce6c26ed46c2"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isol/official-reference.png": {
+        "bytes": 1424652,
+        "sha256": "6a89caffe3ec95d84facad5c68f069b24b02e00de9e9bcef12ddce6de704b251"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isol/original-reference.png": {
+        "bytes": 21119,
+        "sha256": "6c01a1ae5212f034c883ea8d63bfa0b576457b4851b4bbe29265abb0043230a0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isol/preview.gif": {
+        "bytes": 465930,
+        "sha256": "c3adcd42043ecbfe3e177088b53a9f9479e554dbbe5d1bf4eaf92a7bb36f6419"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isol/preview.webp": {
+        "bytes": 1098514,
+        "sha256": "0bd4b3d819fe6829a3503110710fc15178825041f75895394270f7370f31bfa0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isol/prompt.txt": {
+        "bytes": 3311,
+        "sha256": "917ea2b61e8e054286ce6c8a9470867dd554c4006fa96f2febc5ed702d773a9d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isol/thumbnail.png": {
+        "bytes": 163856,
+        "sha256": "67c7ac90d43d83d96df7b5349a16c8a970b455dcb7cd2c72611695e8aff7d2fa"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/isol/validation.json": {
+        "bytes": 15065,
+        "sha256": "14a03c0afd1295a49e87371bf065a938384e6b241d26d73b0558e9d01bb87219"
+      }
+    },
+    "istvan": {
+      "ArtSource/AnimationPrototypes/Subjects/istvan/atlas.png": {
+        "bytes": 2070097,
+        "sha256": "6f9fcf9b6722c1b7e185eca0471de8051c1171df042859367b58747a9fb72ccd"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/istvan/manifest.json": {
+        "bytes": 1720,
+        "sha256": "e7ee9f7d6a11f274a3df76f610eee5ddd207842e2bc22f77f8301102b85cc260"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/istvan/preview.gif": {
+        "bytes": 468862,
+        "sha256": "5e6a8f8f8efc36b405a35d394cda63b7c20b200a364fda315631ca49e32e25ac"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/istvan/preview.webp": {
+        "bytes": 1550842,
+        "sha256": "f1487b4e4d28749af716ddc3ca6143263bfa2aae7ef84a51dead3a97636f625d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/istvan/prompt.txt": {
+        "bytes": 1461,
+        "sha256": "0465ee0f31c09b80be97f77ec689de083be968c2097d7ca0da1c466099447fc4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/istvan/thumbnail.png": {
+        "bytes": 181035,
+        "sha256": "00f4c034e05af2d22e602c8489daf1e629431d24ae086b77feb59c8e01dfb7d5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/istvan/validation.json": {
+        "bytes": 5347,
+        "sha256": "d914db378dd7ee9aabc3120a26db7f2a575243d94322d43bf18adf90b40dfa55"
+      }
+    },
+    "jackie": {
+      "ArtSource/AnimationPrototypes/Subjects/jackie/atlas.png": {
+        "bytes": 2045718,
+        "sha256": "2c3ff3b683ef1ad791dcb1d2fe0ca12a959fc69755f884b958cf0ecae2c99405"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jackie/generated-sheet.png": {
+        "bytes": 1617421,
+        "sha256": "4fc69ee543cc1fb16d6d3c3aabe372c55165771f7672e043bff1d9b7c97a63bc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jackie/manifest.json": {
+        "bytes": 4119,
+        "sha256": "d8939c05f9d82419853884d6c4975f1fa05c2a4a6f0678b4f505c394ddda311d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jackie/normalization.json": {
+        "bytes": 23420,
+        "sha256": "db86c63e34bf3e549bbb1dc6c633bc8c469d15278a18889ff100ca17ef766ba8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jackie/official-reference.png": {
+        "bytes": 1427847,
+        "sha256": "a1426c8865a4966c4f076c9b93e55f9c39e94e122fd05d88e9dba15a58c0facd"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jackie/original-reference.png": {
+        "bytes": 23383,
+        "sha256": "499fb26f7357b000e88e7502ef017328e33888bbdab87a0f51009016f21ec1b8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jackie/preview.gif": {
+        "bytes": 466819,
+        "sha256": "63850c6dea7fd02a7b1abb990fc7c67531b580e79329111586e8bc4bc008fb52"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jackie/preview.webp": {
+        "bytes": 1190458,
+        "sha256": "5f6ec0e8f98c975a92ae022047ba26bb8fa0b00c6a3fcfcd43d6a1d6f1130e1c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jackie/prompt.txt": {
+        "bytes": 3329,
+        "sha256": "14a6851cd7016234f326c9cd4cbdb1cb43749c15bace6b52d5a73999cc5adcff"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jackie/thumbnail.png": {
+        "bytes": 162623,
+        "sha256": "f27ffcd0714e93501280379f9dcf4f402b3ccb099b24a5082be468794ac7de3a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jackie/validation.json": {
+        "bytes": 15067,
+        "sha256": "f72ab1dca86ff4cd9c9149c7ff82bcb01e10f77dd199d35efa12e887a68f9b98"
+      }
+    },
+    "jan": {
+      "ArtSource/AnimationPrototypes/Subjects/jan/atlas.png": {
+        "bytes": 1566220,
+        "sha256": "392216d7acdd8491af9281844bd18c2c36fc3671cf5148680c026bb65050a397"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jan/manifest.json": {
+        "bytes": 1899,
+        "sha256": "ee624dfaf73d5e5c212d357e622cdc4cf15c02d70412dad34d1d63ddb4f331ea"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jan/preview.gif": {
+        "bytes": 474524,
+        "sha256": "d1e603bb4b9663380708827edc23e5b155a8b8739d072d5e6ebc85394e4fe51a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jan/preview.webp": {
+        "bytes": 1211752,
+        "sha256": "9c4b8fbb16d08505d02ac21a617df2c87666381f5e1e3417ac63083f39c359cc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jan/prompt.txt": {
+        "bytes": 1626,
+        "sha256": "b2f1947ce1e3b0d9018d25701361e830d7657e3a8dd35469f8473f61c3a3a333"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jan/thumbnail.png": {
+        "bytes": 131601,
+        "sha256": "6392b8987389f55a9c1d9da74b57abb46d1419f39903f0b27d74ab68ecbf5225"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jan/validation.json": {
+        "bytes": 5315,
+        "sha256": "f4e451392e8537991916a01b48bc45009446556fc88deb0934cd99c098668953"
+      }
+    },
+    "jenny": {
+      "ArtSource/AnimationPrototypes/Subjects/jenny/atlas.png": {
+        "bytes": 1906510,
+        "sha256": "c77a4dc3cd3a0c91289b523eef53c0e9378c17fb21d6cc6a95e4c9a19a1fbb27"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jenny/manifest.json": {
+        "bytes": 1987,
+        "sha256": "f1fdd4bfcc6e1063c75c934c665d85b0a735e2bea13f6e416229372dfc42f8e4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jenny/preview.gif": {
+        "bytes": 553216,
+        "sha256": "84013b0ee0a7029afb0d8e0128435686d955c1e3a4faef9361690b990db13421"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jenny/preview.webp": {
+        "bytes": 1452256,
+        "sha256": "354201bbd67edc1b6ea92541cd3008e789730351d2b040d0ded2e0b733b5f0fb"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jenny/prompt.txt": {
+        "bytes": 1691,
+        "sha256": "2be4c30cfd5d3b7442b40f725b77d60465f192184b4c68bc903a75f9124464b1"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jenny/thumbnail.png": {
+        "bytes": 182816,
+        "sha256": "38c66b91d66e104db8313524d3beec94de71ca10651206b7b562003c69a59c05"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/jenny/validation.json": {
+        "bytes": 5331,
+        "sha256": "9a73bd440496475d46c5342e572318c350e3939c7dd8f01a1d212dafcee877bd"
+      }
+    },
+    "johann": {
+      "ArtSource/AnimationPrototypes/Subjects/johann/atlas.png": {
+        "bytes": 1807807,
+        "sha256": "d16303bc39361937e3af3c0f1c36f12fef687872cb255a54eab5adf9becf1943"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/johann/manifest.json": {
+        "bytes": 1989,
+        "sha256": "1ad246850d0ebac258ec132ac202d324dfd427f578509f929acc4e84b4c58e34"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/johann/preview.gif": {
+        "bytes": 513787,
+        "sha256": "c56a686490f76f343738c4ed0357ccfb00265a32a794b5cef438d0b4e0556ac0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/johann/preview.webp": {
+        "bytes": 1384854,
+        "sha256": "09a5082b983015c321820743aed435130439a550263baf95bfed63b17d712d66"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/johann/prompt.txt": {
+        "bytes": 1682,
+        "sha256": "20a72ea5d7159c17020cd989f28898c3ff3fe45714b0f6a30966cc4eab5d377e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/johann/thumbnail.png": {
+        "bytes": 144250,
+        "sha256": "3d9bd4506b3d5f01a6a076ca9d44dd4fcaf639d0ee66fd2312fe9a75bafb165f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/johann/validation.json": {
+        "bytes": 5342,
+        "sha256": "f8ef4a9fdaa67479b08aafe1b9eeb2bd95f165e2ebd5c7adda838931eb55762b"
+      }
+    },
+    "justyna": {
+      "ArtSource/AnimationPrototypes/Subjects/justyna/atlas.png": {
+        "bytes": 1728712,
+        "sha256": "eff40de56f8a3678133a2be1d91f37d50869f2711770d40c2327789bceb77f5b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/justyna/manifest.json": {
+        "bytes": 2082,
+        "sha256": "2fb25f4a96c572fe3d777f9daa4b080a4b100e1741d999c8dc241c799b24ee38"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/justyna/preview.gif": {
+        "bytes": 489331,
+        "sha256": "523a6b25291b591cc9c9e75d88b356a8741a59490813eadf6ecbccd8ba46bc5d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/justyna/preview.webp": {
+        "bytes": 1376100,
+        "sha256": "461b0eaa071081b3eb8dd0ea2a5bec5c66c72cc2cc523ac3a5b289fe3b8e8eb8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/justyna/prompt.txt": {
+        "bytes": 1721,
+        "sha256": "73b8c4cde888470f7ab82555132be9eb8a6d379f5905a9c6966818155b32ee58"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/justyna/thumbnail.png": {
+        "bytes": 196220,
+        "sha256": "bbcb3c2bb363dfa7756ce04af629ef4a7dd7f634139e319823a216c543b8d4d8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/justyna/validation.json": {
+        "bytes": 5398,
+        "sha256": "2c7ecdc6ac7b7bf0e15f05b9ce7fad8d3145d6ce01bad66c2cbed93c9cca47a0"
+      }
+    },
+    "karla": {
+      "ArtSource/AnimationPrototypes/Subjects/karla/atlas.png": {
+        "bytes": 2028724,
+        "sha256": "c289032cd7ab1045d9e78b7799da845cb907b29af97794c8cd9fc9963d57c133"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/karla/manifest.json": {
+        "bytes": 2067,
+        "sha256": "3fdb4943f23e595c97317a5d2117a96d4095fce29c1aeac737ce25d8dfb399fc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/karla/preview.gif": {
+        "bytes": 612714,
+        "sha256": "a9868f2bb67f7032df5a8d573f479a2eb97acc7f2dce720880c57b2e8d990c4f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/karla/preview.webp": {
+        "bytes": 1550808,
+        "sha256": "113709cd8cb9c2bcec9a19b1a9d43d156221be2b7a49bba92c69152de90342cc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/karla/prompt.txt": {
+        "bytes": 1770,
+        "sha256": "e3dcc25ed0b04c23758a2cafe7de677b58927dfaced1907e79c0734e7a2baf45"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/karla/thumbnail.png": {
+        "bytes": 191370,
+        "sha256": "dfafb03a2f7d96be3007f85449fd1bbd1aafb092420aa1fce858b8fb7f0ddf0d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/karla/validation.json": {
+        "bytes": 5329,
+        "sha256": "f4489f6ac1f5a2c3db363afec8ffc5362b677a49d1509b3f72f3ed2a71710332"
+      }
+    },
+    "katja": {
+      "ArtSource/AnimationPrototypes/Subjects/katja/atlas.png": {
+        "bytes": 1727911,
+        "sha256": "a6b6b37cb8de8059c191fcd92de32da8229d2110397df2b0e82be1e18b606b08"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/katja/manifest.json": {
+        "bytes": 2003,
+        "sha256": "1eb9646c27d9de2981221c1bd28276673f4db0346e577dcb06773e05d3aff6e9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/katja/preview.gif": {
+        "bytes": 548600,
+        "sha256": "f4a04fc4d6ddd83e802c6d799d3e094a69ac96378109b3680eb3736c798df0dc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/katja/preview.webp": {
+        "bytes": 1254242,
+        "sha256": "efd8909231221ace9080630e0784eebdf78e596b3c468b8ee15d25a6ecc1b928"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/katja/prompt.txt": {
+        "bytes": 1739,
+        "sha256": "42f48bb86cec00128f55536c7812c3266b74b550232e8faaed49e1df824d88ef"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/katja/thumbnail.png": {
+        "bytes": 175906,
+        "sha256": "e90303f3e8ffe7fd72f8771c7771e85b016f0e5c7dd05cd1ab29cbce1c47ae3b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/katja/validation.json": {
+        "bytes": 5317,
+        "sha256": "b46f1d6f0eb2be73b3fa70353f0785eff8ed888664b392252025e1dc67141176"
+      }
+    },
+    "kenneth": {
+      "ArtSource/AnimationPrototypes/Subjects/kenneth/atlas.png": {
+        "bytes": 1693922,
+        "sha256": "d7a3c57f3dc4f44a7d00efb890f7d4df52e9071a88ee62a0850131bc279ab7b7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/kenneth/manifest.json": {
+        "bytes": 2043,
+        "sha256": "b082dbf38e1f7104fe84d4e874ff9f3b0ecb1a3cffaaaf5fc03e8414c0b43d6d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/kenneth/preview.gif": {
+        "bytes": 487191,
+        "sha256": "89b4115bdf72c55302b7c11087fe4366c9064867fb70cc6514c312b8fc3d6905"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/kenneth/preview.webp": {
+        "bytes": 1347292,
+        "sha256": "96cb957ace23a50d7845d95066e4d470daa04b5b8dad3bb9929b05d528613515"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/kenneth/prompt.txt": {
+        "bytes": 1710,
+        "sha256": "33e45f30e5f904f5eba7581edac3a52914603e1e66ba6e69874a115e150dd615"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/kenneth/thumbnail.png": {
+        "bytes": 174658,
+        "sha256": "18fb4db6c33718925f4f82b7d41c26733e27b541383477a08d7873a18240de64"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/kenneth/validation.json": {
+        "bytes": 5391,
+        "sha256": "84a1806a3e22e2f5f6f7ef6383e29696a1643c38a58e287bfb30ab9a5685b126"
+      }
+    },
+    "laura": {
+      "ArtSource/AnimationPrototypes/Subjects/laura/atlas-first-pass.png": {
+        "bytes": 1802605,
+        "sha256": "a502b97c3620caa0e7e47fff1bfbbb369db9518036c6e57c61377925fa5ff8a5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/laura/atlas.png": {
+        "bytes": 1418946,
+        "sha256": "3e062d86312731d770f4c6c6bc072278b8ebb2712fc48a16e3473a967b03945a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/laura/manifest-first-pass.json": {
+        "bytes": 2103,
+        "sha256": "3fe3c7a286c9cc374de3d5ab1b3bee461977414c6b9f4f95afec6435a563ab14"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/laura/manifest.json": {
+        "bytes": 2148,
+        "sha256": "9a68994550732fbceb82b37b2e853367d1148a285b26d59ac85ee3ac80f5b2a5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/laura/preview.gif": {
+        "bytes": 420779,
+        "sha256": "912a8caf61efcf4d4ca0957078547883daea8410d48611e7a268535668703b0e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/laura/preview.webp": {
+        "bytes": 1073600,
+        "sha256": "9e5adf83eeb46e93dc77175b0bcc95fb259d1082791d25088b9cabc97cff57d3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/laura/prompt-initial.txt": {
+        "bytes": 1778,
+        "sha256": "39902f923ac13b9b31735edfe2324e2aed23f5a95d9118566c97ad274561300d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/laura/prompt.txt": {
+        "bytes": 1575,
+        "sha256": "eec5787dabc038c325a1248a42a8f74775f9ff40edd45405536c084ec2aec20c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/laura/thumbnail.png": {
+        "bytes": 171225,
+        "sha256": "c553cf9a1f25e69323db9c1028b56edb963671e837287c955673113f79324224"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/laura/validation.json": {
+        "bytes": 5369,
+        "sha256": "a1b9e0ed6cf09c4c12dbc0b89a152d890107299c870bfb3b2d22f7600816ae54"
+      }
+    },
+    "leni": {
+      "ArtSource/AnimationPrototypes/Subjects/leni/atlas.png": {
+        "bytes": 1610280,
+        "sha256": "4acaa931958485616e692cef14dd735651671bc395f6cc8d2741cd89f30dd561"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/leni/manifest.json": {
+        "bytes": 2075,
+        "sha256": "c1636e69bcdfd87759c9e1b439c79e091d6e7b3ab3a7324a256c0613316e8a26"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/leni/preview.gif": {
+        "bytes": 465102,
+        "sha256": "e3ddde856cac35749a8beb7a6e449b3168f951176658195541933ed46d5d4cc5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/leni/preview.webp": {
+        "bytes": 1206370,
+        "sha256": "921d63b37228cbb00206b78bc7779c0885821961263fd588a4350ee2d502b5b2"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/leni/prompt.txt": {
+        "bytes": 1769,
+        "sha256": "f48d5a3309603315e0f9870eab78971aec592ef066e10d402bfc26167352eaf3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/leni/thumbnail.png": {
+        "bytes": 173806,
+        "sha256": "7cfb83174971e718f86cdbd45816ba1046e12231b819001c9f4fb631964f8735"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/leni/validation.json": {
+        "bytes": 5360,
+        "sha256": "10b04c79882bfe0a68d8ead1056d698203fc221af6596a1467d725fa5711b0dc"
+      }
+    },
+    "lenore": {
+      "ArtSource/AnimationPrototypes/Subjects/lenore/atlas.png": {
+        "bytes": 1994069,
+        "sha256": "6353b770d471abe2f12f6167e123da1ceefc7967d0080f7c1090551eaace4a30"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lenore/manifest.json": {
+        "bytes": 2216,
+        "sha256": "2b38e3d6ab4ddc1732240943e79b6a21807fafee3e5be228788b3ae8b345033c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lenore/preview.gif": {
+        "bytes": 537768,
+        "sha256": "c404538c98a8885a671fc0747b89fde7f68f8bfff20fe660e5f04ee01afa5093"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lenore/preview.webp": {
+        "bytes": 1513596,
+        "sha256": "c4f788870797de1a914ba220fbb712eafc9d02808f8dc7b15dcb9e4cedae1c45"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lenore/prompt.txt": {
+        "bytes": 1867,
+        "sha256": "4924f989ecafd78fb5d6c24f8e07604fab78e94271a88af9bb7a92f4a8d4699e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lenore/thumbnail.png": {
+        "bytes": 164559,
+        "sha256": "691318e8233e4b8916b252aa265af13882815dd1ad474a5c6b77716b68f02f60"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lenore/validation.json": {
+        "bytes": 5332,
+        "sha256": "e3fb004b57a38624cd0354b985d23be06443737eab589464539dfa280c6492e4"
+      }
+    },
+    "lenox": {
+      "ArtSource/AnimationPrototypes/Subjects/lenox/atlas.png": {
+        "bytes": 1576754,
+        "sha256": "1a8ad9f3a9117ee07a11e85462dba5839dfdf69c2dc1d4a270b4d28dace89617"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lenox/manifest.json": {
+        "bytes": 2097,
+        "sha256": "82401ac301eca374383e848f8856ad1c25b2be0d901a591aef3c334c8e77276f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lenox/preview.gif": {
+        "bytes": 442593,
+        "sha256": "4de5f72f323f822c956e7cfc11338aad38cb6dee2d368428127ed433daed7245"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lenox/preview.webp": {
+        "bytes": 1227072,
+        "sha256": "f15b04a475cf0a44108c3a70ff9c7459e80074f308e338c705d643444e24dd32"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lenox/prompt.txt": {
+        "bytes": 1792,
+        "sha256": "a98137c8c9e10a0b08cdcf74749aa35d42c1e38e3bb5105fc3bc903ae5bd295a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lenox/thumbnail.png": {
+        "bytes": 172435,
+        "sha256": "6bc3c6bfcc907dcd5e40b24b42387794f33c6e6568d72a64eaf7b91a2fe86be0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lenox/validation.json": {
+        "bytes": 5317,
+        "sha256": "a33de90ab0aab77c0bae1bb350bb9dfa2ac3fde15ad07591c77bbeebdb05e571"
+      }
+    },
+    "leon": {
+      "ArtSource/AnimationPrototypes/Subjects/leon/atlas.png": {
+        "bytes": 1770696,
+        "sha256": "f16b1b81cec02db2a4bd636c7ee2d9a9f827648021a458dbfbf0133427a1f2a7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/leon/manifest.json": {
+        "bytes": 2144,
+        "sha256": "a1f91667021143505662725da7f1ed0dc05898765ab9ab2aae451641914a2594"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/leon/preview.gif": {
+        "bytes": 507181,
+        "sha256": "c54d365ea86d1dfde371119f8270278124fdb4885aa2e576ecc3a153ee23e6b3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/leon/preview.webp": {
+        "bytes": 1434404,
+        "sha256": "20002035a600305eeaeb5f9017339a1b5a5f8e654061684e7b1a86def4c99a0f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/leon/prompt.txt": {
+        "bytes": 1804,
+        "sha256": "a582601f40e127061c64508b8730ce395b47b725f8ed53f85ff1438d00fcb709"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/leon/thumbnail.png": {
+        "bytes": 169785,
+        "sha256": "7261e730227fb185c503be6df4250d42236f5ac2cd4eb2ecd8b47ec0458ddbf7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/leon/validation.json": {
+        "bytes": 5372,
+        "sha256": "68af811346584e03ba61e35ef7c649403c0b4d682233cfab0550edc4f6fc4e0c"
+      }
+    },
+    "lucia": {
+      "ArtSource/AnimationPrototypes/Subjects/lucia/atlas.png": {
+        "bytes": 1577724,
+        "sha256": "4d3f92252985ca27641912935fa8698ccd3f4261f6b155e9b1828177b836f502"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lucia/manifest.json": {
+        "bytes": 2753,
+        "sha256": "0e2e951a594084ffa60937eacfc515452d3c756d4a96c198887cccc0db1cbd4c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lucia/preview.gif": {
+        "bytes": 483190,
+        "sha256": "1b8a55a44e4b48b13d0f2bf219dc42ee3b2594b8f537c1acb325c397cac392b6"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lucia/preview.webp": {
+        "bytes": 1113196,
+        "sha256": "a9f42e06d1d94cee81e4617770f6aca0ba42648f93323c06071d24cb274a74af"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lucia/prompt.txt": {
+        "bytes": 2342,
+        "sha256": "fe991a0bd0bbbc0472c1d50e6b2d0c2cc207a7621cd2c413951e7ea2973c106e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lucia/thumbnail.png": {
+        "bytes": 155863,
+        "sha256": "d34990409f721750e227f2cad3a7d2d3916a6e72647854b4c2ccd2ab64c21b7f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/lucia/validation.json": {
+        "bytes": 5319,
+        "sha256": "c27aa27e05ef1957adaa0b9fa52a0f5a1d0609e52cb5f0f1de1786f1768c2917"
+      }
+    },
+    "luke": {
+      "ArtSource/AnimationPrototypes/Subjects/luke/atlas.png": {
+        "bytes": 1695203,
+        "sha256": "86aee71d9093483eda39272ebc67cb847a50fb8d01a258aa2c871ccacb3e218c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/luke/manifest.json": {
+        "bytes": 2176,
+        "sha256": "43e19ae6e344e3626e791724271f9dc1cb3c7884799cb79a6a90fffd9738fb39"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/luke/preview.gif": {
+        "bytes": 478478,
+        "sha256": "de8fc02a76746d5eabf718ebc9afaec2cd1ab8f039653edaaa734ca229cefbf4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/luke/preview.webp": {
+        "bytes": 1276776,
+        "sha256": "7885e37e79ea2b7e9b3f931e384227f8d24ceae79f413979c25fa04cf0610fd9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/luke/prompt.txt": {
+        "bytes": 1870,
+        "sha256": "efc8ff07a9d8e19c46deb164fe83735fb258b23b59ceb6d7727bcbbd5e0ec04b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/luke/thumbnail.png": {
+        "bytes": 172836,
+        "sha256": "076110c82b504920dd66889a8dc7bb326539df48055beeb0eeb8d6689f02a974"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/luke/validation.json": {
+        "bytes": 5324,
+        "sha256": "853a957ed226f7126fbc40a68316911b36a49071a2d361ff2dfd3e3401078a3e"
+      }
+    },
+    "magnus": {
+      "ArtSource/AnimationPrototypes/Subjects/magnus/atlas.png": {
+        "bytes": 1564414,
+        "sha256": "b3a61da23cdaf3b5d0ef72d1d96b0c0512d4b18188e1a199beb1fff3a1fc47d6"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/magnus/manifest.json": {
+        "bytes": 2366,
+        "sha256": "f6238c3ff5f2a43e28c70ea896975098104d61156c005241500539436a732656"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/magnus/preview.gif": {
+        "bytes": 461752,
+        "sha256": "be4b5362595dd7b17e86c11e9df228df1801e31933f8f719fa9374d8c044de58"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/magnus/preview.webp": {
+        "bytes": 1193938,
+        "sha256": "0a3511bd72eab7e1513e78ed83e75dc491128580ae29584a5fd8dd03088049cc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/magnus/prompt.txt": {
+        "bytes": 1942,
+        "sha256": "fbee9a99f19ace5e4e3acf9a4ca6fd5d247115ab7e7d31d0c7fda5e78e910190"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/magnus/thumbnail.png": {
+        "bytes": 148522,
+        "sha256": "ade05a53c28dc0d642276b0ef9c952fcec0b0d51c53f7749da75920786c50feb"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/magnus/validation.json": {
+        "bytes": 5351,
+        "sha256": "0815df8b284fcf52e76695b6ed8394c8507ec1d93ee782e767887554949b6871"
+      }
+    },
+    "mai": {
+      "ArtSource/AnimationPrototypes/Subjects/mai/atlas.png": {
+        "bytes": 1751533,
+        "sha256": "b416ed12970ccc223b723e352031834a7e7cd4d9846147cac4dd90839d6996e6"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/mai/manifest.json": {
+        "bytes": 2161,
+        "sha256": "59fc9fedb8595c3d7a68ebaf126fd072903f60fe2088c0936daa50c313f24b33"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/mai/preview.gif": {
+        "bytes": 539026,
+        "sha256": "c015117dc37b7dc459757a34a3bdd71aadc6c44459bff9f87759fada9d4151aa"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/mai/preview.webp": {
+        "bytes": 1376100,
+        "sha256": "2e4b74b9fafb3748fc84a835fd38432f58e3bc7b7bf1799e5311b1550c3fa0e0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/mai/prompt.txt": {
+        "bytes": 1863,
+        "sha256": "06b83ec2c302b465da532104a42c15af728be3b3930bd765738f3b7b5fd9db8f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/mai/thumbnail.png": {
+        "bytes": 181297,
+        "sha256": "0a49de54790116bd0b8812b567fd87389ad348e078376456f1991dab878e7b75"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/mai/validation.json": {
+        "bytes": 5339,
+        "sha256": "74b974d9b4496c6ef3cce67ef6c702cd391848c94f5042101ec29b5842adc983"
+      }
+    },
+    "markus": {
+      "ArtSource/AnimationPrototypes/Subjects/markus/atlas.png": {
+        "bytes": 1640844,
+        "sha256": "81da064a3b64d409eb63c664965fa9b2fb272543bd3964165e7ab7ad036e9914"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/markus/manifest.json": {
+        "bytes": 2088,
+        "sha256": "cfb53383169cf45d1ebbbfcca6820f6b87cd5f31aca134466c2d12cc8b7513b4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/markus/preview.gif": {
+        "bytes": 475575,
+        "sha256": "91569db77777c1352d23bf4ef18ccebc8bc56702b22fa58797363cd173604990"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/markus/preview.webp": {
+        "bytes": 1199660,
+        "sha256": "f092e9cfea9d7bd95a592ef2d58de1388b8605faabfc2fb42029bf3edf90452a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/markus/prompt.txt": {
+        "bytes": 1816,
+        "sha256": "1f028f0d133132cccb4f9b344820bda8e2a73e119b58b26bd50bed83b90e91f2"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/markus/thumbnail.png": {
+        "bytes": 164938,
+        "sha256": "2befa1e5685667be4538d5c6b022717b19bcc258a54f49c997b238ac7e2a0960"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/markus/validation.json": {
+        "bytes": 5365,
+        "sha256": "1578a94a18bb5533da73ff7d877a149bea713da846abf46b6a947b7c8825d9f6"
+      }
+    },
+    "mirka": {
+      "ArtSource/AnimationPrototypes/Subjects/mirka/atlas.png": {
+        "bytes": 1664678,
+        "sha256": "8d4a43a7fad7e670e4250a8f748eb7bd583deadde03e2c6c7ec7b99d893642ae"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/mirka/manifest.json": {
+        "bytes": 2578,
+        "sha256": "d04b0d3ed8b5e2be3c748aa3246b8313cb420747dbf366f123382f45fbcd26fc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/mirka/preview.gif": {
+        "bytes": 473798,
+        "sha256": "a434d94174f0bd931e33b34bd9a8fa5c45a3a0a556433e949ba0b4227c540635"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/mirka/preview.webp": {
+        "bytes": 1262352,
+        "sha256": "2b99a231c8e930cd2c3fe73f5fcb41e14583f971f5881499ad83e672b3f62b81"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/mirka/prompt.txt": {
+        "bytes": 2190,
+        "sha256": "27b7866003810314e61863a2ae5b61ed26a665de309929ab474eeeb34fa73eba"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/mirka/thumbnail.png": {
+        "bytes": 165787,
+        "sha256": "1760f899114aa2b7c6a2f146269bbfe5b3dd03a427f52cfce55180ff873e398d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/mirka/validation.json": {
+        "bytes": 5385,
+        "sha256": "a31f84509f314862eb94474cf3961d3927b8f45a985ceeb1b83d93b24847c4c8"
+      }
+    },
+    "nathapon": {
+      "ArtSource/AnimationPrototypes/Subjects/nathapon/atlas.png": {
+        "bytes": 1308608,
+        "sha256": "3d7ffe63b5982579e8a0a65d788485aed7901a0b5b2806ba86332355dcc4b8f7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/nathapon/manifest.json": {
+        "bytes": 1469,
+        "sha256": "8839cec192831b11f6f044e11a1b813c22e140ecf1d2a7b152a23d742215ad99"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/nathapon/preview.gif": {
+        "bytes": 399711,
+        "sha256": "e8795eab75f01734e8e0e618bcfe08d672e823815e969636798174d5c9b11bec"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/nathapon/preview.webp": {
+        "bytes": 991656,
+        "sha256": "58a9b4e36a65a281bb3fae3632a1dda2af4e95f0817fd45fff9e00d506c2e0da"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/nathapon/prompt.txt": {
+        "bytes": 1870,
+        "sha256": "d5d7c10d912ca4c0ae9ab3fd6fa5bd174c8973f752cca9a7304c7da04c55cc2d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/nathapon/thumbnail.png": {
+        "bytes": 129677,
+        "sha256": "34f838158b7bb88f0184b12298caad78f7d0c2d16f2b6cfbc54dc3e526b74fad"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/nathapon/validation.json": {
+        "bytes": 5340,
+        "sha256": "4a710f61807b41b20624613d3cd5e135b9a0d2e302b37a8bd967544e9bb6fbd5"
+      }
+    },
+    "nia": {
+      "ArtSource/AnimationPrototypes/Nia/aligned-frames/frame-00.png": {
+        "bytes": 129880,
+        "sha256": "3c919441d6cb7e7ab8d4592d13783057ab83bf32b6ce19cbe0ff828258478175"
+      },
+      "ArtSource/AnimationPrototypes/Nia/aligned-frames/frame-01.png": {
+        "bytes": 126807,
+        "sha256": "d2ade7f09cbf02fc578a84f041737c4ecb60fbe525ff7995db023ede321e2b5c"
+      },
+      "ArtSource/AnimationPrototypes/Nia/aligned-frames/frame-02.png": {
+        "bytes": 135257,
+        "sha256": "ca9c75fc31889a9a334180ea8ef61d6623888d6907816facdadf2d14f8d7ee8a"
+      },
+      "ArtSource/AnimationPrototypes/Nia/aligned-frames/frame-03.png": {
+        "bytes": 173363,
+        "sha256": "27e9e164078bea5f970b5f7be716165cc36bf753ca4ba116479c3c2ec9a55744"
+      },
+      "ArtSource/AnimationPrototypes/Nia/aligned-frames/frame-04.png": {
+        "bytes": 240133,
+        "sha256": "5d101a179651298ebdb16bea8ec523949cc5d6acd1a8a6346043e47c07e93cde"
+      },
+      "ArtSource/AnimationPrototypes/Nia/aligned-frames/frame-05.png": {
+        "bytes": 225458,
+        "sha256": "22152625191cd1630ac7c79ab6c3d47199f505eb3f313794f7c17fa82092fa58"
+      },
+      "ArtSource/AnimationPrototypes/Nia/aligned-frames/frame-06.png": {
+        "bytes": 233982,
+        "sha256": "f050ece1ff49cf17861943cfcaeea06aa49fd6fe98540434a2015e3821a68384"
+      },
+      "ArtSource/AnimationPrototypes/Nia/aligned-frames/frame-07.png": {
+        "bytes": 223222,
+        "sha256": "c2a86d11f47ace4d0e19e7fcaf24e8be1d12c84d6043395616b065c83c04ba64"
+      },
+      "ArtSource/AnimationPrototypes/Nia/aligned-frames/frame-08.png": {
+        "bytes": 233285,
+        "sha256": "345a5766c494399e64839dd89f5f92c8b4dea7909573882ed8b14e4650ef825b"
+      },
+      "ArtSource/AnimationPrototypes/Nia/aligned-frames/frame-09.png": {
+        "bytes": 211566,
+        "sha256": "375ed8c3a7d614406f1e4e62bc74365f64b37a9ce233eb519cb20b60849162ab"
+      },
+      "ArtSource/AnimationPrototypes/Nia/aligned-frames/frame-10.png": {
+        "bytes": 163092,
+        "sha256": "757e5e6b65da4036bfdcbcf9186bc3abe5d9e580caf9d1e9a3e098c5994f2ab9"
+      },
+      "ArtSource/AnimationPrototypes/Nia/aligned-frames/frame-11.png": {
+        "bytes": 131613,
+        "sha256": "dd54b4f77c3a509c1cf110758569bb8356c6eb7f1eea861063489b9cd71b8d49"
+      },
+      "ArtSource/AnimationPrototypes/Nia/alignment-attempt-prompt.txt": {
+        "bytes": 2410,
+        "sha256": "a2decef75c385e116aef2da4cd0a6267b88d57c86f8ba4f410bf48bc53f308b4"
+      },
+      "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png": {
+        "bytes": 128092,
+        "sha256": "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61"
+      },
+      "ArtSource/AnimationPrototypes/Nia/frames/frame-01.png": {
+        "bytes": 124870,
+        "sha256": "bebc437cbb75a729a92830af461848ddc8c9bcf07c45dd13f0c6a1791348847a"
+      },
+      "ArtSource/AnimationPrototypes/Nia/frames/frame-02.png": {
+        "bytes": 133331,
+        "sha256": "afac9a98a7de711218f7eb6a2b3d048018e7799f5e26fa9fdc19c1fe0d5dfed9"
+      },
+      "ArtSource/AnimationPrototypes/Nia/frames/frame-03.png": {
+        "bytes": 171056,
+        "sha256": "03749043fac1c2f126fa9c02018a824ff15ea516b5ac4b6e65d7a264736d82c1"
+      },
+      "ArtSource/AnimationPrototypes/Nia/frames/frame-04.png": {
+        "bytes": 238001,
+        "sha256": "f1da97fb324d77b890feca751705ecc622cdca0b8fd3c93b62445f7e59b3996b"
+      },
+      "ArtSource/AnimationPrototypes/Nia/frames/frame-05.png": {
+        "bytes": 223234,
+        "sha256": "b269f884b7f0374bdd76d6a98f0eb29683df7d1bd172f0b9020af55713275b12"
+      },
+      "ArtSource/AnimationPrototypes/Nia/frames/frame-06.png": {
+        "bytes": 231302,
+        "sha256": "4c40e13d28936e392e9a5ca82313cb42225d44cd3a51f7756ec13b32aed5ed75"
+      },
+      "ArtSource/AnimationPrototypes/Nia/frames/frame-07.png": {
+        "bytes": 220992,
+        "sha256": "89e34988d2434abbe007ae6afec570632a8196301eb667ffa8989e729c5ef858"
+      },
+      "ArtSource/AnimationPrototypes/Nia/frames/frame-08.png": {
+        "bytes": 231011,
+        "sha256": "0b8294667f8e994e919268e8f92432e2514b6ab23ce73af95f1bb4c2e39702a3"
+      },
+      "ArtSource/AnimationPrototypes/Nia/frames/frame-09.png": {
+        "bytes": 208775,
+        "sha256": "0693a88957a3fd60eb764bdcc1b06675f19dfa2f40bff90beb1fd2c43f58f42f"
+      },
+      "ArtSource/AnimationPrototypes/Nia/frames/frame-10.png": {
+        "bytes": 160770,
+        "sha256": "d7cb5038ece8d85a7de01c48b13a48fb5ca36260661d22c8c1d1b56244836b06"
+      },
+      "ArtSource/AnimationPrototypes/Nia/frames/frame-11.png": {
+        "bytes": 129409,
+        "sha256": "34e694d24ab6c7845f708cda1573b7fd56ddc278281eab84b41816ae0a2b3132"
+      },
+      "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png": {
+        "bytes": 1637772,
+        "sha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+      },
+      "ArtSource/AnimationPrototypes/Nia/nia-ultimate-preview.gif": {
+        "bytes": 371100,
+        "sha256": "7f8e83901be0ef36cdf0af18ffe664e1c9b78075877c33fbdbdbe86e214f16f8"
+      },
+      "ArtSource/AnimationPrototypes/Nia/nia-ultimate-preview.webp": {
+        "bytes": 1226806,
+        "sha256": "ec8826f2b9541d21d303d8bee3f994433582a3557d8c100a3a347c1c52686618"
+      },
+      "ArtSource/AnimationPrototypes/Nia/preview.html": {
+        "bytes": 5305,
+        "sha256": "8b406fa7076dfc976f85ca9820db46cd7fdf5139500c7a521c2bf3d4cee859c0"
+      },
+      "ArtSource/AnimationPrototypes/Nia/prompt.txt": {
+        "bytes": 4084,
+        "sha256": "3ea9a4f721c0be79454a4ad2755924a31938c1e4af0bfd5805f56ea02ac0f979"
+      },
+      "ArtSource/AnimationPrototypes/Nia/README.md": {
+        "bytes": 1690,
+        "sha256": "6c679cf1ce519a6e9c51cd73d99c7027fc97699d11de422989e7dc02f008cd7e"
+      },
+      "ArtSource/AnimationPrototypes/Nia/validation.json": {
+        "bytes": 6030,
+        "sha256": "750f5accc78a1ef86db4f3d1d3f911c404ca09df7af965c7565b5d79cb67cb7a"
+      }
+    },
+    "nicky": {
+      "ArtSource/AnimationPrototypes/Subjects/nicky/atlas.png": {
+        "bytes": 1716468,
+        "sha256": "a52dce5ed680f49609a792758a3686304fabda7a95d0cc853d85c3618d45433c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/nicky/manifest.json": {
+        "bytes": 1533,
+        "sha256": "04224630818e2f64722aff44e5e3d30bc39ff33f174664bae621a3608e04ed32"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/nicky/preview.gif": {
+        "bytes": 478308,
+        "sha256": "a027b24eafa859dca8ec374e7a990009867a4a14fdbab68b4c90ba753f15059f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/nicky/preview.webp": {
+        "bytes": 1391120,
+        "sha256": "221a22bb46746c3bcf22f7f8c210275859d9c0a91de802c153d9fba7b4ef8c6f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/nicky/prompt.txt": {
+        "bytes": 2034,
+        "sha256": "631a5e63a0eeb42882ea1ee4e8181e6f62d791264b582ee58bcbf45365341151"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/nicky/thumbnail.png": {
+        "bytes": 166187,
+        "sha256": "e16fff0405c33c6c323c8fa1d2de86320285d1e979f90ab6cbd1408bb20c3945"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/nicky/validation.json": {
+        "bytes": 5362,
+        "sha256": "8b8fbe6fb6b7f27610301591409491408d324beb300d023781966def990c92aa"
+      }
+    },
+    "piolo": {
+      "ArtSource/AnimationPrototypes/Subjects/piolo/atlas.png": {
+        "bytes": 1351589,
+        "sha256": "034f1feeedd1d3a7d9b38c4c9ee5284c10a8da29751de9fa7c0daa4b73faab8f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/piolo/manifest.json": {
+        "bytes": 1469,
+        "sha256": "f318806d74181a9c24aae5ba49dd7bf6e1fc72bec7d7c46a2f52d3e53e9b6fac"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/piolo/preview.gif": {
+        "bytes": 451323,
+        "sha256": "626e5666612887eabc1ce751ed2129226f157d469493d0e3d517bb0c742c9a4e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/piolo/preview.webp": {
+        "bytes": 1036154,
+        "sha256": "2bda818883fedeffc5ff216bd09f56512c49192c573d28f97b99c46e6bd74eda"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/piolo/prompt.txt": {
+        "bytes": 2055,
+        "sha256": "98751e6b95752cd09c5844ef0fc7e851d9de6a4cedcf47f44fdfe885d24232cf"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/piolo/thumbnail.png": {
+        "bytes": 158843,
+        "sha256": "4c05089792dc66dd70b5cd317e2852289d51d3280fbd6965c35b7ca5743d887c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/piolo/validation.json": {
+        "bytes": 5339,
+        "sha256": "696631f9a592466f0e77120190efafa38861f037829aea5b2fa437de4cd5617d"
+      }
+    },
+    "priya": {
+      "ArtSource/AnimationPrototypes/Subjects/priya/atlas.png": {
+        "bytes": 2093907,
+        "sha256": "c4edcea532ffecb026a93fc289433e4a80f217967df4a279dbf57d8ea36ef8d3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/priya/manifest.json": {
+        "bytes": 1482,
+        "sha256": "56f68a0b655352e165f47f255cd2dddfce21d46feba1546f966a8981656b2967"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/priya/preview.gif": {
+        "bytes": 557423,
+        "sha256": "0a70d7702f6c40c980e0c46510b5d6341d1a35a3f6114babb54875c9879e9bac"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/priya/preview.webp": {
+        "bytes": 1643966,
+        "sha256": "a7466a3575e864fde18b63d259834b971a4fb604a715fe485013a7893664cabc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/priya/prompt.txt": {
+        "bytes": 2119,
+        "sha256": "2935441949a03d0338ec19fafb8971847f134b03d5c6614a1fca4069294de37a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/priya/thumbnail.png": {
+        "bytes": 187724,
+        "sha256": "f2c7a60d04c394c9c546c96899784cd4f412b8059e8c23dcc8ecb84271daa054"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/priya/validation.json": {
+        "bytes": 5323,
+        "sha256": "971ff550f3a2f752e69ce8619c8623311cc3eac4ac8d4c171ef1b8f0fe17bf2a"
+      }
+    },
+    "rio": {
+      "ArtSource/AnimationPrototypes/Subjects/rio/atlas.png": {
+        "bytes": 1882031,
+        "sha256": "020474634f8b58463d9da03f65c3c6cf0f1980abc8e87139178606a882546ac6"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/rio/manifest.json": {
+        "bytes": 1487,
+        "sha256": "7531ce0627ee372b4b43905274372e8dffeb9cf4d13b92d4d81a383dafdc44c9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/rio/preview.gif": {
+        "bytes": 511037,
+        "sha256": "c9e503b347a2179767ba78c6e7b394e21e618b9a14f0ab6a82af1504bcb2bd0e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/rio/preview.webp": {
+        "bytes": 1391106,
+        "sha256": "bd49890dd096974e93fcb844a1b2231b0f0071e1e3f78274610c75a9ff7a26b8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/rio/prompt.txt": {
+        "bytes": 2086,
+        "sha256": "025ce822058b9ea1ab7320870209ec0694c59095a2f639fccc5e26e27e98eaf1"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/rio/thumbnail.png": {
+        "bytes": 162494,
+        "sha256": "b3de5788be20c0dd0f13d512bc2e3353bb900bd1ce357738fb03c88bd1279fa6"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/rio/validation.json": {
+        "bytes": 5331,
+        "sha256": "7086bb02258db83efe667d94cbbda1d87eb64a4c105aafed5d498eb8806e56db"
+      }
+    },
+    "rozzi": {
+      "ArtSource/AnimationPrototypes/Subjects/rozzi/atlas.png": {
+        "bytes": 1422223,
+        "sha256": "0917bf8f130f52cd5b58f145c82bbab3f0dd0bc8d649e614ca43e028c53706d4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/rozzi/manifest.json": {
+        "bytes": 1491,
+        "sha256": "cde3c0484eaff0493f89447530fd7a48038b76854928062e84efda928c2bb20f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/rozzi/preview.gif": {
+        "bytes": 559442,
+        "sha256": "3aa05e317ade7b7f6c677bf6ec797b733310ff8505a5ebe96385b9fe5e21dab0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/rozzi/preview.webp": {
+        "bytes": 1065836,
+        "sha256": "fa7637c4c073790552d260305f2f9c3b85224bf250b8a7d39874cac270ccf3f4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/rozzi/prompt.txt": {
+        "bytes": 1937,
+        "sha256": "62e0f09a59dd7a521093541b65e0ff75366ff52bff0b84f25025c1c06e701daf"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/rozzi/thumbnail.png": {
+        "bytes": 146706,
+        "sha256": "95e87bac9aa3462398d37f6d81712d222b86c0904c2fba8469d79841ef8f1c2a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/rozzi/validation.json": {
+        "bytes": 5333,
+        "sha256": "92f648c4c9a8a8ac1f69588e640e314d7d4e90fef426e82cf7cb120c5d4520bf"
+      }
+    },
+    "sho": {
+      "ArtSource/AnimationPrototypes/Subjects/sho/atlas.png": {
+        "bytes": 1665661,
+        "sha256": "b53198b91dd612fca0eabfc64b80334a8571e579de88002c1fbb0df555cc2d22"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sho/manifest.json": {
+        "bytes": 1488,
+        "sha256": "254208ae25f8f4b1b20d534f09df6015b3b1eceed50299be0a0d95a57cec6e78"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sho/preview.gif": {
+        "bytes": 528067,
+        "sha256": "baa73f2de58e88ec6b2d935ea305a3c3fda825842007c7247ea177a7d608b7ed"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sho/preview.webp": {
+        "bytes": 1323008,
+        "sha256": "bccf8c8a588cab666bff8a844c91a6d622b21452e7e7722c3ba49bb5332fb0db"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sho/prompt.txt": {
+        "bytes": 1946,
+        "sha256": "dd0738db04978a424e02ad9372997039b2f6628c92a32f7145d8c852d3b2f789"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sho/thumbnail.png": {
+        "bytes": 193233,
+        "sha256": "6c5419bd7247acabb27223ec96e5e3b475feb8177cd648ba3074143f8cabd581"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sho/validation.json": {
+        "bytes": 5333,
+        "sha256": "b4ae9a3f467bed5f16b190cd58f66ef6e1324cdb0bcf264bb1fd4515149a13b2"
+      }
+    },
+    "shoichi": {
+      "ArtSource/AnimationPrototypes/Subjects/shoichi/atlas.png": {
+        "bytes": 1531426,
+        "sha256": "b650a9e8b5475d9c752de39cbaca11461ca1fd6cf4c9b3b7f0f4ef2d8e5b92f7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/shoichi/manifest.json": {
+        "bytes": 1467,
+        "sha256": "bcc9bf230182c5eca8364161d50feedf2151bb10fcae9915c69c484367f0ffb3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/shoichi/preview.gif": {
+        "bytes": 477251,
+        "sha256": "a3eb5ebfa597d45bbf8956a7d225bd063d0f13e87060d6568e0717beea5b521d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/shoichi/preview.webp": {
+        "bytes": 1139006,
+        "sha256": "2a53501380dfdde925ff1bbb82464d99b680262fafd114c55ed7a7a0d6dd179b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/shoichi/prompt.txt": {
+        "bytes": 2107,
+        "sha256": "25bbd0b8351bb42f2388934d80038541b675d45d1a26e86f2988e1dc9f33451e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/shoichi/thumbnail.png": {
+        "bytes": 158281,
+        "sha256": "adf84e7b47dd4adf7c5c3805739c61c0433daa13ebf2185b2693983e2d8cd19a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/shoichi/validation.json": {
+        "bytes": 5331,
+        "sha256": "d72a121110792ceeee4fa608f2e43b944b93087fbc1f7f3f4f823050ae040d9f"
+      }
+    },
+    "silvia": {
+      "ArtSource/AnimationPrototypes/Subjects/silvia/atlas-first-pass.png": {
+        "bytes": 1519450,
+        "sha256": "23289c934ac46e59242e16cb796724bf0031f89e64c48016bdb3fb775901a2fa"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/silvia/atlas.png": {
+        "bytes": 1622930,
+        "sha256": "10da0450baac924b37a2cc6b4353263ff266af9f9a4076234659735eadcb4462"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/silvia/manifest.json": {
+        "bytes": 1648,
+        "sha256": "5d1a307481370e68558d8e4b70c41a64326cc6cb43e34f6246f6aca447a2a1bd"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/silvia/preview.gif": {
+        "bytes": 544623,
+        "sha256": "52c4d9fd57a36530aa517c1b1867a87e32f56044264f05046d0afcd37ea9474e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/silvia/preview.webp": {
+        "bytes": 1266140,
+        "sha256": "5744f1155f6159f373c7592d9af6e6d769b432f6b73c476260141e8fa5f8fd09"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/silvia/prompt-initial.txt": {
+        "bytes": 2233,
+        "sha256": "89833cf187341e3a68ee677048009947d98fb764174949a3115931d369807c3e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/silvia/prompt.txt": {
+        "bytes": 855,
+        "sha256": "26edbd37664acb75a6f3ec379f6127852355c27a8812b06809a1548dd4c5ed83"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/silvia/thumbnail.png": {
+        "bytes": 129263,
+        "sha256": "c9576d2f86bde0666d4f26b13bd275c57314e9e11070d904e6ca017743f7431c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/silvia/validation.json": {
+        "bytes": 5367,
+        "sha256": "60ee48d2b9bd5654a8fc45c727cba2718ab7b8ea63e5f88128232b3630010d69"
+      }
+    },
+    "sissela": {
+      "ArtSource/AnimationPrototypes/Subjects/sissela/atlas.png": {
+        "bytes": 1287459,
+        "sha256": "6781449a92acf56dcd9fea5b57d4e7227fb21e91ab4c93d87e50c6477d708a85"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sissela/generated-sheet.png": {
+        "bytes": 1138907,
+        "sha256": "7bf2dd72afee819a98229004226b0d482570122ec7f6d48d08959a6482d55bd7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sissela/manifest.json": {
+        "bytes": 12068,
+        "sha256": "a7ff1f7077059fd8883c2c67c3e2b8a94465ad5ca4641dc1921535210e48dfc2"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sissela/normalization.json": {
+        "bytes": 23414,
+        "sha256": "094cef920965eeebdc3e248b76174a8d0f003acb98506887680b3b4f4e11ffe8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sissela/official-reference.png": {
+        "bytes": 1342348,
+        "sha256": "3bc8c4105a43770dd6d153b0e7b9fb9615688bfc9dbf34366ddf9ff98383d9ee"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sissela/original-reference.png": {
+        "bytes": 25294,
+        "sha256": "3b3c4d7e799678ac3208d689ca3a87b46a94b61c839a87ebfdd0750ad4bab2bc"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sissela/preview.gif": {
+        "bytes": 334795,
+        "sha256": "336b177ab98861638c297263103b07d01e773777f5ccbd97d297b5b80c0fbbcd"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sissela/preview.webp": {
+        "bytes": 761706,
+        "sha256": "36d23b39240749bfc01975802d04b70d5f9c840614d14fcdafe0bd14327dfaf3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sissela/prompt.txt": {
+        "bytes": 1623,
+        "sha256": "f317081913a06af89122e3c885de173bf8f277dce352041f8ab64d1a37eec59d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sissela/thumbnail.png": {
+        "bytes": 104189,
+        "sha256": "d132884004e15e846d49e14e49864f125de236a887bb434f90a72af41a150d03"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sissela/validation.json": {
+        "bytes": 15068,
+        "sha256": "9bbbc8f6089fae1ec084496ed4b01c5751aa26d1ec8903606e4af3d88a981087"
+      }
+    },
+    "sua": {
+      "ArtSource/AnimationPrototypes/Subjects/sua/atlas.png": {
+        "bytes": 2022380,
+        "sha256": "bbb976bdf2ecdad803e2fc840205d6f53b59366b497fbac3c1b9f300d1ed2560"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sua/manifest.json": {
+        "bytes": 1511,
+        "sha256": "e74c51e29e8234dd2bdc7307b649f0cfd94fd271951781d24b368294405382b7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sua/preview.gif": {
+        "bytes": 593767,
+        "sha256": "e1fc260ebaeead2f694ed62c87b066593f66765846495268eef01587f0718b44"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sua/preview.webp": {
+        "bytes": 1463746,
+        "sha256": "bbad93f268df7624bb32cf265b0ddf7c688058f4425cc9de5b1a28341abf1209"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sua/prompt.txt": {
+        "bytes": 2038,
+        "sha256": "fc5ae3399a6c738cbb53f0a1593fb8d26cd8b02ed45a553c0b46dc8921f027f9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sua/thumbnail.png": {
+        "bytes": 175964,
+        "sha256": "51c6e41236e5596f27508ee3d5a342cc034e3dd6aca1950b11b6a44c7dcd5bbb"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/sua/validation.json": {
+        "bytes": 5339,
+        "sha256": "a4da216b074e6d676a487d8e643faf4500ff8bfe4f5692a1c8394e9ab0f86a3f"
+      }
+    },
+    "tazia": {
+      "ArtSource/AnimationPrototypes/Subjects/tazia/atlas.png": {
+        "bytes": 1610562,
+        "sha256": "525b5b6dd4f349ae6ca492d7b6308d08419828c0fa80f56fe0257555b36ba1ec"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/tazia/manifest.json": {
+        "bytes": 1561,
+        "sha256": "96bc1951050a5acc9ef5996d8409e088ab1dac097541c1fe854c931586e9a7a7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/tazia/preview.gif": {
+        "bytes": 434495,
+        "sha256": "606ee4619651de7af7a5482a9ebc38ae97c8338a96bea4b5b0a8561f138ab7c3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/tazia/preview.webp": {
+        "bytes": 1282782,
+        "sha256": "8ff35f5631edf84ebb07c3bc3c4f9f29b3063ea04a05a8ba3b7ceb676e26bf6c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/tazia/prompt.txt": {
+        "bytes": 2240,
+        "sha256": "72624ce0dc19d501ba8136dba22025fd88d69b788d8774644d7d407b3b40f5f5"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/tazia/thumbnail.png": {
+        "bytes": 132499,
+        "sha256": "b8746995f327060e1aa144d714c4168b579db6916cba2ee4ade28840ee642244"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/tazia/validation.json": {
+        "bytes": 5323,
+        "sha256": "1bbc6e0b20dc3c1a84f490fdce1e4c2ca54f565be0558fc8f5ca3d5daa58c12f"
+      }
+    },
+    "theodore": {
+      "ArtSource/AnimationPrototypes/Subjects/theodore/atlas.png": {
+        "bytes": 1569489,
+        "sha256": "c2bc2c6d65c2c94d70f1305ceac7cf5cf5ccefeb0220676cae6edf4b70e9e650"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/theodore/manifest.json": {
+        "bytes": 1530,
+        "sha256": "c49121f4ad54a7ec84902fcc38786bffc18687ea2962e3d1d13dba334e5a6105"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/theodore/preview.gif": {
+        "bytes": 485902,
+        "sha256": "bef47028b7bbebe29ce25c30f85de44fed52b0c71c30a00e3757c82b6e2264f7"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/theodore/preview.webp": {
+        "bytes": 1227976,
+        "sha256": "861616c6a8e2018ce45274bde40cc196dbd1d8141a75cb5cb89512117e55f3f6"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/theodore/prompt.txt": {
+        "bytes": 2183,
+        "sha256": "7a3cc07d51f6ac7ad069a27cf2dc20d66ce39e6e0df1ff09d3ae89b0927bb633"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/theodore/thumbnail.png": {
+        "bytes": 152077,
+        "sha256": "6f1b917b5af359b128fab5bca0b1da5457c6ac8c03a1b5073f044174cea3b41a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/theodore/validation.json": {
+        "bytes": 5340,
+        "sha256": "9f58acaa2142ad854cdc904b6a627ffe1a799edb99a7f2fec4f3806b6afab35b"
+      }
+    },
+    "tsubame": {
+      "ArtSource/AnimationPrototypes/Subjects/tsubame/atlas.png": {
+        "bytes": 1469641,
+        "sha256": "5dd09615e46d3972719b1dbc875a815735d18492da8c43ed094115b40d9cede3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/tsubame/manifest.json": {
+        "bytes": 1493,
+        "sha256": "44edaae1d72779256fea2873a935967dd767027dd8070c04f11e7cea51f2da54"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/tsubame/preview.gif": {
+        "bytes": 433158,
+        "sha256": "0974a8a8ee440699051469ff6dff389a25bc1ed41a2d8ea35b1c78e6f2013895"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/tsubame/preview.webp": {
+        "bytes": 1141078,
+        "sha256": "0a61c7e4a55d588ecf80f1abeeaed894f7498cff7387e99579c4b9d24fda7428"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/tsubame/prompt.txt": {
+        "bytes": 2298,
+        "sha256": "1f0b5792673be098a00992bd5be2b828fb0e8a363f6c4dff829be67eac5a71c4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/tsubame/thumbnail.png": {
+        "bytes": 151908,
+        "sha256": "e64155fb63aef20f1b81875e7a67e1d131e3eaf94064302acc4b8c3879cd8ba8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/tsubame/validation.json": {
+        "bytes": 5345,
+        "sha256": "5b287e2775520021328aad5f1ae1fd6a4c95add8e7e373a2820f1d44439388fe"
+      }
+    },
+    "vanya": {
+      "ArtSource/AnimationPrototypes/Subjects/vanya/atlas.png": {
+        "bytes": 1984203,
+        "sha256": "35462aaeb45364611cb1c29a955296fd16c143f5fc04850f2e186aa5af703e77"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/vanya/manifest.json": {
+        "bytes": 1538,
+        "sha256": "b50f0c9c896aea0fa6e6fbecd9163ef087a40217b53640a03875a0086589c3db"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/vanya/preview.gif": {
+        "bytes": 567724,
+        "sha256": "04d06afa13ec2b7bb01158543d54c1b128f708cd7924eebf52dfb51199eb8590"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/vanya/preview.webp": {
+        "bytes": 1604104,
+        "sha256": "20f502ebeda1e641dd2855980838497aa1cf802e5fedcc5c5e5d019a60c6996c"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/vanya/prompt.txt": {
+        "bytes": 2156,
+        "sha256": "495acd1b214f038d3ebab11b0fae2a0c18f184e395cb37c80eeca4c55150f1c0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/vanya/thumbnail.png": {
+        "bytes": 190886,
+        "sha256": "024a0374111d444b88d048cd641a9e3540c42846e06531f16326f3ee2b6f5105"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/vanya/validation.json": {
+        "bytes": 5321,
+        "sha256": "950ca391a34ebb472a79df6cad2ad6a7f3fe1ef4e9bc364b9c203fbdbd4146b6"
+      }
+    },
+    "william": {
+      "ArtSource/AnimationPrototypes/Subjects/william/atlas.png": {
+        "bytes": 1355374,
+        "sha256": "1acef44d95dbe3dc2d63fb4e457af03e8931b880a6e7c9ee5e9b278d29207c0e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/william/manifest.json": {
+        "bytes": 1590,
+        "sha256": "1a0b74d1e100fb3178ef75b3356ea0215bd20f9b833cc682d7f273895202e081"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/william/preview.gif": {
+        "bytes": 364419,
+        "sha256": "89c2d70d311609f61528e24adf9a6640f72eda9e6cd978eef4150b1750e2216e"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/william/preview.webp": {
+        "bytes": 1042834,
+        "sha256": "e813ad7d11c3f091fe402af65bd11ed8b99b755680aa904e8d2b1a9863db85b0"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/william/prompt.txt": {
+        "bytes": 2223,
+        "sha256": "eb748cd1737f03c4f8ab734e82a463f125f141826cad7af996708a27ecf23d1b"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/william/thumbnail.png": {
+        "bytes": 142363,
+        "sha256": "353d432c4b30327a722da72de9ad8acdddac1839a2db20f19193dfffa35e4c66"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/william/validation.json": {
+        "bytes": 5375,
+        "sha256": "d26a68d3581ec21c20e0ff37f3c3158ad57e430469249982d1f7e32012c4d2a5"
+      }
+    },
+    "xuelin": {
+      "ArtSource/AnimationPrototypes/Subjects/xuelin/atlas.png": {
+        "bytes": 1891553,
+        "sha256": "5fe2c9ac97d65a98db504828e6b0cc25a45f0d3d5dca9d2cd3049f0ee0bf6dc3"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/xuelin/manifest.json": {
+        "bytes": 1462,
+        "sha256": "68c3013f1a638b6e21c623004c8a94d9d7d44b8a5bc3d9d2852a47900c4ab106"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/xuelin/preview.gif": {
+        "bytes": 557891,
+        "sha256": "7c40e5cdffaeb6a6abdf826e9994c588f43dc6d4a561be9fb11564b62dc53fb1"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/xuelin/preview.webp": {
+        "bytes": 1431134,
+        "sha256": "7a59a822c291ed67ca513c029bff21c458f4bdef49b365cf2d9fa9ed86996ce8"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/xuelin/prompt.txt": {
+        "bytes": 2242,
+        "sha256": "0f84f013d81221360081f2e9d04ffdcca40df08323588f24f6a0e81d079f9f16"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/xuelin/thumbnail.png": {
+        "bytes": 177782,
+        "sha256": "5513361c5c0ef4eb555447602b124475e0df47d4c7c539ae59d8760b4ddf8554"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/xuelin/validation.json": {
+        "bytes": 5322,
+        "sha256": "f9a939d107804ecb226df3aad8435576bc043b765a890c98b40e49d29d221fcf"
+      }
+    },
+    "yuki": {
+      "ArtSource/AnimationPrototypes/Subjects/yuki/atlas.png": {
+        "bytes": 1373715,
+        "sha256": "648a580f7f9f9412f8b1d203e097f70f66076032b0b6f6a88dcf7a0d046f0198"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/yuki/manifest.json": {
+        "bytes": 1496,
+        "sha256": "80d4bfc38c457d7e3725506149c2a12dd208a23fde2d202c9e7e06d6f25733a2"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/yuki/preview.gif": {
+        "bytes": 429646,
+        "sha256": "b8b29f6fe06e8568ca8efd205b01d92416de6805b3b0bb7391b355141d420a00"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/yuki/preview.webp": {
+        "bytes": 1051036,
+        "sha256": "c9d8e11c7c24a4cb2425469665b7e0ae07c4940b742c9e4db54506b5457326af"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/yuki/prompt.txt": {
+        "bytes": 2211,
+        "sha256": "2550d3e981be67690d1935af7affd9eb43cc49eb27c30767f47cfde8ec64e599"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/yuki/thumbnail.png": {
+        "bytes": 124391,
+        "sha256": "f9e543ec3d9afb13202c659e8122420f1dffa89d6c8a79762facb6d9faf9577d"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/yuki/validation.json": {
+        "bytes": 5338,
+        "sha256": "7ea8c708aa353e3b527a4c0ee23eeb4766793b6696304be29265a6183c44f70e"
+      }
+    },
+    "yumin": {
+      "ArtSource/AnimationPrototypes/Subjects/yumin/atlas.png": {
+        "bytes": 2255714,
+        "sha256": "78678709bc184d0b1fa3cdacfca6e25e693f44200d116079c0f4e72c3f9e1df9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/yumin/manifest.json": {
+        "bytes": 1537,
+        "sha256": "49b4dfa2f3bfdc6312c6fc9ffaeb5b2eb728b97eec6657c77a1cff24fbee0405"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/yumin/preview.gif": {
+        "bytes": 557608,
+        "sha256": "c99845b681d19564a4ac9d308b6be7001924928fdf9e29eccfc363f67a36d6ce"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/yumin/preview.webp": {
+        "bytes": 1643540,
+        "sha256": "8b807cbb8868484b6bcbc1d1259644a7c44dc16359f307453f03a11e73102e57"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/yumin/prompt.txt": {
+        "bytes": 2166,
+        "sha256": "c714167afe7b2c7197f761b1a8c00f781dcb2786a76e8c59cc14919da5913902"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/yumin/thumbnail.png": {
+        "bytes": 162831,
+        "sha256": "a225b36a3f8b4ab97dc4d9f0fe3a55b3f904b986055a5096a1a4485cc796031f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/yumin/validation.json": {
+        "bytes": 5341,
+        "sha256": "1bdbd02e43a14f430ed15d55c07dac8b907d25f5b06071ba979239cbf58afc4e"
+      }
+    },
+    "zahir": {
+      "ArtSource/AnimationPrototypes/Subjects/zahir/atlas.png": {
+        "bytes": 2070596,
+        "sha256": "cd4a24ee56eea93c55537c4cc13b27d227a90aec1b51fd321a73612a909fcf33"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/zahir/manifest.json": {
+        "bytes": 1575,
+        "sha256": "25f626394c4864dd933a161e6341182d0bdb4f50348e28dc947054d5143646ce"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/zahir/preview.gif": {
+        "bytes": 624952,
+        "sha256": "15889b0252f4e7794d3f30e2d4af237330ccc6054ecb7a317e4b3ac705d93fd9"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/zahir/preview.webp": {
+        "bytes": 1632920,
+        "sha256": "1ce963284a31c96608d31c680415d2d121ee95f8c5b176c02facb634cfff862a"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/zahir/prompt.txt": {
+        "bytes": 2227,
+        "sha256": "09bd7ad3f8af287c17b710baaa945d79ede9f5ba570d98cf8782d6d7c2b63af4"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/zahir/thumbnail.png": {
+        "bytes": 212907,
+        "sha256": "a880f7f14ebb8587ff5569b14353b65ee0d21d0379ef0104db4f14e32c729b3f"
+      },
+      "ArtSource/AnimationPrototypes/Subjects/zahir/validation.json": {
+        "bytes": 5325,
+        "sha256": "3b6317714b1a8d716dee0a0bf200b56c65fef3fb42e9e8cc843003e83bc5f20f"
+      }
+    }
+  },
+  "target_backup": {
+    "darko": {
+      "generated-sheet.png": {
+        "bytes": 952347,
+        "sha256": "54d4b06b6fa516e88b972f8d69a010c91627b0ee4e1ae1c71d925ac85a2d0f84",
+        "backup": "Temp/Polish5_20261014/baseline/darko/generated-sheet.png"
+      },
+      "atlas.png": {
+        "bytes": 1143763,
+        "sha256": "d5675c03842a320ae310f4b6a456da4e8ca112168d8d113a991d607c1b5e8a9f",
+        "backup": "Temp/Polish5_20261014/baseline/darko/atlas.png"
+      },
+      "manifest.json": {
+        "bytes": 12063,
+        "sha256": "1844114525a9237ab335a7960d7e78c7e1076b81fb14027c42683b0f02facfd9",
+        "backup": "Temp/Polish5_20261014/baseline/darko/manifest.json"
+      },
+      "normalization.json": {
+        "bytes": 23410,
+        "sha256": "93c84dd1407aa7bd99107b6bdeea5e1f603ce981cacb643273d5c35c8defdb5c",
+        "backup": "Temp/Polish5_20261014/baseline/darko/normalization.json"
+      },
+      "validation.json": {
+        "bytes": 15066,
+        "sha256": "4097a9998b1455fb1ec58af98253096d1b1924d1f92662c3db002f70367b7d81",
+        "backup": "Temp/Polish5_20261014/baseline/darko/validation.json"
+      },
+      "prompt.txt": {
+        "bytes": 1890,
+        "sha256": "72eb9315ac4e28cd993b9bab5581609f3652098fdd0d7f7293652c2c4d90bd8e",
+        "backup": "Temp/Polish5_20261014/baseline/darko/prompt.txt"
+      }
+    },
+    "garnet": {
+      "generated-sheet.png": {
+        "bytes": 1989412,
+        "sha256": "d4d6c4544450a2162762c609c7aca4c14545b90a476fece27b25f403c33009d0",
+        "backup": "Temp/Polish5_20261014/baseline/garnet/generated-sheet.png"
+      },
+      "atlas.png": {
+        "bytes": 2615418,
+        "sha256": "6dacef5247a2a6582e288c36b0861bd593e4e38d52816c6ce0f08d11eb559312",
+        "backup": "Temp/Polish5_20261014/baseline/garnet/atlas.png"
+      },
+      "manifest.json": {
+        "bytes": 3804,
+        "sha256": "7c6d9fd9c71cfa82e73b566006800fe9ed51777f4db1b63d04f0648b0d8a51ff",
+        "backup": "Temp/Polish5_20261014/baseline/garnet/manifest.json"
+      },
+      "normalization.json": {
+        "bytes": 23458,
+        "sha256": "ec52c2993793a83dcf2577454585713f27701be928246f14408d4ab56bc6cea7",
+        "backup": "Temp/Polish5_20261014/baseline/garnet/normalization.json"
+      },
+      "validation.json": {
+        "bytes": 15039,
+        "sha256": "de9598d0acf63f8100a4d7deddeebd69e41d504227a310324740b3ea31f65f9a",
+        "backup": "Temp/Polish5_20261014/baseline/garnet/validation.json"
+      },
+      "prompt.txt": {
+        "bytes": 2471,
+        "sha256": "ddbde4a4a40eee90c67377532a53f5e16e4a4fecd46d818eeb9197ef851e6c57",
+        "backup": "Temp/Polish5_20261014/baseline/garnet/prompt.txt"
+      }
+    },
+    "martina": {
+      "generated-sheet.png": {
+        "bytes": 1909909,
+        "sha256": "ccc36fcb62465d04afbf99560783e7849e66055d9fd8398cbdd62e7dc1bf5b44",
+        "backup": "Temp/Polish5_20261014/baseline/martina/generated-sheet.png"
+      },
+      "atlas.png": {
+        "bytes": 3031743,
+        "sha256": "b2050d96729eecbc6c668d250eb82bb71a6ba62b2117db3d8cf3fe7a6e9353ac",
+        "backup": "Temp/Polish5_20261014/baseline/martina/atlas.png"
+      },
+      "manifest.json": {
+        "bytes": 11110,
+        "sha256": "db64c0b779f675d45f17387a9ca58dae08f774422d8efcd53bebefe28c834b14",
+        "backup": "Temp/Polish5_20261014/baseline/martina/manifest.json"
+      },
+      "normalization.json": {
+        "bytes": 23398,
+        "sha256": "28555b96b540bf67bce81595cfb5fef6eff95bb49c2833d8d81b0bcf5729c54d",
+        "backup": "Temp/Polish5_20261014/baseline/martina/normalization.json"
+      },
+      "validation.json": {
+        "bytes": 15068,
+        "sha256": "6ef0f250111b85721ce977af346584884c096243a7e560755f805392dad99190",
+        "backup": "Temp/Polish5_20261014/baseline/martina/validation.json"
+      },
+      "prompt.txt": {
+        "bytes": 1154,
+        "sha256": "1c17c16bd7fafe46c9e18ced23a99df0d686e4f1c2e5a8c41d9001388e7e2d98",
+        "backup": "Temp/Polish5_20261014/baseline/martina/prompt.txt"
+      }
+    },
+    "nadine": {
+      "generated-sheet.png": {
+        "bytes": 1385303,
+        "sha256": "2437d16ae28a9f667cdd83b0e028045c7702d11785849402534ab6a525eb3431",
+        "backup": "Temp/Polish5_20261014/baseline/nadine/generated-sheet.png"
+      },
+      "atlas.png": {
+        "bytes": 1865477,
+        "sha256": "8e4a66d002b2bf8e2137cbaf906231f49b557f80af6c39cc3dca5cee6a1988fc",
+        "backup": "Temp/Polish5_20261014/baseline/nadine/atlas.png"
+      },
+      "manifest.json": {
+        "bytes": 5496,
+        "sha256": "21d48b8423139905e6a2d4710da0f09ca09afe14ed8a6fa8ba3d0b092dd809b3",
+        "backup": "Temp/Polish5_20261014/baseline/nadine/manifest.json"
+      },
+      "normalization.json": {
+        "bytes": 23415,
+        "sha256": "2c00d47667bc89b88bb070faeb3a94971ebfbbdc1b6490b627f9ca7ae3a46fa8",
+        "backup": "Temp/Polish5_20261014/baseline/nadine/normalization.json"
+      },
+      "validation.json": {
+        "bytes": 15067,
+        "sha256": "a97514aa35e92ee0ee8493937c36dd587abbec7a5029d8b7c0d865d82db4a792",
+        "backup": "Temp/Polish5_20261014/baseline/nadine/validation.json"
+      },
+      "prompt.txt": {
+        "bytes": 3176,
+        "sha256": "b77bf478c51bfdd391ed60e5f4e8676d45edf8a353f7cdb52dbc05367d55d069",
+        "backup": "Temp/Polish5_20261014/baseline/nadine/prompt.txt"
+      },
+      "correction-prompt.txt": {
+        "bytes": 1937,
+        "sha256": "a68fb38fdf78b6938719506e55849c3c9597deb8199e26ee6120b8e5c5dcc099",
+        "backup": "Temp/Polish5_20261014/baseline/nadine/correction-prompt.txt"
+      }
+    },
+    "tia": {
+      "generated-sheet.png": {
+        "bytes": 1849553,
+        "sha256": "fd72e06aeb3a8ce08c5e9b8c2d66d928977f7409ccacc8fc87082b3eddfc721c",
+        "backup": "Temp/Polish5_20261014/baseline/tia/generated-sheet.png"
+      },
+      "atlas.png": {
+        "bytes": 2445580,
+        "sha256": "be75c9dc6b227bd0cb9aefa18f99809bce1bae55d8e56cab3cfa98d14e31f402",
+        "backup": "Temp/Polish5_20261014/baseline/tia/atlas.png"
+      },
+      "manifest.json": {
+        "bytes": 4378,
+        "sha256": "baafe5d0ecf413162aeb044fc9b0ee8020b0579573957076d770544ed71ed3d7",
+        "backup": "Temp/Polish5_20261014/baseline/tia/manifest.json"
+      },
+      "normalization.json": {
+        "bytes": 23430,
+        "sha256": "0740380e48744b8c9830143ef7c173ec81d14a62e0a75325f33e9521f47233c3",
+        "backup": "Temp/Polish5_20261014/baseline/tia/normalization.json"
+      },
+      "validation.json": {
+        "bytes": 15064,
+        "sha256": "2024b4170ce2ee4f808a629a7a7011e50cd8b5a88a5f7d5f81196a2f0a04a9e3",
+        "backup": "Temp/Polish5_20261014/baseline/tia/validation.json"
+      },
+      "prompt.txt": {
+        "bytes": 3487,
+        "sha256": "d16add4cc17c3a4fa20c5a32f2a5e96cef9eb3b39faa8224cda474f2076f7465",
+        "backup": "Temp/Polish5_20261014/baseline/tia/prompt.txt"
+      }
+    }
+  },
+  "target_layout_review": {
+    "darko": {
+      "columns": 4,
+      "rows": 3,
+      "fps": 8,
+      "frame_layout": "fixed-grid",
+      "frame_gutter": 24,
+      "ground_alignment": "per-frame",
+      "intended_airborne_frames": [],
+      "alignment_ignore_frames": null,
+      "actor_absent_frames": null,
+      "foot_anchors": {
+        "3": [
+          1258,
+          344
+        ],
+        "4": [
+          138,
+          680
+        ]
+      },
+      "airborne_lift": null,
+      "generated_source_size": [
+        1448,
+        1086
+      ],
+      "cell": 471,
+      "shared_row_cuts": [
+        0,
+        362,
+        724,
+        1086
+      ],
+      "shared_column_cuts": [
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          362,
+          724,
+          1086,
+          1448
+        ]
+      ],
+      "normalized_feet": [
+        344,
+        344,
+        344,
+        344,
+        318,
+        318,
+        318,
+        318,
+        284,
+        283,
+        283,
+        283
+      ],
+      "ground_reference_y": 344,
+      "frame_ground_translations": [
+        0,
+        0,
+        0,
+        0,
+        26,
+        26,
+        26,
+        26,
+        60,
+        61,
+        61,
+        61
+      ],
+      "foot_measurements": [
+        {
+          "index": 0,
+          "method": "heuristic",
+          "cell_foot_y": 344,
+          "source_foot_y": 344,
+          "nominal_foot_y": 344,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 1,
+          "method": "heuristic",
+          "cell_foot_y": 344,
+          "source_foot_y": 344,
+          "nominal_foot_y": 344,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 2,
+          "method": "heuristic",
+          "cell_foot_y": 344,
+          "source_foot_y": 344,
+          "nominal_foot_y": 344,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 3,
+          "method": "manifest",
+          "cell_foot_y": 344,
+          "source_foot_y": 344,
+          "nominal_foot_y": 344,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 4,
+          "method": "manifest",
+          "cell_foot_y": 318,
+          "source_foot_y": 680,
+          "nominal_foot_y": 318,
+          "translation_y": 26,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 5,
+          "method": "heuristic",
+          "cell_foot_y": 318,
+          "source_foot_y": 680,
+          "nominal_foot_y": 318,
+          "translation_y": 26,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 6,
+          "method": "heuristic",
+          "cell_foot_y": 318,
+          "source_foot_y": 680,
+          "nominal_foot_y": 318,
+          "translation_y": 26,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 7,
+          "method": "heuristic",
+          "cell_foot_y": 318,
+          "source_foot_y": 680,
+          "nominal_foot_y": 318,
+          "translation_y": 26,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 8,
+          "method": "heuristic",
+          "cell_foot_y": 284,
+          "source_foot_y": 1008,
+          "nominal_foot_y": 284,
+          "translation_y": 60,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 9,
+          "method": "heuristic",
+          "cell_foot_y": 283,
+          "source_foot_y": 1007,
+          "nominal_foot_y": 283,
+          "translation_y": 61,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 10,
+          "method": "heuristic",
+          "cell_foot_y": 283,
+          "source_foot_y": 1007,
+          "nominal_foot_y": 283,
+          "translation_y": 61,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 11,
+          "method": "heuristic",
+          "cell_foot_y": 283,
+          "source_foot_y": 1007,
+          "nominal_foot_y": 283,
+          "translation_y": 61,
+          "airborne_lift": null,
+          "exclusions": []
+        }
+      ],
+      "grounded_output_foot_y": {
+        "0": 368,
+        "1": 368,
+        "2": 368,
+        "3": 368,
+        "4": 368,
+        "5": 368,
+        "6": 368,
+        "7": 368,
+        "8": 368,
+        "9": 368,
+        "10": 368,
+        "11": 368
+      },
+      "source_may_be_clipped": false
+    },
+    "garnet": {
+      "columns": 4,
+      "rows": 3,
+      "fps": 8,
+      "frame_layout": "fixed-grid",
+      "frame_gutter": 24,
+      "ground_alignment": "per-frame",
+      "intended_airborne_frames": [],
+      "alignment_ignore_frames": [],
+      "actor_absent_frames": [
+        7,
+        8
+      ],
+      "foot_anchors": null,
+      "airborne_lift": null,
+      "generated_source_size": [
+        1448,
+        1086
+      ],
+      "cell": 462,
+      "shared_row_cuts": [
+        0,
+        362,
+        700,
+        1086
+      ],
+      "shared_column_cuts": [
+        [
+          0,
+          362,
+          711,
+          1100,
+          1448
+        ],
+        [
+          0,
+          363,
+          724,
+          1086,
+          1448
+        ],
+        [
+          0,
+          361,
+          724,
+          1086,
+          1448
+        ]
+      ],
+      "normalized_feet": [
+        356,
+        356,
+        356,
+        356,
+        317,
+        327,
+        327,
+        321,
+        306,
+        310,
+        304,
+        310
+      ],
+      "ground_reference_y": 356,
+      "frame_ground_translations": [
+        0,
+        0,
+        0,
+        0,
+        39,
+        29,
+        29,
+        29,
+        46,
+        46,
+        52,
+        46
+      ],
+      "foot_measurements": [
+        {
+          "index": 0,
+          "method": "heuristic",
+          "cell_foot_y": 356,
+          "source_foot_y": 356,
+          "nominal_foot_y": 356,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 1,
+          "method": "heuristic",
+          "cell_foot_y": 356,
+          "source_foot_y": 356,
+          "nominal_foot_y": 356,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 2,
+          "method": "heuristic",
+          "cell_foot_y": 356,
+          "source_foot_y": 356,
+          "nominal_foot_y": 356,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 3,
+          "method": "heuristic",
+          "cell_foot_y": 356,
+          "source_foot_y": 356,
+          "nominal_foot_y": 356,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 4,
+          "method": "heuristic",
+          "cell_foot_y": 317,
+          "source_foot_y": 679,
+          "nominal_foot_y": 317,
+          "translation_y": 39,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 5,
+          "method": "heuristic",
+          "cell_foot_y": 327,
+          "source_foot_y": 689,
+          "nominal_foot_y": 327,
+          "translation_y": 29,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 6,
+          "method": "heuristic",
+          "cell_foot_y": 327,
+          "source_foot_y": 689,
+          "nominal_foot_y": 327,
+          "translation_y": 29,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 7,
+          "method": "heuristic",
+          "cell_foot_y": 321,
+          "source_foot_y": 683,
+          "nominal_foot_y": 321,
+          "translation_y": 29,
+          "airborne_lift": null,
+          "exclusions": [
+            "actor_absent_frames"
+          ]
+        },
+        {
+          "index": 8,
+          "method": "heuristic",
+          "cell_foot_y": 330,
+          "source_foot_y": 1030,
+          "nominal_foot_y": 306,
+          "translation_y": 46,
+          "airborne_lift": null,
+          "exclusions": [
+            "actor_absent_frames"
+          ]
+        },
+        {
+          "index": 9,
+          "method": "heuristic",
+          "cell_foot_y": 334,
+          "source_foot_y": 1034,
+          "nominal_foot_y": 310,
+          "translation_y": 46,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 10,
+          "method": "heuristic",
+          "cell_foot_y": 328,
+          "source_foot_y": 1028,
+          "nominal_foot_y": 304,
+          "translation_y": 52,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 11,
+          "method": "heuristic",
+          "cell_foot_y": 334,
+          "source_foot_y": 1034,
+          "nominal_foot_y": 310,
+          "translation_y": 46,
+          "airborne_lift": null,
+          "exclusions": []
+        }
+      ],
+      "grounded_output_foot_y": {
+        "0": 380,
+        "1": 380,
+        "2": 380,
+        "3": 380,
+        "4": 380,
+        "5": 380,
+        "6": 380,
+        "9": 380,
+        "10": 380,
+        "11": 380
+      },
+      "source_may_be_clipped": false
+    },
+    "martina": {
+      "columns": 4,
+      "rows": 3,
+      "fps": 8,
+      "frame_layout": "fixed-grid",
+      "frame_gutter": 24,
+      "ground_alignment": "per-frame",
+      "intended_airborne_frames": [],
+      "alignment_ignore_frames": null,
+      "actor_absent_frames": null,
+      "foot_anchors": null,
+      "airborne_lift": null,
+      "generated_source_size": [
+        1536,
+        1024
+      ],
+      "cell": 432,
+      "shared_row_cuts": [
+        0,
+        341,
+        683,
+        1024
+      ],
+      "shared_column_cuts": [
+        [
+          0,
+          384,
+          768,
+          1152,
+          1536
+        ],
+        [
+          0,
+          384,
+          768,
+          1152,
+          1536
+        ],
+        [
+          0,
+          384,
+          768,
+          1152,
+          1536
+        ]
+      ],
+      "normalized_feet": [
+        325,
+        325,
+        325,
+        325,
+        318,
+        317,
+        317,
+        317,
+        301,
+        301,
+        301,
+        301
+      ],
+      "ground_reference_y": 325,
+      "frame_ground_translations": [
+        0,
+        0,
+        0,
+        0,
+        7,
+        8,
+        8,
+        8,
+        24,
+        24,
+        24,
+        24
+      ],
+      "foot_measurements": [
+        {
+          "index": 0,
+          "method": "heuristic",
+          "cell_foot_y": 325,
+          "source_foot_y": 325,
+          "nominal_foot_y": 325,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 1,
+          "method": "heuristic",
+          "cell_foot_y": 325,
+          "source_foot_y": 325,
+          "nominal_foot_y": 325,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 2,
+          "method": "heuristic",
+          "cell_foot_y": 325,
+          "source_foot_y": 325,
+          "nominal_foot_y": 325,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 3,
+          "method": "heuristic",
+          "cell_foot_y": 325,
+          "source_foot_y": 325,
+          "nominal_foot_y": 325,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 4,
+          "method": "heuristic",
+          "cell_foot_y": 318,
+          "source_foot_y": 659,
+          "nominal_foot_y": 318,
+          "translation_y": 7,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 5,
+          "method": "heuristic",
+          "cell_foot_y": 317,
+          "source_foot_y": 658,
+          "nominal_foot_y": 317,
+          "translation_y": 8,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 6,
+          "method": "heuristic",
+          "cell_foot_y": 317,
+          "source_foot_y": 658,
+          "nominal_foot_y": 317,
+          "translation_y": 8,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 7,
+          "method": "heuristic",
+          "cell_foot_y": 317,
+          "source_foot_y": 658,
+          "nominal_foot_y": 317,
+          "translation_y": 8,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 8,
+          "method": "heuristic",
+          "cell_foot_y": 301,
+          "source_foot_y": 984,
+          "nominal_foot_y": 301,
+          "translation_y": 24,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 9,
+          "method": "heuristic",
+          "cell_foot_y": 301,
+          "source_foot_y": 984,
+          "nominal_foot_y": 301,
+          "translation_y": 24,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 10,
+          "method": "heuristic",
+          "cell_foot_y": 301,
+          "source_foot_y": 984,
+          "nominal_foot_y": 301,
+          "translation_y": 24,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 11,
+          "method": "heuristic",
+          "cell_foot_y": 301,
+          "source_foot_y": 984,
+          "nominal_foot_y": 301,
+          "translation_y": 24,
+          "airborne_lift": null,
+          "exclusions": []
+        }
+      ],
+      "grounded_output_foot_y": {
+        "0": 358,
+        "1": 358,
+        "2": 358,
+        "3": 358,
+        "4": 358,
+        "5": 358,
+        "6": 358,
+        "7": 358,
+        "8": 358,
+        "9": 358,
+        "10": 358,
+        "11": 358
+      },
+      "source_may_be_clipped": false
+    },
+    "nadine": {
+      "columns": 4,
+      "rows": 3,
+      "fps": 8,
+      "frame_layout": "fixed-grid",
+      "frame_gutter": 24,
+      "ground_alignment": "per-frame",
+      "intended_airborne_frames": [],
+      "alignment_ignore_frames": null,
+      "actor_absent_frames": null,
+      "foot_anchors": null,
+      "airborne_lift": null,
+      "generated_source_size": [
+        1448,
+        1086
+      ],
+      "cell": 452,
+      "shared_row_cuts": [
+        0,
+        369,
+        724,
+        1086
+      ],
+      "shared_column_cuts": [
+        [
+          0,
+          362,
+          724,
+          1104,
+          1448
+        ],
+        [
+          0,
+          382,
+          724,
+          1097,
+          1448
+        ],
+        [
+          0,
+          362,
+          732,
+          1086,
+          1448
+        ]
+      ],
+      "normalized_feet": [
+        365,
+        365,
+        365,
+        365,
+        348,
+        348,
+        348,
+        348,
+        325,
+        323,
+        325,
+        325
+      ],
+      "ground_reference_y": 365,
+      "frame_ground_translations": [
+        0,
+        0,
+        0,
+        0,
+        17,
+        17,
+        17,
+        17,
+        40,
+        42,
+        40,
+        40
+      ],
+      "foot_measurements": [
+        {
+          "index": 0,
+          "method": "heuristic",
+          "cell_foot_y": 365,
+          "source_foot_y": 365,
+          "nominal_foot_y": 365,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 1,
+          "method": "heuristic",
+          "cell_foot_y": 365,
+          "source_foot_y": 365,
+          "nominal_foot_y": 365,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 2,
+          "method": "heuristic",
+          "cell_foot_y": 365,
+          "source_foot_y": 365,
+          "nominal_foot_y": 365,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 3,
+          "method": "heuristic",
+          "cell_foot_y": 365,
+          "source_foot_y": 365,
+          "nominal_foot_y": 365,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 4,
+          "method": "heuristic",
+          "cell_foot_y": 341,
+          "source_foot_y": 710,
+          "nominal_foot_y": 348,
+          "translation_y": 17,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 5,
+          "method": "heuristic",
+          "cell_foot_y": 341,
+          "source_foot_y": 710,
+          "nominal_foot_y": 348,
+          "translation_y": 17,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 6,
+          "method": "heuristic",
+          "cell_foot_y": 341,
+          "source_foot_y": 710,
+          "nominal_foot_y": 348,
+          "translation_y": 17,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 7,
+          "method": "heuristic",
+          "cell_foot_y": 341,
+          "source_foot_y": 710,
+          "nominal_foot_y": 348,
+          "translation_y": 17,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 8,
+          "method": "heuristic",
+          "cell_foot_y": 325,
+          "source_foot_y": 1049,
+          "nominal_foot_y": 325,
+          "translation_y": 40,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 9,
+          "method": "heuristic",
+          "cell_foot_y": 323,
+          "source_foot_y": 1047,
+          "nominal_foot_y": 323,
+          "translation_y": 42,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 10,
+          "method": "heuristic",
+          "cell_foot_y": 325,
+          "source_foot_y": 1049,
+          "nominal_foot_y": 325,
+          "translation_y": 40,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 11,
+          "method": "heuristic",
+          "cell_foot_y": 325,
+          "source_foot_y": 1049,
+          "nominal_foot_y": 325,
+          "translation_y": 40,
+          "airborne_lift": null,
+          "exclusions": []
+        }
+      ],
+      "grounded_output_foot_y": {
+        "0": 389,
+        "1": 389,
+        "2": 389,
+        "3": 389,
+        "4": 389,
+        "5": 389,
+        "6": 389,
+        "7": 389,
+        "8": 389,
+        "9": 389,
+        "10": 389,
+        "11": 389
+      },
+      "source_may_be_clipped": false
+    },
+    "tia": {
+      "columns": 4,
+      "rows": 3,
+      "fps": 8,
+      "frame_layout": "fixed-grid",
+      "frame_gutter": 24,
+      "ground_alignment": "per-frame",
+      "intended_airborne_frames": [],
+      "alignment_ignore_frames": null,
+      "actor_absent_frames": null,
+      "foot_anchors": {
+        "0": [
+          188,
+          360
+        ],
+        "8": [
+          165,
+          1060
+        ],
+        "11": [
+          1242,
+          1060
+        ]
+      },
+      "airborne_lift": null,
+      "generated_source_size": [
+        1447,
+        1087
+      ],
+      "cell": 470,
+      "shared_row_cuts": [
+        0,
+        376,
+        725,
+        1087
+      ],
+      "shared_column_cuts": [
+        [
+          0,
+          362,
+          718,
+          1040,
+          1447
+        ],
+        [
+          0,
+          377,
+          724,
+          1068,
+          1447
+        ],
+        [
+          0,
+          362,
+          724,
+          1085,
+          1447
+        ]
+      ],
+      "normalized_feet": [
+        360,
+        360,
+        361,
+        360,
+        341,
+        340,
+        341,
+        340,
+        335,
+        336,
+        336,
+        335
+      ],
+      "ground_reference_y": 360,
+      "frame_ground_translations": [
+        0,
+        0,
+        -1,
+        0,
+        19,
+        20,
+        19,
+        20,
+        25,
+        24,
+        24,
+        25
+      ],
+      "foot_measurements": [
+        {
+          "index": 0,
+          "method": "manifest",
+          "cell_foot_y": 360,
+          "source_foot_y": 360,
+          "nominal_foot_y": 360,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 1,
+          "method": "heuristic",
+          "cell_foot_y": 360,
+          "source_foot_y": 360,
+          "nominal_foot_y": 360,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 2,
+          "method": "heuristic",
+          "cell_foot_y": 361,
+          "source_foot_y": 361,
+          "nominal_foot_y": 361,
+          "translation_y": -1,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 3,
+          "method": "heuristic",
+          "cell_foot_y": 360,
+          "source_foot_y": 360,
+          "nominal_foot_y": 360,
+          "translation_y": 0,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 4,
+          "method": "heuristic",
+          "cell_foot_y": 327,
+          "source_foot_y": 703,
+          "nominal_foot_y": 341,
+          "translation_y": 19,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 5,
+          "method": "heuristic",
+          "cell_foot_y": 326,
+          "source_foot_y": 702,
+          "nominal_foot_y": 340,
+          "translation_y": 20,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 6,
+          "method": "heuristic",
+          "cell_foot_y": 327,
+          "source_foot_y": 703,
+          "nominal_foot_y": 341,
+          "translation_y": 19,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 7,
+          "method": "heuristic",
+          "cell_foot_y": 326,
+          "source_foot_y": 702,
+          "nominal_foot_y": 340,
+          "translation_y": 20,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 8,
+          "method": "manifest",
+          "cell_foot_y": 335,
+          "source_foot_y": 1060,
+          "nominal_foot_y": 335,
+          "translation_y": 25,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 9,
+          "method": "heuristic",
+          "cell_foot_y": 336,
+          "source_foot_y": 1061,
+          "nominal_foot_y": 336,
+          "translation_y": 24,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 10,
+          "method": "heuristic",
+          "cell_foot_y": 336,
+          "source_foot_y": 1061,
+          "nominal_foot_y": 336,
+          "translation_y": 24,
+          "airborne_lift": null,
+          "exclusions": []
+        },
+        {
+          "index": 11,
+          "method": "manifest",
+          "cell_foot_y": 335,
+          "source_foot_y": 1060,
+          "nominal_foot_y": 335,
+          "translation_y": 25,
+          "airborne_lift": null,
+          "exclusions": []
+        }
+      ],
+      "grounded_output_foot_y": {
+        "0": 402,
+        "1": 402,
+        "2": 402,
+        "3": 402,
+        "4": 402,
+        "5": 402,
+        "6": 402,
+        "7": 402,
+        "8": 402,
+        "9": 402,
+        "10": 402,
+        "11": 402
+      },
+      "source_may_be_clipped": false
+    }
+  },
+  "game_status": [],
+  "game_diff_names": [],
+  "git_head": "41ab261d3e12c6d8079292a03b73000750afcc53",
+  "notes": [
+    "86 existing subjects include special Nia directory. Files are current disk bytes, not only tracked HEAD.",
+    "No artwork, production code, or permanent documentation was edited by this snapshot.",
+    "New generator outputs must not reuse old absolute sole anchors or shared cuts without visual revalidation."
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:61624/index.html?revision=chibi2-20261014-final#bihyung",
+  "browser": "154.0.8037.98",
+  "subjects": 91,
+  "modified_subjects": 13,
+  "style_reference_loaded": true,
+  "official_reference_loaded": true,
+  "no_accumulated_frame_effects": [
+    {
+      "id": "aya",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "6bab33a332bcce9b95eaaa1f2b6cefd2b9144deeee2cf5e63fe00cda3484e617"
+    },
+    {
+      "id": "bihyung",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "19300c157bbaf3d41021f4aa7623d1af455e4fe757bad2fe09751287f4da7f31"
+    },
+    {
+      "id": "darko",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "5c827e205aafe34ed4098e4ee63c6a4d85b07a50c35d184614c8ed383ea30414"
+    },
+    {
+      "id": "echion",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "8e5ae1209055c51971d75c69fe2f38f5e3976429f86b55c3c0bf04f4c2684362"
+    },
+    {
+      "id": "elena",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "96177438dbdbdfb95ad64d14c468570d9adf64aca6fc645bd05bceeb9f6f3113"
+    },
+    {
+      "id": "garnet",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "87c076d1b7513b8b9b69bc670522c0a3dcb1fec93c88ff8cc1077d2c7faf0e0a"
+    },
+    {
+      "id": "irem",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "7e04c251b44e45d65c1eb6ba64cfaf3d1b5b60e040e60837ba866bc54cec4c7f"
+    },
+    {
+      "id": "isol",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "f29fc9bd9204e25972f044181d11d2dd8a6eda3ef7acabab443e902ed8da4816"
+    },
+    {
+      "id": "jackie",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "dfbc663bccfb3b5b449e00c81dc3417da8db4e17f359f8e483320334d4d70498"
+    },
+    {
+      "id": "martina",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "b7732d513b22e4aca50bdcfcbfe28233f574bcf67c0f863e0d5bbbe378483090"
+    },
+    {
+      "id": "nadine",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "6644c2ed3b4653b11f66368f4e977cae580f464091b8443b6c2b58afce26c236"
+    },
+    {
+      "id": "sissela",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "9528d5208b973b4bd42844e56451382cf0843f6559909f7a630f6d989cf0abb7"
+    },
+    {
+      "id": "tia",
+      "frame1_matches_fresh_after_frame8": true,
+      "sha256": "e8a4361b129b03a5dd6b7815c34c9b86786eec8e0d39231ceb3a9645f81b86cc"
+    }
+  ],
+  "captures": [
+    {
+      "id": "aya",
+      "frame": 1,
+      "file": "http-aya-frame01.png",
+      "sha256": "6bab33a332bcce9b95eaaa1f2b6cefd2b9144deeee2cf5e63fe00cda3484e617",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "bihyung",
+      "frame": 1,
+      "file": "http-bihyung-frame01.png",
+      "sha256": "19300c157bbaf3d41021f4aa7623d1af455e4fe757bad2fe09751287f4da7f31",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "darko",
+      "frame": 1,
+      "file": "http-darko-frame01.png",
+      "sha256": "5c827e205aafe34ed4098e4ee63c6a4d85b07a50c35d184614c8ed383ea30414",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "echion",
+      "frame": 1,
+      "file": "http-echion-frame01.png",
+      "sha256": "8e5ae1209055c51971d75c69fe2f38f5e3976429f86b55c3c0bf04f4c2684362",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "elena",
+      "frame": 1,
+      "file": "http-elena-frame01.png",
+      "sha256": "96177438dbdbdfb95ad64d14c468570d9adf64aca6fc645bd05bceeb9f6f3113",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "garnet",
+      "frame": 1,
+      "file": "http-garnet-frame01.png",
+      "sha256": "87c076d1b7513b8b9b69bc670522c0a3dcb1fec93c88ff8cc1077d2c7faf0e0a",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "irem",
+      "frame": 1,
+      "file": "http-irem-frame01.png",
+      "sha256": "7e04c251b44e45d65c1eb6ba64cfaf3d1b5b60e040e60837ba866bc54cec4c7f",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "isol",
+      "frame": 1,
+      "file": "http-isol-frame01.png",
+      "sha256": "f29fc9bd9204e25972f044181d11d2dd8a6eda3ef7acabab443e902ed8da4816",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "jackie",
+      "frame": 1,
+      "file": "http-jackie-frame01.png",
+      "sha256": "dfbc663bccfb3b5b449e00c81dc3417da8db4e17f359f8e483320334d4d70498",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "martina",
+      "frame": 1,
+      "file": "http-martina-frame01.png",
+      "sha256": "b7732d513b22e4aca50bdcfcbfe28233f574bcf67c0f863e0d5bbbe378483090",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "nadine",
+      "frame": 1,
+      "file": "http-nadine-frame01.png",
+      "sha256": "6644c2ed3b4653b11f66368f4e977cae580f464091b8443b6c2b58afce26c236",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "sissela",
+      "frame": 1,
+      "file": "http-sissela-frame01.png",
+      "sha256": "9528d5208b973b4bd42844e56451382cf0843f6559909f7a630f6d989cf0abb7",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "tia",
+      "frame": 1,
+      "file": "http-tia-frame01.png",
+      "sha256": "e8a4361b129b03a5dd6b7815c34c9b86786eec8e0d39231ceb3a9645f81b86cc",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "bihyung",
+      "frame": 3,
+      "file": "http-bihyung-jump.png",
+      "sha256": "74c86be9effde3f044f266273f814d7fc3781f16af7490ed5bc56d12d4b6a97a",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "bihyung",
+      "frame": 6,
+      "file": "http-bihyung-airborne-giant.png",
+      "sha256": "5a55a861f1fda3b08fd958eb58110289d78e3665ce8324c4137b6ac90bdb8a92",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "bihyung",
+      "frame": 8,
+      "file": "http-bihyung-impact.png",
+      "sha256": "9f6955c69b0ef4b790edf3787a45130f63f3b83e1b4638363e6ece4eff0c4dad",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "martina",
+      "frame": 8,
+      "file": "http-martina-frame08.png",
+      "sha256": "c75abe0f087b696755801332eb57c42d714ff373bd4cdc37704af8fcb6b5a7af",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    },
+    {
+      "id": "nia",
+      "frame": 1,
+      "file": "http-nia-original-frame01.png",
+      "sha256": "224bea5df8b5bacc45eeff37ab9808843d48d89fd984e46541c5c9aad7779b3c",
+      "source": "unmodified Playwright element screenshot",
+      "width": 554,
+      "height": 555
+    }
+  ],
+  "browser_errors": []
+}

@@ -8,6 +8,43 @@ namespace Lumia
     // Keeping this pure makes enemy planning and previews use the same checks as play.
     public static class FreeCastMechanics
     {
+        // The fan game's conservative threshold is lower than Garnet's original 25%.
+        // Read health before this recast's damage, and require the original target mark.
+        public const int GarnetExecutionPercent = 20;
+        public static bool GarnetExecutionReady(CardDef card, SkillActorState before, bool freeCast, int hp, int maximumHp)
+        {
+            return card?.id == "garnet_r" && freeCast && hp > 0 && maximumHp > 0
+                && (long)hp * 100 <= (long)maximumHp * GarnetExecutionPercent
+                && SkillMechanics.Resource(before, card.owner, "embrace") > 0;
+        }
+        public static bool GarnetRecallBeforeExhaust(CardDef card, bool freeCast, IEnumerable<string> sources)
+        {
+            return card?.id == "garnet_r" && !freeCast && !(sources ?? Enumerable.Empty<string>()).Contains("garnet_r|garnet_r");
+        }
+        public static string ExhaustDescription(CardDef card)
+        {
+            return card?.id == "garnet_r"
+                ? "첫 사용이 적중하면 이번 턴에 무료로 다시 사용할 수 있도록 회수하며, 재사용하거나 첫 사용이 빗나가면 이번 전투에서 소멸합니다. 무료 재사용을 남긴 채 턴을 끝내도 회수한 카드는 소멸합니다."
+                : "사용 후 이번 전투에서 소멸합니다.";
+        }
+        public static bool ExpireGarnetRecall(CombatState combat)
+        {
+            if (combat == null || !combat.freeCasts.Any(x => x.cardId == "garnet_r" && x.uses > 0)
+                || !combat.freeCastSources.Contains("garnet_r|garnet_r")) return false;
+            foreach (var pile in new[] { combat.hand, combat.drawPile, combat.discardPile })
+            {
+                int index = pile.LastIndexOf("garnet_r");
+                if (index < 0) continue;
+                pile.RemoveAt(index); combat.exhaustPile.Add("garnet_r");
+                if (pile == combat.hand)
+                {
+                    if (combat.retainIndex == index) combat.retainIndex = -1;
+                    else if (combat.retainIndex > index) combat.retainIndex--;
+                }
+                return true;
+            }
+            return false;
+        }
         public static bool Eligible(CardDef card, SkillActorState before, bool landed = true)
         {
             if (card == null || card.freeCastCount <= 0 || card.freeCastTargets == null || card.freeCastTargets.Length == 0) return false;

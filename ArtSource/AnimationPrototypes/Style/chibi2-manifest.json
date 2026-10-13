@@ -1,0 +1,11 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a11b0b-8163-7693-bdd7-3bc64571a398/exec-d40a0f88-4c3c-4825-8b90-3838402c53fc.png",
+  "sha256": "1791664646896afe4d7a33a208c2e301b2daa2c978ca1c43e57fb043431b10c6",
+  "intent": "Two-head, large-square pixel style/proportion proof; final animation pixel-size reference is original Nia frame00",
+  "target_heads": 2,
+  "style_reference": "Nia/frames/frame-00.png",
+  "prompt": "chibi2-prompt.txt",
+  "initial_prompt": "chibi2-initial-prompt.txt",
+  "earlier_intermediate_discarded": true
+}

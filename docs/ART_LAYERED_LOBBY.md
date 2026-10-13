@@ -25,8 +25,8 @@ Initial composition reference in the 1672 × 941 background coordinates: place t
 - [Nia prompt](art-lobby-refresh/nia-prompt.txt)
 - [Machine-readable asset manifest](art-lobby-refresh/manifest.json)
 
-The manifest records the complete prompts, input reference paths and SHA-256 hashes, raw generated output paths, final paths and SHA-256 hashes, dimensions, image modes, and alpha counts/bounds. The old combined lobby file is not edited by this artwork task; archiving and runtime layer integration are handled by the main implementation.
+The manifest records the complete prompts, input reference paths and SHA-256 hashes, raw generated output paths, final paths and SHA-256 hashes, dimensions, image modes, and alpha counts/bounds. The original combined-lobby input paths and hashes describe production history. Its unused image and meta files were removed during the 2026-10-14 storage cleanup; the layered runtime assets above remain available.
 
 ## Runtime integration
 
-The former combined lobby is archived at `ArtSource/Lobby/v0.1.26/Lobby.png`, outside Unity Assets. `PixelArt.Background()` loads the character-free layer. `LumiaLobbyArt.cs` separately renders Nia through the shared 80×80 Point-sampled pixel layer renderer, using alpha≥64 crop metadata and an integer display scale. UI text and the clickable dialogue remain independent. Final native placement is recorded in `docs/validation-art-refresh/`.
+The former combined lobby at `ArtSource/Lobby/v0.1.26/Lobby.png` was outside Unity Assets and was removed during the 2026-10-14 storage cleanup. Its original bytes remain recoverable from Git commit `41ab261d3e12c6d8079292a03b73000750afcc53`. `PixelArt.Background()` loads the character-free layer. `LumiaLobbyArt.cs` separately renders Nia through the shared 80×80 Point-sampled pixel layer renderer, using alpha≥64 crop metadata and an integer display scale. UI text and the clickable dialogue remain independent. Final native placement is recorded in `docs/validation-art-refresh/`.

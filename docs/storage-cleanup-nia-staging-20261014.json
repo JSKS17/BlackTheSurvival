@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-14",
+  "purpose": "Remove discarded Rio branch and installed Nia staging copies after final asset/browser validation",
+  "targets": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\NiaStylePending",
+      "bytes": 80379159,
+      "isDirectory": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\RioStylePending",
+      "bytes": 54066036,
+      "isDirectory": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\UltimateAssembly",
+      "bytes": 30487213,
+      "isDirectory": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\NiaRootRequests.json",
+      "bytes": 5015,
+      "isDirectory": false
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\NiaRootRestRequests.json",
+      "bytes": 3991,
+      "isDirectory": false
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\RioNormalizationStatus.json",
+      "bytes": 1025,
+      "isDirectory": false
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\RioRootIremRequest.json",
+      "bytes": 2036,
+      "isDirectory": false
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\RioRootRequests.json",
+      "bytes": 3918,
+      "isDirectory": false
+    }
+  ],
+  "logicalBytesRemoved": 164948393,
+  "freeBytesBefore": 9372155904,
+  "freeBytesAfter": 9538011136,
+  "preserved": [
+    "Final 13 subject generated-sheet.png/atlas.png/manifest/prompt/validation",
+    "Original Nia and other 78 subjects",
+    "Game Assets/Packages/ProjectSettings and latest Build/Windows",
+    "Active gallery server PID and logs",
+    "Historical validation documents"
+  ]
+}

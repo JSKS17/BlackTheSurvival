@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-14",
+  "reason": "Discarded4 prior edited sheets and duplicate generation/assembly staging after final fresh outputs, exact original Git prompts, actual prompts, provenance and validation evidence preserved",
+  "targets": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\OriginalPrompt4_20261014",
+      "files": 77,
+      "bytes": 30467868,
+      "deleted": true
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\UltimateAssembly",
+      "files": 48,
+      "bytes": 9203663,
+      "deleted": true
+    }
+  ],
+  "total_files": 125,
+  "total_bytes": 39671531,
+  "free_bytes_before": 5258981376,
+  "free_bytes_after": 5298962432,
+  "preserved": [
+    "ArtSource/AnimationPrototypes",
+    "docs/validation-original-prompt4-20261014",
+    "Build/Windows",
+    "Temp/UltimateGalleryServer.pid",
+    "Temp/UltimateGalleryServer.stdout.log",
+    "Temp/UltimateGalleryServer.stderr.log"
+  ]
+}

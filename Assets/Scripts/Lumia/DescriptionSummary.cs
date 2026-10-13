@@ -149,7 +149,7 @@ namespace Lumia
             lines.AddRange(GroupEffects(effects));
             if (freeCastNote.Length > 0) lines.Add(freeCastNote);
             lines.AddRange(CrossSubjectSynergies.FullDescription(card));
-            if (card.exhaust) lines.Add("사용 후 이번 전투에서 소멸합니다.");
+            if (card.exhaust) lines.Add(FreeCastMechanics.ExhaustDescription(card));
             if (card.id == "basic_attack") lines.Add("장비 공격력과 기본 공격 강화가 적용되며, 치명타 적중 시 공격 피해가 1.5배가 됩니다.");
             if (lines.Count == 0) lines.Add("추가 효과 없이 행동합니다.");
             return string.Join("\n", CleanLines(lines));
@@ -282,6 +282,7 @@ namespace Lumia
                 case "nia_r":return "배터리 ×5(최대20)의 방어도를 더 얻고 배터리를 모두 소모합니다.";
                 case "emma_r":return "직전 Q·W·E의 마술을 소모해 피해 또는 방어도를 추가합니다.";
                 case "sua_r":return "직전 수아 Q·W·E를 이번 턴에 무료로 1회 다시 사용합니다.";
+                case "garnet_r":return "적중 시 이번 턴에 1회 무료 재사용합니다. 표식이 남고 체력이 20% 이하인 적을 맞히면 처형합니다.";
                 case "tia_q":case "tia_e":return "붓 색의 물감을 남기며 다른 색과 섞으면 피해·회복·방어가 강화됩니다.";
                 case "debi_marlene_q":return "다른 색 잉크가 있으면 추가 피해 8을 주고 현재 색 잉크를 남깁니다.";
                 case "debi_marlene_w":return "다른 색 잉크가 있으면 추가 피해 6을 주고 현재 색 잉크를 남깁니다.";

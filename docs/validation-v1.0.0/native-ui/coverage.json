@@ -1,0 +1,181 @@
+{
+    "version": "1.0.0",
+    "result": "PASS",
+    "failure": "",
+    "subjects": 91,
+    "frames": 1092,
+    "playerCasts": 91,
+    "enemyCasts": 91,
+    "layoutChecks": 3276,
+    "screenshots": 14,
+    "ownerFromCard": true,
+    "pointFiltered": true,
+    "nonOverlappingCards": true,
+    "victoryFinishesBeforeRewards": true,
+    "defeatFinishesBeforeResults": true,
+    "reducedMotion": true,
+    "resetClears": true,
+    "noGameplayMutation": true,
+    "personalSavesUnchanged": true,
+    "pauseResumes": true,
+    "garnetFreeRecast": true,
+    "midCastMotionSettingStable": true,
+    "captures": [
+        "nia_player_frame08.png",
+        "garnet_enemy_frame08.png",
+        "martina_player_frame08.png",
+        "darko_enemy_frame08.png",
+        "nadine_player_frame08.png",
+        "tia_enemy_frame08.png",
+        "nia_card_cue_before_animation.png",
+        "nia_reduced_motion.png",
+        "victory_r_before_reward_cards.png",
+        "defeat_r_before_result.png",
+        "garnet_first_r_free_followup.png",
+        "garnet_free_recast_execution.png",
+        "nia_letterbox_1024x768.png",
+        "nia_scaled_1600x900.png"
+    ],
+    "capturePixels": [
+        {
+            "file": "nia_player_frame08.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 916162,
+            "colorVariants": 1552,
+            "stagePixels": 157080,
+            "stageBrightPixels": 25332,
+            "stageColorVariants": 992
+        },
+        {
+            "file": "garnet_enemy_frame08.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915619,
+            "colorVariants": 787,
+            "stagePixels": 157080,
+            "stageBrightPixels": 13623,
+            "stageColorVariants": 305
+        },
+        {
+            "file": "martina_player_frame08.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 916477,
+            "colorVariants": 1196,
+            "stagePixels": 157080,
+            "stageBrightPixels": 20591,
+            "stageColorVariants": 661
+        },
+        {
+            "file": "darko_enemy_frame08.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 916072,
+            "colorVariants": 829,
+            "stagePixels": 157080,
+            "stageBrightPixels": 19770,
+            "stageColorVariants": 462
+        },
+        {
+            "file": "nadine_player_frame08.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 916068,
+            "colorVariants": 980,
+            "stagePixels": 157080,
+            "stageBrightPixels": 13898,
+            "stageColorVariants": 364
+        },
+        {
+            "file": "tia_enemy_frame08.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 916128,
+            "colorVariants": 1261,
+            "stagePixels": 157080,
+            "stageBrightPixels": 23299,
+            "stageColorVariants": 919
+        },
+        {
+            "file": "nia_card_cue_before_animation.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 914996,
+            "colorVariants": 1145,
+            "stagePixels": 157080,
+            "stageBrightPixels": 76437,
+            "stageColorVariants": 539
+        },
+        {
+            "file": "nia_reduced_motion.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 916165,
+            "colorVariants": 1559,
+            "stagePixels": 157080,
+            "stageBrightPixels": 25332,
+            "stageColorVariants": 992
+        },
+        {
+            "file": "victory_r_before_reward_cards.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 916209,
+            "colorVariants": 1370,
+            "stagePixels": 157080,
+            "stageBrightPixels": 25332,
+            "stageColorVariants": 992
+        },
+        {
+            "file": "defeat_r_before_result.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 916208,
+            "colorVariants": 1364,
+            "stagePixels": 157080,
+            "stageBrightPixels": 25330,
+            "stageColorVariants": 971
+        },
+        {
+            "file": "garnet_first_r_free_followup.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915685,
+            "colorVariants": 853,
+            "stagePixels": 157080,
+            "stageBrightPixels": 13614,
+            "stageColorVariants": 325
+        },
+        {
+            "file": "garnet_free_recast_execution.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915699,
+            "colorVariants": 764,
+            "stagePixels": 157080,
+            "stageBrightPixels": 13614,
+            "stageColorVariants": 325
+        },
+        {
+            "file": "nia_letterbox_1024x768.png",
+            "width": 1024,
+            "height": 768,
+            "nonBlackPixels": 783101,
+            "colorVariants": 1460,
+            "stagePixels": 100320,
+            "stageBrightPixels": 16260,
+            "stageColorVariants": 896
+        },
+        {
+            "file": "nia_scaled_1600x900.png",
+            "width": 1600,
+            "height": 900,
+            "nonBlackPixels": 1431767,
+            "colorVariants": 1652,
+            "stagePixels": 245850,
+            "stageBrightPixels": 40227,
+            "stageColorVariants": 1059
+        }
+    ]
+}

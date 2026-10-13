@@ -2,7 +2,7 @@
 
 프롤로그 두 번째 컷의 니아는 낮은 수평 눈꺼풀과 작은 입으로 교정했습니다. 로비는 기존 연구소 구도와 컨트롤러·무릎·풍선껌 자세를 유지한 별도 배경과 투명 캐릭터를 사용합니다. 두 화면은 같은 80×80 논리 픽셀 렌더러를 공유합니다. 원본 PNG는 이미지 생성 결과 바이트를 보존하며, 캐릭터 표시만 Point 샘플링합니다.
 
-기존 통합 로비는 `ArtSource/Lobby/v0.1.26/`로 옮겨 런타임 Resources에서 제외했습니다. 니아 필살기 애니메이션은 `ArtSource/AnimationPrototypes/Nia/`에만 저장하고 게임에 연결하지 않았습니다.
+기존 통합 로비는 런타임 Resources에서 제외한 뒤, 2026-10-14 저장공간 정리로 이전 합성본을 제거했습니다. 현재 로비는 `Assets/Resources/Lumia/Lobby/Background.png`와 `Nia.png`를 사용하며 이 폴더의 검증 자료는 유지합니다. 니아 필살기 애니메이션은 `ArtSource/AnimationPrototypes/Nia/`에만 저장하고 게임에 연결하지 않았습니다.
 
 - 런타임 C# 컴파일 및 Unity Windows 개발·배포 빌드.
 - `native-results.json`: 1280×720 실제 화면 23장. 로비 레이어 단독·로비 UI 2장, 스토리 12컷, 다시보기, 치명타 정보 8장.

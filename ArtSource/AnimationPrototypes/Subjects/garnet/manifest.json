@@ -2,37 +2,206 @@
   "id": "garnet",
   "name": "가넷",
   "ultimate": "처형식",
-  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-fa2f935d-bd7b-4fba-a3ba-fd6aec69c088.png",
-  "reference_paths": [
-    "ArtSource/AnimationPrototypes/Subjects/garnet/atlas-first-pass.png"
-  ],
   "sources": [
     {
       "url": "https://playeternalreturn.com/posts/news/2179?hl=ko-KR",
-      "title": "님블뉴런 공식 실험체 스킬: 처형식"
+      "title": "공식 가넷 처형식 스킬 소개"
+    },
+    {
+      "url": "https://cdn.playeternalreturn.com/2024%2F09%2F11%2F1726020329129-Full_Garnet_00.png",
+      "title": "원작 기본 전신 원화 · 공식 자료"
     }
   ],
-  "visual_review": "니아 도트 스타일, 가넷의 얼굴·복장·무기와 처형 사슬/아이언 메이든 12동작을 유지했습니다. 내장 도구로 사슬과 처형 장비의 폭을 줄여 이웃 프레임의 장비 조각이 포함되지 않도록 시트를 수정했습니다.",
+  "frame_labels": [
+    "대기",
+    "사슬 준비",
+    "사슬 투척",
+    "처형 표식",
+    "사슬 당기기",
+    "철처녀 열기",
+    "표적 끌어들이기",
+    "철처녀 닫기",
+    "처형",
+    "철처녀에서 등장",
+    "사슬 회수",
+    "대기 복귀"
+  ],
+  "tool": "built-in image_gen.imagegen",
+  "intent": "New two-head coarse pixel animation matching original Nia pixel-to-image ratio",
+  "target_head_body_ratio": 2,
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a11b0b-8163-7693-bdd7-3bc64571a398/exec-366e51fa-56c9-4431-bf5d-f496f5ffab87.png",
+  "reference_paths": [
+    "ArtSource/AnimationPrototypes/Subjects/garnet/generated-sheet.png",
+    "ArtSource/AnimationPrototypes/Subjects/garnet/official-reference.png"
+  ],
+  "reference_sha256": [
+    "1791664646896afe4d7a33a208c2e301b2daa2c978ca1c43e57fb043431b10c6",
+    "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61",
+    "0291538ed27b372241e374d9b806f5afb79bfa61716554db95602cc43d50a476"
+  ],
+  "reference_roles": [
+    "two-head coarse-pixel style master",
+    "original Nia native 362px pixel-size ratio",
+    "official original full-body identity"
+  ],
   "columns": 4,
   "rows": 3,
   "fps": 8,
-  "tool": "built-in image_gen.imagegen",
-  "atlas_sha256": "ad8632ffffdfa3ce7b1a68001808abaeac92ee9765039911fab8bd0034f9f0f0",
-  "width": 1448,
-  "height": 1086,
-  "motion_summary": "Garnet silver-gray long hair, sharp red eyes, black cropped strappy costume and heavy black spiked implement from portrait. Her official R throws a chain to mark and bind a target, then conditionally pulls it into an iron maiden for execution. Show this full two-stage representative sequence. Animate sinister idle; raising spiked weapon behind shoulder; free hand points right; throws a long crimson-black chain to right; pulling the chain back with both hands and leaning back; a small thorn-edged iron maiden coffin opens at right; hard pulling stomp with tilted torso; the iron maiden closes with a sharp red-black flash; recoil weapon swings behind; fading red chains; straighten; original idle. No bloody gore, no victim, no invented ornate throne; abstract spiked execution seal only. Face stays readable.",
-  "frame_labels": [
-    "준비",
-    "무기 들기",
-    "처형 지목",
-    "표식 형성",
-    "손아귀 오므리기",
-    "처형 압박",
-    "압축 마무리",
-    "처형 폭발",
-    "반동",
-    "표식 소멸",
-    "자세 정리",
-    "준비 복귀"
-  ]
+  "ground_alignment": "per-frame",
+  "intended_airborne_frames": [],
+  "alignment_ignore_frames": [],
+  "actor_absent_frames": [
+    7,
+    8
+  ],
+  "frame_layout": "fixed-grid",
+  "frame_gutter": 24,
+  "preview_revision": "chibi2-polish-20261014",
+  "motion_summary": "사슬로 표적을 지정해 철처녀로 끌어들이고 처형한 뒤 다시 모습을 드러냅니다.",
+  "candidate_status": "selected; artwork and ground review passed; game not integrated",
+  "visual_review": "Official cool steel-blue grey hair midtones and stepped silver-blue highlights; only selected original hair RGB composited from built-in edit. Original alpha, outline geometry and every unselected RGBA pixel preserved exactly.",
+  "generated_source_sha256": "054380e30212e9b41e9d87936844b6bcc9b5a95303d0f671ad66380c694938d1",
+  "generated_source_file": "generated-sheet.png",
+  "tool_input_paths_at_generation": [
+    "C:/Users/azxar/BlackTheSurvival/Temp/Chibi2Redraw/style/bihyung-master.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+    "C:/Users/azxar/BlackTheSurvival/Temp/Chibi3Redraw/references/garnet-official-full.png"
+  ],
+  "normalization_required": false,
+  "game_integrated": false,
+  "style_references": [
+    {
+      "path": "ArtSource/AnimationPrototypes/Style/chibi2-reference.png",
+      "role": "two-head large-pixel drawing style",
+      "sha256": "1791664646896afe4d7a33a208c2e301b2daa2c978ca1c43e57fb043431b10c6"
+    },
+    {
+      "path": "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
+      "role": "original native362px Nia pixel-to-image ratio",
+      "sha256": "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61"
+    }
+  ],
+  "official_reference_file": "official-reference.png",
+  "official_reference_sha256": "0291538ed27b372241e374d9b806f5afb79bfa61716554db95602cc43d50a476",
+  "official_reference_source": "https://cdn.playeternalreturn.com/2024%2F09%2F11%2F1726020329129-Full_Garnet_00.png",
+  "historical_edit_inputs_not_redistributed": true,
+  "generation_history": [
+    {
+      "prompt": "Use case: precise-object-edit. Asset: existing 12-frame 4×3 transparent pixel-art ultimate animation sheet. Image1 is the EDIT TARGET; image2 is the authentic Garnet official illustration, HAIR COLOR reference only.\n\nChange ONLY the COLOR PALETTE OF GARNET'S HAIR in image1, consistently in every frame where hair is visible. Her current hair is too white. Match the official hair's cool steel/slate-blue GREY base: darker desaturated blue-grey midtones, deep charcoal blue-grey shadows, pale silver-blue highlight patches. Hair highlights must remain clearly stepped in the SAME existing large pixel shading planes, with highest light limited to small silver-blue accents; no white mass and no purple tint. Use image2's crown and long side locks as hair-color reference, not the bright metal weapon.\n\nABSOLUTE INVARIANTS: do not redraw, reposition or alter ANYTHING except existing HAIR RGB colors. Preserve the existing hair silhouette, strand shapes, individual shading-pixel placement, outline, alpha, all facial features and expressions, eye red, mouth, skin, anatomy/proportions, clothing, weapon, Iron Maiden opening/closing, chains, red effects, every pose, spacing and all12 frame contents. Keep frame8 and9 coffin-only with no invented visible hair. Preserve transparency and canvas4×3 layout, existing pixels' outlines and existing motion. No new details, no restyling, no added or removed objects, no perspective change, no camera change, no text. Treat this as a narrowly masked hair-only color edit: unchanged regions must remain identical. Return the exact same whole animation sheet with only the hair palette correction.\n",
+      "tool": "built-in image_gen.imagegen",
+      "operation": "targeted edit of previously approved 12-frame sheet",
+      "prior_raw_sha256": "d4d6c4544450a2162762c609c7aca4c14545b90a476fece27b25f403c33009d0",
+      "prior_atlas_sha256": "6dacef5247a2a6582e288c36b0861bd593e4e38d52816c6ce0f08d11eb559312",
+      "edit": {
+        "id": "garnet",
+        "tool": "built-in image_gen.imagegen",
+        "intent": "precise-object-edit",
+        "prompt": "Use case: precise-object-edit. Asset: existing 12-frame 4×3 transparent pixel-art ultimate animation sheet. Image1 is the EDIT TARGET; image2 is the authentic Garnet official illustration, HAIR COLOR reference only.\n\nChange ONLY the COLOR PALETTE OF GARNET'S HAIR in image1, consistently in every frame where hair is visible. Her current hair is too white. Match the official hair's cool steel/slate-blue GREY base: darker desaturated blue-grey midtones, deep charcoal blue-grey shadows, pale silver-blue highlight patches. Hair highlights must remain clearly stepped in the SAME existing large pixel shading planes, with highest light limited to small silver-blue accents; no white mass and no purple tint. Use image2's crown and long side locks as hair-color reference, not the bright metal weapon.\n\nABSOLUTE INVARIANTS: do not redraw, reposition or alter ANYTHING except existing HAIR RGB colors. Preserve the existing hair silhouette, strand shapes, individual shading-pixel placement, outline, alpha, all facial features and expressions, eye red, mouth, skin, anatomy/proportions, clothing, weapon, Iron Maiden opening/closing, chains, red effects, every pose, spacing and all12 frame contents. Keep frame8 and9 coffin-only with no invented visible hair. Preserve transparency and canvas4×3 layout, existing pixels' outlines and existing motion. No new details, no restyling, no added or removed objects, no perspective change, no camera change, no text. Treat this as a narrowly masked hair-only color edit: unchanged regions must remain identical. Return the exact same whole animation sheet with only the hair palette correction.",
+        "input_paths": [
+          "ArtSource/AnimationPrototypes/Subjects/garnet/generated-sheet.png",
+          "ArtSource/AnimationPrototypes/Subjects/garnet/official-reference.png"
+        ],
+        "source_path": "C:/Users/azxar/.codex/generated_images/01a11b0b-8163-7693-bdd7-3bc64571a398/exec-366e51fa-56c9-4431-bf5d-f496f5ffab87.png",
+        "visual_review": "Official cool steel-blue grey hair midtones and stepped silver-blue highlights; only selected original hair RGB composited from built-in edit. Original alpha, outline geometry and every unselected RGBA pixel preserved exactly.",
+        "postprocess": {
+          "passed": true,
+          "operation": "FFmpeg binary maskedmerge planes=7 of built-in tool hair RGB; original alpha and all unselected RGBA preserved",
+          "original_sha256": "d4d6c4544450a2162762c609c7aca4c14545b90a476fece27b25f403c33009d0",
+          "tool_output_sha256": "1537c0080fc15c463d204f344ffae072c3ef71923e8ed7e8e2cfda026e15d2d9",
+          "final_sha256": "054380e30212e9b41e9d87936844b6bcc9b5a95303d0f671ad66380c694938d1",
+          "mask_sha256": "d0db2cf634b55e045ea4d1a5fdca6e4a2898f3857ff39db41ff3e10684617213",
+          "original_alpha_exact": true,
+          "unselected_rgba_exact": true,
+          "selected_rgb_from_tool_exact": true,
+          "coffin_only_frames_7_8_exact": true,
+          "source_dimensions": [
+            1448,
+            1086
+          ],
+          "selected_pixels": 123600,
+          "frames": [
+            {
+              "index": 0,
+              "changed_rgb_pixels": 13094,
+              "selected_pixels": 13094
+            },
+            {
+              "index": 1,
+              "changed_rgb_pixels": 14608,
+              "selected_pixels": 14608
+            },
+            {
+              "index": 2,
+              "changed_rgb_pixels": 11552,
+              "selected_pixels": 11552
+            },
+            {
+              "index": 3,
+              "changed_rgb_pixels": 13050,
+              "selected_pixels": 13050
+            },
+            {
+              "index": 4,
+              "changed_rgb_pixels": 13442,
+              "selected_pixels": 13442
+            },
+            {
+              "index": 5,
+              "changed_rgb_pixels": 12246,
+              "selected_pixels": 12248
+            },
+            {
+              "index": 6,
+              "changed_rgb_pixels": 8209,
+              "selected_pixels": 8209
+            },
+            {
+              "index": 7,
+              "changed_rgb_pixels": 0,
+              "selected_pixels": 0
+            },
+            {
+              "index": 8,
+              "changed_rgb_pixels": 0,
+              "selected_pixels": 0
+            },
+            {
+              "index": 9,
+              "changed_rgb_pixels": 12564,
+              "selected_pixels": 12564
+            },
+            {
+              "index": 10,
+              "changed_rgb_pixels": 12553,
+              "selected_pixels": 12553
+            },
+            {
+              "index": 11,
+              "changed_rgb_pixels": 12280,
+              "selected_pixels": 12280
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "raw_filename": "generated-sheet.png",
+  "generated_sheet_sha256": "054380e30212e9b41e9d87936844b6bcc9b5a95303d0f671ad66380c694938d1",
+  "source_sheet_sha256": "054380e30212e9b41e9d87936844b6bcc9b5a95303d0f671ad66380c694938d1",
+  "foot_anchors": {},
+  "final_visual_review": {
+    "scope": "Approved character identity, style, motion and effects retained; only requested local corrections",
+    "frame_count": 12,
+    "transparent_background": true,
+    "game_integrated": false
+  },
+  "tool_output_file": "hair-color-tool-output.png",
+  "tool_output_sha256": "1537c0080fc15c463d204f344ffae072c3ef71923e8ed7e8e2cfda026e15d2d9",
+  "source_operation": "Built-in imagegen hair palette, then FFmpeg selected-hair RGB compositing onto unchanged original RGBA",
+  "selective_edit_proof": "hair-color-proof.json",
+  "hair_selection_regions": "hair-regions.json",
+  "atlas_sha256": "fecf3f7e0cc22557a0b2fcbbbe025d729972ff5642a8e7998958bc437fd1bd05",
+  "width": 1848,
+  "height": 1386,
+  "normalization": "normalization.json"
 }

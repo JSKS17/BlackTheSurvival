@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:61624/index.html?revision=original-prompt4-20261014-final#martina",
+  "browser": "154.0.8037.98",
+  "subjects": 91,
+  "modified_subjects": 4,
+  "no_accumulated_frame_effects": [
+    {
+      "id": "martina",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "tia",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "darko",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "nadine",
+      "frame1_matches_fresh_after_frame8": true
+    }
+  ],
+  "captures": [
+    {
+      "id": "martina",
+      "frame": 1,
+      "file": "http-martina-frame01.png",
+      "sha256": "e6ae7072ccd8de7f9a300e0874cd225012ccafd7d8f3cf28b37fff58d9a7c885",
+      "source": "unmodified Playwright stage screenshot"
+    },
+    {
+      "id": "martina",
+      "frame": 8,
+      "file": "http-martina-frame08.png",
+      "sha256": "b0a50ee19d1dcebdca1845d27b997cd9bd54e3f88a92eb10f387e3e3dd674d0f",
+      "source": "unmodified Playwright stage screenshot"
+    },
+    {
+      "id": "martina",
+      "frame": 10,
+      "file": "http-martina-frame10.png",
+      "sha256": "c6f0238f233fb2d088d3c930aaba3a4d545d8bec8587b21d4f09a811891d816d",
+      "source": "unmodified Playwright stage screenshot"
+    },
+    {
+      "id": "tia",
+      "frame": 1,
+      "file": "http-tia-frame01.png",
+      "sha256": "b2ecdcb83cfd4d28117fb0552709bbba3457f43928e6ffe6beeb8e26e46f73e4",
+      "source": "unmodified Playwright stage screenshot"
+    },
+    {
+      "id": "tia",
+      "frame": 8,
+      "file": "http-tia-frame08.png",
+      "sha256": "213e861bceffc94f58091029ffd72f7b1738b8584e35a9c1f66b7b8b575323b0",
+      "source": "unmodified Playwright stage screenshot"
+    },
+    {
+      "id": "tia",
+      "frame": 10,
+      "file": "http-tia-frame10.png",
+      "sha256": "57ad3b6af8f3f08c3978bd22c71e378d7bf3e372fcacfc8d5bf01f861a5d3252",
+      "source": "unmodified Playwright stage screenshot"
+    },
+    {
+      "id": "darko",
+      "frame": 1,
+      "file": "http-darko-frame01.png",
+      "sha256": "e9eafb5349950428abf3df8a45b7b7de3ac8a551afff5b8918bb716e31084e01",
+      "source": "unmodified Playwright stage screenshot"
+    },
+    {
+      "id": "darko",
+      "frame": 8,
+      "file": "http-darko-frame08.png",
+      "sha256": "61528b20ebe3a2cbb46b01d5fc0cec1806bea8456c61191c77089af84fa378e5",
+      "source": "unmodified Playwright stage screenshot"
+    },
+    {
+      "id": "darko",
+      "frame": 10,
+      "file": "http-darko-frame10.png",
+      "sha256": "63400ac917eb908131f24868048948855a72f9e2df7069e5405e632425bfe484",
+      "source": "unmodified Playwright stage screenshot"
+    },
+    {
+      "id": "nadine",
+      "frame": 1,
+      "file": "http-nadine-frame01.png",
+      "sha256": "0f4c781bd73603085a313d93bd578cdebfb05415b17960d5f2dc28280e74050b",
+      "source": "unmodified Playwright stage screenshot"
+    },
+    {
+      "id": "nadine",
+      "frame": 8,
+      "file": "http-nadine-frame08.png",
+      "sha256": "41b34939efb6f9b67b1db132ed890ca55aaa5ad4b9622c80357dd14946d37f89",
+      "source": "unmodified Playwright stage screenshot"
+    },
+    {
+      "id": "nadine",
+      "frame": 10,
+      "file": "http-nadine-frame10.png",
+      "sha256": "79aa0b55a066372b8ffa5fc0fcf7603ef7938858b3b474a228214544c047e6e2",
+      "source": "unmodified Playwright stage screenshot"
+    }
+  ],
+  "browser_errors": [],
+  "cancelled_lazy_thumbnail_requests": []
+}

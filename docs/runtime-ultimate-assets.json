@@ -1,0 +1,1652 @@
+{
+  "passed": true,
+  "approvedAnimations": 91,
+  "totalFrames": 1092,
+  "totalPngBytes": 163621225,
+  "sourceCatalogSha256": "abff1020edc144bc89f6e32ff2e75d1cadcbe7af938882f8c80f6ef8c0d13e2b",
+  "runtimeCatalogSha256": "6d7fd65a612cf99d828b186083e308c298a6b3b07c379d1651a90b531d1ccaba",
+  "frameCoordinates": "Top-left source pixels; offsets are top-left placement within the recorded square canvas.",
+  "artChanges": "None. All approved atlas PNGs copied byte-for-byte. No resizing, painting, cropping, or recompression.",
+  "importing": "Default Texture2D, Point, Clamp, no mipmaps, no NPOT scaling, max 4096, uncompressed, input alpha, non-readable.",
+  "excluded": "GIF, WebP, generated raw sheets, thumbnails, official references and prompt files remain source-only.",
+  "items": [
+    {
+      "id": "abigail",
+      "name": "아비게일",
+      "source": "ArtSource/AnimationPrototypes/Subjects/abigail/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/abigail.png",
+      "sourceSha256": "8e0256dcde015423e64a5a0a90d7ac084a811a248dbd61322e110f042923b95f",
+      "bytes": 1729798,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 639,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/abigail/validation.json",
+      "runtimeSha256": "8e0256dcde015423e64a5a0a90d7ac084a811a248dbd61322e110f042923b95f",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "adela",
+      "name": "아델라",
+      "source": "ArtSource/AnimationPrototypes/Subjects/adela/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/adela.png",
+      "sourceSha256": "91572b9a035a3626710c057bfaee7dd45a40c20231883ae9bb54132f08bbd4ff",
+      "bytes": 1860770,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 602,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/adela/validation.json",
+      "runtimeSha256": "91572b9a035a3626710c057bfaee7dd45a40c20231883ae9bb54132f08bbd4ff",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "adina",
+      "name": "아디나",
+      "source": "ArtSource/AnimationPrototypes/Subjects/adina/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/adina.png",
+      "sourceSha256": "58833e3357058840c032fe1e037a9920268b687a4dec19c9835384d34e261a71",
+      "bytes": 1978714,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 600,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/adina/validation.json",
+      "runtimeSha256": "58833e3357058840c032fe1e037a9920268b687a4dec19c9835384d34e261a71",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "adriana",
+      "name": "아드리아나",
+      "source": "ArtSource/AnimationPrototypes/Subjects/adriana/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/adriana.png",
+      "sourceSha256": "380aed84d77a1bb33429c462dc4614485931417debd57a7b43ad4820f55f4cc5",
+      "bytes": 1450046,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 608,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/adriana/validation.json",
+      "runtimeSha256": "380aed84d77a1bb33429c462dc4614485931417debd57a7b43ad4820f55f4cc5",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "aiden",
+      "name": "에이든",
+      "source": "ArtSource/AnimationPrototypes/Subjects/aiden/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/aiden.png",
+      "sourceSha256": "a8b2dc68009c787fbff0f3944ff6d817789fedf9145bd2c2b2bd8ae8ecd8f23c",
+      "bytes": 1697801,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 657,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/aiden/validation.json",
+      "runtimeSha256": "a8b2dc68009c787fbff0f3944ff6d817789fedf9145bd2c2b2bd8ae8ecd8f23c",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "alex",
+      "name": "알렉스",
+      "source": "ArtSource/AnimationPrototypes/Subjects/alex/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/alex.png",
+      "sourceSha256": "b8a0168029b20209f258a4f1ac7c388aa8fd73acf05d297104e47f206be2b008",
+      "bytes": 1490838,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 618,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/alex/validation.json",
+      "runtimeSha256": "b8a0168029b20209f258a4f1ac7c388aa8fd73acf05d297104e47f206be2b008",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "alonso",
+      "name": "알론소",
+      "source": "ArtSource/AnimationPrototypes/Subjects/alonso/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/alonso.png",
+      "sourceSha256": "15bd85a67a9154633a36a870d3176098db6bb76a3d847693b7136f6d6e9b24ef",
+      "bytes": 1723581,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 609,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/alonso/validation.json",
+      "runtimeSha256": "15bd85a67a9154633a36a870d3176098db6bb76a3d847693b7136f6d6e9b24ef",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "arda",
+      "name": "아르다",
+      "source": "ArtSource/AnimationPrototypes/Subjects/arda/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/arda.png",
+      "sourceSha256": "bbcc8a56cfdad24daa5bade30ed7dc07b279a973dee65bd6738d661f5d285b15",
+      "bytes": 1593526,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 607,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/arda/validation.json",
+      "runtimeSha256": "bbcc8a56cfdad24daa5bade30ed7dc07b279a973dee65bd6738d661f5d285b15",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "aya",
+      "name": "아야",
+      "source": "ArtSource/AnimationPrototypes/Subjects/aya/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/aya.png",
+      "sourceSha256": "9f905f2eef33a6756f8bc0d21a09460e5e4324c5ece4a3f44023e6c6aef4d731",
+      "bytes": 1855802,
+      "atlasSize": [
+        1716,
+        1287
+      ],
+      "canvas": 493,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/aya/validation.json",
+      "runtimeSha256": "9f905f2eef33a6756f8bc0d21a09460e5e4324c5ece4a3f44023e6c6aef4d731",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "barbara",
+      "name": "바바라",
+      "source": "ArtSource/AnimationPrototypes/Subjects/barbara/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/barbara.png",
+      "sourceSha256": "2f315b673ead6357a69b4e3d833bcb89c856829b9cc0853df83bd75e48b2dc69",
+      "bytes": 1606688,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 622,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/barbara/validation.json",
+      "runtimeSha256": "2f315b673ead6357a69b4e3d833bcb89c856829b9cc0853df83bd75e48b2dc69",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "bernice",
+      "name": "버니스",
+      "source": "ArtSource/AnimationPrototypes/Subjects/bernice/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/bernice.png",
+      "sourceSha256": "f0bb41077827ee2de7b4197546578bcd3ae4fe2ab0d65b073078027d6a313dd2",
+      "bytes": 1488997,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 623,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/bernice/validation.json",
+      "runtimeSha256": "f0bb41077827ee2de7b4197546578bcd3ae4fe2ab0d65b073078027d6a313dd2",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "bianca",
+      "name": "비앙카",
+      "source": "ArtSource/AnimationPrototypes/Subjects/bianca/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/bianca.png",
+      "sourceSha256": "abd53cfac561c32f75a909a0654280396b45a0ef7d39e43f71b43262053b0c84",
+      "bytes": 2165588,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 624,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/bianca/validation.json",
+      "runtimeSha256": "abd53cfac561c32f75a909a0654280396b45a0ef7d39e43f71b43262053b0c84",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "bihyung",
+      "name": "비형",
+      "source": "ArtSource/AnimationPrototypes/Subjects/bihyung/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/bihyung.png",
+      "sourceSha256": "cd5068b2bb7267392e25c4a19663bcbe2578b33a55230a6bd336a4cd5eb4735a",
+      "bytes": 2499588,
+      "atlasSize": [
+        2088,
+        1566
+      ],
+      "canvas": 586,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/bihyung/validation.json",
+      "runtimeSha256": "cd5068b2bb7267392e25c4a19663bcbe2578b33a55230a6bd336a4cd5eb4735a",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "blair",
+      "name": "블레어",
+      "source": "ArtSource/AnimationPrototypes/Subjects/blair/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/blair.png",
+      "sourceSha256": "267f44149d25ee850bb7b9d9e53e42f70266c015b52cec46ac71e5f4e0e43f6c",
+      "bytes": 1897902,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 627,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/blair/validation.json",
+      "runtimeSha256": "267f44149d25ee850bb7b9d9e53e42f70266c015b52cec46ac71e5f4e0e43f6c",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "camilo",
+      "name": "카밀로",
+      "source": "ArtSource/AnimationPrototypes/Subjects/camilo/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/camilo.png",
+      "sourceSha256": "4999168ab275380eae0bcbfab933dc42491a53d5aac213753be274ffa649b3c1",
+      "bytes": 1921554,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 622,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/camilo/validation.json",
+      "runtimeSha256": "4999168ab275380eae0bcbfab933dc42491a53d5aac213753be274ffa649b3c1",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "cathy",
+      "name": "캐시",
+      "source": "ArtSource/AnimationPrototypes/Subjects/cathy/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/cathy.png",
+      "sourceSha256": "7ace34810919d776a921a0936999a71b55866d466e45b804212e8333dcc9171e",
+      "bytes": 1425020,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 618,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/cathy/validation.json",
+      "runtimeSha256": "7ace34810919d776a921a0936999a71b55866d466e45b804212e8333dcc9171e",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "celine",
+      "name": "셀린",
+      "source": "ArtSource/AnimationPrototypes/Subjects/celine/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/celine.png",
+      "sourceSha256": "40571479b058bf475126c57240b2d9aaadfa532a7b03f7e48963792422110395",
+      "bytes": 1592125,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 604,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/celine/validation.json",
+      "runtimeSha256": "40571479b058bf475126c57240b2d9aaadfa532a7b03f7e48963792422110395",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "ceres",
+      "name": "세레스",
+      "source": "ArtSource/AnimationPrototypes/Subjects/ceres/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/ceres.png",
+      "sourceSha256": "ea085144bdbc415ee37530e5fa40c2c48a6877205a3d207775b4604c327eedd3",
+      "bytes": 2289644,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 613,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/ceres/validation.json",
+      "runtimeSha256": "ea085144bdbc415ee37530e5fa40c2c48a6877205a3d207775b4604c327eedd3",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "charlotte",
+      "name": "샬럿",
+      "source": "ArtSource/AnimationPrototypes/Subjects/charlotte/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/charlotte.png",
+      "sourceSha256": "2e20dd5bebe08fe3152b32a48462be9de5d0ff08fab4bc1ee9fe2b1396d37a5f",
+      "bytes": 2178566,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 616,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/charlotte/validation.json",
+      "runtimeSha256": "2e20dd5bebe08fe3152b32a48462be9de5d0ff08fab4bc1ee9fe2b1396d37a5f",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "chiara",
+      "name": "키아라",
+      "source": "ArtSource/AnimationPrototypes/Subjects/chiara/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/chiara.png",
+      "sourceSha256": "bf47b3181b0b2b63add6dcff307ec94d05d2efbb2fe41e61bd602573314e8df8",
+      "bytes": 2035552,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 610,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/chiara/validation.json",
+      "runtimeSha256": "bf47b3181b0b2b63add6dcff307ec94d05d2efbb2fe41e61bd602573314e8df8",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "chloe",
+      "name": "클로에",
+      "source": "ArtSource/AnimationPrototypes/Subjects/chloe/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/chloe.png",
+      "sourceSha256": "b92fe6f308a1c200c74d48e787fa614bbabc344494d303a902357ab5e7453d7f",
+      "bytes": 1955602,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 622,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/chloe/validation.json",
+      "runtimeSha256": "b92fe6f308a1c200c74d48e787fa614bbabc344494d303a902357ab5e7453d7f",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "coraline",
+      "name": "코렐라인",
+      "source": "ArtSource/AnimationPrototypes/Subjects/coraline/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/coraline.png",
+      "sourceSha256": "8dec5f23337c16348f4b9f3cc7ffcf2653721f4367289558d1b2a70bd779a466",
+      "bytes": 2033552,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 626,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/coraline/validation.json",
+      "runtimeSha256": "8dec5f23337c16348f4b9f3cc7ffcf2653721f4367289558d1b2a70bd779a466",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "craver",
+      "name": "크레이버",
+      "source": "ArtSource/AnimationPrototypes/Subjects/craver/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/craver.png",
+      "sourceSha256": "00d2dafc88bab0e9ff6443d2f3d25a91c2c483e51a18870f9b82df909958f78a",
+      "bytes": 1630252,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 617,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/craver/validation.json",
+      "runtimeSha256": "00d2dafc88bab0e9ff6443d2f3d25a91c2c483e51a18870f9b82df909958f78a",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "dailin",
+      "name": "리 다이린",
+      "source": "ArtSource/AnimationPrototypes/Subjects/dailin/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/dailin.png",
+      "sourceSha256": "9cff597adba2be937ac74238de49bf2bd412976df8c1ff7c2d9ff66656c6d2d6",
+      "bytes": 1711399,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 621,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/dailin/validation.json",
+      "runtimeSha256": "9cff597adba2be937ac74238de49bf2bd412976df8c1ff7c2d9ff66656c6d2d6",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "daniel",
+      "name": "다니엘",
+      "source": "ArtSource/AnimationPrototypes/Subjects/daniel/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/daniel.png",
+      "sourceSha256": "4a402eaa20e8227528b0cc6c9a4fa5dd08a989218377ee5949be84bc30b142bb",
+      "bytes": 1506301,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 647,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/daniel/validation.json",
+      "runtimeSha256": "4a402eaa20e8227528b0cc6c9a4fa5dd08a989218377ee5949be84bc30b142bb",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "darko",
+      "name": "다르코",
+      "source": "ArtSource/AnimationPrototypes/Subjects/darko/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/darko.png",
+      "sourceSha256": "6d3116325e85b4d4d3de7342c978e131c9989ab7f25c8a28a69e8ab6bc32d093",
+      "bytes": 2394189,
+      "atlasSize": [
+        1880,
+        1410
+      ],
+      "canvas": 534,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/darko/validation.json",
+      "runtimeSha256": "6d3116325e85b4d4d3de7342c978e131c9989ab7f25c8a28a69e8ab6bc32d093",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "debi_marlene",
+      "name": "데비&마를렌",
+      "source": "ArtSource/AnimationPrototypes/Subjects/debi_marlene/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/debi_marlene.png",
+      "sourceSha256": "98c3ad753bccdb42ffb71db6d2ea903b2179505005e6ec67f8a1bd3b1cc21693",
+      "bytes": 2184033,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 593,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/debi_marlene/validation.json",
+      "runtimeSha256": "98c3ad753bccdb42ffb71db6d2ea903b2179505005e6ec67f8a1bd3b1cc21693",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "echion",
+      "name": "에키온",
+      "source": "ArtSource/AnimationPrototypes/Subjects/echion/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/echion.png",
+      "sourceSha256": "b3784a0c3e1d3b10ba57ec231cd13ec8c399065e8be3e38379d5134d82665769",
+      "bytes": 1258922,
+      "atlasSize": [
+        2000,
+        1500
+      ],
+      "canvas": 564,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/echion/validation.json",
+      "runtimeSha256": "b3784a0c3e1d3b10ba57ec231cd13ec8c399065e8be3e38379d5134d82665769",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "elena",
+      "name": "엘레나",
+      "source": "ArtSource/AnimationPrototypes/Subjects/elena/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/elena.png",
+      "sourceSha256": "09c60bce7177f183b937f37e883379ed130514a0df58c86486afbd24ce92ff59",
+      "bytes": 1576454,
+      "atlasSize": [
+        1932,
+        1449
+      ],
+      "canvas": 547,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/elena/validation.json",
+      "runtimeSha256": "09c60bce7177f183b937f37e883379ed130514a0df58c86486afbd24ce92ff59",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "eleven",
+      "name": "일레븐",
+      "source": "ArtSource/AnimationPrototypes/Subjects/eleven/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/eleven.png",
+      "sourceSha256": "34565a03d5512a8e887b9dc2d6929ee6e446aa9989b0d29bd7bac253977e44d2",
+      "bytes": 2090446,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 614,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/eleven/validation.json",
+      "runtimeSha256": "34565a03d5512a8e887b9dc2d6929ee6e446aa9989b0d29bd7bac253977e44d2",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "emma",
+      "name": "엠마",
+      "source": "ArtSource/AnimationPrototypes/Subjects/emma/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/emma.png",
+      "sourceSha256": "3e84b16179f0cb41ca6b0c8c70ab2abe108da102e776c93a6c30a4a4878aec52",
+      "bytes": 2015257,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 630,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/emma/validation.json",
+      "runtimeSha256": "3e84b16179f0cb41ca6b0c8c70ab2abe108da102e776c93a6c30a4a4878aec52",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "estelle",
+      "name": "에스텔",
+      "source": "ArtSource/AnimationPrototypes/Subjects/estelle/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/estelle.png",
+      "sourceSha256": "866a0d12bd07cb165fde8e33abaf4a30b341e7c7b5339887cb53b8d0d0925ead",
+      "bytes": 1615353,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 617,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/estelle/validation.json",
+      "runtimeSha256": "866a0d12bd07cb165fde8e33abaf4a30b341e7c7b5339887cb53b8d0d0925ead",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "eva",
+      "name": "이바",
+      "source": "ArtSource/AnimationPrototypes/Subjects/eva/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/eva.png",
+      "sourceSha256": "e2fd3d9f97f84ffd2ce73f3401f1f28c80eec008c498b5f3b7d89243006f6f3c",
+      "bytes": 2168098,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 613,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/eva/validation.json",
+      "runtimeSha256": "e2fd3d9f97f84ffd2ce73f3401f1f28c80eec008c498b5f3b7d89243006f6f3c",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "felix",
+      "name": "펠릭스",
+      "source": "ArtSource/AnimationPrototypes/Subjects/felix/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/felix.png",
+      "sourceSha256": "eb1d863ab7b31c32a17b9ca364f5caaa3004a7be11ab230840fbd090a8f04f7d",
+      "bytes": 1778492,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 634,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/felix/validation.json",
+      "runtimeSha256": "eb1d863ab7b31c32a17b9ca364f5caaa3004a7be11ab230840fbd090a8f04f7d",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "fenrir",
+      "name": "펜리르",
+      "source": "ArtSource/AnimationPrototypes/Subjects/fenrir/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/fenrir.png",
+      "sourceSha256": "50821b9a5075f76d361393d20c2cef97940f38ef3138e3bb3c0dcce0281ac5f1",
+      "bytes": 1926601,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 642,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/fenrir/validation.json",
+      "runtimeSha256": "50821b9a5075f76d361393d20c2cef97940f38ef3138e3bb3c0dcce0281ac5f1",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "fiora",
+      "name": "피오라",
+      "source": "ArtSource/AnimationPrototypes/Subjects/fiora/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/fiora.png",
+      "sourceSha256": "36caecee8f89ec7a09dd24c110a481bfab8c088fd2585a7ce137379a587eb3de",
+      "bytes": 1557187,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 636,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/fiora/validation.json",
+      "runtimeSha256": "36caecee8f89ec7a09dd24c110a481bfab8c088fd2585a7ce137379a587eb3de",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "garnet",
+      "name": "가넷",
+      "source": "ArtSource/AnimationPrototypes/Subjects/garnet/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/garnet.png",
+      "sourceSha256": "fecf3f7e0cc22557a0b2fcbbbe025d729972ff5642a8e7998958bc437fd1bd05",
+      "bytes": 2633199,
+      "atlasSize": [
+        1848,
+        1386
+      ],
+      "canvas": 526,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/garnet/validation.json",
+      "runtimeSha256": "fecf3f7e0cc22557a0b2fcbbbe025d729972ff5642a8e7998958bc437fd1bd05",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "hart",
+      "name": "하트",
+      "source": "ArtSource/AnimationPrototypes/Subjects/hart/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/hart.png",
+      "sourceSha256": "964c6f564d01358d6a51151c7dfeff83c3ffd849291e2ece87b72ff74e36b98c",
+      "bytes": 1609013,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 610,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/hart/validation.json",
+      "runtimeSha256": "964c6f564d01358d6a51151c7dfeff83c3ffd849291e2ece87b72ff74e36b98c",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "haze",
+      "name": "헤이즈",
+      "source": "ArtSource/AnimationPrototypes/Subjects/haze/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/haze.png",
+      "sourceSha256": "7bd77f5e255f61a512da37e673de11b7108654277d1d610b7e66d54328f85fd1",
+      "bytes": 1431298,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 618,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/haze/validation.json",
+      "runtimeSha256": "7bd77f5e255f61a512da37e673de11b7108654277d1d610b7e66d54328f85fd1",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "henry",
+      "name": "헨리",
+      "source": "ArtSource/AnimationPrototypes/Subjects/henry/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/henry.png",
+      "sourceSha256": "a779ffee7da2a2191bf3c4d5c5a4c6072dbd87b0fc6923905fbfe09bcb09ea5e",
+      "bytes": 2202683,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 613,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/henry/validation.json",
+      "runtimeSha256": "a779ffee7da2a2191bf3c4d5c5a4c6072dbd87b0fc6923905fbfe09bcb09ea5e",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "hisui",
+      "name": "히스이",
+      "source": "ArtSource/AnimationPrototypes/Subjects/hisui/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/hisui.png",
+      "sourceSha256": "db53105f57c0de169a31adc6b2ad5a1ee3479ca97f0788277e633c019c60866c",
+      "bytes": 2047912,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 633,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/hisui/validation.json",
+      "runtimeSha256": "db53105f57c0de169a31adc6b2ad5a1ee3479ca97f0788277e633c019c60866c",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "hyejin",
+      "name": "혜진",
+      "source": "ArtSource/AnimationPrototypes/Subjects/hyejin/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/hyejin.png",
+      "sourceSha256": "ff38675de83e25b2dd48cc5c8cadc5bb6cd860f5bfc5cd0f95ef76126415a602",
+      "bytes": 1861453,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 620,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/hyejin/validation.json",
+      "runtimeSha256": "ff38675de83e25b2dd48cc5c8cadc5bb6cd860f5bfc5cd0f95ef76126415a602",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "hyunwoo",
+      "name": "현우",
+      "source": "ArtSource/AnimationPrototypes/Subjects/hyunwoo/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/hyunwoo.png",
+      "sourceSha256": "aa8a12b801a7e8741d97ce2676c2c1b47de3023a437c084c53acaf25907611e9",
+      "bytes": 1625090,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 619,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/hyunwoo/validation.json",
+      "runtimeSha256": "aa8a12b801a7e8741d97ce2676c2c1b47de3023a437c084c53acaf25907611e9",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "ian",
+      "name": "이안",
+      "source": "ArtSource/AnimationPrototypes/Subjects/ian/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/ian.png",
+      "sourceSha256": "d1d27f9cfd448e305263519b4087ce2c029646a2ecd11dd2f6da3a3f3ce4a217",
+      "bytes": 1971993,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 608,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/ian/validation.json",
+      "runtimeSha256": "d1d27f9cfd448e305263519b4087ce2c029646a2ecd11dd2f6da3a3f3ce4a217",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "irem",
+      "name": "이렘",
+      "source": "ArtSource/AnimationPrototypes/Subjects/irem/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/irem.png",
+      "sourceSha256": "456619e8c84458ff89894a6e2e76392f42f98f2e8e2ad8f68198718369c53c2d",
+      "bytes": 1938409,
+      "atlasSize": [
+        1928,
+        1446
+      ],
+      "canvas": 546,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/irem/validation.json",
+      "runtimeSha256": "456619e8c84458ff89894a6e2e76392f42f98f2e8e2ad8f68198718369c53c2d",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "isaac",
+      "name": "아이작",
+      "source": "ArtSource/AnimationPrototypes/Subjects/isaac/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/isaac.png",
+      "sourceSha256": "a666a089645d70c0dab8299812297b1d1afdff2d11ad10341400ad808adfcf20",
+      "bytes": 1681734,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 614,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/isaac/validation.json",
+      "runtimeSha256": "a666a089645d70c0dab8299812297b1d1afdff2d11ad10341400ad808adfcf20",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "isol",
+      "name": "아이솔",
+      "source": "ArtSource/AnimationPrototypes/Subjects/isol/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/isol.png",
+      "sourceSha256": "3e93b599c37be0de05ba6e1610be92614af35a4b5dcb862a051ff93a2b779ee8",
+      "bytes": 1964924,
+      "atlasSize": [
+        1820,
+        1365
+      ],
+      "canvas": 519,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/isol/validation.json",
+      "runtimeSha256": "3e93b599c37be0de05ba6e1610be92614af35a4b5dcb862a051ff93a2b779ee8",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "istvan",
+      "name": "이슈트반",
+      "source": "ArtSource/AnimationPrototypes/Subjects/istvan/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/istvan.png",
+      "sourceSha256": "6f9fcf9b6722c1b7e185eca0471de8051c1171df042859367b58747a9fb72ccd",
+      "bytes": 2070097,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 611,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/istvan/validation.json",
+      "runtimeSha256": "6f9fcf9b6722c1b7e185eca0471de8051c1171df042859367b58747a9fb72ccd",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "jackie",
+      "name": "재키",
+      "source": "ArtSource/AnimationPrototypes/Subjects/jackie/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/jackie.png",
+      "sourceSha256": "2c3ff3b683ef1ad791dcb1d2fe0ca12a959fc69755f884b958cf0ecae2c99405",
+      "bytes": 2045718,
+      "atlasSize": [
+        1828,
+        1371
+      ],
+      "canvas": 521,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/jackie/validation.json",
+      "runtimeSha256": "2c3ff3b683ef1ad791dcb1d2fe0ca12a959fc69755f884b958cf0ecae2c99405",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "jan",
+      "name": "얀",
+      "source": "ArtSource/AnimationPrototypes/Subjects/jan/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/jan.png",
+      "sourceSha256": "392216d7acdd8491af9281844bd18c2c36fc3671cf5148680c026bb65050a397",
+      "bytes": 1566220,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 596,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/jan/validation.json",
+      "runtimeSha256": "392216d7acdd8491af9281844bd18c2c36fc3671cf5148680c026bb65050a397",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "jenny",
+      "name": "제니",
+      "source": "ArtSource/AnimationPrototypes/Subjects/jenny/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/jenny.png",
+      "sourceSha256": "c77a4dc3cd3a0c91289b523eef53c0e9378c17fb21d6cc6a95e4c9a19a1fbb27",
+      "bytes": 1906510,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 610,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/jenny/validation.json",
+      "runtimeSha256": "c77a4dc3cd3a0c91289b523eef53c0e9378c17fb21d6cc6a95e4c9a19a1fbb27",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "johann",
+      "name": "요한",
+      "source": "ArtSource/AnimationPrototypes/Subjects/johann/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/johann.png",
+      "sourceSha256": "d16303bc39361937e3af3c0f1c36f12fef687872cb255a54eab5adf9becf1943",
+      "bytes": 1807807,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 615,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/johann/validation.json",
+      "runtimeSha256": "d16303bc39361937e3af3c0f1c36f12fef687872cb255a54eab5adf9becf1943",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "justyna",
+      "name": "유스티나",
+      "source": "ArtSource/AnimationPrototypes/Subjects/justyna/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/justyna.png",
+      "sourceSha256": "eff40de56f8a3678133a2be1d91f37d50869f2711770d40c2327789bceb77f5b",
+      "bytes": 1728712,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 651,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/justyna/validation.json",
+      "runtimeSha256": "eff40de56f8a3678133a2be1d91f37d50869f2711770d40c2327789bceb77f5b",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "karla",
+      "name": "칼라",
+      "source": "ArtSource/AnimationPrototypes/Subjects/karla/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/karla.png",
+      "sourceSha256": "c289032cd7ab1045d9e78b7799da845cb907b29af97794c8cd9fc9963d57c133",
+      "bytes": 2028724,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 613,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/karla/validation.json",
+      "runtimeSha256": "c289032cd7ab1045d9e78b7799da845cb907b29af97794c8cd9fc9963d57c133",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "katja",
+      "name": "카티야",
+      "source": "ArtSource/AnimationPrototypes/Subjects/katja/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/katja.png",
+      "sourceSha256": "a6b6b37cb8de8059c191fcd92de32da8229d2110397df2b0e82be1e18b606b08",
+      "bytes": 1727911,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 603,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/katja/validation.json",
+      "runtimeSha256": "a6b6b37cb8de8059c191fcd92de32da8229d2110397df2b0e82be1e18b606b08",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "kenneth",
+      "name": "케네스",
+      "source": "ArtSource/AnimationPrototypes/Subjects/kenneth/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/kenneth.png",
+      "sourceSha256": "d7a3c57f3dc4f44a7d00efb890f7d4df52e9071a88ee62a0850131bc279ab7b7",
+      "bytes": 1693922,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 610,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/kenneth/validation.json",
+      "runtimeSha256": "d7a3c57f3dc4f44a7d00efb890f7d4df52e9071a88ee62a0850131bc279ab7b7",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "laura",
+      "name": "라우라",
+      "source": "ArtSource/AnimationPrototypes/Subjects/laura/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/laura.png",
+      "sourceSha256": "3e062d86312731d770f4c6c6bc072278b8ebb2712fc48a16e3473a967b03945a",
+      "bytes": 1418946,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 640,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/laura/validation.json",
+      "runtimeSha256": "3e062d86312731d770f4c6c6bc072278b8ebb2712fc48a16e3473a967b03945a",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "leni",
+      "name": "레니",
+      "source": "ArtSource/AnimationPrototypes/Subjects/leni/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/leni.png",
+      "sourceSha256": "4acaa931958485616e692cef14dd735651671bc395f6cc8d2741cd89f30dd561",
+      "bytes": 1610280,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 597,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/leni/validation.json",
+      "runtimeSha256": "4acaa931958485616e692cef14dd735651671bc395f6cc8d2741cd89f30dd561",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "lenore",
+      "name": "르노어",
+      "source": "ArtSource/AnimationPrototypes/Subjects/lenore/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/lenore.png",
+      "sourceSha256": "6353b770d471abe2f12f6167e123da1ceefc7967d0080f7c1090551eaace4a30",
+      "bytes": 1994069,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 608,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/lenore/validation.json",
+      "runtimeSha256": "6353b770d471abe2f12f6167e123da1ceefc7967d0080f7c1090551eaace4a30",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "lenox",
+      "name": "레녹스",
+      "source": "ArtSource/AnimationPrototypes/Subjects/lenox/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/lenox.png",
+      "sourceSha256": "1a8ad9f3a9117ee07a11e85462dba5839dfdf69c2dc1d4a270b4d28dace89617",
+      "bytes": 1576754,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 618,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/lenox/validation.json",
+      "runtimeSha256": "1a8ad9f3a9117ee07a11e85462dba5839dfdf69c2dc1d4a270b4d28dace89617",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "leon",
+      "name": "레온",
+      "source": "ArtSource/AnimationPrototypes/Subjects/leon/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/leon.png",
+      "sourceSha256": "f16b1b81cec02db2a4bd636c7ee2d9a9f827648021a458dbfbf0133427a1f2a7",
+      "bytes": 1770696,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 611,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/leon/validation.json",
+      "runtimeSha256": "f16b1b81cec02db2a4bd636c7ee2d9a9f827648021a458dbfbf0133427a1f2a7",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "lucia",
+      "name": "루치아",
+      "source": "ArtSource/AnimationPrototypes/Subjects/lucia/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/lucia.png",
+      "sourceSha256": "4d3f92252985ca27641912935fa8698ccd3f4261f6b155e9b1828177b836f502",
+      "bytes": 1577724,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 618,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/lucia/validation.json",
+      "runtimeSha256": "4d3f92252985ca27641912935fa8698ccd3f4261f6b155e9b1828177b836f502",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "luke",
+      "name": "루크",
+      "source": "ArtSource/AnimationPrototypes/Subjects/luke/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/luke.png",
+      "sourceSha256": "86aee71d9093483eda39272ebc67cb847a50fb8d01a258aa2c871ccacb3e218c",
+      "bytes": 1695203,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 604,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/luke/validation.json",
+      "runtimeSha256": "86aee71d9093483eda39272ebc67cb847a50fb8d01a258aa2c871ccacb3e218c",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "magnus",
+      "name": "매그너스",
+      "source": "ArtSource/AnimationPrototypes/Subjects/magnus/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/magnus.png",
+      "sourceSha256": "b3a61da23cdaf3b5d0ef72d1d96b0c0512d4b18188e1a199beb1fff3a1fc47d6",
+      "bytes": 1564414,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 627,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/magnus/validation.json",
+      "runtimeSha256": "b3a61da23cdaf3b5d0ef72d1d96b0c0512d4b18188e1a199beb1fff3a1fc47d6",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "mai",
+      "name": "마이",
+      "source": "ArtSource/AnimationPrototypes/Subjects/mai/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/mai.png",
+      "sourceSha256": "b416ed12970ccc223b723e352031834a7e7cd4d9846147cac4dd90839d6996e6",
+      "bytes": 1751533,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 619,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/mai/validation.json",
+      "runtimeSha256": "b416ed12970ccc223b723e352031834a7e7cd4d9846147cac4dd90839d6996e6",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "markus",
+      "name": "마커스",
+      "source": "ArtSource/AnimationPrototypes/Subjects/markus/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/markus.png",
+      "sourceSha256": "81da064a3b64d409eb63c664965fa9b2fb272543bd3964165e7ab7ad036e9914",
+      "bytes": 1640844,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 617,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/markus/validation.json",
+      "runtimeSha256": "81da064a3b64d409eb63c664965fa9b2fb272543bd3964165e7ab7ad036e9914",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "martina",
+      "name": "마르티나",
+      "source": "ArtSource/AnimationPrototypes/Subjects/martina/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/martina.png",
+      "sourceSha256": "37231bf44fd0d3e8447cb45a7b0ef4fbd6a77032bc77e798f6614164c6411a10",
+      "bytes": 2221167,
+      "atlasSize": [
+        1840,
+        1380
+      ],
+      "canvas": 524,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/martina/validation.json",
+      "runtimeSha256": "37231bf44fd0d3e8447cb45a7b0ef4fbd6a77032bc77e798f6614164c6411a10",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "mirka",
+      "name": "미르카",
+      "source": "ArtSource/AnimationPrototypes/Subjects/mirka/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/mirka.png",
+      "sourceSha256": "8d4a43a7fad7e670e4250a8f748eb7bd583deadde03e2c6c7ec7b99d893642ae",
+      "bytes": 1664678,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 624,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/mirka/validation.json",
+      "runtimeSha256": "8d4a43a7fad7e670e4250a8f748eb7bd583deadde03e2c6c7ec7b99d893642ae",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "nadine",
+      "name": "나딘",
+      "source": "ArtSource/AnimationPrototypes/Subjects/nadine/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/nadine.png",
+      "sourceSha256": "e8c32086da8b4b50134abf7fc767ef4655877dee015027795e4ac9796ca7f196",
+      "bytes": 2102599,
+      "atlasSize": [
+        1888,
+        1416
+      ],
+      "canvas": 536,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/nadine/validation.json",
+      "runtimeSha256": "e8c32086da8b4b50134abf7fc767ef4655877dee015027795e4ac9796ca7f196",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "nathapon",
+      "name": "나타폰",
+      "source": "ArtSource/AnimationPrototypes/Subjects/nathapon/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/nathapon.png",
+      "sourceSha256": "3d7ffe63b5982579e8a0a65d788485aed7901a0b5b2806ba86332355dcc4b8f7",
+      "bytes": 1308608,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 612,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/nathapon/validation.json",
+      "runtimeSha256": "3d7ffe63b5982579e8a0a65d788485aed7901a0b5b2806ba86332355dcc4b8f7",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "nia",
+      "name": "니아",
+      "source": "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/nia.png",
+      "sourceSha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
+      "bytes": 1637772,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 480,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Nia/validation.json",
+      "runtimeSha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "nicky",
+      "name": "니키",
+      "source": "ArtSource/AnimationPrototypes/Subjects/nicky/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/nicky.png",
+      "sourceSha256": "a52dce5ed680f49609a792758a3686304fabda7a95d0cc853d85c3618d45433c",
+      "bytes": 1716468,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 612,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/nicky/validation.json",
+      "runtimeSha256": "a52dce5ed680f49609a792758a3686304fabda7a95d0cc853d85c3618d45433c",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "piolo",
+      "name": "피올로",
+      "source": "ArtSource/AnimationPrototypes/Subjects/piolo/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/piolo.png",
+      "sourceSha256": "034f1feeedd1d3a7d9b38c4c9ee5284c10a8da29751de9fa7c0daa4b73faab8f",
+      "bytes": 1351589,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 624,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/piolo/validation.json",
+      "runtimeSha256": "034f1feeedd1d3a7d9b38c4c9ee5284c10a8da29751de9fa7c0daa4b73faab8f",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "priya",
+      "name": "프리야",
+      "source": "ArtSource/AnimationPrototypes/Subjects/priya/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/priya.png",
+      "sourceSha256": "c4edcea532ffecb026a93fc289433e4a80f217967df4a279dbf57d8ea36ef8d3",
+      "bytes": 2093907,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 597,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/priya/validation.json",
+      "runtimeSha256": "c4edcea532ffecb026a93fc289433e4a80f217967df4a279dbf57d8ea36ef8d3",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "rio",
+      "name": "리오",
+      "source": "ArtSource/AnimationPrototypes/Subjects/rio/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/rio.png",
+      "sourceSha256": "020474634f8b58463d9da03f65c3c6cf0f1980abc8e87139178606a882546ac6",
+      "bytes": 1882031,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 615,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/rio/validation.json",
+      "runtimeSha256": "020474634f8b58463d9da03f65c3c6cf0f1980abc8e87139178606a882546ac6",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "rozzi",
+      "name": "로지",
+      "source": "ArtSource/AnimationPrototypes/Subjects/rozzi/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/rozzi.png",
+      "sourceSha256": "0917bf8f130f52cd5b58f145c82bbab3f0dd0bc8d649e614ca43e028c53706d4",
+      "bytes": 1422223,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 672,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/rozzi/validation.json",
+      "runtimeSha256": "0917bf8f130f52cd5b58f145c82bbab3f0dd0bc8d649e614ca43e028c53706d4",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "sho",
+      "name": "쇼우",
+      "source": "ArtSource/AnimationPrototypes/Subjects/sho/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/sho.png",
+      "sourceSha256": "b53198b91dd612fca0eabfc64b80334a8571e579de88002c1fbb0df555cc2d22",
+      "bytes": 1665661,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 641,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/sho/validation.json",
+      "runtimeSha256": "b53198b91dd612fca0eabfc64b80334a8571e579de88002c1fbb0df555cc2d22",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "shoichi",
+      "name": "쇼이치",
+      "source": "ArtSource/AnimationPrototypes/Subjects/shoichi/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/shoichi.png",
+      "sourceSha256": "b650a9e8b5475d9c752de39cbaca11461ca1fd6cf4c9b3b7f0f4ef2d8e5b92f7",
+      "bytes": 1531426,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 602,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/shoichi/validation.json",
+      "runtimeSha256": "b650a9e8b5475d9c752de39cbaca11461ca1fd6cf4c9b3b7f0f4ef2d8e5b92f7",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "silvia",
+      "name": "실비아",
+      "source": "ArtSource/AnimationPrototypes/Subjects/silvia/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/silvia.png",
+      "sourceSha256": "10da0450baac924b37a2cc6b4353263ff266af9f9a4076234659735eadcb4462",
+      "bytes": 1622930,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 622,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/silvia/validation.json",
+      "runtimeSha256": "10da0450baac924b37a2cc6b4353263ff266af9f9a4076234659735eadcb4462",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "sissela",
+      "name": "시셀라",
+      "source": "ArtSource/AnimationPrototypes/Subjects/sissela/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/sissela.png",
+      "sourceSha256": "6781449a92acf56dcd9fea5b57d4e7227fb21e91ab4c93d87e50c6477d708a85",
+      "bytes": 1287459,
+      "atlasSize": [
+        1868,
+        1401
+      ],
+      "canvas": 531,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/sissela/validation.json",
+      "runtimeSha256": "6781449a92acf56dcd9fea5b57d4e7227fb21e91ab4c93d87e50c6477d708a85",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "sua",
+      "name": "수아",
+      "source": "ArtSource/AnimationPrototypes/Subjects/sua/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/sua.png",
+      "sourceSha256": "bbb976bdf2ecdad803e2fc840205d6f53b59366b497fbac3c1b9f300d1ed2560",
+      "bytes": 2022380,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 613,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/sua/validation.json",
+      "runtimeSha256": "bbb976bdf2ecdad803e2fc840205d6f53b59366b497fbac3c1b9f300d1ed2560",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "tazia",
+      "name": "타지아",
+      "source": "ArtSource/AnimationPrototypes/Subjects/tazia/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/tazia.png",
+      "sourceSha256": "525b5b6dd4f349ae6ca492d7b6308d08419828c0fa80f56fe0257555b36ba1ec",
+      "bytes": 1610562,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 590,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/tazia/validation.json",
+      "runtimeSha256": "525b5b6dd4f349ae6ca492d7b6308d08419828c0fa80f56fe0257555b36ba1ec",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "theodore",
+      "name": "테오도르",
+      "source": "ArtSource/AnimationPrototypes/Subjects/theodore/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/theodore.png",
+      "sourceSha256": "c2bc2c6d65c2c94d70f1305ceac7cf5cf5ccefeb0220676cae6edf4b70e9e650",
+      "bytes": 1569489,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 625,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/theodore/validation.json",
+      "runtimeSha256": "c2bc2c6d65c2c94d70f1305ceac7cf5cf5ccefeb0220676cae6edf4b70e9e650",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "tia",
+      "name": "띠아",
+      "source": "ArtSource/AnimationPrototypes/Subjects/tia/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/tia.png",
+      "sourceSha256": "ec240d954d0d9ee2712363ec70d5b49433fa933c95a6f60d666045f6465bd58a",
+      "bytes": 2481450,
+      "atlasSize": [
+        1860,
+        1395
+      ],
+      "canvas": 529,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/tia/validation.json",
+      "runtimeSha256": "ec240d954d0d9ee2712363ec70d5b49433fa933c95a6f60d666045f6465bd58a",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "tsubame",
+      "name": "츠바메",
+      "source": "ArtSource/AnimationPrototypes/Subjects/tsubame/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/tsubame.png",
+      "sourceSha256": "5dd09615e46d3972719b1dbc875a815735d18492da8c43ed094115b40d9cede3",
+      "bytes": 1469641,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 628,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/tsubame/validation.json",
+      "runtimeSha256": "5dd09615e46d3972719b1dbc875a815735d18492da8c43ed094115b40d9cede3",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "vanya",
+      "name": "바냐",
+      "source": "ArtSource/AnimationPrototypes/Subjects/vanya/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/vanya.png",
+      "sourceSha256": "35462aaeb45364611cb1c29a955296fd16c143f5fc04850f2e186aa5af703e77",
+      "bytes": 1984203,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 610,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/vanya/validation.json",
+      "runtimeSha256": "35462aaeb45364611cb1c29a955296fd16c143f5fc04850f2e186aa5af703e77",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "william",
+      "name": "윌리엄",
+      "source": "ArtSource/AnimationPrototypes/Subjects/william/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/william.png",
+      "sourceSha256": "1acef44d95dbe3dc2d63fb4e457af03e8931b880a6e7c9ee5e9b278d29207c0e",
+      "bytes": 1355374,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 651,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/william/validation.json",
+      "runtimeSha256": "1acef44d95dbe3dc2d63fb4e457af03e8931b880a6e7c9ee5e9b278d29207c0e",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "xuelin",
+      "name": "슈린",
+      "source": "ArtSource/AnimationPrototypes/Subjects/xuelin/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/xuelin.png",
+      "sourceSha256": "5fe2c9ac97d65a98db504828e6b0cc25a45f0d3d5dca9d2cd3049f0ee0bf6dc3",
+      "bytes": 1891553,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 595,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/xuelin/validation.json",
+      "runtimeSha256": "5fe2c9ac97d65a98db504828e6b0cc25a45f0d3d5dca9d2cd3049f0ee0bf6dc3",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "yuki",
+      "name": "유키",
+      "source": "ArtSource/AnimationPrototypes/Subjects/yuki/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/yuki.png",
+      "sourceSha256": "648a580f7f9f9412f8b1d203e097f70f66076032b0b6f6a88dcf7a0d046f0198",
+      "bytes": 1373715,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 644,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/yuki/validation.json",
+      "runtimeSha256": "648a580f7f9f9412f8b1d203e097f70f66076032b0b6f6a88dcf7a0d046f0198",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "yumin",
+      "name": "유민",
+      "source": "ArtSource/AnimationPrototypes/Subjects/yumin/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/yumin.png",
+      "sourceSha256": "78678709bc184d0b1fa3cdacfca6e25e693f44200d116079c0f4e72c3f9e1df9",
+      "bytes": 2255714,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 617,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/yumin/validation.json",
+      "runtimeSha256": "78678709bc184d0b1fa3cdacfca6e25e693f44200d116079c0f4e72c3f9e1df9",
+      "sourceBytesIdentical": true
+    },
+    {
+      "id": "zahir",
+      "name": "자히르",
+      "source": "ArtSource/AnimationPrototypes/Subjects/zahir/atlas.png",
+      "destination": "Assets/Resources/Lumia/UltimateAnimations/zahir.png",
+      "sourceSha256": "cd4a24ee56eea93c55537c4cc13b27d227a90aec1b51fd321a73612a909fcf33",
+      "bytes": 2070596,
+      "atlasSize": [
+        1448,
+        1086
+      ],
+      "canvas": 621,
+      "frameCount": 12,
+      "framesPerSecond": 8,
+      "validation": "ArtSource/AnimationPrototypes/Subjects/zahir/validation.json",
+      "runtimeSha256": "cd4a24ee56eea93c55537c4cc13b27d227a90aec1b51fd321a73612a909fcf33",
+      "sourceBytesIdentical": true
+    }
+  ]
+}

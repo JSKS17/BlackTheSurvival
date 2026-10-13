@@ -65,6 +65,7 @@ namespace Lumia
             verify |= Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-effects-verify") >= 0;
             verify |= PresentationVerificationEnabled;
             verify |= LayeredStoryVerificationEnabled;
+            verify |= UltimateVerificationEnabled;
             savePath = Path.Combine(Application.persistentDataPath, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
             researchStore = new ResearchStore(Path.Combine(Application.persistentDataPath, verify ? "bts-research-verification.json" : "bts-research-v1.json"),
@@ -114,11 +115,13 @@ namespace Lumia
 
         void Update()
         {
+            SyncCombatPresentation();
             if (!audioVerification && Audio)
             {
                 Audio.Configure(sound, volume, musicVolume, effectsVolume);
                 Audio.Tick(lobby, Engine?.State);
             }
+            if (UltimateResultHold) return;
             if (TutorialActive) { UpdateTutorial(); return; }
             UpdateStoryFlow(); UpdateTutorialOffer();
             if (StoryVisible || tutorialOffer) return;
@@ -138,6 +141,7 @@ namespace Lumia
         void ConsumeCombatActions()
         {
             if (Engine == null || Engine.CombatActions.Count == 0) return;
+            SyncCombatPresentation();
             foreach (var action in Engine.CombatActions)
             {
                 effects.Add(action, reduceMotion);
@@ -179,7 +183,8 @@ namespace Lumia
             if (lobby || Engine == null) DrawLobby();
             else
             {
-                switch (Engine.State.stage)
+                if (UltimateResultHold) DrawTerminalUltimateBattle();
+                else switch (Engine.State.stage)
                 {
                     case RunStage.Preparation: DrawPreparation(); break;
                     case RunStage.Map: DrawMap(); break;
@@ -556,6 +561,9 @@ namespace Lumia
             Fill(new Rect(0, 80, W, 359), new Color(.02f, .04f, .07f, .2f));
             DrawFieldStrip(new Rect(22, 101, 396, 61), false);
             DrawFieldStrip(new Rect(862, 101, 396, 61), true);
+            bool ultimateShowing = effects.UltimateFrame(reduceMotion) >= 0;
+            if (!ultimateShowing)
+            {
             Box(new Rect(440, 104, 399, 99), Ink, Pink);
             Txt(new Rect(452, 116, 375, 24), (c.enemyTurn ? "상대 기술 " + c.enemyActionIndex + " / " + c.enemyPlan.Count : "상대의 다음 행동") + "  /  사용 코스트 " + c.enemyEnergy, 14, Pink, true);
             string intent = Engine.EnemyIntent;
@@ -576,6 +584,7 @@ namespace Lumia
                 Para(new Rect(454, 176, 371, 25), "예정 피해 " + c.intentDamage + " · 방어 " + c.intentBlock + (Engine.EnemyCritChance > 0 ? "  / 일반 공격 치명타 " + Engine.EnemyCritChance + "%" : "  / 적중 시 연계·턴 종료 포함"), 10, Text);
             }
             else Para(new Rect(454, 148, 371, 40), intent, 11, Text);
+            }
             float bob = reduceMotion ? 0 : Mathf.Floor(Mathf.Sin(Time.unscaledTime * 2) * 2) * 2;
             effects.DrawActor(new Rect(129, 169 + bob, 214, 215), PixelArt.Portrait("hana"), false, reduceMotion);
             effects.DrawActor(new Rect(913, 169 - bob, 218, 216), PixelArt.Portrait(c.enemyId), true, reduceMotion);
@@ -583,10 +592,13 @@ namespace Lumia
             Txt(new Rect(873, 388, 292, 22), c.enemyName + "  LV." + c.enemyLevel + "  방어 " + c.enemyBlock, 14, Pink, true);
             Bar(new Rect(873, 419, 292, 9), c.enemyHp, c.enemyMaxHp, Pink);
             Txt(new Rect(886, 353, 266, 24), c.enemyHp + " / " + c.enemyMaxHp, 14, Text, true);
+            if (!ultimateShowing)
+            {
             Txt(new Rect(343, 220, 516, 27), "ENERGY", 11, Gold, true);
             Txt(new Rect(343, 247, 516, 49), c.energy + " / " + Engine.MaxEnergy, 33, Gold, true);
             if (Engine.IsBossCombat) DrawBossCombatPanel();
             else if (string.IsNullOrEmpty(c.animal) && Btn(new Rect(481, 322, 252, 33), "상대 패시브 · 장비 · D/F", false, Pink)) { enemyLoadout=true; inventoryScroll=Vector2.zero; }
+            }
             Fill(new Rect(0, 442, W, 278), Ink);
             Fill(new Rect(0, 441, W, 2), Line);
             Txt(new Rect(24, 454, 590, 22), "손패 " + c.hand.Count + "  /  뽑을 카드 " + c.drawPile.Count + "  /  버린 카드 " + c.discardPile.Count + "  /  소멸 " + c.exhaustPile.Count, 11, Muted);
@@ -1628,7 +1640,7 @@ namespace Lumia
         void OnApplicationPause(bool paused) { if (paused) Save(); }
         void OnApplicationQuit() { Save(); }
         void PixelFont(Font rebuilt) { if (rebuilt == font && rebuilt.material && rebuilt.material.mainTexture) rebuilt.material.mainTexture.filterMode = FilterMode.Point; }
-        void OnDestroy() { ReleaseStoryPixelTextures(); ReleasePixelLayer(lobbyNiaPixels); Font.textureRebuilt -= PixelFont; foreach (var clip in skillSounds.Values) if (clip) Destroy(clip); }
+        void OnDestroy() { effects.Clear(); UltimateAnimations.ReleaseTextures(); ReleaseStoryPixelTextures(); ReleasePixelLayer(lobbyNiaPixels); Font.textureRebuilt -= PixelFont; foreach (var clip in skillSounds.Values) if (clip) Destroy(clip); }
 
         [Serializable] public sealed class PreviewMeasurement
         {

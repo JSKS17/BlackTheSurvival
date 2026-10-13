@@ -28,3 +28,5 @@ crash.dmp
 *.key
 __pycache__/
 *.pyc
+
+Tools/.runtime/

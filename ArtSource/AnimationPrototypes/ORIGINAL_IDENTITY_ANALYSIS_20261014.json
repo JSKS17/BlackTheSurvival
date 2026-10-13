@@ -1,0 +1,706 @@
+{
+  "schema": 1,
+  "date": "2026-10-14",
+  "review_method": "Direct view_image of all 13 actual official default full-body illustrations, with official R descriptions and Bihyung/Darko demonstrations cross-checked. Generated portraits and rejected atlases are not original-art authority.",
+  "reference_root": "ArtSource/AnimationPrototypes/Subjects/{id}/official-reference.png",
+  "limitations": "All 13 actual official default full-body illustrations were directly viewed. Aya glasses/opaque-stocking continuity and Garnet greatsword follow the user's requests. The final two-head redraw is an interpretation; some clothing and weapon outlines remain finer than the target pixel clusters. Do not claim a uniform 64x64 logical grid or identical 4-6px blocks throughout. Original-art identity analysis does not establish frame-perfect animation equivalence.",
+  "official_sources": {
+    "base": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+    "darko": "https://playeternalreturn.com/posts/news/1954?hl=ko-KR",
+    "bihyung": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
+    "fankit": "https://playeternalreturn.com/fankit",
+    "garnet": "https://playeternalreturn.com/posts/news/2179?hl=ko-KR"
+  },
+  "characters": {
+    "aya": {
+      "hair": "Chocolate-brown twin braids, blunt fringe, narrow white headband.",
+      "face": "Warm reddish-brown eyes, round thin glasses, earnest attentive lids and small mouth.",
+      "clothes": "Olive police jacket, cream shearling collar/cuffs, white buttoned shirt-dress, brown straps. User requires consistent opaque dark stockings.",
+      "weapon": "One black assault rifle with stock, receiver and barrel.",
+      "motion": [
+        "raise gun skyward",
+        "one blank shot",
+        "small recoil",
+        "radial fear pulse",
+        "recover"
+      ],
+      "avoid": [
+        "no missing glasses in recoil",
+        "no bare knee toggles",
+        "no duplicate gun"
+      ],
+      "reference_path": "Subjects/aya/official-reference.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1WQBehDtt7T-VKc0jj8u9Ob2Xg-P5iH18",
+      "size": [
+        1300,
+        1819
+      ],
+      "sha256": "829abe983c50334949f52194af1f1ebe4053c96021050648f927c2cdb0d5d0d5",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1002500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/aya_r.png",
+      "full_body_path": "Subjects/aya/official-reference.png",
+      "full_body_size": [
+        1300,
+        1819
+      ],
+      "full_body_sha256": "829abe983c50334949f52194af1f1ebe4053c96021050648f927c2cdb0d5d0d5",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://drive.google.com/uc?export=download&id=1WQBehDtt7T-VKc0jj8u9Ob2Xg-P5iH18",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/aya.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Aya_S000.png",
+        "size": [
+          390,
+          481
+        ],
+        "sha256": "df89dfb5ff8eadaf6e7c57f34146872e3eafd5850f9eea666d8bacc272cc40be"
+      }
+    },
+    "bihyung": {
+      "hair": "Black short upper hair/teal streak, long pale-mint underside tails; black cap with pink conical horns.",
+      "face": "GOLD/YELLOW open iris, other eye wink, playful fang grin, intentional round rosy cheek marks. NO glasses.",
+      "clothes": "Oversized white sleeves with black cuffs/pink lining; strapped dark crop top with white scalloped edge/pink knot; short black bottoms, hanging patterned belt and cube charm. Pale exposed thighs/one strap; WHITE/GRAY tall boots with BLACK/PINK shoes, pink laces and soles.",
+      "weapon": "One large dark CYLINDRICAL mechanical mallet head, silver spikes, pink cones, round ports; gray shaft/tassel. Not square hammer.",
+      "motion": [
+        "crouch",
+        "leap airborne",
+        "put on dokkaebi cap and enlarge airborne",
+        "land giant with ground slam",
+        "shockwave",
+        "return size"
+      ],
+      "avoid": [
+        "no glasses/green iris",
+        "no cap/horn swaps",
+        "no black stockings invented",
+        "do not omit giant airborne phase"
+      ],
+      "full_body": "Subjects/bihyung/official-reference.png",
+      "reference_path": "Subjects/bihyung/official-reference.png",
+      "source_url": "https://cdn.playeternalreturn.com/2026%2F05%2F13%2F1778649894514-Full_Bihyung_00.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "21f41e68185e57d6b475ade5c538a540fd16a1d30aa40938bab8164e909fbb0b",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1088500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/bihyung_r.png",
+      "full_body_path": "Subjects/bihyung/official-reference.png",
+      "full_body_size": [
+        2048,
+        2048
+      ],
+      "full_body_sha256": "21f41e68185e57d6b475ade5c538a540fd16a1d30aa40938bab8164e909fbb0b",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://cdn.playeternalreturn.com/2026%2F05%2F13%2F1778649894514-Full_Bihyung_00.png",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/bihyung.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Bihyung_S000.png",
+        "size": [
+          390,
+          576
+        ],
+        "sha256": "aa9d3be71f19cc12014c2d6deb7d44d52f9d16ccd14f8645d5f051069d86c9af"
+      },
+      "motion_demonstration": {
+        "source_page": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
+        "format": "Official R demonstration GIF reviewed during analysis",
+        "reviewed": true,
+        "local_copy_retained": false,
+        "historical_review_filename": "bihyung-official-r.gif"
+      }
+    },
+    "darko": {
+      "hair": "Swept long gray-green spiky hair, one side covering face, opposite short/shaved side.",
+      "face": "Narrow muted amber/reddish eye, sly confident small smile; NO glasses.",
+      "clothes": "Open deep navy/teal shirt; long charcoal/teal-gray coat with tan-gray tribal/geometric motifs; chest tattoos, coins/chains, fingerless gloves/bracelets; loose dark trousers, gray patterned sneakers.",
+      "weapon": "Original Bat class: long dark shaft with broad flat oval/spiked metal striking head as official full art.",
+      "motion": [
+        "grab target",
+        "brace and drag forward",
+        "turn/lift captive",
+        "slam captive downward",
+        "compact teal/gold ground impact"
+      ],
+      "avoid": [
+        "no glasses",
+        "no invented gold-star coat",
+        "R must not become E solo ground-punch"
+      ],
+      "full_body": "Subjects/darko/official-reference.png",
+      "reference_path": "Subjects/darko/official-reference.png",
+      "source_url": "https://cdn.playeternalreturn.com/2024%2F06%2F04%2F1717464670952-Full_Darko_00.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "d50d5b64e36286d3f1fbdc2c76ad0f0ab79a02cb43d05ff8a53ed1d43edd03d0",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1074500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/darko_r.png",
+      "full_body_path": "Subjects/darko/official-reference.png",
+      "full_body_size": [
+        2048,
+        2048
+      ],
+      "full_body_sha256": "d50d5b64e36286d3f1fbdc2c76ad0f0ab79a02cb43d05ff8a53ed1d43edd03d0",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://cdn.playeternalreturn.com/2024%2F06%2F04%2F1717464670952-Full_Darko_00.png",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/darko.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Darko_S000.png",
+        "size": [
+          390,
+          518
+        ],
+        "sha256": "dcf2bb33ea32c4b97bad396e9cc41ca3ac7f65bcfbdb8a31d0d2990da06e5478"
+      },
+      "motion_demonstration": {
+        "source_page": "https://playeternalreturn.com/posts/news/1954?hl=ko-KR",
+        "format": "Official R demonstration GIF reviewed during analysis",
+        "reviewed": true,
+        "local_copy_retained": false,
+        "historical_review_filename": "darko-official-r.gif"
+      }
+    },
+    "echion": {
+      "hair": "Silver-lavender short spikes swept upward/back, darker roots, loose front locks.",
+      "face": "Magenta eyes, angled brows, original confident THIN TOOTHY GRIN; readable center mouth, no cheek mole.",
+      "clothes": "Black high-collar leather coat, fitted burgundy high-neck shirt, dark combat trousers/belts.",
+      "weapon": "White/black segmented VF arm with bright magenta panels and claws, same anatomical side.",
+      "motion": [
+        "brace VF arm",
+        "VF overflow",
+        "arm winds back",
+        "release unstable VF blade/bolt",
+        "vent shards"
+      ],
+      "avoid": [
+        "no cheek dot",
+        "no blank mouth",
+        "no generic neutral doll face",
+        "no separate serpent"
+      ],
+      "reference_path": "Subjects/echion/official-reference.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1yrZsdIBk9wTGdnGXIxm5fmZ4G-IDyq2V",
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "f960bf836f1e6da8ce9878190dbcb44989d51a3146879197a595faff9df5f824",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1044500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/echion_r.png",
+      "full_body_path": "Subjects/echion/official-reference.png",
+      "full_body_size": [
+        2048,
+        2048
+      ],
+      "full_body_sha256": "f960bf836f1e6da8ce9878190dbcb44989d51a3146879197a595faff9df5f824",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://drive.google.com/uc?export=download&id=1yrZsdIBk9wTGdnGXIxm5fmZ4G-IDyq2V",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/echion.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Echion_S000.png",
+        "size": [
+          390,
+          529
+        ],
+        "sha256": "08c03f5006e4b8b2bb463090b63827cebf163cfa0f1664fac53975b908042454"
+      }
+    },
+    "elena": {
+      "hair": "Long ice-blue twin tails, straight fringe, angular silver ice-crown ornaments.",
+      "face": "Cool cyan/turquoise eyes with focused individual lids, calm concentrated expression, small reserved mouth.",
+      "clothes": "Bright layered BLUE skating dress, pale-blue ruffles, white-blue panels, LARGE snowflake chest brooch; skates.",
+      "weapon": "Slender blue/silver rapier with snowflake guard.",
+      "motion": [
+        "skating preparation",
+        "small glide/turn",
+        "designate area",
+        "circular ice spreads",
+        "central ice remains frames8-11",
+        "shards frame12"
+      ],
+      "avoid": [
+        "no glasses",
+        "no angry/generic grin",
+        "no face-obscuring glacier",
+        "do not remove ice too soon"
+      ],
+      "reference_path": "Subjects/elena/official-reference.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=19JanZrpuH_vVlLsF5ZlQDT9s4ifyuTzB",
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "a943569c176c0a53e10384bfa72f6f74fcca1e53aab4bff9021ee0d0ac6f1c6f",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1050500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/elena_r.png",
+      "full_body_path": "Subjects/elena/official-reference.png",
+      "full_body_size": [
+        2048,
+        2048
+      ],
+      "full_body_sha256": "a943569c176c0a53e10384bfa72f6f74fcca1e53aab4bff9021ee0d0ac6f1c6f",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://drive.google.com/uc?export=download&id=19JanZrpuH_vVlLsF5ZlQDT9s4ifyuTzB",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/elena.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Elena_S000.png",
+        "size": [
+          390,
+          507
+        ],
+        "sha256": "3b3cc841a54defd5b5897d195f7c503db88a4d953abc5c9743f6795b9d80f064"
+      }
+    },
+    "garnet": {
+      "hair": "Long shaggy silver-gray hair, outward spikes/strands and long loose tails; no animal ears.",
+      "face": "Red eyes, sharp teasing grin, pale skin.",
+      "clothes": "Black asymmetric strappy crop outfit, crossed silver-gray straps, bare midriff, black lower outfit/red accents, heavy dark gauntlets.",
+      "weapon": "USER OVERRIDE: broad dark sharp greatsword; original Bat class/spiked striking prop must not be falsely called official sword.",
+      "motion": [
+        "cast chain",
+        "chain tightens",
+        "manifest Iron Maiden",
+        "pull target inside",
+        "close then emerge"
+      ],
+      "avoid": [
+        "no single club frame",
+        "no cat ears",
+        "R not merely floating abstract red rune"
+      ],
+      "reference_path": "Subjects/garnet/official-reference.png",
+      "source_url": "https://cdn.playeternalreturn.com/2024%2F09%2F11%2F1726020329129-Full_Garnet_00.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "0291538ed27b372241e374d9b806f5afb79bfa61716554db95602cc43d50a476",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1076500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/garnet_r.png",
+      "full_body_path": "Subjects/garnet/official-reference.png",
+      "full_body_size": [
+        2048,
+        2048
+      ],
+      "full_body_sha256": "0291538ed27b372241e374d9b806f5afb79bfa61716554db95602cc43d50a476",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://cdn.playeternalreturn.com/2024%2F09%2F11%2F1726020329129-Full_Garnet_00.png",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/garnet.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Garnet_S000.png",
+        "size": [
+          390,
+          519
+        ],
+        "sha256": "5bd908656844a31acedc8842a767ae513e71367a1f089ee85241074ec6c37b35"
+      }
+    },
+    "irem": {
+      "hair": "Peach-orange short bob/side sections, pale furry cat ears, broad patterned red headband.",
+      "face": "Viewer-left amber/orange iris, viewer-right BLUE iris; playful small open mouth; no glasses.",
+      "clothes": "Oversized YELLOW/CREAM geometric cardigan, white sailor collar with red trim, red inner outfit, LARGE WHITE front ribbon/gold ornament, red side bow, black neck bands. Not mostly-red cat costume.",
+      "weapon": "Paw sleeves/mittens, no sword/staff.",
+      "motion": [
+        "human pose",
+        "crouch",
+        "compact transformation puff",
+        "white/peach cat",
+        "paw action",
+        "human return"
+      ],
+      "avoid": [
+        "keep heterochromia in both forms",
+        "cat white face/chest, peach patches, triangular ears",
+        "red neck bow/gold bell per actual R icon",
+        "no invented long human hairstyle"
+      ],
+      "reference_path": "Subjects/irem/official-reference.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=104r8seoIWkIyBefq1nnl0ySgOAYZy94K",
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "f677fc5851c3da3be05a3e41cf274b41e166870d1f48240544efbd009965852d",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1061500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/irem_r.png",
+      "full_body_path": "Subjects/irem/official-reference.png",
+      "full_body_size": [
+        2048,
+        2048
+      ],
+      "full_body_sha256": "f677fc5851c3da3be05a3e41cf274b41e166870d1f48240544efbd009965852d",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://drive.google.com/uc?export=download&id=104r8seoIWkIyBefq1nnl0ySgOAYZy94K",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/irem.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Irem_S000.png",
+        "size": [
+          386,
+          487
+        ],
+        "sha256": "7b41de0a38d691b1afa120158b52e03a7ab83c205d7267aa5c9e1b2c7abde512"
+      }
+    },
+    "isol": {
+      "hair": "Light-brown layered short hair/crown tuft, red headband, red-BLACK checked scarf.",
+      "face": "Original cool gray/blue eyes, composed watchful narrow lids, small neutral/knowing mouth; not amber doll eyes.",
+      "clothes": "White ribbed/high-collar sleeveless shirt, olive harness/gloves/bracer, tactical pouches/belt, olive cargo trousers.",
+      "weapon": "One black assault rifle over shoulder; R MOK is mechanical ground mine, not round cartoon fuse bomb.",
+      "motion": [
+        "ready",
+        "take MOK mine",
+        "crouch and place",
+        "arm and stand",
+        "trigger compact explosion",
+        "smoke fades"
+      ],
+      "avoid": [
+        "same facing/hand/mine side",
+        "no one mirrored frame",
+        "R is installed mine, not Q sticky grenade"
+      ],
+      "reference_path": "Subjects/isol/official-reference.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1IM9jCTg_7fJU68jk2YNZ5RMwYbCbvICh",
+      "size": [
+        1500,
+        2303
+      ],
+      "sha256": "6a89caffe3ec95d84facad5c68f069b24b02e00de9e9bcef12ddce6de704b251",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1009500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/isol_r.png",
+      "full_body_path": "Subjects/isol/official-reference.png",
+      "full_body_size": [
+        1500,
+        2303
+      ],
+      "full_body_sha256": "6a89caffe3ec95d84facad5c68f069b24b02e00de9e9bcef12ddce6de704b251",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://drive.google.com/uc?export=download&id=1IM9jCTg_7fJU68jk2YNZ5RMwYbCbvICh",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/isol.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Isol_S000.png",
+        "size": [
+          390,
+          517
+        ],
+        "sha256": "dec16d843671b2c875b6881fb5a0b4042707df429d6b264088180488a6afc13a"
+      }
+    },
+    "jackie": {
+      "hair": "Entirely IVORY/WHITE tousled spikes, only faint gray/pink shadows; NO invented big BLACK cow-pattern bangs.",
+      "face": "Red eyes, lively sharp confident grin, pale skin.",
+      "clothes": "Black strappy sleeveless leather crop top, dark gloves/arm protection, black combat bottoms, orange/brown utility straps/belt, small dark geometric tattoo bands.",
+      "weapon": "Original idle red axe; R deliberately changes to ONE red/black toothed chainsaw.",
+      "motion": [
+        "ready",
+        "switch/start chainsaw",
+        "rev",
+        "wide body-driven chainsaw swing",
+        "brief sweep",
+        "safe ready"
+      ],
+      "avoid": [
+        "ivory hair every frame",
+        "no detached lower-left frame11 effect",
+        "weapon hand/direction continuous"
+      ],
+      "reference_path": "Subjects/jackie/official-reference.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1q2-9boaWBFQTKOgnYzJDg4gPfJvgV26y",
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "a1426c8865a4966c4f076c9b93e55f9c39e94e122fd05d88e9dba15a58c0facd",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1001500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/jackie_r.png",
+      "full_body_path": "Subjects/jackie/official-reference.png",
+      "full_body_size": [
+        2048,
+        2048
+      ],
+      "full_body_sha256": "a1426c8865a4966c4f076c9b93e55f9c39e94e122fd05d88e9dba15a58c0facd",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://drive.google.com/uc?export=download&id=1q2-9boaWBFQTKOgnYzJDg4gPfJvgV26y",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/jackie.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Jackie_S000.png",
+        "size": [
+          390,
+          558
+        ],
+        "sha256": "e824b259ba120803084f5004fd6b0265b10fb4a5f7aad9da7abbf19c8fd336d2"
+      }
+    },
+    "martina": {
+      "hair": "Ash gray-brown side-swept hair, pale streak, long tousled back locks.",
+      "face": "Visible BLUE eye, restrained confident smile; her LEFT eye/viewer-right covered by opaque black cross/strap patch, never transparent monocle.",
+      "clothes": "Mustard trench coat/cross pins, open white collar, black buttoned vest/corset, choker/utility belt, dark trousers.",
+      "weapon": "Large BLUE/WHITE shoulder camcorder with handle/pale front panel/dark lens; same lens plane every frame.",
+      "motion": [
+        "shoulder camera",
+        "controls",
+        "aim/track",
+        "sustained filming cone",
+        "broadcast pulse",
+        "recover"
+      ],
+      "avoid": [
+        "no transparent eyepiece",
+        "no lens side jumps",
+        "not a cannon muzzle"
+      ],
+      "reference_path": "Subjects/martina/official-reference.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1REUaG9cO_fEIKvKqWEGxg_RbuLXunUEK",
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "8815a6dd36ad3a0bb2785d5b77fd54b06562678abf5c6cf15982d69a6142eda1",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1057500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/martina_r.png",
+      "full_body_path": "Subjects/martina/official-reference.png",
+      "full_body_size": [
+        2048,
+        2048
+      ],
+      "full_body_sha256": "8815a6dd36ad3a0bb2785d5b77fd54b06562678abf5c6cf15982d69a6142eda1",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://drive.google.com/uc?export=download&id=1REUaG9cO_fEIKvKqWEGxg_RbuLXunUEK",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/martina.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Martina_S000.png",
+        "size": [
+          390,
+          472
+        ],
+        "sha256": "f5c51fae48688b2008927f162bd63ae28e91d32d047604a1b256ef0cb8e14040"
+      }
+    },
+    "nadine": {
+      "hair": "Dark-brown high ponytail/feather ornament, orange hunting cap.",
+      "face": "Warm tan/medium-brown skin, brown eyes, narrow determined hunter lids, small neutral mouth.",
+      "clothes": "Orange hooded mantle/scarf, fitted black hunting gear/gloves, dark straps and orange pouch accents.",
+      "weapon": "Official bust uses mechanical CROSSBOW/blue bolts; supports Bow/CrossBow. Pick one consistent weapon.",
+      "motion": [
+        "ready weapon",
+        "aim",
+        "attack/activate",
+        "wolf appears",
+        "wolf lunges",
+        "wolf dissipates"
+      ],
+      "avoid": [
+        "no pale skin swap",
+        "no generic smile",
+        "must retain wolf R"
+      ],
+      "reference_path": "Subjects/nadine/official-reference.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1dmm9caxKyFk5DP4nRlfth5guHFhny2ec",
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "cffcc438a26eff85345cb159ece24df564179a5c0f2e8117436f990718717cf2",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1006500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/nadine_r.png",
+      "full_body_path": "Subjects/nadine/official-reference.png",
+      "full_body_size": [
+        2048,
+        2048
+      ],
+      "full_body_sha256": "cffcc438a26eff85345cb159ece24df564179a5c0f2e8117436f990718717cf2",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://drive.google.com/uc?export=download&id=1dmm9caxKyFk5DP4nRlfth5guHFhny2ec",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/nadine.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Nadine_S000.png",
+        "size": [
+          390,
+          576
+        ],
+        "sha256": "c84da67501514badb1b45a0842fbe5fa6ceebec1e7fa6534ac7134370998029f"
+      }
+    },
+    "sissela": {
+      "hair": "Short white/gray bob, fringe hides her LEFT eye/viewer-right; thin dark patterned headband and loose ahoge, NO nurse cap.",
+      "face": "BLUE visible eye, tired/sad calm lid and tiny restrained mouth, sickly pale skin.",
+      "clothes": "Loose white-gray PATIENT gown, white ruffled neckline, draped sleeves/dark center panel; black metal neck restraint, LARGE METAL RING and chain. Not maid uniform.",
+      "weapon": "IV pole/bag; Wilson white orb with triangular pointed silhouette, round BLUE eyes/small triangular mouth per official Q icon.",
+      "motion": [
+        "settle/close eyes",
+        "inward channel hands near body",
+        "Wilson pulses",
+        "delayed expanding dark-blue release",
+        "aftermath/recover"
+      ],
+      "avoid": [
+        "no red eye",
+        "no nurse hat",
+        "no angel wings/healing cross light pillars claimed as R",
+        "coherent IV pole"
+      ],
+      "companion_ref": "docs/art-chibi/skill-references/sissela_q.png",
+      "reference_path": "Subjects/sissela/official-reference.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=1l5ugC9WWIiYHkvwQOYBjubqugNmst1Zi",
+      "size": [
+        1486,
+        2253
+      ],
+      "sha256": "3bc8c4105a43770dd6d153b0e7b9fb9615688bfc9dbf34366ddf9ff98383d9ee",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1015500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/sissela_r.png",
+      "full_body_path": "Subjects/sissela/official-reference.png",
+      "full_body_size": [
+        1486,
+        2253
+      ],
+      "full_body_sha256": "3bc8c4105a43770dd6d153b0e7b9fb9615688bfc9dbf34366ddf9ff98383d9ee",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://drive.google.com/uc?export=download&id=1l5ugC9WWIiYHkvwQOYBjubqugNmst1Zi",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/sissela.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Sissela_S000.png",
+        "size": [
+          377,
+          541
+        ],
+        "sha256": "83b93c0e7a07d8fa3d652fd01f82bb0a548709c43789967b4379d139b3b278e6"
+      }
+    },
+    "tia": {
+      "hair": "Honey-blond/light-brown long hair, rose-coil side bun, yellow ribbons, side-swept fringe.",
+      "face": "Amber/gold eyes with gentle slightly lowered individual lids, small reserved mouth; not constantly exuberant.",
+      "clothes": "Brown artist outfit/oversized QUILTED coat, yellow/cream piping, white collar, LARGE YELLOW neck ribbon, straps/paint tubes.",
+      "weapon": "One long dark-handled broad brush/bristles; R additionally manifests GIANT BRUSH at target.",
+      "motion": [
+        "ready brush",
+        "invoke giant brush",
+        "giant rainbow stroke",
+        "RGB paint splash",
+        "same-position droplets shrink10-12",
+        "recover"
+      ],
+      "avoid": [
+        "paint not fire",
+        "no suddenly isolated final droplets",
+        "brush hand/length consistent"
+      ],
+      "reference_path": "Subjects/tia/official-reference.png",
+      "source_url": "https://drive.google.com/uc?export=download&id=13sziUMnQpWT4hy9QjLuXo8gpSvUbSx9g",
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "be8583bf11a9cac1e3885558fa249cfcc6ef954bed45e466844120db03a1c42e",
+      "R_icon_source": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/SkillIcon_1048500.png",
+      "R_icon_local": "docs/art-chibi/skill-references/tia_r.png",
+      "full_body_path": "Subjects/tia/official-reference.png",
+      "full_body_size": [
+        2048,
+        2048
+      ],
+      "full_body_sha256": "be8583bf11a9cac1e3885558fa249cfcc6ef954bed45e466844120db03a1c42e",
+      "lower_body_verified": true,
+      "full_body_source_url": "https://drive.google.com/uc?export=download&id=13sziUMnQpWT4hy9QjLuXo8gpSvUbSx9g",
+      "full_body_directly_viewed": true,
+      "bust_reference": {
+        "path": "docs/art-chibi/references/subjects/tia.png",
+        "source_url": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ui/characterhalfsize/CharFull_Tia_S000.png",
+        "size": [
+          367,
+          482
+        ],
+        "sha256": "84583c38eaa2cfef6060e331c576c51a67bb7a37d1b8024af0cb195e541f4f70"
+      }
+    }
+  },
+  "task": "Original illustration identity reference analysis for latest2-head large-pixel redraw",
+  "latest_direction": "Approximately two heads tall, visibly larger square-pixel clusters, original Nia image-to-pixel density and 3-4 bold hair shade planes. The 60-72 logical pixel / 4-6px cluster instruction is a rendering target, not a claim that every generated pixel follows a uniform grid. Prior 2.5-head and earlier rejected candidates are not the final source.",
+  "official_fankit": "https://playeternalreturn.com/fankit",
+  "official_public_folder": "https://drive.google.com/drive/folders/1bgW32L09YPpRgQKtH4C_TAd3Kr0N9Y90",
+  "target_heads": 2,
+  "path_bases": {
+    "subject_paths": "Subjects/, Style/ and Nia/ paths are relative to ArtSource/AnimationPrototypes/.",
+    "repository_paths": "docs/ paths are relative to the repository root.",
+    "generated_tool_paths": "Absolute generated_path values in per-subject manifests identify tool output provenance, not required gallery resources."
+  },
+  "reference_status": {
+    "full_body_count": 13,
+    "full_body_directly_viewed": 13,
+    "lower_body_verified": 13,
+    "preserved_as": "Subjects/{id}/official-reference.png",
+    "temporary_paths_required": false
+  },
+  "reference_role_summary": {
+    "style_and_proportions": "Style/chibi2-reference.png",
+    "native_pixel_density": "Nia/frames/frame-00.png (362x362)",
+    "character_identity": "Actual official default full-body illustration; Subjects/{id}/official-reference.png"
+  },
+  "validation_status": {
+    "source_partition": "All 13 passed disjoint full-source partition, exact RGBA preservation, minimum24px cell padding and no outer clipping.",
+    "browser": {
+      "passed": true,
+      "subjects": 91,
+      "frame_views": 1140,
+      "checks": 12,
+      "screenshots": 7,
+      "browser_errors": 0,
+      "evidence": "docs/validation-chibi2-20261014/gallery-browser-validation.json"
+    },
+    "installed_audit": {
+      "passed": true,
+      "redrawn_subjects": 13,
+      "redrawn_frames": 156,
+      "preserved_subjects_including_nia": 78,
+      "preserved_tracked_files": 576,
+      "preserved_file_changes": 0
+    },
+    "http_assets": {
+      "passed": true,
+      "assets_checked": 65,
+      "modified_subjects": 13,
+      "asset_types": ["generated-sheet.png", "atlas.png", "preview.gif", "preview.webp", "official-reference.png"],
+      "local_bytes_match": true,
+      "evidence": "docs/validation-chibi2-20261014/http-assets.json"
+    },
+    "http_frame_return": {
+      "passed": true,
+      "catalogue_subjects": 91,
+      "modified_subjects": 13,
+      "sequence": "frame1 -> frame8 -> frame1",
+      "all_first_frame_screenshots_match_fresh_bytes": true,
+      "stage_captures": 18,
+      "browser_errors": 0,
+      "evidence": "docs/validation-chibi2-20261014/http-browser.json"
+    },
+    "grounding_and_rgba_review": {
+      "subjects": 13,
+      "frames": 156,
+      "all_partitions_disjoint": true,
+      "all_guard24_passed": true,
+      "evidence": "docs/validation-chibi2-20261014/ground-review.json"
+    },
+    "staging_cleanup": {
+      "completed": true,
+      "deleted_files": 340,
+      "deleted_bytes": 134127333,
+      "final_originals_prompts_official_references_and_proofs_preserved": true,
+      "evidence": "docs/storage-cleanup-chibi2-staging-20261014.json"
+    },
+    "evidence_folder": "docs/validation-chibi2-20261014/"
+  }
+}

@@ -2,10 +2,10 @@
   "id": "darko",
   "name": "다르코",
   "ultimate": "강제집행",
-  "generated_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a13501-59cd-7690-af4c-7f7ebbaa3c46\\exec-6c02b23e-ec5a-48d0-b614-214cda1563e2.png",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a136b7-e9d9-74d3-8e73-aec5aae34bb6/exec-883de406-00d2-4e4c-9dc7-c9f700ee309b.png",
   "reference_paths": [
-    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/darko.png",
-    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+    "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\darko.png",
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
   ],
   "sources": [
     {
@@ -13,15 +13,20 @@
       "title": "님블뉴런 공식 출시 스킬: 강제집행"
     }
   ],
-  "visual_review": "안경·회청색 머리·어깨 방망이의 정체성을 유지하며 손 뻗기, 끌기, 내려꽂기 자세를 단계별로 구분했습니다. 일부 충격 잔광은 셀 가장자리와 가까워 재생 시 여백을 확보해야 합니다.",
+  "visual_review": {
+    "method": "direct view_image original identity sprite, original Nia atlas, official full-body check and generated sheet; PIL read-only alpha inspection",
+    "twelve_poses": true,
+    "style": "returned to the original Nia outline/shading/large-eyed chibi style using exact first-pass prompt plus only identity errata; no recent atlas, ratio-master or edit pass input",
+    "identity_checks": [
+      "No glasses in any pose; gray-teal spiky fringe, reddish visible eye, small sly smile, geometric gold-tan coat markings and gold neck metal.",
+      "Hand reach, grab teal knot, low forward drag, arm raised, down-slam, recoil and reset. Weapon remains on shoulder rather than replacing the R with a bat attack."
+    ],
+    "limitations": "Raw generation groups are 4x3 but source gutters are not perfectly uniform. Root must partition/pad/translate without resampling and check final playback. Some extremely faint alpha fringe remains in outer transparent margins; no alpha>=64 content touches any outer sheet edge."
+  },
   "columns": 4,
   "rows": 3,
   "fps": 8,
   "tool": "built-in image_gen.imagegen",
-  "atlas_sha256": "37bbfd6d9f149be5b34842d1272a62134e4e0c81d638c5e6da764db50e2cbc63",
-  "width": 1448,
-  "height": 1086,
-  "motion_summary": "Darko, gray teal spiky hair, round glasses, black gray clothes and bat from identity. Official R grabs, drags and slams the captured target into the ground. Without drawing an opponent, animate open grabbing hand reaching right, fist clenching around an abstract tiny violet VF knot, low dragging run with torso forward and bat swept behind, hauling arm upward, violent overhead downward throw, kneeling slam with gold-gray ground impact ring, recoil, stand and reset. Not a bat swing alone: emphasize grabbing and dragging then downward slam. Eyes behind glasses remain readable.",
   "frame_labels": [
     "준비",
     "손 뻗기",
@@ -35,5 +40,149 @@
     "반동",
     "일어서기",
     "준비 복귀"
-  ]
+  ],
+  "preview_revision": "nia-style-original-prompt-20261014",
+  "generation_mode": "fresh generation from recovered original creation prompt; rejected sheets not inputs",
+  "generated_source_sha256": "617e2476c5e04348f81e795715a62b25aa36fd15fc2fee8855bd6226a3979bb0",
+  "generated_sheet_sha256": "617e2476c5e04348f81e795715a62b25aa36fd15fc2fee8855bd6226a3979bb0",
+  "reference_sha256": [
+    "693abb44f3703cd88901a222cc35cd0fb1ab5f86ff012d5dc8b616580e2dfc52",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "reference_roles": [
+    "Original 128px character identity reference",
+    "First approved Nia animation STYLE reference only"
+  ],
+  "original_prompt_file": "original-prompt.txt",
+  "generation_record": "generation.json",
+  "original_prompt_sha256": "fb5161aaf240169fcc6d57c915cb11ceec5fe301d7f8145469f03faa798a4060",
+  "original_prompt_origin": "41ab261",
+  "ground_alignment": "per-frame",
+  "foot_anchors": {
+    "8": [
+      100,
+      1017
+    ]
+  },
+  "frame_layout": "fixed-grid",
+  "frame_gutter": 24,
+  "normalization_required": false,
+  "game_integrated": false,
+  "generation_history": [
+    {
+      "prompt": "Use case: style-transfer. Create ONE transparent 4-column by 3-row sprite atlas containing EXACTLY 12 equal square cells, read left to right then top to bottom. Input 1 is the character identity reference: preserve their distinct face, eye shape, hair, default costume and weapon. Input 2 is the approved Nia ultimate sprite-atlas STYLE reference ONLY; never give this person Nia's face. Match thick cute chibi pixel art: large head, short limbs, crisp square pixel clusters, dark contour, restrained cel shading, readable eyes and small mouth. A real 12-frame motion animation, 8fps/1.5 seconds. Full body each cell, same body scale, pivot and foot baseline; generous transparent margin; all effects stay strictly inside their own cell. Frame 1 resting pose, frame 12 return to same resting pose. Actual different limb, torso, weapon poses throughout, never a frozen body with only effects swapped. 3/4 front facing right, character occupies middle 55% of cell, no camera movement, no text, no numbers, no grid, no scenery, no background or extra generic enemies. Keep face unobscured. Darko, gray teal spiky hair, round glasses, black gray clothes and bat from identity. Official R grabs, drags and slams the captured target into the ground. Without drawing an opponent, animate open grabbing hand reaching right, fist clenching around an abstract tiny violet VF knot, low dragging run with torso forward and bat swept behind, hauling arm upward, violent overhead downward throw, kneeling slam with gold-gray ground impact ring, recoil, stand and reset. Not a bat swing alone: emphasize grabbing and dragging then downward slam. Eyes behind glasses remain readable. Frame actions 1-12: 준비; 손 뻗기; 붙잡기; 끌고 가기; 이동 가속; 팔 들어올리기; 내리꽂기 준비; 지면에 내리꽂기; 충격; 반동; 일어서기; 준비 복귀.\n\nIdentity errata for this fresh generation: the first prompt mistakenly says glasses. Darko has NO glasses at any time; do not copy the accidental round glasses in the tiny identity sprite. Keep his asymmetrical spiky gray-teal hair, narrow reddish visible eye and sly small smile. His original outfit is a dark gray-teal patterned long coat with broad tan-gray geometric trims, navy open shirt, gold chains/coins and gray sneakers. His consistent weapon is a dark shaft with a flat oval silver metal striking head, not a plain wooden bat. Use teal and gold accents for the grab-drag-slam effects. Keep every other original prompt style, layout and motion instruction above unchanged. Match the original approved Nia pixel-art reference for the drawing language; do not redesign the scene or use newer animation sheets.",
+      "generation": {
+        "id": "darko",
+        "original_prompt_git_commit": "41ab261d3e12c6d8079292a03b73000750afcc53",
+        "original_prompt_git_path": "ArtSource/AnimationPrototypes/Subjects/darko/prompt.txt",
+        "original_prompt_git_blob": "6098688fbbce6ddeec19bb9794f640a0efe6ae62",
+        "original_prompt_sha256": "fb5161aaf240169fcc6d57c915cb11ceec5fe301d7f8145469f03faa798a4060",
+        "original_prompt_preserved_verbatim_as_prefix": true,
+        "prompt_file": "prompt.txt",
+        "operation": "fresh generate using original first-pass prompt plus minimal identity errata, no rejected animation edit",
+        "reference_paths": [
+          "C:\\Users\\azxar\\BlackTheSurvival\\Assets\\Resources\\Lumia\\PortraitsReference\\darko.png",
+          "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Nia\\nia-ultimate-atlas.png"
+        ],
+        "reference_roles": [
+          "original first-pass subject identity sprite; errata override accidental reference glasses and preserve authentic identity",
+          "original approved Nia ultimate animation style only"
+        ],
+        "reference_sha256": [
+          "693abb44f3703cd88901a222cc35cd0fb1ab5f86ff012d5dc8b616580e2dfc52",
+          "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+        ],
+        "tool": "built-in image_gen.imagegen",
+        "game_integrated": false,
+        "generated_source_path": "C:/Users/azxar/.codex/generated_images/01a136b7-e9d9-74d3-8e73-aec5aae34bb6/exec-883de406-00d2-4e4c-9dc7-c9f700ee309b.png",
+        "generated_source_sha256": "617e2476c5e04348f81e795715a62b25aa36fd15fc2fee8855bd6226a3979bb0",
+        "output_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\OriginalPrompt4_20261014\\darko\\generated-sheet.png",
+        "output_sha256": "617e2476c5e04348f81e795715a62b25aa36fd15fc2fee8855bd6226a3979bb0",
+        "width": 1448,
+        "height": 1086,
+        "mode": "RGBA",
+        "grid": {
+          "columns": 4,
+          "rows": 3,
+          "frame_count": 12
+        },
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "prompt_sha256": "c968415cf7057aca56ad41512a82508a46e55080f8de83ef02dc696e9a9a9015",
+        "transparent_background": true,
+        "visual_review": {
+          "method": "direct view_image original identity sprite, original Nia atlas, official full-body check and generated sheet; PIL read-only alpha inspection",
+          "twelve_poses": true,
+          "style": "returned to the original Nia outline/shading/large-eyed chibi style using exact first-pass prompt plus only identity errata; no recent atlas, ratio-master or edit pass input",
+          "identity_checks": [
+            "No glasses in any pose; gray-teal spiky fringe, reddish visible eye, small sly smile, geometric gold-tan coat markings and gold neck metal.",
+            "Hand reach, grab teal knot, low forward drag, arm raised, down-slam, recoil and reset. Weapon remains on shoulder rather than replacing the R with a bat attack."
+          ],
+          "limitations": "Raw generation groups are 4x3 but source gutters are not perfectly uniform. Root must partition/pad/translate without resampling and check final playback. Some extremely faint alpha fringe remains in outer transparent margins; no alpha>=64 content touches any outer sheet edge."
+        },
+        "visible_outer_edge_pixels_alpha_ge64": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "raw_partition_recommendation": {
+          "row_cuts": [
+            0,
+            362,
+            734,
+            1086
+          ],
+          "column_cuts_by_row": [
+            [
+              0,
+              335,
+              720,
+              1068,
+              1448
+            ],
+            [
+              0,
+              386,
+              716,
+              1077,
+              1448
+            ],
+            [
+              0,
+              383,
+              725,
+              1067,
+              1448
+            ]
+          ]
+        },
+        "raw_partition_note": "Read-only alpha projection valley recommendations; some extremely faint fringe pixels may fall on valleys but no alpha>=64 visible content crosses these cuts. Full RGBA raw source must remain unchanged; use integer translation and padding only."
+      }
+    }
+  ],
+  "official_reference_file": "official-reference.png",
+  "official_reference_sha256": "d50d5b64e36286d3f1fbdc2c76ad0f0ab79a02cb43d05ff8a53ed1d43edd03d0",
+  "official_reference_source": "https://cdn.playeternalreturn.com/2024%2F06%2F04%2F1717464670952-Full_Darko_00.png",
+  "style_references": [
+    {
+      "path": "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png",
+      "role": "Original approved drawing style",
+      "sha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+    }
+  ],
+  "atlas_sha256": "6d3116325e85b4d4d3de7342c978e131c9989ab7f25c8a28a69e8ab6bc32d093",
+  "width": 1880,
+  "height": 1410,
+  "generated_source_file": "generated-sheet.png",
+  "normalization": "normalization.json",
+  "alignment_ignore_frames": [
+    7
+  ],
+  "alignment_reference_notes": {
+    "7": "Feet fully hidden by impact; preserve shared row motion. Impact-ground alignment exception, not a jump or a claimed shoe measurement",
+    "8": "Visible left shoe sole; lower pool excluded from foot measurement"
+  }
 }

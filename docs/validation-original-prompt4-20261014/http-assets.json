@@ -1,0 +1,153 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:61624/index.html?revision=original-prompt4-20261014-final#martina",
+  "index_sha256": "8394f63b8660ba2c825d21f8582e97bb88e21b1d4d92148c3d35a66e1fb13023",
+  "subjects": 91,
+  "assets_checked": 24,
+  "assets": [
+    {
+      "id": "martina",
+      "file": "atlas.png",
+      "bytes": 2221167,
+      "sha256": "37231bf44fd0d3e8447cb45a7b0ef4fbd6a77032bc77e798f6614164c6411a10"
+    },
+    {
+      "id": "martina",
+      "file": "generated-sheet.png",
+      "bytes": 1561940,
+      "sha256": "18025e9944c3832c58c4eac922f912c127e3f5df0a6279bf60f0ce790f8a63a7"
+    },
+    {
+      "id": "martina",
+      "file": "preview.gif",
+      "bytes": 496043,
+      "sha256": "f692f4d6b9c9475f695106f4b0f2cb5a2bec40c3a0dcf637c8cc5547e1d05cc6"
+    },
+    {
+      "id": "martina",
+      "file": "preview.webp",
+      "bytes": 1176174,
+      "sha256": "cee863c9c13bfee9f3fbdf7496f4fac83f5ba4c31b8003c30cbbdfe0e1e8aadf"
+    },
+    {
+      "id": "martina",
+      "file": "original-prompt.txt",
+      "bytes": 1949,
+      "sha256": "81d857dcfb23f6a8bfcc925195db8bd9386013ab63f91af947b642dd02d3202f"
+    },
+    {
+      "id": "martina",
+      "file": "prompt.txt",
+      "bytes": 2990,
+      "sha256": "ad230e7dab4e05593eef4b234e3b31d4ba22a94a1e9667701f525d277348ee7a"
+    },
+    {
+      "id": "tia",
+      "file": "atlas.png",
+      "bytes": 2481450,
+      "sha256": "ec240d954d0d9ee2712363ec70d5b49433fa933c95a6f60d666045f6465bd58a"
+    },
+    {
+      "id": "tia",
+      "file": "generated-sheet.png",
+      "bytes": 1786949,
+      "sha256": "29a40848c42260faf63a71f2c68a45df19c192dd086907c7e63034ff644e2f1a"
+    },
+    {
+      "id": "tia",
+      "file": "preview.gif",
+      "bytes": 561533,
+      "sha256": "9717dcb6a3217343dd6c7d59377ad612971e5537633cd7ea487b3dbc9833f6a2"
+    },
+    {
+      "id": "tia",
+      "file": "preview.webp",
+      "bytes": 1397142,
+      "sha256": "2536caacc0e4507597b2cf75ab72778e53567f8f3fe6a206732c95a9f853f27a"
+    },
+    {
+      "id": "tia",
+      "file": "original-prompt.txt",
+      "bytes": 2229,
+      "sha256": "0b45599fb7e36e64b54f3b86fa14d55f9f2c769c33557973f7872e85d444fabb"
+    },
+    {
+      "id": "tia",
+      "file": "prompt.txt",
+      "bytes": 2742,
+      "sha256": "9f64fa6b3e11279952dcf72e8ae7c4dc0e8c887573f38804ed2025815cfe64f9"
+    },
+    {
+      "id": "darko",
+      "file": "atlas.png",
+      "bytes": 2394189,
+      "sha256": "6d3116325e85b4d4d3de7342c978e131c9989ab7f25c8a28a69e8ab6bc32d093"
+    },
+    {
+      "id": "darko",
+      "file": "generated-sheet.png",
+      "bytes": 1814220,
+      "sha256": "617e2476c5e04348f81e795715a62b25aa36fd15fc2fee8855bd6226a3979bb0"
+    },
+    {
+      "id": "darko",
+      "file": "preview.gif",
+      "bytes": 543174,
+      "sha256": "5913ebf7dd38a6262d40c3fd1a133ea98967545537e24673faf3d9aa8be5496c"
+    },
+    {
+      "id": "darko",
+      "file": "preview.webp",
+      "bytes": 1328792,
+      "sha256": "a18bd0489c0d70ecf6074a064a2a4c79bb95fd227d37a37c5bad149d038950ef"
+    },
+    {
+      "id": "darko",
+      "file": "original-prompt.txt",
+      "bytes": 1859,
+      "sha256": "fb5161aaf240169fcc6d57c915cb11ceec5fe301d7f8145469f03faa798a4060"
+    },
+    {
+      "id": "darko",
+      "file": "prompt.txt",
+      "bytes": 2681,
+      "sha256": "c968415cf7057aca56ad41512a82508a46e55080f8de83ef02dc696e9a9a9015"
+    },
+    {
+      "id": "nadine",
+      "file": "atlas.png",
+      "bytes": 2102599,
+      "sha256": "e8c32086da8b4b50134abf7fc767ef4655877dee015027795e4ac9796ca7f196"
+    },
+    {
+      "id": "nadine",
+      "file": "generated-sheet.png",
+      "bytes": 1562119,
+      "sha256": "ff794b88fe4a4b19dd78fd008514cdc8b7b55ee52044838825b23d0c8d37433e"
+    },
+    {
+      "id": "nadine",
+      "file": "preview.gif",
+      "bytes": 510272,
+      "sha256": "4124289fabb7370d4dfba0ec2bbc948cd14e83af29125dbee48e52d6012eb43f"
+    },
+    {
+      "id": "nadine",
+      "file": "preview.webp",
+      "bytes": 1214792,
+      "sha256": "c533177126dfd94faa506f6e825a8845ede62bbc7117e5efd082a58b7d1be82f"
+    },
+    {
+      "id": "nadine",
+      "file": "original-prompt.txt",
+      "bytes": 1759,
+      "sha256": "91225d1e218f92ab7612c1d8005aef712ef85cfa56963fbf79efaee0f9e18f94"
+    },
+    {
+      "id": "nadine",
+      "file": "prompt.txt",
+      "bytes": 2634,
+      "sha256": "4e58e89b2b265e1de6221f45f95819ca3cb972112e9b63f110dea2ab2128c73d"
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:61624/index.html?revision=polish5-20261014-final#garnet",
+  "index_sha256": "e274bccb6e45158514e121332afd741e50f32a3cc3895690b2fdc89d43239630",
+  "subjects": 91,
+  "assets_checked": 25,
+  "assets": [
+    {
+      "id": "garnet",
+      "file": "atlas.png",
+      "bytes": 2633199,
+      "sha256": "fecf3f7e0cc22557a0b2fcbbbe025d729972ff5642a8e7998958bc437fd1bd05",
+      "http_status": 200
+    },
+    {
+      "id": "garnet",
+      "file": "generated-sheet.png",
+      "bytes": 2606592,
+      "sha256": "054380e30212e9b41e9d87936844b6bcc9b5a95303d0f671ad66380c694938d1",
+      "http_status": 200
+    },
+    {
+      "id": "garnet",
+      "file": "preview.gif",
+      "bytes": 639181,
+      "sha256": "5fdfcdc901270a0cedc632d44b12b791523a5b10bc2c7716d00fd084f2a25fcd",
+      "http_status": 200
+    },
+    {
+      "id": "garnet",
+      "file": "preview.webp",
+      "bytes": 1438382,
+      "sha256": "ce0d0c660fda63e2cc62e9aa72e6a4db2efdbf1b2756810101f7755d981ad1c2",
+      "http_status": 200
+    },
+    {
+      "id": "garnet",
+      "file": "official-reference.png",
+      "bytes": 2662761,
+      "sha256": "0291538ed27b372241e374d9b806f5afb79bfa61716554db95602cc43d50a476",
+      "http_status": 200
+    },
+    {
+      "id": "darko",
+      "file": "atlas.png",
+      "bytes": 1188051,
+      "sha256": "0640d249c70c7aef16a59fe541314600d8cf55cc80922586b73276bbcc5780f6",
+      "http_status": 200
+    },
+    {
+      "id": "darko",
+      "file": "generated-sheet.png",
+      "bytes": 987964,
+      "sha256": "b631c0d1ac29ab01fbd969bedbd001602ab6dec113a1044a3745d81df18996c3",
+      "http_status": 200
+    },
+    {
+      "id": "darko",
+      "file": "preview.gif",
+      "bytes": 313315,
+      "sha256": "687c1182bd375c309ee6715f703a08f7c686de82c0b0bb8d2e960dcf07322f6d",
+      "http_status": 200
+    },
+    {
+      "id": "darko",
+      "file": "preview.webp",
+      "bytes": 695776,
+      "sha256": "da22c203ec9bd23779789d7696a2e456ddbaad2075c69bd9fd6371271f32a3f4",
+      "http_status": 200
+    },
+    {
+      "id": "darko",
+      "file": "official-reference.png",
+      "bytes": 3378709,
+      "sha256": "d50d5b64e36286d3f1fbdc2c76ad0f0ab79a02cb43d05ff8a53ed1d43edd03d0",
+      "http_status": 200
+    },
+    {
+      "id": "martina",
+      "file": "atlas.png",
+      "bytes": 2988424,
+      "sha256": "280a2c9a51bb2e7a7b2eb456559144385b8479fd0699b4fd3da92768b617814d",
+      "http_status": 200
+    },
+    {
+      "id": "martina",
+      "file": "generated-sheet.png",
+      "bytes": 1915554,
+      "sha256": "a8de99557f5b519505dc56ad695e54a39ed16d2e34396e5f2d1bfb0d8a961f54",
+      "http_status": 200
+    },
+    {
+      "id": "martina",
+      "file": "preview.gif",
+      "bytes": 396219,
+      "sha256": "48fcc808c3858548249f32324766dedc77800d65218710dafff3fbb6eba6c64e",
+      "http_status": 200
+    },
+    {
+      "id": "martina",
+      "file": "preview.webp",
+      "bytes": 879682,
+      "sha256": "f378318072ee1dbe5890f18e1840575612b12b40f0443bfea51a71fce0249a80",
+      "http_status": 200
+    },
+    {
+      "id": "martina",
+      "file": "official-reference.png",
+      "bytes": 1236518,
+      "sha256": "8815a6dd36ad3a0bb2785d5b77fd54b06562678abf5c6cf15982d69a6142eda1",
+      "http_status": 200
+    },
+    {
+      "id": "nadine",
+      "file": "atlas.png",
+      "bytes": 1971214,
+      "sha256": "199594da694e1e63bc252879335c5bd9fac5dd42d50868a398d51ca3517ba469",
+      "http_status": 200
+    },
+    {
+      "id": "nadine",
+      "file": "generated-sheet.png",
+      "bytes": 1460539,
+      "sha256": "8b35c783b140b18dc8e6eb41f26f44c1543509a4cf0a6b766c8eb5fd7924e3ac",
+      "http_status": 200
+    },
+    {
+      "id": "nadine",
+      "file": "preview.gif",
+      "bytes": 559260,
+      "sha256": "ebfbc528be6deeb015bc39a455fb590d77ed7ff7a95071f0e335878aef5352d9",
+      "http_status": 200
+    },
+    {
+      "id": "nadine",
+      "file": "preview.webp",
+      "bytes": 1120776,
+      "sha256": "37e93fdd06582f0f852053c89386ed23a611b6decbfd61e3011332dec8e4898b",
+      "http_status": 200
+    },
+    {
+      "id": "nadine",
+      "file": "official-reference.png",
+      "bytes": 1028625,
+      "sha256": "cffcc438a26eff85345cb159ece24df564179a5c0f2e8117436f990718717cf2",
+      "http_status": 200
+    },
+    {
+      "id": "tia",
+      "file": "atlas.png",
+      "bytes": 2404231,
+      "sha256": "f838320431640cb807fa33a91855c357300a905a79bc2e7065f88a8532df4c95",
+      "http_status": 200
+    },
+    {
+      "id": "tia",
+      "file": "generated-sheet.png",
+      "bytes": 1667322,
+      "sha256": "85ec1e0d410abf0011e0b0fcde6274b3f561346c45db46c47b3d6f1155c6f10b",
+      "http_status": 200
+    },
+    {
+      "id": "tia",
+      "file": "preview.gif",
+      "bytes": 590577,
+      "sha256": "f56e55aacd06b60e60301b9a05887ec6446007c1fedce1c44bcfb44658555cda",
+      "http_status": 200
+    },
+    {
+      "id": "tia",
+      "file": "preview.webp",
+      "bytes": 1296964,
+      "sha256": "a832827f0cf4098bb285472b963a0cda83c25acd2668f6c9e3ee28dcf6d5ddb6",
+      "http_status": 200
+    },
+    {
+      "id": "tia",
+      "file": "official-reference.png",
+      "bytes": 1241174,
+      "sha256": "be8583bf11a9cac1e3885558fa249cfcc6ef954bed45e466844120db03a1c42e",
+      "http_status": 200
+    }
+  ]
+}

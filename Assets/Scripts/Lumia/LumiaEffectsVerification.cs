@@ -236,7 +236,7 @@ namespace Lumia
     public sealed partial class LumiaGame
     {
         string effectsVerificationState;
-        bool EffectsVerificationEnabled => Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-effects-verify") >= 0;
+        bool EffectsVerificationEnabled => Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-effects-verify") >= 0 || UltimateVerificationEnabled);
 
         public void GuardEffectsVerification()
         {
@@ -271,6 +271,7 @@ namespace Lumia
             combat.hand = new List<string> { "nia_q", "nia_w", "aya_e", "basic_attack", "basic_guard" };
             displayedTurn = combat.turn;
             nextEnemyActionAt = float.MaxValue; nextPlayerActionAt = 0;
+            SyncCombatPresentation();
             effects.Clear(); Engine.CombatActions.Clear();
             CaptureEffectsVerificationState();
         }
@@ -308,7 +309,7 @@ namespace Lumia
                     LumiaEffectsVerification.Require(offset == Vector2.zero, card.id + ": an actor must start and finish at its original position.");
                 if (progress == .15f)
                     LumiaEffectsVerification.Require(effects.Casting, card.id + ": direct use must retain its brief card reveal.");
-                if (progress >= .8f)
+                if (progress >= .8f && UltimateAnimations.For(card) == null)
                     LumiaEffectsVerification.Require(!effects.Casting, card.id + ": the card reveal must release input before the effect finishes.");
             }
             effects.Clear(); effects.Add(action, true); effects.FreezeForVerification(.3f);

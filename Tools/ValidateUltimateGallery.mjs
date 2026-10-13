@@ -1,6 +1,7 @@
 /** Read-only browser verification of the standalone animation catalogue.
  * Run: node Tools/ValidateUltimateGallery.mjs
  * --allow-incomplete is a preparation smoke check, never a final pass.
+ * --evidence-dir Temp/example writes reports/screenshots to another folder.
  */
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
@@ -13,7 +14,9 @@ const require = createRequire(import.meta.url);
 const { chromium } = require('C:/Users/azxar/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const gallery = path.join(root, 'ArtSource/AnimationPrototypes/index.html');
-const evidence = path.join(root, 'docs/validation-ultimate-collection');
+const evidenceArg = process.argv.indexOf('--evidence-dir');
+assert(evidenceArg === -1 || (process.argv[evidenceArg + 1] && !process.argv[evidenceArg + 1].startsWith('--')), '--evidence-dir requires a directory path');
+const evidence = evidenceArg === -1 ? path.join(root, 'docs/validation-ultimate-collection') : path.resolve(root, process.argv[evidenceArg + 1]);
 const allowIncomplete = process.argv.includes('--allow-incomplete');
 const html = await fs.readFile(gallery, 'utf8');
 const htmlSha256 = createHash('sha256').update(html).digest('hex');
@@ -61,8 +64,8 @@ try {
     assert.equal(new URL(page.url()).hash, `#${item.id}`);
     for (const key of ['gif', 'webp', 'atlas']) {
       const link = await page.locator(`#${key}`).getAttribute('href');
-      assert.equal(link, item[key], `${item.id}: ${key} link`);
-      assert((await fs.stat(path.resolve(path.dirname(gallery), link))).isFile(), `${item.id}: ${key} file exists`);
+      assert.equal(link.split('?')[0], item[key], `${item.id}: ${key} link`);
+      assert((await fs.stat(path.resolve(path.dirname(gallery), link.split('?')[0]))).isFile(), `${item.id}: ${key} file exists`);
     }
     const loaded = await page.evaluate(async item => {
       const img = new Image();
@@ -72,6 +75,39 @@ try {
     }, item);
     assert.deepEqual([loaded.width, loaded.height], item.atlas_size, `${item.id}: actual background atlas dimensions`);
     assert(loaded.background.includes(item.atlas.replaceAll(' ', '%20')), `${item.id}: background atlas is selected`);
+    const referenceHidden = await page.locator('#reference-block').getAttribute('hidden');
+    assert.equal(referenceHidden === null, Boolean(item.original), `${item.id}: original reference visibility`);
+    if (item.original) {
+      const reference = await page.evaluate(async () => {
+        const img = document.querySelector('#original-reference');
+        await img.decode();
+        return { width: img.naturalWidth, height: img.naturalHeight, src: img.getAttribute('src') };
+      });
+      assert.deepEqual([reference.width, reference.height], [128, 128], `${item.id}: original reference remains 128px`);
+      assert.equal(reference.src.split('?')[0], item.original, `${item.id}: correct original reference`);
+    }
+    const officialHidden = await page.locator('#official-reference-block').getAttribute('hidden');
+    assert.equal(officialHidden === null, Boolean(item.official), `${item.id}: official illustration visibility`);
+    if (item.official) {
+      const official = await page.evaluate(async () => {
+        const img = document.querySelector('#official-reference');
+        await img.decode();
+        return { width: img.naturalWidth, height: img.naturalHeight, src: img.getAttribute('src') };
+      });
+      assert(official.width > 0 && official.height > 0, `${item.id}: official illustration loads`);
+      assert.equal(official.src.split('?')[0], item.official, `${item.id}: correct official illustration`);
+    }
+    const styleHidden = await page.locator('#style-reference-block').getAttribute('hidden');
+    assert.equal(styleHidden === null, Boolean(item.style_ref), `${item.id}: Nia style reference visibility`);
+    if (item.style_ref) {
+      const styleReference = await page.evaluate(async () => {
+        const img = document.querySelector('#style-reference');
+        await img.decode();
+        return { width: img.naturalWidth, height: img.naturalHeight, src: img.getAttribute('src') };
+      });
+      assert.deepEqual([styleReference.width, styleReference.height], [362, 362], `${item.id}: approved Nia reference dimensions`);
+      assert.equal(styleReference.src.split('?')[0], item.style_ref, `${item.id}: approved Nia style selected`);
+    }
     return loaded;
   }
 
@@ -167,11 +203,11 @@ try {
   record('play, pause, and 0.5x / 1x / 1.5x playback controls');
 
   await chooseSubject(nia);
-  await page.locator('details > summary').click();
+  await page.locator('#full-sheet > summary').click();
   await page.locator('#sheet').scrollIntoViewIfNeeded();
   await page.waitForFunction(() => document.querySelector('#sheet').complete && document.querySelector('#sheet').naturalWidth > 0);
-  assert.equal(await page.locator('details').getAttribute('open'), '');
-  await page.locator('details > summary').click();
+  assert.equal(await page.locator('#full-sheet').getAttribute('open'), '');
+  await page.locator('#full-sheet > summary').click();
   record('expandable 12-frame original atlas loads');
 
   async function capture(id, filename, frameIndex = 0) {

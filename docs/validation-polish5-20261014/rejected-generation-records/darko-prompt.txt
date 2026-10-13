@@ -1,0 +1,7 @@
+Precise local edit of Image 1, the existing 12-frame 4 by 3 Darko sprite sheet. Image 2 is costume material reference only. Preserve the same sheet dimensions, every pose and expression, chibi ratio, silhouette, body and foot position, gray dummy positions, weapon positions and direction, teal/gold effects and transparent gutters. NO redesign or motion changes.
+
+Change ONLY INTERNAL PIXEL DETAILS in the current hair and costume, a modest upgrade with substantially crisper pixel craft:
+- Keep gray-teal hair color, size, silhouette and locks. Add several discrete 4–6px square/stair-step HIGHLIGHT CLUSTERS and darker shadow CLUSTERS inside the existing locks to separate the spiky planes. Use 4 or 5 solid colors, NO blended gradients, soft texture, thin painted strands, dithering or antialiasing.
+- Keep coat, shirt, trousers and accessories exactly the current shapes. Sharpen coat's rectangular taupe patterned trim into clearer stepped motifs; add compact 3–5px square fold/light planes on the navy fabric, a few silver chain and gold coin reflection blocks and cuff/lapel fold accents.
+- Keep the existing face and red eye untouched, no glasses. Keep weapon and effects unchanged.
+Visible main pixel size, black outline, two-head style and all motions must remain the approved image 1 style. No smoothing or painterly rendering. No new effects, garments, accessories, text, grids, cell borders or background. Genuine transparency. Preserve every frame as the same original action and spacing, completely within its separate cell.

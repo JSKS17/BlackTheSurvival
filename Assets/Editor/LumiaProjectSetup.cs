@@ -58,6 +58,7 @@ namespace Lumia.Editor
         public static void BuildWindows()
         {
             ConfigurePixelAssets();
+            UltimateAnimationAssetValidation.Validate();
             Directory.CreateDirectory("Build/Windows");
             PlayerSettings.productName = GameIdentity.ProductName;
             PlayerSettings.companyName = GameIdentity.CompanyName;

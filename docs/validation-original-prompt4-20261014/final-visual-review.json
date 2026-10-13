@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "reviewer": "root agent directly viewed real HTTP stage screenshots for all4, plus action/effect frames",
+  "subjects": [
+    "martina",
+    "tia",
+    "darko",
+    "nadine"
+  ],
+  "reference": "Original approved Nia atlas and original128px identity sprites; discarded edited atlases not used",
+  "darko_final_alignment": {
+    "frame8_source_sole": [
+      100,
+      1017
+    ],
+    "frame7_foot_occluded_exception": true
+  },
+  "latest_gallery_html_matches_full_browser_validation": true
+}

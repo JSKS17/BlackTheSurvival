@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:61624/index.html?revision=nia-style-20261014-final#bihyung",
+  "browser": "154.0.8037.98",
+  "subjects": 91,
+  "styleReferenceLoaded": true,
+  "no_accumulated_frame_effects": [
+    {
+      "id": "aya",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "bihyung",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "darko",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "echion",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "elena",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "garnet",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "irem",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "isol",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "jackie",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "martina",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "nadine",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "sissela",
+      "frame1_matches_fresh_after_frame8": true
+    },
+    {
+      "id": "tia",
+      "frame1_matches_fresh_after_frame8": true
+    }
+  ],
+  "bihyung_stages": [
+    "ready",
+    "jump",
+    "airborne-giant",
+    "landing"
+  ],
+  "echion_mouth_screenshot": "echion-mouth.png"
+}

@@ -1,0 +1,196 @@
+{
+  "id": "tia",
+  "tool": "built-in image_gen.imagegen",
+  "intent": "precise-object-edit",
+  "prompt": "Use case: precise-object-edit.\nInput image 1 is the EDIT TARGET, an already finished 1448x1086 transparent 12-frame Tia ultimate sprite sheet. This is ONLY an effect-width/gutter correction, not a redraw of the characters. Maintain the canvas 1448x1086 and the 4 columns by 3 rows.\nAbsolutely preserve every existing Tia character in all twelve frames: exact two-head proportions, head size, face, facial expressions, hair outline and shading, clothes and trims, pose silhouette, crouch depth, hands and existing physical brush orientation. Preserve the current coarse square-pixel drawing style, shading colors and overall design. Keep frames 1-4 and 9-12 visually identical. Keep all twelve action beats and the last-row RGB droplets shrinking and disappearing exactly as shown.\nThe ONLY changes are to the RED/YELLOW/BLUE RAINBOW PAINT EFFECTS behind the four characters in the MIDDLE ROW (frames 5,6,7,8). These effects currently touch adjacent frame scenes, causing frame slicing problems. Make these rainbow effects horizontally more COMPACT, about 75-80 percent of their current width, curling behind their own corresponding Tia rather than extending toward the neighbor. Preserve each effect's same arc, sweep or spiral phase, same red/yellow/blue order, same chunky paint-square clusters, same height and motion intention. Shorten the horizontal reach of each rainbow stroke and pull every floating paint square inward toward its own effect. Do not remove whole effects or replace them with new effects.\nPrecise middle-row placement constraints in the 1448-pixel-wide canvas: frame 5's complete rainbow effect and every paint square must end at or before x=375. Frame 6's entire scene begins at or after x=400, and its effect ends at or before x=710. Frame 7's entire scene begins at or after x=740 and ends at or before x=1070. Frame 8's entire scene begins at or after x=1100 and its effects end by x=1428. The vertical separator strips x=376 through399, x=711 through739, and x=1071 through1099 across the whole middle row must be completely empty alpha-zero transparency. No bright paint, shadow, hair, brush, semitransparent glow, antialiased fringe or stray particles in those strips. Do not solve this by drawing black/colored bars or obvious cut edges; naturally compact the rainbow shapes while leaving the already correct characters untouched.\nKeep at least 20 clear transparent pixels at all outside canvas edges; preserve the already corrected frame4 giant golden brush entirely inside the right edge. Use genuine RGBA transparency everywhere in the background. No grid lines, labels, numbers, text, watermark, opaque floor or checkerboard. The final result must look like the same exact animation with slightly more compact middle-row paint arcs and cleanly separated frame gutters.\n",
+  "prompt_file": "effect-gap-correction-prompt.txt",
+  "input_paths": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Subjects\\tia\\generated-sheet.png"
+  ],
+  "input_roles": [
+    "edit target: current approved chibi2 sprite sheet"
+  ],
+  "input_sha256": [
+    "fd72e06aeb3a8ce08c5e9b8c2d66d928977f7409ccacc8fc87082b3eddfc721c"
+  ],
+  "generated_source_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-abff-7671-9b45-4d61bf00a882\\exec-7bb851b1-59db-42f8-ade3-51aa18d359f5.png",
+  "generated_source_sha256": "85ec1e0d410abf0011e0b0fcde6274b3f561346c45db46c47b3d6f1155c6f10b",
+  "output_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014\\tia\\generated-sheet.png",
+  "output_sha256": "85ec1e0d410abf0011e0b0fcde6274b3f561346c45db46c47b3d6f1155c6f10b",
+  "width": 1448,
+  "height": 1086,
+  "mode": "RGBA",
+  "grid": {
+    "columns": 4,
+    "rows": 3,
+    "frame_count": 12
+  },
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "review": {
+    "scope": "Existing exact sprite-sheet edit. Larger head, shorter body/legs and coarser stepped pixel shading only; original gestures, brush and rainbow progression maintained.",
+    "visual_checks": [
+      "Rest-frame head-to-body proportions are visibly more compact and closer to 2 heads than input.",
+      "Original warm-brown hair/bun/gold ribbon, amber eyes, coat/bow/white socks/strapped shoes kept.",
+      "Corresponding brush pose gestures and rainbow effect order unchanged; crouched sweep frames remain crouched rather than airborne.",
+      "Red/yellow/blue droplets remain in right-hand region in frames 9/10/11 and decrease in size; absent in frame 12.",
+      "Additional narrow safety edit: frame4 giant gold brush brought inside right outside edge, frame5 crouching scene moved a little right. All 12 original action gestures, compact proportions and paint/droplet progression retained.",
+      "Final narrow correction: only middle-row rainbow effect widths made compact; all 12 character poses, proportions, faces, costumes and physical brushes remain the same. The four original arc/stroke/spiral/splash phases remain readable and the last-row droplets still shrink and vanish."
+    ],
+    "limitations": "Head/body ratio is an artistic approximation rather than a rigid measured grid. Root normalization/animated browser review required.",
+    "source_edge_final": {
+      "left": {
+        "max_alpha": 1,
+        "alpha_ge64": 0,
+        "alpha_ge160": 0
+      },
+      "right": {
+        "max_alpha": 0,
+        "alpha_ge64": 0,
+        "alpha_ge160": 0
+      },
+      "top": {
+        "max_alpha": 0,
+        "alpha_ge64": 0,
+        "alpha_ge160": 0
+      },
+      "bottom": {
+        "max_alpha": 1,
+        "alpha_ge64": 0,
+        "alpha_ge160": 0
+      }
+    },
+    "middle_row_separator_samples": [
+      {
+        "x": 369,
+        "band": [
+          368,
+          380,
+          370,
+          724
+        ],
+        "alpha_ge64": 0,
+        "alpha_ge160": 0,
+        "max_alpha": 53
+      },
+      {
+        "x": 724,
+        "band": [
+          723,
+          380,
+          725,
+          724
+        ],
+        "alpha_ge64": 0,
+        "alpha_ge160": 0,
+        "max_alpha": 2
+      },
+      {
+        "x": 1068,
+        "band": [
+          1067,
+          380,
+          1069,
+          724
+        ],
+        "alpha_ge64": 0,
+        "alpha_ge160": 0,
+        "max_alpha": 24
+      }
+    ]
+  },
+  "game_integrated": false,
+  "raw_partition_note": "Source changed after final middle-effect width edit; rerun shared-cut normalization. Outside canvas edges have no visible alpha>=64 pixels. Middle-row2px vertical bands x369,724,1068 all have zero alpha>=64 pixels. Some tool alpha1 fringe is retained as generated.",
+  "generation_history": [
+    {
+      "tool": "built-in image_gen.imagegen",
+      "intent": "precise-object-edit",
+      "prompt": "Use case: precise-object-edit.\nAsset type: existing 12-frame transparent pixel-art ultimate animation sprite sheet, 4 columns by 3 rows.\nInput image 1 is the EDIT TARGET. Make a controlled proportions-and-pixel-density adjustment to this exact existing Tia animation. Retain the same drawing style, warm light-brown hair and hair-bun spiral, gold ribbon, amber eyes, restrained original facial expressions, artist coat, white blouse, gold bow, shorts, white socks, strapped brown/gold shoes, oversized brush, colors, hair highlight direction, all rainbow paint effects, exact frame order, twelve pose gestures, facing and attack timing. No redesign or new animation. The whole image should remain recognizably the same animation.\nChange ONLY her proportions to clearly TWO HEADS TALL in every frame: the full head from top of skull to chin should take about half the standing body height from top of skull to shoe soles. Enlarge her existing head by about 20-25 percent while shortening the existing torso and legs enough to give a clearly compact chibi body; keep the same facial design, hair silhouette, eyes, mouth, and clothes. Keep her overall standing sprite height similar to the input and all grounded shoe soles at the same baseline within each row. Maintain the exact corresponding arm/hand/brush action directions and the original posing; shorten limb lengths without changing which limb moves or inventing action. The fifth and eighth frames are still crouched sweep poses, not jumps. The first/rest frames should clearly demonstrate the larger-head shorter-body TWO-HEAD ratio, not 2.5 or 3 heads tall.\nAdjust pixel density to slightly coarser, clearly visible square pixel clusters consistent with the same coarse game sprite style: broad angular hair highlight planes with 3-4 warm tones, sharp stepped dark contour, readable square eyes and tiny mouth, solid small rectangular clothing highlights. Remove fine antialiased/airbrushed edge noise, not the clothing's defining gold trim or fold shadows. Pixel blocks should be larger and more legible, not densely detailed or smooth. Preserve the existing hair contrast and recognizable costume.\nKeep the current giant-brush summon in frame 4 and the same rainbow arc/stroke progression in frames 5-8. Keep the three red/yellow/blue droplets in the same right-hand region in frame 9, shrinking smoothly through frames 10 and 11 and fully absent in frame 12. Do not add disconnected final splashes. Keep brush shape and colored tip identity, avoid mirrored hands or weapon flips.\nComposition locked: exactly 4 equal columns and 3 equal rows, twelve complete distinct nonoverlapping frames, ample transparent gutters around every sprite/effect with no cross-cell trails. No labels, borders, numbers, or text. Genuine RGBA transparent background, no painted checkerboard, contact shadows or floor. Everything except the requested compact proportions and coarser pixel-size rendering is invariant.\n",
+      "prompt_file": "edit-prompt.txt",
+      "input_paths": [
+        "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\Subjects\\tia\\generated-sheet.png"
+      ],
+      "input_roles": [
+        "edit target: current approved chibi2 sprite sheet"
+      ],
+      "input_sha256": [
+        "fd72e06aeb3a8ce08c5e9b8c2d66d928977f7409ccacc8fc87082b3eddfc721c"
+      ],
+      "generated_source_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-abff-7671-9b45-4d61bf00a882\\exec-25ee2303-c715-4209-9cfe-64d309affe17.png",
+      "generated_source_sha256": "4bb7df1e6350b23e1ead74399bf47aee686632c5693d80f2ad94a4cb74ad7ee0",
+      "output_sha256": "4bb7df1e6350b23e1ead74399bf47aee686632c5693d80f2ad94a4cb74ad7ee0",
+      "review": {
+        "scope": "Existing exact sprite-sheet edit. Larger head, shorter body/legs and coarser stepped pixel shading only; original gestures, brush and rainbow progression maintained.",
+        "visual_checks": [
+          "Rest-frame head-to-body proportions are visibly more compact and closer to 2 heads than input.",
+          "Original warm-brown hair/bun/gold ribbon, amber eyes, coat/bow/white socks/strapped shoes kept.",
+          "Corresponding brush pose gestures and rainbow effect order unchanged; crouched sweep frames remain crouched rather than airborne.",
+          "Red/yellow/blue droplets remain in right-hand region in frames 9/10/11 and decrease in size; absent in frame 12.",
+          "Additional narrow safety edit: frame4 giant gold brush brought inside right outside edge, frame5 crouching scene moved a little right. All 12 original action gestures, compact proportions and paint/droplet progression retained."
+        ],
+        "limitations": "Head/body ratio is an artistic approximation rather than a rigid measured grid. Root normalization/animated browser review required.",
+        "source_edge_final": {
+          "left": {
+            "max_alpha": 2,
+            "alpha_ge64": 0,
+            "alpha_ge160": 0
+          },
+          "right": {
+            "max_alpha": 0,
+            "alpha_ge64": 0,
+            "alpha_ge160": 0
+          },
+          "top": {
+            "max_alpha": 0,
+            "alpha_ge64": 0,
+            "alpha_ge160": 0
+          },
+          "bottom": {
+            "max_alpha": 1,
+            "alpha_ge64": 0,
+            "alpha_ge160": 0
+          }
+        }
+      },
+      "kind": "proportion-and-pixel-density-edit"
+    },
+    {
+      "kind": "source-outside-edge-safety-only",
+      "tool": "built-in image_gen.imagegen",
+      "prompt": "Use case: precise-object-edit.\nInput image 1 is the EDIT TARGET: the already finished 12-frame Tia sprite sheet. This is ONLY a tiny canvas-edge safety correction. Preserve the exact current character drawing, two-head proportions, current large pixel clusters, head/eyes/mouth expressions, hair/costume colors and shading, all 12 corresponding poses, brush angles, rainbow shapes, attack order and frame timing. No redesign, no new motion, no extra detail pass, no changes to framing of the ten unaffected frames.\nChange ONLY these two frame-local placements:\n1. Frame 4, TOP ROW RIGHTMOST: its summoned giant golden paintbrush is currently touching the image's right outside edge. Move that giant golden brush a little to the LEFT, approximately 24 screen pixels, and make its width about 8 percent narrower if needed, preserving the exact brush pose and golden squares. The whole brush, glowing outer silhouette and gold effect particles must have at least 20 pixels of genuinely transparent margin before the right outside edge. Keep Tia herself, her ordinary held brush and the rest of frame 4 unchanged. Do not alter the giant brush's vertical position or its identity.\n2. Frame 5, MIDDLE ROW LEFTMOST: move the existing entire crouching Tia-and-rainbow scene slightly to the RIGHT, approximately 12 screen pixels, so the leftmost hair/coat contour and all faint edge pixels have at least 20 pixels of truly transparent margin from the image's left outside edge. Keep every pose angle and the rainbow stroke unchanged. Keep a small transparent gap before frame 6's scene; do not merge the adjacent frames.\nAll other ten frames must remain visually identical to the edit target. In particular retain the larger head/short compact body that was just approved. Keep frame 9's red/yellow/blue droplets in the same region and shrinking through frames 10/11, absent in frame 12. Keep the existing 4-column by 3-row arrangement and image canvas shape, with no labels, grid lines, text or watermark. The background must remain true RGBA transparency. Do not invent opaque background, checkerboard or floor. Keep sharp square-pixel edges, not smooth resampling, antialiasing or blur.\n",
+      "prompt_file": "margin-correction-prompt.txt",
+      "input_paths": [
+        "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014\\tia\\generated-sheet.png"
+      ],
+      "input_sha256": [
+        "4bb7df1e6350b23e1ead74399bf47aee686632c5693d80f2ad94a4cb74ad7ee0"
+      ],
+      "input_snapshot_source": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-abff-7671-9b45-4d61bf00a882\\exec-25ee2303-c715-4209-9cfe-64d309affe17.png",
+      "generated_source_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-abff-7671-9b45-4d61bf00a882\\exec-8a85253d-086c-47e1-974e-6e7679a93f4b.png",
+      "generated_source_sha256": "2630557a926cc5f3d4bb3d745e87c5023a4d72c7758393e311b36a5fde421584"
+    },
+    {
+      "kind": "middle-rainbow-effect-width-and-gutter-only",
+      "tool": "built-in image_gen.imagegen",
+      "prompt": "Use case: precise-object-edit.\nInput image 1 is the EDIT TARGET, an already finished 1448x1086 transparent 12-frame Tia ultimate sprite sheet. This is ONLY an effect-width/gutter correction, not a redraw of the characters. Maintain the canvas 1448x1086 and the 4 columns by 3 rows.\nAbsolutely preserve every existing Tia character in all twelve frames: exact two-head proportions, head size, face, facial expressions, hair outline and shading, clothes and trims, pose silhouette, crouch depth, hands and existing physical brush orientation. Preserve the current coarse square-pixel drawing style, shading colors and overall design. Keep frames 1-4 and 9-12 visually identical. Keep all twelve action beats and the last-row RGB droplets shrinking and disappearing exactly as shown.\nThe ONLY changes are to the RED/YELLOW/BLUE RAINBOW PAINT EFFECTS behind the four characters in the MIDDLE ROW (frames 5,6,7,8). These effects currently touch adjacent frame scenes, causing frame slicing problems. Make these rainbow effects horizontally more COMPACT, about 75-80 percent of their current width, curling behind their own corresponding Tia rather than extending toward the neighbor. Preserve each effect's same arc, sweep or spiral phase, same red/yellow/blue order, same chunky paint-square clusters, same height and motion intention. Shorten the horizontal reach of each rainbow stroke and pull every floating paint square inward toward its own effect. Do not remove whole effects or replace them with new effects.\nPrecise middle-row placement constraints in the 1448-pixel-wide canvas: frame 5's complete rainbow effect and every paint square must end at or before x=375. Frame 6's entire scene begins at or after x=400, and its effect ends at or before x=710. Frame 7's entire scene begins at or after x=740 and ends at or before x=1070. Frame 8's entire scene begins at or after x=1100 and its effects end by x=1428. The vertical separator strips x=376 through399, x=711 through739, and x=1071 through1099 across the whole middle row must be completely empty alpha-zero transparency. No bright paint, shadow, hair, brush, semitransparent glow, antialiased fringe or stray particles in those strips. Do not solve this by drawing black/colored bars or obvious cut edges; naturally compact the rainbow shapes while leaving the already correct characters untouched.\nKeep at least 20 clear transparent pixels at all outside canvas edges; preserve the already corrected frame4 giant golden brush entirely inside the right edge. Use genuine RGBA transparency everywhere in the background. No grid lines, labels, numbers, text, watermark, opaque floor or checkerboard. The final result must look like the same exact animation with slightly more compact middle-row paint arcs and cleanly separated frame gutters.\n",
+      "prompt_file": "effect-gap-correction-prompt.txt",
+      "input_paths": [
+        "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\Polish5_20261014\\tia\\generated-sheet.png"
+      ],
+      "input_sha256": [
+        "2630557a926cc5f3d4bb3d745e87c5023a4d72c7758393e311b36a5fde421584"
+      ],
+      "input_snapshot_source": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-abff-7671-9b45-4d61bf00a882\\exec-8a85253d-086c-47e1-974e-6e7679a93f4b.png",
+      "generated_source_path": "C:\\Users\\azxar\\.codex\\generated_images\\01a136a0-abff-7671-9b45-4d61bf00a882\\exec-7bb851b1-59db-42f8-ade3-51aa18d359f5.png",
+      "generated_source_sha256": "85ec1e0d410abf0011e0b0fcde6274b3f561346c45db46c47b3d6f1155c6f10b"
+    }
+  ]
+}

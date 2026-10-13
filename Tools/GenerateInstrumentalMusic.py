@@ -2,7 +2,7 @@
 
 These are new compositions, not Eternal Return MR files or vocal-separated OST.
 NumPy renders the written score; FFmpeg encodes the shipped Ogg Vorbis files.
-Install imageio-ffmpeg==0.6.0 (a local Temp/AudioTools install also works).
+Use Tools/.runtime/ffmpeg.exe, FFmpeg on PATH, or imageio-ffmpeg==0.6.0.
 There are no sampled instruments, speech models, or external audio recordings.
 """
 from __future__ import annotations
@@ -12,14 +12,12 @@ import json
 import math
 from pathlib import Path
 import subprocess
-import sys
 import uuid
 
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "Temp/AudioTools"))
-import imageio_ffmpeg
+from MediaRuntime import ffmpeg_path
 
 SR = 32000
 OUTPUT = ROOT / "Assets/Resources/Lumia/Audio/Music"
@@ -368,7 +366,7 @@ def main():
         score, title, scenes, arrangement = compose()
         samples = score.finish()
         path = OUTPUT / (identity + ".ogg")
-        ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
+        ffmpeg = str(ffmpeg_path())
         encoded = subprocess.run([ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", "pipe:0",
                                   "-fflags", "+bitexact", "-flags:a", "+bitexact", "-map_metadata", "-1", "-c:a", "libvorbis", "-q:a", "5", str(path)],
                                  input=samples.astype("<f4").tobytes(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -394,7 +392,7 @@ def main():
                      alteration="New written score rendered with deterministic DSP instruments. No existing recording, vocal separation, voice model, or music sample is used.",
                      durationSeconds=round(len(decoded) / SR, 6), sampleRate=SR, channels=2, tempo=score.tempo, bars=score.bars,
                      peak=round(peak, 8), rms=round(rms, 8), dcOffset=round(float(np.mean(decoded)), 9), loopBoundaryJump=round(float(np.max(np.abs(decoded[0] - decoded[-1]))), 9),
-                     encoder="imageio-ffmpeg " + imageio_ffmpeg.__version__ + "; FFmpeg libvorbis quality 5; bitexact encoding and metadata stripped",
+                     encoder=Path(ffmpeg).name + "; FFmpeg libvorbis quality 5; bitexact encoding and metadata stripped",
                      bytes=len(data), sha256=hashlib.sha256(data).hexdigest())
         records.append(entry)
         print(identity, entry["durationSeconds"], "seconds /", len(data), "bytes / peak", entry["peak"], "RMS", entry["rms"], flush=True)
