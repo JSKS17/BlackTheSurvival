@@ -92,7 +92,7 @@ namespace Lumia
             Box(new Rect(361, 551, 853, 71), Panel, complete || ready ? Gold : Line);
             string status = complete ? "보고서를 완성했습니다." : ready ? "세 연구 과제를 달성했습니다." : "세 연구 과제를 달성하면 보고서를 완성할 수 있습니다.";
             Txt(new Rect(377, 561, 556, 23), status, 14, complete || ready ? Gold : Text);
-            Txt(new Rect(377, 589, 556, 20), complete ? "다음 원정부터 일반 후보의 12%가 레어 조우로 대체됩니다." : "완성 비용: 관측 데이터 " + ResearchProgression.ReportCost + (ready && profile.data < ResearchProgression.ReportCost ? " · 데이터가 부족합니다." : " · 보고서와 레어 조우를 해금합니다."), 11, Muted);
+            Txt(new Rect(377, 589, 556, 20), complete ? "레어 후보: 1막 12% · 2막 18% · 3막 이후 25% · 막당 1회" : "완성 비용: 관측 데이터 " + ResearchProgression.ReportCost + (ready && profile.data < ResearchProgression.ReportCost ? " · 데이터가 부족합니다." : " · 보고서와 레어 조우를 해금합니다."), 11, Muted);
             if (complete)
             {
                 if (Btn(new Rect(944, 565, 253, 42), "연구 보고서 읽기", true, Gold)) researchReadReport = true;
@@ -193,7 +193,7 @@ namespace Lumia
         {
             get
             {
-                if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") < 0
+                if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") < 0 && !RareV2VerificationEnabled
                     || Path.GetFileName(savePath) != "lumia-verification.json")
                     throw new InvalidOperationException("Research verification must use isolated run and profile slots.");
                 return Path.Combine(Application.persistentDataPath, "bts-research-verification.json");
@@ -210,7 +210,7 @@ namespace Lumia
             researchSaveError = "";
         }
 
-        ResearchProfile ResearchVerificationProfile(int data = 30, bool ready = false, bool completed = false)
+        ResearchProfile ResearchVerificationProfile(int data = 750, bool ready = false, bool completed = false)
         {
             var profile = new ResearchProfile { data = data, totalData = data, totalRuns = 4, totalWins = 1 };
             profile.subjects.Add(new ResearchSubjectProgress { subjectId = "nia", observed = true, uniqueCompleted = ready,
@@ -268,12 +268,12 @@ namespace Lumia
         public void VerificationResearchFlows()
         {
             if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") < 0) return;
-            ResetResearchVerificationProfile(new ResearchProfile());
+            ResetResearchVerificationProfile(new ResearchProfile { data = ResearchProgression.ReportCost, totalData = ResearchProgression.ReportCost });
             PrepareResearchNiaVictory(79101);
             Engine.State.stage = RunStage.Lost; Engine.State.hp = 0;
             var expected = researchStore.GetSettlement(Engine.State); string runId = Engine.State.research.runId;
             Save(); int data = researchStore.Profile.data;
-            if (data != expected.earned || data < ResearchProgression.ReportCost || researchStore.Profile.totalRuns != 1
+            if (data != ResearchProgression.ReportCost + expected.earned || data < ResearchProgression.ReportCost || researchStore.Profile.totalRuns != 1
                 || !Engine.State.research.settled || !ResearchProgression.Tasks(researchStore.Profile, "nia").All(task => task.completed))
                 throw new InvalidOperationException("Lost run must persist actual observation data and all three Nia research tasks.");
             string profileBefore = JsonUtility.ToJson(researchStore.Profile), runBefore = JsonUtility.ToJson(Engine.State); int rng = Engine.State.rngState;
@@ -290,14 +290,15 @@ namespace Lumia
             Engine = NewResearchVerificationRun(79102); string snapshot = JsonUtility.ToJson(Engine.State.research); int cost = ResearchProgression.ReportCost;
             if (!CompleteResearchReport("nia") || researchStore.Profile.data != data - cost || !researchStore.Profile.completedReports.Contains("nia")
                 || snapshot != JsonUtility.ToJson(Engine.State.research))
-                throw new InvalidOperationException("Report completion must spend twelve data without changing an ongoing run's unlock snapshot.");
+                throw new InvalidOperationException("Report completion must spend its configured data cost without changing an ongoing run's unlock snapshot.");
             if (CompleteResearchReport("nia") || researchStore.Profile.data != data - cost)
                 throw new InvalidOperationException("A completed report must not charge its data a second time.");
             PrepareResearchUnlockedEncounter(79103);
             string encounterId = Engine.CurrentEncounter.id;
+            Engine.State.credits = 1000;
             int rareCredits = Engine.State.credits;
             if (!Engine.ChooseEventOption(0) || !Engine.State.research.completedResearchEvents.Contains(encounterId)
-                || Engine.State.credits != rareCredits + RareEncounterRules.BonusCredits)
+                || Engine.State.credits != rareCredits - GameDatabase.Event(encounterId).options[0].amount || !Engine.State.deck.Any(id=>Engine.CardUpgradeLevel(id)==2))
                 throw new InvalidOperationException("Choosing an unlocked research encounter option must persist its completion.");
             ResetResearchVerificationProfile(new ResearchProfile()); Engine = NewResearchVerificationRun(79104);
             for (int act = 1; act <= 3; act++) CompleteBossPathsBattle(act, 1);
@@ -311,7 +312,7 @@ namespace Lumia
             VerificationResearchLegacyJson();
             VerificationResearchPending();
             research = false; lobby = true; researchReadReport = false; researchSaveError = ""; toastUntil = 0;
-            Debug.Log("BTS RESEARCH FLOW PASS / subjects=91 / actualTasks=3 / loss=PASS / escape=PASS / duplicateReload=PASS / reportCost=12 / snapshot=PASS / encounter=PASS / legacy=PASS / isolatedSave=PASS / readOnly=PASS / pending=PASS");
+            Debug.Log("BTS RESEARCH FLOW PASS / subjects=91 / actualTasks=3 / loss=PASS / escape=PASS / duplicateReload=PASS / reportCost=" + ResearchProgression.ReportCost + " / snapshot=PASS / encounter=PASS / legacy=PASS / isolatedSave=PASS / readOnly=PASS / pending=PASS");
         }
 
         // Unity can serialize a null plain class as a default object. Removing the
@@ -510,8 +511,8 @@ namespace Lumia
                 if (encounter == null || encounter.options.Length != 3) throw new InvalidOperationException("Rare scene is missing: " + character.id);
                 foreach (var option in encounter.options)
                 {
-                    if (option.bonusCredits != RareEncounterRules.BonusCredits || !EventPresentation.RewardSummary(option).Contains("크레딧 30"))
-                        throw new InvalidOperationException("Rare scene bonus or description is missing: " + encounter.id);
+                    if (option.bonusCredits != 0 || string.IsNullOrEmpty(EventPresentation.RewardSummary(option)))
+                        throw new InvalidOperationException("Rare scene reward or description is missing: " + encounter.id);
                     choices++;
                 }
             }
@@ -525,7 +526,7 @@ namespace Lumia
         {
             researchQuery = ""; researchSubject = "nia"; researchListScroll = researchEndingScroll = Vector2.zero; researchReadReport = false; toastUntil = 0;
             ResetResearchVerificationProfile(view == "research_empty" || view == "research_lobby" ? new ResearchProfile()
-                : ResearchVerificationProfile(view == "research_insufficient" ? 5 : 30, view != "research_progress", view == "research_completed" || view == "research_report" || view == "research_encounter"));
+                : ResearchVerificationProfile(view == "research_insufficient" ? ResearchProgression.ReportCost - 1 : ResearchProgression.ReportCost + 250, view != "research_progress", view == "research_completed" || view == "research_report" || view == "research_encounter"));
             lobby = true; research = view != "research_lobby";
             if (view == "research_report") researchReadReport = true;
             if (view == "research_ending_lost")

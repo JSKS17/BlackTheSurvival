@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "previousRelease": "v1.0.5",
+  "publicReleaseAndAssetsVerified": true,
+  "freeBeforeBytes": 2262347776,
+  "freeAfterBytes": 3119087616,
+  "removed": [
+    "Build/Windows",
+    "Build/BlackTheSurvival-v1.0.5-Windows-x64.zip"
+  ]
+}

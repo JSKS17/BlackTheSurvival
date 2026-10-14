@@ -1,0 +1,9 @@
+{
+  "path": "Temp/UnityBuildVerification/Library/PlayerDataCache/Win642",
+  "freeBeforeBytes": 422199296,
+  "bytes": 918390904.0,
+  "scope": "Completed development-player cache; release uses separate cache",
+  "freeAfterBytes": 1802432512,
+  "passed": true,
+  "runtimeResourcesUnchanged": true
+}

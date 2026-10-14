@@ -1,4 +1,4 @@
-param([string]$UnityEditor = 'C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor', [switch]$Release, [switch]$DisableBurst)
+param([string]$UnityEditor = 'C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor', [switch]$Release, [switch]$DisableBurst, [switch]$LowMemory)
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $verificationRoot = [IO.Path]::GetFullPath((Join-Path $projectRoot 'Temp/UnityBuildVerification'))
@@ -13,6 +13,17 @@ $logPath = Join-Path $projectRoot 'Temp/LumiaBuild.log'
 $unityArgs = @('-batchmode', '-nographics', '-projectPath', ('"' + $verificationRoot + '"'), '-executeMethod', 'Lumia.Editor.LumiaProjectSetup.BuildWindows', '-logFile', ('"' + $logPath + '"'))
 if (-not $Release) { $unityArgs += '-lumia-development' }
 if ($DisableBurst) { $unityArgs += '--burst-disable-compilation' }
+if ($LowMemory) {
+    $userSettings = Join-Path $verificationRoot 'UserSettings/EditorUserSettings.asset'
+    if (Test-Path -LiteralPath $userSettings) {
+        $settings = [IO.File]::ReadAllText($userSettings)
+        $settings = [regex]::Replace($settings, 'm_DesiredImportWorkerCount: \d+', 'm_DesiredImportWorkerCount: 1')
+        $settings = [regex]::Replace($settings, 'm_StandbyImportWorkerCount: \d+', 'm_StandbyImportWorkerCount: 0')
+        $settings = [regex]::Replace($settings, 'm_IdleImportWorkerShutdownDelay: \d+', 'm_IdleImportWorkerShutdownDelay: 1000')
+        [IO.File]::WriteAllText($userSettings, $settings)
+    }
+    $unityArgs += @('-job-worker-count', '1')
+}
 $process = Start-Process -FilePath (Join-Path $UnityEditor 'Unity.exe') -ArgumentList $unityArgs -WindowStyle Hidden -PassThru
 Write-Output ('Build process: ' + $process.Id)
 Write-Output ('Build log: ' + $logPath)

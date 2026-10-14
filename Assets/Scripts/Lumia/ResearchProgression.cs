@@ -59,7 +59,7 @@ namespace Lumia
     // are changed by this module. Permanent progress is merged only after a terminal run.
     public static class ResearchProgression
     {
-        public const int ReportCost = 12;
+        public const int ReportCost = 500;
         sealed class Experiment
         {
             public string subjectId, kind, description;
@@ -306,7 +306,7 @@ namespace Lumia
         {
             var character = GameDatabase.Character(subjectId); if (character == null) return null;
             return new ResearchSubjectDef { subjectId = subjectId, title = character.name + " 연구 보고서", reportText = ResearchEncounters.ReportText(subjectId) + "\n관측과 기술 활용, 고유 실험을 기록했습니다. " + ExperimentFor(subjectId).description,
-                unlockText = "‘" + RareSkinCatalog.NameForSubject(subjectId) + "’ 레어 조우를 해금합니다. 새 원정에서 이 실험체의 일반 조우 후보가 " + GameEngine.RareOfferChance + "% 확률로 대체되며, 한 원정에서 한 번만 완료할 수 있습니다.", tasks = Tasks(null, subjectId) };
+                unlockText = "‘" + RareSkinCatalog.NameForSubject(subjectId) + "’ 레어 조우를 해금합니다. 다음 원정부터 일반 후보가 1막 12%, 2막 18%, 3막 이후 25% 확률로 대체됩니다. 막마다 레어 후보는 한 번만 등장하며, 각 실험체의 레어 조우는 원정마다 한 번씩 완료할 수 있습니다.", tasks = Tasks(null, subjectId) };
         }
         public static ResearchTaskView[] Tasks(ResearchProfile profile, string subjectId)
         {

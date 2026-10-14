@@ -1,0 +1,9 @@
+{
+  "method": "Windows transparent LZX compression",
+  "files": 875,
+  "scope": "Temporary Library/Artifacts only",
+  "freeAfterBytes": 1035591680,
+  "freeBeforeBytes": 1306398720,
+  "passed": true,
+  "unchangedSha256Samples": 20
+}

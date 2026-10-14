@@ -1,0 +1,186 @@
+{
+  "schema": 1,
+  "version": "1.0.6",
+  "result": "PASS",
+  "reviewer": "card_upgrade_ui",
+  "method": "Direct view_image visual inspection of the actual native 1280x720 captures.",
+  "reviewedScreens": [
+    {
+      "file": "native-ui/rare_v2_before.png",
+      "sha256": "1c969208fd6138fcbc09ca50a0d6f5f7654eff5581dd4507630d85e7b3fd4e16",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_during.png",
+      "sha256": "fe9d9991866d7f7355bd291245aec304ba1ef4a25050ccd3ecf7023737a880ae",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_after.png",
+      "sha256": "eeac2797577e34669cc61fab5e499ef03f3ff25f9cc80193d4f89efc870ffc32",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_reveal_reloaded.png",
+      "sha256": "eeac2797577e34669cc61fab5e499ef03f3ff25f9cc80193d4f89efc870ffc32",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_copy_selected.png",
+      "sha256": "d51209fc5c3de0bb6386eeb4be1eeb2f6d81edcb1fcc6ec89eb666e0f7034508",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_runes.png",
+      "sha256": "521f62a4d457ca9a9e86e4f7ac710f7f6b23fb802d2ddb883e90f8bcae72d372",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_runes_scroll.png",
+      "sha256": "9038bb42191e8b9d71d97a9be727296713a72f6eded78a6f2f5a9cd2a084eacf",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_passive_swap.png",
+      "sha256": "1c33095067bdf6725031569e70399f40bb4fb5542bf677011075604aca2fc284",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_research_500.png",
+      "sha256": "4e96c827484cccd4ea443268367f285d270d71cb06b96dd691d10f53d116f85b",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_research_insufficient.png",
+      "sha256": "a483bddebbfaf59efebfb060eb31def334662cee09d3ddf38baaa202c34be11e",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_skip.png",
+      "sha256": "39c1c37ed3aca046298544ae5143bfd8cee41a2a6089a5fd7a483da5f7bc93ff",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_copy_confirmed.png",
+      "sha256": "351a6b55b5e3fdd65e8728394bef998c11dbe9ca9df170e6dd69a46a0a6bdcc0",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_hand.png",
+      "sha256": "1fae884cc7d49f6ef9427985fcd6094a35f5fd37a0c4301ab7ed420d6c27d88a",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_purchase_detail.png",
+      "sha256": "45ea6bf276dd770a7a8760d50d3d9162ecd845cf2f355c73a3a8d8321cbae7a4",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_remove_selected.png",
+      "sha256": "c9c80569a2a7f8b3e39a53d274512032cc63a85bdb44522771b83a37e75a6bba",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_inventory.png",
+      "sha256": "3159929b553b6ce547e774036823e1309240de34dbe4f33adf74d67d865b18b0",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    },
+    {
+      "file": "native-ui/rare_v2_detail.png",
+      "sha256": "b7a0a546bb13ca1ec197faad48cb4aba73e4fcfa50f243b1f029b0741ad1fd4d",
+      "width": 1280,
+      "height": 720,
+      "result": "PASS"
+    }
+  ],
+  "checks": [
+    {
+      "criterion": "Rare conversion has ordinary, pixel transition, final skin and persisted final states.",
+      "result": "PASS"
+    },
+    {
+      "criterion": "Only the purchased copy has a purple ++ name, border and footer badge; normal duplicates retain ordinary damage.",
+      "result": "PASS"
+    },
+    {
+      "criterion": "Purchase preview and owned detail show the same ++ values and distinguish preview from ownership.",
+      "result": "PASS"
+    },
+    {
+      "criterion": "Card preview body, classification footer and upgrade badge remain readable without overlap.",
+      "result": "PASS"
+    },
+    {
+      "criterion": "Copy/removal identify separate deck indices and selection limits; copied normal cards remain normal.",
+      "result": "PASS"
+    },
+    {
+      "criterion": "Rune inventory scroll exposes main, support and additional support entries and detail controls.",
+      "result": "PASS"
+    },
+    {
+      "criterion": "Existing passive replacement screen presents the three owned passives and the incoming rare reward.",
+      "result": "PASS"
+    },
+    {
+      "criterion": "Research completion costs 500 and is enabled at 500, disabled at 499 with an explicit insufficient-data message.",
+      "result": "PASS"
+    },
+    {
+      "criterion": "The no-reward exit remains visible and separate when every rare reward is unavailable.",
+      "result": "PASS"
+    }
+  ],
+  "blockingIssues": [],
+  "nonBlockingNotes": [
+    {
+      "screen": "native-ui/rare_v2_passive_swap.png",
+      "severity": "low",
+      "detail": "The existing shared passive-choice subtitle still describes absorbing a boss record even when the passive comes from a rare encounter; selection and layout remain correct."
+    }
+  ],
+  "expectedScrolling": "Long full descriptions, ordinary encounter narratives, rune summaries and multi-row decks use visible scroll controls; cropped offscreen content remains reachable.",
+  "sourceCodeChanged": false,
+  "postReviewFixes": [
+    {
+      "screen": "native-ui/rare_v2_passive_swap.png",
+      "resolved": true,
+      "change": "Changed only the shared subtitle to describe learning a subject passive, covering both boss and rare rewards.",
+      "finalSource": "Assets/Scripts/Lumia/LumiaGame.cs",
+      "finalSourceSha256": "ae82821da5e21233cc34663321b8658ce9648973811e5e831b619c78b9367408",
+      "scope": "Text only after native screenshots; rules and layout unchanged. Included in the final successful release build and startup smoke."
+    }
+  ]
+}

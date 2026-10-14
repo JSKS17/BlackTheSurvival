@@ -114,8 +114,10 @@ public static partial class CoreSmokeTests
         savedBeforeSettlement.research.settlement.earned = 9999;
         var authority = ResearchProgression.CalculateReport(profile, savedBeforeSettlement);
         Check(authority.earned == 28, "persistent ledger is authoritative over a changed run receipt");
-        Check(ResearchProgression.CompleteReport(profile, "nia") && profile.data == 16 && profile.totalData == 28 && profile.completedReports.SequenceEqual(new[] { "nia" }), "report completion spends exactly twelve and unlocks only its subject");
-        Check(!ResearchProgression.CompleteReport(profile, "nia") && profile.data == 16, "completed reports cannot spend twice");
+        Check(ResearchProgression.ReportCost == 500 && !ResearchProgression.CompleteReport(profile, "nia") && profile.data == 28, "completed tasks alone cannot pay the five hundred data report cost");
+        profile.data += ResearchProgression.ReportCost; profile.totalData += ResearchProgression.ReportCost;
+        Check(ResearchProgression.CompleteReport(profile, "nia") && profile.data == 28 && profile.totalData == ResearchProgression.ReportCost + 28 && profile.completedReports.SequenceEqual(new[] { "nia" }), "report completion spends exactly five hundred and unlocks only its subject");
+        Check(!ResearchProgression.CompleteReport(profile, "nia") && profile.data == 28, "completed reports cannot spend twice");
         var sameSeed = ResearchRun(state.seed); sameSeed.stage = RunStage.Won; ResearchProgression.CompleteNode(sameSeed, 0); ResearchProgression.ObserveSubject(sameSeed, "nia");
         Check(sameSeed.research.runId != state.research.runId, "a new expedition with the same gameplay seed has a fresh settlement identity");
         var repeated = ResearchProgression.Settle(profile, sameSeed);
@@ -154,7 +156,8 @@ public static partial class CoreSmokeTests
         // History display retention must never reduce deduplication protection.
         for (int i = 0; i < 23; ++i) { var later = ResearchRun(i); later.stage = RunStage.Lost; ResearchProgression.Settle(profile, later); }
         Check(profile.history.Count == 20 && profile.settledRunIds.Count > 20 && profile.settlements.Count == profile.settledRunIds.Count, "permanent settlement ledger survives the twenty-row display limit");
-        Check(ResearchProgression.Settle(profile, (RunState)Clone(state)).earned == 28 && profile.data == 29, "old receipt remains recoverable and cannot credit again after history expiry");
+        int beforeExpiredReplay = profile.data;
+        Check(ResearchProgression.Settle(profile, (RunState)Clone(state)).earned == 28 && profile.data == beforeExpiredReplay && profile.data == 41, "old receipt remains recoverable and cannot credit again after history expiry");
         Check(state.rngState == rng, "settlement and report purchase never advance game RNG");
     }
     private static GameEngine ResearchCombat(int seed, string passive = null)

@@ -264,7 +264,7 @@ namespace Lumia
         void RecordCombatCardStart(CardDef card, bool enemy, int paidCost, bool free, string reference = null)
         {
             string upgrade=enemy ? "" : CardUpgradeLabel(reference);
-            RecordCombatInformation(new CombatLogEntry { kind = "card_start", cardId = reference ?? card.id, title = card.name + (string.IsNullOrEmpty(upgrade) ? "" : " +") + " 사용", enemy = enemy, paidCost = paidCost,
+            RecordCombatInformation(new CombatLogEntry { kind = "card_start", cardId = reference ?? card.id, title = card.name + (enemy ? "" : CardUpgradeSuffix(reference)) + " 사용", enemy = enemy, paidCost = paidCost,
                 detail = "지불 코스트 " + paidCost + (free ? " · 무료 사용권 사용" : "") + " · " + CardPresentation.ClassificationLabel(card) + (string.IsNullOrEmpty(upgrade) ? "" : " · 강화: "+upgrade) });
         }
         void RecordLegacyDebuffs(CardDef card, bool enemy, bool landed, int poisonBefore, int weakBefore, int vulnerableBefore, string reference = null)
@@ -276,7 +276,7 @@ namespace Lumia
             if (poison > poisonBefore) parts.Add("중독 " + poison);
             if (weak > weakBefore) parts.Add("약화 " + weak + "턴");
             if (vulnerable > vulnerableBefore) parts.Add("취약 " + vulnerable + "턴");
-            string marker=!enemy && !string.IsNullOrEmpty(CardUpgradeLabel(reference)) ? " +" : "";
+            string marker=enemy ? "" : CardUpgradeSuffix(reference);
             if (parts.Count > 0) RecordCombatInformation(new CombatLogEntry { kind = "debuff", cardId = reference ?? card.id, enemy = enemy, title = card.name + marker + " · 디버프 부여", detail = (enemy ? "하나" : c.enemyName) + "에게 " + string.Join(" · ", parts) });
         }
         void EmitCombatAction(CombatAction action)
@@ -288,7 +288,7 @@ namespace Lumia
             bool direct = card != null && string.IsNullOrEmpty(action.kind) && string.IsNullOrEmpty(action.traitId);
             bool status = (action.kind ?? "").StartsWith("status_", StringComparison.Ordinal);
             string identity = passive != null ? "패시브 · " + passive.name : rune != null ? "룬 · " + rune.name : gear != null ? "장비 · " + gear.name
-                : action.cardId == "status_poison" ? "중독" : (card?.name ?? "전투 효과") + (string.IsNullOrEmpty(action.upgradeLabel) ? "" : " +");
+                : action.cardId == "status_poison" ? "중독" : (card?.name ?? "전투 효과") + RareCardUpgrades.SuffixForLabel(action.upgradeLabel);
             var parts = new List<string>();
             string target = action.enemy ? "하나" : c.enemyName;
             if (action.damage > 0) parts.Add(target + " 체력 피해 " + action.damage);

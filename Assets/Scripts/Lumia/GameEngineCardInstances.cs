@@ -19,6 +19,27 @@ namespace Lumia
             return string.IsNullOrEmpty(branch) ? "" : StrategyMechanics.BranchName(CardInstances.BaseId(reference), branch);
         }
 
+        public int CardUpgradeLevel(string reference)
+        {
+            string branch = CardInstances.UpgradeBranch(State, reference);
+            return string.IsNullOrEmpty(branch) ? 0 : branch == RareCardUpgrades.BranchId ? 2 : 1;
+        }
+
+        public string CardUpgradeSuffix(string reference)
+        {
+            return RareCardUpgrades.SuffixForLabel(CardUpgradeLabel(reference));
+        }
+
+        public string AddRareRewardCard(string cardId)
+        {
+            var source = GameDatabase.Card(cardId);
+            if (source == null || source.category == "weapon") return null;
+            string reference = CardInstances.CreateReference(State, source.id);
+            State.cardUpgrades.Add(new CardUpgradeSelection { cardId = source.id, instanceId = reference, branchId = RareCardUpgrades.BranchId });
+            State.deck.Add(reference);
+            return reference;
+        }
+
         public List<int> UpgradeCardIndices()
         {
             return Enumerable.Range(0, State.deck.Count).Where(index => string.IsNullOrEmpty(CardUpgradeLabel(State.deck[index]))
@@ -44,7 +65,8 @@ namespace Lumia
 
         public bool UpgradeCard(int deckIndex, string branchId)
         {
-            if (State.stage != RunStage.Encounter || !State.cardUpgradePending || !CardUpgradeOptions(deckIndex).Any(x => x.id == branchId))
+            if (State.stage != RunStage.Encounter || !State.cardUpgradePending || State.rareRemovalPending || State.rareCopyPending
+                || !CardUpgradeOptions(deckIndex).Any(x => x.id == branchId))
                 return Fail("강화할 카드 1장과 하나의 강화 방향을 선택하세요.");
             string original = State.deck[deckIndex];
             string reference = CardInstances.CreateReference(State, original);

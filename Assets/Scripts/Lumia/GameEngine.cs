@@ -122,6 +122,12 @@ namespace Lumia
         public string draftBiasPassive;
         public bool runeChangePending;
         public bool cardUpgradePending;
+        public bool rareRemovalPending, rareCopyPending;
+        public int rareEncounterVersion;
+        public List<int> rareOfferedActs = new List<int>();
+        public string rareRevealEventId, rareRevealSourceEventId;
+        public bool rareRevealSeen;
+        public List<string> additionalSupportRunes = new List<string>();
         public int cardInstanceVersion, nextCardInstanceId = 1;
         public List<CardUpgradeSelection> cardUpgrades = new List<CardUpgradeSelection>();
         public List<int> scoutedActs = new List<int>(), hyperloopActs = new List<int>(), revealedNodeIds = new List<int>();
@@ -244,7 +250,7 @@ namespace Lumia
 
         public GameEngine(int seed, RunMode mode)
         {
-            State = new RunState { seed = seed, rngState = seed == 0 ? 1831565813 : seed, mode = RunModes.Normalize(mode), weaponGrantVersion=1, energyGrowthVersion=1, cardInstanceVersion=1 };
+            State = new RunState { seed = seed, rngState = seed == 0 ? 1831565813 : seed, mode = RunModes.Normalize(mode), weaponGrantVersion=1, energyGrowthVersion=1, cardInstanceVersion=1, rareEncounterVersion=2 };
             ResearchProgression.EnsureRun(State);
             GenerateMap();
             EnsureBossAssignments();
@@ -385,6 +391,7 @@ namespace Lumia
                 else c.boss = null;
             }
             CardInstances.NormalizeLegacy(State);
+            NormalizeRareEncounters();
             // Equipment grants synchronize between nodes; instance migration preserves existing piles.
             EnsureEndlessAugments();
             if(State.stage!=RunStage.Combat)SyncWeaponCards();
@@ -394,7 +401,7 @@ namespace Lumia
 
         public bool SetRunes(string main, string support)
         {
-            if (State.stage != RunStage.Preparation && !State.runeChangePending) return Fail("룬은 조우 이벤트에서만 변경할 수 있습니다.");
+            if (State.rareRemovalPending || State.rareCopyPending || (State.stage != RunStage.Preparation && !State.runeChangePending)) return Fail("룬은 조우 이벤트에서만 변경할 수 있습니다.");
             var m = GameDatabase.Rune(main); var s = GameDatabase.Rune(support);
             if (m == null || s == null || !m.main || s.main || m.tree != s.tree) return Fail("메인 룬과 같은 계열의 보조 룬 1개를 선택하세요.");
             State.mainRune = main; State.supportRune = support;
@@ -551,6 +558,7 @@ namespace Lumia
             State.activeNodeId = node.id; State.combat = null; State.rewards = null;
             State.pendingPassive = null; State.runeChangePending = false; State.chosenEventId = null;
             State.cardUpgradePending = false;
+            ClearRarePending();
             switch (node.kind)
             {
                 case ZoneKind.Wildlife: StartBattle(true, false); break;
@@ -570,7 +578,7 @@ namespace Lumia
         public int CardCost(string id) { var c = GameDatabase.Card(id); return c == null ? 99 : Math.Max(0, c.cost); }
         public bool SkipCardUpgrade()
         {
-            if (State.stage != RunStage.Encounter || !State.cardUpgradePending) return false;
+            if (State.stage != RunStage.Encounter || !State.cardUpgradePending || State.rareRemovalPending || State.rareCopyPending) return false;
             State.cardUpgradePending = false; Say("이번 카드 강화를 포기했습니다."); CompleteNode(); return true;
         }
         public int EffectiveCardCost(string id)
@@ -1153,26 +1161,7 @@ namespace Lumia
 
         private void RollEncounterOffers()
         {
-            State.pendingEncounterFollowups.RemoveAll(x => x == null || GameDatabase.Event(x.eventId) == null || State.completedChainEvents.Contains(x.eventId));
-            var next = NextPromisedEncounter();
-            var pendingOwners = new HashSet<string>(State.pendingEncounterFollowups.Select(x => x.owner));
-            var ordinary = GameDatabase.Events.Where(x => !x.chainOnly && !pendingOwners.Contains(x.owner)).ToList();
-            for (int i = 0; i < ordinary.Count; ++i)
-            {
-                var subject = GameDatabase.Characters.FirstOrDefault(x => x.name == ordinary[i].owner);
-                var researchEvent = ResearchEncounters.EventForSubject(subject?.id);
-                if (researchEvent != null && State.research.unlockedReports.Contains(subject.id)
-                    && !State.research.completedResearchEvents.Contains(researchEvent.id) && Roll(RareOfferChance)) ordinary[i] = researchEvent;
-            }
-            ordinary.AddRange(State.pendingEncounterFollowups.Where(x => x != next).Select(x => GameDatabase.Event(x.eventId)).Where(x => x != null));
-            bool featured = next != null && Roll(FollowupOfferChance);
-            State.encounterOffers = Offer(ordinary.Select(x => x.id), featured ? 2 : 3);
-            if (featured) { State.encounterOffers.Add(next.eventId); Shuffle(State.encounterOffers); }
-            if (next != null)
-            {
-                next.priorityNext = false;
-                State.pendingEncounterFollowups.Remove(next); State.pendingEncounterFollowups.Add(next);
-            }
+            RollRareEncounterOffers();
         }
 
         private PendingEncounterFollowup NextPromisedEncounter()
@@ -1183,11 +1172,12 @@ namespace Lumia
         public bool CanChooseEventOption(int index)
         {
             var ev=GameDatabase.Event(State.chosenEventId);
-            if(State.stage!=RunStage.Encounter || ev==null || State.runeChangePending || State.cardUpgradePending || index<0 || index>=ev.options.Length)return false;
+            if(State.stage!=RunStage.Encounter || ev==null || State.runeChangePending || State.cardUpgradePending || State.rareRemovalPending || State.rareCopyPending || index<0 || index>=ev.options.Length)return false;
             var option=ev.options[index];
             if (State.research.completedResearchEvents.Contains(ev.id)) return false;
             if (ev.chainOnly && State.completedChainEvents.Contains(ev.id)) return false;
-            int totalCreditCost = Math.Max(0, option.creditCost) + (option.effect == "trade_card" || option.effect == "trade_object" ? Math.Max(0, option.amount) : 0);
+            if (!CanChooseRareOption(option)) return false;
+            int totalCreditCost = Math.Max(0, option.creditCost) + (option.effect == "trade_card" || option.effect == "trade_object" || option.effect == "rare_trade_card" ? Math.Max(0, option.amount) : 0);
             if (totalCreditCost > State.credits || (!string.IsNullOrEmpty(option.requiredFoodId) && !State.foods.Contains(option.requiredFoodId))
                 || (!string.IsNullOrEmpty(option.requiredObjectId) && !State.objects.Contains(option.requiredObjectId))) return false;
             if (!string.IsNullOrEmpty(option.followupId) && (State.completedChainEvents.Contains(option.followupId) || State.pendingEncounterFollowups.Any(x => x.eventId == option.followupId))) return false;
@@ -1203,9 +1193,12 @@ namespace Lumia
             var ev=GameDatabase.Event(State.chosenEventId);
             if(ev==null || index<0 || index>=ev.options.Length)return "선택할 수 없는 행동입니다.";
             if (State.cardUpgradePending) return "먼저 카드 강화를 완료하거나 포기하세요.";
+            if (State.rareRemovalPending || State.rareCopyPending) return "먼저 레어 조우의 카드 선택을 완료하거나 포기하세요.";
             if (ev.chainOnly && State.completedChainEvents.Contains(ev.id)) return "이미 보상을 받은 후속 조우입니다.";
             if (State.research.completedResearchEvents.Contains(ev.id)) return "이번 원정에서 이미 마친 연구 조우입니다.";
             var option = ev.options[index];
+            string rareReason = RareOptionUnavailableReason(option);
+            if (!string.IsNullOrEmpty(rareReason)) return rareReason;
             if (option.creditCost > State.credits) return "약속에 필요한 크레딧이 부족합니다.";
             if (!string.IsNullOrEmpty(option.requiredFoodId) && !State.foods.Contains(option.requiredFoodId)) return "필요한 음식: " + (GameDatabase.Food(option.requiredFoodId)?.name ?? option.requiredFoodId);
             if (!string.IsNullOrEmpty(option.requiredObjectId) && !State.objects.Contains(option.requiredObjectId)) return "필요한 오브젝트: " + (GameDatabase.Object(option.requiredObjectId)?.name ?? option.requiredObjectId);
@@ -1223,7 +1216,7 @@ namespace Lumia
         public bool ChooseEventOption(int index)
         {
             var e = GameDatabase.Event(State.chosenEventId);
-            if (State.stage != RunStage.Encounter || e == null || State.runeChangePending || State.cardUpgradePending || index < 0 || index >= e.options.Length) return Fail("조우의 행동을 선택하세요.");
+            if (State.stage != RunStage.Encounter || e == null || State.runeChangePending || State.cardUpgradePending || State.rareRemovalPending || State.rareCopyPending || index < 0 || index >= e.options.Length) return Fail("조우의 행동을 선택하세요.");
             if(!CanChooseEventOption(index)) return Fail(EventOptionUnavailableReason(index));
             var o = e.options[index]; bool pending = false;
             if (ResearchEncounters.SubjectForEvent(e.id) != null && !State.research.completedResearchEvents.Contains(e.id))
@@ -1244,6 +1237,18 @@ namespace Lumia
             }
             switch (o.effect)
             {
+                case "rare_trade_card":
+                    State.credits -= Math.Max(0, o.amount); AddRareRewardCard(o.cardId); break;
+                case "rare_remove_cards":
+                    State.rareRemovalPending = true; return Say("제거할 카드를 최대 2장 선택하세요. 무기 카드는 제거할 수 없으며 덱에는 최소 5장을 남깁니다.");
+                case "rare_copy_cards":
+                    State.rareCopyPending = true; return Say("강화되지 않은 카드 중 원본 코스트가 1 이하인 카드 1장을 선택하세요. 같은 종류의 강화되지 않은 카드 2장을 덱에 추가합니다.");
+                case "rare_support_runes":
+                    State.additionalSupportRunes.AddRange(AvailableRareSupportRunes());
+                    PruneUnownedTraits(); RecalculateHealth(false); break;
+                case "rare_tactical":
+                    var tactics = GameDatabase.Cards.Where(card => card.category == "tactical").Select(card => card.id).Distinct().ToList();
+                    State.deck.Add(tactics[Next(tactics.Count)]); break;
                 case "heal": Heal(o.amount); break;
                 case "credits": State.credits = Math.Max(0, State.credits + o.amount); break;
                 case "damage": State.hp = Math.Max(0, State.hp - Math.Max(0, o.amount)); break;
@@ -1274,7 +1279,7 @@ namespace Lumia
 
         public bool FinishRuneChange()
         {
-            if (State.stage != RunStage.Encounter || !State.runeChangePending || string.IsNullOrEmpty(State.mainRune) || string.IsNullOrEmpty(State.supportRune)) return false;
+            if (State.stage != RunStage.Encounter || !State.runeChangePending || State.rareRemovalPending || State.rareCopyPending || string.IsNullOrEmpty(State.mainRune) || string.IsNullOrEmpty(State.supportRune)) return false;
             State.runeChangePending = false; CompleteNode(); return true;
         }
 
@@ -2101,7 +2106,7 @@ namespace Lumia
                 var passive=GameDatabase.Passive(id);
                 if(passive?.mechanics!=null) result.Add(new TraitSource {id=id,name=passive.name,owner=passive.owner,profile=passive.mechanics});
             }
-            if(!enemy) foreach(var id in new[]{State.mainRune,State.supportRune}.Distinct())
+            if(!enemy) foreach(var id in OwnedRuneIds())
             {
                 var rune=GameDatabase.Rune(id);
                 if(rune?.mechanics!=null) result.Add(new TraitSource {id=id,name=rune.name,owner=rune.name,profile=rune.mechanics});
@@ -2139,7 +2144,7 @@ namespace Lumia
         }
         private void PruneUnownedTraits()
         {
-            var owned=new HashSet<string>(State.passives.Concat(new[]{State.mainRune,State.supportRune}).Where(x=>!string.IsNullOrEmpty(x)));
+            var owned=new HashSet<string>(State.passives.Concat(OwnedRuneIds()).Where(x=>!string.IsNullOrEmpty(x)));
             foreach(var id in State.gear)owned.Add("gear:"+id);
             Action<TraitActorState> prune=actor=>
             {
@@ -2452,6 +2457,7 @@ namespace Lumia
             State.activeNodeId = -1; State.combat = null; State.stage = RunStage.Map;
             State.encounterOffers.Clear(); State.chosenEventId = null;
             State.cardUpgradePending = false;
+            ClearRarePending();
             if (node.kind == ZoneKind.Boss)
             {
                 if (State.act >= 3 && State.mode == RunMode.Endless) BeginAugmentChoice();
@@ -2494,9 +2500,7 @@ namespace Lumia
         private int Modifier(string trigger)
         {
             int sum = State.passives.Select(GameDatabase.Passive).Where(x => x != null && x.trigger == trigger && (x.mechanics==null || !x.mechanics.replaceLegacy)).Sum(x => x.amount);
-            var main = GameDatabase.Rune(State.mainRune); var support = GameDatabase.Rune(State.supportRune);
-            if (main != null && main.trigger == trigger && (main.mechanics==null || !main.mechanics.replaceLegacy)) sum += main.amount;
-            if (support != null && support.trigger == trigger && (support.mechanics==null || !support.mechanics.replaceLegacy)) sum += support.amount;
+            sum += OwnedRuneIds().Select(GameDatabase.Rune).Where(rune => rune.trigger == trigger && (rune.mechanics == null || !rune.mechanics.replaceLegacy)).Sum(rune => rune.amount);
             sum += State.gear.Select(GameDatabase.Equipment).Where(x => x != null && x.effect == trigger).Sum(x => x.amount);
             return sum;
         }

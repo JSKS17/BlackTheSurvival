@@ -61,7 +61,7 @@ namespace Lumia
             string upgrade = p.enemy ? "" : Engine.CardUpgradeLabel(p.cardId);
             Modal(new Rect(180, 76, 920, 580));
             Tex(new Rect(209, 105, 56, 56), PixelArt.SkillIcon(card.id), ScaleMode.ScaleToFit);
-            Txt(new Rect(281, 101, 779, 34), "사용 전 확인  /  " + p.name + (string.IsNullOrEmpty(upgrade) ? "" : " +"), p.name.Length > 18 ? 18 : 24, string.IsNullOrEmpty(upgrade) ? Mint : Gold);
+            Txt(new Rect(281, 101, 779, 34), "사용 전 확인  /  " + p.name + (p.enemy ? "" : Engine.CardUpgradeSuffix(p.cardId)), p.name.Length > 18 ? 18 : 24, string.IsNullOrEmpty(upgrade) ? Mint : Gold);
             Txt(new Rect(282, 142, 778, 25), card.owner + " " + card.key + " · " + p.classification + (p.enemy ? " · 상대의 현재 상태 기준" : ""), 13, Gold);
             Color available = p.canUse ? Mint : p.enemy ? Muted : Pink;
             Para(new Rect(209, 183, 851, 36), p.unavailableReason, 14, available);

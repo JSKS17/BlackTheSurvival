@@ -72,7 +72,7 @@ public static partial class CoreSmokeTests
         Check(LobbyDialogue.At(36).Contains(GameEngine.FollowupOfferChance + "%")
             && LobbyDialogue.At(38).Contains("데이터 " + ResearchProgression.ReportCost)
             && LobbyDialogue.At(40).Contains(GameEngine.RareOfferChance + "%")
-            && LobbyDialogue.At(40).Contains("크레딧 " + RareEncounterRules.BonusCredits),
+            && LobbyDialogue.At(40).Contains("18%") && LobbyDialogue.At(40).Contains("25%") && LobbyDialogue.At(40).Contains("막마다 한 번") && LobbyDialogue.At(40).Contains("++"),
             "encounter and journal tips use current probability and reward constants");
         Check(LobbyDialogue.At(44).Contains(RunModes.Name(RunMode.Normal))
             && LobbyDialogue.At(44).Contains(RunModes.Name(RunMode.Hard)) && LobbyDialogue.At(44).Contains(RunModes.Name(RunMode.Endless))

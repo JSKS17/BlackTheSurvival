@@ -44,50 +44,7 @@ public static partial class CoreSmokeTests
 
     static void RareEncounterRewards()
     {
-        Check(GameEngine.RareOfferChance == 12 && GameEngine.RareOfferChance < 35, "rare encounters have a lower rate than the previous research encounters");
-        Check(GameDatabase.Events.All(e => e.options.All(o => o.bonusCredits == 0)), "ordinary encounters do not inherit a rare bonus");
-        foreach (var story in ResearchEncounters.Events)
-        {
-            var subject = ResearchEncounters.SubjectForEvent(story.id);
-            var ordinary = GameDatabase.Events.Where(e => !e.chainOnly && e.owner == story.owner).SelectMany(e => e.options).ToArray();
-            foreach (var option in story.options)
-            {
-                Check(option.bonusCredits == RareEncounterRules.BonusCredits && option.bonusCredits > 0, "all rare choices have the explicit bonus: " + story.id);
-                Check(EventPresentation.RewardSummary(option).Contains("크레딧 30") && option.description.Contains("크레딧 30"), "rare rewards are visible in both summary and narrative: " + story.id);
-                if (option.effect == "heal") Check(option.amount >= RareEncounterRules.MinimumHealing && ordinary.Where(o => o.effect == "heal").All(o => option.amount >= o.amount + RareEncounterRules.HealingPremium), "rare healing exceeds the same subject's ordinary healing: " + story.id);
-                if (option.effect == "credits") Check(option.amount >= RareEncounterRules.MinimumCredits && ordinary.Where(o => o.effect == "credits").All(o => option.amount >= o.amount + RareEncounterRules.CreditPremium), "rare credit choices exceed ordinary credit choices: " + story.id);
-            }
-            string original = string.Join("/", story.options.Select(o => o.amount + ":" + o.bonusCredits));
-            RareEncounterRules.Configure(new[] { story });
-            Check(original == string.Join("/", story.options.Select(o => o.amount + ":" + o.bonusCredits)), "reconfiguring rare bonuses cannot compound them: " + story.id);
-            for (int choice = 0; choice < story.options.Length; choice++)
-            {
-                var engine = Ready(28400 + choice); engine.State.research.unlockedReports.Add(subject);
-                Enter(engine, ZoneKind.Encounter); engine.State.encounterOffers = new List<string> { story.id }; engine.SelectEncounter(story.id);
-                engine.State.credits = 1000;
-                var option = story.options[choice]; int before = engine.State.credits;
-                int expected = before - Math.Max(0, option.creditCost) + option.bonusCredits;
-                if (option.effect == "credits") expected += option.amount;
-                if (option.effect == "trade_card" || option.effect == "trade_object") expected -= Math.Max(0, option.amount);
-                Check(engine.ChooseEventOption(choice) && engine.State.credits == expected, "rare choice pays its bonus exactly once, including deferred choices: " + story.id + ":" + choice);
-                var reloaded = new GameEngine((RunState)Clone(engine.State));
-                Check(!reloaded.ChooseEventOption(choice) && reloaded.State.credits == expected, "save reload cannot repeat a rare bonus: " + story.id + ":" + choice);
-                if (reloaded.State.cardUpgradePending) Check(reloaded.SkipCardUpgrade() && reloaded.State.credits == expected, "declining a deferred upgrade never repeats its rare bonus");
-                if (reloaded.State.runeChangePending) Check(reloaded.FinishRuneChange() && reloaded.State.credits == expected, "finishing a deferred rune change never repeats its rare bonus");
-            }
-        }
-        foreach (var story in ResearchEncounters.Events.Where(e => e.options.Any(o => o.effect == "trade_card" || o.effect == "trade_object")))
-        {
-            int choice = Array.FindIndex(story.options, o => o.effect == "trade_card" || o.effect == "trade_object");
-            var option = story.options[choice]; int price = Math.Max(0, option.amount) + Math.Max(0, option.creditCost);
-            var engine = Ready(28500); engine.State.research.unlockedReports.Add(ResearchEncounters.SubjectForEvent(story.id)); Enter(engine, ZoneKind.Encounter);
-            engine.State.encounterOffers = new List<string> { story.id }; engine.SelectEncounter(story.id);
-            engine.State.credits = price - 1;
-            Check(!engine.CanChooseEventOption(choice) && !engine.ChooseEventOption(choice) && engine.State.credits == price - 1
-                && !engine.State.research.completedResearchEvents.Contains(story.id), "future rare bonus cannot finance a trade that is not yet affordable: " + story.id);
-            engine.State.credits = price;
-            Check(engine.ChooseEventOption(choice) && engine.State.credits == option.bonusCredits, "rare trade pays the full upfront price before receiving its bonus: " + story.id);
-        }
+        RareEncounterV2();
     }
 
     static void RareEncounterAvailability()

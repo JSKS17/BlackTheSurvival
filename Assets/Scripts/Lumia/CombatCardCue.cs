@@ -39,7 +39,7 @@ namespace Lumia
                     Rect ribbon = new Rect(476, 226, 328, 78); Panel(ribbon, primary, .98f);
                     Texture(new Rect(ribbon.x + 12, ribbon.y + 13, 50, 50), PixelArt.SkillIcon(card.id), 1);
                     Text(new Rect(ribbon.x + 75, ribbon.y + 8, 240, 22), action.enemy ? "상대의 카드 사용" : "하나의 카드 사용", caption, 11, side);
-                    Text(new Rect(ribbon.x + 75, ribbon.y + 31, 240, 39), card.name + (string.IsNullOrEmpty(action.upgradeLabel) ? "" : " +"), title, 17, Color.white);
+                    Text(new Rect(ribbon.x + 75, ribbon.y + 31, 240, 39), card.name + RareCardUpgrades.SuffixForLabel(action.upgradeLabel), title, 17, Color.white);
                     return;
                 }
                 float arrive = EaseOut(Mathf.Clamp01(elapsed / .075f)), settle = EaseOut(Mathf.Clamp01((elapsed - .075f) / .075f));
@@ -59,7 +59,7 @@ namespace Lumia
                 Frame(new Rect(icon.x - 5, icon.y - 5, icon.width + 10, icon.height + 10), Alpha(primary, alpha), 2);
                 Texture(icon, PixelArt.SkillIcon(card.id), alpha);
                 Text(new Rect(rect.x + 10 * scale, rect.y + 146 * scale, rect.width - 20 * scale, 43 * scale),
-                    card.name + (string.IsNullOrEmpty(action.upgradeLabel) ? "" : " +"), title, Mathf.RoundToInt(17 * scale), new Color(.92f, .96f, .97f, alpha));
+                    card.name + RareCardUpgrades.SuffixForLabel(action.upgradeLabel), title, Mathf.RoundToInt(17 * scale), new Color(.92f, .96f, .97f, alpha));
                 Fill(new Rect(rect.x + 10 * scale, rect.yMax - 32 * scale, rect.width - 20 * scale, 2), Alpha(primary, alpha * .8f));
                 Text(new Rect(rect.x + 10 * scale, rect.yMax - 27 * scale, rect.width - 20 * scale, 20 * scale),
                     action.enemy ? "상대  ·  카드 사용" : string.IsNullOrEmpty(action.upgradeLabel) ? "하나  ·  카드 사용" : "강화  ·  "+action.upgradeLabel, caption, Mathf.RoundToInt(11 * scale), Alpha(side, alpha));
@@ -99,13 +99,14 @@ namespace Lumia
             {
                 string key = card.key == "ATK" ? "기본 공격" : card.key == "DEF" ? "방어" : card.key;
                 string owner = (card.owner ?? "") + " / " + key;
+                string longestName = card.name + " ++";
                 foreach (float scale in new[] { .72f, 1f, 1.10f })
                 {
-                    if (source.font) source.font.RequestCharactersInTexture(owner + card.name, Mathf.RoundToInt(17 * scale), FontStyle.Normal);
+                    if (source.font) source.font.RequestCharactersInTexture(owner + longestName, Mathf.RoundToInt(17 * scale), FontStyle.Normal);
                     Fit(heading, owner, Mathf.RoundToInt(12 * scale), 158 * scale, 23 * scale);
-                    Fit(title, card.name, Mathf.RoundToInt(17 * scale), 158 * scale, 43 * scale);
+                    Fit(title, longestName, Mathf.RoundToInt(17 * scale), 158 * scale, 43 * scale);
                     if (heading.CalcSize(new GUIContent(owner)).x > 158 * scale + .1f
-                        || title.CalcHeight(new GUIContent(card.name), 158 * scale) > 43 * scale + .1f)
+                        || title.CalcHeight(new GUIContent(longestName), 158 * scale) > 43 * scale + .1f)
                         throw new InvalidOperationException("Card reveal text exceeds native layout: " + card.id);
                     measurements += 2;
                 }

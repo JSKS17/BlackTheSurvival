@@ -48,7 +48,7 @@ namespace Lumia
 
         public static string BranchName(string cardId, string branchId)
         {
-            return branchId == "power" || branchId == "legacy" ? "출력 강화" : branchId == "efficiency" ? "코스트 절약"
+            return branchId == RareCardUpgrades.BranchId ? "레어 강화" : branchId == "power" || branchId == "legacy" ? "출력 강화" : branchId == "efficiency" ? "코스트 절약"
                 : branchId == "arcade" ? cardId == "nia_q" ? "블록 증설" : "블록 연산 강화" : "강화";
         }
 
@@ -93,6 +93,7 @@ namespace Lumia
 
         public static CardDef Apply(CardDef source, string branch)
         {
+            if (branch == RareCardUpgrades.BranchId) return RareCardUpgrades.Apply(source);
             var card = Copy(source);
             if (card == null) return null;
             if (branch == "efficiency") card.cost = Math.Max(1, card.cost - 1);

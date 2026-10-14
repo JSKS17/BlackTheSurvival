@@ -4,7 +4,7 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 정식 버전은 [v1.0.5](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.5)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 정식 버전은 [v1.0.6](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.6)에 있습니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
 - 완성된 Windows 빌드가 있으면 `Build/Windows/BlackTheSurvival.exe`를 실행하세요. 같은 폴더의 `BlackTheSurvival_Data`, `MonoBleedingEdge`, `UnityPlayer.dll`도 함께 있어야 합니다.
@@ -33,9 +33,9 @@
 
 ## 원정 사이에 남는 연구 기록
 
-승리·패배 후 완료한 구역과 전투, 보스 처치·공략, 탈출, 새로운 관측·과제·교차 연계를 **관측 데이터**로 정산합니다. 로비의 **연구 기록**에서 91명의 관측·Q/W/E/R 기술 연구·고유 실험 진척을 확인합니다. 과제 세 개를 달성하고 데이터 12로 보고서를 완성하면 실험체별 **레어 조우**를 해금합니다. 레어 조우는 다음 원정부터 등장하며 기존 약속 후속 조우의 우선권을 유지합니다. 시작 준비 단계의 선택은 늘어나지 않습니다.
+승리·패배 후 완료한 구역과 전투, 보스 처치·공략, 탈출, 새로운 관측·과제·교차 연계를 **관측 데이터**로 정산합니다. 로비의 **연구 기록**에서 91명의 관측·Q/W/E/R 기술 연구·고유 실험 진척을 확인합니다. 과제 세 개를 달성하고 데이터 500으로 보고서를 완성하면 실험체별 **레어 조우**를 해금합니다. 레어 조우는 다음 원정부터 등장하며 기존 약속 후속 조우의 우선권을 유지합니다. 시작 준비 단계의 선택은 늘어나지 않습니다.
 
-레어 조우 91종은 최신 출시 스킨에서 착안한 창작 이야기와 전용 도트를 사용합니다. 루치아·세레스·크레이버는 각각 새로 디자인한 사복을 입습니다. 해금한 실험체의 일반 조우 후보를 대체하는 확률은 **12%**이며 원정마다 한 번 완료할 수 있습니다. 모든 레어 선택에 크레딧 30을 추가하고 회복·크레딧 보상과 거래 혜택을 높였습니다. [스킨·프롬프트·아트 검증 기록](docs/art-rare-skins/README.md)과 [게임 화면 검증](docs/validation-rare-skins/README.md)을 참고하세요.
+레어 조우 91종은 최신 출시 스킨에서 착안한 창작 이야기와 전용 도트를 사용합니다. 루치아·세레스·크레이버는 각각 새로 디자인한 사복을 입습니다. 해금한 실험체의 일반 조우 후보를 대체하는 확률은 **1막 12%·2막 18%·3막 이후 25%**이며, 한 막에 한 번만 후보로 나타납니다. 일반 신호가 레어 신호와 스킨 도트로 전환되는 연출을 제공합니다. 각 사건의 세 선택지는 전용 `++` 카드 구매, 실험체 패시브 또는 R, 카드 최대 2장 제거·추가 보조 룬·저비용 일반 카드 복제·무작위 F 보상으로 구성합니다. [레어 조우 보상과 저장 규칙](docs/RARE_ENCOUNTERS.md)을 참고하세요. [스킨·프롬프트·아트 검증 기록](docs/art-rare-skins/README.md)과 [게임 화면 검증](docs/validation-rare-skins/README.md)을 참고하세요.
 
 연구 프로필은 `bts-research-v1.json`에 원정과 별도로 저장합니다. 새 게임으로 원정 기록을 바꾸어도 연구는 남으며, 같은 종료 기록을 불러와도 보상은 한 번만 받습니다. [연구 규칙과 보상](docs/RESEARCH_PROGRESSION.md), [실제 검증 기록](docs/validation-research/README.md)을 참고하세요.
 - Unity 메뉴 **Black The Survival → Build Windows game**으로 다시 빌드할 수 있습니다.

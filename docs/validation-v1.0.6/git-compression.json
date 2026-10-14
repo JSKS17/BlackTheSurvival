@@ -1,0 +1,8 @@
+{
+  "freeBeforeBytes": 1542356992,
+  "freeAfterBytes": 5306638336,
+  "passed": true,
+  "method": "git gc --no-prune --keep-largest-pack; one thread, bounded memory",
+  "refsAndTagsUnchanged": true,
+  "headUnchanged": true
+}

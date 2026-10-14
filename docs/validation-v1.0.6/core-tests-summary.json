@@ -1,0 +1,48 @@
+{
+  "version": "1.0.6",
+  "passed": true,
+  "recordedAtUtc": "2026-10-14T16:54:04.654554+00:00",
+  "runner": "Unity 6000.3.11f1 Roslyn + Mono, outside Unity",
+  "commands": [
+    "Tools/RunCoreTests.ps1 -RareOnly",
+    "Tools/RunCoreTests.ps1"
+  ],
+  "results": {
+    "focused": {
+      "passed": true,
+      "assertions": 17480,
+      "log": "rare-focused-tests.log"
+    },
+    "full": {
+      "passed": true,
+      "assertions": 135815,
+      "log": "core-tests.log"
+    }
+  },
+  "binarySha256": "0fe9959048ba6543fdcccb7268fee48a0853a8fd36b602f10c55c56f902cc982",
+  "allRecordedCoreSourcesPredateFinalCompilation": true,
+  "keySourceHashes": {
+    "Assets/Scripts/Lumia/DataModels.cs": "72928324b8084818e513467bab72215ce5766153bff8fff7931d97fa759fe788",
+    "Assets/Scripts/Lumia/GameEngine.cs": "4ba5422fe806342463683fa2f28c706dae446826199d7111f8020325de84d165",
+    "Assets/Scripts/Lumia/GameEngineCardInstances.cs": "d3c4bd75c0c7289a8b5217bd29b66dc5757e7d597943edbad3d05244e657bb75",
+    "Assets/Scripts/Lumia/CardInstances.cs": "93243abdf0e9f853ece7c6b8c5f704d9e9dc0d1590bd6543b5416ed8dec32b65",
+    "Assets/Scripts/Lumia/RareCardUpgrades.cs": "4d181351cbb03f406ed684f6a6321a7c6cc6449cfee6eac0ff6028a9e51d5a83",
+    "Assets/Scripts/Lumia/ResearchProgression.cs": "49d157b46dd2665599fc74368dbb0ea8a851086ea0c67b1372143575b5ec55fd",
+    "Assets/Scripts/Lumia/ResearchEncounters.cs": "9c58c0e37d35ffeee75be8fbbc2fa8141039ce882ba05bf13c7c766cec220139",
+    "Assets/Scripts/Lumia/ResearchRareEncounters.cs": "8a66fe398037ade120feb4a5cd51db8184befeeba6b48412722b512110781392",
+    "Assets/Scripts/Lumia/RareEncounterEngine.cs": "4b2d769e02caa0ceacd2a20e748f67ec847ca53cc364fc44b94f8e70c4374a60",
+    "Assets/Scripts/Lumia/EventPresentation.cs": "382550956162cbcd61346566da7db8c2e99d1329753c97c6612ac09cb22bc261",
+    "Assets/Scripts/Lumia/StrategyMechanics.cs": "71fa7ddb0438183ae6306015e8dedfd9e62e4a4e7d418aa1b7d89e215ea3f7d9",
+    "Assets/Scripts/Lumia/DescriptionSummary.cs": "9dae5de6e0389eb3aacdd3dcb8b219a7059d01a20c7aa72569fed4c618e0a3a4",
+    "Assets/Scripts/Lumia/RareSkinStories.cs": "a14a9158b26048e1e9750462950423a25ab90ac0b2d28d152ddd27fdf36bd18c",
+    "Assets/Scripts/Lumia/RuneIdentityCore.cs": "c266a06ddecc73e0d3868e05fe9e854bb5a0436bed29ee17e1a732292b9ec09e",
+    "Tools/CoreSmokeTests.cs": "7eba2ee4ee0c57b23a2a23f8c3bcd2d05e7aab722ce3dd9e1f2bad08afca61d5",
+    "Tools/RunCoreTests.ps1": "c43364e0adefff2af33ab5ab270d60091060011d08da583708cd0e5a921d0b02",
+    "Tools/ResearchSmokeTests.cs": "241772ca85758ab570f1870dd5f794e898895b487c063ca660a7201e5bef7399",
+    "Tools/ResearchEncounterSmokeTests.cs": "37252d08c4c5a194646161f1badb2aef11b376a7e7d2d2498ccb4ec43bd9f4b4",
+    "Tools/ResearchRareSmokeTests.cs": "ab387de5b53ea3e5b7f551c468118dec4ec1f27d048bfffe17cd00554f49de4f",
+    "Tools/RareEncounterV2SmokeTests.cs": "333084d7c193384cfcf52801052afcb539f591f723e2380dc15c831ad0c039c5",
+    "Tools/RareCardUpgradeSmokeTests.cs": "5f1a28bcea2145c8bd2151065fa9c0768003c319a4965105aca0c8189a2313cd",
+    "Tools/LobbyDialogueSmokeTests.cs": "ea0cb32d795eb50a38365d1b7d0cbd7e347715e90a60f3bae9381b848a033f19"
+  }
+}

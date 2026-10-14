@@ -167,7 +167,19 @@ namespace Lumia
             if (immediate.Length > 0) parts.Add(new PreviewPart { text=immediate, priority=1000 });
             // A curated identity sentence must never hide a newly required recast condition.
             string curated = card.freeCastCondition == null ? PreviewIdentity(card) : null;
-            if (curated != null) parts.Add(new PreviewPart { text=curated, priority=950 });
+            if (curated != null)
+            {
+                parts.Add(new PreviewPart { text=curated, priority=950 });
+                // A rare state-only card may add bounded protection while retaining
+                // its curated form/color description. Show that new benefit as well.
+                foreach (var rule in card.mechanics?.rules ?? new SkillRule[0])
+                {
+                    if (rule.op != "guard" || rule.key != "rare_guard") continue;
+                    ConditionEffect grouped;
+                    string text = PreviewRule(card, rule, card.mechanics.rules, out grouped);
+                    if (!string.IsNullOrEmpty(text)) parts.Add(new PreviewPart { text=text, priority=PreviewPriority(rule), grouped=grouped });
+                }
+            }
             else
             {
                 var rules = card.mechanics?.rules ?? new SkillRule[0];
@@ -279,14 +291,20 @@ namespace Lumia
                 case "nia_w":
                     var bonus = rules.FirstOrDefault(rule => rule.op == "bonus_damage" && rule.scaleKey == "blocks");
                     return "블록을 모두 소모해 블록당 " + CardPresentation.WithParticle("피해 " + (bonus?.amount ?? 4), "를", "을") + " 더하고 다음 Q 코스트를 1 줄입니다.";
-                case "nia_r":return "배터리 ×5(최대20)의 방어도를 더 얻고 배터리를 모두 소모합니다.";
+                case "nia_r":
+                    var batteryBonus = rules.FirstOrDefault(rule => rule.op == "bonus_block" && rule.scaleKey == "battery");
+                    int batteryAmount = batteryBonus?.amount ?? 5, batteryCap = batteryBonus?.cap ?? 4;
+                    return "배터리 ×" + batteryAmount + "(최대" + Math.Min(24, batteryAmount * batteryCap) + ")의 방어도를 더 얻고 배터리를 모두 소모합니다.";
                 case "emma_r":return "직전 Q·W·E의 마술을 소모해 피해 또는 방어도를 추가합니다.";
                 case "sua_r":return "직전 수아 Q·W·E를 이번 턴에 무료로 1회 다시 사용합니다.";
                 case "garnet_r":return "적중 시 이번 턴에 1회 무료 재사용합니다. 표식이 남고 체력이 20% 이하인 적을 맞히면 처형합니다.";
                 case "tia_q":case "tia_e":return "붓 색의 물감을 남기며 다른 색과 섞으면 피해·회복·방어가 강화됩니다.";
-                case "debi_marlene_q":return "다른 색 잉크가 있으면 추가 피해 8을 주고 현재 색 잉크를 남깁니다.";
-                case "debi_marlene_w":return "다른 색 잉크가 있으면 추가 피해 6을 주고 현재 색 잉크를 남깁니다.";
-                case "debi_marlene_e":return "현재 색과 잉크가 같으면 추가 피해 7을 주고 색상을 교대합니다.";
+                case "debi_marlene_q":case "debi_marlene_w":
+                    int twinDamage = rules.FirstOrDefault(rule => rule.op == "bonus_damage")?.amount ?? (card.key == "Q" ? 8 : 6);
+                    return "다른 색 잉크가 있으면 " + CardPresentation.WithParticle("추가 피해 " + twinDamage, "를", "을") + " 주고 현재 색 잉크를 남깁니다.";
+                case "debi_marlene_e":
+                    int switchDamage = rules.FirstOrDefault(rule => rule.op == "bonus_damage")?.amount ?? 7;
+                    return "현재 색과 잉크가 같으면 " + CardPresentation.WithParticle("추가 피해 " + switchDamage, "를", "을") + " 주고 색상을 교대합니다.";
                 case "tia_w":return "붓을 노랑·빨강·파랑 순으로 바꿉니다.";
                 case "silvia_r":return "연료가 있으면 바이크에 타고 탑승 중이면 내립니다. 연료를 1 소모합니다.";
                 case "coraline_w":return "백색 거울과 흑색 거울을 교대로 설치합니다.";

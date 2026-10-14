@@ -28,13 +28,15 @@ public static partial class CoreSmokeTests
                 var e = Ready(1200 + choice); e.State.research.unlockedReports.Add(character.id);
                 Enter(e, ZoneKind.Encounter); e.State.encounterOffers = new List<string> { story.id };
                 Check(e.SelectEncounter(story.id), "unlocked research story can be selected: " + character.id);
-                e.State.credits = 1000; e.State.hp = e.State.maxHp;
+                e.State.credits = 1000; e.State.hp = e.State.maxHp; e.State.passives.Clear();
                 Check(e.CanChooseEventOption(choice) && e.ChooseEventOption(choice), "research action succeeds: " + story.id + ":" + choice);
                 Check(e.State.research.completedResearchEvents.Count(id => id == story.id) == 1, "research scene is marked consumed exactly once: " + story.id);
                 Check(!e.ChooseEventOption(choice), "research action cannot repeat: " + story.id);
                 if (e.State.cardUpgradePending) Check(e.SkipCardUpgrade(), "research upgrade can be declined without blocking the run");
                 if (e.State.runeChangePending) Check(e.FinishRuneChange(), "research rune choice can finish without blocking the run");
                 if (e.State.stage == RunStage.PassiveChoice) Check(e.ReplacePassive(), "research passive choice can be declined");
+                if (e.State.rareRemovalPending) Check(e.SkipRareRemoval(), "research card removal can finish without removing a card");
+                if (e.State.rareCopyPending) Check(e.SkipRareCopy(), "research card copies can be declined without blocking the run");
                 Check(e.State.stage == RunStage.Map, "every research decision returns to map: " + story.id);
             }
         }

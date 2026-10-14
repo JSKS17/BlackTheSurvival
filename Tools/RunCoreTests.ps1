@@ -1,6 +1,6 @@
-param([string]$UnityEditor = 'C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor', [switch]$Balance, [switch]$UpgradeOnly)
+param([string]$UnityEditor = 'C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor', [switch]$Balance, [switch]$UpgradeOnly, [switch]$RareOnly)
 $ErrorActionPreference = 'Stop'
-if ($Balance -and $UpgradeOnly) { throw 'Choose either Balance or UpgradeOnly.' }
+if (@($Balance,$UpgradeOnly,$RareOnly).Where({$_}).Count -gt 1) { throw 'Choose only one focused test mode.' }
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $outputPath = Join-Path $projectRoot 'Temp/CoreTests.exe'
 [IO.Directory]::CreateDirectory((Split-Path -Parent $outputPath)) | Out-Null
@@ -14,6 +14,10 @@ foreach ($dataFile in @('CardPresentation.cs', 'ClassicRoster.cs', 'RecentRoster
 }
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/CardInstances.cs'
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/GameEngineCardInstances.cs'
+$arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/RareCardUpgrades.cs'
+$arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/RareEncounterEngine.cs'
+$arguments += Join-Path $PSScriptRoot 'RareCardUpgradeSmokeTests.cs'
+$arguments += Join-Path $PSScriptRoot 'RareEncounterV2SmokeTests.cs'
 $arguments += Join-Path $PSScriptRoot 'StrategySmokeTests.cs'
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/RunModes.cs'
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/LobbyDialogue.cs'
@@ -49,5 +53,6 @@ $arguments += @(Get-ChildItem -LiteralPath (Join-Path $projectRoot 'Assets/Scrip
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 if ($Balance) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--balance' }
 elseif ($UpgradeOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--upgrade-only' }
+elseif ($RareOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--rare-only' }
 else { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath }
 exit $LASTEXITCODE

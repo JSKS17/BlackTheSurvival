@@ -1,0 +1,50 @@
+LUMIA IDENTITY skills=364 passives=91 runes=16
+LUMIA CAPTURE rare_v2_before
+BTS RARE V2 PASS rare_v2_before
+LUMIA CAPTURE rare_v2_during
+BTS RARE V2 PASS rare_v2_during
+LUMIA CAPTURE rare_v2_after
+BTS RARE V2 PASS rare_v2_after
+LUMIA CAPTURE rare_v2_reveal_reloaded
+BTS RARE V2 PASS rare_v2_reveal_reloaded
+LUMIA CAPTURE rare_v2_purchase_detail
+BTS RARE V2 PASS rare_v2_purchase_detail
+LUMIA CAPTURE rare_v2_hand
+BTS RARE V2 PASS rare_v2_hand
+LUMIA CAPTURE rare_v2_inventory
+BTS RARE V2 PASS rare_v2_inventory
+LUMIA CAPTURE rare_v2_detail
+BTS RARE V2 PASS rare_v2_detail
+LUMIA CAPTURE rare_v2_card_reloaded
+BTS RARE V2 PASS rare_v2_card_reloaded
+LUMIA CAPTURE rare_v2_remove_select
+BTS RARE V2 PASS rare_v2_remove_select
+LUMIA CAPTURE rare_v2_remove_selected
+BTS RARE V2 PASS rare_v2_remove_selected
+LUMIA CAPTURE rare_v2_remove_reloaded
+BTS RARE V2 PASS rare_v2_remove_reloaded
+LUMIA CAPTURE rare_v2_remove_cancelled
+BTS RARE V2 PASS rare_v2_remove_cancelled
+LUMIA CAPTURE rare_v2_remove_confirmed
+BTS RARE V2 PASS rare_v2_remove_confirmed
+LUMIA CAPTURE rare_v2_copy_select
+BTS RARE V2 PASS rare_v2_copy_select
+LUMIA CAPTURE rare_v2_copy_selected
+BTS RARE V2 PASS rare_v2_copy_selected
+LUMIA CAPTURE rare_v2_copy_reloaded
+BTS RARE V2 PASS rare_v2_copy_reloaded
+LUMIA CAPTURE rare_v2_copy_confirmed
+BTS RARE V2 PASS rare_v2_copy_confirmed
+LUMIA CAPTURE rare_v2_runes
+BTS RARE V2 PASS rare_v2_runes
+LUMIA CAPTURE rare_v2_runes_scroll
+BTS RARE V2 PASS rare_v2_runes_scroll
+LUMIA CAPTURE rare_v2_passive_swap
+BTS RARE V2 PASS rare_v2_passive_swap
+LUMIA CAPTURE rare_v2_research_500
+BTS RARE V2 PASS rare_v2_research_500
+LUMIA CAPTURE rare_v2_research_insufficient
+BTS RARE V2 PASS rare_v2_research_insufficient
+LUMIA CAPTURE rare_v2_skip
+BTS RARE V2 PASS rare_v2_skip
+BTS RARE V2 VERIFICATION PASS / views=24

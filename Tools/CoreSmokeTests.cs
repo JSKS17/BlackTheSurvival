@@ -15,6 +15,13 @@ public static partial class CoreSmokeTests
         try
         {
             if (args.Contains("--balance")) return BalanceSimulation.Run();
+            if (args.Contains("--rare-only"))
+            {
+                RareEncounterV2(); RareCardUpgradesV2(); ResearchEncounterCoverage(); ResearchEncounterOffers(); RareEncounterAvailability(); RareSkinStoryIsolation();
+                ResearchRunSettlement(); ResearchStoreTransactions(); LobbyDialogueRuleAccuracy();
+                Console.WriteLine("PASS: " + checks + " assertions across rare encounter rewards, cards, offers, research, runes and save regressions.");
+                return 0;
+            }
             if (args.Contains("--upgrade-only"))
             {
                 StrategicUpgradeChoice();
@@ -36,7 +43,7 @@ public static partial class CoreSmokeTests
             BossRestrictionRules(); BossHeavyAttackBoundary(); BossRestrictionPersistence();
             ResearchCoverageAndExperiments(); ResearchRunSettlement(); ResearchActualCombos();
             ResearchStoreTransactions(); ResearchEncounterCoverage(); ResearchEncounterOffers();
-            RareEncounterRewards(); RareEncounterAvailability(); RareSkinStoryIsolation();
+            RareEncounterRewards(); RareEncounterAvailability(); RareSkinStoryIsolation(); RareCardUpgradesV2();
             RunModeSelectionAndLegacy(); RunModeDifficultyAndForecast(); EndlessCycleAndRewards(); EndlessSaveAndNodeIdentity(); EndlessEnergyAndRetirement();
             ModeUnlockMigration(); ModeSettlementProgression(); ModeUnlockTransactions(); EndlessArchiveResearch();
             LobbyDialogueCatalog(); LobbyDialogueRotationIsolation(); LobbyDialogueRuleAccuracy();
