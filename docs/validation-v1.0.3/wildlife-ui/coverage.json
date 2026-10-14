@@ -1,0 +1,423 @@
+{
+    "result": "PASS",
+    "version": "1.0.3",
+    "failure": "",
+    "isolatedSave": true,
+    "personalSavesUnchanged": true,
+    "animalSkillsNotPlayable": true,
+    "pointFilteredPortraits": true,
+    "normalAndMutantStats": true,
+    "actualBoarCharge": true,
+    "actualBearSlam": true,
+    "interruptedCharge": true,
+    "readableSkillDetails": true,
+    "stableMutationAfterReload": true,
+    "scoutedMutationName": true,
+    "renderDoesNotChangeState": true,
+    "dedicatedMutantPortraits": true,
+    "distinctMutantLogicalPixels": true,
+    "mutantPortraitsUse80Grid": true,
+    "stableMutationPortraitAfterReload": true,
+    "ordinaryPortraitIdentityPreserved": true,
+    "screenshots": 18,
+    "animals": [
+        {
+            "animal": "chicken",
+            "name": "닭",
+            "portraitResource": "Lumia/Wildlife/chicken",
+            "mutant": false,
+            "act": 2,
+            "level": 7,
+            "health": 53,
+            "intentDamage": 8,
+            "objectDropChance": 0,
+            "logicalWidth": 80,
+            "logicalHeight": 80,
+            "sourceWidth": 1254,
+            "sourceHeight": 1254,
+            "normalLogicalWidth": 80,
+            "normalLogicalHeight": 80,
+            "comparedLogicalPixels": 6400,
+            "differentLogicalPixels": 0,
+            "alpha80Bounds": [
+                13,
+                2,
+                77,
+                76
+            ],
+            "battleRectWidth": 218,
+            "battleRectHeight": 216
+        },
+        {
+            "animal": "chicken",
+            "name": "변이 닭",
+            "portraitResource": "Lumia/Wildlife/mutant_chicken",
+            "mutant": true,
+            "act": 2,
+            "level": 7,
+            "health": 64,
+            "intentDamage": 10,
+            "objectDropChance": 0,
+            "logicalWidth": 80,
+            "logicalHeight": 80,
+            "sourceWidth": 1254,
+            "sourceHeight": 1254,
+            "normalLogicalWidth": 80,
+            "normalLogicalHeight": 80,
+            "comparedLogicalPixels": 6400,
+            "differentLogicalPixels": 1672,
+            "alpha80Bounds": [
+                13,
+                2,
+                77,
+                76
+            ],
+            "battleRectWidth": 218,
+            "battleRectHeight": 216
+        },
+        {
+            "animal": "wolf",
+            "name": "늑대",
+            "portraitResource": "Lumia/Wildlife/wolf",
+            "mutant": false,
+            "act": 2,
+            "level": 7,
+            "health": 83,
+            "intentDamage": 20,
+            "objectDropChance": 25,
+            "logicalWidth": 80,
+            "logicalHeight": 80,
+            "sourceWidth": 1254,
+            "sourceHeight": 1254,
+            "normalLogicalWidth": 80,
+            "normalLogicalHeight": 80,
+            "comparedLogicalPixels": 6400,
+            "differentLogicalPixels": 0,
+            "alpha80Bounds": [
+                4,
+                7,
+                78,
+                64
+            ],
+            "battleRectWidth": 218,
+            "battleRectHeight": 216
+        },
+        {
+            "animal": "wolf",
+            "name": "변이 늑대",
+            "portraitResource": "Lumia/Wildlife/mutant_wolf",
+            "mutant": true,
+            "act": 2,
+            "level": 7,
+            "health": 100,
+            "intentDamage": 24,
+            "objectDropChance": 30,
+            "logicalWidth": 80,
+            "logicalHeight": 80,
+            "sourceWidth": 1254,
+            "sourceHeight": 1254,
+            "normalLogicalWidth": 80,
+            "normalLogicalHeight": 80,
+            "comparedLogicalPixels": 6400,
+            "differentLogicalPixels": 1568,
+            "alpha80Bounds": [
+                4,
+                8,
+                78,
+                64
+            ],
+            "battleRectWidth": 218,
+            "battleRectHeight": 216
+        },
+        {
+            "animal": "boar",
+            "name": "멧돼지",
+            "portraitResource": "Lumia/Wildlife/boar",
+            "mutant": false,
+            "act": 2,
+            "level": 7,
+            "health": 75,
+            "intentDamage": 11,
+            "objectDropChance": 0,
+            "logicalWidth": 80,
+            "logicalHeight": 80,
+            "sourceWidth": 1254,
+            "sourceHeight": 1254,
+            "normalLogicalWidth": 80,
+            "normalLogicalHeight": 80,
+            "comparedLogicalPixels": 6400,
+            "differentLogicalPixels": 0,
+            "alpha80Bounds": [
+                5,
+                12,
+                75,
+                63
+            ],
+            "battleRectWidth": 218,
+            "battleRectHeight": 216
+        },
+        {
+            "animal": "boar",
+            "name": "변이 멧돼지",
+            "portraitResource": "Lumia/Wildlife/mutant_boar",
+            "mutant": true,
+            "act": 2,
+            "level": 7,
+            "health": 90,
+            "intentDamage": 13,
+            "objectDropChance": 0,
+            "logicalWidth": 80,
+            "logicalHeight": 80,
+            "sourceWidth": 1254,
+            "sourceHeight": 1254,
+            "normalLogicalWidth": 80,
+            "normalLogicalHeight": 80,
+            "comparedLogicalPixels": 6400,
+            "differentLogicalPixels": 1310,
+            "alpha80Bounds": [
+                5,
+                12,
+                75,
+                64
+            ],
+            "battleRectWidth": 218,
+            "battleRectHeight": 216
+        },
+        {
+            "animal": "bear",
+            "name": "곰",
+            "portraitResource": "Lumia/Wildlife/bear",
+            "mutant": false,
+            "act": 2,
+            "level": 7,
+            "health": 106,
+            "intentDamage": 14,
+            "objectDropChance": 35,
+            "logicalWidth": 80,
+            "logicalHeight": 80,
+            "sourceWidth": 1254,
+            "sourceHeight": 1254,
+            "normalLogicalWidth": 80,
+            "normalLogicalHeight": 80,
+            "comparedLogicalPixels": 6400,
+            "differentLogicalPixels": 0,
+            "alpha80Bounds": [
+                5,
+                9,
+                77,
+                63
+            ],
+            "battleRectWidth": 218,
+            "battleRectHeight": 216
+        },
+        {
+            "animal": "bear",
+            "name": "변이 곰",
+            "portraitResource": "Lumia/Wildlife/mutant_bear",
+            "mutant": true,
+            "act": 2,
+            "level": 7,
+            "health": 128,
+            "intentDamage": 17,
+            "objectDropChance": 40,
+            "logicalWidth": 80,
+            "logicalHeight": 80,
+            "sourceWidth": 1254,
+            "sourceHeight": 1254,
+            "normalLogicalWidth": 80,
+            "normalLogicalHeight": 80,
+            "comparedLogicalPixels": 6400,
+            "differentLogicalPixels": 2061,
+            "alpha80Bounds": [
+                5,
+                9,
+                77,
+                63
+            ],
+            "battleRectWidth": 218,
+            "battleRectHeight": 216
+        },
+        {
+            "animal": "dog",
+            "name": "들개",
+            "portraitResource": "Lumia/CharacterAtlas (unchanged ordinary dog)",
+            "mutant": false,
+            "act": 2,
+            "level": 7,
+            "health": 63,
+            "intentDamage": 9,
+            "objectDropChance": 0,
+            "logicalWidth": 334,
+            "logicalHeight": 348,
+            "sourceWidth": 334,
+            "sourceHeight": 348,
+            "normalLogicalWidth": 334,
+            "normalLogicalHeight": 348,
+            "comparedLogicalPixels": 6400,
+            "differentLogicalPixels": 0,
+            "alpha80Bounds": [
+                1,
+                0,
+                80,
+                80
+            ],
+            "battleRectWidth": 218,
+            "battleRectHeight": 216
+        },
+        {
+            "animal": "dog",
+            "name": "변이 들개",
+            "portraitResource": "Lumia/Wildlife/mutant_dog",
+            "mutant": true,
+            "act": 2,
+            "level": 7,
+            "health": 76,
+            "intentDamage": 11,
+            "objectDropChance": 0,
+            "logicalWidth": 80,
+            "logicalHeight": 80,
+            "sourceWidth": 1254,
+            "sourceHeight": 1254,
+            "normalLogicalWidth": 334,
+            "normalLogicalHeight": 348,
+            "comparedLogicalPixels": 6400,
+            "differentLogicalPixels": 2857,
+            "alpha80Bounds": [
+                2,
+                3,
+                78,
+                77
+            ],
+            "battleRectWidth": 218,
+            "battleRectHeight": 216
+        }
+    ],
+    "captures": [
+        {
+            "file": "normal_chicken.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915602,
+            "colorVariants": 1013
+        },
+        {
+            "file": "mutant_chicken.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915534,
+            "colorVariants": 1006
+        },
+        {
+            "file": "normal_wolf.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 912948,
+            "colorVariants": 943
+        },
+        {
+            "file": "mutant_wolf.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 912472,
+            "colorVariants": 971
+        },
+        {
+            "file": "normal_boar.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915532,
+            "colorVariants": 957
+        },
+        {
+            "file": "mutant_boar.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915254,
+            "colorVariants": 975
+        },
+        {
+            "file": "normal_bear.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915232,
+            "colorVariants": 961
+        },
+        {
+            "file": "mutant_bear.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 912522,
+            "colorVariants": 999
+        },
+        {
+            "file": "normal_dog.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 912546,
+            "colorVariants": 979
+        },
+        {
+            "file": "mutant_dog.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 912862,
+            "colorVariants": 967
+        },
+        {
+            "file": "boar_special_preview.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915248,
+            "colorVariants": 922
+        },
+        {
+            "file": "boar_special_detail.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 921057,
+            "colorVariants": 196
+        },
+        {
+            "file": "boar_special_cast.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 914278,
+            "colorVariants": 693
+        },
+        {
+            "file": "bear_special_preview.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 912472,
+            "colorVariants": 770
+        },
+        {
+            "file": "bear_special_detail.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 918915,
+            "colorVariants": 223
+        },
+        {
+            "file": "bear_special_cast.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 911602,
+            "colorVariants": 715
+        },
+        {
+            "file": "boar_interrupted.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 914107,
+            "colorVariants": 688
+        },
+        {
+            "file": "mutant_scouted_map.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 921598,
+            "colorVariants": 641
+        }
+    ]
+}

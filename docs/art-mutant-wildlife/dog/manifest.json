@@ -1,0 +1,36 @@
+{
+  "version": "1.0.3",
+  "tool": "built-in image_gen.imagegen",
+  "items": [
+    {
+      "id": "mutant_dog",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-c4c2f0e0-55fe-4062-9de6-7a00b9906955.png",
+      "output": "Assets/Resources/Lumia/Wildlife/mutant_dog.png",
+      "sha256": "5f2613d4ba2722c01fe385c9bd481fd82a5bfa22d45cc120103afc078dc89e71",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha32Bounds": [
+        48,
+        83,
+        1210,
+        1204
+      ],
+      "promptRecords": [
+        "docs/art-mutant-wildlife/dog/dog-initial-prompt.txt",
+        "docs/art-mutant-wildlife/dog/dog-final-prompt.txt"
+      ],
+      "references": [
+        {
+          "path": "ArtSource/Release1.0.3/Mutants/official-dev-mutant-packs.png",
+          "url": "https://cdn.playeternalreturn.com/2024/02/07/1707282949502-9.png",
+          "page": "https://playeternalreturn.com/posts/news/1717?hl=en-US",
+          "sha256": "ac69606a93144a031a6296ac76d688f61663bde013e32d3412df2dd069041e92"
+        }
+      ]
+    }
+  ],
+  "unchangedCharacterAtlasSha256": "3c3a4ee58a19747586c4af4d8d4418cef42cf6c8462e2af91fac68aa6ddfb31e"
+}

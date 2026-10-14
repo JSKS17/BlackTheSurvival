@@ -16,7 +16,7 @@ namespace Lumia
             public GearDef gear;
             public CombatVisualProfile profile;
             public UltimateAnimationDef ultimate;
-            public bool direct, reduced;
+            public bool direct, reduced, mutantAnimal;
             public float start, duration, textUntil;
             public int damageLane = -1, healLane = -1, blockLane = -1, statusLane = -1;
             public Color color, accent;
@@ -99,7 +99,7 @@ namespace Lumia
         bool Alive(Burst b) { return Age(b) < Math.Max(b.duration, b.textUntil); }
         static float Impact(Burst b) { return b.reduced ? 0 : b.direct ? Mathf.Clamp(b.profile.impactAt, .28f, .72f) : .12f; }
 
-        public float Add(CombatAction action, bool reduced)
+        public float Add(CombatAction action, bool reduced, bool mutantAnimal = false)
         {
             if (action == null) return 0;
             var card = GameDatabase.Card(action.cardId) ?? WildlifeMechanics.Card(action.cardId);
@@ -125,7 +125,7 @@ namespace Lumia
                 bursts.RemoveAt(remove < 0 ? 0 : remove);
             }
             var burst = new Burst { action = action, card = card, passive = passive, rune = rune, gear = gear,
-                profile = profile, ultimate = ultimate, direct = direct, reduced = reduced, start = Clock, duration = duration,
+                profile = profile, ultimate = ultimate, direct = direct, reduced = reduced, mutantAnimal = mutantAnimal, start = Clock, duration = duration,
                 color = color, accent = accent, seed = profile.seed ^ (action.id * 31 & 255) };
             burst.textUntil = Impact(burst) * duration + (reduced ? ReducedTextSeconds : ReadableTextSeconds);
             bursts.Add(burst);
@@ -379,7 +379,7 @@ namespace Lumia
             Rect r = new Rect(425, 398, 430, 35);
             Pixel(r, new Color(.025f, .055f, .08f, .92f * alpha));
             Pixel(new Rect(r.x, r.y, 4, r.height), tint);
-            Texture2D icon = WildlifeMechanics.IsAnimalSkill(b.action.cardId) ? PixelArt.Portrait(b.action.cardId == "wildlife_boar_charge" ? "boar" : "bear") : b.passive != null ? PixelArt.PassiveIcon(b.passive.id) : b.rune != null ? PixelArt.SystemIcon(b.rune.id) : b.gear != null ? PixelArt.SystemIcon(b.gear.id) : b.card != null ? PixelArt.SkillIcon(b.card.id) : null;
+            Texture2D icon = WildlifeMechanics.IsAnimalSkill(b.action.cardId) ? PixelArt.WildlifePortrait(b.action.cardId == "wildlife_boar_charge" ? "boar" : "bear", b.mutantAnimal) : b.passive != null ? PixelArt.PassiveIcon(b.passive.id) : b.rune != null ? PixelArt.SystemIcon(b.rune.id) : b.gear != null ? PixelArt.SystemIcon(b.gear.id) : b.card != null ? PixelArt.SkillIcon(b.card.id) : null;
             if (icon)
             {
                 Color old = GUI.color;

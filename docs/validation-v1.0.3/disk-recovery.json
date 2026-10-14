@@ -1,0 +1,10 @@
+{
+  "reason": "Development build exhausted disk space (Win32 IO 112).",
+  "temporaryVerificationCacheCompressed": true,
+  "previousReleaseAvailableOnGitHub": true,
+  "removedPreviousRuntimeAndZip": true,
+  "reclaimedBytes": 2535215104,
+  "freeAfterBytes": 5283311616,
+  "version": "1.0.3",
+  "freeBeforeBytes": 2748096512
+}

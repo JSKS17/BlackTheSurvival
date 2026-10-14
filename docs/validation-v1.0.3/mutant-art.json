@@ -1,0 +1,166 @@
+{
+  "status": "PASS",
+  "mutants": [
+    {
+      "id": "mutant_wolf",
+      "sha256": "a88387bca8c94fab6dabfaacdebee256b15e4e296a440cdddd3e1fe3b6d55d5c",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha32Bounds": [
+        64,
+        257,
+        1219,
+        1134
+      ],
+      "logicalGrid": [
+        80,
+        80
+      ],
+      "alpha80Bounds": [
+        4,
+        16,
+        78,
+        72
+      ],
+      "differentLogicalPixels": 1568,
+      "normalAlpha80Bounds": [
+        4,
+        16,
+        78,
+        73
+      ],
+      "visibleHeightChange80": -1,
+      "groundPositionChange80": -1
+    },
+    {
+      "id": "mutant_boar",
+      "sha256": "570b871964a5b759c7b118710f9f0a80828a53f5d153d4596db379b57cb0e0e6",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha32Bounds": [
+        77,
+        244,
+        1177,
+        1063
+      ],
+      "logicalGrid": [
+        80,
+        80
+      ],
+      "alpha80Bounds": [
+        5,
+        16,
+        75,
+        68
+      ],
+      "differentLogicalPixels": 1310,
+      "normalAlpha80Bounds": [
+        5,
+        17,
+        75,
+        68
+      ],
+      "visibleHeightChange80": 1,
+      "groundPositionChange80": 0
+    },
+    {
+      "id": "mutant_bear",
+      "sha256": "83b73e7610f8e15428555b0998459198eace590e4ca97319f578087ad71c459e",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha32Bounds": [
+        78,
+        269,
+        1205,
+        1118
+      ],
+      "logicalGrid": [
+        80,
+        80
+      ],
+      "alpha80Bounds": [
+        5,
+        17,
+        77,
+        71
+      ],
+      "differentLogicalPixels": 2061,
+      "normalAlpha80Bounds": [
+        5,
+        17,
+        77,
+        71
+      ],
+      "visibleHeightChange80": 0,
+      "groundPositionChange80": 0
+    },
+    {
+      "id": "mutant_chicken",
+      "sha256": "4fac14bed0ffab61bc9d2edcddeddfbac1c755b8e99c46a1c3f52766911dc2e9",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha32Bounds": [
+        209,
+        63,
+        1209,
+        1215
+      ],
+      "logicalGrid": [
+        80,
+        80
+      ],
+      "alpha80Bounds": [
+        13,
+        4,
+        77,
+        78
+      ],
+      "differentLogicalPixels": 1672,
+      "normalAlpha80Bounds": [
+        13,
+        4,
+        77,
+        78
+      ],
+      "visibleHeightChange80": 0,
+      "groundPositionChange80": 0
+    },
+    {
+      "id": "mutant_dog",
+      "sha256": "5f2613d4ba2722c01fe385c9bd481fd82a5bfa22d45cc120103afc078dc89e71",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha32Bounds": [
+        48,
+        83,
+        1210,
+        1204
+      ],
+      "logicalGrid": [
+        80,
+        80
+      ],
+      "alpha80Bounds": [
+        3,
+        5,
+        77,
+        77
+      ],
+      "ordinaryPortrait": "Unchanged 334 x 348 legacy atlas crop; native runner compares its rendered 80-pixel sample"
+    }
+  ],
+  "ordinaryWildlifeUnchanged": true,
+  "logicalPixelHeight": 80,
+  "rasterPostprocessing": false,
+  "nativeCoverageChecked": true
+}

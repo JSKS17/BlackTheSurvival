@@ -1,0 +1,88 @@
+{
+  "version": "1.0.3",
+  "tool": "built-in image_gen.imagegen",
+  "export": "Byte-for-byte PNG copy; no raster postprocessing. Existing 80 logical pixel height, Point sampling and display rectangle preserved.",
+  "logicalPixelHeight": 80,
+  "promptRecord": "docs/art-mutant-wildlife/boar-chicken/prompts.json",
+  "officialPage": "https://playeternalreturn.com/posts/news/1717?hl=en-US",
+  "references": [
+    {
+      "path": "ArtSource/Release1.0.3/Mutants/official-dev-mutant-packs.png",
+      "url": "https://cdn.playeternalreturn.com/2024%2F02%2F07%2F1707282949502-9.png",
+      "sha256": "ac69606a93144a031a6296ac76d688f61663bde013e32d3412df2dd069041e92"
+    },
+    {
+      "path": "ArtSource/Release1.0.3/Mutants/official-dev-mutant-packs2.png",
+      "url": "https://cdn.playeternalreturn.com/2024%2F02%2F07%2F1707282953787-10.png",
+      "sha256": "0ee24b1bec6c10601035ae44106b1c770589b3a4bb602da4ab32eed19f1400a9"
+    },
+    {
+      "path": "ArtSource/Release1.0.3/Mutants/official-dev-boar-charge.gif",
+      "url": "https://cdn.playeternalreturn.com/2024%2F02%2F07%2F1707283571152-%EB%B3%80%EC%9D%B4+%EB%A9%A7%EB%8F%BC%EC%A7%80+%EA%B0%95%EC%A0%90%ED%91%B8%E3%85%A1.gif",
+      "sha256": "66438819228887018736b5c17067608b2109e2ab452be7dd0297925c7a40e6c5"
+    },
+    {
+      "path": "ArtSource/Release1.0.3/Mutants/official-dev-chicken-aggro.gif",
+      "url": "https://cdn.playeternalreturn.com/2024%2F02%2F07%2F1707283586239-%EC%95%BC%EC%83%9D%EB%8F%99%EB%AC%BC+%EA%B3%B5%EA%B2%A9+%EC%9A%B0%EC%84%A0+%EC%88%9C%EC%9C%84.gif",
+      "sha256": "5c3ac50e2802fd77c4aa56ba3359b1053a30156f11dee82a9005985d901f88c3"
+    }
+  ],
+  "items": [
+    {
+      "id": "mutant_boar",
+      "source": "C:/Users/azxar/.codex/generated_images/01a13992-0c80-79a0-9f18-b7ea0a769c47/exec-4177f38b-4f1a-4298-9baf-a3eedad4bfb2.png",
+      "output": "Assets/Resources/Lumia/Wildlife/mutant_boar.png",
+      "sha256": "570b871964a5b759c7b118710f9f0a80828a53f5d153d4596db379b57cb0e0e6",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha32Bounds": [
+        77,
+        244,
+        1177,
+        1063
+      ],
+      "transparentPixelCount": 996624,
+      "visiblePixelCount": 563799,
+      "normalInput": "Assets/Resources/Lumia/Wildlife/boar.png",
+      "normalSha256": "26e2ee68b5207aa5d4fad3d12f52a526ea6367a9e7302e03cc34d932f2bc8ca7",
+      "normalAlpha32Bounds": [
+        77,
+        245,
+        1177,
+        1061
+      ],
+      "rasterPostprocessing": false
+    },
+    {
+      "id": "mutant_chicken",
+      "source": "C:/Users/azxar/.codex/generated_images/01a13992-0c80-79a0-9f18-b7ea0a769c47/exec-b7365b1f-1b0a-4b50-a946-b839dd705f2e.png",
+      "output": "Assets/Resources/Lumia/Wildlife/mutant_chicken.png",
+      "sha256": "4fac14bed0ffab61bc9d2edcddeddfbac1c755b8e99c46a1c3f52766911dc2e9",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha32Bounds": [
+        209,
+        63,
+        1209,
+        1215
+      ],
+      "transparentPixelCount": 992911,
+      "visiblePixelCount": 563935,
+      "normalInput": "Assets/Resources/Lumia/Wildlife/chicken.png",
+      "normalSha256": "2dccb4452fbb4df299116b76e8bb293e0076b5fca843a71d2c5e116cbc61bea0",
+      "normalAlpha32Bounds": [
+        209,
+        63,
+        1207,
+        1215
+      ],
+      "rasterPostprocessing": false
+    }
+  ]
+}

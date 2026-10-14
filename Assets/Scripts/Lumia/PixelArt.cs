@@ -43,6 +43,37 @@ namespace Lumia
 
         public static bool HasRarePortrait(string subjectId) => Load("PortraitsRare/" + subjectId) != null;
 
+        /// <summary>Animal variants retain the ordinary portrait and its battle layout as a fallback.</summary>
+        public static Texture2D WildlifePortrait(string animal, bool mutant)
+        {
+            string key = (animal ?? "").Trim().ToLowerInvariant();
+            switch (key)
+            {
+                case "닭": key = "chicken"; break;
+                case "들개": case "wilddog": case "wild dog": key = "dog"; break;
+                case "멧돼지": case "wildboar": key = "boar"; break;
+                case "늑대": key = "wolf"; break;
+                case "곰": key = "bear"; break;
+            }
+            if (!mutant) return Portrait(key);
+            Texture2D result;
+            if (Cache.TryGetValue("wildlife/mutant_" + key, out result)) return result;
+            var authored = Load("Wildlife/mutant_" + key);
+            result = authored != null ? CoarsePortrait(authored) : Portrait(key);
+            if (authored != null && key == "dog")
+            {
+                // Ordinary dogs are alpha-trimmed by their atlas slice. Match that framing
+                // after Point sampling without modifying either authored PNG or normal dog.
+                var coarse = result;
+                var trimmed = Slice(coarse, 0, 0, 1, 1);
+                result = CoarsePortrait(trimmed, true);
+                if (trimmed != result && trimmed != coarse && trimmed != authored) UnityEngine.Object.Destroy(trimmed);
+                if (coarse != result && coarse != authored) UnityEngine.Object.Destroy(coarse);
+            }
+            Cache["wildlife/mutant_" + key] = result;
+            return result;
+        }
+
         public static Texture2D Portrait(string id)
         {
             Ensure();
@@ -115,9 +146,11 @@ namespace Lumia
             return result;
         }
 
-        static Texture2D CoarsePortrait(Texture2D source)
+        static Texture2D CoarsePortrait(Texture2D source, bool forceSize = false)
         {
-            if(source==null || source.height<=LegacyPortraitPixelHeight) return source;
+            if(source == null) return source;
+            if(forceSize) return FitCoarseFrame(source);
+            if(source.height<=LegacyPortraitPixelHeight) return source;
             int width=Mathf.Max(1,Mathf.RoundToInt(source.width*LegacyPortraitPixelHeight/(float)source.height));
             var target=RenderTexture.GetTemporary(width,LegacyPortraitPixelHeight,0,RenderTextureFormat.ARGB32);
             var previous=RenderTexture.active;
@@ -134,6 +167,29 @@ namespace Lumia
                 return pixels;
             }
             finally {RenderTexture.active=previous;RenderTexture.ReleaseTemporary(target);}
+        }
+
+        static Texture2D FitCoarseFrame(Texture2D source)
+        {
+            const int size = LegacyPortraitPixelHeight;
+            if (source.width == size && source.height == size) return source;
+            float scale = size / (float)Math.Max(source.width, source.height);
+            int width = Math.Max(1, Mathf.RoundToInt(source.width * scale));
+            int height = Math.Max(1, Mathf.RoundToInt(source.height * scale));
+            int left = (size - width) / 2, bottom = (size - height) / 2;
+            var original = source.GetPixels32();
+            var pixels = new Color32[size * size];
+            for (int y = 0; y < height; y++) for (int x = 0; x < width; x++)
+            {
+                int sx = Math.Min(source.width - 1, Mathf.FloorToInt((x + .5f) * source.width / width));
+                int sy = Math.Min(source.height - 1, Mathf.FloorToInt((y + .5f) * source.height / height));
+                pixels[(bottom + y) * size + left + x] = original[sy * source.width + sx];
+            }
+            var result = new Texture2D(size, size, TextureFormat.RGBA32, false);
+            result.name = source.name + "_fit80";
+            result.SetPixels32(pixels); result.Apply(false, false);
+            result.filterMode = FilterMode.Point; result.wrapMode = TextureWrapMode.Clamp;
+            return result;
         }
 
         public static Texture2D Icon(string kind)

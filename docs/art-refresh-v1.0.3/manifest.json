@@ -1,0 +1,175 @@
+{
+  "version": "1.0.3",
+  "tool": "built-in image_gen.imagegen",
+  "export": "Generated PNG copied byte-for-byte; no raster postprocessing; existing 80x80 Point presentation preserved.",
+  "officialReference": "https://event.playeternalreturn.com/S7/NIAH?hl=ko-KR",
+  "items": [
+    {
+      "id": "nia_overload_face",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a13991-d499-7933-af25-e50039515aa9\\exec-c2d50e4a-b912-4aae-a853-23ad3117c355.png",
+      "output": "Assets/Resources/Lumia/Story/Characters/nia_overload.png",
+      "previousSha256": "73f8b5be5f6939694b4c8942e62320b2672b5e881d3ca24b3a4564ef3a7784a1",
+      "sha256": "274e283f18b3efc2f3d68c266bb943ebf88af2ec5ddfcf34cd75eb60e843346e",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha32Bounds": {
+        "width": 1254,
+        "height": 1254,
+        "left": 241,
+        "top": 218,
+        "right": 1030,
+        "bottom": 1134
+      },
+      "silhouetteIntersectionOverUnionWithPrevious": 0.9865703263001615,
+      "logicalEyeLineValidation": {
+        "logicalY": 34,
+        "sourceY": 540,
+        "samples": {
+          "viewerLeft": [
+            {
+              "logical": [
+                36,
+                34
+              ],
+              "source": [
+                572,
+                540
+              ],
+              "rgb": [
+                27,
+                6,
+                19
+              ]
+            },
+            {
+              "logical": [
+                37,
+                34
+              ],
+              "source": [
+                587,
+                540
+              ],
+              "rgb": [
+                29,
+                7,
+                19
+              ]
+            },
+            {
+              "logical": [
+                38,
+                34
+              ],
+              "source": [
+                603,
+                540
+              ],
+              "rgb": [
+                26,
+                5,
+                17
+              ]
+            },
+            {
+              "logical": [
+                39,
+                34
+              ],
+              "source": [
+                619,
+                540
+              ],
+              "rgb": [
+                29,
+                6,
+                20
+              ]
+            }
+          ],
+          "viewerRight": [
+            {
+              "logical": [
+                45,
+                34
+              ],
+              "source": [
+                713,
+                540
+              ],
+              "rgb": [
+                30,
+                7,
+                19
+              ]
+            },
+            {
+              "logical": [
+                46,
+                34
+              ],
+              "source": [
+                728,
+                540
+              ],
+              "rgb": [
+                26,
+                5,
+                17
+              ]
+            },
+            {
+              "logical": [
+                47,
+                34
+              ],
+              "source": [
+                744,
+                540
+              ],
+              "rgb": [
+                27,
+                5,
+                18
+              ]
+            },
+            {
+              "logical": [
+                48,
+                34
+              ],
+              "source": [
+                760,
+                540
+              ],
+              "rgb": [
+                27,
+                5,
+                18
+              ]
+            }
+          ]
+        },
+        "leftMeanRgb": [
+          27.75,
+          6.0,
+          18.75
+        ],
+        "rightMeanRgb": [
+          27.5,
+          5.5,
+          18.0
+        ],
+        "meanRgbDistance": 0.9354143466934853,
+        "bothEyelidsDarkAt80PointSample": true
+      },
+      "promptRecords": [
+        "docs/art-refresh-v1.0.3/nia-face-prompt.txt",
+        "docs/art-refresh-v1.0.3/nia-face-grid-prompt.txt"
+      ]
+    }
+  ]
+}

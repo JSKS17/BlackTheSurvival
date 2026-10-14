@@ -1,0 +1,329 @@
+{
+  "status": "PASS",
+  "cut": "prologue_2",
+  "sprite": "nia_overload",
+  "sourceSha256": "274e283f18b3efc2f3d68c266bb943ebf88af2ec5ddfcf34cd75eb60e843346e",
+  "geometrySha256": "f56b710b352c02553b0f9c77070fd1bd754fd264400d7ff70d75bf995aa1fe14",
+  "coordinateSystem": "Top-left; rectangles use exclusive right/bottom edges",
+  "nativeResolution": [
+    1280,
+    720
+  ],
+  "compositionGroup": [
+    34,
+    84,
+    1212,
+    510
+  ],
+  "croppedLogicalBounds": [
+    15,
+    13,
+    66,
+    73
+  ],
+  "actorScreenRect": [
+    428,
+    274,
+    255,
+    300
+  ],
+  "fullLogicalGridScreenOrigin": [
+    353,
+    209
+  ],
+  "screenPixelsPerLogicalPixel": 5,
+  "nativeCaptured": true,
+  "eyes": {
+    "viewerLeft": [
+      {
+        "logicalPixel": [
+          36,
+          34
+        ],
+        "sourcePixel": [
+          572,
+          540
+        ],
+        "sourceRGBA": [
+          27,
+          6,
+          19,
+          253
+        ],
+        "screenCell": [
+          533,
+          379,
+          538,
+          384
+        ],
+        "screenSample": [
+          535,
+          381
+        ],
+        "nativeRGBA": [
+          27,
+          5,
+          19,
+          255
+        ],
+        "nativeDark": true,
+        "maximumSourceChannelDifference": 1,
+        "screenCellColorVariants": 2
+      },
+      {
+        "logicalPixel": [
+          37,
+          34
+        ],
+        "sourcePixel": [
+          587,
+          540
+        ],
+        "sourceRGBA": [
+          29,
+          7,
+          19,
+          253
+        ],
+        "screenCell": [
+          538,
+          379,
+          543,
+          384
+        ],
+        "screenSample": [
+          540,
+          381
+        ],
+        "nativeRGBA": [
+          29,
+          7,
+          19,
+          255
+        ],
+        "nativeDark": true,
+        "maximumSourceChannelDifference": 0,
+        "screenCellColorVariants": 1
+      },
+      {
+        "logicalPixel": [
+          38,
+          34
+        ],
+        "sourcePixel": [
+          603,
+          540
+        ],
+        "sourceRGBA": [
+          26,
+          5,
+          17,
+          253
+        ],
+        "screenCell": [
+          543,
+          379,
+          548,
+          384
+        ],
+        "screenSample": [
+          545,
+          381
+        ],
+        "nativeRGBA": [
+          26,
+          4,
+          17,
+          255
+        ],
+        "nativeDark": true,
+        "maximumSourceChannelDifference": 1,
+        "screenCellColorVariants": 1
+      },
+      {
+        "logicalPixel": [
+          39,
+          34
+        ],
+        "sourcePixel": [
+          619,
+          540
+        ],
+        "sourceRGBA": [
+          29,
+          6,
+          20,
+          253
+        ],
+        "screenCell": [
+          548,
+          379,
+          553,
+          384
+        ],
+        "screenSample": [
+          550,
+          381
+        ],
+        "nativeRGBA": [
+          29,
+          5,
+          20,
+          255
+        ],
+        "nativeDark": true,
+        "maximumSourceChannelDifference": 1,
+        "screenCellColorVariants": 2
+      }
+    ],
+    "viewerRight": [
+      {
+        "logicalPixel": [
+          45,
+          34
+        ],
+        "sourcePixel": [
+          713,
+          540
+        ],
+        "sourceRGBA": [
+          30,
+          7,
+          19,
+          254
+        ],
+        "screenCell": [
+          578,
+          379,
+          583,
+          384
+        ],
+        "screenSample": [
+          580,
+          381
+        ],
+        "nativeRGBA": [
+          30,
+          7,
+          19,
+          255
+        ],
+        "nativeDark": true,
+        "maximumSourceChannelDifference": 0,
+        "screenCellColorVariants": 2
+      },
+      {
+        "logicalPixel": [
+          46,
+          34
+        ],
+        "sourcePixel": [
+          728,
+          540
+        ],
+        "sourceRGBA": [
+          26,
+          5,
+          17,
+          253
+        ],
+        "screenCell": [
+          583,
+          379,
+          588,
+          384
+        ],
+        "screenSample": [
+          585,
+          381
+        ],
+        "nativeRGBA": [
+          26,
+          4,
+          17,
+          255
+        ],
+        "nativeDark": true,
+        "maximumSourceChannelDifference": 1,
+        "screenCellColorVariants": 3
+      },
+      {
+        "logicalPixel": [
+          47,
+          34
+        ],
+        "sourcePixel": [
+          744,
+          540
+        ],
+        "sourceRGBA": [
+          27,
+          5,
+          18,
+          253
+        ],
+        "screenCell": [
+          588,
+          379,
+          593,
+          384
+        ],
+        "screenSample": [
+          590,
+          381
+        ],
+        "nativeRGBA": [
+          27,
+          4,
+          18,
+          255
+        ],
+        "nativeDark": true,
+        "maximumSourceChannelDifference": 1,
+        "screenCellColorVariants": 3
+      },
+      {
+        "logicalPixel": [
+          48,
+          34
+        ],
+        "sourcePixel": [
+          760,
+          540
+        ],
+        "sourceRGBA": [
+          27,
+          5,
+          18,
+          253
+        ],
+        "screenCell": [
+          593,
+          379,
+          598,
+          384
+        ],
+        "screenSample": [
+          595,
+          381
+        ],
+        "nativeRGBA": [
+          27,
+          5,
+          19,
+          255
+        ],
+        "nativeDark": true,
+        "maximumSourceChannelDifference": 1,
+        "screenCellColorVariants": 3
+      }
+    ]
+  },
+  "captureSha256": "92f59f17bd3e1baffa6fa3f6a3968558c008d9afb950c2ad055312f3df0c695e",
+  "capture": "story-ui/prologue_2.png",
+  "allEightEyelidSamplesDark": true,
+  "viewerLeftMeanLuminance": 11.008199999999999,
+  "viewerRightMeanLuminance": 10.74015,
+  "eyeMeanLuminanceDifference": 0.2680499999999988,
+  "maximumSourceToNativeChannelDifference": 1
+}

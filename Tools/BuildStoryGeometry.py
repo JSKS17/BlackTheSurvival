@@ -8,7 +8,7 @@ root = Path(__file__).resolve().parents[1]
 folder = root / "Assets/Resources/Lumia/Story/Characters"
 records = []
 current_overrides = {}
-for version in ("1.0.1", "1.0.2"):
+for version in ("1.0.1", "1.0.2", "1.0.3"):
     current_art = json.loads((root / f"docs/art-refresh-v{version}/manifest.json").read_text(encoding="utf-8-sig"))
     current_overrides.update({item["output"]: item["sha256"] for item in current_art["items"]})
 for path in sorted(folder.glob("*.png")):

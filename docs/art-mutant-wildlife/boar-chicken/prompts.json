@@ -1,0 +1,24 @@
+{
+  "mode": "built-in image_gen.imagegen",
+  "useCase": "precise-object-edit",
+  "prompts": [
+    {
+      "id": "mutant_boar",
+      "prompt": "Use case: precise-object-edit.\nAsset type: one transparent pixel-art game sprite, mutant boar from Eternal Return.\nInput image 1 is the edit target, this project's approved normal boar sprite. Input image 2 is official Eternal Return developer screenshot showing the reddish mutant boar beside the brown normal boar; use it only as mutant design reference. \nPrimary request: make a mutant version of input image 1, keeping its EXACT square 1254 x 1254 canvas, identical standing left-facing boar pose, proportions, framing, overall silhouette size, eye placement, four feet positions and transparency. Match the mutant boar's deep crimson/russet-red body, dark charcoal/black dorsal bristle mane, ivory tusks and black experiment harness with bold golden-yellow stripes from official image 2. Replace normal brown fur with the unmistakable mutant red palette, with maroon shadow pixels and brick-red highlights. Preserve the boar anatomy, facial shape, muscular outline, existing straps, silver buckles and golden hanging experiment tag. Do not invent crystals, extra horns, scars, flames or surrounding effects. Preserve the approved style: large clearly separated square pixel clusters on an approximately 80 x 80 logical pixel grid, thick dark stepped outlines, sharply separated 3-tone highlights/shadows, simple readable amber eye. No fine antialiased lines, no gradients, no high resolution painted details, no photorealism, no text or watermark. True transparent background, not black fill. The sprite must occupy the same approximate visible bounding box and ground baseline as image 1 so it displays at the same in-game size. Change only mutant coloring/design accents; don't recompose or zoom.",
+      "referencedImages": [
+        "Assets/Resources/Lumia/Wildlife/boar.png",
+        "ArtSource/Release1.0.3/Mutants/official-dev-mutant-packs2.png"
+      ],
+      "transparentBackground": true
+    },
+    {
+      "id": "mutant_chicken",
+      "prompt": "Use case: precise-object-edit.\nAsset type: one transparent pixel-art game sprite, mutant chicken from Eternal Return.\nInput image 1 is the edit target, this project's approved normal chicken sprite. Input image 2 is the official Eternal Return Season 3 developer gameplay GIF showing a pack of mutant chickens; use it as the original mutant design/color reference ONLY. \nPrimary request: turn image 1 into its mutant variant using the unmistakable purple/magenta mutant chicken appearance in image 2. Keep EXACT 1254 x 1254 square canvas, the identical left-facing rooster stance and anatomy, upright neck/head, foot placement, visible bounding box, ground baseline and proportions of image 1. The normal yellow-gold and turquoise palette should become the original mutant's deep charcoal/plum-violet body, vivid magenta-red neck/shoulder feather accents, purple/lavender comb and purple wing and tail feather panels with dark charcoal edges and clear lavender highlight pixels. Keep a readable eye, sharp beak and claws. Preserve the same feathers, wing shape and tail curvature, not a new creature. Maintain 3-tone stepped shading and the exact approved coarse square-pixel aesthetic on approximately 80 x 80 logical grid, large pixel clusters, dark stepped outlines. Distinguish mutant from ordinary chicken immediately without needing an aura. No gradients, no antialiased smooth outlines, no photorealism, no tiny detailed feathers, no surrounding glow or particle effects, no horns, no armor, no extra limbs, no text/watermark. Genuinely transparent background, not a black fill or checkerboard. No zoom, crop or recompose, no in-game display size change. Only convert existing approved sprite design to official mutant palette.",
+      "referencedImages": [
+        "Assets/Resources/Lumia/Wildlife/chicken.png",
+        "ArtSource/Release1.0.3/Mutants/official-dev-chicken-aggro.gif"
+      ],
+      "transparentBackground": true
+    }
+  ]
+}

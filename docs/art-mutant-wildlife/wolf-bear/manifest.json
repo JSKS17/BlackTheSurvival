@@ -1,0 +1,121 @@
+{
+  "version": "1.0.3",
+  "tool": "built-in image_gen.imagegen",
+  "export": "Byte-for-byte PNG copy; no raster postprocessing. Runtime CoarsePortrait height80 Point sampling unchanged.",
+  "references": [
+    {
+      "path": "ArtSource/Release1.0.3/Mutants/official-dev-mutant-packs.png",
+      "url": "https://cdn.playeternalreturn.com/2024/02/07/1707282949502-9.png",
+      "page": "https://playeternalreturn.com/posts/news/1717?hl=en-US",
+      "sha256": "ac69606a93144a031a6296ac76d688f61663bde013e32d3412df2dd069041e92"
+    },
+    {
+      "path": "ArtSource/Release1.0.3/Mutants/official-mutant-wolf-camp.png",
+      "url": "https://cdn.playeternalreturn.com/2023/07/19/1689701355444-1689701355444.png",
+      "page": "https://playeternalreturn.com/posts/news/1281?hl=en-US",
+      "sha256": "bb6cf8fbc6ea8859b67ab22529a71acb1a30d22377dee872f89ef91ef9f74845"
+    },
+    {
+      "path": "ArtSource/Release1.0.3/Mutants/official-mutant-bear-camp.png",
+      "url": "https://cdn.playeternalreturn.com/2023/07/19/1689701355009-1689701355009.png",
+      "page": "https://playeternalreturn.com/posts/news/1281?hl=en-US",
+      "sha256": "cba9f52be4745efbe0fd9b86e8a213688298e4b77e520bf9292947c65e232d10"
+    }
+  ],
+  "items": [
+    {
+      "id": "mutant_wolf",
+      "output": "Assets/Resources/Lumia/Wildlife/mutant_wolf.png",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a13991-d499-7933-af25-e50039515aa9\\exec-bae75240-5979-4d40-99c2-215c19c67fab.png",
+      "initialSource": "C:\\Users\\azxar\\.codex\\generated_images\\01a13991-d499-7933-af25-e50039515aa9\\exec-6808ae18-a9ce-4fa1-aedb-81dfe86f124f.png",
+      "sha256": "a88387bca8c94fab6dabfaacdebee256b15e4e296a440cdddd3e1fe3b6d55d5c",
+      "unchangedNormalSha256": "ecb1e8e49206f3f71217f8ad9572936ce2ac076a7e9984809a918138d7d744fa",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha32Bounds": [
+        64,
+        257,
+        1219,
+        1134
+      ],
+      "transparentPixelFraction": 0.6625770421413836,
+      "silhouetteIntersectionOverUnionWithNormal": 0.9827404218666185,
+      "logicalPixelHeight": 80,
+      "promptRecords": [
+        "docs/art-mutant-wildlife/wolf-bear/wolf-initial-prompt.txt",
+        "docs/art-mutant-wildlife/wolf-bear/wolf-final-prompt.txt"
+      ],
+      "references": [
+        {
+          "path": "ArtSource/Release1.0.3/Mutants/official-dev-mutant-packs.png",
+          "url": "https://cdn.playeternalreturn.com/2024/02/07/1707282949502-9.png",
+          "page": "https://playeternalreturn.com/posts/news/1717?hl=en-US",
+          "sha256": "ac69606a93144a031a6296ac76d688f61663bde013e32d3412df2dd069041e92"
+        },
+        {
+          "path": "ArtSource/Release1.0.3/Mutants/official-mutant-wolf-camp.png",
+          "url": "https://cdn.playeternalreturn.com/2023/07/19/1689701355444-1689701355444.png",
+          "page": "https://playeternalreturn.com/posts/news/1281?hl=en-US",
+          "sha256": "bb6cf8fbc6ea8859b67ab22529a71acb1a30d22377dee872f89ef91ef9f74845"
+        }
+      ],
+      "normalAlpha32Bounds": [
+        63,
+        254,
+        1218,
+        1142
+      ],
+      "maxLogical80BoundsDifference": 0.5103668261562998
+    },
+    {
+      "id": "mutant_bear",
+      "output": "Assets/Resources/Lumia/Wildlife/mutant_bear.png",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a13991-d499-7933-af25-e50039515aa9\\exec-849d539d-4735-4268-addb-b3b29c8e59bf.png",
+      "initialSource": "C:\\Users\\azxar\\.codex\\generated_images\\01a13991-d499-7933-af25-e50039515aa9\\exec-4ec081b1-d972-43e4-b801-79d17a462918.png",
+      "sha256": "83b73e7610f8e15428555b0998459198eace590e4ca97319f578087ad71c459e",
+      "unchangedNormalSha256": "3ff8cb97bd306ee3d3e32373afecc56384b0f25c7e5da6121c051e5d8d043d02",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha32Bounds": [
+        78,
+        269,
+        1205,
+        1118
+      ],
+      "transparentPixelFraction": 0.5521031264546752,
+      "silhouetteIntersectionOverUnionWithNormal": 0.9905248978945018,
+      "logicalPixelHeight": 80,
+      "promptRecords": [
+        "docs/art-mutant-wildlife/wolf-bear/bear-initial-prompt.txt",
+        "docs/art-mutant-wildlife/wolf-bear/bear-final-prompt.txt"
+      ],
+      "references": [
+        {
+          "path": "ArtSource/Release1.0.3/Mutants/official-dev-mutant-packs.png",
+          "url": "https://cdn.playeternalreturn.com/2024/02/07/1707282949502-9.png",
+          "page": "https://playeternalreturn.com/posts/news/1717?hl=en-US",
+          "sha256": "ac69606a93144a031a6296ac76d688f61663bde013e32d3412df2dd069041e92"
+        },
+        {
+          "path": "ArtSource/Release1.0.3/Mutants/official-mutant-bear-camp.png",
+          "url": "https://cdn.playeternalreturn.com/2023/07/19/1689701355009-1689701355009.png",
+          "page": "https://playeternalreturn.com/posts/news/1281?hl=en-US",
+          "sha256": "cba9f52be4745efbe0fd9b86e8a213688298e4b77e520bf9292947c65e232d10"
+        }
+      ],
+      "normalAlpha32Bounds": [
+        78,
+        271,
+        1203,
+        1113
+      ],
+      "maxLogical80BoundsDifference": 0.3189792663476874
+    }
+  ]
+}

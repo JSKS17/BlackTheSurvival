@@ -18,7 +18,9 @@ namespace Lumia
             }
             Box(rect, Ink, Gold);
             string animal = id == "wildlife_boar_charge" ? "boar" : "bear";
-            Tex(new Rect(rect.x + 2, rect.y + 2, rect.width - 4, rect.height - 4), PixelArt.Portrait(animal), ScaleMode.ScaleToFit);
+            var combat = Engine?.State.combat;
+            bool mutant = combat != null && combat.animal == animal && combat.mutantAnimal;
+            Tex(new Rect(rect.x + 2, rect.y + 2, rect.width - 4, rect.height - 4), PixelArt.WildlifePortrait(animal, mutant), ScaleMode.ScaleToFit);
         }
 
         void DrawWildlifeVariantBadge()
@@ -59,8 +61,10 @@ namespace Lumia
             string animal = skill.id == "wildlife_boar_charge" ? "boar" : "bear";
             Modal(new Rect(210, 82, 860, 562));
             Box(new Rect(237, 113, 215, 400), Panel, Gold);
-            Tex(new Rect(250, 177, 189, 220), PixelArt.Portrait(animal), ScaleMode.ScaleToFit);
-            Txt(new Rect(250, 127, 189, 30), WildlifeMechanics.Name(animal), 22, Gold, true);
+            var combat = Engine?.State.combat;
+            bool mutant = combat != null && combat.animal == animal && combat.mutantAnimal;
+            Tex(new Rect(250, 177, 189, 220), PixelArt.WildlifePortrait(animal, mutant), ScaleMode.ScaleToFit);
+            Txt(new Rect(250, 127, 189, 30), (mutant ? "변이 " : "") + WildlifeMechanics.Name(animal), 22, Gold, true);
             Txt(new Rect(250, 427, 189, 26), "야생동물 전용 기술", 14, Gold, true);
             Txt(new Rect(480, 111, 560, 39), skill.name, 25, Gold);
             Txt(new Rect(480, 163, 560, 28), "동물 행동 / " + (skill.movement ? "이동 기술" : "공격 기술"), 16, Gold);

@@ -1,0 +1,21 @@
+{
+  "version": "1.0.3",
+  "passed": true,
+  "screenshots": 41,
+  "checks": [
+    {
+      "view": "wildlife-ui",
+      "passed": true,
+      "screenshots": 18,
+      "personalSavesUnchanged": true,
+      "report": "wildlife-ui/coverage.json"
+    },
+    {
+      "view": "story-ui",
+      "passed": true,
+      "screenshots": 23,
+      "personalSavesUnchanged": true,
+      "report": "story-ui/results.json"
+    }
+  ]
+}

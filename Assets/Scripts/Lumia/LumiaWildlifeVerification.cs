@@ -18,15 +18,20 @@ namespace Lumia
             public bool isolatedSave, personalSavesUnchanged, animalSkillsNotPlayable, pointFilteredPortraits;
             public bool normalAndMutantStats, actualBoarCharge, actualBearSlam, interruptedCharge, readableSkillDetails;
             public bool stableMutationAfterReload, scoutedMutationName, renderDoesNotChangeState;
+            public bool dedicatedMutantPortraits, distinctMutantLogicalPixels, mutantPortraitsUse80Grid;
+            public bool stableMutationPortraitAfterReload, ordinaryPortraitIdentityPreserved;
             public int screenshots;
             public List<AnimalRecord> animals = new List<AnimalRecord>();
             public List<CaptureRecord> captures = new List<CaptureRecord>();
         }
         [Serializable] public sealed class AnimalRecord
         {
-            public string animal, name;
+            public string animal, name, portraitResource;
             public bool mutant;
             public int act, level, health, intentDamage, objectDropChance, logicalWidth, logicalHeight;
+            public int sourceWidth, sourceHeight, normalLogicalWidth, normalLogicalHeight, comparedLogicalPixels, differentLogicalPixels;
+            public int[] alpha80Bounds;
+            public int battleRectWidth = 218, battleRectHeight = 216;
         }
         [Serializable] public sealed class CaptureRecord
         {
@@ -89,12 +94,34 @@ namespace Lumia
             foreach (string animal in new[] { "chicken", "wolf", "boar", "bear", "dog" })
             {
                 int normalHealth = 0, normalDamage = 0;
+                var ordinary = PixelArt.Portrait(animal);
+                Require(ReferenceEquals(ordinary, PixelArt.WildlifePortrait(animal, false)), "Ordinary wildlife must keep its existing portrait: " + animal);
+                var normalPixels = GridPixels(ordinary);
                 foreach (bool mutant in new[] { false, true })
                 {
                     game.PrepareWildlifeVerification(animal, mutant, 2, 1);
                     var c = game.Engine.State.combat;
-                    var portrait = PixelArt.Portrait(animal);
+                    var portrait = PixelArt.WildlifePortrait(c.animal, c.mutantAnimal);
                     Require(portrait && portrait.filterMode == FilterMode.Point && portrait.mipmapCount == 1, "Wildlife portrait must remain point filtered: " + animal);
+                    var pixels = GridPixels(portrait);
+                    string resource = "Lumia/Wildlife/" + (mutant ? "mutant_" : "") + animal;
+                    var authored = Resources.Load<Texture2D>(resource);
+                    int different = 0;
+                    if (mutant)
+                    {
+                        Require(authored, "Authored mutant portrait missing: " + animal);
+                        Require(authored.filterMode == FilterMode.Point && authored.mipmapCount == 1, "Mutant source must use Point without mipmaps: " + animal);
+                        Require(!ReferenceEquals(portrait, ordinary), "Mutant portrait silently fell back to ordinary wildlife: " + animal);
+                        Require(portrait.width == 80 && portrait.height == 80, "Mutant portrait must keep the 80 x 80 logical grid: " + animal);
+                        if (animal != "dog") Require(portrait.width == ordinary.width && portrait.height == ordinary.height, "Wildlife variant changed its logical display dimensions: " + animal);
+                        for (int pixel = 0; pixel < pixels.Length; pixel++)
+                        {
+                            var a = pixels[pixel]; var b = normalPixels[pixel];
+                            if ((a.a >= 32 || b.a >= 32) && Math.Abs(a.r - b.r) + Math.Abs(a.g - b.g) + Math.Abs(a.b - b.b) + Math.Abs(a.a - b.a) > 32) different++;
+                        }
+                        Require(different > 64, "Mutation must remain visibly different on the actual coarse grid: " + animal);
+                    }
+                    else Require(ReferenceEquals(portrait, ordinary), "Normal wildlife rendering changed: " + animal);
                     if (animal != "dog")
                     {
                         Require(Resources.Load<Texture2D>("Lumia/Wildlife/" + animal), "Authored independent animal portrait missing: " + animal);
@@ -115,14 +142,22 @@ namespace Lumia
                         "Reload must preserve the spawned variant and scaled health.");
                     Require(reload.IsMutantWildlife(reload.State.map.Single(node => node.id == reload.State.activeNodeId)) == mutant,
                         "Saved map and combat variants must agree.");
+                    var reloadedPortrait = PixelArt.WildlifePortrait(reload.State.combat.animal, reload.State.combat.mutantAnimal);
+                    Require(ReferenceEquals(reloadedPortrait, portrait), "Reload selected the wrong animal variant texture: " + animal);
                     report.animals.Add(new AnimalRecord { animal = animal, name = name, mutant = mutant, act = 2,
                         level = c.enemyLevel, health = c.enemyMaxHp, intentDamage = intent,
-                        objectDropChance = WildlifeMechanics.ObjectDropChance(animal, mutant), logicalWidth = portrait.width, logicalHeight = portrait.height });
+                        objectDropChance = WildlifeMechanics.ObjectDropChance(animal, mutant), logicalWidth = portrait.width, logicalHeight = portrait.height,
+                        portraitResource = authored ? resource : "Lumia/CharacterAtlas (unchanged ordinary dog)",
+                        sourceWidth = authored ? authored.width : ordinary.width, sourceHeight = authored ? authored.height : ordinary.height,
+                        normalLogicalWidth = ordinary.width, normalLogicalHeight = ordinary.height,
+                        comparedLogicalPixels = pixels.Length, differentLogicalPixels = different, alpha80Bounds = AlphaBounds(pixels) });
                     yield return Capture((mutant ? "mutant_" : "normal_") + animal);
                     game.AssertWildlifeVerificationUnchanged();
                 }
             }
             report.normalAndMutantStats = report.stableMutationAfterReload = report.pointFilteredPortraits = true;
+            report.dedicatedMutantPortraits = report.distinctMutantLogicalPixels = report.mutantPortraitsUse80Grid = true;
+            report.stableMutationPortraitAfterReload = report.ordinaryPortraitIdentityPreserved = true;
 
             foreach (string animal in new[] { "boar", "bear" })
             {
@@ -156,6 +191,38 @@ namespace Lumia
             game.FinishWildlifeVerification(); report.result = "PASS"; SaveReport();
             Debug.Log("BTS WILDLIFE VERIFICATION PASS / animals=" + report.animals.Count + " / screenshots=" + report.screenshots);
             Application.Quit(0);
+        }
+
+        static Color32[] GridPixels(Texture2D source)
+        {
+            var target = RenderTexture.GetTemporary(80, 80, 0, RenderTextureFormat.ARGB32);
+            var previous = RenderTexture.active;
+            Texture2D copy = null;
+            try
+            {
+                target.filterMode = FilterMode.Point;
+                Graphics.Blit(source, target); RenderTexture.active = target;
+                copy = new Texture2D(80, 80, TextureFormat.RGBA32, false);
+                copy.ReadPixels(new Rect(0, 0, 80, 80), 0, 0, false); copy.Apply(false, false);
+                return copy.GetPixels32();
+            }
+            finally
+            {
+                if (copy) Destroy(copy);
+                RenderTexture.active = previous; RenderTexture.ReleaseTemporary(target);
+            }
+        }
+
+        static int[] AlphaBounds(Color32[] pixels)
+        {
+            int left = 80, right = 0, bottom = 80, top = 0;
+            for (int y = 0; y < 80; y++) for (int x = 0; x < 80; x++)
+            {
+                if (pixels[y * 80 + x].a < 32) continue;
+                left = Math.Min(left, x); right = Math.Max(right, x + 1);
+                bottom = Math.Min(bottom, y); top = Math.Max(top, y + 1);
+            }
+            return new[] { left, bottom, right, top };
         }
 
         IEnumerator Capture(string name)

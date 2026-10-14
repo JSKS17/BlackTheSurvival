@@ -145,7 +145,8 @@ namespace Lumia
             SyncCombatPresentation();
             foreach (var action in Engine.CombatActions)
             {
-                effects.Add(action, reduceMotion);
+                effects.Add(action, reduceMotion, action.enemy && Engine.State.combat != null
+                    && !string.IsNullOrEmpty(Engine.State.combat.animal) && Engine.State.combat.mutantAnimal);
                 bool handled = Audio && Audio.PlayCombatAction(action, Engine.State.combat);
                 if (!handled && !audioVerification && sound && audioSource)
                 {
@@ -590,7 +591,8 @@ namespace Lumia
             // The large transparent R represents the casting actor during its flourish. Avoid two
             // overlapping faces by restoring that actor's usual portrait only after playback ends.
             if (!ultimateShowing || effects.UltimateEnemy) effects.DrawActor(new Rect(129, 169 + bob, 214, 215), PixelArt.Portrait("hana"), false, reduceMotion);
-            if (!ultimateShowing || !effects.UltimateEnemy) effects.DrawActor(new Rect(913, 169 - bob, 218, 216), PixelArt.Portrait(c.enemyId), true, reduceMotion);
+            if (!ultimateShowing || !effects.UltimateEnemy) effects.DrawActor(new Rect(913, 169 - bob, 218, 216), string.IsNullOrEmpty(c.animal)
+                ? PixelArt.Portrait(c.enemyId) : PixelArt.WildlifePortrait(c.animal, c.mutantAnimal), true, reduceMotion);
             if (!ultimateShowing || !effects.UltimateEnemy) DrawWildlifeVariantBadge();
             if (!ultimateShowing || effects.UltimateEnemy) Txt(new Rect(142, 388, 188, 22), "하나  ·  방어 " + c.block, 14, Mint, true);
             if (!ultimateShowing || !effects.UltimateEnemy)
@@ -1360,7 +1362,8 @@ namespace Lumia
         {
             var c=Engine?.State.combat;if(c==null){enemyLoadout=false;return;}
             Modal(new Rect(180,75,920,574));
-            Tex(new Rect(210,101,125,147),PixelArt.Portrait(c.enemyId),ScaleMode.ScaleToFit);
+            Tex(new Rect(210,101,125,147),string.IsNullOrEmpty(c.animal) ? PixelArt.Portrait(c.enemyId)
+                : PixelArt.WildlifePortrait(c.animal,c.mutantAnimal),ScaleMode.ScaleToFit);
             Txt(new Rect(360,103,700,38),c.enemyName+" · LV."+c.enemyLevel,25,Pink);
             Txt(new Rect(360,151,700,26),"무기군 "+c.enemyWeaponClass+" / 최대 코스트 "+GameEngine.EnergyForLevel(c.enemyLevel),16,Gold);
             string[] skills={"basic_attack",c.enemyWeaponCardId,c.enemyTacticalCardId};
