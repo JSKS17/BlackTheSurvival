@@ -1,0 +1,20 @@
+{
+  "id": "intervention",
+  "name": "인터벤션",
+  "kind": "gear",
+  "originalId": 118404,
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_118404.png",
+  "referencePath": "docs/art-system/references/expansion-v101/intervention.png",
+  "originalTooltip": "전설 / 저격총\n\n공격력 +76\n공격 속도 +30%\n시야 +1\n치명타 확률 +33%\n\n<color=yellow>장탄 수:</color> 5발\n\n외형이 덕심을 자극하는 멋진 저격총. 일반적인 대물 저격총과는 다르게 대인 저지력을 높인 화기다.",
+  "sourceSnapshot": "docs/art-system/items-snapshot.json",
+  "officialReference": "https://playeternalreturn.com/posts/news/2014?hl=ko-KR",
+  "output": "Assets/Resources/Lumia/SystemIcons/intervention.png",
+  "tool": "image_gen.imagegen",
+  "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art equipment icon for Black The Survival. Image 1 is the original Eternal Return item identity reference; image 2 is the established game pixel icon style reference. Create one NEW pixel-art icon of an Intervention tactical black and gray sniper rifle, long muzzle, scope and folded bipod, angled lower-left to upper-right. Preserve the reference rifle silhouette and attachments. Keep the original recognizable design and colors; do not invent ornaments. Use clear hard square pixel clusters, a restrained 32-by-32 logical pixel grid feel, dark navy one-pixel contour, 3-tone stepped highlights, no smoothing or antialiasing. The existing pixel icon has the desired coarse pixels and readable small UI silhouette. Center one object with generous transparent margins. Transparent alpha background, no colored backdrop, no text, no border, no card, no shadow panel, no watermark. The icon will be mechanically resized to 32 logical pixels and displayed at 64 by 64.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a138fc-ef22-7281-88ab-20c91bd2c3a4\\exec-e00ebe8b-bcb8-4b6f-b813-65180a546ac4.png",
+  "referenceInputs": [
+    "docs/art-system/references/expansion-v101/intervention.png",
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ],
+  "generatedSource": "docs/art-system/expansion-generated/intervention.png"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "mithril_armband",
+  "name": "미스릴 완장",
+  "kind": "gear",
+  "originalId": 203514,
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_203514.png",
+  "referencePath": "docs/art-system/references/expansion-v101/mithril_armband.png",
+  "originalTooltip": "전설 / 팔/장식\n\n공격력 +33\n방어력 +10\n치명타 확률 +34%\n\n<b><color=yellow>가벼운 발걸음</color></b>\n0.2m 이동할 때마다 [가벼운 발걸음]을 최대 100회까지 중첩해서 획득합니다. 중첩에 따라 이동 속도를 최대 <color=white>0.1</color>까지 획득합니다. 기본 공격 피해를 입힐 경우 중첩을 모두 소모하여 최대 <color=white>100</color>의 스킬 피해를 입힙니다. (근거리) 최대 중첩 상태에서 기본 공격에 피격된 대상의 이동 속도를 2초 동안 <color=white>20%</color> 감소시킵니다.\n\n완장의 무게란 무거운 것이지만... 이건 미스릴로 만들어져서 그런지 아주 가볍다.",
+  "sourceSnapshot": "docs/art-system/items-snapshot.json",
+  "officialReference": "https://playeternalreturn.com/posts/news/3163?hl=ko-KR",
+  "output": "Assets/Resources/Lumia/SystemIcons/mithril_armband.png",
+  "tool": "image_gen.imagegen",
+  "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art equipment icon for Black The Survival. Image 1 is the original Eternal Return item identity reference; image 2 is the established game pixel icon style reference. Create one NEW pixel-art icon of Mithril Armband, a silver and blue ornamental armored cuff, dark curved band, engraved pale metal edges and cyan faceted gems. Preserve the reference cuff silhouette and jewels. Keep the original recognizable design and colors; do not invent ornaments. Use clear hard square pixel clusters, a restrained 32-by-32 logical pixel grid feel, dark navy one-pixel contour, 3-tone stepped highlights, no smoothing or antialiasing. The existing pixel icon has the desired coarse pixels and readable small UI silhouette. Center one object with generous transparent margins. Transparent alpha background, no colored backdrop, no text, no border, no card, no shadow panel, no watermark. The icon will be mechanically resized to 32 logical pixels and displayed at 64 by 64.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a138fc-ef22-7281-88ab-20c91bd2c3a4\\exec-6d9db956-1594-461d-9987-1df10f7d11db.png",
+  "referenceInputs": [
+    "docs/art-system/references/expansion-v101/mithril_armband.png",
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ],
+  "generatedSource": "docs/art-system/expansion-generated/mithril_armband.png"
+}

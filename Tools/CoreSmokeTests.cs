@@ -43,9 +43,11 @@ public static partial class CoreSmokeTests
             StorySceneCatalogAndText(); StoryRunResumeAndLegacy(); StoryVictoryAndReplayIsolation();
             CombatInformationCatalogAndIsolation(); CombatInformationConditionsAndBoss(); CombatInformationHistoryAndSave();
             GarnetExecutionAndRecall();
+            FoodEnergyCostsAndGuards(); DelayedRecastTurnsAndPersistence(); DelayedRecastEnemyParity();
             LayeredStoryCompositionsAndProgress();
             EndlessCriticalCapsAndSave(); EndlessCriticalGuaranteedHits(); EndlessCriticalEnemyAndPreview();
-            Console.WriteLine("PASS: " + checks + " assertions across 122 game-rule scenarios.");
+            ExpandedEquipmentCoverageAndCraft(); EquipmentCriticalDamageAndPersistence();
+            Console.WriteLine("PASS: " + checks + " assertions across 127 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -194,7 +196,7 @@ public static partial class CoreSmokeTests
 
     private static void EquipmentIdentityAndAlex()
     {
-        Check(GameDatabase.Gear.Count==51 && GameDatabase.Gear.Where(x=>x.slot==GearSlot.Weapon).Select(x=>x.weaponClass).Distinct().Count()==23,"51 original legendary or mythic items cover every weapon class");
+        Check(GameDatabase.Gear.Count==57 && GameDatabase.Gear.Where(x=>x.slot==GearSlot.Weapon).Select(x=>x.weaponClass).Distinct().Count()==23,"57 original legendary or mythic items cover every weapon class");
         foreach(var item in GameDatabase.Gear)
             Check(item.mechanics!=null && item.effect==null && item.description.Split('\n').All(x=>x.Trim().EndsWith(".")),"equipment has one authored mechanic profile and sentence-based description: "+item.id);
         var e=Ready(40);e.State.passives.Clear();e.State.passives.Add("alex_p");Enter(e,ZoneKind.Campfire);e.ChooseCamp(true);
@@ -1573,10 +1575,17 @@ public static partial class CoreSmokeTests
             {
                 var e=RecastFixture(id,target,resource,count);var c=e.State.combat;
                 Check(e.PlayCard(0),id+": conditioned source is still usable without its reset preparation");
-                Check(RecastAvailable(c,target)==(count>=threshold),id+": earned reset agrees with pre-cast "+resource+"="+count);
+                bool delayed=GameDatabase.Card(id).freeCastNextTurn;
+                Check((delayed ? c.pendingFreeCasts.Any(x=>x.cardId==target) : RecastAvailable(c,target))==(count>=threshold),id+": earned reset agrees with pre-cast "+resource+"="+count);
                 Check(count>=threshold||c.freeCastSources.Count==0,id+": failed condition does not reserve the source's turn limit");
                 if(count>=threshold)
                 {
+                    if(delayed)
+                    {
+                        Check(c.energy==0&&!RecastAvailable(c,target)&&!c.hand.Contains(target),id+": timed source schedules rather than immediately recalls its target");
+                        typeof(GameEngine).GetMethod("StartPlayerTurn",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(e,new object[]{false});
+                        c.energy=0;
+                    }
                     Check(c.energy==0&&c.hand.Contains(target)&&e.EffectiveCardCost(target)==0,id+": earned owned target can be recalled after spending the last energy");
                     Check(e.PlayCard(c.hand.IndexOf(target))&&!RecastAvailable(c,target),id+": an earned zero-cost target consumes its finite grant");
                 }

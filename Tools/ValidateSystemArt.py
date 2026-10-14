@@ -104,8 +104,9 @@ def validate(root: Path, allow_incomplete: bool = False) -> dict:
     expected.update({e['id']:e for e in additions if e['kind']=='gear'})
     refinements=manifest_entries(read_json(root/'docs/art-system/map-critical-art-manifest.json'))
     expected.update({e['id']:e for e in refinements})
-    if len(expected) != 78:
-        errors.append(f"icon contract contains {len(expected)} IDs; expected 78")
+    expected.update({e['id']:e for e in manifest_entries(read_json(root/'docs/art-system/equipment-expansion-manifest.json'))})
+    if len(expected) != 84:
+        errors.append(f"icon contract contains {len(expected)} IDs; expected 84")
 
     # Cross-check the item/rune export against the actual database declarations.
     # This is a narrow parser for this repository's stable registration helpers.
@@ -146,6 +147,7 @@ def validate(root: Path, allow_incomplete: bool = False) -> dict:
         overrides=manifest_entries(read_json(root/'docs/art-system/map-critical-asset-index.json'))
         replacement_ids={row['id'] for row in overrides}
         indexed_rows=[row for row in indexed_rows if row['id'] not in replacement_ids]+overrides
+        indexed_rows += manifest_entries(read_json(root/'docs/art-system/equipment-expansion-asset-index.json'))
     except (OSError, ValueError, TypeError) as error:
         errors.append(f"asset-index: {error}")
         indexed_rows = []
@@ -203,7 +205,7 @@ def validate(root: Path, allow_incomplete: bool = False) -> dict:
             errors.append(f"{label}: provenance must record 32x32 logical pixels exported at 64x64")
         source_path = (root / row.get("source", "")).resolve()
         generated_root = (root / "docs/art-system/generated").resolve()
-        if not any(source_path.is_relative_to((root/directory).resolve()) for directory in ('docs/art-system/generated','docs/art-system/loadout-generated','docs/art-system/map-critical-generated')) or not source_path.is_file():
+        if not any(source_path.is_relative_to((root/directory).resolve()) for directory in ('docs/art-system/generated','docs/art-system/loadout-generated','docs/art-system/map-critical-generated','docs/art-system/expansion-generated')) or not source_path.is_file():
             errors.append(f"{label}: original generated source is missing from docs/art-system/generated")
         else:
             source_hash = digest(source_path)
@@ -211,7 +213,7 @@ def validate(root: Path, allow_incomplete: bool = False) -> dict:
             if row.get("sourceSha256") != source_hash:
                 errors.append(f"{label}: generated-source hash differs from the processing record")
         prompt_path = (root / row.get("promptRecord", "")).resolve()
-        if not any(prompt_path.is_relative_to((root/directory).resolve()) for directory in ('docs/art-system/generation','docs/art-system/loadout-generation','docs/art-system/map-critical-generation')) or not prompt_path.is_file():
+        if not any(prompt_path.is_relative_to((root/directory).resolve()) for directory in ('docs/art-system/generation','docs/art-system/loadout-generation','docs/art-system/map-critical-generation','docs/art-system/expansion-generation')) or not prompt_path.is_file():
             errors.append(f"{label}: individual generation prompt record is missing")
         else:
             try:
@@ -262,7 +264,7 @@ def validate(root: Path, allow_incomplete: bool = False) -> dict:
     return {
         "schema": 1, "passed": not errors, "complete": not missing,
         "allowIncomplete": allow_incomplete,
-        "expected": {"icons": 78, "portraits": 92},
+        "expected": {"icons": 84, "portraits": 92},
         "counts": {"icons": counts["icon"], "portraits": counts["portrait"]},
         "missing": sorted(set(missing)), "errors": errors, "warnings": warnings,
         "duplicateArtwork": duplicates, "duplicateGeneratedSources": duplicate_sources, "duplicateGenerationResults": duplicate_calls,

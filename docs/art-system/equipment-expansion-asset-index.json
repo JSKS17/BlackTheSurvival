@@ -1,0 +1,200 @@
+[
+  {
+    "id": "intervention",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/intervention.png",
+    "source": "docs/art-system/expansion-generated/intervention.png",
+    "promptRecord": "docs/art-system/expansion-generation/intervention.json",
+    "referenceSha256": "f07b3b809b72edda7c3d6071524e0e4ed38f31c5b37bc97d0ef59348fa996fb3",
+    "sourceSha256": "f0b7ed0d188d650a92a16b74185fc3930279b0084989f33fa63e95ac4f318ee6",
+    "fileSha256": "82c06fbbf957a676fb5f98f3f6ec3516ab9cd848168c46094c310d375c7d9a4e",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "cropBox": [
+      251,
+      202,
+      1391,
+      863
+    ],
+    "contentSize": [
+      28,
+      16
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "joyeuse",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/joyeuse.png",
+    "source": "docs/art-system/expansion-generated/joyeuse.png",
+    "promptRecord": "docs/art-system/expansion-generation/joyeuse.json",
+    "referenceSha256": "60c38cd9d8add9fca254e7ccc3ec171d68ea05d33ec3bfc8ba64370910decea2",
+    "sourceSha256": "d457a4789d1a2b852a92590b817e021e6f2733decb0d142c21ad59da01aa7109",
+    "fileSha256": "d6d2678d284ff18e0dd788f0c03a1f8f5989ecd7006af5eff37cde049a4e3810",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      142,
+      256,
+      1128,
+      1004
+    ],
+    "contentSize": [
+      28,
+      21
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "quad_eye",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/quad_eye.png",
+    "source": "docs/art-system/expansion-generated/quad_eye.png",
+    "promptRecord": "docs/art-system/expansion-generation/quad_eye.json",
+    "referenceSha256": "abbad93f7de32cc36cfed843255b498ff092aa3752d0395137d7f5317ac1c74b",
+    "sourceSha256": "ae59833b288160da4718676e3d455ae4afbaa87dbdcccdb41c6302dac42c36e2",
+    "fileSha256": "2a536fd02410a74eae69f0786d21cb5f044fc9e54c0908ea57e6559e0a5152a9",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1350,
+      1165
+    ],
+    "cropBox": [
+      298,
+      268,
+      1059,
+      908
+    ],
+    "contentSize": [
+      28,
+      24
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "mithril_armband",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/mithril_armband.png",
+    "source": "docs/art-system/expansion-generated/mithril_armband.png",
+    "promptRecord": "docs/art-system/expansion-generation/mithril_armband.json",
+    "referenceSha256": "9e6b35503ceab918d62b68a64a13a3bb7eb10fe303ae4c37bd583cf0140516a8",
+    "sourceSha256": "722518ed3d2091ef785c802a48439e013c226979b5b782b33af091698696cd8c",
+    "fileSha256": "24ec544779af8d9409498f29d69a94d2b43af97ad68248da998de25aec71b534",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      156,
+      170,
+      1079,
+      1076
+    ],
+    "contentSize": [
+      28,
+      27
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "racing_boots",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/racing_boots.png",
+    "source": "docs/art-system/expansion-generated/racing_boots.png",
+    "promptRecord": "docs/art-system/expansion-generation/racing_boots.json",
+    "referenceSha256": "ff984939ccee9cc1a09b13e019d3bb41e0a57c9def2bec7bca944fc9a52c68ef",
+    "sourceSha256": "67ac280407273ddf35789bc9f906ece0a80258a3c330a69e5b4c1f6a6ce22ced",
+    "fileSha256": "5a1dc56b45c4ef2b614bf624472aeee0f29bd1eb96b8717114efb1f1fbcbcf85",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      290,
+      242,
+      942,
+      1041
+    ],
+    "contentSize": [
+      23,
+      28
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  },
+  {
+    "id": "dice_of_destiny",
+    "kind": "gear",
+    "path": "Assets/Resources/Lumia/SystemIcons/dice_of_destiny.png",
+    "source": "docs/art-system/expansion-generated/dice_of_destiny.png",
+    "promptRecord": "docs/art-system/expansion-generation/dice_of_destiny.json",
+    "referenceSha256": "7aa04ae417f73b95d185dc3ab0977ad4c3b1f2d8fa220e0debac02b284cb1d32",
+    "sourceSha256": "566bb39f8ebf0e392e80882148dd7c6fa0f7e102046bb29c2e6361dbe5d625e8",
+    "fileSha256": "b4c24d68f4a312c4eb767ad9080cc757be04e1ea48c5f13dad3ad285be059c30",
+    "size": [
+      64,
+      64
+    ],
+    "logicalSize": [
+      32,
+      32
+    ],
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "cropBox": [
+      280,
+      248,
+      986,
+      997
+    ],
+    "contentSize": [
+      26,
+      28
+    ],
+    "extraction": "alpha-bounds-crop-nearest-fit-28-pad-32-nearest-2x"
+  }
+]

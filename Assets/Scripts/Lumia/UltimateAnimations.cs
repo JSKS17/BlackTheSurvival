@@ -24,8 +24,9 @@ namespace Lumia
     /// <summary>The approved atlas pixels are displayed directly; rendering never changes combat state.</summary>
     public static class UltimateAnimations
     {
-        public static readonly Rect Stage = new Rect(420, 81, 440, 357);
-        public static readonly Rect ImageArea = new Rect(432, 110, 416, 316);
+        // Leave the centre clear for the simultaneous card reveal. The animation has no UI panel.
+        public static readonly Rect PlayerArea = new Rect(24, 81, 456, 356);
+        public static readonly Rect EnemyArea = new Rect(800, 81, 456, 356);
         public const float ReducedSeconds = .30f;
         const int TextureCacheLimit = 3;
         static readonly Dictionary<string, UltimateAnimationDef> definitions = new Dictionary<string, UltimateAnimationDef>();
@@ -33,7 +34,6 @@ namespace Lumia
         static readonly Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
         static readonly Queue<string> textureOrder = new Queue<string>();
         static bool prepared;
-        static GUIStyle title;
 
         public static IReadOnlyDictionary<string, UltimateAnimationDef> Catalog { get { Prepare(); return definitions; } }
 
@@ -107,15 +107,29 @@ namespace Lumia
             return new Rect((float)frame.x / value.atlasWidth, 1f - (float)(frame.y + frame.height) / value.atlasHeight,
                 (float)frame.width / value.atlasWidth, (float)frame.height / value.atlasHeight);
         }
-        public static Rect CanvasRect(UltimateAnimationDef value)
+        public static Rect Area(bool enemy) { return enemy ? EnemyArea : PlayerArea; }
+        public static Rect DisplayBounds(UltimateAnimationDef value)
         {
-            float scale = Math.Min(ImageArea.width / value.canvasWidth, ImageArea.height / value.canvasHeight);
-            float width = value.canvasWidth * scale, height = value.canvasHeight * scale;
-            return new Rect(Mathf.Round(ImageArea.center.x - width / 2), Mathf.Round(ImageArea.center.y - height / 2), width, height);
+            // Trim only the empty safety margin outside every approved frame. A fixed union preserves motion,
+            // proportions and offsets; fitting each individual frame would make the character pump in size.
+            float left = value.canvasWidth, top = value.canvasHeight, right = 0, bottom = 0;
+            foreach (var frame in value.frames)
+            {
+                left = Math.Min(left, frame.offsetX); top = Math.Min(top, frame.offsetY);
+                right = Math.Max(right, frame.offsetX + frame.width); bottom = Math.Max(bottom, frame.offsetY + frame.height);
+            }
+            return Rect.MinMaxRect(left, top, right, bottom);
         }
-        public static Rect FrameRect(UltimateAnimationDef value, int index)
+        public static Rect CanvasRect(UltimateAnimationDef value, bool enemy)
         {
-            var canvas = CanvasRect(value); var frame = value.frames[index];
+            var area = Area(enemy); var bounds = DisplayBounds(value);
+            float scale = Math.Min(area.width / bounds.width, area.height / bounds.height);
+            return new Rect(Mathf.Round(area.center.x - bounds.width * scale / 2 - bounds.x * scale),
+                Mathf.Round(area.center.y - bounds.height * scale / 2 - bounds.y * scale), value.canvasWidth * scale, value.canvasHeight * scale);
+        }
+        public static Rect FrameRect(UltimateAnimationDef value, int index, bool enemy = false)
+        {
+            var canvas = CanvasRect(value, enemy); var frame = value.frames[index];
             float scale = canvas.width / value.canvasWidth;
             return new Rect(canvas.x + frame.offsetX * scale, canvas.y + frame.offsetY * scale, frame.width * scale, frame.height * scale);
         }
@@ -127,25 +141,15 @@ namespace Lumia
             Matrix4x4 matrix = GUI.matrix; Color color = GUI.color; bool enabled = GUI.enabled;
             try
             {
-                GUI.color = new Color(.025f, .045f, .07f, .95f);
-                GUI.DrawTexture(Stage, Texture2D.whiteTexture);
-                Color side = enemy ? new Color(.87f, .53f, .68f) : new Color(.57f, .87f, .74f);
-                GUI.color = side;
-                GUI.DrawTexture(new Rect(Stage.x, Stage.y, Stage.width, 2), Texture2D.whiteTexture);
-                GUI.DrawTexture(new Rect(Stage.x, Stage.yMax - 2, Stage.width, 2), Texture2D.whiteTexture);
-                if (title == null || title.font != font.font) title = new GUIStyle(font) { alignment = TextAnchor.MiddleCenter, clipping = TextClipping.Clip, wordWrap = false };
-                title.fontSize = 13; title.normal.textColor = side;
-                string caption = (enemy ? "상대" : "하나") + "  /  " + value.name + " R · " + card.name;
-                while (title.fontSize > 8 && title.CalcSize(new GUIContent(caption)).x > Stage.width - 20) title.fontSize--;
-                GUI.color = Color.white;
-                GUI.Label(new Rect(Stage.x + 10, Stage.y + 5, Stage.width - 20, 23), caption, title);
+                GUI.enabled = true;
+                // Draw only approved transparent pixels, with no backdrop, title, border, tint or banner.
                 int frame = FrameIndex(value, elapsed, reduced);
-                Rect target = FrameRect(value, frame);
+                Rect target = FrameRect(value, frame, enemy), area = Area(enemy);
                 GUI.color = Color.white;
-                GUI.BeginGroup(ImageArea);
+                GUI.BeginGroup(area);
                 try
                 {
-                    target.x -= ImageArea.x; target.y -= ImageArea.y;
+                    target.x -= area.x; target.y -= area.y;
                     // Fresh atlas region every repaint: no previous frame is retained or blended.
                     GUI.DrawTextureWithTexCoords(target, texture, FrameUV(value, frame), true);
                 }

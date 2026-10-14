@@ -4,7 +4,7 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 정식 버전은 [v1.0.0](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.0)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 정식 버전은 [v1.0.1](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.1)에 있습니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
 - 완성된 Windows 빌드가 있으면 `Build/Windows/BlackTheSurvival.exe`를 실행하세요. 같은 폴더의 `BlackTheSurvival_Data`, `MonoBleedingEdge`, `UnityPlayer.dll`도 함께 있어야 합니다.
@@ -17,9 +17,11 @@
 
 로비 오른쪽 니아의 말풍선을 누르면 팁과 농담이 **무작위**로 바뀝니다. 대사 **48개**를 모두 한 번씩 본 뒤 다시 섞으며 바로 같은 대사가 반복되지 않습니다. 대사 클릭은 원정의 난수나 저장 상태를 바꾸지 않습니다. [전체 대사와 작성 근거](docs/LOBBY_DIALOGUE.md)를 보관합니다.
 
-v0.1.27의 로비는 연구소 배경과 니아를 별도 이미지로 표시합니다. 기존 무릎을 세우고 컨트롤러를 잡은 자세와 풍선껌을 유지하면서, 니아를 현재 게임의 도트 스타일로 새로 제작했습니다. 프롤로그 두 번째 컷도 니아의 낮은 눈꺼풀과 작은 입으로 표정을 절제했습니다. [로비 아트 제작 기록](docs/ART_LAYERED_LOBBY.md)을 참고하세요.
+로비는 연구소 배경과 니아를 별도 이미지로 표시합니다. v1.0.1에서는 연구소를 굵은 도트로 다시 만들고 256×144 Point 표시로 니아와 도트 크기를 맞췄습니다. 프롤로그 두 번째 컷의 니아도 눈과 입을 절제된 무표정으로 교정했습니다. [최신 아트 제작 기록](docs/art-refresh-v1.0.1/README.md)을 참고하세요.
 
-v1.0.0부터 승인한 **실험체 91명의 R 도트 애니메이션**을 게임에 적용했습니다. 플레이어와 상대가 R 카드를 직접 사용하면 카드 확대 표시 후 전투 중앙에서 전용 애니메이션을 재생하며, 손패와 겹치지 않습니다. R로 전투가 끝나도 연출을 마친 뒤 결과 화면으로 넘어갑니다. 원본·프롬프트·GIF·WebP와 [프레임별 감상 갤러리](docs/ART_ULTIMATE_COLLECTION.md)는 `ArtSource/AnimationPrototypes/`에 보관합니다. 소스 폴더나 별도 갤러리 ZIP의 `index.html`을 열면 검색·재생·프레임별 보기가 가능합니다. [게임 적용 방식과 자산 규약](docs/ULTIMATE_ANIMATIONS.md)을 참고하세요.
+승인한 **실험체 91명의 R 도트 애니메이션**을 플레이어와 상대 모두에 적용했습니다. v1.0.1에서는 배경 패널 없이 시전자 쪽에 더 크게 띄우고 중앙 카드와 동시에 재생합니다. 손패·확대 카드와 겹치지 않으며 R로 전투가 끝나도 연출을 마친 뒤 결과 화면으로 넘어갑니다. 피해·보호막·패시브 등의 숫자와 문구에는 테두리와 별도 표시 줄을 적용해 조금 더 오래 보여 줍니다. 원본·프롬프트·GIF·WebP와 [프레임별 감상 갤러리](docs/ART_ULTIMATE_COLLECTION.md)는 `ArtSource/AnimationPrototypes/`에 보관합니다. [게임 적용 방식과 자산 규약](docs/ULTIMATE_ANIMATIONS.md)을 참고하세요.
+
+전투 중 음식은 **만년 스프 2코스트, 다른 음식 1코스트**를 사용하며 전투 밖에서는 비용이 없습니다. 바냐 Q·비앙카 W·클로에 E·매그너스 W의 무료 연계는 다음 자기 턴에 열립니다. [음식과 지연 연계](docs/FOOD_AND_DELAYED_RECASTS.md)를 참고하세요. 장비는 57종이며 무기 23개 계열을 모두 지원하고, 추가한 치명타 장비의 피해 보너스는 기본150% 배율에 합산합니다.
 
 ## 니아의 튜토리얼과 스토리
 

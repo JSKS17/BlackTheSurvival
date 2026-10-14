@@ -124,8 +124,8 @@ namespace Lumia
                 bool hit = card.freeCastOnHit || card.freeCastCondition?.onHit == true;
                 string targetNote = card.freeCastLastSkill ? " 실제 직전 기술과 보유 카드가 있어야 다시 가져옵니다." : " 보유한 대상 카드에만 무료 사용권이 생깁니다.";
                 result.Add(new CardConditionPreview { condition = DescriptionSummary.ConditionPrefix(effect.condition).TrimEnd(',', ' '), effect = effect.effect + targetNote,
-                    current = CurrentCondition(card.freeCastCondition ?? new SkillRule(), actor, card), met = met, requiresHit = hit,
-                    result = !met ? "현재 연계 조건 미충족" : hit ? "현재 수치 조건 충족 · 적중해야 무료 사용권 획득" : "현재 무료 연계 조건 충족" });
+                    current = CurrentCondition(card.freeCastCondition ?? new SkillRule(), actor, card), met = met, requiresHit = hit, scheduled = card.freeCastNextTurn,
+                    result = !met ? "현재 연계 조건 미충족" : card.freeCastNextTurn ? "다음 자기 턴에 사용할 무료 연계를 예약합니다" + (hit ? " · 적중 필요" : "") : hit ? "현재 수치 조건 충족 · 적중해야 무료 사용권 획득" : "현재 무료 연계 조건 충족" });
             }
             foreach (var group in (card.statuses ?? new CardStatusRule[0]).GroupBy(r => DescriptionSummary.ConditionKey(r, r.timing)))
             {
@@ -230,7 +230,7 @@ namespace Lumia
             {
                 int ceiling = result.normalDamage;
                 if (FreeCastMechanics.GarnetExecutionReady(card, c.playerSkills, result.hasFreeCast, c.enemyHp, c.enemyMaxHp)) ceiling = Math.Max(ceiling, c.enemyHp);
-                if (result.criticalChance > 0) ceiling += (CriticalBaseDamage(CardDamage(card.id)) - CardDamage(card.id)) * result.hits;
+                if (result.criticalChance > 0) ceiling += (GearCriticalDamage(CardDamage(card.id)) - CardDamage(card.id)) * result.hits;
                 result.bossPossibleViolation = ceiling >= Math.Max(1, phase.goalAmount);
                 result.bossWarning = "직접 피해 " + Math.Max(1, phase.goalAmount) + " 이상이면 금지 조건을 위반합니다. 방어도에 준 피해도 포함합니다. " + (result.bossPossibleViolation ? "이 카드의 일반 적중·치명타 예상치가 금지 기준에 닿을 수 있습니다." : "현재 예상치는 금지 기준 미만입니다. 실제 피해로 판정합니다.");
             }

@@ -464,7 +464,7 @@ public static class DescriptionAudit
             foreach(string description in new[]{summary,full})
             {
                 Check(description.Contains(resource)&&description.Contains(threshold.ToString()),card.id+": resource reset description retains its actual pre-cast preparation threshold");
-                Check(description.Contains("코스트 없이")&&description.Contains("이번 턴")&&description.Contains("1회"),card.id+": conditioned free-use duration and amount remain explicit");
+                Check(description.Contains("코스트 없이")&&description.Contains(card.freeCastNextTurn ? "다음 내 턴" : "이번 턴")&&description.Contains("1회"),card.id+": conditioned free-use duration and amount remain explicit");
                 if(card.freeCastOnHit)Check(description.Contains("적중"),card.id+": reset describes the required landed attack");
             }
             if(preview.Contains("무료")||preview.Contains("코스트 없이"))
@@ -556,12 +556,15 @@ public static class DescriptionAudit
             {
                 string sourceBefore=DataSnapshot(gear);
                 string summary=DescriptionSummary.Gear(gear);Text(gear.id+"/summary",summary);Text(gear.id+"/full",gear.description);
-                string[] allowedTags={"공격","방어","체력","회복","회피","일반 공격","치명타","스킬","상태이상","코스트"};
+                string[] allowedTags={"공격","방어","체력","회복","회피","일반 공격","치명타","치명타 확률","치명타 피해","스킬","상태이상","코스트"};
                 Check(gear.optionTags!=null&&gear.optionTags.Length>0,gear.id+": searchable equipment options are present");
                 Check(gear.optionTags.Distinct().Count()==gear.optionTags.Length,gear.id+": searchable option tags are distinct");
-                Check(gear.optionTags.All(t=>allowedTags.Contains(t)),gear.id+": tags use the shared ten-option vocabulary");
+                Check(gear.optionTags.All(t=>allowedTags.Contains(t)),gear.id+": tags use the shared equipment-option vocabulary");
                 Check(gear.critChance>=0&&gear.critChance<=8,gear.id+": equipment critical chance stays modest");
-                Check(gear.optionTags.Contains("치명타")== (gear.critChance>0),gear.id+": critical filter agrees with the actual stat");
+                Check(gear.optionTags.Contains("치명타")== (gear.critChance>0 || gear.critDamageBonus>0),gear.id+": critical filter agrees with the actual stat");
+                Check(gear.optionTags.Contains("치명타 확률")== (gear.critChance>0),gear.id+": chance filter agrees with the actual stat");
+                Check(gear.optionTags.Contains("치명타 피해")== (gear.critDamageBonus>0),gear.id+": damage filter agrees with the actual stat");
+                if(gear.critDamageBonus>0)Check(summary.Contains(gear.critDamageBonus+"%p")&&summary.Contains("치명타 피해"),gear.id+": equipment summary shows its exact critical-damage bonus");
                 if(gear.critChance>0)
                 {
                     Check(gear.optionTags.Contains("일반 공격"),gear.id+": critical equipment can be found under basic attacks");
@@ -580,7 +583,8 @@ public static class DescriptionAudit
                 output.Append("## 장비 · "+gear.name+"\n\n"+summary.Replace("\n","  \n")+"\n\n");
             }
             var criticalGear=GameDatabase.Gear.Where(g=>g.critChance>0).ToArray();
-            Check(criticalGear.Length==7,"Seven original critical equipment items include four new crafting choices");
+            Check(criticalGear.Length==13,"Thirteen original critical-chance equipment items include six expansion choices");
+            Check(GameDatabase.Gear.Count(g=>g.critDamageBonus>0)==4,"Four original items show their adapted critical-damage bonus");
             foreach(string id in new[]{"meteor_sword","light_insignia","ghillie_suit","alexandros"})
             {
                 var gear=GameDatabase.Equipment(id);
@@ -598,7 +602,8 @@ public static class DescriptionAudit
                 Check(option.description.EndsWith(reward),"The visible encounter choice retains its exact energy reward");
                 Text("max_energy/encounter",option.description);
             }
-            Check(DescriptionSummary.CardPreview(GameDatabase.Card("basic_attack"),GameDatabase.Cards).Contains("1.5배"),"The basic attack brief preview shows its critical damage multiplier");
+            string basicPreview=DescriptionSummary.CardPreview(GameDatabase.Card("basic_attack"),GameDatabase.Cards);
+            Check(basicPreview.Contains("150%") && basicPreview.Contains("장비"),"The basic attack brief preview shows its baseline critical multiplier and equipment scaling");
             string nia=DescriptionSummary.Card(GameDatabase.Card("nia_w"),GameDatabase.Cards);
             Check(nia.Contains("아케이드 블록 × 4")&&nia.Contains("최대 12")&&nia.Contains("모두 소모")&&nia.Contains("아케이드 드롭")&&nia.Contains("둔화"),"Nia W's scaling, consumption, discount and conditional status are all visible");
             string isaac=DescriptionSummary.Passive(GameDatabase.Passive("isaac_p"));

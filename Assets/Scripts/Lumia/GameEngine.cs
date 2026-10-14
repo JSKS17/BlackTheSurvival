@@ -18,6 +18,12 @@ namespace Lumia
         public int uses;
     }
 
+    [Serializable] public class PendingFreeCast
+    {
+        public string sourceCardId, cardId;
+        public int uses, readyTurn;
+    }
+
     [Serializable] public class CombatAction
     {
         public int id;
@@ -60,6 +66,7 @@ namespace Lumia
         public List<string> enemyGear = new List<string>();
         public List<DeferredDamage> playerDeferredDamage = new List<DeferredDamage>(), enemyDeferredDamage = new List<DeferredDamage>();
         public List<FreeCastGrant> freeCasts = new List<FreeCastGrant>(), enemyFreeCasts = new List<FreeCastGrant>();
+        public List<PendingFreeCast> pendingFreeCasts = new List<PendingFreeCast>(), enemyPendingFreeCasts = new List<PendingFreeCast>();
         public List<string> freeCastSources = new List<string>(), enemyFreeCastSources = new List<string>();
         public List<int> enemyPlanCosts = new List<int>();
         public List<bool> enemyPlanFreeCast = new List<bool>();
@@ -335,6 +342,10 @@ namespace Lumia
                 if (c.freeCastSources == null) c.freeCastSources = new List<string>();
                 if (c.enemyFreeCasts == null) c.enemyFreeCasts = new List<FreeCastGrant>();
                 if (c.enemyFreeCastSources == null) c.enemyFreeCastSources = new List<string>();
+                if (c.pendingFreeCasts == null) c.pendingFreeCasts = new List<PendingFreeCast>();
+                if (c.enemyPendingFreeCasts == null) c.enemyPendingFreeCasts = new List<PendingFreeCast>();
+                FreeCastMechanics.SanitizePending(c.pendingFreeCasts);
+                FreeCastMechanics.SanitizePending(c.enemyPendingFreeCasts);
                 if (c.enemyPlanCosts == null) c.enemyPlanCosts = new List<int>();
                 if (c.enemyPlanCosts.Count != c.enemyPlan.Count) c.enemyPlanCosts = c.enemyPlan.Select(CardCost).ToList();
                 if (c.enemyPlanFreeCast == null || c.enemyPlanFreeCast.Count != c.enemyPlan.Count)
@@ -707,7 +718,7 @@ namespace Lumia
                 }
                 int baseDamage = CardDamage(id);
                 // Only the universal basic attack's own hit is multiplied. Skill/passive bonus pulses remain separate.
-                if (id == "basic_attack" && baseDamage > 0 && Roll(CritChance)) { baseDamage = CriticalBaseDamage(baseDamage); criticalHits++; }
+                if (id == "basic_attack" && baseDamage > 0 && Roll(CritChance)) { baseDamage = GearCriticalDamage(baseDamage); criticalHits++; }
                 int damage = Math.Max(0,baseDamage + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.enemyBlock, damage);
                 bonusUsed = true;
                 c.enemyBlock -= absorbed; damage -= absorbed; absorbedTotal += absorbed;
@@ -737,7 +748,7 @@ namespace Lumia
                 int missedCopy = c.discardPile.LastIndexOf(id);
                 if (missedCopy >= 0) { c.discardPile.RemoveAt(missedCopy); c.exhaustPile.Add(id); }
             }
-            GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills, card.owner), skillBefore, landed);
+            GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills, card.owner), skillBefore, landed, c.pendingFreeCasts, c.turn);
             int cardHeal=State.hp-beforeHp;
             EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = id, enemy = false, damage = dealt, block = block, heal = cardHeal, avoided = avoided, absorbed = absorbedTotal, critical = criticalHits > 0, criticalHits = criticalHits, execution = execution });
             bool attackAttempt=card.damage>0 || bonusDamage>0;
@@ -797,6 +808,10 @@ namespace Lumia
             c.enemyBlock = 0;
             if (c.enemyEvasionTurns > 0 && --c.enemyEvasionTurns == 0) c.enemyEvasion = BaseEnemyEvasion();
             c.enemyTurn = true; c.enemyActionIndex = 0; c.enemyFreeCasts.Clear(); c.enemyFreeCastSources.Clear();
+            // Planning already moved the exact recalled copies into the enemy's finite piles.
+            var availableEnemyCopies = c.enemyDeck.Where(id => c.enemyHand.Contains(id) || c.enemyDrawPile.Contains(id) || c.enemyDiscardPile.Contains(id)
+                || c.enemyPlan.Where((planned,i) => i < c.enemyPlanFreeCast.Count && c.enemyPlanFreeCast[i]).Contains(id));
+            FreeCastMechanics.ActivatePending(c.enemyPendingFreeCasts, c.turn, availableEnemyCopies, c.enemyFreeCasts, c.enemyFreeCastSources, null, null, null, false);
             RecordCombatInformation(new CombatLogEntry { kind = "turn_start", enemy = true, title = "상대 턴 시작", detail = "상대의 턴 시작 효과와 예정 행동을 처리합니다." });
             c.enemyAvailableEnergy = EnergyForLevel(c.enemyLevel)+TraitMechanics.EnergyBonus(c.enemyTraits)+c.enemyOpeningEnergy;c.enemyOpeningEnergy=0;
             SkillMechanics.StartTurn(c.enemySkills);
@@ -865,7 +880,7 @@ namespace Lumia
                     break;
                 }
                 int baseDamage = damagePerHit;
-                if (id == "basic_attack" && baseDamage > 0 && Roll(EnemyCritChance)) { baseDamage = CriticalBaseDamage(baseDamage); criticalHits++; }
+                if (id == "basic_attack" && baseDamage > 0 && Roll(EnemyCritChance)) { baseDamage = GearCriticalDamage(baseDamage,true); criticalHits++; }
                 int damage = Math.Max(0,RunModes.ScaleEnemyDirectDamage(State, baseDamage + (bonusUsed ? 0 : bonusDamage)) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.block, damage); c.block -= absorbed; absorbedTotal += absorbed;
                 bonusUsed = true;
                 dealt += TakeHealthDamage(false,damage-absorbed);
@@ -884,7 +899,7 @@ namespace Lumia
             StatusMechanics.DamageTaken(c.playerStatuses,dealt);
             bool statusControl=ApplyCardStatuses(true,skillBefore,card,landed);
             RecordLastSkill(c.enemyLastSkills, card);
-            GrantFreeCasts(card, c.enemyDeck, c.enemyFreeCasts, c.enemyFreeCastSources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, false, LastSkill(c.enemyLastSkills, card.owner), skillBefore, landed);
+            GrantFreeCasts(card, c.enemyDeck, c.enemyFreeCasts, c.enemyFreeCastSources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, false, LastSkill(c.enemyLastSkills, card.owner), skillBefore, landed, c.enemyPendingFreeCasts, c.turn);
             int cardHeal=c.enemyHp-beforeHp;
             EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = id, enemy = true, damage = dealt, block = addedBlock, heal = cardHeal, avoided = avoided, absorbed = absorbedTotal, critical = criticalHits > 0, criticalHits = criticalHits, execution = execution });
             bool attackAttempt=damagePerHit>0 || bonusDamage>0;
@@ -928,7 +943,7 @@ namespace Lumia
             if (grant != null) grant.uses--;
         }
 
-        private static void GrantFreeCasts(CardDef card, IEnumerable<string> owned, List<FreeCastGrant> grants, List<string> sources, List<string> hand, List<string> draw, List<string> discard, bool recall = true, string lastSkill = null, SkillActorState before = null, bool landed = true)
+        private static void GrantFreeCasts(CardDef card, IEnumerable<string> owned, List<FreeCastGrant> grants, List<string> sources, List<string> hand, List<string> draw, List<string> discard, bool recall = true, string lastSkill = null, SkillActorState before = null, bool landed = true, List<PendingFreeCast> pending = null, int turn = 0)
         {
             if (!FreeCastMechanics.Eligible(card,before,landed)) return;
             var targets = card.freeCastTargets.Distinct().Where(id => !card.freeCastLastSkill || id == lastSkill);
@@ -937,6 +952,12 @@ namespace Lumia
                 string source = card.id + "|" + target;
                 if (!owned.Contains(target) || GameDatabase.Card(target) == null || sources.Contains(source)) continue;
                 sources.Add(source);
+                if (card.freeCastNextTurn)
+                {
+                    if (pending != null && !pending.Any(x => x.sourceCardId == card.id && x.cardId == target))
+                        pending.Add(new PendingFreeCast { sourceCardId = card.id, cardId = target, uses = card.freeCastCount, readyTurn = turn + 1 });
+                    continue;
+                }
                 var grant = grants.FirstOrDefault(g => g.cardId == target);
                 if (grant == null) { grant = new FreeCastGrant { cardId = target }; grants.Add(grant); }
                 grant.uses += card.freeCastCount;
@@ -1286,16 +1307,33 @@ namespace Lumia
             State.pendingPassive = null; CompleteNode(); return true;
         }
 
+        public int FoodUseCost(string id) => GameDatabase.Food(id) == null ? 0 : id == "soup" ? 2 : 1;
+
+        public bool CanUseFood(int index)
+        {
+            if (State.stage == RunStage.Preparation || State.stage == RunStage.Won || State.stage == RunStage.Lost || index < 0 || index >= State.foods.Count || State.hp >= State.maxHp) return false;
+            var food = GameDatabase.Food(State.foods[index]);
+            if (food == null) return false;
+            return State.stage != RunStage.Combat || (State.combat != null && !State.combat.enemyTurn && State.combat.energy >= FoodUseCost(food.id));
+        }
+
         public bool UseFood(int index)
         {
-            if (State.stage == RunStage.Preparation || State.stage == RunStage.Won || State.stage == RunStage.Lost || (State.combat != null && State.combat.enemyTurn) || index < 0 || index >= State.foods.Count) return Fail("사용할 음식을 선택하세요.");
+            if (!CanUseFood(index)) return Fail(State.stage == RunStage.Combat ? "내 턴에 음식에 필요한 코스트와 회복할 체력이 있어야 합니다." : "사용할 음식과 회복할 체력을 확인하세요.");
             var food = GameDatabase.Food(State.foods[index]); if (food == null) return false;
             if (State.hp >= State.maxHp) return Fail("체력이 이미 가득합니다.");
+            int price = State.stage == RunStage.Combat ? FoodUseCost(food.id) : 0;
+            if (price > 0) State.combat.energy -= price;
             State.foods.RemoveAt(index); int before = State.hp;
             if (food.fullHeal) State.hp = State.maxHp; else Heal(food.heal);
             int recovered=State.hp-before;
             if(State.stage==RunStage.Combat && recovered>0) TraitEvent(false,"heal",null,false,heal:recovered);
-            return Say(food.name + " 사용 · 체력 +" + recovered);
+            if (State.stage == RunStage.Combat)
+            {
+                RecordCombatInformation(new CombatLogEntry { kind = "food", title = food.name + " 섭취", detail = "코스트 " + price + " 소모 · 체력 " + recovered + " 회복" });
+                RefreshEnemyIntent();
+            }
+            return Say(food.name + " 사용" + (price > 0 ? " · 코스트 -" + price : "") + " · 체력 +" + recovered);
         }
 
         private void GenerateMap()
@@ -1685,7 +1723,9 @@ namespace Lumia
             }
             if (CheckBattleEnd()) return;
             AugmentTurnStart(first);
-            DrawCards(Math.Max(0, 5 + Modifier("turn_draw") + AugmentOpeningDraw() - retained)); PlanEnemyTurn();
+            DrawCards(Math.Max(0, 5 + Modifier("turn_draw") + AugmentOpeningDraw() - retained));
+            FreeCastMechanics.ActivatePending(c.pendingFreeCasts, c.turn, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile);
+            PlanEnemyTurn();
             Say(c.turn + "턴 · 코스트 " + c.energy + "/" + MaxEnergy);
         }
 
@@ -1703,6 +1743,7 @@ namespace Lumia
                 DrawInto(c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, 4 + c.enemyLevel / 8);
                 int available = c.enemyEnergy;
                 var grants = new List<FreeCastGrant>(); var sources = new List<string>();
+                FreeCastMechanics.ActivatePending(c.enemyPendingFreeCasts, c.turn, c.enemyDeck, grants, sources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, true, false);
                 var history = c.enemyLastSkills.Select(x => new SkillHistory { owner = x.owner, cardId = x.cardId }).ToList();
                 var skillPlan = SkillMechanics.Clone(c.enemySkills);
                 SkillMechanics.StartTurn(skillPlan);
@@ -1935,6 +1976,7 @@ namespace Lumia
             var traitPreview=TraitMechanics.Clone(c.enemyTraits);int actorHp=c.enemyHp;
             var grants = c.enemyTurn ? c.enemyFreeCasts.Select(x => new FreeCastGrant { cardId=x.cardId, uses=x.uses }).ToList() : new List<FreeCastGrant>();
             var sources = c.enemyTurn ? c.enemyFreeCastSources.ToList() : new List<string>();
+            if (!c.enemyTurn) FreeCastMechanics.ActivatePending(c.enemyPendingFreeCasts, c.turn, c.enemyDeck, grants, sources, null, null, null, false, false);
             var history = c.enemyLastSkills.Select(x => new SkillHistory { owner=x.owner, cardId=x.cardId }).ToList();
             var defenderTraits=TraitMechanics.Clone(c.playerTraits);
             var defenderSkills=SkillMechanics.Clone(c.playerSkills);

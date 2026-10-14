@@ -1,0 +1,62 @@
+[
+  {
+    "id": "intervention",
+    "tool": "image_gen.imagegen",
+    "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art equipment icon for Black The Survival. Image 1 is the original Eternal Return item identity reference; image 2 is the established game pixel icon style reference. Create one NEW pixel-art icon of an Intervention tactical black and gray sniper rifle, long muzzle, scope and folded bipod, angled lower-left to upper-right. Preserve the reference rifle silhouette and attachments. Keep the original recognizable design and colors; do not invent ornaments. Use clear hard square pixel clusters, a restrained 32-by-32 logical pixel grid feel, dark navy one-pixel contour, 3-tone stepped highlights, no smoothing or antialiasing. The existing pixel icon has the desired coarse pixels and readable small UI silhouette. Center one object with generous transparent margins. Transparent alpha background, no colored backdrop, no text, no border, no card, no shadow panel, no watermark. The icon will be mechanically resized to 32 logical pixels and displayed at 64 by 64.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a138fc-ef22-7281-88ab-20c91bd2c3a4\\exec-e00ebe8b-bcb8-4b6f-b813-65180a546ac4.png",
+    "referenceInputs": [
+      "docs/art-system/references/expansion-v101/intervention.png",
+      "Assets/Resources/Lumia/SystemIcons/radar.png"
+    ]
+  },
+  {
+    "id": "joyeuse",
+    "tool": "image_gen.imagegen",
+    "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art equipment icon for Black The Survival. Image 1 is the original Eternal Return item identity reference; image 2 is the established game pixel icon style reference. Create one NEW pixel-art icon of Joyeuse, a slender silver-blue rapier blade with a bright gold ornate crossguard and long gold scabbard beside it, diagonally lower-left to upper-right. Preserve the reference sword and scabbard arrangement. Keep the original recognizable design and colors; do not invent ornaments. Use clear hard square pixel clusters, a restrained 32-by-32 logical pixel grid feel, dark navy one-pixel contour, 3-tone stepped highlights, no smoothing or antialiasing. The existing pixel icon has the desired coarse pixels and readable small UI silhouette. Center one object with generous transparent margins. Transparent alpha background, no colored backdrop, no text, no border, no card, no shadow panel, no watermark. The icon will be mechanically resized to 32 logical pixels and displayed at 64 by 64.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a138fc-ef22-7281-88ab-20c91bd2c3a4\\exec-3e995163-5482-42ba-a39e-23c02f78195d.png",
+    "referenceInputs": [
+      "docs/art-system/references/expansion-v101/joyeuse.png",
+      "Assets/Resources/Lumia/SystemIcons/radar.png"
+    ]
+  },
+  {
+    "id": "quad_eye",
+    "tool": "image_gen.imagegen",
+    "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art equipment icon for Black The Survival. Image 1 is the original Eternal Return item identity reference; image 2 is the established game pixel icon style reference. Create one NEW pixel-art icon of Quad Eye, a dark charcoal high-tech combat helmet facing front-left, four small optics on the face, vented armored panels, subdued cyan highlights. Preserve the helmet's silhouette and four-eye layout. Keep the original recognizable design and colors; do not invent ornaments. Use clear hard square pixel clusters, a restrained 32-by-32 logical pixel grid feel, dark navy one-pixel contour, 3-tone stepped highlights, no smoothing or antialiasing. The existing pixel icon has the desired coarse pixels and readable small UI silhouette. Center one object with generous transparent margins. Transparent alpha background, no colored backdrop, no text, no border, no card, no shadow panel, no watermark. The icon will be mechanically resized to 32 logical pixels and displayed at 64 by 64.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a138fc-ef22-7281-88ab-20c91bd2c3a4\\exec-572496db-8e7e-4e91-af6b-1406dd0495c2.png",
+    "referenceInputs": [
+      "docs/art-system/references/expansion-v101/quad_eye.png",
+      "Assets/Resources/Lumia/SystemIcons/radar.png"
+    ]
+  },
+  {
+    "id": "mithril_armband",
+    "tool": "image_gen.imagegen",
+    "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art equipment icon for Black The Survival. Image 1 is the original Eternal Return item identity reference; image 2 is the established game pixel icon style reference. Create one NEW pixel-art icon of Mithril Armband, a silver and blue ornamental armored cuff, dark curved band, engraved pale metal edges and cyan faceted gems. Preserve the reference cuff silhouette and jewels. Keep the original recognizable design and colors; do not invent ornaments. Use clear hard square pixel clusters, a restrained 32-by-32 logical pixel grid feel, dark navy one-pixel contour, 3-tone stepped highlights, no smoothing or antialiasing. The existing pixel icon has the desired coarse pixels and readable small UI silhouette. Center one object with generous transparent margins. Transparent alpha background, no colored backdrop, no text, no border, no card, no shadow panel, no watermark. The icon will be mechanically resized to 32 logical pixels and displayed at 64 by 64.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a138fc-ef22-7281-88ab-20c91bd2c3a4\\exec-6d9db956-1594-461d-9987-1df10f7d11db.png",
+    "referenceInputs": [
+      "docs/art-system/references/expansion-v101/mithril_armband.png",
+      "Assets/Resources/Lumia/SystemIcons/radar.png"
+    ]
+  },
+  {
+    "id": "racing_boots",
+    "tool": "image_gen.imagegen",
+    "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art equipment icon for Black The Survival. Image 1 is the original Eternal Return item identity reference; image 2 is the established game pixel icon style reference. Create one NEW pixel-art icon of Racing Boots, a pair of dark black and deep blue knee-high armored racing boots, small pale cyan fasteners, thick soles, front-left three-quarter view. Preserve the paired boot silhouette. Keep the original recognizable design and colors; do not invent ornaments. Use clear hard square pixel clusters, a restrained 32-by-32 logical pixel grid feel, dark navy one-pixel contour, 3-tone stepped highlights, no smoothing or antialiasing. The existing pixel icon has the desired coarse pixels and readable small UI silhouette. Center one object with generous transparent margins. Transparent alpha background, no colored backdrop, no text, no border, no card, no shadow panel, no watermark. The icon will be mechanically resized to 32 logical pixels and displayed at 64 by 64.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a138fc-ef22-7281-88ab-20c91bd2c3a4\\exec-8e1e58c3-0a2c-417e-908b-f1f6985340d6.png",
+    "referenceInputs": [
+      "docs/art-system/references/expansion-v101/racing_boots.png",
+      "Assets/Resources/Lumia/SystemIcons/radar.png"
+    ]
+  },
+  {
+    "id": "dice_of_destiny",
+    "tool": "image_gen.imagegen",
+    "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art equipment icon for Black The Survival. Image 1 is the original Eternal Return item identity reference; image 2 is the established game pixel icon style reference. Create one NEW pixel-art icon of Dice of Destiny, one red-orange translucent six-sided die with pale yellow-white pips and bright golden edge highlights, front-left isometric view. Preserve the reference die geometry and visible pips. Keep the original recognizable design and colors; do not invent ornaments. Use clear hard square pixel clusters, a restrained 32-by-32 logical pixel grid feel, dark navy one-pixel contour, 3-tone stepped highlights, no smoothing or antialiasing. The existing pixel icon has the desired coarse pixels and readable small UI silhouette. Center one object with generous transparent margins. Transparent alpha background, no colored backdrop, no text, no border, no card, no shadow panel, no watermark. The icon will be mechanically resized to 32 logical pixels and displayed at 64 by 64.",
+    "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a138fc-ef22-7281-88ab-20c91bd2c3a4\\exec-638161f5-1d4c-4376-aea6-467e3cfc99d9.png",
+    "referenceInputs": [
+      "docs/art-system/references/expansion-v101/dice_of_destiny.png",
+      "Assets/Resources/Lumia/SystemIcons/radar.png"
+    ]
+  }
+]

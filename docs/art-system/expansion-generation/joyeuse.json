@@ -1,0 +1,20 @@
+{
+  "id": "joyeuse",
+  "name": "주와이외즈",
+  "kind": "gear",
+  "originalId": 120405,
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_120405.png",
+  "referencePath": "docs/art-system/references/expansion-v101/joyeuse.png",
+  "originalTooltip": "전설 / 레이피어\n\n공격력 +58\n공격 속도 +33%\n이동 속도 +2%\n치명타 확률 +25%\n치명타 피해량 +7%\n\n그 검은 빛이 발할 때 수시로 색을 바꾸었다. 그때 서야 깨달았다. 왜 \"환희의 검\"이라고 불리는지.",
+  "sourceSnapshot": "docs/art-system/items-snapshot.json",
+  "officialReference": "https://playeternalreturn.com/posts/news/3182?hl=ko-KR",
+  "output": "Assets/Resources/Lumia/SystemIcons/joyeuse.png",
+  "tool": "image_gen.imagegen",
+  "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art equipment icon for Black The Survival. Image 1 is the original Eternal Return item identity reference; image 2 is the established game pixel icon style reference. Create one NEW pixel-art icon of Joyeuse, a slender silver-blue rapier blade with a bright gold ornate crossguard and long gold scabbard beside it, diagonally lower-left to upper-right. Preserve the reference sword and scabbard arrangement. Keep the original recognizable design and colors; do not invent ornaments. Use clear hard square pixel clusters, a restrained 32-by-32 logical pixel grid feel, dark navy one-pixel contour, 3-tone stepped highlights, no smoothing or antialiasing. The existing pixel icon has the desired coarse pixels and readable small UI silhouette. Center one object with generous transparent margins. Transparent alpha background, no colored backdrop, no text, no border, no card, no shadow panel, no watermark. The icon will be mechanically resized to 32 logical pixels and displayed at 64 by 64.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a138fc-ef22-7281-88ab-20c91bd2c3a4\\exec-3e995163-5482-42ba-a39e-23c02f78195d.png",
+  "referenceInputs": [
+    "docs/art-system/references/expansion-v101/joyeuse.png",
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ],
+  "generatedSource": "docs/art-system/expansion-generated/joyeuse.png"
+}

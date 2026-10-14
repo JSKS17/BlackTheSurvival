@@ -118,7 +118,7 @@ namespace Lumia
 
             // Blood bank, coffin consumption and the delayed reign explosion.
             P(p, "bianca_q", 8, G("blood", "혈액", 1, 4, hit:true), Fx("delayed_damage", "blood_pool", "혈액 웅덩이", 4)).heal = 0;
-            P(p, "bianca_w", 0, B("bonus_heal", 3, scale:"blood", cap:4), Spend("blood", "혈액"), Fx("hot", "coffin", "관 속 회복", 3, 2), D("bianca_q", 1, need:"blood", min:3), D("bianca_e", 1, need:"blood", min:3)).heal = 3;
+            P(p, "bianca_w", 0, B("bonus_heal", 3, scale:"blood", cap:4), Spend("blood", "혈액"), Fx("hot", "coffin", "관 속 회복", 3, 2)).heal = 3;
             P(p, "bianca_e", 9, G("blood", "혈액", 1, 4, hit:true), B("bonus_heal", 4, need:"blood", min:3));
             P(p, "bianca_r", 10, Fx("burn", "reign", "진조의 영역", 3, 2), Fx("delayed_damage", "reign_end", "진조의 폭발", 12, delay:2), G("blood", "혈액", 2, 4, hit:true)).heal = 4;
 
@@ -284,7 +284,7 @@ namespace Lumia
             // Nina attacks while commanded; theatre/recall relocate the doll.
             P(p, "chloe_q", 6, S("nina", "니나 전개", 1, 1), Fx("summon", "nina", "니나", 3, 3));
             P(p, "chloe_w", 7, Fx("summon", "threads", "인형극 실", 3, 2), B("bonus_damage", 5, need:"nina"));
-            P(p, "chloe_e", 8, Fx("delayed_damage", "nina_recall", "니나 귀환", 6, need:"nina"), D("chloe_q", 1));
+            P(p, "chloe_e", 8, Fx("delayed_damage", "nina_recall", "니나 귀환", 6, need:"nina"));
             P(p, "chloe_r", 12, Fx("counter", "soul_link", "생명 공유", 5, 2), Fx("summon", "nina", "연결된 니나", 6, 2, need:"nina"), D("chloe_w", 2), D("chloe_e", 2));
 
             // Stigma feeds Last Judgement; shield and shackles mature separately.

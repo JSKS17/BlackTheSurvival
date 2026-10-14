@@ -64,7 +64,7 @@ public static partial class CoreSmokeTests
         Check(initial == GameEngine.StartingMaxEnergy && run.PlayerBaseEnergy == initial
             && LobbyDialogue.At(0).Contains("코스트는 " + initial) && LobbyDialogue.At(1).Contains("레벨이 올라도"),
             "the starter and level tips agree with actual player energy");
-        Check(LobbyDialogue.At(12).Contains("1.5배") && LobbyDialogue.At(12).Contains("노말·하드 " + GameEngine.CriticalChanceCap + "%")
+        Check(LobbyDialogue.At(12).Contains("150%") && LobbyDialogue.At(12).Contains("장비") && LobbyDialogue.At(12).Contains("노말·하드 " + GameEngine.CriticalChanceCap + "%")
             && LobbyDialogue.At(12).Contains("무한 " + GameEngine.EndlessCriticalChanceCap + "%")
             && LobbyDialogue.At(26).Contains(GameEngine.WildlifeBasicAttackDropChance + "%")
             && GameEngine.WildlifeMeatDropChance == 50 && LobbyDialogue.At(26).Contains("절반"),

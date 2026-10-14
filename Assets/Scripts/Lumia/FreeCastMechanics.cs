@@ -8,6 +8,45 @@ namespace Lumia
     // Keeping this pure makes enemy planning and previews use the same checks as play.
     public static class FreeCastMechanics
     {
+        public static void SanitizePending(List<PendingFreeCast> pending)
+        {
+            if (pending == null) return;
+            pending.RemoveAll(x => x == null || x.uses <= 0 || GameDatabase.Card(x.cardId) == null
+                || GameDatabase.Card(x.sourceCardId)?.freeCastNextTurn != true
+                || !GameDatabase.Card(x.sourceCardId).freeCastTargets.Contains(x.cardId));
+            var seen = new HashSet<string>();
+            pending.RemoveAll(x => !seen.Add(x.sourceCardId + "|" + x.cardId));
+            foreach (var grant in pending) { grant.uses = Math.Min(1, grant.uses); grant.readyTurn = Math.Max(0, grant.readyTurn); }
+        }
+
+        // Enemy planning peeks at the queue and moves real copies once; enemy turn
+        // start then consumes it without recalling another copy. Saves keep the queue
+        // until that actual turn starts, so previews never award gameplay permissions.
+        public static int ActivatePending(List<PendingFreeCast> pending, int turn, IEnumerable<string> owned,
+            List<FreeCastGrant> grants, List<string> sources, List<string> hand, List<string> draw, List<string> discard,
+            bool recall = true, bool consume = true)
+        {
+            if (pending == null) return 0;
+            int activated = 0;
+            foreach (var queued in pending.Where(x => x.readyTurn <= turn).ToArray())
+            {
+                if (consume) pending.Remove(queued);
+                string source = queued.sourceCardId + "|" + queued.cardId;
+                if (queued.uses <= 0 || !owned.Contains(queued.cardId) || GameDatabase.Card(queued.cardId) == null || sources.Contains(source)) continue;
+                if (recall && !hand.Contains(queued.cardId) && !draw.Contains(queued.cardId) && !discard.Contains(queued.cardId)) continue;
+                sources.Add(source);
+                var grant = grants.FirstOrDefault(x => x.cardId == queued.cardId);
+                if (grant == null) { grant = new FreeCastGrant { cardId = queued.cardId }; grants.Add(grant); }
+                grant.uses += queued.uses; activated++;
+                if (!recall || hand.Contains(queued.cardId) || hand.Count >= 12) continue;
+                int index = discard.LastIndexOf(queued.cardId);
+                if (index >= 0) { discard.RemoveAt(index); hand.Add(queued.cardId); continue; }
+                index = draw.LastIndexOf(queued.cardId);
+                if (index >= 0) { draw.RemoveAt(index); hand.Add(queued.cardId); }
+            }
+            return activated;
+        }
+
         // The fan game's conservative threshold is lower than Garnet's original 25%.
         // Read health before this recast's damage, and require the original target mark.
         public const int GarnetExecutionPercent = 20;
@@ -88,11 +127,12 @@ namespace Lumia
             if (onHit) conditions.Add(compact ? "적중 시" : "공격이 적중하면");
             string[] targets = card.freeCastTargets.Select(id => compact ? GameDatabase.Card(id)?.key ?? id : GameDatabase.Card(id)?.name ?? id).ToArray();
             string targetNames = string.Join("·", targets);
+            string availableTurn = card.freeCastNextTurn ? "다음 내 턴" : "이번 턴";
             string effect = card.freeCastLastSkill
                 ? compact ? "직전 Q·W·E를 이번 턴에 무료로 1회 다시 사용합니다" : "이번 전투에서 마지막으로 사용한 수아의 Q·W·E 카드 한 장을 이번 턴에 코스트 없이 다시 사용할 수 있습니다"
-                : compact ? card.freeCastCondition != null ? targetNames + " 무료 사용권을 " + card.freeCastCount + "회 얻습니다(이번 턴)"
-                    : targetNames + (targetNames.EndsWith("R",StringComparison.Ordinal)?"을":"를") + " 이번 턴에 무료로 " + card.freeCastCount + "회 사용할 수 있습니다"
-                : "이번 턴에 " + targetNames + " 카드를 " + (targets.Length > 1 ? "각각 " : "") + card.freeCastCount + "회 코스트 없이 사용할 수 있습니다";
+                : compact ? card.freeCastCondition != null ? targetNames + " 무료 사용권을 " + card.freeCastCount + "회 " + (card.freeCastNextTurn ? "예약합니다(다음 내 턴)" : "얻습니다(이번 턴)")
+                    : targetNames + (targetNames.EndsWith("R",StringComparison.Ordinal)?"을":"를") + " " + availableTurn + "에 무료로 " + card.freeCastCount + "회 사용할 수 있습니다"
+                : availableTurn + "에 " + targetNames + " 카드를 " + (targets.Length > 1 ? "각각 " : "") + card.freeCastCount + "회 코스트 없이 사용할 수 있습니다";
             return new ConditionEffect {
                 key = DescriptionSummary.ConditionKey(rule, onHit:onHit) + (EitherResource(card)?"|resource_or":""),
                 condition = compact ? string.Join("·", conditions) : DescriptionSummary.JoinConditions(conditions),

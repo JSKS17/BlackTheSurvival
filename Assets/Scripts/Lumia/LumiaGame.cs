@@ -559,9 +559,9 @@ namespace Lumia
             Header("전투  /  " + c.enemyName, "TURN " + c.turn + (c.enemyTurn ? "  ·  상대가 기술을 사용하고 있습니다." : "  ·  무료 연계 카드는 코스트를 모두 써도 사용할 수 있습니다."));
             Tex(new Rect(0, 80, W, 359), PixelArt.BattleBackground(), ScaleMode.ScaleAndCrop);
             Fill(new Rect(0, 80, W, 359), new Color(.02f, .04f, .07f, .2f));
-            DrawFieldStrip(new Rect(22, 101, 396, 61), false);
-            DrawFieldStrip(new Rect(862, 101, 396, 61), true);
             bool ultimateShowing = effects.UltimateFrame(reduceMotion) >= 0;
+            if (!ultimateShowing || effects.UltimateEnemy) DrawFieldStrip(new Rect(22, 101, 396, 61), false);
+            if (!ultimateShowing || !effects.UltimateEnemy) DrawFieldStrip(new Rect(862, 101, 396, 61), true);
             if (!ultimateShowing)
             {
             Box(new Rect(440, 104, 399, 99), Ink, Pink);
@@ -586,12 +586,17 @@ namespace Lumia
             else Para(new Rect(454, 148, 371, 40), intent, 11, Text);
             }
             float bob = reduceMotion ? 0 : Mathf.Floor(Mathf.Sin(Time.unscaledTime * 2) * 2) * 2;
-            effects.DrawActor(new Rect(129, 169 + bob, 214, 215), PixelArt.Portrait("hana"), false, reduceMotion);
-            effects.DrawActor(new Rect(913, 169 - bob, 218, 216), PixelArt.Portrait(c.enemyId), true, reduceMotion);
-            Txt(new Rect(142, 388, 188, 22), "하나  ·  방어 " + c.block, 14, Mint, true);
-            Txt(new Rect(873, 388, 292, 22), c.enemyName + "  LV." + c.enemyLevel + "  방어 " + c.enemyBlock, 14, Pink, true);
-            Bar(new Rect(873, 419, 292, 9), c.enemyHp, c.enemyMaxHp, Pink);
-            Txt(new Rect(886, 353, 266, 24), c.enemyHp + " / " + c.enemyMaxHp, 14, Text, true);
+            // The large transparent R represents the casting actor during its flourish. Avoid two
+            // overlapping faces by restoring that actor's usual portrait only after playback ends.
+            if (!ultimateShowing || effects.UltimateEnemy) effects.DrawActor(new Rect(129, 169 + bob, 214, 215), PixelArt.Portrait("hana"), false, reduceMotion);
+            if (!ultimateShowing || !effects.UltimateEnemy) effects.DrawActor(new Rect(913, 169 - bob, 218, 216), PixelArt.Portrait(c.enemyId), true, reduceMotion);
+            if (!ultimateShowing || effects.UltimateEnemy) Txt(new Rect(142, 388, 188, 22), "하나  ·  방어 " + c.block, 14, Mint, true);
+            if (!ultimateShowing || !effects.UltimateEnemy)
+            {
+                Txt(new Rect(873, 388, 292, 22), c.enemyName + "  LV." + c.enemyLevel + "  방어 " + c.enemyBlock, 14, Pink, true);
+                Txt(new Rect(886, 410, 266, 18), c.enemyHp + " / " + c.enemyMaxHp, 12, Text, true);
+                Bar(new Rect(873, 430, 292, 9), c.enemyHp, c.enemyMaxHp, Pink);
+            }
             if (!ultimateShowing)
             {
             Txt(new Rect(343, 220, 516, 27), "ENERGY", 11, Gold, true);
@@ -837,10 +842,16 @@ namespace Lumia
             if (Btn(new Rect(471, 198, 100, 34), "초기화", false, Muted)) { craftQuery = ""; craftTags.Clear(); scroll = Vector2.zero; }
             Txt(new Rect(590, 203, 645, 24), "태그를 여러 개 고르면 모든 옵션을 가진 장비를 찾습니다.", 11, Muted);
             var tags = GameDatabase.Gear.SelectMany(g => g.optionTags ?? new string[0]).Distinct().ToArray();
-            float tagWidth = Math.Min(115, (1202f - Math.Max(0, tags.Length - 1) * 7) / Math.Max(1, tags.Length));
+            int longTags = tags.Count(tag => tag == "치명타 확률" || tag == "치명타 피해");
+            float shortWidth = (1202f - Math.Max(0, tags.Length - 1) * 7 - longTags * 118) / Math.Max(1, tags.Length - longTags);
+            float tagX = 36;
             for (int i = 0; i < tags.Length; i++)
-                if (Btn(new Rect(36 + i * (tagWidth + 7), 243, tagWidth, 29), tags[i], craftTags.Contains(tags[i]), Gold))
+            {
+                float tagWidth = tags[i] == "치명타 확률" || tags[i] == "치명타 피해" ? 118 : shortWidth;
+                if (Btn(new Rect(tagX, 243, tagWidth, 29), tags[i], craftTags.Contains(tags[i]), Gold))
                 { if (!craftTags.Add(tags[i])) craftTags.Remove(tags[i]); scroll = Vector2.zero; }
+                tagX += tagWidth + 7;
+            }
             var gear = FilterCraftGear().ToArray();
             Txt(new Rect(36, 283, 1202, 20), "검색 결과 " + gear.Length + "개" + (craftTags.Count > 0 ? "  /  " + string.Join(" · ", craftTags) : ""), 11, Muted);
             scroll = GUI.BeginScrollView(new Rect(36, 310, 1202, 284), scroll, new Rect(0, 0, 1174, Mathf.Ceil(gear.Length / 3f) * 151));
@@ -1156,8 +1167,9 @@ namespace Lumia
                     Tex(new Rect(15, r.y + 12, 48, 48), PixelArt.Icon(f.id), ScaleMode.ScaleToFit);
                     Txt(new Rect(82, r.y + 10, 547, 25), f.name + (f.fullHeal ? "  /  완전 회복" : "  /  회복 " + f.heal), 16, Mint);
                     Txt(new Rect(82, r.y + 41, 547, 24), f.description, 11, Muted);
-                    bool usable = Engine.State.combat == null || !Engine.State.combat.enemyTurn;
-                    if (Btn(new Rect(692, r.y + 20, 176, 33), "먹기", false, Mint, usable)) { Act(() => Engine.UseFood(index), "item.heal"); break; }
+                    bool usable = Engine.CanUseFood(index);
+                    string eating = s.stage == RunStage.Combat ? "먹기 / " + Engine.FoodUseCost(f.id) + "코스트" : "먹기";
+                    if (Btn(new Rect(692, r.y + 20, 176, 33), eating, false, Mint, usable)) { Act(() => Engine.UseFood(index), "item.heal"); break; }
                     bool canCook = s.stage == RunStage.Campfire && s.campChoice == 2 && s.campActions > 0 && !string.IsNullOrEmpty(f.upgradeTo);
                     if (Btn(new Rect(885, r.y + 20, 176, 33), canCook ? "요리하기" : "요리 불가", false, Gold, canCook)) { Act(() => Engine.Cook(index), "camp.cook"); break; }
                 }
@@ -1299,7 +1311,7 @@ namespace Lumia
             string description = combat ? CardPresentation.Describe(d, GameDatabase.Cards, Engine.CardDamage(d.id), d.block, d.heal) : d.description;
             if (Engine != null && !inspectEnemyCard && !string.IsNullOrEmpty(Engine.CardUpgradeLabel(d.id))) description = "강화 / " + Engine.CardUpgradeLabel(d.id) + " · 덱의 같은 카드 전체에 적용됩니다.\n\n" + description;
             string rules = CardPresentation.Rules(d);
-            string extra = d.id == "basic_attack" && Engine!=null ? "\n\n현재 치명타 확률: " + (inspectEnemyCard ? Engine.EnemyCritChance : Engine.CritChance) + "%. 현재 " + RunModes.Name(Engine.State.mode) + " 모드의 합산 상한은 " + Engine.DynamicCriticalChanceCap + "%입니다. 일반 공격 피해가 1.5배가 되며 소수점은 버립니다." : "";
+            string extra = d.id == "basic_attack" && Engine!=null ? "\n\n현재 치명타 확률: " + (inspectEnemyCard ? Engine.EnemyCritChance : Engine.CritChance) + "%. 현재 " + RunModes.Name(Engine.State.mode) + " 모드의 합산 상한은 " + Engine.DynamicCriticalChanceCap + "%입니다. 치명타 피해는 일반 공격 피해의 " + (inspectEnemyCard ? Engine.EnemyCriticalDamagePercent : Engine.CriticalDamagePercent) + "%이며 소수점은 버립니다." : "";
             string summary=CardSummary(d,combat),cooperation=CrossSubjectSynergies.BriefDescription(d);
             if(!string.IsNullOrEmpty(cooperation))
                 summary=string.Join("\n",DescriptionSummary.CleanLines(new[]{summary,cooperation,"각 외부 연계는 자신의 턴당 1회 발동합니다."}));
@@ -1328,7 +1340,8 @@ namespace Lumia
             if(!summaryMode)
             {
                 var material=GameDatabase.Object(g.objectId);
-                if (g.critChance > 0) text += "\n일반 공격의 치명타 확률이 " + g.critChance + "% 증가합니다. 치명타는 일반 공격 피해를 1.5배로 만듭니다. 합산 확률의 상한은 노말·하드 " + GameEngine.CriticalChanceCap + "%, 무한 " + GameEngine.EndlessCriticalChanceCap + "%입니다.";
+                if (g.critChance > 0) text += "\n치명타 확률의 합산 상한은 노말·하드 " + GameEngine.CriticalChanceCap + "%, 무한 " + GameEngine.EndlessCriticalChanceCap + "%입니다.";
+                if (g.critDamageBonus > 0) text += "\n치명타 피해는 기본 배율 150%에 장착한 장비의 보너스를 합산하며, 기술 카드에는 적용하지 않습니다.";
                 text+="\n\n모닥불에서 "+(material?.name??g.objectId)+" 1개를 소모하여 제작합니다.";
                 if(g.slot==GearSlot.Weapon) text+="\n무기를 교체하면 장비로 추가된 D 카드도 교체됩니다. 보상이나 이벤트로 얻은 카드는 유지됩니다.\n알렉스 패시브가 있으면 무기마다 다른 무기군의 D 1장을 추가로 얻습니다.";
                 text+="\n"+SlotName(g.slot)+" 부위의 현재 장착 한도는 "+(Engine==null?2:Engine.EquipmentCapacity(g.slot))+"개입니다. 무한 모드에서는 3막을 완료할 때 선택한 한 부위의 한도를 1 늘릴 수 있습니다.";
@@ -1409,11 +1422,19 @@ namespace Lumia
                 var card=GameDatabase.Card(grant.cardId);
                 tokens.Add(new SkillMechanicToken { owner=card?.owner,key=grant.cardId,sourceCard=grant.cardId,targetCard=grant.cardId,label=card?.name ?? grant.cardId,kind="free_cast",amount=grant.uses });
             }
+            var pending = enemy ? c.enemyPendingFreeCasts : c.pendingFreeCasts;
+            foreach (var grant in (pending ?? new List<PendingFreeCast>()).Where(x => x != null && x.uses > 0))
+            {
+                var card = GameDatabase.Card(grant.cardId);
+                tokens.Add(new SkillMechanicToken { owner = card?.owner, key = grant.cardId, sourceCard = grant.sourceCardId,
+                    targetCard = grant.cardId, label = card?.name ?? grant.cardId, kind = "pending_free_cast", amount = grant.uses,
+                    remaining = Math.Max(1, grant.readyTurn - c.turn) });
+            }
             // Show control and actionable cooperation first, followed by the remaining
             // cooperation limits. All original resources retain their own entries below.
             return tokens.OrderBy(t=>(t.kind??"").StartsWith("status_",StringComparison.Ordinal)?0
                 : t.kind=="synergy_ready"?1:t.kind=="synergy_limit"?2:t.kind=="synergy_budget"?3
-                : t.kind=="synergy_generation"?4:5).ToList();
+                : t.kind=="synergy_generation"?4:t.kind=="pending_free_cast"?5:6).ToList();
         }
 
         static string TokenShort(SkillMechanicToken token)
@@ -1424,6 +1445,7 @@ namespace Lumia
             if(token.kind=="deferred_damage") return "유예 피해 "+token.amount+" · 남은 "+token.remaining+"턴";
             if((token.kind??"").StartsWith("status_")) return token.label+" · "+token.remaining+"턴";
             if (token.kind == "free_cast") return token.label + " 무료 " + token.amount + "회";
+            if (token.kind == "pending_free_cast") return token.label + " · 다음 자기 턴 무료 " + token.amount + "회";
             if (token.kind == "revive" && token.persistent) return token.label;
             if (token.kind == "state") return token.label + " · 활성";
             if (token.kind == "resource") return token.label + " " + token.amount + "/" + token.cap;
@@ -1441,7 +1463,7 @@ namespace Lumia
             Modal(new Rect(206, 85, 868, 550));
             Txt(new Rect(233, 109, 813, 37), (fieldEnemy ? "상대" : "나") + "의 필드 · 상태이상 · 회피율", 25, fieldEnemy ? Pink : Mint);
             var tokens=FieldTokens(fieldEnemy);
-            Txt(new Rect(233, 156, 813, 26), "회피 " + (fieldEnemy?Engine.EnemyEvasion:Engine.Evasion) + "% · 일반 공격 치명타 " + (fieldEnemy?Engine.EnemyCritChance:Engine.CritChance) + "%  /  아이콘으로 출처 확인", 14, Muted);
+            Txt(new Rect(233, 156, 813, 26), "회피 " + (fieldEnemy?Engine.EnemyEvasion:Engine.Evasion) + "% · 일반 공격 치명타 확률 " + (fieldEnemy?Engine.EnemyCritChance:Engine.CritChance) + "% · 피해 " + (fieldEnemy?Engine.EnemyCriticalDamagePercent:Engine.CriticalDamagePercent) + "%", 14, Muted);
             float contentHeight=tokens.Sum(t=>(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)?84:72);
             fieldScroll=GUI.BeginScrollView(new Rect(233, 195, 813, 344), fieldScroll, new Rect(0, 0, 788, Math.Max(330,contentHeight)));
             if (tokens.Count == 0) Txt(new Rect(15, 35, 756, 40), "현재 설치물이나 남아 있는 연계 효과가 없습니다.", 16, Muted, true);
@@ -1472,6 +1494,7 @@ namespace Lumia
                 Txt(new Rect(67,y+9,706,23),TokenShort(t),15,fieldEnemy?Pink:Mint);
                 string detail=t.kind=="resource" ? (passive!=null || rune!=null ? "공통 행동에 반응하는 " + (passive!=null?passive.name:rune.name) + "의 누적 상태입니다." : t.owner + "의 연계 기술로 소비하거나 강화합니다.") : t.kind=="discount" ? "대상 카드를 한 번 사용하면 사라집니다. 코스트가 0이면 에너지 없이 사용할 수 있습니다." : t.kind=="counter" ? "적의 공격이 적중하면 턴당 한 번 " + t.amount + "의 피해로 반격합니다." : t.kind=="revive" ? "치명상을 한 번 막고 체력을 " + t.amount + " 회복합니다." : t.kind=="empower_basic" ? "다음 기본 공격의 첫 적중 피해를 " + t.amount + " 늘립니다." : t.kind=="hot" ? "자신의 턴 종료마다 체력을 " + t.amount + " 회복합니다." : t.kind=="guard" ? "자신의 턴 종료마다 방어도를 " + t.amount + " 얻습니다." : t.kind=="energy_buff" ? "최대 코스트가 " + t.amount + " 증가합니다. 이미 얻은 에너지는 즉시 회수하지 않습니다." : t.kind=="damage_buff" ? "각 공격 카드의 첫 적중 피해가 " + t.amount + " 증가합니다." : t.kind=="evasion_buff" ? "회피율이 " + t.amount + "% 증가합니다." : t.kind=="exposure" ? "받는 공격 피해가 " + t.amount + "% 증가합니다." : t.kind=="heal_reduction" ? "받는 회복량이 " + t.amount + "% 감소합니다." : t.kind=="delayed_damage" ? "자신의 턴 종료 " + t.delay + "회 후 " + t.amount + "의 피해를 줍니다." : "자신의 턴 종료마다 " + t.amount + "의 피해를 줍니다.";
                 if(t.kind=="free_cast") detail="이번 턴에 대상 카드 한 장을 코스트 없이 사용할 수 있습니다. 턴이 끝나면 사라집니다.";
+                if(t.kind=="pending_free_cast") detail="다음 자기 턴에 무료 연계가 열리고 그 턴이 끝나면 사라집니다. 소멸한 카드는 회수하지 않으며, 이 무료 연계로 같은 예약을 다시 만들 수 없습니다.";
                 if(t.kind=="revive" && t.persistent) detail+=" 효과가 발동할 때까지 유지됩니다.";
                 if(t.kind=="state") detail="현재 "+t.label+"입니다. 관련 기술의 상태 조건이 적용되며, 해제 조건을 충족하면 사라집니다.";
                 if(t.kind=="resource" && gear!=null) detail=gear.name+"의 장비 효과에 사용하는 누적 수치입니다. 장비 아이콘에서 발동 조건을 확인하세요.";
@@ -1533,6 +1556,8 @@ namespace Lumia
             Txt(new Rect(185, 124, 900, 39), "실험 가이드", 25, Mint);
             string text = "01  지도는 막당 12구역, 총 3막입니다. 가로로 스크롤하여 경로를 살펴보세요. 키오스크 주변은 앞뒤 한 단계로 연결된 전투 구역입니다. 보안 콘솔은 막당 한 번 40크레딧으로 다음 두 단계의 실제 적과 키오스크 재고를 확인합니다. 하이퍼루프는 막당 한 번, 바로 다음 단계의 연결되지 않은 경로로 이동합니다. 목적지 선택을 취소하면 횟수를 쓰지 않습니다.\n\n02  매 턴 손패 5장과 코스트를 받습니다. 최대 코스트는 5로 시작하며 보스 승리마다 1 증가합니다. 레벨 상승으로는 증가하지 않습니다. 전투마다 두 번, 손패 한 장을 다음 턴까지 보관할 수 있습니다. 보관하면 다음 턴에 새로 뽑는 카드가 한 장 줄어듭니다. 보관 선택은 턴 종료 전까지 변경하거나 해제할 수 있습니다.\n\n03  수치·상태·표식·설치물은 필드 창에서 확인하세요. 할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하며 상한은 노말·하드 30%, 무한 100%입니다.\n\n04  실험체와 보스의 승리 보상에서는 카드 코스트와 무관하게 최대 2장을 고릅니다. 야생동물 보상은 표시된 획득 코스트 안에서 고릅니다. 승리 보상 카드는 다시 누르면 선택이 취소됩니다. 선택 확정을 눌러야 덱에 들어갑니다. 조우에서 카드를 강화할 때에는 대상 카드와 표시된 강화 방향 중 하나를 선택합니다. 같은 카드의 모든 사본에 적용되며 한 방향으로만 강화할 수 있습니다.\n\n05  VF혈액샘플은 두 번째 보스 승리 후 구매합니다. 모닥불 휴식은 전체 회복·만년 스프 1개·카드 최대 2장 제거를 제공합니다. 제작·요리는 회복 없이 합쳐 3회이며, 장비는 이름·태그로 검색합니다. 장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.\n\n06  일부 실험체 조우에는 다시 만나기로 약속하는 선택지가 있습니다. 새 약속을 맺은 직후의 실험체 조우에는 그 실험체의 후속 이야기가 세 선택지 중 하나로 80% 확률로 등장합니다. 만나지 못한 약속은 유지됩니다. 여러 약속이 있으면 이후 조우마다 미해결 약속의 등장 우선권이 순환합니다. 비용·보상·약속은 선택 전에 표시됩니다.\n\n07  1·2막의 보스는 상·중·하 경로마다 다르며, 3막의 모든 경로에는 니아가 등장합니다. 지도 아래 보스 카드의 상·중·하 버튼으로 후보와 공략을 미리 살펴보세요. 미리보기는 실제 이동 경로를 바꾸지 않습니다. 보스 체력이 50% 이하가 되면 다음 내 턴에 2페이즈가 적용됩니다. 니아는 25% 이하에서 3페이즈로 전환합니다. 전투 중앙에서 예고와 현재 턴의 대응 진척을 확인하세요. 누적형은 제시된 대응 조건 중 하나를 달성하면 특수행동이 중단됩니다. 금지형은 예고된 턴에 카드를 직접 2장 이상 사용하고 금지 행동을 한 번도 하지 않아야 턴 종료 때 성공합니다. 위반 카드를 사용해도 전투는 계속되지만, 그 턴의 위반은 되돌릴 수 없습니다. 성공하면 보스가 잠시 취약해집니다.\n\n08  원정 종료 시 관측 데이터와 실험체 연구 진척이 보존됩니다. 구역 완료·전투 승리·보스 처치·탈출, 첫 관측·새 연구 과제·첫 교차 연계·보스 특수 행동 저지로 데이터를 얻습니다. 로비의 연구 기록에서 실험체별 세 과제를 확인하세요. 세 과제 달성 후 관측 데이터 12로 보고서를 완성하면, 해당 실험체의 추가 조우가 다음 새 원정부터 등장합니다. 진행 중인 원정과 시작 준비 선택은 바뀌지 않습니다.";
             text=text.Replace("장비는 슬롯마다 2개, 패시브는 3개까지 보유합니다.","장비는 부위마다 기본 2개, 패시브는 3개까지 보유합니다. 무한 모드에서는 3막 보상과 증강을 선택한 뒤 한 부위의 장착 한도를 1 늘립니다. 확정 전에는 부위 선택을 바꾸거나 취소할 수 있으며, 확정해야 다음 주기로 진행합니다.");
+            text=text.Replace("일반 공격만 치명타 시 피해가 1.5배가 되며, 장비의 확률은 합산하며", "일반 공격만 치명타가 적용되며 기본 피해 배율은 150%입니다. 치명타 피해 장비는 이 배율에 보너스를 더합니다. 장비의 치명타 확률은 합산하며");
+            text=text.Replace("할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다.", "할인 후 0코스트 카드와 무료 사용권은 에너지가 없어도 사용합니다. 일부 귀환·정신 집중·인형 기술의 무료 연계는 다음 내 턴에 열리며, 필드의 무료 연계 예약에서 확인합니다. 전투 중 음식은 만년 스프 2코스트, 다른 음식 1코스트를 사용합니다. 전투 밖에서는 음식에 코스트가 들지 않습니다.");
             text+="\n\n09  카드 분류는 카드 아래의 이동 · 설치 · 디버프 글자로 확인합니다. 테두리 색은 공격·방어·기타 효과를 나타냅니다. 한 카드가 여러 분류에 해당할 수 있습니다. 이동 카드는 속박과 둔화의 영향을 받으며 보스의 이동 기술 조건으로 판정합니다. 설치 카드는 설치물·소환물·지연 효과를 필드에 준비합니다. 디버프 카드는 조건부·다음 공격·설치물 예약 효과를 포함해 적에게 불리한 효과를 주는 기술이며, 보스의 디버프 기술 사용·금지 조건은 카드를 사용하는 순간 이 분류로 판정합니다. 자세한 정의는 카드의 + 버튼에서, 분류별 카드는 도감 검색에서 확인하세요.";
             if(Engine!=null)text+="\n\n현재 장비 부위별 장착 한도 / "+EquipmentCapacityLabel()+". 장비 목록과 교체 목록은 스크롤하여 모두 확인할 수 있습니다.";
             wrapped.fontSize = 15; float height = Math.Max(350, wrapped.CalcHeight(new GUIContent(text), 877) + 12);
@@ -1640,7 +1665,7 @@ namespace Lumia
         void OnApplicationPause(bool paused) { if (paused) Save(); }
         void OnApplicationQuit() { Save(); }
         void PixelFont(Font rebuilt) { if (rebuilt == font && rebuilt.material && rebuilt.material.mainTexture) rebuilt.material.mainTexture.filterMode = FilterMode.Point; }
-        void OnDestroy() { effects.Clear(); UltimateAnimations.ReleaseTextures(); ReleaseStoryPixelTextures(); ReleasePixelLayer(lobbyNiaPixels); Font.textureRebuilt -= PixelFont; foreach (var clip in skillSounds.Values) if (clip) Destroy(clip); }
+        void OnDestroy() { effects.Clear(); UltimateAnimations.ReleaseTextures(); ReleaseStoryPixelTextures(); ReleasePixelLayer(lobbyNiaPixels); ReleaseLobbyBackground(); Font.textureRebuilt -= PixelFont; foreach (var clip in skillSounds.Values) if (clip) Destroy(clip); }
 
         [Serializable] public sealed class PreviewMeasurement
         {
@@ -2859,7 +2884,9 @@ namespace Lumia
                 if(!Engine.PlayCard(combat.hand.IndexOf(setup)) || !FreeCastMechanics.Eligible(card,combat.playerSkills,true))
                     throw new InvalidOperationException("Native conditional recast setup failed: "+view);
                 combat.energy=Engine.MaxEnergy;
-                if(!Engine.PlayCard(combat.hand.IndexOf(card.id)) || !card.freeCastTargets.Any(target=>combat.freeCasts.Any(x=>x.cardId==target && x.uses>0)))
+                if(!Engine.PlayCard(combat.hand.IndexOf(card.id)) || !card.freeCastTargets.Any(target => card.freeCastNextTurn
+                    ? combat.pendingFreeCasts.Any(x => x.cardId == target && x.uses > 0 && x.readyTurn > combat.turn)
+                    : combat.freeCasts.Any(x => x.cardId == target && x.uses > 0)))
                     throw new InvalidOperationException("Native conditioned skill did not earn its recast: "+view);
                 ConsumeCombatActions();effects.Clear();
                 Debug.Log("LUMIA RECAST UI "+view+" / condition=PASS / earnedOnly=PASS / detail=PASS");

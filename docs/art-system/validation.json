@@ -4,11 +4,11 @@
   "complete": true,
   "allowIncomplete": false,
   "expected": {
-    "icons": 78,
+    "icons": 84,
     "portraits": 92
   },
   "counts": {
-    "icons": 78,
+    "icons": 84,
     "portraits": 92
   },
   "missing": [],
@@ -673,6 +673,35 @@
         64,
         64
       ],
+      "transparentPixels": 1988,
+      "visiblePixels": 2108,
+      "partialAlphaPixels": 2104,
+      "visibleColors": 477,
+      "alphaBounds": [
+        6,
+        4,
+        58,
+        60
+      ],
+      "strongAlphaBounds": [
+        6,
+        4,
+        58,
+        60
+      ],
+      "id": "dice_of_destiny",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/dice_of_destiny.png",
+      "fileSha256": "b4c24d68f4a312c4eb767ad9080cc757be04e1ea48c5f13dad3ad285be059c30",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
       "transparentPixels": 2236,
       "visiblePixels": 1860,
       "partialAlphaPixels": 1852,
@@ -1195,6 +1224,64 @@
         64,
         64
       ],
+      "transparentPixels": 3484,
+      "visiblePixels": 612,
+      "partialAlphaPixels": 612,
+      "visibleColors": 147,
+      "alphaBounds": [
+        4,
+        16,
+        60,
+        48
+      ],
+      "strongAlphaBounds": [
+        4,
+        16,
+        60,
+        48
+      ],
+      "id": "intervention",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/intervention.png",
+      "fileSha256": "82c06fbbf957a676fb5f98f3f6ec3516ab9cd848168c46094c310d375c7d9a4e",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 3480,
+      "visiblePixels": 616,
+      "partialAlphaPixels": 612,
+      "visibleColors": 150,
+      "alphaBounds": [
+        4,
+        10,
+        60,
+        52
+      ],
+      "strongAlphaBounds": [
+        4,
+        10,
+        60,
+        52
+      ],
+      "id": "joyeuse",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/joyeuse.png",
+      "fileSha256": "d6d2678d284ff18e0dd788f0c03a1f8f5989ecd7006af5eff37cde049a4e3810",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
       "transparentPixels": 3376,
       "visiblePixels": 720,
       "partialAlphaPixels": 720,
@@ -1514,6 +1601,35 @@
         64,
         64
       ],
+      "transparentPixels": 2124,
+      "visiblePixels": 1972,
+      "partialAlphaPixels": 1972,
+      "visibleColors": 421,
+      "alphaBounds": [
+        4,
+        4,
+        60,
+        58
+      ],
+      "strongAlphaBounds": [
+        4,
+        4,
+        60,
+        58
+      ],
+      "id": "mithril_armband",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/mithril_armband.png",
+      "fileSha256": "24ec544779af8d9409498f29d69a94d2b43af97ad68248da998de25aec71b534",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
       "transparentPixels": 2552,
       "visiblePixels": 1544,
       "partialAlphaPixels": 1540,
@@ -1717,6 +1833,35 @@
         64,
         64
       ],
+      "transparentPixels": 2256,
+      "visiblePixels": 1840,
+      "partialAlphaPixels": 1836,
+      "visibleColors": 366,
+      "alphaBounds": [
+        4,
+        8,
+        60,
+        56
+      ],
+      "strongAlphaBounds": [
+        4,
+        8,
+        60,
+        56
+      ],
+      "id": "quad_eye",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/quad_eye.png",
+      "fileSha256": "2a536fd02410a74eae69f0786d21cb5f044fc9e54c0908ea57e6559e0a5152a9",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
       "transparentPixels": 2596,
       "visiblePixels": 1500,
       "partialAlphaPixels": 1500,
@@ -1766,6 +1911,35 @@
       "kind": "icon",
       "path": "Assets/Resources/Lumia/SystemIcons/quickfire.png",
       "fileSha256": "67e7f370e88b1de80bd072a48a58b7b6a1a0b8073244fec5aa989e8dc163cedb",
+      "nearest2x2": true
+    },
+    {
+      "format": "PNG",
+      "mode": "RGBA",
+      "size": [
+        64,
+        64
+      ],
+      "transparentPixels": 2252,
+      "visiblePixels": 1844,
+      "partialAlphaPixels": 1820,
+      "visibleColors": 387,
+      "alphaBounds": [
+        8,
+        4,
+        54,
+        60
+      ],
+      "strongAlphaBounds": [
+        8,
+        4,
+        54,
+        60
+      ],
+      "id": "racing_boots",
+      "kind": "icon",
+      "path": "Assets/Resources/Lumia/SystemIcons/racing_boots.png",
+      "fileSha256": "5a1dc56b45c4ef2b614bf624472aeee0f29bd1eb96b8717114efb1f1fbcbcf85",
       "nearest2x2": true
     },
     {

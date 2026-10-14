@@ -5,6 +5,7 @@ namespace Lumia
     public sealed partial class LumiaGame
     {
         PixelLayerSprite lobbyNiaPixels;
+        RenderTexture lobbyBackgroundPixels;
         StoryCharacterGeometry lobbyNiaGeometry;
         bool lobbyArtOnly;
 
@@ -27,9 +28,22 @@ namespace Lumia
         }
         void DrawLobbyArt()
         {
-            var background = PixelArt.Background(); var sprite = LobbyNia();
+            var background = LobbyBackground(); var sprite = LobbyNia();
             Tex(new Rect(0, 0, W, H), background, ScaleMode.ScaleAndCrop);
             if (sprite != null) GUI.DrawTextureWithTexCoords(LobbyNiaRect(sprite), sprite.texture, sprite.uv, true);
+        }
+        RenderTexture LobbyBackground()
+        {
+            if (!lobbyBackgroundPixels)
+                lobbyBackgroundPixels = new RenderTexture(256, 144, 0, RenderTextureFormat.ARGB32)
+                { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp, useMipMap = false, antiAliasing = 1, name = "Lobby laboratory / 256x144 pixels" };
+            if (!lobbyBackgroundPixels.IsCreated()) RefreshPixelLayerTexture(PixelArt.Background(), lobbyBackgroundPixels);
+            return lobbyBackgroundPixels;
+        }
+        void ReleaseLobbyBackground()
+        {
+            if (!lobbyBackgroundPixels) return;
+            lobbyBackgroundPixels.Release(); Destroy(lobbyBackgroundPixels); lobbyBackgroundPixels = null;
         }
         public void ShowLayeredLobbyVerification(bool artOnly)
         {
@@ -48,7 +62,12 @@ namespace Lumia
                 throw new System.InvalidOperationException("Lobby Nia overlaps the menu or is clipped by the screen.");
             sprite.texture.Release();
             if (!LobbyNia().texture.IsCreated()) throw new System.InvalidOperationException("Lobby pixel target did not recover.");
-            Debug.Log("BTS LOBBY LAYERS PASS / independentBackground=PASS / independentNia=PASS / pixelGrid=80 / lostTargetRecovery=PASS");
+            var coarse = LobbyBackground();
+            if (coarse.width != 256 || coarse.height != 144 || coarse.filterMode != FilterMode.Point)
+                throw new System.InvalidOperationException("Laboratory background must use the coarse256x144 Point grid.");
+            coarse.Release();
+            if (!LobbyBackground().IsCreated()) throw new System.InvalidOperationException("Lobby background pixel target did not recover.");
+            Debug.Log("BTS LOBBY LAYERS PASS / independentBackground=PASS / independentNia=PASS / pixelGrid=80 / backgroundGrid=256x144 / lostTargetRecovery=PASS");
         }
     }
 }

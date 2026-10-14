@@ -144,13 +144,13 @@ namespace Lumia
             if (card.freeCastCount > 0 && card.freeCastTargets != null && card.freeCastTargets.Length > 0)
             {
                 effects.Add(FreeCastMechanics.Effect(card));
-                freeCastNote="대상 카드가 손패에 없으면 덱·버린 카드에서 가져옵니다(덱에 보유한 카드만).";
+                freeCastNote=(card.freeCastNextTurn ? "다음 내 턴 시작에, " : "") + "대상 카드가 손패에 없으면 덱·버린 카드에서 가져옵니다(덱에 보유한 카드만).";
             }
             lines.AddRange(GroupEffects(effects));
             if (freeCastNote.Length > 0) lines.Add(freeCastNote);
             lines.AddRange(CrossSubjectSynergies.FullDescription(card));
             if (card.exhaust) lines.Add(FreeCastMechanics.ExhaustDescription(card));
-            if (card.id == "basic_attack") lines.Add("장비 공격력과 기본 공격 강화가 적용되며, 치명타 적중 시 공격 피해가 1.5배가 됩니다.");
+            if (card.id == "basic_attack") lines.Add("장비 공격력과 기본 공격 강화가 적용됩니다. 기본 치명타 피해는 150%이며, 장비로 증가합니다.");
             if (lines.Count == 0) lines.Add("추가 효과 없이 행동합니다.");
             return string.Join("\n", CleanLines(lines));
         }
@@ -183,7 +183,7 @@ namespace Lumia
                     var grouped = FreeCastMechanics.Effect(card,true);
                     // A conditional recast defines how this card can chain. It takes priority
                     // over an ordinary resource gain, whose exact amount remains in detail.
-                    int priority = card.freeCastCondition == null ? 880 : 960;
+                    int priority = card.freeCastCondition == null && !card.freeCastNextTurn ? 880 : 960;
                     parts.Add(new PreviewPart { text=(grouped.condition.Length==0?"":grouped.condition+" ")+grouped.effect+".", priority=priority, grouped=grouped });
                 }
             }
@@ -290,7 +290,7 @@ namespace Lumia
                 case "tia_w":return "붓을 노랑·빨강·파랑 순으로 바꿉니다.";
                 case "silvia_r":return "연료가 있으면 바이크에 타고 탑승 중이면 내립니다. 연료를 1 소모합니다.";
                 case "coraline_w":return "백색 거울과 흑색 거울을 교대로 설치합니다.";
-                case "basic_attack":return "일반 공격 강화가 적용되며 치명타 시 피해가 1.5배가 됩니다.";
+                case "basic_attack":return "기본 치명타 피해는 150%이며, 장비로 증가합니다.";
                 default:return null;
             }
         }
@@ -391,6 +391,7 @@ namespace Lumia
             if (gear.health > 0) stats.Add("최대 체력이 " + gear.health + " 증가합니다");
             if (gear.evasion > 0) stats.Add("회피율이 " + gear.evasion + "% 증가합니다");
             if (gear.critChance > 0) stats.Add("일반 공격의 치명타 확률이 " + gear.critChance + "% 증가합니다");
+            if (gear.critDamageBonus > 0) stats.Add("일반 공격의 치명타 피해 배율이 " + gear.critDamageBonus + "%p 증가합니다");
             if (stats.Count > 0) lines.Add(string.Join(". ", stats) + ".");
             if (gear.mechanics?.rules?.Length > 0) lines.Add(Trait(gear.mechanics));
             if (gear.controlResistance > 0) lines.Add("군중 제어로 줄어드는 코스트를 " + gear.controlResistance + " 줄입니다.");

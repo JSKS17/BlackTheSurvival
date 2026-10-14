@@ -17,6 +17,7 @@ namespace Lumia
         public int freeCastCount;
         public bool freeCastOnHit;
         public bool freeCastLastSkill;
+        public bool freeCastNextTurn;
         public SkillRule freeCastCondition;
         public bool freeCastEitherResource;
         public string freeCastConditionNote;
@@ -45,7 +46,7 @@ namespace Lumia
         public GearSlot slot;
         public int attack, block, health, evasion, amount;
         public int controlResistance, damageDeferral;
-        public int critChance;
+        public int critChance, critDamageBonus;
         public string[] optionTags = new string[0];
         public TraitMechanicProfile mechanics;
     }

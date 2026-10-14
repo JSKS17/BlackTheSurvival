@@ -1,0 +1,20 @@
+{
+  "id": "dice_of_destiny",
+  "name": "운명의 주사위",
+  "kind": "gear",
+  "originalId": 205501,
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_205501.png",
+  "referencePath": "docs/art-system/references/expansion-v101/dice_of_destiny.png",
+  "originalTooltip": "전설 / 팔/장식\n\n공격력 +25\n공격 속도 +35%\n치명타 확률 +35%\n치명타 피해량 +10%\n\n이 주사위가 당신의 운명을 알고 있을지도 모른다.",
+  "sourceSnapshot": "docs/art-system/items-snapshot.json",
+  "officialReference": "https://playeternalreturn.com/posts/news/3163?hl=ko-KR",
+  "output": "Assets/Resources/Lumia/SystemIcons/dice_of_destiny.png",
+  "tool": "image_gen.imagegen",
+  "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art equipment icon for Black The Survival. Image 1 is the original Eternal Return item identity reference; image 2 is the established game pixel icon style reference. Create one NEW pixel-art icon of Dice of Destiny, one red-orange translucent six-sided die with pale yellow-white pips and bright golden edge highlights, front-left isometric view. Preserve the reference die geometry and visible pips. Keep the original recognizable design and colors; do not invent ornaments. Use clear hard square pixel clusters, a restrained 32-by-32 logical pixel grid feel, dark navy one-pixel contour, 3-tone stepped highlights, no smoothing or antialiasing. The existing pixel icon has the desired coarse pixels and readable small UI silhouette. Center one object with generous transparent margins. Transparent alpha background, no colored backdrop, no text, no border, no card, no shadow panel, no watermark. The icon will be mechanically resized to 32 logical pixels and displayed at 64 by 64.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a138fc-ef22-7281-88ab-20c91bd2c3a4\\exec-638161f5-1d4c-4376-aea6-467e3cfc99d9.png",
+  "referenceInputs": [
+    "docs/art-system/references/expansion-v101/dice_of_destiny.png",
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ],
+  "generatedSource": "docs/art-system/expansion-generated/dice_of_destiny.png"
+}

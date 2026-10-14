@@ -1,0 +1,41 @@
+{
+  "version": "1.0.1",
+  "tool": "built-in image_gen.imagegen",
+  "export": "Generated PNG copied byte-for-byte; no raster postprocessing. Background displayed on 256x144 Point grid; character remains on existing80x80 grid.",
+  "officialReference": "https://event.playeternalreturn.com/S7/NIAH?hl=ko-KR",
+  "unchangedLobbyNiaSha256": "d524b438a310b6c0d17f5f5473b6d77a4d9ca8891e401d557ca1b485f0016d8b",
+  "items": [
+    {
+      "id": "lobby_background",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-12672f88-dfa4-4f60-b966-e05179fe6552.png",
+      "output": "Assets/Resources/Lumia/Lobby/Background.png",
+      "previousSha256": "9373489e3cdd7ed87a151e918981800e5d6445b530bba699d01fd9d5e5210496",
+      "sha256": "719ee4d9b3c703895953581e41e37789581c33600de6ec4b67079d48a4dabbff",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "id": "nia_overload_face",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-84bd5d85-0e5a-46c0-99d3-f24256b76739.png",
+      "output": "Assets/Resources/Lumia/Story/Characters/nia_overload.png",
+      "previousSha256": "c850878dbdf4585f1d865da62e63ecc60fa499ca5fd7313b465e0162dd3a18dc",
+      "sha256": "c20a7832858403461137804cfb55d0820e30c54ae940abb397d1915b371d5864",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha32Bounds": {
+        "width": 1254,
+        "height": 1254,
+        "left": 243,
+        "top": 220,
+        "right": 1026,
+        "bottom": 1131
+      }
+    }
+  ]
+}

@@ -52,13 +52,13 @@ public static partial class CoreSmokeTests
             int normal = e.CardDamage("basic_attack"), before = c.enemyHp;
             Check(e.CritChance == 100 && e.PlayCard(0), "a fully equipped endless basic can be played at exactly 100 percent: " + seed);
             var action = e.CombatActions.Last(x => x.cardId == "basic_attack" && x.kind == null);
-            Check(action.critical && action.criticalHits == 1 && before - c.enemyHp == GameEngine.CriticalBaseDamage(normal),
-                "every landed 100-percent basic is exactly a 1.5x critical with ordinary rounding: " + seed);
+            Check(action.critical && action.criticalHits == 1 && before - c.enemyHp == e.GearCriticalDamage(normal),
+                "every landed 100-percent basic applies the equipment critical multiplier with ordinary rounding: " + seed);
         }
         var passive = MechanicsFixture("isaac_p"); passive.State.mode = RunMode.Endless; var p = passive.State.combat;
         passive.State.gear = Enumerable.Repeat("light_insignia", 20).ToList(); p.enemyBlock = 4; p.hand.Add("basic_attack");
         int baseDamage = passive.CardDamage("basic_attack"), bonus = passive.CardTotalDamage("basic_attack") - baseDamage, hp = p.enemyHp;
-        Check(passive.PlayCard(0) && hp - p.enemyHp == GameEngine.CriticalBaseDamage(baseDamage) + bonus - 4,
+        Check(passive.PlayCard(0) && hp - p.enemyHp == passive.GearCriticalDamage(baseDamage) + bonus - 4,
             "endless guaranteed critical still multiplies only the basic hit, then adds passive damage and subtracts block");
         foreach (string id in new[] { "nia_q", "weapon_dagger", "tactical_plasma" })
         {
@@ -84,7 +84,7 @@ public static partial class CoreSmokeTests
             c.enemyGear = Enumerable.Repeat("light_insignia", 20).ToList();
             c.enemyPlan = new List<string> { "basic_attack" }; c.enemyPlanCosts = new List<int> { 1 }; c.enemyPlanFreeCast = new List<bool> { false };
             int raw = (int)typeof(GameEngine).GetMethod("EnemyCardDamage", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(e, new object[] { GameDatabase.Card("basic_attack") });
-            int expected = RunModes.ScaleEnemyDirectDamage(e.State, GameEngine.CriticalBaseDamage(raw));
+            int expected = RunModes.ScaleEnemyDirectDamage(e.State, e.GearCriticalDamage(raw, true));
             Check(e.EnemyCritChance == 100 && e.EnemyMechanicAssumptions.Contains("100%"), "enemy intent reports the actual endless critical chance");
             Check(e.BeginEndTurn(), "enemy guaranteed critical fixture begins its normal paced turn");
             e.State.rngState = seed; var restored = new GameEngine((RunState)Clone(e.State)); int before = e.State.hp;

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "intervention",
+    "name": "인터벤션",
+    "kind": "gear",
+    "originalId": 118404,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_118404.png",
+    "referencePath": "docs/art-system/references/expansion-v101/intervention.png",
+    "originalTooltip": "전설 / 저격총\n\n공격력 +76\n공격 속도 +30%\n시야 +1\n치명타 확률 +33%\n\n<color=yellow>장탄 수:</color> 5발\n\n외형이 덕심을 자극하는 멋진 저격총. 일반적인 대물 저격총과는 다르게 대인 저지력을 높인 화기다.",
+    "sourceSnapshot": "docs/art-system/items-snapshot.json",
+    "officialReference": "https://playeternalreturn.com/posts/news/2014?hl=ko-KR",
+    "output": "Assets/Resources/Lumia/SystemIcons/intervention.png"
+  },
+  {
+    "id": "joyeuse",
+    "name": "주와이외즈",
+    "kind": "gear",
+    "originalId": 120405,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_120405.png",
+    "referencePath": "docs/art-system/references/expansion-v101/joyeuse.png",
+    "originalTooltip": "전설 / 레이피어\n\n공격력 +58\n공격 속도 +33%\n이동 속도 +2%\n치명타 확률 +25%\n치명타 피해량 +7%\n\n그 검은 빛이 발할 때 수시로 색을 바꾸었다. 그때 서야 깨달았다. 왜 \"환희의 검\"이라고 불리는지.",
+    "sourceSnapshot": "docs/art-system/items-snapshot.json",
+    "officialReference": "https://playeternalreturn.com/posts/news/3182?hl=ko-KR",
+    "output": "Assets/Resources/Lumia/SystemIcons/joyeuse.png"
+  },
+  {
+    "id": "quad_eye",
+    "name": "쿼드 아이",
+    "kind": "gear",
+    "originalId": 201518,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_201518.png",
+    "referencePath": "docs/art-system/references/expansion-v101/quad_eye.png",
+    "originalTooltip": "전설 / 머리\n\n공격력 +25\n공격 속도 +22%\n치명타 확률 +35%\n\n<b><color=yellow>연장 총열</color></b>\n7초 마다 다음 기본 공격이 강화되어 사거리가 <color=white>20%</color>만큼 늘어나며 (최대 7.5m까지), <color=green>(캐릭터 레벨 * 2)</color>의 추가 스킬 피해를 입힙니다. 기본 공격을 가할 때마다 쿨다운이 1초 감소합니다.",
+    "sourceSnapshot": "docs/art-system/items-snapshot.json",
+    "officialReference": "https://playeternalreturn.com/posts/news/2765?hl=ko-KR",
+    "output": "Assets/Resources/Lumia/SystemIcons/quad_eye.png"
+  },
+  {
+    "id": "mithril_armband",
+    "name": "미스릴 완장",
+    "kind": "gear",
+    "originalId": 203514,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_203514.png",
+    "referencePath": "docs/art-system/references/expansion-v101/mithril_armband.png",
+    "originalTooltip": "전설 / 팔/장식\n\n공격력 +33\n방어력 +10\n치명타 확률 +34%\n\n<b><color=yellow>가벼운 발걸음</color></b>\n0.2m 이동할 때마다 [가벼운 발걸음]을 최대 100회까지 중첩해서 획득합니다. 중첩에 따라 이동 속도를 최대 <color=white>0.1</color>까지 획득합니다. 기본 공격 피해를 입힐 경우 중첩을 모두 소모하여 최대 <color=white>100</color>의 스킬 피해를 입힙니다. (근거리) 최대 중첩 상태에서 기본 공격에 피격된 대상의 이동 속도를 2초 동안 <color=white>20%</color> 감소시킵니다.\n\n완장의 무게란 무거운 것이지만... 이건 미스릴로 만들어져서 그런지 아주 가볍다.",
+    "sourceSnapshot": "docs/art-system/items-snapshot.json",
+    "officialReference": "https://playeternalreturn.com/posts/news/3163?hl=ko-KR",
+    "output": "Assets/Resources/Lumia/SystemIcons/mithril_armband.png"
+  },
+  {
+    "id": "racing_boots",
+    "name": "레이싱 부츠",
+    "kind": "gear",
+    "originalId": 204509,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_204509.png",
+    "referencePath": "docs/art-system/references/expansion-v101/racing_boots.png",
+    "originalTooltip": "전설 / 다리\n\n공격 속도 +26%\n이동 속도 +0.25\n치명타 확률 +33%",
+    "sourceSnapshot": "docs/art-system/items-snapshot.json",
+    "officialReference": "https://playeternalreturn.com/posts/news/1868?hl=ko-KR",
+    "output": "Assets/Resources/Lumia/SystemIcons/racing_boots.png"
+  },
+  {
+    "id": "dice_of_destiny",
+    "name": "운명의 주사위",
+    "kind": "gear",
+    "originalId": 205501,
+    "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_205501.png",
+    "referencePath": "docs/art-system/references/expansion-v101/dice_of_destiny.png",
+    "originalTooltip": "전설 / 팔/장식\n\n공격력 +25\n공격 속도 +35%\n치명타 확률 +35%\n치명타 피해량 +10%\n\n이 주사위가 당신의 운명을 알고 있을지도 모른다.",
+    "sourceSnapshot": "docs/art-system/items-snapshot.json",
+    "officialReference": "https://playeternalreturn.com/posts/news/3163?hl=ko-KR",
+    "output": "Assets/Resources/Lumia/SystemIcons/dice_of_destiny.png"
+  }
+]

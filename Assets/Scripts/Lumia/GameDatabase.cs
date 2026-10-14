@@ -26,6 +26,9 @@ namespace Lumia
             SkillMechanics.Configure(Cards);
             WeaponIdentity.Configure(Cards, Characters);
             ConfigureConditionalCombos();
+            // Returning projectiles, completed channels and delayed puppet follow-ups
+            // open their reset on the actor's next turn rather than during this cast.
+            foreach (string id in new[] { "vanya_q", "bianca_w", "chloe_e", "magnus_w" }) Card(id).freeCastNextTurn = true;
             foreach (var card in Cards) card.description = CardPresentation.Describe(card, Cards);
             TraitMechanics.Configure(Passives, Runes);
             EquipmentIdentity.Configure(Gear);
@@ -248,10 +251,10 @@ namespace Lumia
             F("salmon_steak","연어 스테이크",90,35,null,"체력 35 회복. 연어 + 모닥불.");
             F("honey_potato","꿀고구마",90,35,null,"체력 35 회복. 호박고구마 + 모닥불.");
             F("truffle_pasta","트러플 파스타",95,38,null,"체력 38 회복. 트러플 + 모닥불.");
-            Foods.Add(new FoodDef { id="soup",name="만년 스프",price=150,fullHeal=true,description="사용하면 최대 체력까지 회복합니다. 모닥불에서 휴식을 선택하면 1개를 얻습니다." });
+            Foods.Add(new FoodDef { id="soup",name="만년 스프",price=150,fullHeal=true,description="사용하면 최대 체력까지 회복합니다. 전투 중에는 코스트 2를 소모합니다. 모닥불 휴식으로 얻습니다." });
         }
 
-        static void F(string id,string name,int price,int heal,string upgradeTo,string description) => Foods.Add(new FoodDef { id=id,name=name,price=price,heal=heal,upgradeTo=upgradeTo,description=description });
+        static void F(string id,string name,int price,int heal,string upgradeTo,string description) => Foods.Add(new FoodDef { id=id,name=name,price=price,heal=heal,upgradeTo=upgradeTo,description=description + " 전투 중 코스트 1을 소모합니다." });
 
         static void BuildGear()
         {

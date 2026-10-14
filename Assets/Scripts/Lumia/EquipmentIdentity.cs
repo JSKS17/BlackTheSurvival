@@ -35,6 +35,12 @@ namespace Lumia
             Add(gear,"light_insignia","빛의 증표","meteorite",slot:GearSlot.Head);
             Add(gear,"ghillie_suit","길리 슈트","tree",slot:GearSlot.Clothes);
             Add(gear,"alexandros","알렉산드로스","tree",slot:GearSlot.Legs);
+            Add(gear,"intervention","인터벤션","mithril","저격총");
+            Add(gear,"joyeuse","주와이외즈","mithril","레이피어");
+            Add(gear,"quad_eye","쿼드 아이","mithril",slot:GearSlot.Head);
+            Add(gear,"mithril_armband","미스릴 완장","mithril",slot:GearSlot.Arm);
+            Add(gear,"racing_boots","레이싱 부츠","meteorite",slot:GearSlot.Legs);
+            Add(gear,"dice_of_destiny","운명의 주사위","force",slot:GearSlot.Arm);
         }
         static TraitRule R(string trigger,string op,int amount=0,string key=null,string label=null,int every=1,int cooldown=0,int turn=0,int duration=1)
             => new TraitRule{trigger=trigger,op=op,amount=amount,key=key,label=label,every=every,cooldown=cooldown,maxPerTurn=turn,duration=duration};
@@ -65,7 +71,7 @@ namespace Lumia
         }
         public static void Configure(List<GearDef> gear)
         {
-            foreach(var item in gear){item.effect=null;item.amount=0;item.critChance=0;}
+            foreach(var item in gear){item.effect=null;item.amount=0;item.critChance=0;item.critDamageBonus=0;}
             Set(gear,"laevateinn",attack:3,summary:"기본 공격에 발화를 실어 두 턴 동안 타오르는 피해를 줍니다.",rules:new[]{Hit(R("after_basic","burn",2,"ignite","타오르는 고통",turn:2,duration:2))});
             Set(gear,"dainsleif",attack:5,summary:"충전된 기본 공격이 추가 피해를 주고 적을 둔화시킵니다.",rules:Charged(5));
             Set(gear,"altair",attack:2,summary:"이동 기술로 가벼운 발걸음을 쌓아 다음 기본 공격을 강화합니다.",rules:Footwork());
@@ -119,8 +125,21 @@ namespace Lumia
             Set(gear,"light_insignia",attack:1,summary:"빛의 증표로 공격에 치유 감소를 부여합니다.",rules:new[]{HealReduction()});
             Set(gear,"ghillie_suit",block:1,health:4,summary:"기본 공격 적중으로 예열을 높이고 예열 3에서 다음 기본 공격을 강화합니다.",rules:new[]{Hit(Resource("after_basic","gain","preheat","예열",1)),Need(R("before_basic","bonus_damage",2,turn:2),"preheat",3)});
             Set(gear,"alexandros",attack:1,evasion:4,summary:"가벼운 신발로 공격력과 회피율을 높입니다.");
+            Set(gear,"intervention",attack:4,summary:"정밀 사격과 치명타 확률에 집중한 저격총입니다.");
+            Set(gear,"joyeuse",attack:2,evasion:3,summary:"날렵한 레이피어로 치명타 확률과 치명타 피해량을 함께 높입니다.");
+            Set(gear,"quad_eye",attack:1,summary:"연장 총열로 두 턴마다 첫 기본 공격을 강화합니다.",rules:new[]{R("before_basic","bonus_damage",3,cooldown:2)});
+            Set(gear,"mithril_armband",attack:1,block:1,summary:"이동 기술로 가벼운 발걸음을 쌓아 기본 공격을 강화합니다.",rules:Footwork());
+            Set(gear,"racing_boots",evasion:6,summary:"기동성을 높이고 일반 공격의 치명타 확률을 증가시킵니다.");
+            Set(gear,"dice_of_destiny",attack:1,summary:"운명의 눈금이 일반 공격의 치명타 확률과 치명타 피해량을 높입니다.");
             foreach(string id in new[]{"cerberus","cube_watch","meteor_sword","ghillie_suit","alexandros"})gear.Find(x=>x.id==id).critChance=5;
             foreach(string id in new[]{"radar","light_insignia"})gear.Find(x=>x.id==id).critChance=6;
+            foreach(string id in new[]{"intervention","quad_eye","mithril_armband","racing_boots"})gear.Find(x=>x.id==id).critChance=6;
+            gear.Find(x=>x.id=="joyeuse").critChance=4;
+            gear.Find(x=>x.id=="dice_of_destiny").critChance=5;
+            gear.Find(x=>x.id=="meteor_sword").critDamageBonus=6;
+            gear.Find(x=>x.id=="light_insignia").critDamageBonus=4;
+            gear.Find(x=>x.id=="joyeuse").critDamageBonus=5;
+            gear.Find(x=>x.id=="dice_of_destiny").critDamageBonus=8;
             foreach(var item in gear)
             {
                 var sentences=new List<string>();
@@ -128,6 +147,8 @@ namespace Lumia
                 if(item.block>0)sentences.Add("매 턴 방어도를 "+item.block+" 얻습니다.");
                 if(item.health>0)sentences.Add("최대 체력이 "+item.health+" 증가합니다.");
                 if(item.evasion>0)sentences.Add("회피율이 "+item.evasion+"% 증가합니다.");
+                if(item.critChance>0)sentences.Add("일반 공격의 치명타 확률이 "+item.critChance+"% 증가합니다.");
+                if(item.critDamageBonus>0)sentences.Add("일반 공격의 치명타 피해 배율이 "+item.critDamageBonus+"%p 증가합니다.");
                 if(item.mechanics!=null && !string.IsNullOrEmpty(item.mechanics.summary))sentences.Add(TraitMechanics.Describe(item.mechanics));
                 if(item.damageDeferral>0)sentences.Add("방어도로 막은 뒤 받는 체력 피해의 "+item.damageDeferral+"%를 다음 세 번의 자신의 턴 시작으로 나누어 미룹니다. 미룬 피해는 방어도를 무시하며 전투가 끝나면 사라집니다.");
                 if(item.slot==GearSlot.Weapon)sentences.Add("장착하면 "+GameDatabase.Card(item.cardId).name+" D 카드 1장이 덱에 자동으로 추가됩니다.");
@@ -147,8 +168,10 @@ namespace Lumia
             if(item.health>0)tags.Add("체력");
             if(rules.Any(r=>r.op=="heal" || r.op=="bonus_heal" || r.op=="revive"))tags.Add("회복");
             if(item.evasion>0 || rules.Any(r=>r.op=="evasion_buff"))tags.Add("회피");
-            if(item.critChance>0 || rules.Any(r=>r.trigger=="before_basic" || r.trigger=="after_basic" || r.op=="empower_basic"))tags.Add("일반 공격");
-            if(item.critChance>0)tags.Add("치명타");
+            if(item.critChance>0 || item.critDamageBonus>0 || rules.Any(r=>r.trigger=="before_basic" || r.trigger=="after_basic" || r.op=="empower_basic"))tags.Add("일반 공격");
+            if(item.critChance>0 || item.critDamageBonus>0)tags.Add("치명타");
+            if(item.critChance>0)tags.Add("치명타 확률");
+            if(item.critDamageBonus>0)tags.Add("치명타 피해");
             if(rules.Any(r=>r.trigger=="before_skill" || r.trigger=="after_skill" || r.trigger=="skill_hit" || r.trigger=="after_ultimate" || r.conditionCategory=="weapon" || r.conditionCategory=="skill"))tags.Add("스킬");
             if(rules.Any(r=>r.op=="status" || r.op=="burn"))tags.Add("상태이상");
             if(rules.Any(r=>r.op=="discount" || r.op=="discount_last" || r.op=="energy" || r.op=="energy_buff"))tags.Add("코스트");

@@ -179,13 +179,13 @@ namespace Lumia
             if (c.freeCastCount > 0 && c.freeCastTargets != null && c.freeCastTargets.Length > 0)
             {
                 effects.Add(FreeCastMechanics.Effect(c));
-                freeCastNote="덱에 보유한 대상 카드가 손패에 없다면 뽑을 카드 또는 버린 카드에서 한 장을 가져옵니다.";
+                freeCastNote=(c.freeCastNextTurn ? "다음 자기 턴이 시작될 때, " : "") + "덱에 보유한 대상 카드가 손패에 없다면 뽑을 카드 또는 버린 카드에서 한 장을 가져옵니다.";
             }
             lines.AddRange(DescriptionSummary.GroupEffects(effects));
             if (freeCastNote.Length > 0) lines.Add(freeCastNote);
             lines.AddRange(CrossSubjectSynergies.FullDescription(c));
             if (c.exhaust) lines.Add(FreeCastMechanics.ExhaustDescription(c));
-            if (c.id == "basic_attack") lines.Add("장비의 공격력과 기본 공격 강화 효과를 받습니다. 치명타 적중 시 이 공격의 피해가 1.5배가 됩니다. 별도로 발동하는 추가 피해에는 치명타가 적용되지 않습니다.");
+            if (c.id == "basic_attack") lines.Add("장비의 공격력과 기본 공격 강화 효과를 받습니다. 기본 치명타 피해는 150%이며, 장비로 증가합니다. 별도로 발동하는 추가 피해에는 치명타가 적용되지 않습니다.");
             if (lines.Count == 0) lines.Add("턴을 준비하며 행동 기회를 얻습니다.");
             return DescriptionSummary.CleanLines(lines);
         }
@@ -196,7 +196,9 @@ namespace Lumia
             if (c.block > 0) lines.Add("방어도는 피해를 먼저 막고 다음 내 턴이 시작될 때 사라집니다.");
             if (c.strength > 0) lines.Add("힘은 각 공격의 피해를 높입니다.");
             if (c.evasion > 0) lines.Add("카드의 회피 보너스는 가장 높은 값만 적용되며, 최종 회피율은 65%를 넘지 않습니다.");
-            if (c.freeCastCount > 0) lines.Add("무료 사용권은 이번 턴에만 유효합니다. 같은 스킬로 같은 대상 카드의 무료 사용권을 얻는 횟수는 자신의 턴당 1회입니다. 획득 후 조건이 사라져도 받은 사용권은 유지되며, 소멸한 카드는 돌아오지 않습니다.");
+            if (c.freeCastCount > 0) lines.Add(c.freeCastNextTurn
+                ? "연계를 예약하면 다음 자기 턴 시작에 무료 사용권이 생기며, 그 턴이 끝나면 사라집니다. 같은 기술의 예약과 무료 사용권 획득은 자기 턴당 1회이며, 예약으로 받은 사용권을 같은 원천으로 다시 예약하지 않습니다. 예약 후 조건이 사라져도 예약은 유지되며, 소멸한 카드는 돌아오지 않습니다."
+                : "무료 사용권은 이번 턴에만 유효합니다. 같은 스킬로 같은 대상 카드의 무료 사용권을 얻는 횟수는 자신의 턴당 1회입니다. 획득 후 조건이 사라져도 받은 사용권은 유지되며, 소멸한 카드는 돌아오지 않습니다.");
             string mechanics = SkillMechanics.Rules(c);
             if (!string.IsNullOrEmpty(mechanics)) lines.Add(mechanics);
             if(c.movement)lines.Add("이 카드는 이동 기술이므로 속박의 사용 제한과 둔화의 추가 코스트가 적용됩니다.");

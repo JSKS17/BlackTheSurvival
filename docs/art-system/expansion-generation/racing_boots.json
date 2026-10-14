@@ -1,0 +1,20 @@
+{
+  "id": "racing_boots",
+  "name": "레이싱 부츠",
+  "kind": "gear",
+  "originalId": 204509,
+  "referenceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.5.0/ItemIcon_204509.png",
+  "referencePath": "docs/art-system/references/expansion-v101/racing_boots.png",
+  "originalTooltip": "전설 / 다리\n\n공격 속도 +26%\n이동 속도 +0.25\n치명타 확률 +33%",
+  "sourceSnapshot": "docs/art-system/items-snapshot.json",
+  "officialReference": "https://playeternalreturn.com/posts/news/1868?hl=ko-KR",
+  "output": "Assets/Resources/Lumia/SystemIcons/racing_boots.png",
+  "tool": "image_gen.imagegen",
+  "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art equipment icon for Black The Survival. Image 1 is the original Eternal Return item identity reference; image 2 is the established game pixel icon style reference. Create one NEW pixel-art icon of Racing Boots, a pair of dark black and deep blue knee-high armored racing boots, small pale cyan fasteners, thick soles, front-left three-quarter view. Preserve the paired boot silhouette. Keep the original recognizable design and colors; do not invent ornaments. Use clear hard square pixel clusters, a restrained 32-by-32 logical pixel grid feel, dark navy one-pixel contour, 3-tone stepped highlights, no smoothing or antialiasing. The existing pixel icon has the desired coarse pixels and readable small UI silhouette. Center one object with generous transparent margins. Transparent alpha background, no colored backdrop, no text, no border, no card, no shadow panel, no watermark. The icon will be mechanically resized to 32 logical pixels and displayed at 64 by 64.",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a138fc-ef22-7281-88ab-20c91bd2c3a4\\exec-8e1e58c3-0a2c-417e-908b-f1f6985340d6.png",
+  "referenceInputs": [
+    "docs/art-system/references/expansion-v101/racing_boots.png",
+    "Assets/Resources/Lumia/SystemIcons/radar.png"
+  ],
+  "generatedSource": "docs/art-system/expansion-generated/racing_boots.png"
+}

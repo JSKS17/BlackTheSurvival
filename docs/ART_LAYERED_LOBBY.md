@@ -1,3 +1,5 @@
+> 현재 v1.0.1에서는 배경을 굵은 도트로 교체했습니다. [최신 제작 기록](art-refresh-v1.0.1/README.md)을 참고하세요. 아래는 v0.1.27의 레이어 분리 제작 기록입니다.
+
 # Layered lobby artwork — v0.1.27
 
 The lobby now has two independent image assets. The laboratory keeps the composition of the v0.1.26 lobby, and Nia is a new dedicated character sprite. The gameplay portrait is a style and identity reference; it is not copied into the lobby as the final image.

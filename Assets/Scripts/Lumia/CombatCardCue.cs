@@ -8,6 +8,7 @@ namespace Lumia
     public static class CombatCardCue
     {
         public const float RevealSeconds = .32f, ReducedRevealSeconds = .15f;
+        public static readonly Rect UltimateEnvelope = new Rect(482, 125, 316, 286);
         static GUIStyle heading, title, caption;
         static Font preparedFont;
         static readonly Dictionary<string, Color> colors = new Dictionary<string, Color>();
@@ -43,7 +44,9 @@ namespace Lumia
                 }
                 float arrive = EaseOut(Mathf.Clamp01(elapsed / .075f)), settle = EaseOut(Mathf.Clamp01((elapsed - .075f) / .075f));
                 float scale = elapsed < .075f ? Mathf.Lerp(.72f, 1.10f, arrive) : Mathf.Lerp(1.10f, 1f, settle);
-                Vector2 center = new Vector2(Snap(640 + (action.enemy ? 1 : -1) * 130 * (1 - arrive)), 266);
+                // R starts with its atlas immediately. Keep its card in the centre instead of entering
+                // through the caster's overlay; non-R cards retain their directional entrance.
+                Vector2 center = new Vector2(Snap(640 + (card.key == "R" ? 0 : (action.enemy ? 1 : -1) * 130 * (1 - arrive))), 266);
                 Rect rect = new Rect(Snap(center.x - 89 * scale), Snap(center.y - 116 * scale), Snap(178 * scale), Snap(232 * scale));
                 Fill(new Rect(rect.x + 7, rect.y + 7, rect.width, rect.height), new Color(.015f, .025f, .04f, alpha * .65f));
                 Panel(rect, primary, alpha);

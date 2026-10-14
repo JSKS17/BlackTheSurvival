@@ -17,12 +17,14 @@ namespace Lumia
             public CombatVisualProfile profile;
             public UltimateAnimationDef ultimate;
             public bool direct, reduced;
-            public float start, duration;
+            public float start, duration, textUntil;
+            public int damageLane = -1, healLane = -1, blockLane = -1, statusLane = -1;
             public Color color, accent;
             public int seed;
         }
 
         const int MaxBursts = 18;
+        public const float ReadableTextSeconds = 1.1f, ReducedTextSeconds = .85f;
         readonly List<Burst> bursts = new List<Burst>(MaxBursts);
         readonly Dictionary<int, GUIStyle> numberStyles = new Dictionary<int, GUIStyle>();
         GUIStyle sourceFont;
@@ -50,19 +52,26 @@ namespace Lumia
 
         public bool UltimateBusy
         {
-            get { foreach (var b in bursts) if (b.ultimate != null && Alive(b)) return true; return false; }
+            get { foreach (var b in bursts) if (b.ultimate != null && VisualAlive(b)) return true; return false; }
         }
         public string UltimateSubject
         {
-            get { for (int i = bursts.Count - 1; i >= 0; i--) if (bursts[i].ultimate != null && Alive(bursts[i])) return bursts[i].ultimate.id; return null; }
+            get { for (int i = bursts.Count - 1; i >= 0; i--) if (bursts[i].ultimate != null && VisualAlive(bursts[i])) return bursts[i].ultimate.id; return null; }
+        }
+        public bool UltimateEnemy
+        {
+            get { for (int i = bursts.Count - 1; i >= 0; i--) if (bursts[i].ultimate != null && VisualAlive(bursts[i])) return bursts[i].action.enemy; return false; }
+        }
+        public bool ReadableFeedbackAlive
+        {
+            get { foreach (var b in bursts) if (Age(b) >= Impact(b) * b.duration && Age(b) < b.textUntil) return true; return false; }
         }
         public int UltimateFrame(bool reduced)
         {
             for (int i = bursts.Count - 1; i >= 0; i--)
-                if (bursts[i].ultimate != null && Alive(bursts[i]))
+                if (bursts[i].ultimate != null && VisualAlive(bursts[i]))
                 {
-                    float elapsed = Age(bursts[i]) - (bursts[i].reduced ? CombatCardCue.ReducedRevealSeconds : CombatCardCue.RevealSeconds);
-                    return elapsed < 0 ? -1 : UltimateAnimations.FrameIndex(bursts[i].ultimate, elapsed, bursts[i].reduced);
+                    return UltimateAnimations.FrameIndex(bursts[i].ultimate, Age(bursts[i]), bursts[i].reduced);
                 }
             return -1;
         }
@@ -86,7 +95,9 @@ namespace Lumia
         }
         float Age(Burst b) { return verificationProgress >= 0 ? verificationProgress * b.duration : Clock - b.start; }
         float Progress(Burst b) { return Mathf.Clamp01(Age(b) / b.duration); }
-        bool Alive(Burst b) { return Age(b) < b.duration; }
+        bool VisualAlive(Burst b) { return Age(b) < b.duration; }
+        bool Alive(Burst b) { return Age(b) < Math.Max(b.duration, b.textUntil); }
+        static float Impact(Burst b) { return b.reduced ? 0 : b.direct ? Mathf.Clamp(b.profile.impactAt, .28f, .72f) : .12f; }
 
         public float Add(CombatAction action, bool reduced)
         {
@@ -107,16 +118,80 @@ namespace Lumia
             if (gear != null) color = new Color(.96f, .72f, .43f);
             float duration = reduced ? .24f : direct ? Mathf.Clamp(profile.duration, .62f, 1.08f) : .52f;
             if (ultimate != null)
-                duration = (reduced ? CombatCardCue.ReducedRevealSeconds + UltimateAnimations.ReducedSeconds : CombatCardCue.RevealSeconds + ultimate.Duration);
+                duration = reduced ? UltimateAnimations.ReducedSeconds : ultimate.Duration;
             if (bursts.Count >= MaxBursts)
             {
                 int remove = bursts.FindIndex(b => !b.direct);
                 bursts.RemoveAt(remove < 0 ? 0 : remove);
             }
-            bursts.Add(new Burst { action = action, card = card, passive = passive, rune = rune, gear = gear,
+            var burst = new Burst { action = action, card = card, passive = passive, rune = rune, gear = gear,
                 profile = profile, ultimate = ultimate, direct = direct, reduced = reduced, start = Clock, duration = duration,
-                color = color, accent = accent, seed = profile.seed ^ (action.id * 31 & 255) });
+                color = color, accent = accent, seed = profile.seed ^ (action.id * 31 & 255) };
+            burst.textUntil = Impact(burst) * duration + (reduced ? ReducedTextSeconds : ReadableTextSeconds);
+            bursts.Add(burst);
+            if (action.damage > 0 || action.avoided > 0 || direct && card.damage > 0) burst.damageLane = ReserveFeedbackLane(!action.enemy);
+            if (action.heal > 0) burst.healLane = ReserveFeedbackLane(action.enemy);
+            if (action.block > 0) burst.blockLane = ReserveFeedbackLane(action.enemy);
+            if (!direct && action.damage == 0 && action.avoided == 0 && action.heal == 0 && action.block == 0)
+                burst.statusLane = ReserveFeedbackLane((action.kind ?? "").StartsWith("status_", StringComparison.Ordinal) ? !action.enemy : action.enemy);
             return duration;
+        }
+
+        int ReserveFeedbackLane(bool enemy)
+        {
+            int occupied = 0;
+            foreach (var b in bursts)
+            {
+                if (Age(b) >= b.textUntil) continue;
+                if (b.action.enemy != enemy && b.damageLane >= 0) occupied |= 1 << b.damageLane;
+                if (b.action.enemy == enemy)
+                {
+                    if (b.healLane >= 0) occupied |= 1 << b.healLane;
+                    if (b.blockLane >= 0) occupied |= 1 << b.blockLane;
+                }
+                bool statusEnemy = (b.action.kind ?? "").StartsWith("status_", StringComparison.Ordinal) ? !b.action.enemy : b.action.enemy;
+                if (statusEnemy == enemy && b.statusLane >= 0) occupied |= 1 << b.statusLane;
+            }
+            for (int lane = 0; lane < 7; lane++) if ((occupied & 1 << lane) == 0) return lane;
+            // Bounded seven-line readout per actor: on unusually dense procs replace the oldest line,
+            // rather than stacking two unreadable strings or pushing labels into the hand/HUD.
+            foreach (var b in bursts)
+            {
+                if (Age(b) >= b.textUntil) continue;
+                if (b.action.enemy != enemy && b.damageLane >= 0) { int lane = b.damageLane; b.damageLane = -1; return lane; }
+                if (b.action.enemy == enemy && b.healLane >= 0) { int lane = b.healLane; b.healLane = -1; return lane; }
+                if (b.action.enemy == enemy && b.blockLane >= 0) { int lane = b.blockLane; b.blockLane = -1; return lane; }
+                bool statusEnemy = (b.action.kind ?? "").StartsWith("status_", StringComparison.Ordinal) ? !b.action.enemy : b.action.enemy;
+                if (statusEnemy == enemy && b.statusLane >= 0) { int lane = b.statusLane; b.statusLane = -1; return lane; }
+            }
+            return 0;
+        }
+
+        static Vector2 FeedbackPosition(bool enemy, int lane, float lift)
+        {
+            return new Vector2(enemy ? 1015 : 232, 180 + lane * 30 - lift);
+        }
+
+        internal bool FeedbackLanesDistinct()
+        {
+            foreach (bool enemy in new[] { false, true })
+            {
+                int used = 0;
+                foreach (var b in bursts)
+                {
+                    if (Age(b) >= b.textUntil) continue;
+                    int[] lanes = { b.action.enemy != enemy ? b.damageLane : -1,
+                        b.action.enemy == enemy ? b.healLane : -1, b.action.enemy == enemy ? b.blockLane : -1,
+                        ((b.action.kind ?? "").StartsWith("status_", StringComparison.Ordinal) ? !b.action.enemy : b.action.enemy) == enemy ? b.statusLane : -1 };
+                    foreach (int lane in lanes)
+                    {
+                        if (lane < 0) continue;
+                        if (lane > 6 || (used & 1 << lane) != 0) return false;
+                        used |= 1 << lane;
+                    }
+                }
+            }
+            return true;
         }
 
         static Color Html(string value, Color fallback)
@@ -128,7 +203,7 @@ namespace Lumia
         Burst ActorCast(bool enemy)
         {
             for (int i = bursts.Count - 1; i >= 0; i--)
-                if (bursts[i].direct && bursts[i].action.enemy == enemy && Alive(bursts[i])) return bursts[i];
+                if (bursts[i].direct && bursts[i].action.enemy == enemy && VisualAlive(bursts[i])) return bursts[i];
             return null;
         }
 
@@ -204,7 +279,7 @@ namespace Lumia
                 for (int i = bursts.Count - 1; i >= 0; i--)
                 {
                     var hit = bursts[i];
-                    if (!Alive(hit) || hit.action.enemy == enemy || hit.action.damage <= 0) continue;
+                    if (!VisualAlive(hit) || hit.action.enemy == enemy || hit.action.damage <= 0) continue;
                     float phase = Progress(hit), impactAt = hit.direct ? hit.profile.impactAt : .16f;
                     float hp = (phase - impactAt) / .24f;
                     if (hp >= 0 && hp < 1)
@@ -235,13 +310,13 @@ namespace Lumia
             {
                 if (!Alive(bursts[i])) continue;
                 if (fallback == null) fallback = bursts[i];
-                if (primary == null && bursts[i].direct) primary = bursts[i];
+                if (primary == null && bursts[i].direct && VisualAlive(bursts[i])) primary = bursts[i];
             }
-            int reactionIndex = 0;
             // Accessibility changes take effect on the next cast, keeping this atlas timeline internally consistent.
             bool primaryReduced = primary != null && primary.ultimate != null ? primary.reduced : reduced;
-            bool ultimateVisible = primary != null && primary.ultimate != null
-                && Age(primary) >= (primaryReduced ? CombatCardCue.ReducedRevealSeconds : CombatCardCue.RevealSeconds);
+            bool ultimateVisible = primary != null && primary.ultimate != null;
+            if (ultimateVisible)
+                UltimateAnimations.Draw(primary.ultimate, primary.card, primary.action.enemy, Age(primary), primaryReduced, font);
             foreach (var b in bursts)
             {
                 if (!Alive(b)) continue;
@@ -251,15 +326,15 @@ namespace Lumia
                 Vector2 target = b.action.enemy ? new Vector2(232, 282) : new Vector2(1015, 282);
                 bool status = (b.action.kind ?? "").StartsWith("status_", StringComparison.Ordinal);
                 bool attack = status || b.action.damage > 0 || b.action.avoided > 0 || b.card != null && (b.card.damage > 0 || b.card.poison > 0 || b.card.weak > 0 || b.card.vulnerable > 0);
-                float impactAt = motionReduced ? 0 : b.direct ? Mathf.Clamp(b.profile.impactAt, .28f, .72f) : .12f;
+                float impactAt = Impact(b);
                 float hitProgress = Mathf.Clamp01((p - impactAt) / Mathf.Max(.1f, 1 - impactAt));
                 float alpha = Mathf.Min(1, (1 - p) * 3.5f);
                 Color color = WithAlpha(b.color, alpha), accent = WithAlpha(b.accent, alpha);
-                if (b.direct && !motionReduced && !(b.ultimate != null && ultimateVisible))
+                if (VisualAlive(b) && b.direct && !motionReduced && b.ultimate == null)
                     Spell(b.profile, b.card, source, target, p, color, accent, b.seed, attack);
-                else if (!b.direct && !motionReduced)
+                else if (VisualAlive(b) && !b.direct && !motionReduced)
                     Reaction(b, attack ? target : source, p, color, accent);
-                else if (motionReduced && p < .85f)
+                else if (VisualAlive(b) && motionReduced && p < .85f)
                 {
                     // Reduced motion is spatially static: no travel, zoom, flash, orbit or recoil.
                     Vector2 at = attack ? target : source;
@@ -269,30 +344,31 @@ namespace Lumia
                 }
                 if (p >= impactAt)
                 {
-                    if (b.action.block > 0 && !motionReduced) Shield(source, hitProgress, WithAlpha(new Color(.57f, .87f, .74f), alpha), b.seed, true);
-                    if (b.action.heal > 0 && !motionReduced) Heal(source, hitProgress, WithAlpha(new Color(.65f, .91f, .57f), alpha), b.seed);
-                    int lane = b.direct ? 0 : 1 + reactionIndex++ % 3;
-                    float lift = motionReduced ? 0 : hitProgress * 22;
-                    float y = b.direct ? -62 - lift : -48 + lane * 21 - lift * .6f;
+                    if (VisualAlive(b) && b.action.block > 0 && !motionReduced) Shield(source, hitProgress, WithAlpha(new Color(.57f, .87f, .74f), alpha), b.seed, true);
+                    if (VisualAlive(b) && b.action.heal > 0 && !motionReduced) Heal(source, hitProgress, WithAlpha(new Color(.65f, .91f, .57f), alpha), b.seed);
+                    // Floating labels outlive their brief particles, without extending card/enemy action locks.
+                    alpha = Mathf.Clamp01((b.textUntil - Age(b)) / .28f);
+                    color = WithAlpha(b.color, alpha);
+                    float lift = motionReduced ? 0 : Mathf.Clamp01((Age(b) - impactAt * b.duration) / .8f) * 2;
+                    Vector2 damageAt = FeedbackPosition(!b.action.enemy, b.damageLane, lift);
+                    Vector2 healAt = FeedbackPosition(b.action.enemy, b.healLane, lift);
+                    Vector2 blockAt = FeedbackPosition(b.action.enemy, b.blockLane, lift);
                     string label = b.direct ? "" : ReactionIdentity(b) + " ";
-                    if (b.action.damage > 0) Number(font, target + new Vector2(0, y), label + (b.action.critical ? "치명타! −" : "−") + b.action.damage,
-                        WithAlpha(b.action.critical ? new Color(1f, .82f, .39f) : new Color(1f, .58f, .51f), alpha), b.action.critical ? 24 : b.direct ? 21 : 13, b.direct ? 260 : 320);
-                    if (b.action.critical && !motionReduced) Star(target, 25 * (1 - hitProgress), accent, 4, 0);
-                    if (b.direct && b.card.damage > 0 && b.action.damage == 0 && b.action.avoided == 0) Number(font, target + new Vector2(0, y), "직접 피해 0", color, 16);
-                    if (b.action.avoided > 0) Number(font, target + new Vector2(0, -32 - lift), "회피!" + (b.action.avoided > 1 ? " ×" + b.action.avoided : ""), WithAlpha(new Color(.56f, .84f, .96f), alpha), 17);
-                    if (b.action.heal > 0) Number(font, source + new Vector2(0, y), label + "+" + b.action.heal, WithAlpha(new Color(.65f, .91f, .57f), alpha), b.direct ? 20 : 13, 320);
-                    if (b.action.block > 0) Number(font, source + new Vector2(0, 43 - lane * 19 - lift * .4f), label + "방어 +" + b.action.block, color, b.direct ? 17 : 12, 320);
-                    if (!b.direct && b.action.damage == 0 && b.action.heal == 0 && b.action.block == 0 && b.action.avoided == 0)
-                        Number(font, status ? target + new Vector2(0, y) : source + new Vector2(0, y), label.Trim(), color, 12, 320);
+                    if (b.action.damage > 0 && b.damageLane >= 0) Number(font, damageAt, label + (b.action.critical ? "치명타! −" : "−") + b.action.damage,
+                        WithAlpha(b.action.critical ? new Color(1f, .82f, .39f) : new Color(1f, .58f, .51f), alpha), b.action.critical ? 24 : b.direct ? 21 : 14, b.direct ? 260 : 320);
+                    if (VisualAlive(b) && b.action.critical && !motionReduced) Star(target, 25 * (1 - hitProgress), accent, 4, 0);
+                    if (b.direct && b.damageLane >= 0 && b.card.damage > 0 && b.action.damage == 0 && b.action.avoided == 0) Number(font, damageAt, "직접 피해 0", color, 16);
+                    if (b.action.avoided > 0 && b.damageLane >= 0) Number(font, damageAt, "회피!" + (b.action.avoided > 1 ? " ×" + b.action.avoided : ""), WithAlpha(new Color(.56f, .84f, .96f), alpha), 17);
+                    if (b.action.heal > 0 && b.healLane >= 0) Number(font, healAt, label + "+" + b.action.heal, WithAlpha(new Color(.65f, .91f, .57f), alpha), b.direct ? 20 : 14, 320);
+                    if (b.action.block > 0 && b.blockLane >= 0) Number(font, blockAt, label + "방어 +" + b.action.block, color, b.direct ? 17 : 14, 320);
+                    if (b.statusLane >= 0)
+                        Number(font, FeedbackPosition(status ? !b.action.enemy : b.action.enemy, b.statusLane, lift), label.Trim(), color, 14, 320);
                 }
             }
             if (primary != null)
                 CombatCardCue.Draw(primary.action, primary.card, primary.profile, Progress(primary), primary.duration, font, primaryReduced);
             var banner = primary ?? fallback;
-            if (banner != null && !ultimateVisible) DrawBanner(banner, font);
-            if (ultimateVisible)
-                UltimateAnimations.Draw(primary.ultimate, primary.card, primary.action.enemy,
-                    Age(primary) - (primaryReduced ? CombatCardCue.ReducedRevealSeconds : CombatCardCue.RevealSeconds), primaryReduced, font);
+            if (banner != null && !ultimateVisible && banner.ultimate == null && VisualAlive(banner)) DrawBanner(banner, font);
         }
 
         void DrawBanner(Burst b, GUIStyle font)
@@ -366,10 +442,20 @@ namespace Lumia
                 numberStyles.Add(size, style);
             }
             Rect r = new Rect(Snap(center.x - width / 2f), Snap(center.y - 16), width, 32);
-            style.normal.textColor = new Color(.02f, .04f, .06f, color.a);
-            GUI.Label(new Rect(r.x + 3, r.y + 3, r.width, r.height), text, style);
-            style.normal.textColor = color;
-            GUI.Label(r, text, style);
+            Color oldColor = GUI.color;
+            try
+            {
+                GUI.color = Color.white;
+                style.normal.textColor = new Color(.015f, .025f, .04f, color.a);
+                // Eight surrounding copies form an actual outline, readable on both pale effects and dark scenery.
+                int outline = size >= 17 ? 2 : 1;
+                for (int y = -1; y <= 1; y++)
+                    for (int x = -1; x <= 1; x++)
+                        if (x != 0 || y != 0) GUI.Label(new Rect(r.x + x * outline, r.y + y * outline, r.width, r.height), text, style);
+                style.normal.textColor = color;
+                GUI.Label(r, text, style);
+            }
+            finally { GUI.color = oldColor; }
         }
 
         static Color WithAlpha(Color color, float alpha) { color.a = alpha; return color; }
