@@ -58,9 +58,10 @@ namespace Lumia
             var p = cachedCombatPreview;
             var card = informationEnemy ? Engine.EnemyActionCard(p.cardId) : Engine.PlayerCard(p.cardId);
             if (card == null) { CloseCombatInformation(); return; }
+            string upgrade = p.enemy ? "" : Engine.CardUpgradeLabel(p.cardId);
             Modal(new Rect(180, 76, 920, 580));
             Tex(new Rect(209, 105, 56, 56), PixelArt.SkillIcon(card.id), ScaleMode.ScaleToFit);
-            Txt(new Rect(281, 101, 779, 34), "사용 전 확인  /  " + p.name, p.name.Length > 18 ? 18 : 24, Mint);
+            Txt(new Rect(281, 101, 779, 34), "사용 전 확인  /  " + p.name + (string.IsNullOrEmpty(upgrade) ? "" : " +"), p.name.Length > 18 ? 18 : 24, string.IsNullOrEmpty(upgrade) ? Mint : Gold);
             Txt(new Rect(282, 142, 778, 25), card.owner + " " + card.key + " · " + p.classification + (p.enemy ? " · 상대의 현재 상태 기준" : ""), 13, Gold);
             Color available = p.canUse ? Mint : p.enemy ? Muted : Pink;
             Para(new Rect(209, 183, 851, 36), p.unavailableReason, 14, available);
@@ -73,6 +74,7 @@ namespace Lumia
             Para(new Rect(221, 234, 827, 35), price, 14, Gold);
 
             var lines = new List<string>();
+            if (!string.IsNullOrEmpty(upgrade)) lines.Add("강화 / " + upgrade + " · 이 카드 한 장에만 적용됩니다.");
             lines.Add("피해 예측 / 일반 적중 " + p.normalDamage + " · 최대 " + p.hits + "회 적중 · 상대 방어도 " + p.targetBlock + " · 회피 확률 " + p.evasionChance + "%" + (p.criticalChance > 0 ? " · 기본 공격 치명타 " + p.criticalChance + "%" : ""));
             lines.Add(p.damageNote);
             if (!string.IsNullOrEmpty(p.bossWarning)) lines.Add("보스 대응 / " + p.bossWarning);
@@ -142,8 +144,10 @@ namespace Lumia
                     { if (expanded) expandedCombatEntries.Remove(entry.sequence); else expandedCombatEntries.Add(entry.sequence); }
                     if (expanded)
                     {
-                        var card = Engine.EnemyActionCard(entry.cardId);
+                        var card = entry.enemy ? Engine.EnemyActionCard(entry.cardId) : Engine.PlayerCard(entry.cardId);
                         string origin = card == null ? "전투 흐름" : WildlifeMechanics.IsAnimalSkill(card.id) ? card.owner + " · 동물 전용 기술" : card.owner + " " + card.key + " · " + CardPresentation.ClassificationLabel(card);
+                        string upgrade = entry.enemy ? "" : Engine.CardUpgradeLabel(entry.cardId);
+                        if (!string.IsNullOrEmpty(upgrade)) origin += " · 강화 / " + upgrade;
                         string metrics = "체력 피해 " + entry.damage + " / 방어 흡수 " + entry.absorbed + " / 회피 " + entry.avoided + " / 방어 +" + entry.block + " / 회복 +" + entry.heal + (entry.paidCost >= 0 ? " / 지불 코스트 " + entry.paidCost : "");
                         Para(new Rect(12, y + rowHeight - 48, 853, 44), origin + "\n" + metrics, 11, Muted);
                     }

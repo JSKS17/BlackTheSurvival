@@ -39,7 +39,7 @@ namespace Lumia
                 case "heal": return "체력 " + option.amount + " 회복";
                 case "max_health": return "최대 체력 +" + option.amount;
                 case "max_energy": return "최대 코스트 +" + option.amount;
-                case "upgrade_card": return "원하는 카드 1종 강화";
+                case "upgrade_card": return "원하는 카드 1장 강화";
                 case "remove_card": return "덱 정리";
                 default: return "";
             }
@@ -98,7 +98,7 @@ namespace Lumia
                 case "passive": return (GameDatabase.Passive(option.passiveId)?.name ?? "지정 패시브") + " 패시브를 획득합니다.";
                 case "rune_change": case "swap_rune": return "메인 룬과 같은 계열의 보조 룬을 새로 선택합니다.";
                 case "remove_card": return "무기 카드 이외의 무작위 카드 1장을 제거합니다. 덱에는 최소 5장을 남깁니다.";
-                case "upgrade_card": return "덱에서 원하는 카드 1종과 강화 방향을 선택합니다. 같은 카드의 모든 사본에 적용되며, 카드 1종은 한 방향으로만 강화할 수 있습니다.";
+                case "upgrade_card": return "덱에서 원하는 카드 1장과 강화 방향을 선택합니다. 선택한 한 장만 강화되며, 같은 종류의 다른 카드와 이후 획득하는 카드는 그대로입니다. 한 장에는 한 강화 방향만 적용할 수 있습니다.";
                 default: return "이야기를 나눈 뒤 다음 구역으로 이동합니다.";
             }
         }

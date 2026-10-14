@@ -16,7 +16,7 @@ namespace Lumia
 
     [Serializable] public class FreeCastGrant
     {
-        public string cardId;
+        public string cardId, cardReference;
         public int uses;
     }
 
@@ -29,7 +29,7 @@ namespace Lumia
     [Serializable] public class CombatAction
     {
         public int id;
-        public string cardId;
+        public string cardId, cardReference, upgradeLabel;
         public string kind;
         public string traitId;
         public bool enemy;
@@ -122,6 +122,7 @@ namespace Lumia
         public string draftBiasPassive;
         public bool runeChangePending;
         public bool cardUpgradePending;
+        public int cardInstanceVersion, nextCardInstanceId = 1;
         public List<CardUpgradeSelection> cardUpgrades = new List<CardUpgradeSelection>();
         public List<int> scoutedActs = new List<int>(), hyperloopActs = new List<int>(), revealedNodeIds = new List<int>();
         public List<PendingEncounterFollowup> pendingEncounterFollowups = new List<PendingEncounterFollowup>();
@@ -243,7 +244,7 @@ namespace Lumia
 
         public GameEngine(int seed, RunMode mode)
         {
-            State = new RunState { seed = seed, rngState = seed == 0 ? 1831565813 : seed, mode = RunModes.Normalize(mode), weaponGrantVersion=1, energyGrowthVersion=1 };
+            State = new RunState { seed = seed, rngState = seed == 0 ? 1831565813 : seed, mode = RunModes.Normalize(mode), weaponGrantVersion=1, energyGrowthVersion=1, cardInstanceVersion=1 };
             ResearchProgression.EnsureRun(State);
             GenerateMap();
             EnsureBossAssignments();
@@ -383,7 +384,8 @@ namespace Lumia
                 }
                 else c.boss = null;
             }
-            // Do not rewrite an in-progress battle's piles; equipment grants synchronize between nodes.
+            CardInstances.NormalizeLegacy(State);
+            // Equipment grants synchronize between nodes; instance migration preserves existing piles.
             EnsureEndlessAugments();
             if(State.stage!=RunStage.Combat)SyncWeaponCards();
         }
@@ -566,38 +568,6 @@ namespace Lumia
         }
 
         public int CardCost(string id) { var c = GameDatabase.Card(id); return c == null ? 99 : Math.Max(0, c.cost); }
-        public CardDef PlayerCard(string id)
-        {
-            var source = GameDatabase.Card(id);
-            if (source == null) return null;
-            var selection = State.cardUpgrades.FirstOrDefault(x => x.cardId == id);
-            string branch = selection != null ? selection.branchId : State.upgrades.Contains(id) ? "legacy" : null;
-            return string.IsNullOrEmpty(branch) ? source : StrategyMechanics.Apply(source, branch);
-        }
-        public string CardUpgradeLabel(string id)
-        {
-            var choice = State.cardUpgrades.FirstOrDefault(x => x.cardId == id);
-            if (choice == null) return State.upgrades.Contains(id) ? "출력 강화" : "";
-            return StrategyMechanics.BranchName(id, choice.branchId);
-        }
-        public List<string> UpgradeCandidates()
-        {
-            return State.deck.Distinct().Where(id => !State.upgrades.Contains(id) && !State.cardUpgrades.Any(x => x.cardId == id)
-                && StrategyMechanics.CanUpgrade(GameDatabase.Card(id))).ToList();
-        }
-        public List<CardUpgradeOption> CardUpgradeOptions(string id)
-        {
-            return UpgradeCandidates().Contains(id) ? StrategyMechanics.Options(GameDatabase.Card(id)) : new List<CardUpgradeOption>();
-        }
-        public bool UpgradeCard(string id, string branchId)
-        {
-            if (State.stage != RunStage.Encounter || !State.cardUpgradePending || !CardUpgradeOptions(id).Any(x => x.id == branchId))
-                return Fail("강화할 카드와 하나의 강화 방향을 선택하세요.");
-            State.cardUpgrades.Add(new CardUpgradeSelection { cardId = id, branchId = branchId });
-            State.cardUpgradePending = false;
-            Say(GameDatabase.Card(id).name + " · " + CardUpgradeLabel(id) + " 완료. 같은 이름의 카드에 적용됩니다.");
-            CompleteNode(); return true;
-        }
         public bool SkipCardUpgrade()
         {
             if (State.stage != RunStage.Encounter || !State.cardUpgradePending) return false;
@@ -607,7 +577,8 @@ namespace Lumia
         {
             var c = State.combat;
             var card = PlayerCard(id);
-            return c != null && c.freeCasts.Any(g => g.cardId == id && g.uses > 0) ? 0 : Math.Max(0, (card == null ? 99 : card.cost) + (c==null?0:StatusMechanics.CostPenalty(c.playerStatuses,card)) - (c == null ? 0 : Math.Max(SkillMechanics.Discount(c.playerSkills,id),SkillMechanics.Discount(c.playerTraits.skills,id))));
+            string skillId = CardInstances.BaseId(id);
+            return c != null && c.freeCasts.Any(g => FreeCastMechanics.Matches(g,id)) ? 0 : Math.Max(0, (card == null ? 99 : card.cost) + (c==null?0:StatusMechanics.CostPenalty(c.playerStatuses,card)) - (c == null ? 0 : Math.Max(SkillMechanics.Discount(c.playerSkills,skillId),SkillMechanics.Discount(c.playerTraits.skills,skillId))));
         }
         public int EnemyEffectiveCardCost(string id)
         {
@@ -686,17 +657,17 @@ namespace Lumia
         {
             var c = State.combat;
             if (!CanPlayCard(handIndex)) return Fail(c != null && c.enemyTurn ? "적의 행동이 끝나기를 기다리세요." : "카드를 사용할 코스트가 부족하거나 사용할 수 없는 손패입니다.");
-            var id = c.hand[handIndex]; var card = PlayerCard(id);
+            var reference = c.hand[handIndex]; var id = CardInstances.BaseId(reference); var card = PlayerCard(reference);
             int researchActionStart = CombatActions.Count;
-            int price = EffectiveCardCost(id);
-            bool freeGranted = c.freeCasts.Any(g => g.cardId == id && g.uses > 0);
+            int price = EffectiveCardCost(reference);
+            bool freeGranted = c.freeCasts.Any(g => FreeCastMechanics.Matches(g,reference));
             bool garnetRecall = FreeCastMechanics.GarnetRecallBeforeExhaust(card, freeGranted, c.freeCastSources);
             bool garnetExecution = FreeCastMechanics.GarnetExecutionReady(card, c.playerSkills, freeGranted, c.enemyHp, c.enemyMaxHp);
             bool execution = false;
-            RecordCombatCardStart(card, false, price, freeGranted);
+            RecordCombatCardStart(card, false, price, freeGranted, reference);
             int poisonBefore = c.enemyPoison, weakBefore = c.enemyWeak, vulnerableBefore = c.enemyVulnerable;
             int augmentEnergyBefore = c.energy;
-            ConsumeFreeCast(c.freeCasts, id);
+            ConsumeFreeCast(c.freeCasts, reference);
             SkillMechanics.ConsumeDiscount(c.playerSkills, id);
             SkillMechanics.ConsumeDiscount(c.playerTraits.skills,id);
             var skillBefore = SkillMechanics.Clone(c.playerSkills);
@@ -704,9 +675,9 @@ namespace Lumia
             c.energy -= price; c.hand.RemoveAt(handIndex);
             if (c.retainIndex == handIndex) c.retainIndex = -1;
             else if (c.retainIndex > handIndex) c.retainIndex--;
-            if (card.exhaust && !garnetRecall) c.exhaustPile.Add(id); else c.discardPile.Add(id);
+            if (card.exhaust && !garnetRecall) c.exhaustPile.Add(reference); else c.discardPile.Add(reference);
             int hits = Math.Max(1, card.hits), dealt = 0, avoided = 0, criticalHits = 0, directDamage = 0, absorbedTotal = 0;
-            int bonusDamage = PlayerBonusDamage(id, price);
+            int bonusDamage = PlayerBonusDamage(reference, price);
             ConsumeAugmentAttack(card, price);
             var incoming=card.damage>0 || bonusDamage>0 ? TraitEvent(true,"before_incoming",card,true) : new TraitResult();int incomingReduction=incoming.damageReduction,defenderBlock=c.enemyBlock;
                 bool landed = card.damage == 0 && bonusDamage == 0, bonusUsed = false;
@@ -722,7 +693,7 @@ namespace Lumia
                     BossMechanics.CheckPhase(c); RecordBossProgress(BossMechanics.ObserveDamage(c, remainingHp));
                     break;
                 }
-                int baseDamage = CardDamage(id);
+                int baseDamage = CardDamage(reference);
                 // Only the universal basic attack's own hit is multiplied. Skill/passive bonus pulses remain separate.
                 if (id == "basic_attack" && baseDamage > 0 && Roll(CritChance)) { baseDamage = GearCriticalDamage(baseDamage); criticalHits++; }
                 int damage = Math.Max(0,baseDamage + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.enemyBlock, damage);
@@ -740,7 +711,7 @@ namespace Lumia
             c.strength += card.strength;
             if (landed) { c.enemyPoison += card.poison; c.enemyVulnerable = Math.Max(c.enemyVulnerable, card.vulnerable); c.enemyWeak = Math.Max(c.enemyWeak, card.weak); }
             if (card.evasion > 0) { c.evasion = Math.Max(c.evasion, card.evasion); c.evasionTurns = Math.Max(c.evasionTurns, card.duration); }
-            RecordLegacyDebuffs(card, false, landed, poisonBefore, weakBefore, vulnerableBefore);
+            RecordLegacyDebuffs(card, false, landed, poisonBefore, weakBefore, vulnerableBefore, reference);
             c.energy += card.energy;
             DrawCards(card.draw);
             SkillMechanics.AfterCard(c.playerSkills, skillBefore, card, landed, paidCost: price);
@@ -751,12 +722,12 @@ namespace Lumia
             if (RecordLastSkill(c.lastSkills, card)) c.lastSkillCard = id;
             if (garnetRecall && !landed)
             {
-                int missedCopy = c.discardPile.LastIndexOf(id);
-                if (missedCopy >= 0) { c.discardPile.RemoveAt(missedCopy); c.exhaustPile.Add(id); }
+                int missedCopy = c.discardPile.LastIndexOf(reference);
+                if (missedCopy >= 0) { c.discardPile.RemoveAt(missedCopy); c.exhaustPile.Add(reference); }
             }
-            GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills, card.owner), skillBefore, landed, c.pendingFreeCasts, c.turn);
+            GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills, card.owner), skillBefore, landed, c.pendingFreeCasts, c.turn, reference);
             int cardHeal=State.hp-beforeHp;
-            EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = id, enemy = false, damage = dealt, block = block, heal = cardHeal, avoided = avoided, absorbed = absorbedTotal, critical = criticalHits > 0, criticalHits = criticalHits, execution = execution });
+            EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = id, cardReference = reference, upgradeLabel = CardUpgradeLabel(reference), enemy = false, damage = dealt, block = block, heal = cardHeal, avoided = avoided, absorbed = absorbedTotal, critical = criticalHits > 0, criticalHits = criticalHits, execution = execution });
             bool attackAttempt=card.damage>0 || bonusDamage>0;
             ApplyBeforeTraits(false,card,landed && attackAttempt,skillBefore,traitHpBefore);
             AfterCardTraits(false,card,landed,dealt,block,cardHeal,avoided,attackAttempt);
@@ -947,18 +918,18 @@ namespace Lumia
 
         private static void ConsumeFreeCast(List<FreeCastGrant> grants, string id)
         {
-            var grant = grants.FirstOrDefault(g => g.cardId == id && g.uses > 0);
+            var grant = grants.FirstOrDefault(g => FreeCastMechanics.Matches(g,id));
             if (grant != null) grant.uses--;
         }
 
-        private static void GrantFreeCasts(CardDef card, IEnumerable<string> owned, List<FreeCastGrant> grants, List<string> sources, List<string> hand, List<string> draw, List<string> discard, bool recall = true, string lastSkill = null, SkillActorState before = null, bool landed = true, List<PendingFreeCast> pending = null, int turn = 0)
+        private static void GrantFreeCasts(CardDef card, IEnumerable<string> owned, List<FreeCastGrant> grants, List<string> sources, List<string> hand, List<string> draw, List<string> discard, bool recall = true, string lastSkill = null, SkillActorState before = null, bool landed = true, List<PendingFreeCast> pending = null, int turn = 0, string playedReference = null)
         {
             if (!FreeCastMechanics.Eligible(card,before,landed)) return;
             var targets = card.freeCastTargets.Distinct().Where(id => !card.freeCastLastSkill || id == lastSkill);
             foreach (var target in targets)
             {
                 string source = card.id + "|" + target;
-                if (!owned.Contains(target) || GameDatabase.Card(target) == null || sources.Contains(source)) continue;
+                if (!owned.Any(id => CardInstances.SameType(id,target)) || GameDatabase.Card(target) == null || sources.Contains(source)) continue;
                 sources.Add(source);
                 if (card.freeCastNextTurn)
                 {
@@ -968,15 +939,16 @@ namespace Lumia
                 }
                 var grant = grants.FirstOrDefault(g => g.cardId == target);
                 if (grant == null) { grant = new FreeCastGrant { cardId = target }; grants.Add(grant); }
+                if(card.id=="garnet_r" && !string.IsNullOrEmpty(playedReference)) grant.cardReference=playedReference;
                 grant.uses += card.freeCastCount;
                 // Recall an actual owned copy. Exhausted cards stay exhausted and no new cards are created.
                 // Garnet temporarily withheld exhaustion from this played copy. Recall that
                 // copy even when an independently owned duplicate is already in hand.
-                if (!recall || hand.Count >= 12 || (hand.Contains(target) && card.id != "garnet_r")) continue;
-                int index = discard.LastIndexOf(target);
-                if (index >= 0) { discard.RemoveAt(index); hand.Add(target); continue; }
-                index = draw.LastIndexOf(target);
-                if (index >= 0) { draw.RemoveAt(index); hand.Add(target); }
+                if (!recall || hand.Count >= 12 || (hand.Any(id => CardInstances.SameType(id,target)) && card.id != "garnet_r")) continue;
+                int index = card.id=="garnet_r" && !string.IsNullOrEmpty(playedReference) ? discard.LastIndexOf(playedReference) : discard.FindLastIndex(id => CardInstances.SameType(id,target));
+                if (index >= 0) { string actual=discard[index]; discard.RemoveAt(index); hand.Add(actual); continue; }
+                index = draw.FindLastIndex(id => CardInstances.SameType(id,target));
+                if (index >= 0) { string actual=draw[index]; draw.RemoveAt(index); hand.Add(actual); }
             }
         }
 
@@ -1292,7 +1264,7 @@ namespace Lumia
                     break;
                 case "upgrade_card":
                     State.cardUpgradePending = true;
-                    return Say("강화할 카드와 강화 방향을 직접 선택하세요. 같은 이름의 카드에는 같은 강화가 적용되며, 한 카드 이름에는 한 방향만 선택할 수 있습니다.");
+                    return Say("덱에서 강화할 카드 1장과 강화 방향을 선택하세요. 선택한 한 장만 강화되며, 같은 종류의 다른 카드와 이후 획득하는 카드는 강화되지 않습니다.");
             }
             Say(o.description);
             if (State.hp <= 0) { Lose(); return true; }
@@ -2106,12 +2078,12 @@ namespace Lumia
             foreach (var discount in actor.discounts)
             {
                 string id=discount.targetCard;
-                int baseCost = playerUpgrade ? PlayerCard(id)?.cost ?? 99 : CardCost(id);
-                if (discount.amount<baseCost || SkillMechanics.Discount(before,id)>=discount.amount || !owned.Contains(id) || hand.Contains(id) || hand.Count>=12) continue;
-                int index=discard.LastIndexOf(id);
-                if (index>=0) { discard.RemoveAt(index);hand.Add(id);continue; }
-                index=draw.LastIndexOf(id);
-                if (index>=0) { draw.RemoveAt(index);hand.Add(id); }
+                if (SkillMechanics.Discount(before,id)>=discount.amount || !owned.Any(r=>CardInstances.SameType(r,id)) || hand.Any(r=>CardInstances.SameType(r,id)) || hand.Count>=12) continue;
+                Func<string,bool> eligible=r=>CardInstances.SameType(r,id) && discount.amount >= (playerUpgrade ? PlayerCard(r)?.cost ?? 99 : CardCost(r));
+                int index=discard.FindLastIndex(r=>eligible(r));
+                if (index>=0) { string actual=discard[index];discard.RemoveAt(index);hand.Add(actual);continue; }
+                index=draw.FindLastIndex(r=>eligible(r));
+                if (index>=0) { string actual=draw[index];draw.RemoveAt(index);hand.Add(actual); }
             }
         }
         private void DrawCards(int amount) { DrawInto(State.combat.hand, State.combat.drawPile, State.combat.discardPile, Math.Max(0, amount)); }

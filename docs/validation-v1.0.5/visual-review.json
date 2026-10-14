@@ -1,0 +1,24 @@
+{
+  "version": "1.0.5",
+  "status": "PASS",
+  "method": "Visual inspection of actual Windows player screenshots by Codex",
+  "screens": [
+    "strategy_upgrade_hand.png",
+    "strategy_upgrade_inventory.png",
+    "strategy_upgrade_applied.png",
+    "strategy_upgrade_preview.png",
+    "strategy_upgrade_rest.png",
+    "strategy_upgrade_second_copy.png",
+    "strategy_upgrade_plain_detail.png",
+    "strategy_upgrade_reloaded.png"
+  ],
+  "checks": [
+    "Only the selected upgraded copy has a plus suffix, gold outline, and upgrade badge",
+    "Ordinary Nia Q generates one block while the upgraded copy generates two",
+    "Deck groups show one upgraded copy separately from the ordinary copies",
+    "Details and card-use preview identify the branch and single-copy scope",
+    "Camp removal selects the upgraded copy without selecting ordinary duplicates",
+    "Reload preserves the upgraded and ordinary card distinction",
+    "No overlap between upgrade badge, summary, and classification footer"
+  ]
+}

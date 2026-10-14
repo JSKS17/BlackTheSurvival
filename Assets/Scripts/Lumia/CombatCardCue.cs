@@ -39,7 +39,7 @@ namespace Lumia
                     Rect ribbon = new Rect(476, 226, 328, 78); Panel(ribbon, primary, .98f);
                     Texture(new Rect(ribbon.x + 12, ribbon.y + 13, 50, 50), PixelArt.SkillIcon(card.id), 1);
                     Text(new Rect(ribbon.x + 75, ribbon.y + 8, 240, 22), action.enemy ? "상대의 카드 사용" : "하나의 카드 사용", caption, 11, side);
-                    Text(new Rect(ribbon.x + 75, ribbon.y + 31, 240, 39), card.name, title, 17, Color.white);
+                    Text(new Rect(ribbon.x + 75, ribbon.y + 31, 240, 39), card.name + (string.IsNullOrEmpty(action.upgradeLabel) ? "" : " +"), title, 17, Color.white);
                     return;
                 }
                 float arrive = EaseOut(Mathf.Clamp01(elapsed / .075f)), settle = EaseOut(Mathf.Clamp01((elapsed - .075f) / .075f));
@@ -59,10 +59,10 @@ namespace Lumia
                 Frame(new Rect(icon.x - 5, icon.y - 5, icon.width + 10, icon.height + 10), Alpha(primary, alpha), 2);
                 Texture(icon, PixelArt.SkillIcon(card.id), alpha);
                 Text(new Rect(rect.x + 10 * scale, rect.y + 146 * scale, rect.width - 20 * scale, 43 * scale),
-                    card.name, title, Mathf.RoundToInt(17 * scale), new Color(.92f, .96f, .97f, alpha));
+                    card.name + (string.IsNullOrEmpty(action.upgradeLabel) ? "" : " +"), title, Mathf.RoundToInt(17 * scale), new Color(.92f, .96f, .97f, alpha));
                 Fill(new Rect(rect.x + 10 * scale, rect.yMax - 32 * scale, rect.width - 20 * scale, 2), Alpha(primary, alpha * .8f));
                 Text(new Rect(rect.x + 10 * scale, rect.yMax - 27 * scale, rect.width - 20 * scale, 20 * scale),
-                    action.enemy ? "상대  ·  카드 사용" : "하나  ·  카드 사용", caption, Mathf.RoundToInt(11 * scale), Alpha(side, alpha));
+                    action.enemy ? "상대  ·  카드 사용" : string.IsNullOrEmpty(action.upgradeLabel) ? "하나  ·  카드 사용" : "강화  ·  "+action.upgradeLabel, caption, Mathf.RoundToInt(11 * scale), Alpha(side, alpha));
                 float distance = 106 * scale + (1 - settle) * 24;
                 for (int sign = -1; sign <= 1; sign += 2)
                 {

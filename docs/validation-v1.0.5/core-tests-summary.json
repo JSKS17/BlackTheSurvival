@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "completedAtUtc": "2026-10-14T12:34:10.6586023Z",
+  "command": "Tools/RunCoreTests.ps1",
+  "runner": "Unity 6000.3.11f1 Roslyn + Mono, outside Unity",
+  "exitCode": 0,
+  "assertions": 130713,
+  "existingReportedGameRuleScenarios": 130,
+  "addedUpgradeRegressionGroups": 5,
+  "addedRegressionMethods": [
+    "StrategicIndependentUpgradeBranches",
+    "StrategicUpgradePilesAndRetention",
+    "StrategicUpgradeExhaustAndRemoval",
+    "StrategicUpgradeLegacyMigration",
+    "StrategicUpgradedFreeRecall"
+  ],
+  "verified": [
+    "Exact deck-index selection with duplicate card types",
+    "Independent upgrade branches and labels per copy",
+    "Unupgraded real encounter reward after earlier same-type upgrade",
+    "Actual attack damage and reduced energy spending",
+    "Save/load of branches and upgrade target indices",
+    "Retained-card identity across enemy turn and save/load",
+    "Discard reshuffle and draw preserve exact references",
+    "Exhaustion preserves upgraded and ordinary copies separately",
+    "Camp removal removes selected upgraded copy only",
+    "Never reuse deleted upgraded identity after save/load",
+    "Legacy type-wide upgrade migrates current deck and combat copies one-to-one",
+    "Migration remains idempotent and future same-type cards remain ordinary",
+    "Free recall and free use preserve upgraded identity without copy loss or duplication"
+  ],
+  "keySourcesUnchangedDuringRun": true,
+  "compiledAtUtc": "2026-10-14T12:31:21.5105549Z",
+  "binarySha256": "54f6ebf7f4b9743a85e136169e6eed3c8c2cde04309ad37e1db18df916d92a98",
+  "logPath": "docs/validation-v1.0.5/core-tests.log",
+  "logSha256": "3ba5f4666b0267d4cfd90a3d052ba00c6365585439f61e884806777ad78f8679",
+  "keyCompiledSources": [
+    {
+      "path": "Assets/Scripts/Lumia/GameEngine.cs",
+      "sha256": "45a192aa51cd3fb29dec5f45510bbf0ecebe45ae7ea147214022c2a6aacb984d",
+      "lastWriteUtc": "2026-10-14T12:28:50.8808274Z"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CombatInformation.cs",
+      "sha256": "dd19c66dc83a6b142b357e9fc16185b7797cf233989faf42eefcf1dd9f759438",
+      "lastWriteUtc": "2026-10-14T12:28:50.3821628Z"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameDatabase.cs",
+      "sha256": "9173b86f85f0c2c06b8892986b1eed940e139c2209f430e95c036b80a700bc97",
+      "lastWriteUtc": "2026-10-14T12:16:58.7616537Z"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CardInstances.cs",
+      "sha256": "93243abdf0e9f853ece7c6b8c5f704d9e9dc0d1590bd6543b5416ed8dec32b65",
+      "lastWriteUtc": "2026-10-14T12:17:44.2758869Z"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameEngineCardInstances.cs",
+      "sha256": "b0d98b831520aa10a257a5b90a267fcce5635f41e81c7c54ef168155d51d5b68",
+      "lastWriteUtc": "2026-10-14T12:17:06.3936543Z"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/StrategyMechanics.cs",
+      "sha256": "c847b8dff5edfe0a242357dd9f1ed0f2408d1a9209026bef70a915523e1486cb",
+      "lastWriteUtc": "2026-10-14T12:16:58.5354049Z"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/FreeCastMechanics.cs",
+      "sha256": "47e7afc491462da4e45624b2baf63dee1ee8c23d5f50e571daadddd7e58538fa",
+      "lastWriteUtc": "2026-10-14T12:20:18.9453424Z"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/EventPresentation.cs",
+      "sha256": "a34f8cf9d7f80a8a024099a9a3be5b161dce19e5f7ab29a2f0cd9ba47d37220d",
+      "lastWriteUtc": "2026-10-14T12:20:19.3793524Z"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LobbyDialogue.cs",
+      "sha256": "0fc22138c5699a0cdf929a3d97e133f208281ad115d6ed28c393f2672ab4f61f",
+      "lastWriteUtc": "2026-10-14T12:20:19.5932935Z"
+    },
+    {
+      "path": "Tools/CoreSmokeTests.cs",
+      "sha256": "e4ee78e8fcbffae55cba37151fae0b7974a99e2926ceb16773d53a88a4b545c1",
+      "lastWriteUtc": "2026-10-14T07:15:30.4981853Z"
+    },
+    {
+      "path": "Tools/StrategySmokeTests.cs",
+      "sha256": "b9ad6d758885780925358082f242a38d981c97c9ae2cd238322ba88a94516de1",
+      "lastWriteUtc": "2026-10-14T12:26:33.6088086Z"
+    },
+    {
+      "path": "Tools/RunCoreTests.ps1",
+      "sha256": "e5b284306df98922a9a0ccb470fe0858d2b0066b9c9e575174b42f932c1f64ea",
+      "lastWriteUtc": "2026-10-14T12:20:25.5422823Z"
+    }
+  ]
+}

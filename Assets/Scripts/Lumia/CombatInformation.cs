@@ -175,9 +175,9 @@ namespace Lumia
             var statuses = enemy ? c.enemyStatuses : c.playerStatuses;
             result.currentCost = enemy ? EnemyEffectiveCardCost(id) : EffectiveCardCost(id);
             result.energy = enemy ? c.enemyAvailableEnergy : c.energy;
-            result.discount = Math.Max(SkillMechanics.Discount(actor, id), SkillMechanics.Discount(traits.skills, id));
+            result.discount = Math.Max(SkillMechanics.Discount(actor, card.id), SkillMechanics.Discount(traits.skills, card.id));
             result.costPenalty = StatusMechanics.CostPenalty(statuses, card);
-            result.freeUses = (enemy ? c.enemyFreeCasts : c.freeCasts).Where(x => x.cardId == id && x.uses > 0).Sum(x => x.uses);
+            result.freeUses = (enemy ? c.enemyFreeCasts : c.freeCasts).Where(x => FreeCastMechanics.Matches(x,id)).Sum(x => x.uses);
             result.hasFreeCast = result.freeUses > 0;
             if (!enemy && (handIndex < 0 || handIndex >= c.hand.Count || c.hand[handIndex] != id)) result.handIndex = c.hand.IndexOf(id);
             result.inHand = enemy ? c.enemyHand.Contains(id) || c.enemyPlan.Skip(c.enemyActionIndex).Contains(id) : result.handIndex >= 0;
@@ -191,7 +191,7 @@ namespace Lumia
             result.normalDamage = enemy ? EnemyDirectHitTotal(EnemyCardDamage(card), EnemyTotalBonusDamage(card, actor, traits, c.vulnerable), Math.Max(1, card.hits)) : CardTotalDamage(id);
             result.hits = Math.Max(1, card.hits); result.targetBlock = enemy ? c.block : c.enemyBlock;
             result.evasionChance = enemy ? Evasion : EnemyEvasion;
-            result.criticalChance = id == "basic_attack" ? enemy ? EnemyCritChance : CritChance : 0;
+            result.criticalChance = card.id == "basic_attack" ? enemy ? EnemyCritChance : CritChance : 0;
             result.damageNote = "일반 적중을 가정한 직접 피해 합계입니다. 현재 방어도·회피·피격 패시브·치명타·체력 제한은 차감하지 않았습니다. 설치물·지속 피해·후속 패시브 피해는 별도입니다.";
             result.conditions = CombatInformation.Conditions(card, actor);
             if(enemy && WildlifeMechanics.IsAnimalSkill(id))
@@ -237,7 +237,7 @@ namespace Lumia
             {
                 int ceiling = result.normalDamage;
                 if (FreeCastMechanics.GarnetExecutionReady(card, c.playerSkills, result.hasFreeCast, c.enemyHp, c.enemyMaxHp)) ceiling = Math.Max(ceiling, c.enemyHp);
-                if (result.criticalChance > 0) ceiling += (GearCriticalDamage(CardDamage(card.id)) - CardDamage(card.id)) * result.hits;
+                if (result.criticalChance > 0) ceiling += (GearCriticalDamage(CardDamage(result.cardId)) - CardDamage(result.cardId)) * result.hits;
                 result.bossPossibleViolation = ceiling >= Math.Max(1, phase.goalAmount);
                 result.bossWarning = "직접 피해 " + Math.Max(1, phase.goalAmount) + " 이상이면 금지 조건을 위반합니다. 방어도에 준 피해도 포함합니다. " + (result.bossPossibleViolation ? "이 카드의 일반 적중·치명타 예상치가 금지 기준에 닿을 수 있습니다." : "현재 예상치는 금지 기준 미만입니다. 실제 피해로 판정합니다.");
             }
@@ -261,12 +261,13 @@ namespace Lumia
             State.combatHistory.Add(entry);
             if (State.combatHistory.Count > CombatInformation.HistoryLimit) State.combatHistory.RemoveRange(0, State.combatHistory.Count - CombatInformation.HistoryLimit);
         }
-        void RecordCombatCardStart(CardDef card, bool enemy, int paidCost, bool free)
+        void RecordCombatCardStart(CardDef card, bool enemy, int paidCost, bool free, string reference = null)
         {
-            RecordCombatInformation(new CombatLogEntry { kind = "card_start", cardId = card.id, title = card.name + " 사용", enemy = enemy, paidCost = paidCost,
-                detail = "지불 코스트 " + paidCost + (free ? " · 무료 사용권 사용" : "") + " · " + CardPresentation.ClassificationLabel(card) });
+            string upgrade=enemy ? "" : CardUpgradeLabel(reference);
+            RecordCombatInformation(new CombatLogEntry { kind = "card_start", cardId = reference ?? card.id, title = card.name + (string.IsNullOrEmpty(upgrade) ? "" : " +") + " 사용", enemy = enemy, paidCost = paidCost,
+                detail = "지불 코스트 " + paidCost + (free ? " · 무료 사용권 사용" : "") + " · " + CardPresentation.ClassificationLabel(card) + (string.IsNullOrEmpty(upgrade) ? "" : " · 강화: "+upgrade) });
         }
-        void RecordLegacyDebuffs(CardDef card, bool enemy, bool landed, int poisonBefore, int weakBefore, int vulnerableBefore)
+        void RecordLegacyDebuffs(CardDef card, bool enemy, bool landed, int poisonBefore, int weakBefore, int vulnerableBefore, string reference = null)
         {
             if (!landed) return;
             var c = State.combat;
@@ -275,7 +276,8 @@ namespace Lumia
             if (poison > poisonBefore) parts.Add("중독 " + poison);
             if (weak > weakBefore) parts.Add("약화 " + weak + "턴");
             if (vulnerable > vulnerableBefore) parts.Add("취약 " + vulnerable + "턴");
-            if (parts.Count > 0) RecordCombatInformation(new CombatLogEntry { kind = "debuff", cardId = card.id, enemy = enemy, title = card.name + " · 디버프 부여", detail = (enemy ? "하나" : c.enemyName) + "에게 " + string.Join(" · ", parts) });
+            string marker=!enemy && !string.IsNullOrEmpty(CardUpgradeLabel(reference)) ? " +" : "";
+            if (parts.Count > 0) RecordCombatInformation(new CombatLogEntry { kind = "debuff", cardId = reference ?? card.id, enemy = enemy, title = card.name + marker + " · 디버프 부여", detail = (enemy ? "하나" : c.enemyName) + "에게 " + string.Join(" · ", parts) });
         }
         void EmitCombatAction(CombatAction action)
         {
@@ -286,7 +288,7 @@ namespace Lumia
             bool direct = card != null && string.IsNullOrEmpty(action.kind) && string.IsNullOrEmpty(action.traitId);
             bool status = (action.kind ?? "").StartsWith("status_", StringComparison.Ordinal);
             string identity = passive != null ? "패시브 · " + passive.name : rune != null ? "룬 · " + rune.name : gear != null ? "장비 · " + gear.name
-                : action.cardId == "status_poison" ? "중독" : card?.name ?? "전투 효과";
+                : action.cardId == "status_poison" ? "중독" : (card?.name ?? "전투 효과") + (string.IsNullOrEmpty(action.upgradeLabel) ? "" : " +");
             var parts = new List<string>();
             string target = action.enemy ? "하나" : c.enemyName;
             if (action.damage > 0) parts.Add(target + " 체력 피해 " + action.damage);
@@ -299,7 +301,7 @@ namespace Lumia
             if (status) parts.Add(target + " · " + StatusMechanics.Name(action.kind.Substring(7)));
             if (!direct && !status && !string.IsNullOrEmpty(action.kind)) parts.Add(InformationKind(action.kind));
             if (parts.Count == 0) parts.Add(direct ? "직접 피해·방어·회복 수치 없음 · 카드의 조건·필드 효과를 처리했습니다." : "효과 발동");
-            RecordCombatInformation(new CombatLogEntry { kind = direct ? "card_result" : status ? "debuff" : "effect", cardId = action.cardId, traitId = action.traitId,
+            RecordCombatInformation(new CombatLogEntry { kind = direct ? "card_result" : status ? "debuff" : "effect", cardId = direct ? action.cardReference ?? action.cardId : action.cardId, traitId = action.traitId,
                 title = identity + (direct ? " 결과" : " 발동"), detail = string.Join(" · ", parts), enemy = action.enemy,
                 damage = action.damage, block = action.block, heal = action.heal, avoided = action.avoided, absorbed = action.absorbed, critical = action.critical, execution = action.execution });
         }

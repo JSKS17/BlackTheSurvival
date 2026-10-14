@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Lumia
 {
-    [Serializable] public sealed class CardUpgradeSelection { public string cardId, branchId; }
+    [Serializable] public sealed class CardUpgradeSelection { public string cardId, instanceId, branchId; }
     [Serializable] public sealed class PendingEncounterFollowup { public string eventId, owner; public bool priorityNext = true; }
     public sealed class CardUpgradeOption { public string id, name, description; }
 

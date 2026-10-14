@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Lumia;
 
 public static partial class CoreSmokeTests
@@ -39,30 +40,38 @@ public static partial class CoreSmokeTests
         int rng = e.State.rngState;
         Check(e.ChooseEventOption(option) && e.State.cardUpgradePending && e.State.stage == RunStage.Encounter && e.State.upgrades.Count == 0,
             "upgrade encounter waits for explicit target instead of randomly changing a card");
+        Check(e.State.message.Contains("선택한 한 장만 강화") && e.State.message.Contains("같은 종류의 다른 카드")
+            && e.State.message.Contains("이후 획득하는 카드는 강화되지 않습니다") && e.State.log.Last() == e.State.message,
+            "actual upgrade encounter guidance says only the selected copy is upgraded and excludes other or future copies");
         Check(e.State.rngState == rng && !e.ChooseEventOption(option), "pending upgrade cannot redraw or repeat the event reward");
-        var choices = e.CardUpgradeOptions("nia_q");
-        Check(choices.Count >= 2 && e.UpgradeCandidates().Count(id => id == "nia_q") == 1, "Nia Q offers exclusive branches with one target for duplicate copies");
+        var choices = e.CardUpgradeOptions(1);
+        Check(choices.Count >= 2 && e.UpgradeCardIndices().SequenceEqual(new[] { 0, 1, 2, 3 }), "duplicate cards remain independently selectable upgrade targets");
         var special = choices.First(o => o.id != "power");
         var baseCard = GameDatabase.Card("nia_q");
         int baseGain = baseCard.mechanics.rules.First(r => r.op == "gain").amount;
         var loaded = new GameEngine((RunState)Clone(e.State));
-        Check(loaded.State.cardUpgradePending && loaded.UpgradeCandidates().SequenceEqual(e.UpgradeCandidates()), "pending target selection survives save and load");
-        Check(!loaded.UpgradeCard("not_a_card", special.id) && !loaded.UpgradeCard("nia_q", "not_a_branch") && loaded.State.cardUpgradePending,
+        Check(loaded.State.cardUpgradePending && loaded.UpgradeCardIndices().SequenceEqual(e.UpgradeCardIndices()), "pending target selection survives save and load");
+        Check(!loaded.UpgradeCard(-1, special.id) && !loaded.UpgradeCard(loaded.State.deck.Count, special.id) && !loaded.UpgradeCard(1, "not_a_branch") && loaded.State.cardUpgradePending,
             "invalid target or branch keeps the upgrade pending without spending it");
-        Check(loaded.UpgradeCard("nia_q", special.id) && !loaded.State.cardUpgradePending && loaded.State.stage == RunStage.Map,
+        Check(loaded.UpgradeCard(1, special.id) && !loaded.State.cardUpgradePending && loaded.State.stage == RunStage.Map,
             "choosing a branch completes the encounter exactly once");
-        Check(!loaded.UpgradeCard("nia_q", "power") && !loaded.UpgradeCandidates().Contains("nia_q"), "an upgraded card cannot receive its other branch");
-        var modified = loaded.PlayerCard("nia_q");
+        string upgraded = loaded.State.deck[1];
+        Check(upgraded != "nia_q" && GameDatabase.Card(upgraded) == baseCard && loaded.State.deck[0] == "nia_q",
+            "only the selected second Nia Q copy receives an instance reference while database lookup still finds its base skill");
+        Check(!loaded.UpgradeCard(1, "power") && !loaded.UpgradeCardIndices().Contains(1) && loaded.UpgradeCardIndices().Contains(0), "an upgraded copy rejects another branch while its unupgraded twin remains available");
+        var modified = loaded.PlayerCard(upgraded);
         Check(GameDatabase.Card("nia_q").mechanics.rules.First(r => r.op == "gain").amount == baseGain && modified.mechanics.rules.First(r => r.op == "gain").amount == baseGain + 1,
-            "resource branch changes only this run's player card and preserves the shared database");
+            "resource branch changes only the selected player copy and preserves the shared database");
         Check(DescriptionSummary.CardPreview(modified).Contains("블록을 2 늘립니다") && DescriptionSummary.CardPreview(baseCard).Contains("블록을 1 늘립니다"),
             "upgraded Nia Q summary reflects the actual block gain without altering base previews");
         Check(DescriptionSummary.CardPreview(StrategyMechanics.Apply(GameDatabase.Card("nia_w"), "arcade")).Contains("블록당 피해 6"),
             "upgraded Nia W summary reflects its actual per-block damage");
-        Check(loaded.State.deck.Count(id => id == "nia_q") == 2 && !string.IsNullOrEmpty(loaded.CardUpgradeLabel("nia_q")), "both owned copies share their chosen upgrade and display its label");
+        Check(loaded.PlayerCard("nia_q").mechanics.rules.First(r => r.op == "gain").amount == baseGain
+            && !string.IsNullOrEmpty(loaded.CardUpgradeLabel(upgraded)) && string.IsNullOrEmpty(loaded.CardUpgradeLabel("nia_q")),
+            "upgraded and unupgraded copies display distinct labels and resolve distinct skill effects");
         loaded = new GameEngine((RunState)Clone(loaded.State));
         Enter(loaded, ZoneKind.Wildlife); var c = loaded.State.combat;
-        c.enemyHp = c.enemyMaxHp = 10000; c.enemyEvasion = 0; c.hand = new List<string> { "nia_q", "nia_q" }; c.energy = 100;
+        c.enemyHp = c.enemyMaxHp = 10000; c.enemyEvasion = 0; c.hand = new List<string> { upgraded, "nia_q" }; c.energy = 100;
         Check(loaded.PlayCard(0) && SkillMechanics.Resource(c.playerSkills, "니아", "blocks") == 2, "Nia branch changes actual block generation");
         Check(loaded.PlayCard(0) && SkillMechanics.Resource(c.playerSkills, "니아", "blocks") == 3, "resource upgrade keeps the original maximum of three");
 
@@ -70,11 +79,178 @@ public static partial class CoreSmokeTests
         option = StrategySelectEvent(e, def, o => o.effect == "upgrade_card"); e.ChooseEventOption(option);
         var efficiency = e.CardUpgradeOptions("nia_e").First(o => o.id == "efficiency");
         int sourceCost = GameDatabase.Card("nia_e").cost;
-        Check(e.UpgradeCard("nia_e", efficiency.id) && e.PlayerCard("nia_e").cost == Math.Max(1, sourceCost - 1), "efficiency branch lowers cost with a one-cost floor");
+        Check(e.UpgradeCard(0, efficiency.id) && e.PlayerCard(e.State.deck[0]).cost == Math.Max(1, sourceCost - 1), "efficiency branch lowers the selected copy's cost with a one-cost floor");
         Check(GameDatabase.Card("nia_e").cost == sourceCost && !e.CardUpgradeOptions("basic_attack").Any(o => o.id == "efficiency"), "efficiency does not mutate enemy data or turn basic attacks into free cards");
-        var legacy = StrategyReady(1403); legacy.State.upgrades.Add("nia_q");
-        int oldDamage = legacy.CardDamage("nia_q"); legacy = new GameEngine((RunState)Clone(legacy.State));
-        Check(legacy.CardDamage("nia_q") == oldDamage && !legacy.UpgradeCandidates().Contains("nia_q"), "legacy upgrades retain their strength and cannot be stacked with new branches");
+        StrategicIndependentUpgradeBranches();
+        StrategicUpgradePilesAndRetention();
+        StrategicUpgradeExhaustAndRemoval();
+        StrategicUpgradeLegacyMigration();
+        StrategicUpgradedFreeRecall();
+    }
+
+    private static string StrategyUpgradeCopy(GameEngine e, int index, string branch)
+    {
+        var upgradeEvent = GameDatabase.Events.First(ev => ev.options.Any(o => o.effect == "upgrade_card" && string.IsNullOrEmpty(o.followupId)));
+        int choice = StrategySelectEvent(e, upgradeEvent, o => o.effect == "upgrade_card");
+        Check(e.ChooseEventOption(choice) && e.State.cardUpgradePending, "an actual encounter supplies the pending copy upgrade");
+        Check(e.CardUpgradeOptions(index).Any(o => o.id == branch), "selected copy offers requested upgrade branch");
+        Check(e.UpgradeCard(index, branch), "selected copy upgrade completes");
+        return e.State.deck[index];
+    }
+
+    private static void StrategicIndependentUpgradeBranches()
+    {
+        var e = StrategyReady(1450);
+        e.State.deck = new List<string> { "nia_e", "nia_e", "basic_attack", "basic_attack" };
+        string efficiency = StrategyUpgradeCopy(e, 0, "efficiency");
+        var upgradeEvent = GameDatabase.Events.First(ev => ev.options.Any(o => o.effect == "upgrade_card" && string.IsNullOrEmpty(o.followupId)));
+        int upgradeChoice = StrategySelectEvent(e, upgradeEvent, o => o.effect == "upgrade_card");
+        Check(e.ChooseEventOption(upgradeChoice) && e.State.cardUpgradePending, "a second real encounter offers another individual upgrade");
+        Check(!e.UpgradeCard(0, "power") && !e.UpgradeCard(efficiency, "power") && e.State.cardUpgradePending,
+            "an already upgraded copy cannot spend another pending upgrade or redirect it to its ordinary twin");
+        Check(e.UpgradeCard("nia_e", "power"), "legacy string callers upgrade only the first eligible ordinary copy");
+        string power = e.State.deck[1];
+        int baseCost = GameDatabase.Card("nia_e").cost, baseBlock = GameDatabase.Card("nia_e").block;
+        Check(efficiency != power && e.PlayerCard(efficiency).cost == Math.Max(1, baseCost - 1)
+            && e.PlayerCard(power).cost == baseCost && e.PlayerCard(power).block == baseBlock + 3
+            && e.PlayerCard(efficiency).block == baseBlock,
+            "two Nia E copies retain independent exclusive branches with no cross-copy cost or block changes");
+        string attack = StrategyUpgradeCopy(e, 2, "power");
+        int baseDamage = e.CardDamage("basic_attack");
+        Check(e.CardDamage(attack) == baseDamage + 3 && e.State.deck[3] == "basic_attack", "power increases only the selected basic attack's damage");
+        e.State.deck.Add("nia_e");
+        var rewardEvent = GameDatabase.Events.First(ev => ev.options.Any(o => o.effect == "card" && o.cardId == "basic_attack"));
+        int rewardChoice = StrategySelectEvent(e, rewardEvent, o => o.effect == "card" && o.cardId == "basic_attack");
+        Check(e.ChooseEventOption(rewardChoice) && e.State.deck.Count == 6, "a real encounter grants one new basic attack after an earlier copy was upgraded");
+        Check(e.PlayerCard(e.State.deck[4]).cost == baseCost && e.PlayerCard(e.State.deck[4]).block == baseBlock
+            && e.CardDamage(e.State.deck[5]) == baseDamage && string.IsNullOrEmpty(e.CardUpgradeLabel(e.State.deck[4]))
+            && string.IsNullOrEmpty(e.CardUpgradeLabel(e.State.deck[5])), "newly obtained copies never inherit an earlier copy's branch or display label");
+        var saved = new GameEngine((RunState)Clone(e.State));
+        Check(saved.State.deck.SequenceEqual(e.State.deck) && saved.PlayerCard(efficiency).cost == Math.Max(1, baseCost - 1)
+            && saved.PlayerCard(power).block == baseBlock + 3 && saved.CardDamage(attack) == baseDamage + 3
+            && saved.UpgradeCardIndices().SequenceEqual(new[] { 3, 4, 5 }), "saving multiple branches preserves exact upgraded copies and all remaining upgrade targets");
+        Enter(saved, ZoneKind.Wildlife); var c = saved.State.combat;
+        c.enemyHp = c.enemyMaxHp = 10000; c.enemyEvasion = c.enemyBlock = 0; c.hand = new List<string> { attack, "basic_attack", efficiency, power }; c.energy = 100;
+        int hp = c.enemyHp;
+        Check(saved.PlayCard(0) && hp - c.enemyHp == baseDamage + 3, "upgraded basic attack deals its additional damage in actual combat");
+        hp = c.enemyHp;
+        Check(saved.PlayCard(0) && hp - c.enemyHp == baseDamage, "unupgraded duplicate deals original damage in the same battle");
+        Check(saved.EffectiveCardCost(efficiency) == Math.Max(1, baseCost - 1) && saved.EffectiveCardCost(power) == baseCost,
+            "combat prices resolve individual upgrade branches without changing the matching base skill");
+        int energy = c.energy;
+        Check(saved.PlayCard(0) && c.energy == energy - Math.Max(1, baseCost - 1) && c.exhaustPile.Contains(efficiency),
+            "cost reduction is spent on the selected copy and its identity survives skill exhaustion");
+    }
+
+    private static void StrategicUpgradePilesAndRetention()
+    {
+        var e = StrategyReady(1451); e.State.deck = new List<string> { "basic_attack", "basic_attack", "basic_guard", "basic_guard" };
+        string upgraded = StrategyUpgradeCopy(e, 0, "power");
+        Enter(e, ZoneKind.Wildlife); var c = e.State.combat; e.State.hp = e.State.maxHp = 9999;
+        c.enemyHp = c.enemyMaxHp = 10000; c.enemyEvasion = 0; c.energy = 100;
+        c.hand = new List<string> { "basic_attack", upgraded }; c.drawPile = new List<string> { "basic_guard", "basic_guard" }; c.discardPile.Clear(); c.exhaustPile.Clear();
+        Check(e.ToggleRetainCard(1) && e.BeginEndTurn() && c.retainedCardId == upgraded, "retention reserves the exact upgraded copy instead of a same-kind twin");
+        e = new GameEngine((RunState)Clone(e.State)); c = e.State.combat;
+        Check(c.retainedCardId == upgraded && e.CardDamage(c.retainedCardId) == e.CardDamage("basic_attack") + 3,
+            "mid-enemy-turn save preserves the retained upgraded copy and its strength");
+        StrategyFinishEnemyTurn(e);
+        Check(c.hand.Count(id => id == upgraded) == 1 && c.hand.Contains("basic_attack") && !c.drawPile.Contains(upgraded) && !c.discardPile.Contains(upgraded),
+            "retained upgraded card returns once while other copies reshuffle and draw separately");
+        c.energy = 100; int before = PileCount(c);
+        Check(e.PlayCard(c.hand.IndexOf(upgraded)) && c.discardPile.Contains(upgraded) && !c.hand.Contains(upgraded) && PileCount(c) == before,
+            "playing the upgraded card moves its exact reference to discard without changing card count");
+        c.discardPile.AddRange(c.hand); c.hand.Clear(); c.drawPile.Clear();
+        var expected = c.discardPile.OrderBy(id => id).ToArray();
+        typeof(GameEngine).GetMethod("DrawCards", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(e, new object[] { 12 });
+        Check(c.hand.OrderBy(id => id).SequenceEqual(expected) && c.hand.Count(id => id == upgraded) == 1
+            && c.discardPile.Count == 0 && c.drawPile.Count == 0, "discard reshuffle and draw preserve the multiset of upgraded and ordinary references");
+        var restored = new GameEngine((RunState)Clone(e.State));
+        Check(restored.State.combat.hand.SequenceEqual(c.hand) && restored.CardUpgradeLabel(upgraded) == e.CardUpgradeLabel(upgraded),
+            "drawn upgraded card order and label persist after reloading combat");
+    }
+
+    private static void StrategicUpgradeExhaustAndRemoval()
+    {
+        var e = StrategyReady(1452); e.State.deck = new List<string> { "tactical_blink", "tactical_blink", "basic_attack", "basic_attack" };
+        string upgraded = StrategyUpgradeCopy(e, 0, "efficiency");
+        Enter(e, ZoneKind.Wildlife); var c = e.State.combat; c.enemyHp = c.enemyMaxHp = 10000;
+        c.hand = new List<string> { upgraded, "tactical_blink" }; c.drawPile.Clear(); c.discardPile.Clear(); c.exhaustPile.Clear(); c.energy = 100;
+        Check(e.PlayCard(0) && c.exhaustPile.SequenceEqual(new[] { upgraded }) && c.hand.SequenceEqual(new[] { "tactical_blink" }),
+            "exhausting an upgraded F card leaves the same-type unupgraded card in hand");
+        e = new GameEngine((RunState)Clone(e.State)); c = e.State.combat;
+        Check(c.exhaustPile.SequenceEqual(new[] { upgraded }) && !string.IsNullOrEmpty(e.CardUpgradeLabel(upgraded))
+            && string.IsNullOrEmpty(e.CardUpgradeLabel(c.hand[0])), "exhaust pile save retains upgraded identity without promoting another copy");
+        e.State.stage = RunStage.Map; e.State.combat = null;
+        Enter(e, ZoneKind.Campfire); Check(e.ChooseCamp(false) && e.RemoveCampCards(new[] { 0 }), "camp rest can remove precisely the upgraded deck copy");
+        Check(!e.State.deck.Contains(upgraded) && e.State.deck[0] == "tactical_blink" && string.IsNullOrEmpty(e.CardUpgradeLabel(e.State.deck[0]))
+            && e.PlayerCard(e.State.deck[0]).cost == GameDatabase.Card("tactical_blink").cost,
+            "removing an upgraded copy never transfers its upgrade to the adjacent ordinary copy");
+        Check(e.LeaveCamp(), "camp removal returns to the route");
+        e = new GameEngine((RunState)Clone(e.State));
+        e.State.deck.Add("tactical_blink");
+        string second = StrategyUpgradeCopy(e, e.State.deck.Count - 1, "efficiency");
+        Check(second != upgraded && e.State.deck[0] == "tactical_blink" && string.IsNullOrEmpty(e.CardUpgradeLabel(e.State.deck[0])),
+            "new upgrade identities are not reused after removing a copy and reloading");
+    }
+
+    private static void StrategicUpgradeLegacyMigration()
+    {
+        var legacy = StrategyReady(1453);
+        legacy.State.cardInstanceVersion = 0; legacy.State.nextCardInstanceId = 1;
+        legacy.State.deck = new List<string> { "nia_q", "nia_q", "nia_e", "nia_e", "basic_attack", "basic_attack" };
+        legacy.State.upgrades.Add("nia_q"); legacy.State.upgrades.Add("basic_attack");
+        legacy.State.cardUpgrades.Add(new CardUpgradeSelection { cardId = "nia_e", branchId = "efficiency" });
+        Enter(legacy, ZoneKind.Wildlife); var c = legacy.State.combat;
+        c.hand = new List<string> { "nia_q", "nia_e" }; c.drawPile = new List<string> { "nia_q" };
+        c.discardPile = new List<string> { "nia_e", "basic_attack" }; c.exhaustPile.Clear(); c.retainedCardId = "basic_attack";
+        var migrated = new GameEngine((RunState)Clone(legacy.State)); c = migrated.State.combat;
+        Check(migrated.State.cardInstanceVersion > 0 && migrated.State.deck.Distinct().Count() == 6
+            && migrated.State.deck.All(id => !string.IsNullOrEmpty(migrated.CardUpgradeLabel(id))),
+            "legacy type-wide upgrades migrate once to six independently identified current deck copies");
+        var actual = c.hand.Concat(c.drawPile).Concat(c.discardPile).Concat(c.exhaustPile).Concat(new[] { c.retainedCardId }).ToArray();
+        Check(actual.OrderBy(id => id).SequenceEqual(migrated.State.deck.OrderBy(id => id)),
+            "legacy in-progress hand, draw, discard, and retained card map to owned upgraded copies one-to-one");
+        Check(migrated.State.deck.Where(id => GameDatabase.Card(id).id == "nia_q").All(id => migrated.CardDamage(id) == migrated.CardDamage("nia_q") + 3)
+            && migrated.State.deck.Where(id => GameDatabase.Card(id).id == "nia_e").All(id => migrated.PlayerCard(id).cost == Math.Max(1, GameDatabase.Card("nia_e").cost - 1)),
+            "legacy numeric and branch strengths are preserved on every copy the old save already owned");
+        migrated.State.deck.Add("nia_q"); migrated.State.deck.Add("nia_e"); migrated.State.deck.Add("basic_attack");
+        var once = migrated.State.deck.ToArray();
+        migrated = new GameEngine((RunState)Clone(migrated.State));
+        Check(migrated.State.deck.SequenceEqual(once) && migrated.UpgradeCardIndices().SequenceEqual(new[] { 6, 7, 8 })
+            && migrated.State.deck.Skip(6).All(id => string.IsNullOrEmpty(migrated.CardUpgradeLabel(id))),
+            "reloading migrated saves is idempotent and future newly obtained same-kind cards stay unupgraded");
+    }
+
+    private static void StrategicUpgradedFreeRecall()
+    {
+        var source = GameDatabase.Card("basic_guard");
+        var oldTargets = source.freeCastTargets; int oldCount = source.freeCastCount;
+        bool oldHit = source.freeCastOnHit, oldDelay = source.freeCastNextTurn, oldLast = source.freeCastLastSkill;
+        try
+        {
+            source.freeCastTargets = new[] { "basic_attack" }; source.freeCastCount = 1;
+            source.freeCastOnHit = source.freeCastNextTurn = source.freeCastLastSkill = false;
+            var e = StrategyReady(1454); e.State.deck = new List<string> { "basic_guard", "basic_attack", "basic_attack" };
+            string upgraded = StrategyUpgradeCopy(e, 1, "power");
+            Enter(e, ZoneKind.Wildlife); var c = e.State.combat; c.enemyHp = c.enemyMaxHp = 10000; c.enemyEvasion = 0;
+            c.hand = new List<string> { "basic_guard" }; c.drawPile.Clear(); c.discardPile = new List<string> { "basic_attack", upgraded }; c.exhaustPile.Clear(); c.energy = e.EffectiveCardCost("basic_guard");
+            var expected = c.hand.Concat(c.discardPile).OrderBy(id => id).ToArray();
+            Check(e.PlayCard(0) && c.hand.SequenceEqual(new[] { upgraded }) && c.discardPile.Contains("basic_attack")
+                && c.energy == 0 && e.EffectiveCardCost(upgraded) == 0 && e.CanPlayCard(0),
+                "free recall finds an upgraded owned target by base skill and keeps its exact identity at zero energy");
+            Check(c.hand.Concat(c.drawPile).Concat(c.discardPile).Concat(c.exhaustPile).OrderBy(id => id).SequenceEqual(expected),
+                "free recall moves a real upgraded copy without dropping or duplicating its ordinary twin");
+            e = new GameEngine((RunState)Clone(e.State)); c = e.State.combat;
+            Check(e.EffectiveCardCost(upgraded) == 0 && e.PlayCard(0) && c.discardPile.Contains(upgraded)
+                && e.EffectiveCardCost(upgraded) == e.CardCost(upgraded), "upgraded free target survives save, consumes its single grant, and returns to discard");
+            Check(c.hand.Concat(c.drawPile).Concat(c.discardPile).Concat(c.exhaustPile).OrderBy(id => id).SequenceEqual(expected),
+                "playing the upgraded free target preserves both copies and total pile composition");
+        }
+        finally
+        {
+            source.freeCastTargets = oldTargets; source.freeCastCount = oldCount;
+            source.freeCastOnHit = oldHit; source.freeCastNextTurn = oldDelay; source.freeCastLastSkill = oldLast;
+        }
     }
 
     private static void StrategyFinishEnemyTurn(GameEngine e)

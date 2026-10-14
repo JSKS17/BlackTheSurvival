@@ -8,6 +8,11 @@ namespace Lumia
     // Keeping this pure makes enemy planning and previews use the same checks as play.
     public static class FreeCastMechanics
     {
+        public static bool Matches(FreeCastGrant grant, string reference)
+        {
+            return grant != null && grant.uses > 0 && CardInstances.SameType(grant.cardId,reference)
+                && (string.IsNullOrEmpty(grant.cardReference) || grant.cardReference == reference);
+        }
         public static void SanitizePending(List<PendingFreeCast> pending)
         {
             if (pending == null) return;
@@ -32,17 +37,17 @@ namespace Lumia
             {
                 if (consume) pending.Remove(queued);
                 string source = queued.sourceCardId + "|" + queued.cardId;
-                if (queued.uses <= 0 || !owned.Contains(queued.cardId) || GameDatabase.Card(queued.cardId) == null || sources.Contains(source)) continue;
-                if (recall && !hand.Contains(queued.cardId) && !draw.Contains(queued.cardId) && !discard.Contains(queued.cardId)) continue;
+                if (queued.uses <= 0 || !owned.Any(id=>CardInstances.SameType(id,queued.cardId)) || GameDatabase.Card(queued.cardId) == null || sources.Contains(source)) continue;
+                if (recall && !new[]{hand,draw,discard}.Any(p=>p.Any(id=>CardInstances.SameType(id,queued.cardId)))) continue;
                 sources.Add(source);
                 var grant = grants.FirstOrDefault(x => x.cardId == queued.cardId);
                 if (grant == null) { grant = new FreeCastGrant { cardId = queued.cardId }; grants.Add(grant); }
                 grant.uses += queued.uses; activated++;
-                if (!recall || hand.Contains(queued.cardId) || hand.Count >= 12) continue;
-                int index = discard.LastIndexOf(queued.cardId);
-                if (index >= 0) { discard.RemoveAt(index); hand.Add(queued.cardId); continue; }
-                index = draw.LastIndexOf(queued.cardId);
-                if (index >= 0) { draw.RemoveAt(index); hand.Add(queued.cardId); }
+                if (!recall || hand.Any(id=>CardInstances.SameType(id,queued.cardId)) || hand.Count >= 12) continue;
+                int index = discard.FindLastIndex(id=>CardInstances.SameType(id,queued.cardId));
+                if (index >= 0) { string actual=discard[index];discard.RemoveAt(index); hand.Add(actual); continue; }
+                index = draw.FindLastIndex(id=>CardInstances.SameType(id,queued.cardId));
+                if (index >= 0) { string actual=draw[index];draw.RemoveAt(index); hand.Add(actual); }
             }
             return activated;
         }
@@ -70,11 +75,12 @@ namespace Lumia
         {
             if (combat == null || !combat.freeCasts.Any(x => x.cardId == "garnet_r" && x.uses > 0)
                 || !combat.freeCastSources.Contains("garnet_r|garnet_r")) return false;
+            var grant=combat.freeCasts.First(x=>x.cardId=="garnet_r" && x.uses>0);
             foreach (var pile in new[] { combat.hand, combat.drawPile, combat.discardPile })
             {
-                int index = pile.LastIndexOf("garnet_r");
+                int index = string.IsNullOrEmpty(grant.cardReference) ? pile.FindLastIndex(id=>CardInstances.SameType(id,"garnet_r")) : pile.LastIndexOf(grant.cardReference);
                 if (index < 0) continue;
-                pile.RemoveAt(index); combat.exhaustPile.Add("garnet_r");
+                string actual=pile[index];pile.RemoveAt(index); combat.exhaustPile.Add(actual);
                 if (pile == combat.hand)
                 {
                     if (combat.retainIndex == index) combat.retainIndex = -1;

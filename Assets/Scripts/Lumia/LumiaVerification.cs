@@ -42,7 +42,7 @@ namespace Lumia
             bool campOnly = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-camp-verify") >= 0;
             views = campOnly ? campViews.Concat(new[] { "help" }).ToArray() : views.Concat(campViews.Where(view => !views.Contains(view))).ToArray();
             bool strategyOnly = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-strategy-verify") >= 0;
-            if (strategyOnly) views = new[] { "strategy_upgrade_offer", "strategy_upgrade_select", "strategy_upgrade_power", "strategy_upgrade_special", "strategy_upgrade_applied", "strategy_upgrade_reloaded",
+            if (strategyOnly) views = new[] { "strategy_upgrade_offer", "strategy_upgrade_select", "strategy_upgrade_second_copy", "strategy_upgrade_power", "strategy_upgrade_special", "strategy_upgrade_applied", "strategy_upgrade_plain_detail", "strategy_upgrade_inventory", "strategy_upgrade_hand", "strategy_upgrade_hand_detail", "strategy_upgrade_preview", "strategy_upgrade_rest", "strategy_upgrade_reloaded",
                 "strategy_retain_select", "strategy_retain_selected", "strategy_retain_cancelled", "strategy_retain_reloaded", "strategy_retain_after",
                 "strategy_map_before", "strategy_map_scouted", "strategy_map_stock", "strategy_map_reloaded", "strategy_hyperloop_select", "strategy_hyperloop_cancelled", "strategy_hyperloop_used",
                 "strategy_chain_promise", "strategy_chain_unavailable", "strategy_chain_pending", "strategy_chain_offers", "strategy_chain_followup", "strategy_chain_reloaded", "strategy_chain_completed", "help" };

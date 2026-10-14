@@ -1,5 +1,6 @@
-param([string]$UnityEditor = 'C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor', [switch]$Balance)
+param([string]$UnityEditor = 'C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor', [switch]$Balance, [switch]$UpgradeOnly)
 $ErrorActionPreference = 'Stop'
+if ($Balance -and $UpgradeOnly) { throw 'Choose either Balance or UpgradeOnly.' }
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $outputPath = Join-Path $projectRoot 'Temp/CoreTests.exe'
 [IO.Directory]::CreateDirectory((Split-Path -Parent $outputPath)) | Out-Null
@@ -11,6 +12,8 @@ foreach ($dataFile in @('CardPresentation.cs', 'ClassicRoster.cs', 'RecentRoster
     $dataPath = Join-Path $projectRoot ('Assets/Scripts/Lumia/' + $dataFile)
     if (Test-Path -LiteralPath $dataPath) { $arguments += $dataPath }
 }
+$arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/CardInstances.cs'
+$arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/GameEngineCardInstances.cs'
 $arguments += Join-Path $PSScriptRoot 'StrategySmokeTests.cs'
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/RunModes.cs'
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/LobbyDialogue.cs'
@@ -45,5 +48,6 @@ $arguments += @(Get-ChildItem -LiteralPath (Join-Path $projectRoot 'Assets/Scrip
 & $runtimePath @arguments
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 if ($Balance) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--balance' }
+elseif ($UpgradeOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--upgrade-only' }
 else { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath }
 exit $LASTEXITCODE
