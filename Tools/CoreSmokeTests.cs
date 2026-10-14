@@ -47,7 +47,8 @@ public static partial class CoreSmokeTests
             LayeredStoryCompositionsAndProgress();
             EndlessCriticalCapsAndSave(); EndlessCriticalGuaranteedHits(); EndlessCriticalEnemyAndPreview();
             ExpandedEquipmentCoverageAndCraft(); EquipmentCriticalDamageAndPersistence();
-            Console.WriteLine("PASS: " + checks + " assertions across 127 game-rule scenarios.");
+            WildlifeSpecialActions(); WildlifeMutationsAndPersistence(); WildlifeMutationRewardsAndIsolation();
+            Console.WriteLine("PASS: " + checks + " assertions across 130 game-rule scenarios.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }

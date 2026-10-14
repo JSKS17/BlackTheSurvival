@@ -1,0 +1,121 @@
+{
+  "version": "1.0.2",
+  "tool": "built-in image_gen.imagegen",
+  "export": "Byte-for-byte PNG copy; no raster postprocessing. Runtime uses existing CoarsePortrait height80 Point sampling.",
+  "logicalPixelHeight": 80,
+  "unchangedCharacterAtlasSha256": "3c3a4ee58a19747586c4af4d8d4418cef42cf6c8462e2af91fac68aa6ddfb31e",
+  "promptRecord": "docs/art-refresh-v1.0.2/wildlife/prompts.md",
+  "items": [
+    {
+      "id": "wolf",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a1393d-18a1-7571-b54c-b19b2cdc8825\\exec-ff824883-d12b-47e0-a29e-45a71a63a2ee.png",
+      "output": "Assets/Resources/Lumia/Wildlife/wolf.png",
+      "sha256": "ecb1e8e49206f3f71217f8ad9572936ce2ac076a7e9984809a918138d7d744fa",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha32Bounds": [
+        63,
+        254,
+        1218,
+        1142
+      ],
+      "references": [
+        {
+          "path": "ArtSource/Release1.0.2/Wildlife/official-alpha-wolf.jpg",
+          "url": "https://clan.fastly.steamstatic.com/images/34875433/1ea23e86e675ce0ef65d65507eba78f53c75ea44.jpg",
+          "sha256": "aba7a60374347c7b20e63d127c6a9107815c8942d6fecdeb0367bedda2514b3b"
+        },
+        {
+          "path": "ArtSource/Release1.0.2/Wildlife/official-wolf-camp.png",
+          "url": "https://cdn.playeternalreturn.com/2023/07/19/1689701355444-1689701355444.png",
+          "sha256": "bb6cf8fbc6ea8859b67ab22529a71acb1a30d22377dee872f89ef91ef9f74845"
+        }
+      ]
+    },
+    {
+      "id": "boar",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a1393d-18a1-7571-b54c-b19b2cdc8825\\exec-c974b7b2-b760-4d2a-8cd7-1e90b9a8d0e6.png",
+      "output": "Assets/Resources/Lumia/Wildlife/boar.png",
+      "sha256": "26e2ee68b5207aa5d4fad3d12f52a526ea6367a9e7302e03cc34d932f2bc8ca7",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha32Bounds": [
+        77,
+        245,
+        1177,
+        1061
+      ],
+      "references": [
+        {
+          "path": "ArtSource/Release1.0.2/Wildlife/official-alpha-animal-3.png",
+          "url": "https://clan.fastly.steamstatic.com/images/34875433/39fd0751b1c9613339d2264b3e6bd33030b415e6.png",
+          "sha256": "a50efb29f9cd047c3800247e69f605384af674db6eea78cd13c5293ac9bb523c"
+        },
+        {
+          "path": "ArtSource/Release1.0.2/Wildlife/official-boar-charge.png",
+          "url": "https://clan.akamai.steamstatic.com/images/34875433/a372ff7a97f4699e5e278c37ff87414a36a4adf9.png",
+          "sha256": "662a6edb979555f7205d40b12a53286c80497c3e9ac21cec57521a63fe35d9f5"
+        }
+      ]
+    },
+    {
+      "id": "bear",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a1393d-18a1-7571-b54c-b19b2cdc8825\\exec-7944d4c9-f000-490a-be8e-7fe29249d670.png",
+      "output": "Assets/Resources/Lumia/Wildlife/bear.png",
+      "sha256": "3ff8cb97bd306ee3d3e32373afecc56384b0f25c7e5da6121c051e5d8d043d02",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha32Bounds": [
+        78,
+        271,
+        1203,
+        1113
+      ],
+      "references": [
+        {
+          "path": "ArtSource/Release1.0.2/Wildlife/official-alpha-bear.png",
+          "url": "https://clan.fastly.steamstatic.com/images/34875433/5c10f5b5d861512bf42955c16c5e196df3776823.png",
+          "sha256": "7f9497f24cdc616e3d51e58d149349475bef4230b0578e4fbf0539d33daf399d"
+        },
+        {
+          "path": "ArtSource/Release1.0.2/Wildlife/official-bear-camp.png",
+          "url": "https://cdn.playeternalreturn.com/2023/07/19/1689701355009-1689701355009.png",
+          "sha256": "cba9f52be4745efbe0fd9b86e8a213688298e4b77e520bf9292947c65e232d10"
+        }
+      ]
+    },
+    {
+      "id": "chicken",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a1393d-18a1-7571-b54c-b19b2cdc8825\\exec-dad65081-5e7c-41d6-8c6a-04e27cc328a4.png",
+      "output": "Assets/Resources/Lumia/Wildlife/chicken.png",
+      "sha256": "2dccb4452fbb4df299116b76e8bb293e0076b5fca843a71d2c5e116cbc61bea0",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha32Bounds": [
+        209,
+        63,
+        1207,
+        1215
+      ],
+      "references": [
+        {
+          "path": "ArtSource/Release1.0.2/Wildlife/official-alpha-animal-1.png",
+          "url": "https://clan.fastly.steamstatic.com/images/34875433/6f935c604fa5e0f728e379658b1e7e2a39ff7c38.png",
+          "sha256": "852c5bf502100da16d9ae78f4aae91ccf36eee3390b96c184ab38809b9f1bf36"
+        }
+      ]
+    }
+  ]
+}

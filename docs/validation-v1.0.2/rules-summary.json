@@ -1,0 +1,95 @@
+{
+  "version": "1.0.2",
+  "recorded_at_utc": "2026-10-14T07:26:06.969028+00:00",
+  "result": "PASS",
+  "evidence": "Actual command results captured in this agent session after final rule edits. Commands were not rerun for this summary.",
+  "checks": [
+    {
+      "command": "Tools/RunCoreTests.ps1",
+      "exit_code": 0,
+      "assertions": 130594,
+      "scenarios": 130,
+      "output": "PASS: 130594 assertions across 130 game-rule scenarios.",
+      "wildlife_variant_sample": {
+        "nodes_per_act": 5000,
+        "mutants_by_act": [
+          0,
+          392,
+          709
+        ]
+      }
+    },
+    {
+      "command": "Tools/RunDescriptionAudit.ps1",
+      "exit_code": 0,
+      "assertions": 39923,
+      "catalog": {
+        "cards": 392,
+        "passives": 91,
+        "runes": 16,
+        "equipment": 57
+      },
+      "output": "PASS: 39923 readability/effect assertions; cards=392, passives=91, runes=16, equipment=57."
+    },
+    {
+      "command": "Tools/VerifyRuntime.ps1",
+      "exit_code": 0,
+      "output": "Runtime C# compilation passed."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/Scripts/Lumia/GameEngine.cs",
+      "sha256": "81285462addbd44514c836865877b5670d6ee9080ec4439e7024c89815883cb4"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CombatInformation.cs",
+      "sha256": "1ff5c2617095c1f3cba3edc1af98bc54622305f81cc0659de5800123c25ca491"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/WildlifeMechanics.cs",
+      "sha256": "7ce5ab191c88e17b4354f064708c725b032d658a93d37aa6e1f7ef29b798c6ff"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/WildlifeMechanics.cs.meta",
+      "sha256": "893e47e2aad40ac47f7999f253b5ad401dae78dcb557a39b8cac8f9034a78e95"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/WildlifeEngine.cs",
+      "sha256": "bfc8d53fa945628e422e3cec6df7af48b302cd53bb5056f7d7fe46624821caa5"
+    },
+    {
+      "path": "Assets/Scripts/Lumia/WildlifeEngine.cs.meta",
+      "sha256": "361abe773839f8fad786a4df647f1e1ccee85607241a74c662f2f4da75de40ca"
+    },
+    {
+      "path": "Tools/WildlifeSmokeTests.cs",
+      "sha256": "6129ec68f25137e2a0592e6c4e7f660d64a3d2626e0bd56afc8510e83b983226"
+    },
+    {
+      "path": "Tools/CoreSmokeTests.cs",
+      "sha256": "e4ee78e8fcbffae55cba37151fae0b7974a99e2926ceb16773d53a88a4b545c1"
+    },
+    {
+      "path": "Tools/RunCoreTests.ps1",
+      "sha256": "e1219e9c27162981716205ab7d67162aa561f87f4357c6b00e23e58b6f91907c"
+    },
+    {
+      "path": "docs/WILDLIFE_v1.0.2.md",
+      "sha256": "d3ed958b9e92513f0ede6f913adb831ab48d7446860cba036edd9287ce762b53"
+    }
+  ],
+  "read_only_review": {
+    "enemy_only_lookup": "EnemyActionCard and WildlifeMechanics.Card are used in intent, details, combat history, effects and audio; GameDatabase.Card stays null for animal skills.",
+    "player_isolation": "Draft and random rewards use GameDatabase.Cards. Subject/event card additions validate GameDatabase.Card. CanPlayCard and CanClaimCard reject injected animal IDs.",
+    "save_scaling": "Mutation is independently fixed per map node. Only StartBattle applies HP scaling. Save constructor preserves spawned combat stats and variant, including legacy active ordinary encounters.",
+    "intent_execution": "Natural animal plans contain a single special on boar turns 2/4/etc or bear turns 3/6/etc; shared damage and interruption helpers match actual resolution. Mutant basic damage is also shared.",
+    "minor_cosmetic_observation": "CombatEffects attack predicate includes card.damage for wildlife_interrupt/wildlife_despair, so generic reaction particles may appear at the player while the status text correctly appears over the animal. Reported to root without editing during build.",
+    "cosmetic_observation_resolution": "Fixed before final native verification: wildlife_interrupt and wildlife_despair are treated as source reactions; their particles appear at the animal. Runtime compilation passed again after the minimal visual patch."
+  }
+}

@@ -102,14 +102,14 @@ namespace Lumia
         public float Add(CombatAction action, bool reduced)
         {
             if (action == null) return 0;
-            var card = GameDatabase.Card(action.cardId);
+            var card = GameDatabase.Card(action.cardId) ?? WildlifeMechanics.Card(action.cardId);
             var passive = GameDatabase.Passive(action.traitId);
             var rune = GameDatabase.Rune(action.traitId);
             var gear = (action.traitId ?? "").StartsWith("gear:", StringComparison.Ordinal)
                 ? GameDatabase.Equipment(action.traitId.Substring(5))
                 : action.kind == "deferred_damage" ? GameDatabase.Equipment(action.cardId) : null;
-            bool direct = card != null && string.IsNullOrEmpty(action.kind) && string.IsNullOrEmpty(action.traitId);
-            var profile = CombatVisualProfiles.For(card);
+            bool direct = card != null && (string.IsNullOrEmpty(action.kind) || action.kind == "wildlife_skill") && string.IsNullOrEmpty(action.traitId);
+            var profile = WildlifeVisualProfile(action.cardId) ?? CombatVisualProfiles.For(card);
             var ultimate = direct ? UltimateAnimations.For(card) : null;
             Color color = Html(profile.primary, new Color(.57f, .87f, .74f));
             Color accent = Html(profile.accent, Color.white);
@@ -325,7 +325,8 @@ namespace Lumia
                 Vector2 source = b.action.enemy ? new Vector2(1015, 282) : new Vector2(232, 282);
                 Vector2 target = b.action.enemy ? new Vector2(232, 282) : new Vector2(1015, 282);
                 bool status = (b.action.kind ?? "").StartsWith("status_", StringComparison.Ordinal);
-                bool attack = status || b.action.damage > 0 || b.action.avoided > 0 || b.card != null && (b.card.damage > 0 || b.card.poison > 0 || b.card.weak > 0 || b.card.vulnerable > 0);
+                bool stoppedWildlife = b.action.kind == "wildlife_interrupt" || b.action.kind == "wildlife_despair";
+                bool attack = !stoppedWildlife && (status || b.action.damage > 0 || b.action.avoided > 0 || b.card != null && (b.card.damage > 0 || b.card.poison > 0 || b.card.weak > 0 || b.card.vulnerable > 0));
                 float impactAt = Impact(b);
                 float hitProgress = Mathf.Clamp01((p - impactAt) / Mathf.Max(.1f, 1 - impactAt));
                 float alpha = Mathf.Min(1, (1 - p) * 3.5f);
@@ -378,7 +379,7 @@ namespace Lumia
             Rect r = new Rect(425, 398, 430, 35);
             Pixel(r, new Color(.025f, .055f, .08f, .92f * alpha));
             Pixel(new Rect(r.x, r.y, 4, r.height), tint);
-            Texture2D icon = b.passive != null ? PixelArt.PassiveIcon(b.passive.id) : b.rune != null ? PixelArt.SystemIcon(b.rune.id) : b.gear != null ? PixelArt.SystemIcon(b.gear.id) : b.card != null ? PixelArt.SkillIcon(b.card.id) : null;
+            Texture2D icon = WildlifeMechanics.IsAnimalSkill(b.action.cardId) ? PixelArt.Portrait(b.action.cardId == "wildlife_boar_charge" ? "boar" : "bear") : b.passive != null ? PixelArt.PassiveIcon(b.passive.id) : b.rune != null ? PixelArt.SystemIcon(b.rune.id) : b.gear != null ? PixelArt.SystemIcon(b.gear.id) : b.card != null ? PixelArt.SkillIcon(b.card.id) : null;
             if (icon)
             {
                 Color old = GUI.color;
@@ -394,6 +395,8 @@ namespace Lumia
 
         static string ReactionIdentity(Burst b)
         {
+            if (b.action.kind == "wildlife_interrupt") return "동물 기술 중단";
+            if (b.action.kind == "wildlife_despair") return "돌진 실패 · 좌절";
             if (b.action.kind == "deferred_damage") return "장비 · 아오자이";
             if (b.passive != null) return "패시브 · " + b.passive.name;
             if (b.rune != null) return "룬 · " + b.rune.name;

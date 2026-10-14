@@ -66,6 +66,7 @@ namespace Lumia
             verify |= PresentationVerificationEnabled;
             verify |= LayeredStoryVerificationEnabled;
             verify |= UltimateVerificationEnabled;
+            verify |= WildlifeVerificationEnabled;
             savePath = Path.Combine(Application.persistentDataPath, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
             researchStore = new ResearchStore(Path.Combine(Application.persistentDataPath, verify ? "bts-research-verification.json" : "bts-research-v1.json"),
@@ -565,11 +566,11 @@ namespace Lumia
             if (!ultimateShowing)
             {
             Box(new Rect(440, 104, 399, 99), Ink, Pink);
-            Txt(new Rect(452, 116, 375, 24), (c.enemyTurn ? "상대 기술 " + c.enemyActionIndex + " / " + c.enemyPlan.Count : "상대의 다음 행동") + "  /  사용 코스트 " + c.enemyEnergy, 14, Pink, true);
+            Txt(new Rect(452, 116, 375, 24), (c.enemyTurn ? "상대 기술 " + c.enemyActionIndex + " / " + c.enemyPlan.Count : "상대의 다음 행동") + (string.IsNullOrEmpty(c.animal) ? "  /  사용 코스트 " + c.enemyEnergy : "  /  야생동물 행동"), 14, Pink, true);
             string intent = Engine.EnemyIntent;
             if (c.enemyTurn)
             {
-                var pending = c.enemyPlan.Skip(c.enemyActionIndex).Select(id => GameDatabase.Card(id)?.name ?? "").ToArray();
+                var pending = c.enemyPlan.Skip(c.enemyActionIndex).Select(id => Engine.EnemyActionCard(id)?.name ?? "").ToArray();
                 intent = pending.Length == 0 ? "마지막 기술을 마무리하고 있습니다." : string.Join(" · ", pending) + "  / 남은 예정 피해 " + c.intentDamage + " · 방어 " + c.intentBlock;
             }
             if (c.enemyPlan.Count > 0)
@@ -578,7 +579,7 @@ namespace Lumia
                 for (int i = 0; i < planned.Length; i++)
                 {
                     Rect icon = new Rect(455 + i * 31, 146, 25, 25);
-                    Tex(icon, PixelArt.SkillIcon(planned[i]), ScaleMode.ScaleToFit);
+                    DrawEnemyIntentIcon(icon, planned[i]);
                     if (Hit(icon)) { inspectCard = planned[i]; inspectEnemyCard=true; detailScroll = Vector2.zero; }
                 }
                 Para(new Rect(454, 176, 371, 25), "예정 피해 " + c.intentDamage + " · 방어 " + c.intentBlock + (Engine.EnemyCritChance > 0 ? "  / 일반 공격 치명타 " + Engine.EnemyCritChance + "%" : "  / 적중 시 연계·턴 종료 포함"), 10, Text);
@@ -590,6 +591,7 @@ namespace Lumia
             // overlapping faces by restoring that actor's usual portrait only after playback ends.
             if (!ultimateShowing || effects.UltimateEnemy) effects.DrawActor(new Rect(129, 169 + bob, 214, 215), PixelArt.Portrait("hana"), false, reduceMotion);
             if (!ultimateShowing || !effects.UltimateEnemy) effects.DrawActor(new Rect(913, 169 - bob, 218, 216), PixelArt.Portrait(c.enemyId), true, reduceMotion);
+            if (!ultimateShowing || !effects.UltimateEnemy) DrawWildlifeVariantBadge();
             if (!ultimateShowing || effects.UltimateEnemy) Txt(new Rect(142, 388, 188, 22), "하나  ·  방어 " + c.block, 14, Mint, true);
             if (!ultimateShowing || !effects.UltimateEnemy)
             {
@@ -602,6 +604,7 @@ namespace Lumia
             Txt(new Rect(343, 220, 516, 27), "ENERGY", 11, Gold, true);
             Txt(new Rect(343, 247, 516, 49), c.energy + " / " + Engine.MaxEnergy, 33, Gold, true);
             if (Engine.IsBossCombat) DrawBossCombatPanel();
+            else if (!string.IsNullOrEmpty(c.animal)) DrawWildlifeCombatPanel();
             else if (string.IsNullOrEmpty(c.animal) && Btn(new Rect(481, 322, 252, 33), "상대 패시브 · 장비 · D/F", false, Pink)) { enemyLoadout=true; inventoryScroll=Vector2.zero; }
             }
             Fill(new Rect(0, 442, W, 278), Ink);
@@ -1297,6 +1300,7 @@ namespace Lumia
 
         void DrawCardDetail()
         {
+            if (WildlifeMechanics.IsAnimalSkill(inspectCard)) { DrawWildlifeSkillDetail(); return; }
             var d = Engine != null && !inspectEnemyCard ? Engine.PlayerCard(inspectCard) : GameDatabase.Card(inspectCard); if (d == null) { inspectCard = ""; return; }
             Modal(new Rect(210, 82, 860, 562));
             bool inBattle = Engine != null && Engine.State.stage == RunStage.Combat;

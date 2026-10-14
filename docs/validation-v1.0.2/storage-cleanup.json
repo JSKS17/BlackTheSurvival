@@ -1,0 +1,29 @@
+{
+  "removed": [
+    {
+      "path": "Temp/UnityBuildVerification",
+      "bytes": 4210758745.0
+    },
+    {
+      "path": "Build/BlackTheSurvival-v1.0.0-Windows-x64.zip",
+      "bytes": 329146403
+    },
+    {
+      "path": "Build/BlackTheSurvival-v1.0.1-Windows-x64.zip",
+      "bytes": 328889081
+    }
+  ],
+  "freeAfterBytes": 11751489536,
+  "version": "1.0.2",
+  "reclaimedBytes": 4935761920,
+  "freeBeforeBytes": 6815727616,
+  "retained": [
+    "Build/Windows",
+    "Build/BlackTheSurvival-v1.0.2-Windows-x64.zip",
+    "ArtSource",
+    "Assets",
+    "docs"
+  ],
+  "passed": true,
+  "previousReleasesAvailableOnGitHub": true
+}

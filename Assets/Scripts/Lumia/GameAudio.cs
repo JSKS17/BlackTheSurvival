@@ -344,14 +344,14 @@ namespace Lumia
         {
             Initialize();
             if (action == null || !audioEnabled || isPaused) return true;
-            if (!string.IsNullOrEmpty(action.kind) || !string.IsNullOrEmpty(action.traitId)
+            if ((!string.IsNullOrEmpty(action.kind) && action.kind != "wildlife_skill") || !string.IsNullOrEmpty(action.traitId)
                 || (action.cardId ?? "").StartsWith("status_", StringComparison.Ordinal))
             {
                 secondarySuppressed++;
                 if (action.kind == "revive") PlayCue("combat.revive", .6f);
                 return true;
             }
-            var card = GameDatabase.Card(action.cardId);
+            var card = GameDatabase.Card(action.cardId) ?? WildlifeMechanics.Card(action.cardId);
             if (card == null) { secondarySuppressed++; return true; }
             lastCardId = card.id;
             string cue = "card." + card.id;

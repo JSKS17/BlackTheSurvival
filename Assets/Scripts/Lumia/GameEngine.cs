@@ -10,6 +10,8 @@ namespace Lumia
         public ZoneKind kind;
         public bool visited, nearKiosk;
         public string assignedOpponent, assignedAnimal;
+        public bool mutantAnimal;
+        public int wildlifeVariantVersion;
     }
 
     [Serializable] public class FreeCastGrant
@@ -49,6 +51,7 @@ namespace Lumia
     [Serializable] public class CombatState
     {
         public string enemyName, enemyId, animal, lastSkillCard;
+        public bool mutantAnimal;
         public int enemyLevel, enemyHp, enemyMaxHp, enemyBlock, enemyEnergy;
         public int turn, energy, block, strength, evasion, evasionTurns, poison, vulnerable, weak;
         public int enemyStrength, enemyEvasion, enemyEvasionTurns, enemyPoison, enemyVulnerable, enemyWeak;
@@ -230,7 +233,7 @@ namespace Lumia
                 var c = State.combat;
                 if (c == null) return "";
                 RefreshEnemyIntent();
-                var names = c.enemyPlan.Select(id => GameDatabase.Card(id)).Where(x => x != null).Select(x => x.name);
+                var names = c.enemyPlan.Select(EnemyActionCard).Where(x => x != null).Select(x => x.name);
                 string bossIntent = c.boss != null && BossMechanics.NeedsSpecialAction(c, BossMechanics.PreviewAtTurnEnd(c)) ? " · 보스 특수행동 포함" : "";
                 return string.Join(" · ", names) + "  / 피해 " + c.intentDamage + " · 방어 " + c.intentBlock + " · 코스트 " + c.enemyPlanCosts.Sum() + "/" + c.enemyEnergy + (c.enemyPlan.Any(id => GameDatabase.Card(id) != null && GameDatabase.Card(id).freeCastOnHit) ? " · 적중 시 연계 포함" : "") + bossIntent;
             }
@@ -291,6 +294,7 @@ namespace Lumia
                 State.energyGrowthVersion = 1;
             }
             RefreshMapProximity();
+            EnsureWildlifeAssignments();
             State.mapRows = State.map.Count > 0 ? State.map.Max(n => n.row) + 1 : RowsPerAct;
             EnsureBossAssignments();
             if (State.version == 1)
@@ -347,9 +351,9 @@ namespace Lumia
                 FreeCastMechanics.SanitizePending(c.pendingFreeCasts);
                 FreeCastMechanics.SanitizePending(c.enemyPendingFreeCasts);
                 if (c.enemyPlanCosts == null) c.enemyPlanCosts = new List<int>();
-                if (c.enemyPlanCosts.Count != c.enemyPlan.Count) c.enemyPlanCosts = c.enemyPlan.Select(CardCost).ToList();
+                if (c.enemyPlanCosts.Count != c.enemyPlan.Count) c.enemyPlanCosts = c.enemyPlan.Select(id => WildlifeMechanics.IsAnimalSkill(id) ? 0 : CardCost(id)).ToList();
                 if (c.enemyPlanFreeCast == null || c.enemyPlanFreeCast.Count != c.enemyPlan.Count)
-                    c.enemyPlanFreeCast = c.enemyPlan.Select((id, i) => c.enemyPlanCosts[i] == 0 && CardCost(id) > 0).ToList();
+                    c.enemyPlanFreeCast = c.enemyPlan.Select((id, i) => !WildlifeMechanics.IsAnimalSkill(id) && c.enemyPlanCosts[i] == 0 && CardCost(id) > 0).ToList();
                 c.playerSkills = SkillMechanics.Ensure(c.playerSkills); c.enemySkills = SkillMechanics.Ensure(c.enemySkills);
                 c.playerTraits=TraitMechanics.Ensure(c.playerTraits);c.enemyTraits=TraitMechanics.Ensure(c.enemyTraits);
                 c.playerStatuses=StatusMechanics.Ensure(c.playerStatuses);c.enemyStatuses=StatusMechanics.Ensure(c.enemyStatuses);
@@ -494,6 +498,7 @@ namespace Lumia
             {
                 var animals = new[] { "chicken", "dog", "boar", "wolf", "bear" };
                 node.assignedAnimal = animals[Next(ref random, animals.Length)];
+                AssignWildlifeVariant(node);
             }
             if (node.kind == ZoneKind.Subject && string.IsNullOrEmpty(node.assignedOpponent))
             {
@@ -511,7 +516,7 @@ namespace Lumia
                 var animals = new[] { "chicken", "dog", "boar", "wolf", "bear" };
                 var names = new[] { "닭", "들개", "멧돼지", "늑대", "곰" };
                 int index = Array.IndexOf(animals, node.assignedAnimal);
-                return index >= 0 ? names[index] : "야생동물";
+                return (IsMutantWildlife(node) ? "변이 " : "") + (index >= 0 ? names[index] : "야생동물");
             }
             if (node.kind == ZoneKind.Kiosk)
             {
@@ -607,6 +612,7 @@ namespace Lumia
         public int EnemyEffectiveCardCost(string id)
         {
             var c = State.combat;
+            if(WildlifeMechanics.IsAnimalSkill(id))return 0;
             return c != null && c.enemyFreeCasts.Any(g => g.cardId == id && g.uses > 0) ? 0 : Math.Max(0, CardCost(id) + (c==null?0:StatusMechanics.CostPenalty(c.enemyStatuses,GameDatabase.Card(id))) - (c == null ? 0 : Math.Max(SkillMechanics.Discount(c.enemySkills,id),SkillMechanics.Discount(c.enemyTraits.skills,id))));
         }
         public List<SkillMechanicToken> SkillStateSnapshot(bool enemy = false)
@@ -845,7 +851,9 @@ namespace Lumia
                 return true;
             }
             int index = c.enemyActionIndex++;
-            var id = c.enemyPlan[index]; var card = GameDatabase.Card(id);
+            var id = c.enemyPlan[index];
+            if(ResolveWildlifeSkill(id))return true;
+            var card = GameDatabase.Card(id);
             if (card == null) return true;
             if(!StatusMechanics.CanUse(c.enemyStatuses,card)){Say(c.enemyName+"의 "+card.name+" 사용이 상태이상으로 막혔습니다.");return true;}
             bool freeGranted = c.enemyFreeCasts.Any(g => g.cardId == id && g.uses > 0);
@@ -1355,6 +1363,7 @@ namespace Lumia
                 }
             }
             RefreshMapProximity();
+            EnsureWildlifeAssignments();
         }
 
         public CharacterDef BossForAct(int act)
@@ -1600,7 +1609,8 @@ namespace Lumia
                 int[] health = { 20, 28, 38, 44, 62 };
                 int pick = Next(animals.Length);
                 if (!string.IsNullOrEmpty(node.assignedAnimal) && Array.IndexOf(animals, node.assignedAnimal) >= 0) pick = Array.IndexOf(animals, node.assignedAnimal);
-                c.animal = c.enemyId = animals[pick]; c.enemyName = names[pick];
+                AssignWildlifeVariant(node);c.mutantAnimal=IsMutantWildlife(node);
+                c.animal = c.enemyId = animals[pick]; c.enemyName = (c.mutantAnimal ? "변이 " : "") + names[pick];
                 c.enemyMaxHp = (int)Math.Ceiling((health[pick] + level * 3) * (1.15f + (State.act-1)*.12f)); c.enemyDeck.Add("basic_attack");
             }
             else
@@ -1634,7 +1644,7 @@ namespace Lumia
                 c.enemyEvasion = BaseEnemyEvasion();
             }
             // Difficulty is applied only to a newly spawned opponent, never to a restored battle.
-            c.enemyMaxHp = RunModes.ScaleEnemyHealth(State, c.enemyMaxHp);
+            c.enemyMaxHp = WildlifeMechanics.ScaleHealth(RunModes.ScaleEnemyHealth(State, c.enemyMaxHp),c.mutantAnimal);
             c.enemyHp = c.enemyMaxHp;
             c.drawPile.AddRange(State.deck); Shuffle(c.drawPile);
             c.enemyDrawPile.AddRange(c.enemyDeck); Shuffle(c.enemyDrawPile);
@@ -1735,8 +1745,7 @@ namespace Lumia
             c.enemyActionIndex = 0; c.enemyEnergy = EnergyForLevel(c.enemyLevel)+TraitMechanics.EnergyBonus(c.enemyTraits)+c.enemyOpeningEnergy;
             if (!string.IsNullOrEmpty(c.animal))
             {
-                c.enemyPlan.Add("basic_attack"); c.enemyPlanCosts.Add(CardCost("basic_attack")); c.enemyPlanFreeCast.Add(false);
-                if (c.animal == "wolf" || (c.animal == "dog" && c.enemyLevel >= 8)) { c.enemyPlan.Add("basic_attack"); c.enemyPlanCosts.Add(CardCost("basic_attack")); c.enemyPlanFreeCast.Add(false); }
+                PlanWildlifeTurn();
             }
             else
             {
@@ -1837,8 +1846,9 @@ namespace Lumia
             int value;
             if (!string.IsNullOrEmpty(c.animal))
             {
-                int basic = c.animal == "bear" ? 11 : c.animal == "boar" ? 8 : c.animal == "wolf" ? 7 : c.animal == "dog" ? 6 : 5;
-                value = basic + c.enemyLevel / 2;
+                value = WildlifeMechanics.BasicDamage(c.animal,c.enemyLevel);
+                if(WildlifeMechanics.BelongsTo(card.id,c.animal))value+=card.damage;
+                value=WildlifeMechanics.ScaleAttack(value,c.mutantAnimal);
             }
             else value = EnemyAuxiliaryValue(card,card.damage) + c.enemyLevel / 2 + strength + EnemyEquipmentSum(g=>g.attack);
             if ((weak>=0?weak:c.enemyWeak) > 0) value = value * 3 / 4;
@@ -2001,6 +2011,16 @@ namespace Lumia
             for(int intentIndex=c.enemyTurn?c.enemyActionIndex:0;intentIndex<c.enemyPlan.Count;++intentIndex)
             {
                 var id=c.enemyPlan[intentIndex];
+                var animalSkill=WildlifeMechanics.Card(id);
+                if(animalSkill!=null)
+                {
+                    if(WildlifeMechanics.BelongsTo(id,c.animal) && !WildlifeMechanics.Interrupted(id,attackerStatuses))
+                    {
+                        int rawWildlife=RunModes.ScaleEnemyDirectDamage(State,CalculateEnemyDamage(animalSkill,strength,vulnerable,TraitMechanics.Exposure(defenderTraits),weak,attackerStatuses,defenderStatuses));
+                        c.intentDamage+=rawWildlife;
+                    }
+                    continue;
+                }
                 var card = GameDatabase.Card(id);
                 if (card == null) continue;
                 if(!StatusMechanics.CanUse(attackerStatuses,card))continue;
@@ -2399,8 +2419,8 @@ namespace Lumia
             if (node.kind == ZoneKind.Wildlife)
             {
                 r.choices = CardOffer(RandomCardPool(), 3, ref State.rngState);
-                if (c.animal == "wolf" && Roll(25)) r.objectId = RandomObject(2);
-                if (c.animal == "bear" && Roll(35)) r.objectId = RandomObject(4);
+                if (c.animal == "wolf" && Roll(WildlifeMechanics.ObjectDropChance(c.animal,c.mutantAnimal))) r.objectId = RandomObject(2);
+                if (c.animal == "bear" && Roll(WildlifeMechanics.ObjectDropChance(c.animal,c.mutantAnimal))) r.objectId = RandomObject(4);
                 // Independent bonus rolls preserve all three ordinary skill choices.
                 // The basic attack is optional and uses the same selection budget.
                 if (Roll(WildlifeBasicAttackDropChance)) r.choices.Add("basic_attack");

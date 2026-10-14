@@ -70,8 +70,11 @@ namespace Lumia
             if (character != null) key = character.id;
             Texture2D result;
             if (Cache.TryGetValue("portrait/" + key, out result)) return result;
+            // Wildlife has independent authored portraits; the atlas remains a fallback
+            // so older/optional art never removes an animal from the battle scene.
+            var wildlife = Load("Wildlife/" + key);
             var identity = Load("PortraitsReference/" + key) ?? Load("PortraitsIdentity/" + key);
-            var specific = identity ?? Load("PortraitsCoarse/" + key) ?? Load("Portraits/" + key);
+            var specific = wildlife ?? identity ?? Load("PortraitsCoarse/" + key) ?? Load("Portraits/" + key);
             if (specific != null) result = specific;
             else if (atlas != null && (key == "hana" || key == "nia" || key == "chicken" || key == "dog" || key == "boar" || key == "wolf" || key == "bear" || key == "drone"))
             {
@@ -107,7 +110,7 @@ namespace Lumia
             else result = Subject(key);
             // Authored faces keep their complete logical grid; reducing them to 80 pixels
             // erased eyelids, eyebrows, facial hair and expression in the old portraits.
-            if(identity==null && (key=="hana" || character!=null)) result=CoarsePortrait(result);
+            if(wildlife!=null || identity==null && (key=="hana" || character!=null)) result=CoarsePortrait(result);
             Cache["portrait/" + key] = result;
             return result;
         }

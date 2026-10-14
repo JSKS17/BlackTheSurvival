@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "animals": [
+    {
+      "id": "wolf",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha32Bounds": [
+        63,
+        254,
+        1218,
+        1142
+      ],
+      "sha256": "ecb1e8e49206f3f71217f8ad9572936ce2ac076a7e9984809a918138d7d744fa"
+    },
+    {
+      "id": "boar",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha32Bounds": [
+        77,
+        245,
+        1177,
+        1061
+      ],
+      "sha256": "26e2ee68b5207aa5d4fad3d12f52a526ea6367a9e7302e03cc34d932f2bc8ca7"
+    },
+    {
+      "id": "bear",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha32Bounds": [
+        78,
+        271,
+        1203,
+        1113
+      ],
+      "sha256": "3ff8cb97bd306ee3d3e32373afecc56384b0f25c7e5da6121c051e5d8d043d02"
+    },
+    {
+      "id": "chicken",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha32Bounds": [
+        209,
+        63,
+        1207,
+        1215
+      ],
+      "sha256": "2dccb4452fbb4df299116b76e8bb293e0076b5fca843a71d2c5e116cbc61bea0"
+    }
+  ],
+  "logicalPixelHeight": 80,
+  "oldAtlasUnchanged": true,
+  "rasterPostprocessing": false
+}

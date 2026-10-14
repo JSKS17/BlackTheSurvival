@@ -1,0 +1,28 @@
+{
+  "version": "1.0.2",
+  "tool": "built-in image_gen.imagegen",
+  "export": "Generated PNG copied byte-for-byte; no raster postprocessing; existing 80x80 Point presentation preserved.",
+  "officialReference": "https://event.playeternalreturn.com/S7/NIAH?hl=ko-KR",
+  "items": [
+    {
+      "id": "nia_overload_face",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0b-8163-7693-bdd7-3bc64571a398\\exec-01e7bb22-f9b7-4d3a-b721-89b5d734ffde.png",
+      "output": "Assets/Resources/Lumia/Story/Characters/nia_overload.png",
+      "previousSha256": "c20a7832858403461137804cfb55d0820e30c54ae940abb397d1915b371d5864",
+      "sha256": "73f8b5be5f6939694b4c8942e62320b2672b5e881d3ca24b3a4564ef3a7784a1",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha32Bounds": {
+        "width": 1254,
+        "height": 1254,
+        "left": 242,
+        "top": 219,
+        "right": 1028,
+        "bottom": 1132
+      }
+    }
+  ]
+}

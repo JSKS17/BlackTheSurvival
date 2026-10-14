@@ -164,7 +164,7 @@ namespace Lumia
         }
         CardUsePreview BuildCardUsePreview(string id, bool enemy, int handIndex)
         {
-            var card = enemy ? GameDatabase.Card(id) : PlayerCard(id);
+            var card = enemy ? EnemyActionCard(id) : PlayerCard(id);
             var result = new CardUsePreview { cardId = id, enemy = enemy, handIndex = handIndex };
             if (card == null) { result.unavailableReason = "카드 정보가 없습니다."; return result; }
             result.name = card.name; result.classification = CardPresentation.ClassificationLabel(card); result.baseCost = card.cost;
@@ -194,6 +194,13 @@ namespace Lumia
             result.criticalChance = id == "basic_attack" ? enemy ? EnemyCritChance : CritChance : 0;
             result.damageNote = "일반 적중을 가정한 직접 피해 합계입니다. 현재 방어도·회피·피격 패시브·치명타·체력 제한은 차감하지 않았습니다. 설치물·지속 피해·후속 패시브 피해는 별도입니다.";
             result.conditions = CombatInformation.Conditions(card, actor);
+            if(enemy && WildlifeMechanics.IsAnimalSkill(id))
+            {
+                bool interrupted=WildlifeMechanics.Interrupted(id,c.enemyStatuses);
+                result.classification="동물 전용 · "+(card.movement ? "이동" : "공격");
+                if(interrupted) {result.normalDamage=0;result.unavailableReason="강한 제어 또는 속박으로 동물 기술 시전이 중단됩니다.";}
+                result.damageNote=WildlifeMechanics.Description(id);
+            }
             if (card.id == "garnet_r")
             {
                 int targetHp = enemy ? State.hp : c.enemyHp, targetMaxHp = enemy ? State.maxHp : c.enemyMaxHp;
@@ -274,7 +281,7 @@ namespace Lumia
         {
             CombatActions.Add(action);
             var c = State.combat; if (c == null) return;
-            var card = GameDatabase.Card(action.cardId); var passive = GameDatabase.Passive(action.traitId); var rune = GameDatabase.Rune(action.traitId);
+            var card = action.enemy ? EnemyActionCard(action.cardId) : GameDatabase.Card(action.cardId); var passive = GameDatabase.Passive(action.traitId); var rune = GameDatabase.Rune(action.traitId);
             var gear = (action.traitId ?? "").StartsWith("gear:", StringComparison.Ordinal) ? GameDatabase.Equipment(action.traitId.Substring(5)) : action.kind == "deferred_damage" ? GameDatabase.Equipment(action.cardId) : null;
             bool direct = card != null && string.IsNullOrEmpty(action.kind) && string.IsNullOrEmpty(action.traitId);
             bool status = (action.kind ?? "").StartsWith("status_", StringComparison.Ordinal);
@@ -304,6 +311,8 @@ namespace Lumia
                 case "delayed_damage": return "설치물 발동"; case "deferred_damage": return "유예 피해"; case "hot": return "지속 회복";
                 case "guard": return "지속 보호"; case "counter": return "반격"; case "revive": return "치명상 방지";
                 case "boss_interrupt": return "보스 특수 행동 저지"; case "augment": return "증강 발동";
+                case "wildlife_skill": return "동물 전용 기술"; case "wildlife_interrupt": return "동물 기술 시전 중단";
+                case "wildlife_despair": return "좌절 · 다음 내 턴까지 받는 피해 +50%";
                 default: return kind.StartsWith("boss_", StringComparison.Ordinal) ? "보스 특수 행동" : "부가 효과";
             }
         }

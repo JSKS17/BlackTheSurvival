@@ -1,0 +1,268 @@
+{
+    "result": "PASS",
+    "version": "1.0.2",
+    "failure": "",
+    "isolatedSave": true,
+    "personalSavesUnchanged": true,
+    "animalSkillsNotPlayable": true,
+    "pointFilteredPortraits": true,
+    "normalAndMutantStats": true,
+    "actualBoarCharge": true,
+    "actualBearSlam": true,
+    "interruptedCharge": true,
+    "readableSkillDetails": true,
+    "stableMutationAfterReload": true,
+    "scoutedMutationName": true,
+    "renderDoesNotChangeState": true,
+    "screenshots": 18,
+    "animals": [
+        {
+            "animal": "chicken",
+            "name": "닭",
+            "mutant": false,
+            "act": 2,
+            "level": 7,
+            "health": 53,
+            "intentDamage": 8,
+            "objectDropChance": 0,
+            "logicalWidth": 80,
+            "logicalHeight": 80
+        },
+        {
+            "animal": "chicken",
+            "name": "변이 닭",
+            "mutant": true,
+            "act": 2,
+            "level": 7,
+            "health": 64,
+            "intentDamage": 10,
+            "objectDropChance": 0,
+            "logicalWidth": 80,
+            "logicalHeight": 80
+        },
+        {
+            "animal": "wolf",
+            "name": "늑대",
+            "mutant": false,
+            "act": 2,
+            "level": 7,
+            "health": 83,
+            "intentDamage": 20,
+            "objectDropChance": 25,
+            "logicalWidth": 80,
+            "logicalHeight": 80
+        },
+        {
+            "animal": "wolf",
+            "name": "변이 늑대",
+            "mutant": true,
+            "act": 2,
+            "level": 7,
+            "health": 100,
+            "intentDamage": 24,
+            "objectDropChance": 30,
+            "logicalWidth": 80,
+            "logicalHeight": 80
+        },
+        {
+            "animal": "boar",
+            "name": "멧돼지",
+            "mutant": false,
+            "act": 2,
+            "level": 7,
+            "health": 75,
+            "intentDamage": 11,
+            "objectDropChance": 0,
+            "logicalWidth": 80,
+            "logicalHeight": 80
+        },
+        {
+            "animal": "boar",
+            "name": "변이 멧돼지",
+            "mutant": true,
+            "act": 2,
+            "level": 7,
+            "health": 90,
+            "intentDamage": 13,
+            "objectDropChance": 0,
+            "logicalWidth": 80,
+            "logicalHeight": 80
+        },
+        {
+            "animal": "bear",
+            "name": "곰",
+            "mutant": false,
+            "act": 2,
+            "level": 7,
+            "health": 106,
+            "intentDamage": 14,
+            "objectDropChance": 35,
+            "logicalWidth": 80,
+            "logicalHeight": 80
+        },
+        {
+            "animal": "bear",
+            "name": "변이 곰",
+            "mutant": true,
+            "act": 2,
+            "level": 7,
+            "health": 128,
+            "intentDamage": 17,
+            "objectDropChance": 40,
+            "logicalWidth": 80,
+            "logicalHeight": 80
+        },
+        {
+            "animal": "dog",
+            "name": "들개",
+            "mutant": false,
+            "act": 2,
+            "level": 7,
+            "health": 63,
+            "intentDamage": 9,
+            "objectDropChance": 0,
+            "logicalWidth": 334,
+            "logicalHeight": 348
+        },
+        {
+            "animal": "dog",
+            "name": "변이 들개",
+            "mutant": true,
+            "act": 2,
+            "level": 7,
+            "health": 76,
+            "intentDamage": 11,
+            "objectDropChance": 0,
+            "logicalWidth": 334,
+            "logicalHeight": 348
+        }
+    ],
+    "captures": [
+        {
+            "file": "normal_chicken.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915602,
+            "colorVariants": 1013
+        },
+        {
+            "file": "mutant_chicken.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915632,
+            "colorVariants": 1020
+        },
+        {
+            "file": "normal_wolf.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 912948,
+            "colorVariants": 943
+        },
+        {
+            "file": "mutant_wolf.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 912976,
+            "colorVariants": 950
+        },
+        {
+            "file": "normal_boar.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915539,
+            "colorVariants": 956
+        },
+        {
+            "file": "mutant_boar.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915583,
+            "colorVariants": 969
+        },
+        {
+            "file": "normal_bear.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915232,
+            "colorVariants": 961
+        },
+        {
+            "file": "mutant_bear.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915275,
+            "colorVariants": 968
+        },
+        {
+            "file": "normal_dog.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 912555,
+            "colorVariants": 978
+        },
+        {
+            "file": "mutant_dog.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 912579,
+            "colorVariants": 985
+        },
+        {
+            "file": "boar_special_preview.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915596,
+            "colorVariants": 915
+        },
+        {
+            "file": "boar_special_detail.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 921311,
+            "colorVariants": 201
+        },
+        {
+            "file": "boar_special_cast.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 914608,
+            "colorVariants": 682
+        },
+        {
+            "file": "bear_special_preview.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 915287,
+            "colorVariants": 741
+        },
+        {
+            "file": "bear_special_detail.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 921014,
+            "colorVariants": 201
+        },
+        {
+            "file": "bear_special_cast.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 914370,
+            "colorVariants": 693
+        },
+        {
+            "file": "boar_interrupted.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 914427,
+            "colorVariants": 682
+        },
+        {
+            "file": "mutant_scouted_map.png",
+            "width": 1280,
+            "height": 720,
+            "nonBlackPixels": 921598,
+            "colorVariants": 641
+        }
+    ]
+}

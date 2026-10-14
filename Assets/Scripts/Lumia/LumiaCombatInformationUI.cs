@@ -56,7 +56,7 @@ namespace Lumia
                 informationEngine = Engine; informationSerial = Engine.State.combatHistorySerial;
             }
             var p = cachedCombatPreview;
-            var card = informationEnemy ? GameDatabase.Card(p.cardId) : Engine.PlayerCard(p.cardId);
+            var card = informationEnemy ? Engine.EnemyActionCard(p.cardId) : Engine.PlayerCard(p.cardId);
             if (card == null) { CloseCombatInformation(); return; }
             Modal(new Rect(180, 76, 920, 580));
             Tex(new Rect(209, 105, 56, 56), PixelArt.SkillIcon(card.id), ScaleMode.ScaleToFit);
@@ -142,8 +142,8 @@ namespace Lumia
                     { if (expanded) expandedCombatEntries.Remove(entry.sequence); else expandedCombatEntries.Add(entry.sequence); }
                     if (expanded)
                     {
-                        var card = GameDatabase.Card(entry.cardId);
-                        string origin = card == null ? "전투 흐름" : card.owner + " " + card.key + " · " + CardPresentation.ClassificationLabel(card);
+                        var card = Engine.EnemyActionCard(entry.cardId);
+                        string origin = card == null ? "전투 흐름" : WildlifeMechanics.IsAnimalSkill(card.id) ? card.owner + " · 동물 전용 기술" : card.owner + " " + card.key + " · " + CardPresentation.ClassificationLabel(card);
                         string metrics = "체력 피해 " + entry.damage + " / 방어 흡수 " + entry.absorbed + " / 회피 " + entry.avoided + " / 방어 +" + entry.block + " / 회복 +" + entry.heal + (entry.paidCost >= 0 ? " / 지불 코스트 " + entry.paidCost : "");
                         Para(new Rect(12, y + rowHeight - 48, 853, 44), origin + "\n" + metrics, 11, Muted);
                     }
