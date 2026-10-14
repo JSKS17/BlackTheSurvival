@@ -1,0 +1,13 @@
+{
+  "lobbyMixerRms": 0.04195373425534119,
+  "lobbyClip": "music_eternal_world",
+  "passed": true,
+  "checkedPersonalFiles": 4,
+  "loadType": "Streaming",
+  "assertions": 3131,
+  "durationSeconds": 216.16976928710938,
+  "cards": 392,
+  "personalSavesUnchanged": true,
+  "version": "1.0.4",
+  "clips": 427
+}

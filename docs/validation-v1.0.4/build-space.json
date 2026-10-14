@@ -1,0 +1,9 @@
+{
+  "freeAfterBytes": 3484082176,
+  "freeBeforeBytes": 2634215424,
+  "passed": true,
+  "version": "1.0.4",
+  "previousReleaseVerifiedOnGitHub": true,
+  "removedPreviousLocalRuntimeAndZip": true,
+  "reclaimedBytes": 849866752
+}

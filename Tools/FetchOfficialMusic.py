@@ -1,4 +1,4 @@
-"""Acquire the three public vocal OSTs; preserve the separate instrumental scores.
+"""Acquire the three public vocal OSTs; preserve other acquired recordings and scores.
 
 The public event player files contain vocals. MR download buttons on those pages
 require a platform login; this tool neither guesses MR URLs nor bypasses that
@@ -74,8 +74,9 @@ def main():
     manifest = ROOT/'docs/audio/music-sources.json'
     manifest.parent.mkdir(parents=True,exist_ok=True)
     existing = json.loads(manifest.read_text(encoding='utf-8')) if manifest.exists() else []
-    generated = [entry for entry in existing if entry.get('origin') == 'instrumental_generated']
-    manifest.write_text(json.dumps(records + generated,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    refreshed_ids = {entry['id'] for entry in records}
+    preserved = [entry for entry in existing if entry['id'] not in refreshed_ids]
+    manifest.write_text(json.dumps(records + preserved,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 
 if __name__ == '__main__':
     main()

@@ -4,7 +4,7 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 정식 버전은 [v1.0.3](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.3)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 정식 버전은 [v1.0.4](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.4)에 있습니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
 - 완성된 Windows 빌드가 있으면 `Build/Windows/BlackTheSurvival.exe`를 실행하세요. 같은 폴더의 `BlackTheSurvival_Data`, `MonoBleedingEdge`, `UnityPlayer.dll`도 함께 있어야 합니다.
@@ -121,7 +121,7 @@ Q/W/E/R 364종은 실험체별 스택·표식·설치물·소환·지연 공격�
 
 ## 사운드
 
-로비에는 공식 공개 OST **Summertime**을 사용하고, 게임 시작 후에는 프로젝트에서 새로 작곡한 **무보컬 연주곡 5곡**을 상황에 맞춰 재생합니다. 원본 MR을 확보하지 못해 새 연주곡으로 보완했으며 [곡별 구성](docs/audio/INSTRUMENTAL_MUSIC.md)에 구분해 기록했습니다. 원본 한국어 스킬 보이스 339개, 니아 상황 보이스 10개, 아나운서 보이스 4개도 포함합니다. 공개 팬키트에 원본이 없는 매칭·야생동물·키오스크·제작·요리 등은 이 프로젝트에서 제작한 효과음 65개로 보완했습니다. 원본 로비 테마나 모든 기술의 원본 효과음을 가져온 것은 아닙니다. [음원 구성과 출처](docs/AUDIO.md)를 확인할 수 있습니다.
+로비에는 이터널 리턴 OST **Eternal World (Instrumental)**의 정식 무보컬 녹음을 사용합니다. 게임 시작 후에는 프로젝트에서 새로 작곡한 **무보컬 연주곡 5곡**을 상황에 맞춰 재생하며 [곡별 구성](docs/audio/INSTRUMENTAL_MUSIC.md)에 구분해 기록했습니다. 원본 한국어 스킬 보이스 339개, 니아 상황 보이스 10개, 아나운서 보이스 4개도 포함합니다. 공개 팬키트에 원본이 없는 매칭·야생동물·키오스크·제작·요리 등은 이 프로젝트에서 제작한 효과음 65개로 보완했습니다. [음원 구성과 출처](docs/AUDIO.md)를 확인할 수 있습니다.
 
 환경 설정에서 **전체 음량·음악·효과음 및 보이스**를 각각 조절하고 소리 전체를 끌 수 있습니다. 화면을 바꿀 때 음악이 부드럽게 전환되고, 같은 곡을 쓰는 화면에서는 재시작하지 않습니다. 카드·상태이상·패시브가 동시에 발동해도 중복 효과음과 보이스가 과도하게 겹치지 않도록 제한합니다.
 

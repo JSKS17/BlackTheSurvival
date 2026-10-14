@@ -157,7 +157,7 @@ def main():
         clips.append(row)
     available_music = {row["id"] for row in music}
     music_routes = {
-        "lobby": "music_summertime", "preparation": "music_lumia_afterglow",
+        "lobby": "music_eternal_world", "preparation": "music_lumia_afterglow",
         "map": "music_lumia_afterglow", "camp": "music_emberlight",
         "encounter": "music_lumia_afterglow", "lose": "music_lumia_afterglow",
         "combat": "music_break_the_loop", "boss": "music_vf_overdrive",
@@ -203,7 +203,7 @@ def main():
             raise ValueError("Invalid cue reference: " + binding["cue"])
         binding.setdefault("volume", 1)
     routes = card_bindings(ids) if designed_path.exists() else []
-    catalog = dict(schemaVersion=1, sources=sources, clips=sorted(clips, key=lambda row: row["id"]), bindings=sorted(bindings, key=lambda row: row["cue"]), cards=routes, unavailableOriginalVoiceCards=voices["missing"], note="Official original OST and Korean voices, project-composed vocal-free instrumental music, and project-authored nonvoice effects are identified separately. Only the lobby uses a vocal OST. No game RNG is consumed by audio routing.")
+    catalog = dict(schemaVersion=1, sources=sources, clips=sorted(clips, key=lambda row: row["id"]), bindings=sorted(bindings, key=lambda row: row["cue"]), cards=routes, unavailableOriginalVoiceCards=voices["missing"], note="Official original OST and Korean voices, project-composed vocal-free instrumental music, and project-authored nonvoice effects are identified separately. The lobby uses the official Eternal World instrumental recording; all scene music routes are vocal-free. No game RNG is consumed by audio routing.")
     path = OUT / "catalog.json"
     path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf8")
     meta(path)
