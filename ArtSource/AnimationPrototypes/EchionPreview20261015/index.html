@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>에키온 R · 최초 프롬프트 재제작 미리보기</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Malgun Gothic",sans-serif;color:#eee7fa;background:#100f19}*{box-sizing:border-box}body{max-width:1180px;margin:auto;padding:28px}h1{font-size:25px;margin:0 0 10px}p{line-height:1.7;color:#bbb4cc;margin:8px 0 18px}.badge{display:inline-block;color:#ebbdff;border:1px solid #80519d;background:#32203f;padding:4px 9px;font-size:12px;border-radius:5px;margin-bottom:10px}.layout{display:grid;grid-template-columns:minmax(320px,1.4fr) minmax(260px,1fr);gap:24px}.panel{background:#1a1826;border:1px solid #3c354d;border-radius:10px;padding:18px}.stage{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;border:1px solid #4c425c;background-color:#17141f;background-image:linear-gradient(45deg,#282334 25%,transparent 25%),linear-gradient(-45deg,#282334 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#282334 75%),linear-gradient(-45deg,transparent 75%,#282334 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0}.stage canvas{width:100%;height:100%;image-rendering:pixelated}.stage.dark{background:#17141f}.stage.light{background:#e6e2ee}button,select{background:#302740;color:#f1e7fd;border:1px solid #685379;border-radius:5px;padding:9px 12px;cursor:pointer;font:inherit;font-size:14px}button:hover,button.selected{background:#654581;border-color:#c189e6}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:14px 0}input[type=range]{width:100%;accent-color:#c37bf0}.frame-count{font-variant-numeric:tabular-nums;font-size:14px;color:#d2b5e5}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.frame{padding:0;background:#211b2b;overflow:hidden;border:1px solid #514260}.frame img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;image-rendering:pixelated;display:block}.frame span{display:block;font-size:11px;line-height:1.35;padding:5px 2px;min-height:37px}a{color:#d4a4f7}.facts{font-size:14px;line-height:1.8;color:#c1b7ce}.facts li{margin-bottom:6px}.links{display:flex;gap:14px;flex-wrap:wrap;font-size:14px}.comparison{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:16px;background:#211c2c;padding:12px;border-radius:7px}.comparison img{width:128px;height:128px;object-fit:contain;image-rendering:pixelated}.comparison figure{margin:0;text-align:center;font-size:12px;color:#b5a8c4}.comparison figcaption{margin-top:7px}.footer{font-size:12px;color:#94889f;margin-top:20px}@media(max-width:800px){body{padding:16px}.layout{grid-template-columns:1fr}.grid{gap:5px}}
+</style>
+<span class="badge">승인 완료 · 게임 적용</span>
+<h1>에키온 R — VF폭주 / 독사의 진노</h1>
+<p>처음 애니메이션을 만들 때의 프롬프트와 니아의 승인된 도트 스타일로 다시 생성했습니다. 승인한 12프레임을 인게임 에키온 R에 적용했습니다. VF를 모아 폭주한 뒤 팔을 휘둘러 전방에 방출합니다.</p>
+<div class="layout">
+ <section class="panel">
+  <div class="stage" id="stage"><canvas id="player" width="568" height="568" aria-label="에키온 필살기 12프레임 미리보기"></canvas></div>
+  <div class="controls">
+   <button id="toggle" type="button">일시 정지</button>
+   <button id="prev" type="button" aria-label="이전 프레임">←</button>
+   <button id="next" type="button" aria-label="다음 프레임">→</button>
+   <select id="speed" aria-label="재생 속도"><option value="0.5">0.5배속</option><option value="1" selected>1배속 · 8fps</option><option value="2">2배속</option></select>
+   <select id="background" aria-label="배경"><option value="">투명 확인</option><option value="dark">어두운 배경</option><option value="light">밝은 배경</option></select>
+  </div>
+  <input id="scrub" type="range" min="0" max="11" step="1" value="0" aria-label="프레임 선택">
+  <div class="frame-count" id="caption">1 / 12 · 준비</div>
+ </section>
+ <section class="panel">
+  <div class="grid" id="frames"></div>
+  <ul class="facts">
+   <li>12프레임 · 8fps · 1.5초 반복입니다.</li>
+   <li>입과 눈, 흰 머리의 명암, 검정·버건디 복장을 유지했습니다.</li>
+   <li>각 프레임의 발 높이를 맞추고 셀마다 투명 여백을 두었습니다.</li>
+   <li>재생할 때 이전 프레임을 지워 이펙트가 누적되지 않습니다.</li>
+   <li>플레이어와 적이 에키온 R을 사용하면 승인한 새 애니메이션을 재생합니다.</li>
+  </ul>
+  <div class="links"><a href="preview.gif">GIF</a><a href="preview.webp">투명 WebP</a><a href="atlas.png">12프레임 시트</a><a href="original-prompt.txt">최초 프롬프트</a></div>
+  <div class="comparison">
+   <figure><img src="original-reference.png" alt="기존 에키온 인게임 스프라이트"><figcaption>에키온 정체성 참고</figcaption></figure>
+   <figure><img src="style-reference.png" alt="처음 승인한 니아 R 스타일"><figcaption>처음 승인한 니아 R 스타일</figcaption></figure>
+  </div>
+ </section>
+</div>
+<p class="footer">원문 출처: Git 41ab261 · ArtSource/AnimationPrototypes/Subjects/echion/prompt.txt. 처음 생성한 뒤 셀 여백만 보완했습니다. 그림 생성은 내장 imagegen, 프레임 조립은 원본 픽셀 보존 방식입니다. <a href="https://playeternalreturn.com/posts/news/1280?hl=ko-KR">원작 공식 스킬 자료</a></p>
+<script>
+const labels=['준비','자세 낮추기','VF 모으기','폭주 진입','칼날 팔 들기','몸통 비틀기','독사의 진노 휘두르기','VF 방출','반동','폭주 잔광','칼날 회수','준비 복귀'];
+const canvas=document.getElementById('player'),ctx=canvas.getContext('2d'),grid=document.getElementById('frames'),scrub=document.getElementById('scrub'),caption=document.getElementById('caption'),toggle=document.getElementById('toggle');
+let images=[],frame=0,playing=true,last=0,elapsed=0;
+function show(index){frame=(index+12)%12;const im=images[frame];if(im){if(canvas.width!==im.naturalWidth){canvas.width=im.naturalWidth;canvas.height=im.naturalHeight}ctx.clearRect(0,0,canvas.width,canvas.height);ctx.imageSmoothingEnabled=false;ctx.drawImage(im,0,0)}scrub.value=frame;caption.textContent=`${frame+1} / 12 · ${labels[frame]}`;for(const [i,b] of [...grid.children].entries())b.classList.toggle('selected',i===frame)}
+function pause(){playing=false;toggle.textContent='재생';elapsed=0}
+Promise.all(labels.map((label,i)=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=`frames/frame-${String(i).padStart(2,'0')}.png`;const b=document.createElement('button');b.type='button';b.className='frame';b.title=`${i+1} · ${label}`;b.innerHTML=`<img src="${im.src}" alt="${i+1}프레임 ${label}"><span>${String(i+1).padStart(2,'0')} · ${label}</span>`;b.onclick=()=>{pause();show(i)};grid.appendChild(b)}))).then(result=>{images=result;show(0);requestAnimationFrame(tick)}).catch(()=>{caption.textContent='이미지를 읽지 못했습니다. 폴더 전체를 함께 열어 주세요.'});
+function tick(time){const dt=last?time-last:0;last=time;if(playing){elapsed+=Math.min(dt,250);const duration=125/Number(document.getElementById('speed').value);if(elapsed>=duration){const steps=Math.floor(elapsed/duration);elapsed%=duration;show(frame+steps)}}requestAnimationFrame(tick)}
+toggle.onclick=()=>{playing=!playing;toggle.textContent=playing?'일시 정지':'재생';elapsed=0};document.getElementById('prev').onclick=()=>{pause();show(frame-1)};document.getElementById('next').onclick=()=>{pause();show(frame+1)};scrub.oninput=()=>{pause();show(Number(scrub.value))};document.getElementById('background').onchange=e=>document.getElementById('stage').className='stage '+e.target.value;
+window.previewState=()=>({frame,playing,loaded:images.length,width:canvas.width,height:canvas.height});
+</script>
+</html>

@@ -49,6 +49,7 @@ namespace Lumia
             return Math.Min(2,penalty);
         }
         public static int AccuracyPenalty(StatusActorState actor) => Has(actor,"blind") ? 25 : 0;
+        public static int EvasionPenalty(StatusActorState actor) => Has(actor,"root") || Has(actor,"stun") ? 20 : 0;
         public static int HealingReduction(StatusActorState actor) => Has(actor,"heal_reduction") ? 20 : 0;
         public static int Damage(StatusActorState attacker,StatusActorState target,int amount)
         {
@@ -135,11 +136,12 @@ namespace Lumia
         {
             switch(kind)
             {
-                case "stun":case "airborne":case "knockback":case "sleep":return "다음 자신의 턴에 사용할 코스트가 1 줄어듭니다. 하드 제어의 감소량은 가장 큰 값만 적용되며 최소 1 코스트는 유지됩니다."+(kind=="sleep"?" 공격 카드나 카드의 필드 효과로 체력 피해를 받으면 수면이 해제됩니다.":"");
+                case "stun":return "다음 자신의 턴에 사용할 코스트가 1 줄어듭니다. 하드 제어의 감소량은 가장 큰 값만 적용되며 최소 1 코스트는 유지됩니다. 회피율이 20%p 감소합니다. 속박과 중첩되지 않으며 회피율은 0% 아래로 내려가지 않습니다.";
+                case "airborne":case "knockback":case "sleep":return "다음 자신의 턴에 사용할 코스트가 1 줄어듭니다. 하드 제어의 감소량은 가장 큰 값만 적용되며 최소 1 코스트는 유지됩니다."+(kind=="sleep"?" 공격 카드나 카드의 필드 효과로 체력 피해를 받으면 수면이 해제됩니다.":"");
                 case "freeze":case "suppression":case "stasis":return "다음 자신의 턴에 사용할 코스트가 2 줄어듭니다. 하드 제어의 감소량은 가장 큰 값만 적용되며 최소 1 코스트는 유지됩니다."+(kind=="freeze"?" 공격 카드나 카드의 필드 효과로 체력 피해를 받으면 빙결이 해제됩니다.":"");
-                case "root":return "이동·돌진·순간 이동을 포함한 카드를 사용할 수 없습니다.";
+                case "root":return "이동·돌진·순간 이동을 포함한 카드를 사용할 수 없습니다. 회피율이 20%p 감소합니다. 기절과 중첩되지 않으며 회피율은 0% 아래로 내려가지 않습니다.";
                 case "silence":return "실험체의 Q·W·E·R 카드를 사용할 수 없습니다. 기본·무기·전술 카드는 사용할 수 있습니다.";
-                case "blind":return "공격의 명중률이 25% 감소합니다. 각 적중마다 대상의 회피율과 합산한 판정을 한 번 합니다.";
+                case "blind":return "명중률이 기본 100%에서 25%p 감소합니다. 직접 공격의 각 타격은 명중 판정 후 대상의 회피 판정을 따로 합니다. 필중 공격에는 영향을 주지 않습니다. 명중 실패는 회피 성공 효과를 발동하지 않습니다.";
                 case "slow":case "pull":return "이동·돌진·순간 이동 카드의 코스트가 1 증가합니다. 둔화와 끌어당김은 중첩되지 않습니다.";
                 case "fear":case "charm":return "공격 피해가 20% 감소합니다. 공포·매혹·공격력 감소는 중첩되지 않습니다.";
                 case "taunt":case "berserk":return "실험체 기술을 사용할 수 없으며 기본·무기·전술 카드로 대응해야 합니다.";

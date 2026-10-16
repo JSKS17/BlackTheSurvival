@@ -5,7 +5,7 @@ namespace Lumia
 {
     // Account research is independent of the replaceable single-run save. The caller
     // supplies serialization so atomic persistence can also be tested without Unity.
-    public sealed class ResearchStore
+    public sealed partial class ResearchStore
     {
         readonly string path;
         readonly Func<ResearchProfile, string> serialize;
@@ -33,6 +33,8 @@ namespace Lumia
             ResearchProgression.Normalize(profile);
             return profile;
         }
+
+        internal ResearchProfile ValidateJson(string json) => Parse(json);
 
         void Reload()
         {
@@ -86,9 +88,9 @@ namespace Lumia
                 using (var stream = new FileStream(temporary, FileMode.CreateNew, FileAccess.Write, FileShare.None))
                 using (var writer = new StreamWriter(stream))
                 {
-                    writer.Write(json); writer.Flush(); stream.Flush(true);
+                    writer.Write(json); writer.Flush(); BrowserPersistence.Flush(stream);
                 }
-                if (File.Exists(path)) File.Replace(temporary, path, primaryValid ? path + ".bak" : null);
+                if (File.Exists(path)) BrowserPersistence.ReplaceFile(temporary, path, primaryValid ? path + ".bak" : null);
                 else File.Move(temporary, path);
                 // Keep the last valid backup when the primary was damaged or missing.
                 Profile = profile; primaryValid = true; IsReadOnly = false; LoadError = "";
@@ -99,7 +101,11 @@ namespace Lumia
                     catch (UnauthorizedAccessException) { LoadError = "연구 기록은 저장했지만 백업을 만들지 못했습니다."; }
                 }
             }
-            finally { if (File.Exists(temporary)) File.Delete(temporary); }
+            finally
+            {
+                if (File.Exists(temporary)) File.Delete(temporary);
+                BrowserPersistence.RequestSync();
+            }
         }
 
         public ResearchSettlement GetSettlement(RunState state)

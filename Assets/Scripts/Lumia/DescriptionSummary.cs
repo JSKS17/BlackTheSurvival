@@ -127,7 +127,7 @@ namespace Lumia
             int h = heal < 0 ? card.heal : heal;
             var lines = new List<string>();
             var immediate = new List<string>();
-            if (d > 0) immediate.Add(card.hits > 1 ? CardPresentation.WithParticle($"피해 {d}","를","을")+$" {card.hits}회 줍니다" : CardPresentation.WithParticle($"피해 {d}","를","을")+" 줍니다");
+            if (d > 0 && !AdvancedCardMechanics.IsX(card)) immediate.Add(card.hits > 1 ? CardPresentation.WithParticle($"피해 {d}","를","을")+$" {card.hits}회 줍니다" : CardPresentation.WithParticle($"피해 {d}","를","을")+" 줍니다");
             if (b > 0) immediate.Add(CardPresentation.WithParticle($"방어도 {b}","를","을")+" 얻습니다");
             if (h > 0) immediate.Add(CardPresentation.WithParticle($"체력 {h}","를","을")+" 회복합니다");
             if (card.draw > 0) immediate.Add($"카드 {card.draw}장을 뽑습니다");
@@ -149,6 +149,9 @@ namespace Lumia
             lines.AddRange(GroupEffects(effects));
             if (freeCastNote.Length > 0) lines.Add(freeCastNote);
             lines.AddRange(CrossSubjectSynergies.FullDescription(card));
+            string advanced = AdvancedCardMechanics.Description(card), companion = CompanionMechanics.Description(card);
+            if (!string.IsNullOrEmpty(advanced)) lines.Add(advanced);
+            if (!string.IsNullOrEmpty(companion)) lines.Add(companion);
             if (card.exhaust) lines.Add(FreeCastMechanics.ExhaustDescription(card));
             if (card.id == "basic_attack") lines.Add("장비 공격력과 기본 공격 강화가 적용됩니다. 기본 치명타 피해는 150%이며, 장비로 증가합니다.");
             if (lines.Count == 0) lines.Add("추가 효과 없이 행동합니다.");
@@ -163,8 +166,11 @@ namespace Lumia
             if (card == null) return "";
             int d = damage < 0 ? card.damage : damage, b = block < 0 ? card.block : block, h = heal < 0 ? card.heal : heal;
             var parts = new List<PreviewPart>();
-            string immediate = PreviewImmediate(card, d, b, h);
+            string immediate = AdvancedCardMechanics.IsX(card) || AdvancedCardMechanics.HasTargetChoice(card) ? "" : PreviewImmediate(card, d, b, h);
             if (immediate.Length > 0) parts.Add(new PreviewPart { text=immediate, priority=1000 });
+            string advanced = AdvancedCardMechanics.Summary(card), companion = CompanionMechanics.CardSummary(card);
+            if (!string.IsNullOrEmpty(advanced)) parts.Add(new PreviewPart { text=advanced, priority=1100 });
+            if (!string.IsNullOrEmpty(companion)) parts.Add(new PreviewPart { text=companion, priority=1100 });
             // A curated identity sentence must never hide a newly required recast condition.
             string curated = card.freeCastCondition == null ? PreviewIdentity(card) : null;
             if (curated != null)
@@ -309,6 +315,7 @@ namespace Lumia
                 case "silvia_r":return "연료가 있으면 바이크에 타고 탑승 중이면 내립니다. 연료를 1 소모합니다.";
                 case "coraline_w":return "백색 거울과 흑색 거울을 교대로 설치합니다.";
                 case "basic_attack":return "기본 치명타 피해는 150%이며, 장비로 증가합니다.";
+                case "isaac_e":return "첫 사용으로 검거를 준비합니다. 준비 후 적중 시 피해 전에 적의 방어도를 모두 없앱니다.";
                 default:return null;
             }
         }
@@ -320,6 +327,7 @@ namespace Lumia
             switch(rule.op)
             {
                 case "revive":return 940;
+                case "break_block":return 940;
                 case "discount":return 850;
                 case "bonus_damage":case "bonus_block":case "bonus_heal":return 820;
                 case "delayed_damage":case "summon":case "bleed":case "burn":return 800;
@@ -382,7 +390,8 @@ namespace Lumia
                 case "hot":text="턴 종료마다 체력을 "+scale+"씩 "+rule.duration+"회 회복하는 효과를 얻습니다";break;
                 case "guard":text="턴 종료마다 방어도를 "+scale+"씩 "+rule.duration+"회 얻는 효과를 얻습니다";break;
                 case "delayed_damage":text="턴 종료 "+rule.delay+"회 후 "+CardPresentation.WithParticle("피해 "+scale,"를","을")+" 주는 "+CardPresentation.WithParticle(rule.label??label,"를","을")+" 설치합니다";break;
-                case "counter":text=rule.duration+"턴 동안 턴당 1회 피해 "+scale+"의 반격 효과를 얻습니다";break;
+                case "counter":text=rule.duration+"턴 동안 "+(SkillMechanics.CounterEveryHit(card.id,rule.key)?"직접 공격에 맞을 때마다":"턴당 1회")+" 피해 "+scale+"의 반격 효과를 얻습니다";break;
+                case "break_block":text="피해 전에 적의 방어도를 모두 없앱니다";break;
                 case "empower_basic":text="다음 기본 공격 피해를 "+scale+" 늘리는 효과를 얻습니다";break;
                 case "revive":text=rule.duration+"턴 동안 치명상을 1회 막고 "+CardPresentation.WithParticle("체력 "+scale,"를","을")+" 회복하는 효과를 얻습니다";break;
                 default:return null;

@@ -79,7 +79,8 @@ namespace Lumia
             }
             RecordCombatCardStart(card,true,0,false);
             int raw=EnemyCardDamage(card),dealt=0,absorbed=0,defenderBlock=c.block;
-            bool landed=!Roll(Evasion);
+            bool accuracyMiss;
+            bool landed=TryDirectHit(card,true,out accuracyMiss);
             if(landed)
             {
                 var incoming=TraitEvent(false,"before_incoming",card,true);
@@ -89,10 +90,11 @@ namespace Lumia
                 StatusMechanics.DamageTaken(c.playerStatuses,dealt);
                 ApplyCardStatuses(true,c.enemySkills,card,true);
             }
-            EmitCombatAction(new CombatAction {id=++actionSerial,cardId=id,kind="wildlife_skill",enemy=true,damage=dealt,absorbed=absorbed,avoided=landed?0:1});
-            AfterCardTraits(true,card,landed,dealt,0,0,landed?0:1,true);
+            int avoided=!landed && !accuracyMiss ? 1 : 0;
+            EmitCombatAction(new CombatAction {id=++actionSerial,cardId=id,kind="wildlife_skill",enemy=true,damage=dealt,absorbed=absorbed,avoided=avoided,missed=accuracyMiss?1:0});
+            AfterCardTraits(true,card,landed,dealt,0,0,avoided,true);
             if(defenderBlock>0 && c.block==0)TraitEvent(false,"block_break",card,landed,dealt);
-            Say(c.enemyName+" · "+card.name+(landed ? " · 피해 "+dealt : " · 하나가 회피했습니다."));
+            Say(c.enemyName+" · "+card.name+(landed ? " · 피해 "+dealt : accuracyMiss ? " · 공격이 빗나갔습니다." : " · 하나가 회피했습니다."));
             if(!landed && id==WildlifeMechanics.BoarCharge)ApplyBoarDespair(id);
             if(landed)ResolveCounters(false);
             CheckBattleEnd();return true;

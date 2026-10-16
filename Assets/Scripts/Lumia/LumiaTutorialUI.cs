@@ -10,14 +10,14 @@ namespace Lumia
         GameEngine tutorialReturnEngine;
         bool tutorialReturnLobby, tutorialOffer, tutorialQueued;
         bool TutorialActive => tutorial != null;
-        bool CanPlayInformationCard(int index) => TutorialActive ? tutorial.CanPlay(index) && !effects.Casting : Engine != null && Engine.CanPlayCard(index) && !effects.Casting && Time.unscaledTime >= nextPlayerActionAt;
+        bool CanPlayInformationCard(int index) => TutorialActive ? tutorial.CanPlay(index) && !effects.Casting : Engine != null && !AdvancedCardChoiceOpen && Engine.CanPlayCard(index) && !effects.Casting && Time.unscaledTime >= nextPlayerActionAt;
         void PlayInformationCard(int index)
         {
             if (!CanPlayInformationCard(index)) return;
             if (TutorialActive) { tutorial.Play(index); ConsumeCombatActions(); }
-            else { Act(() => Engine.PlayCard(index)); nextPlayerActionAt = Time.unscaledTime + .18f; }
+            else BeginAdvancedCardPlay(index);
         }
-        string TutorialPreference => PresentationVerificationEnabled ? "bts.presentation.verify.tutorial" : "bts.tutorial.seen";
+        string TutorialPreference => PresentationVerificationEnabled ? "bts.presentation.verify.tutorial" : BrowserTutorialPreference("bts.tutorial.seen");
         void QueueNewRunTutorial() { tutorialQueued = PlayerPrefs.GetInt(TutorialPreference, 0) == 0; }
         void UpdateTutorialOffer()
         {
@@ -39,11 +39,11 @@ namespace Lumia
             Engine.CombatActions.Clear(); Engine = tutorialReturnEngine; lobby = tutorialReturnLobby;
             tutorial = null; tutorialReturnEngine = null; fieldInfo = inventory = false; inspectCard = "";
             CloseCombatInformation(); effects.Clear(); displayedTurn = -1;
-            PlayerPrefs.SetInt(TutorialPreference, 1); PlayerPrefs.Save();
+            PlayerPrefs.SetInt(TutorialPreference, 1); PlayerPrefs.Save(); BrowserPersistence.RequestSync();
             AudioCue("ui.select");
         }
         void SkipTutorialOffer()
-        { tutorialOffer = false; PlayerPrefs.SetInt(TutorialPreference, 1); PlayerPrefs.Save(); }
+        { tutorialOffer = false; PlayerPrefs.SetInt(TutorialPreference, 1); PlayerPrefs.Save(); BrowserPersistence.RequestSync(); }
         void DrawTutorialOffer()
         {
             Modal(new Rect(290, 180, 700, 345));

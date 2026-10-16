@@ -66,7 +66,7 @@ namespace Lumia
             Color available = p.canUse ? Mint : p.enemy ? Muted : Pink;
             Para(new Rect(209, 183, 851, 36), p.unavailableReason, 14, available);
             Box(new Rect(209, 224, 851, 52), Ink, Line);
-            string price = "현재 코스트 " + p.currentCost + " / 남은 " + p.energy + "    기본 " + p.baseCost;
+            string price = "현재 코스트 " + (AdvancedCardMechanics.IsX(card) ? "X (" + p.currentCost + ")" : p.currentCost.ToString()) + " / 남은 " + p.energy + "    기본 " + (AdvancedCardMechanics.IsX(card) ? "X" : p.baseCost.ToString());
             if (p.costPenalty > 0) price += " · 상태이상 가산 +" + p.costPenalty;
             if (p.discount > 0) price += " · 할인 −" + p.discount;
             if (p.hasFreeCast) price += " · 무료 사용권 " + p.freeUses + "회";
@@ -75,7 +75,7 @@ namespace Lumia
 
             var lines = new List<string>();
             if (!string.IsNullOrEmpty(upgrade)) lines.Add("강화 / " + upgrade + " · 이 카드 한 장에만 적용됩니다.");
-            lines.Add("피해 예측 / 일반 적중 " + p.normalDamage + " · 최대 " + p.hits + "회 적중 · 상대 방어도 " + p.targetBlock + " · 회피 확률 " + p.evasionChance + "%" + (p.criticalChance > 0 ? " · 기본 공격 치명타 " + p.criticalChance + "%" : ""));
+            lines.Add("피해 예측 / 일반 적중 " + p.normalDamage + " · 최대 " + p.hits + "회 적중 · 상대 방어도 " + p.targetBlock + (p.guaranteedHit ? " · 필중 (명중률 감소·회피 무시)" : " · 명중률 " + p.accuracyChance + "% · 상대 회피율 " + p.evasionChance + "%") + (p.criticalChance > 0 ? " · 기본 공격 치명타 " + p.criticalChance + "%" : ""));
             lines.Add(p.damageNote);
             if (!string.IsNullOrEmpty(p.bossWarning)) lines.Add("보스 대응 / " + p.bossWarning);
             lines.Add("조건 확인 / 아래 수치는 이 카드를 사용하기 직전의 필드를 기준으로 합니다. 적중이나 후속 행동을 요구하는 효과는 사용 전 확정되지 않습니다.");
@@ -94,7 +94,7 @@ namespace Lumia
             GUI.EndScrollView();
             if (Btn(new Rect(209, 560, 410, 43), "확인 닫기", false, Mint)) { CloseCombatInformation(); return; }
             bool mayPlay = !p.enemy && p.canUse && CanPlayInformationCard(p.handIndex);
-            if (Btn(new Rect(635, 560, 425, 43), p.enemy ? "상대 행동 정보" : p.canUse ? "이 카드 사용  ·  코스트 " + p.currentCost : "현재 사용할 수 없음", true, Gold, mayPlay))
+            if (Btn(new Rect(635, 560, 425, 43), p.enemy ? "상대 행동 정보" : p.canUse ? "이 카드 사용  ·  코스트 " + (AdvancedCardMechanics.IsX(card) ? "X (" + p.currentCost + ")" : p.currentCost.ToString()) : "현재 사용할 수 없음", true, Gold, mayPlay))
             {
                 int index = p.handIndex; CloseCombatInformation(); PlayInformationCard(index);
             }
@@ -148,7 +148,7 @@ namespace Lumia
                         string origin = card == null ? "전투 흐름" : WildlifeMechanics.IsAnimalSkill(card.id) ? card.owner + " · 동물 전용 기술" : card.owner + " " + card.key + " · " + CardPresentation.ClassificationLabel(card);
                         string upgrade = entry.enemy ? "" : Engine.CardUpgradeLabel(entry.cardId);
                         if (!string.IsNullOrEmpty(upgrade)) origin += " · 강화 / " + upgrade;
-                        string metrics = "체력 피해 " + entry.damage + " / 방어 흡수 " + entry.absorbed + " / 회피 " + entry.avoided + " / 방어 +" + entry.block + " / 회복 +" + entry.heal + (entry.paidCost >= 0 ? " / 지불 코스트 " + entry.paidCost : "");
+                        string metrics = "체력 피해 " + entry.damage + " / 방어 흡수 " + entry.absorbed + " / 명중 실패 " + entry.missed + " / 회피 " + entry.avoided + " / 방어 +" + entry.block + " / 회복 +" + entry.heal + (entry.paidCost >= 0 ? " / 지불 코스트 " + entry.paidCost : "");
                         Para(new Rect(12, y + rowHeight - 48, 853, 44), origin + "\n" + metrics, 11, Muted);
                     }
                 }

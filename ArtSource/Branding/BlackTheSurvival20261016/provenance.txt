@@ -1,0 +1,5 @@
+Source reference: https://www.megacrit.com/press-kits/slay-the-spire/
+Source image: https://www.megacrit.com/images/ssColor-1.png
+User-directed text replacement: Slay -> Black, Spire -> Survival; exact resulting title Black The Survival; pixel-art conversion.
+Tool: built-in image_gen, transparent_background=true.
+Style reference: Assets/Resources/Lumia/UltimateAnimations/nia.png

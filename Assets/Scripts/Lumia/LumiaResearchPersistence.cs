@@ -40,14 +40,15 @@ namespace Lumia
                 using (var stream = new FileStream(temporary, FileMode.CreateNew, FileAccess.Write, FileShare.None))
                 using (var writer = new StreamWriter(stream, new UTF8Encoding(false)))
                 {
-                    writer.Write(json); writer.Flush(); stream.Flush(true);
+                    writer.Write(json); writer.Flush(); BrowserPersistence.Flush(stream);
                 }
-                if (File.Exists(path)) File.Replace(temporary, path, backup ? path + ".bak" : null);
+                if (File.Exists(path)) BrowserPersistence.ReplaceFile(temporary, path, backup ? path + ".bak" : null);
                 else File.Move(temporary, path);
             }
             finally
             {
                 if (File.Exists(temporary)) File.Delete(temporary);
+                BrowserPersistence.RequestSync();
             }
         }
 
@@ -90,7 +91,11 @@ namespace Lumia
                         if (!ResearchTerminal(state) || state.research == null || !state.research.begun || state.research.legacyEnded) continue;
                         ResearchSettlement report; string error;
                         bool changed = researchStore.TrySettle(state, out report, out error);
-                        if (string.IsNullOrEmpty(error) && (changed || researchStore.Profile.settledRunIds.Contains(state.research.runId))) File.Delete(path);
+                        if (string.IsNullOrEmpty(error) && (changed || researchStore.Profile.settledRunIds.Contains(state.research.runId)))
+                        {
+                            File.Delete(path);
+                            BrowserPersistence.RequestSync();
+                        }
                     }
                     catch (Exception error) { Debug.LogWarning("보관한 연구 정산 재시도: " + error.Message); }
                 }

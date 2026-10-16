@@ -22,7 +22,7 @@ namespace Lumia
         { this.id = id; this.title = title; this.frames = frames; }
     }
 
-    /// <summary>Run-local progress. Replays are transient UI and never write to this record.</summary>
+    /// <summary>Run-local playback and a recoverable copy of account-wide viewed story IDs.</summary>
     [Serializable] public sealed class StoryRunProgress
     {
         public int version = 1;
@@ -65,9 +65,59 @@ namespace Lumia
             if (state == null || state.stage != RunStage.Won || state.endlessRetired || RunModes.ModeFor(state) == RunMode.Endless) return null;
             return RunModes.ModeFor(state) == RunMode.Hard ? HardEnding : NormalEnding;
         }
-        public static StoryRunProgress NewRun(RunState state)
+        public static StoryRunProgress NewRun(RunState state, ResearchProfile profile = null)
         {
-            return new StoryRunProgress { runId = RunIdentity(state), activeSceneId = Prologue, frameIndex = 0 };
+            var progress = new StoryRunProgress { runId = RunIdentity(state), activeSceneId = Prologue, frameIndex = 0 };
+            ApplyRemembered(progress, RememberedScenes(profile));
+            return progress;
+        }
+
+        public static void NormalizeHistory(ResearchProfile profile)
+        {
+            if (profile == null) return;
+            profile.seenStories = (profile.seenStories ?? new List<string>()).Where(id => Find(id) != null).Distinct().ToList();
+            profile.storyHistoryVersion = Math.Max(0, profile.storyHistoryVersion);
+        }
+
+        // Old profiles have clear records but no account-wide viewing record. Migrate
+        // them once; a saved unfinished cutscene remains available at its saved frame.
+        public static List<string> RememberedScenes(ResearchProfile profile, RunState previousRun = null)
+        {
+            var result = (profile?.seenStories ?? new List<string>()).Where(id => Find(id) != null).Distinct().ToList();
+            if (profile != null && profile.storyHistoryVersion == 0)
+            {
+                string active = previousRun?.story?.activeSceneId;
+                // A terminal save may be written immediately before the first
+                // ending is queued. Its clear flag is not proof of viewing yet.
+                string unviewedVictory = previousRun?.story != null ? VictoryScene(previousRun) : null;
+                if (previousRun?.story?.completedScenes?.Contains(unviewedVictory) == true) unviewedVictory = null;
+                if (profile.totalRuns > 0 && active != Prologue) AddSeen(result, Prologue);
+                if ((profile.normalCleared || profile.hardCleared) && active != NormalEnding && unviewedVictory != NormalEnding) AddSeen(result, NormalEnding);
+                if (profile.hardCleared && active != HardEnding && unviewedVictory != HardEnding) AddSeen(result, HardEnding);
+            }
+            foreach (string id in previousRun?.story?.completedScenes ?? new List<string>()) AddSeen(result, id);
+            return result;
+        }
+
+        public static bool RememberStories(ResearchProfile profile, RunState previousRun, IEnumerable<string> additional = null)
+        {
+            if (profile == null) return false;
+            var before = (profile.seenStories ?? new List<string>()).ToArray();
+            int version = profile.storyHistoryVersion;
+            var remembered = RememberedScenes(profile, previousRun);
+            foreach (string id in additional ?? new string[0]) AddSeen(remembered, id);
+            profile.seenStories = remembered;
+            profile.storyHistoryVersion = Math.Max(1, version);
+            return version != profile.storyHistoryVersion || !before.SequenceEqual(remembered);
+        }
+
+        static void AddSeen(List<string> ids, string id) { if (Find(id) != null && !ids.Contains(id)) ids.Add(id); }
+        public static void ApplyRemembered(StoryRunProgress progress, IEnumerable<string> ids)
+        {
+            if (progress == null) return;
+            if (progress.completedScenes == null) progress.completedScenes = new List<string>();
+            foreach (string id in ids ?? new string[0]) AddSeen(progress.completedScenes, id);
+            if (progress.completedScenes.Contains(progress.activeSceneId)) ClearActive(progress);
         }
 
         // Legacy saves continue at their existing game state. An already finished legacy run
@@ -103,9 +153,10 @@ namespace Lumia
             var progress = Normalize(state);
             return progress == null ? null : Find(progress.activeSceneId);
         }
-        public static bool QueueVictory(RunState state)
+        public static bool QueueVictory(RunState state, ResearchProfile profile = null)
         {
             var progress = Normalize(state); string ending = VictoryScene(state);
+            ApplyRemembered(progress, profile?.seenStories);
             if (progress == null || ending == null || !string.IsNullOrEmpty(progress.activeSceneId) || progress.completedScenes.Contains(ending)) return false;
             progress.activeSceneId = ending; progress.frameIndex = 0; return true;
         }
@@ -137,6 +188,7 @@ namespace Lumia
         static void ClearActive(StoryRunProgress progress) { progress.activeSceneId = null; progress.frameIndex = 0; }
         public static bool ReplayAvailable(string sceneId, ResearchProfile profile)
         {
+            if (Find(sceneId) != null && (profile?.seenStories ?? new List<string>()).Contains(sceneId)) return true;
             if (sceneId == Prologue) return true;
             if (sceneId == NormalEnding) return profile != null && (profile.normalCleared || profile.hardCleared);
             return sceneId == HardEnding && profile != null && profile.hardCleared;

@@ -1,0 +1,28 @@
+{
+  "reviewed": true,
+  "face": "All twelve frames keep magenta eyes and a readable centered small toothy mouth; no cheek mole/dot.",
+  "style": "Initial Nia-like compact chibi: large silver hair blocks, connected dark contours, restrained shading and readable face.",
+  "motion": "Brace/channel/twist/raised arc/horizontal slash/forward lance/recoil/return; physical arms/torso/knees change.",
+  "continuity": "Same white hair, burgundy shirt, black coat/trousers/boots and VF colors; feet grounded to one baseline.",
+  "isolation": "Separated frames 5, 7, 8 and 12 visually reviewed after strict alpha-zero gutter partition; no neighboring-frame strip visible.",
+  "scope": "Preview folder only. Runtime Echion atlas, Subjects/echion and main gallery unchanged.",
+  "partition_alpha_nonzero": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gif_full_frames": true,
+  "gif_decoded_alpha_matches": true,
+  "webp_visible_rgba_lossless": true,
+  "fps": 8,
+  "duration_ms": 1500,
+  "game_integrated": false
+}

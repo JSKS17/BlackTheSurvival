@@ -1,0 +1,270 @@
+{
+  "type": "unintegrated_loading_animation_preview",
+  "generatedWith": "built-in image_gen.imagegen",
+  "width": 960,
+  "height": 520,
+  "fps": 10,
+  "seconds": 8,
+  "characterPoseCount": 16,
+  "cells": [
+    {
+      "left": 0,
+      "top": 0,
+      "width": 320,
+      "height": 360,
+      "anchorX": 154,
+      "anchorY": 344,
+      "bbox": [
+        52,
+        48,
+        256,
+        345
+      ],
+      "boundaryMaxAlpha": 1,
+      "label": "오른쪽 걷기 A"
+    },
+    {
+      "left": 320,
+      "top": 0,
+      "width": 320,
+      "height": 360,
+      "anchorX": 142,
+      "anchorY": 344,
+      "bbox": [
+        363,
+        49,
+        562,
+        345
+      ],
+      "boundaryMaxAlpha": 1,
+      "label": "오른쪽 걷기 B"
+    },
+    {
+      "left": 640,
+      "top": 0,
+      "width": 297,
+      "height": 360,
+      "anchorX": 142,
+      "anchorY": 344,
+      "bbox": [
+        681,
+        48,
+        884,
+        345
+      ],
+      "boundaryMaxAlpha": 1,
+      "label": "오른쪽 걷기 C"
+    },
+    {
+      "left": 937,
+      "top": 0,
+      "width": 317,
+      "height": 360,
+      "anchorX": 158,
+      "anchorY": 344,
+      "bbox": [
+        993,
+        49,
+        1197,
+        345
+      ],
+      "boundaryMaxAlpha": 1,
+      "label": "오른쪽 걷기 D"
+    },
+    {
+      "left": 0,
+      "top": 360,
+      "width": 320,
+      "height": 315,
+      "anchorX": 151,
+      "anchorY": 292,
+      "bbox": [
+        52,
+        370,
+        251,
+        653
+      ],
+      "boundaryMaxAlpha": 1,
+      "label": "멈춤"
+    },
+    {
+      "left": 320,
+      "top": 360,
+      "width": 320,
+      "height": 315,
+      "anchorX": 147,
+      "anchorY": 292,
+      "bbox": [
+        368,
+        370,
+        567,
+        653
+      ],
+      "boundaryMaxAlpha": 1,
+      "label": "위 확인"
+    },
+    {
+      "left": 640,
+      "top": 360,
+      "width": 297,
+      "height": 315,
+      "anchorX": 154,
+      "anchorY": 292,
+      "bbox": [
+        681,
+        401,
+        908,
+        653
+      ],
+      "boundaryMaxAlpha": 12,
+      "label": "낙하 대비"
+    },
+    {
+      "left": 937,
+      "top": 360,
+      "width": 317,
+      "height": 287,
+      "anchorX": 148,
+      "anchorY": 284,
+      "bbox": [
+        938,
+        495,
+        1232,
+        645
+      ],
+      "boundaryMaxAlpha": 15,
+      "label": "로고에 깔림"
+    },
+    {
+      "left": 0,
+      "top": 675,
+      "width": 320,
+      "height": 275,
+      "anchorX": 168,
+      "anchorY": 249,
+      "bbox": [
+        25,
+        787,
+        311,
+        925
+      ],
+      "boundaryMaxAlpha": 2,
+      "label": "납작 엎드림"
+    },
+    {
+      "left": 320,
+      "top": 675,
+      "width": 320,
+      "height": 256,
+      "anchorX": 166,
+      "anchorY": 243,
+      "bbox": [
+        336,
+        767,
+        636,
+        919
+      ],
+      "boundaryMaxAlpha": 10,
+      "label": "고개 들기"
+    },
+    {
+      "left": 640,
+      "top": 675,
+      "width": 297,
+      "height": 256,
+      "anchorX": 152,
+      "anchorY": 241,
+      "bbox": [
+        659,
+        707,
+        926,
+        917
+      ],
+      "boundaryMaxAlpha": 6,
+      "label": "원 업 시작"
+    },
+    {
+      "left": 937,
+      "top": 647,
+      "width": 317,
+      "height": 284,
+      "anchorX": 170,
+      "anchorY": 271,
+      "bbox": [
+        993,
+        665,
+        1221,
+        919
+      ],
+      "boundaryMaxAlpha": 3,
+      "label": "무릎으로 부활"
+    },
+    {
+      "left": 0,
+      "top": 950,
+      "width": 320,
+      "height": 304,
+      "anchorX": 173,
+      "anchorY": 268,
+      "bbox": [
+        48,
+        976,
+        299,
+        1219
+      ],
+      "boundaryMaxAlpha": 1,
+      "label": "몸 일으키기"
+    },
+    {
+      "left": 320,
+      "top": 931,
+      "width": 320,
+      "height": 323,
+      "anchorX": 154,
+      "anchorY": 289,
+      "bbox": [
+        372,
+        932,
+        577,
+        1221
+      ],
+      "boundaryMaxAlpha": 4,
+      "label": "헤드폰 정리"
+    },
+    {
+      "left": 640,
+      "top": 931,
+      "width": 297,
+      "height": 323,
+      "anchorX": 143,
+      "anchorY": 289,
+      "bbox": [
+        685,
+        932,
+        881,
+        1221
+      ],
+      "boundaryMaxAlpha": 4,
+      "label": "자세 회복"
+    },
+    {
+      "left": 937,
+      "top": 931,
+      "width": 317,
+      "height": 323,
+      "anchorX": 156,
+      "anchorY": 288,
+      "bbox": [
+        996,
+        933,
+        1190,
+        1220
+      ],
+      "boundaryMaxAlpha": 5,
+      "label": "대기"
+    }
+  ],
+  "sourcePixels": "Original PNG bytes unchanged; canvas crop/translation and nearest-neighbor drawing only. No alpha cleanup. Partition alpha under 16 is preserved.",
+  "oneUpReference": "Assets/Resources/Lumia/SkillIcons/nia_e.png",
+  "gameIntegrated": false
+}

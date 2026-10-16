@@ -1,0 +1,78 @@
+{
+  "id": "echion-preview-20261015",
+  "name": "에키온",
+  "ultimate": "VF폭주 / 독사의 진노",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a13fec-314d-7502-a24e-c5bba62264f4/exec-5696f35e-32e1-40dd-b739-bac39b94b592.png",
+  "reference_paths": [
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/echion.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "sources": [
+    {
+      "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
+      "title": "님블뉴런 공식 1.0.0 실험체: VF폭주 / 독사의 진노"
+    }
+  ],
+  "visual_review": "백발과 선명한 붉은 눈, 칼날 팔의 정체성을 유지했습니다. VF 집속·몸통 비틀기·강한 휘두름·반동이 서로 다른 몸 자세로 읽힙니다.",
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "ebd402686b030241dd23f4524992f1cb6012c1290cabdabe16a6b6d327cad132",
+  "width": 1972,
+  "height": 1479,
+  "motion_summary": "Echion: white spiky hair, pale fierce face, black red costume, purple VF energy blade-arm. His R first enters VF rampage then unleashes uncontrolled VF forward. Animate idle blade down; lowering center of gravity; clutching charged arm; purple VF cracks surge; raising transformed arm; twisting torso back; heavy horizontal forward blade-arm slash; forward VF lance with serpent-like contour; recoil with bent knees; venting violet particles; arm lowers; exact idle returns. Preserve identity eye shape. Bright fuchsia/violet/white energy with dark crimson edges; no separate pet serpent and no gun.",
+  "frame_labels": [
+    "준비",
+    "자세 낮추기",
+    "VF 모으기",
+    "폭주 진입",
+    "칼날 팔 들기",
+    "몸통 비틀기",
+    "독사의 진노 휘두르기",
+    "VF 방출",
+    "반동",
+    "폭주 잔광",
+    "칼날 회수",
+    "준비 복귀"
+  ],
+  "game_integrated": false,
+  "preview_revision": "original-prompt-echion-20261015",
+  "ground_alignment": "per-frame",
+  "intended_airborne_frames": [],
+  "generated_source_sha256": "67dc73b46a9c570d90c3eba56d874527a285e982594a3d72ccad92ab9ec3775c",
+  "generated_source_file": "generated-sheet.png",
+  "normalization": "normalization.json",
+  "frame_layout": "fixed-grid",
+  "frame_gutter": 24,
+  "subject_id": "echion",
+  "prompt_sha256": "94d564845a8a9444a12c192d0358be3165245050c033250679ed0ee7e9260182",
+  "reference_sha256": [
+    "e393b17bece5a7bba9ab3d76069e8b3af185bdfd700eaa532b898e9b211a898f",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
+  ],
+  "generation_history": [
+    {
+      "stage": "new generation from original prompt",
+      "tool": "built-in image_gen.imagegen",
+      "prompt_file": "prompt.txt",
+      "source_file": "first-pass-sheet.png",
+      "reference_paths": [
+        "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/echion.png",
+        "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+      ],
+      "selected": false,
+      "reason": "translucent neighboring-row effect fragment found in separated-frame visual review"
+    },
+    {
+      "stage": "layout-only containment correction",
+      "tool": "built-in image_gen.imagegen",
+      "prompt_file": "layout-correction-prompt.txt",
+      "source_file": "generated-sheet.png",
+      "reference_paths": [
+        "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\EchionPreview20261015\\first-pass-sheet.png"
+      ],
+      "selected": true
+    }
+  ]
+}

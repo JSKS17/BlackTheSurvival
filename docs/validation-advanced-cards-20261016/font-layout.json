@@ -1,0 +1,11 @@
+{
+    "result": "PASS",
+    "failure": "",
+    "version": "1.0.6",
+    "screenshots": 0,
+    "textMeasurements": 63,
+    "isolatedSavePath": true,
+    "allModalBoundsOnScreen": true,
+    "fontOnly": true,
+    "views": []
+}

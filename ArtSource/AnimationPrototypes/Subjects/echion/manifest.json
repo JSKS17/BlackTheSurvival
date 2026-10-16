@@ -2,137 +2,111 @@
   "id": "echion",
   "name": "에키온",
   "ultimate": "VF폭주 / 독사의 진노",
-  "columns": 4,
-  "rows": 3,
-  "fps": 8,
-  "tool": "built-in image_gen.imagegen",
-  "generated_path": "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-62e89ba0-2c8a-4929-a40c-8cf0101cb08a.png",
-  "raw_filename": "generated-sheet.png",
+  "generated_path": "C:/Users/azxar/.codex/generated_images/01a13fec-314d-7502-a24e-c5bba62264f4/exec-5696f35e-32e1-40dd-b739-bac39b94b592.png",
   "reference_paths": [
-    "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-137b4d85-ba3d-44f6-ad6b-523f31f81cba.png"
-  ],
-  "reference_roles": [
-    "Fresh2-head atlas single edit target: containment and bold pixel correction only."
-  ],
-  "official_reference_sources": [
-    {
-      "url": "https://drive.google.com/uc?export=download&id=1yrZsdIBk9wTGdnGXIxm5fmZ4G-IDyq2V",
-      "title": "Official Eternal Return default full-body fan-kit illustration"
-    }
+    "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/echion.png",
+    "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
   ],
   "sources": [
     {
       "url": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR",
-      "title": "님블뉴런 공식 1.0.0 실험체: 에키온 VF폭주 / 독사의 진노"
-    },
-    {
-      "url": "https://drive.google.com/uc?export=download&id=1yrZsdIBk9wTGdnGXIxm5fmZ4G-IDyq2V",
-      "title": "원작 기본 전신 원화 · 공식 자료"
+      "title": "님블뉴런 공식 1.0.0 실험체: VF폭주 / 독사의 진노"
     }
   ],
-  "motion_summary": "VF팔을 움켜쥐고 뒤로 당긴 뒤 짧은 칼날 휘두르기와 전방 자홍빛 방출로 이어집니다. 팔을 회수하며 조각을 배출하고 준비 자세로 복귀합니다.",
-  "frame_labels": [
-    "VF팔 준비와 자신만만한 웃음",
-    "무릎을 굽혀 팔 돌리기",
-    "VF손가락 움켜쥐기",
-    "팔을 뒤로 당기기",
-    "각진 VF칼날 전개",
-    "가로 휘두르기",
-    "대각선 휘두르기",
-    "짧은 전방 VF방출",
-    "팔을 접으며 조각 배출",
-    "무릎을 굽힌 반동",
-    "VF팔 가라앉히기",
-    "준비와 웃음 복귀"
-  ],
-  "intended_airborne_frames": [],
-  "ground_alignment": "per-frame",
-  "preview_revision": "chibi2-20261014",
-  "design_intent": {
-    "heads_tall": 2,
-    "head_fraction": 0.5,
-    "body_fraction": 0.5,
-    "pixel_cluster_screen_px": [
-      4,
-      6
+  "visual_review": {
+    "reviewed": true,
+    "face": "All twelve frames keep magenta eyes and a readable centered small toothy mouth; no cheek mole/dot.",
+    "style": "Initial Nia-like compact chibi: large silver hair blocks, connected dark contours, restrained shading and readable face.",
+    "motion": "Brace/channel/twist/raised arc/horizontal slash/forward lance/recoil/return; physical arms/torso/knees change.",
+    "continuity": "Same white hair, burgundy shirt, black coat/trousers/boots and VF colors; feet grounded to one baseline.",
+    "isolation": "Separated frames 5, 7, 8 and 12 visually reviewed after strict alpha-zero gutter partition; no neighboring-frame strip visible.",
+    "scope": "Preview folder only. Runtime Echion atlas, Subjects/echion and main gallery unchanged.",
+    "partition_alpha_nonzero": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
     ],
-    "hair_shading_planes": [
-      3,
-      4
-    ],
-    "standing_body_target_px": [
-      180,
-      210
-    ],
-    "baseline_local_y": 310
+    "gif_full_frames": true,
+    "gif_decoded_alpha_matches": true,
+    "webp_visible_rgba_lossless": true,
+    "fps": 8,
+    "duration_ms": 1500,
+    "game_integrated": false
   },
-  "normalization_required": false,
-  "frame_layout": "fixed-grid",
-  "frame_gutter": 24,
-  "visual_review": "직접 시각 검토: 머리가 몸 높이 약절반이며 원작 자홍 눈·흰 이빨의 작은 웃음·볼점 없음·동일 쪽 VF팔·자주색 부츠끈과 은색 앞코를 유지했습니다. 6/7휘두르기와8전방방출에서 어깨/팔/몸이 실제로 움직이고 발은 지면을 유지합니다. 8프레임 방출폭이 줄어 외곽 투명여백이 확보됐습니다. 머리 큰 명암면이 읽히나 작은 의상선이 일부남습니다. root 경계 및 발 정렬 검토 대기.",
-  "generation_history": [
-    {
-      "prompt": "Create a BRAND-NEW character-specific ultimate animation sheet. Exactly12 sequential frames,4columns×3rows, transparent RGBA. References: 1 is the APPROVED LARGE-PIXEL TWO-HEAD STYLE MASTER, use its coarse block rendering and head/body ratio only. 2 is original Nia's362px animation frame, controlling pixel-to-canvas scale/readability only. 3 is authentic original full-body character illustration, IDENTITY/CLOTHES/PROP/FACE only. DO NOT render the fine detail or adult proportions of ref3. Do NOT copy Bihyung or Nia's face/hair/clothes/weapon.\n\nTRUE TWO-HEAD CHIBI: head including hair crown-to-chin is HALF the standing crown-to-sole body height; the compact torso+short legs together are the other half. Body~180-210px high in a360px cell, head~90-105px. Same skull size, torso/limb lengths and camera/scale across12 frames. Knees/torso may bend but never stretch into2.5/3heads. Every planted sole lies at the SAME per-cell ground baseline, no invented jump or hover. Raised freefoot okay only if other foot remains planted.\n\nMUCH BIGGER PIXELS: looks like a tiny60-72logical-pixel cell magnified5× with HARD square nearest-neighbor blocks. Minimum visible logical strokes/outline clusters~4-6physicalpixels in a360px cell. Use BOLD connected dark stepped outlines and visibly square chunky edges. No1px fine linework, hair strands, cloth stitch grain, gradients, soft glow noise, smooth anime rendering. Simplify official microdetails into SINGLE LARGE PIXEL blocks. Hair only3-4 distinct BIG angular shadow/mid/light masses and connected highlights, as reference1. Eye-white/colorediris/darkupperlid and mouth need clear separate LARGE readable pixel clusters, not glossy generic animeeyes. Keep each original face expression.\n\nSmall figures with VERY WIDE EMPTY GUTTERS. In every~360×360 cell ALL body/weapon/props/effects together fit inside a~250×250px box, at least40-50px fully transparent on top,bottom,left,right. Effects and weapons never cross a cell boundary or sheet outside. Transparent alpha truly empty outside scene, no fog/noise speckles. No background/grid/labels/text/numbers/checkerboard. No image-to-image repaint of an old atlas; draw all12 new physical poses.\n\nECHION exactoriginal: silver-lavender hair swept upward/back in broad spikes, dark roots/frontlocks. ANGLED brows and MAGENTA eyes, confident THIN TOOTHY GRIN with clearlyvisible dark centered mouth+small white toothblock. NO cheekmole/cheekdot. Do not use a blank dollmouth orNia's sleepyface. Black highcollar coat over fitted BURGUNDY shirt, loose black CARGO trousers with burgundy straps, burgundy-strapped tall COMBAT BOOTS with SILVER TOE CAPS. His VF arm is white/black segmented cybernetic forearm with bright magenta panels and clawlike fingers, always the SAME anatomical side. No separate serpent/fantasy monster.\n\nR is his own unstable VF power release/arm evolution.12poses:1 claw ready confident grin;2 knees brace and forearm rotates tofront;3 flex claw/fingers with small magenta panels lighting;4 elbow pulls back and torso twists;5 VFarm grows angular blade segments, free hand balances;6 swing arm forward acrossbody, compact magenta trail;7 controlled diagonal VFblade sweep containedin250pxscene;8 strong front palm/claw thrust with short broad angular magentaVFbolt;9 arm foldsback and ventsshards;10 body recoils slightly with kneesbent;11 VFsegments settle/retract while arm lowers;12 original ready/grin. No stationarybody+FXonly; physical shoulder/elbow/torso changes. Keep shortVFblade/bolt to leave40-50px blank gutters, no othercell overlap. Allsolesgrounded atsamebaseline, nojump.",
-      "generated_path": "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-137b4d85-ba3d-44f6-ad6b-523f31f81cba.png",
-      "reference_paths": [
-        "C:/Users/azxar/BlackTheSurvival/Temp/Chibi2Redraw/style/bihyung-master.png",
-        "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
-        "C:/Users/azxar/BlackTheSurvival/Temp/Chibi3Redraw/references/echion-official-full.png"
-      ]
-    },
-    {
-      "prompt": "Keep this brand-new two-head character's original identity, facial expression, clothes, weapon, anatomical sides and all12 distinct physical motions. Do not refer to old tall drafts or make a different character. Correct only SCALE/GUTTERS/PIXEL SIZE.\n\nEvery whole scene is TOO LARGE now. REDRAW every actor+props+effects at about70% current linear dimensions, centered inside its own4x3 cell. Human standing height200-215px maximum. Maintain HEAD HALF of body and identical anatomy/skull size acrossall12. Grounded supportfoot baseline shared in everycell. Do not shrink the head alone or stretchbody.\n\nLarge pixels must stay visibly LARGE after this recompose: deliberately draw as a40-48logical-pixel-high body magnified5×; eachhead only20-24logicalpixels high. A logicalpixel is ONE SOLID5×5screenpixel square with hard steps. No fine1px texture/strand outlines/clothgrain. Hair has3-4 massive stepped value planes. Simplify all originalmicrodetails into big square symbols. Connected dark outline5pxwide; clear white/colorediris/darklid and short readablemouth. It must look visibly coarse like originalNia animation, not a detailed illustration simply shrunk.\n\nALL rendered content has at least45px completely empty transparentpadding inside everycell, and neighboring scenes have at least70px clear gaps. Everyeffect/weaponfits within250×250px maximumscene. No faint glow/fog/speckles in padding. Keep4x3 transparent12frames, no text/grid.\nEchion magentaeyes/confidentthinWHITE-TOOTHGRIN/centeredmouth, NOcheekmole. Preserve same VF anatomicalarm, blackcoat/burgundyshirt/strapsboots+silvertoecap. SHORTEN everyVFblade/bolt, especially frame8(right of middlerow) white-magenta forwardburst by about50%, until it ends45px BEFORE rightedge. Do not obscure hisface. Allsolesremainplanted. Hairblocks and grinmustread, nomouthlost.",
-      "generated_path": "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-62e89ba0-2c8a-4929-a40c-8cf0101cb08a.png",
-      "generated_source_sha256": "5b23b9dbd2982c98458911f05fc98828e74bbdb8c0170e5cb7d71f370d3717f5",
-      "reference_paths": [
-        "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-137b4d85-ba3d-44f6-ad6b-523f31f81cba.png"
-      ],
-      "reference_sha256": {
-        "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-137b4d85-ba3d-44f6-ad6b-523f31f81cba.png": "41018f4bdae4b92bd665cc7004620a307776df5aa8aae2ab72975f5f3410dbc8"
-      }
-    }
+  "columns": 4,
+  "rows": 3,
+  "fps": 8,
+  "tool": "built-in image_gen.imagegen",
+  "atlas_sha256": "ebd402686b030241dd23f4524992f1cb6012c1290cabdabe16a6b6d327cad132",
+  "width": 1972,
+  "height": 1479,
+  "motion_summary": "Echion: white spiky hair, pale fierce face, black red costume, purple VF energy blade-arm. His R first enters VF rampage then unleashes uncontrolled VF forward. Animate idle blade down; lowering center of gravity; clutching charged arm; purple VF cracks surge; raising transformed arm; twisting torso back; heavy horizontal forward blade-arm slash; forward VF lance with serpent-like contour; recoil with bent knees; venting violet particles; arm lowers; exact idle returns. Preserve identity eye shape. Bright fuchsia/violet/white energy with dark crimson edges; no separate pet serpent and no gun.",
+  "frame_labels": [
+    "준비",
+    "자세 낮추기",
+    "VF 모으기",
+    "폭주 진입",
+    "칼날 팔 들기",
+    "몸통 비틀기",
+    "독사의 진노 휘두르기",
+    "VF 방출",
+    "반동",
+    "폭주 잔광",
+    "칼날 회수",
+    "준비 복귀"
   ],
-  "width": 2000,
-  "height": 1500,
-  "generated_sheet_sha256": "5b23b9dbd2982c98458911f05fc98828e74bbdb8c0170e5cb7d71f370d3717f5",
-  "source_sheet_sha256": "5b23b9dbd2982c98458911f05fc98828e74bbdb8c0170e5cb7d71f370d3717f5",
-  "generated_source_sha256": "5b23b9dbd2982c98458911f05fc98828e74bbdb8c0170e5cb7d71f370d3717f5",
-  "reference_sha256": [
-    "41018f4bdae4b92bd665cc7004620a307776df5aa8aae2ab72975f5f3410dbc8"
-  ],
-  "prompt_sha256": "30694657416ffb1eb9f9d51bd08898d8d16c0e0554745d09da7fd1f6e3c5236f",
-  "raw_outer_edge_opaque_counts": [
-    0,
-    0,
-    0,
-    0
-  ],
-  "candidate_status": "selected; artwork and ground review passed; game not integrated",
-  "atlas_sha256": "b3784a0c3e1d3b10ba57ec231cd13ec8c399065e8be3e38379d5134d82665769",
+  "game_integrated": true,
+  "preview_revision": "approved-original-prompt-echion-20261015",
+  "ground_alignment": "per-frame",
+  "intended_airborne_frames": [],
+  "generated_source_sha256": "67dc73b46a9c570d90c3eba56d874527a285e982594a3d72ccad92ab9ec3775c",
   "generated_source_file": "generated-sheet.png",
   "normalization": "normalization.json",
-  "official_reference_paths": [
-    "Temp/Chibi3Redraw/references/echion-official-full.png"
+  "frame_layout": "fixed-grid",
+  "frame_gutter": 24,
+  "subject_id": "echion",
+  "prompt_sha256": "94d564845a8a9444a12c192d0358be3165245050c033250679ed0ee7e9260182",
+  "reference_sha256": [
+    "e393b17bece5a7bba9ab3d76069e8b3af185bdfd700eaa532b898e9b211a898f",
+    "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa"
   ],
-  "official_reference_sha256": "f960bf836f1e6da8ce9878190dbcb44989d51a3146879197a595faff9df5f824",
-  "tool_input_paths_at_generation": [
-    "C:/Users/azxar/.codex/generated_images/01a13501-d19e-7c63-971c-97eb2a4dcfdc/exec-137b4d85-ba3d-44f6-ad6b-523f31f81cba.png"
-  ],
-  "target_head_body_ratio": 2,
-  "game_integrated": false,
-  "style_references": [
+  "generation_history": [
     {
-      "path": "ArtSource/AnimationPrototypes/Style/chibi2-reference.png",
-      "role": "two-head large-pixel drawing style",
-      "sha256": "1791664646896afe4d7a33a208c2e301b2daa2c978ca1c43e57fb043431b10c6"
+      "stage": "new generation from original prompt",
+      "tool": "built-in image_gen.imagegen",
+      "prompt_file": "prompt.txt",
+      "source_file": "ArtSource/AnimationPrototypes/EchionPreview20261015/first-pass-sheet.png",
+      "reference_paths": [
+        "C:/Users/azxar/BlackTheSurvival/Assets/Resources/Lumia/PortraitsReference/echion.png",
+        "C:/Users/azxar/BlackTheSurvival/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+      ],
+      "selected": false,
+      "reason": "translucent neighboring-row effect fragment found in separated-frame visual review"
     },
     {
-      "path": "ArtSource/AnimationPrototypes/Nia/frames/frame-00.png",
-      "role": "original native362px Nia pixel-to-image ratio",
-      "sha256": "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61"
+      "stage": "layout-only containment correction",
+      "tool": "built-in image_gen.imagegen",
+      "prompt_file": "layout-correction-prompt.txt",
+      "source_file": "ArtSource/AnimationPrototypes/EchionPreview20261015/generated-sheet.png",
+      "reference_paths": [
+        "C:\\Users\\azxar\\BlackTheSurvival\\ArtSource\\AnimationPrototypes\\EchionPreview20261015\\first-pass-sheet.png"
+      ],
+      "selected": true
     }
   ],
+  "approval_date": "2026-10-15",
+  "approval_timezone": "Asia/Seoul",
+  "approved_preview": "ArtSource/AnimationPrototypes/EchionPreview20261015",
+  "approved_atlas_sha256": "ebd402686b030241dd23f4524992f1cb6012c1290cabdabe16a6b6d327cad132",
+  "integration_method": "Approved atlas copied byte-for-byte; existing frame assembly and export pipeline",
   "official_reference_file": "official-reference.png",
-  "official_reference_source": "https://drive.google.com/uc?export=download&id=1yrZsdIBk9wTGdnGXIxm5fmZ4G-IDyq2V",
-  "historical_edit_inputs_not_redistributed": true
+  "official_reference_source": "https://drive.google.com/uc?export=download&id=1yrZsdIBk9wTGdnGXIxm5fmZ4G-IDyq2V"
 }

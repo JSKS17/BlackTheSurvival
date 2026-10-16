@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
 using System.Runtime.InteropServices;
 using System.Text;
+#endif
 using UnityEngine;
 
 namespace Lumia
@@ -78,6 +80,7 @@ namespace Lumia
 
         static void MigrateLegacySettings()
         {
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
             if (Application.platform != RuntimePlatform.WindowsPlayer && Application.platform != RuntimePlatform.WindowsEditor) return;
             string prefix = Application.platform == RuntimePlatform.WindowsEditor ? @"Software\Unity\UnityEditor\" : @"Software\";
             try
@@ -90,6 +93,7 @@ namespace Lumia
                 }
             }
             catch (Exception e) { Warn("이전 환경 설정을 가져오지 못했습니다", e); }
+#endif
         }
 
         internal enum LegacyValueKind { Unknown = 0, Binary = 3, DWord = 4 }
@@ -122,6 +126,7 @@ namespace Lumia
             return imported;
         }
 
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
         static LegacySetting ReadLegacySetting(NativeLegacyRegistry legacy, string key)
         {
             // Support Unity's suffixed decimal hash and older unsuffixed names, but read
@@ -134,6 +139,7 @@ namespace Lumia
             }
             return default(LegacySetting);
         }
+#endif
 
         static bool IsLegacySettingName(string name, string key)
         {
@@ -178,6 +184,7 @@ namespace Lumia
             return value == 0 || value == 1;
         }
 
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
         // Unity's .NET Standard profile omits Microsoft.Win32.Registry. These four
         // Windows APIs only open/query/enumerate/close; no write API is imported.
         sealed class NativeLegacyRegistry : IDisposable
@@ -247,6 +254,7 @@ namespace Lumia
             [DllImport("advapi32.dll", ExactSpelling = true)]
             static extern int RegCloseKey(IntPtr key);
         }
+#endif
 
         static void Warn(string context, Exception exception)
         {

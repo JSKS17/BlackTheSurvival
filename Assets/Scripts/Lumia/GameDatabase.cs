@@ -29,6 +29,8 @@ namespace Lumia
             // Returning projectiles, completed channels and delayed puppet follow-ups
             // open their reset on the actor's next turn rather than during this cast.
             foreach (string id in new[] { "vanya_q", "bianca_w", "chloe_e", "magnus_w" }) Card(id).freeCastNextTurn = true;
+            WeaponDamageBalance.Configure(Cards);
+            AdvancedCardMechanics.Configure(Cards);
             foreach (var card in Cards) card.description = CardPresentation.Describe(card, Cards);
             TraitMechanics.Configure(Passives, Runes);
             EquipmentIdentity.Configure(Gear);

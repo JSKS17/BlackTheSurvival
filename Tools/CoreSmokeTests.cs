@@ -15,6 +15,31 @@ public static partial class CoreSmokeTests
         try
         {
             if (args.Contains("--balance")) return BalanceSimulation.Run();
+            if (args.Contains("--advanced-only"))
+            {
+                AdvancedCardRuleDefinitions(); CompanionMechanicTests(); AdvancedCombatMechanics(); AdvancedCardPresentation();
+                Console.WriteLine("PASS: " + checks + " assertions across advanced card rules and Nina companion.");
+                return 0;
+            }
+            if (args.Contains("--weapon-only"))
+            {
+                WeaponSpecialMechanics(); WeaponAndTacticalDamageBalance();
+                Console.WriteLine("PASS: " + checks + " assertions across repeat Tonfa reflection, Isaac shield breaking and D/F damage balance.");
+                return 0;
+            }
+            if (args.Contains("--accuracy-only"))
+            {
+                AccuracyAndTargeting(); AccuracyMissAndEvasionHooks(); AccuracyEnemyAndPersistence(); AccuracySpecialAttacksAndDefense(); GarnetExecutionAndRecall();
+                Console.WriteLine("PASS: " + checks + " assertions across separate accuracy, targeted hits, blind, control, hooks and saves.");
+                return 0;
+            }
+            if (args.Contains("--story-only"))
+            {
+                StorySceneCatalogAndText(); StoryRunResumeAndLegacy(); StoryVictoryAndReplayIsolation(); StoryAccountHistoryTransactions();
+                LayeredStoryCompositionsAndProgress();
+                Console.WriteLine("PASS: " + checks + " assertions across story viewing history, migration, replays, save transactions and scene regressions.");
+                return 0;
+            }
             if (args.Contains("--rare-only"))
             {
                 RareEncounterV2(); RareCardUpgradesV2(); ResearchEncounterCoverage(); ResearchEncounterOffers(); RareEncounterAvailability(); RareSkinStoryIsolation();
@@ -33,9 +58,12 @@ public static partial class CoreSmokeTests
             EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); SubjectAndBossRewardCardLimits(); PendingSubjectRewardMigration(); WildlifeDropTables(); WildlifeSupplyRewards(); SubjectDropTables();
             ShopEconomy(); CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
             StarterLocksAndCeiling(); FullEnemyLoadouts(); EquipmentIdentityAndAlex();
+            WeaponSpecialMechanics(); WeaponAndTacticalDamageBalance();
+            AdvancedCardRuleDefinitions(); CompanionMechanicTests(); AdvancedCombatMechanics(); AdvancedCardPresentation();
             SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); CrossSubjectRules(); CrossSubjectCombatAndSave(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();
             OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates(); HealingDroneHealthTrigger(); RevisedEconomyAndEncounters();
+            AccuracyAndTargeting(); AccuracyMissAndEvasionHooks(); AccuracyEnemyAndPersistence(); AccuracySpecialAttacksAndDefense();
             ConditionalRecastPreparation(); ConditionalRecastEnemyForecast();
             StrategicUpgradeChoice(); StrategicRetain(); StrategicMapServices(); StrategicEncounterChains();
             BossProfileCoverage(); BossEntryAndReadOnlyGuides(); BossChallengeGoals(); BossPhaseTransitions();
@@ -53,7 +81,7 @@ public static partial class CoreSmokeTests
             CardClassificationCanonicalRules();
             CombatVisualProfileCoverage();
             TutorialRulesAndIsolation(); LobbyRandomDialogueIsolation();
-            StorySceneCatalogAndText(); StoryRunResumeAndLegacy(); StoryVictoryAndReplayIsolation();
+            StorySceneCatalogAndText(); StoryRunResumeAndLegacy(); StoryVictoryAndReplayIsolation(); StoryAccountHistoryTransactions();
             CombatInformationCatalogAndIsolation(); CombatInformationConditionsAndBoss(); CombatInformationHistoryAndSave();
             GarnetExecutionAndRecall();
             FoodEnergyCostsAndGuards(); DelayedRecastTurnsAndPersistence(); DelayedRecastEnemyParity();
@@ -117,7 +145,7 @@ public static partial class CoreSmokeTests
             foreach (var id in c.cards) Check(GameDatabase.Card(id) != null, "character skill exists: " + id);
         }
         foreach (var c in GameDatabase.Cards.Where(x => x.category != "basic"))
-            Check(c.cost >= 0 && c.cost <= 7 && (c.cost == Math.Max(!c.exhaust && (c.draw > 0 || c.energy > 0) ? 1 : 0, GameDatabase.CostForCooldown(c.cooldown)) || new[] { "justyna_q", "hisui_w", "tsubame_r" }.Contains(c.id)), "cooldown and resource-derived cost: " + c.id);
+            Check(c.cost >= 0 && c.cost <= 7 && (c.cost == Math.Max(!c.exhaust && (c.draw > 0 || c.energy > 0) ? 1 : 0, GameDatabase.CostForCooldown(c.cooldown)) || new[] { "justyna_q", "hisui_w", "tsubame_r" }.Contains(c.id) || c.cost==1 && (AdvancedCardMechanics.IsX(c) || AdvancedCardMechanics.HasForesight(c))), "cooldown, resource and explicit X/foresight cost: " + c.id);
         Check(GameDatabase.Cards.Select(c => c.cost).Distinct().OrderBy(x => x).SequenceEqual(Enumerable.Range(0, 8)), "cards cover zero through seven cost for a broad decision range");
         foreach (var c in GameDatabase.Cards)
         {
@@ -1469,7 +1497,7 @@ public static partial class CoreSmokeTests
         typeof(GameEngine).GetMethod("PlanEnemyTurn",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(e,null);
         Check(c.enemyPlan.SequenceEqual(new[]{"abigail_e","abigail_e"}) && c.enemyPlanCosts.SequenceEqual(new[]{2,0}),"a conditional full discount recalls one actual copy for enemy planning");
         e.CombatActions.Clear();e.BeginEndTurn();e.State.rngState=2;e.AdvanceEnemyAction();e.AdvanceEnemyAction();
-        Check(c.enemyAvailableEnergy==3 && e.CombatActions.Count(x=>x.enemy && x.kind==null)==1 && SkillMechanics.Discount(c.enemySkills,"abigail_e")==0,"missed conditional recall is cancelled even when energy could pay for the recalled copy");
+        Check(c.enemyAvailableEnergy==3 && e.CombatActions.Count(x=>x.enemy && x.kind==null)==2 && SkillMechanics.Discount(c.enemySkills,"abigail_e")==0,"targeted Abigail E lands through evasion and consumes its earned finite recalled copy");
         e=MechanicsFixture();c=e.State.combat;e.State.deck=new List<string>{"echion_e"};c.hand.Add("echion_e");c.enemyEvasion=100;
         Check(e.PlayCard(0) && SkillMechanics.Resource(c.playerSkills,"에키온","bite")==0 && SkillMechanics.Resource(c.playerSkills,"에키온","vf")==0 && c.playerSkills.discounts.Count==0 && c.hand.Count==0 && c.discardPile.SequenceEqual(new[]{"echion_e"}),"missed Echion E grants no mark, VF, discount or returned copy");
         e=MechanicsFixture();c=e.State.combat;c.hand.Add("celine_w");c.playerSkills.resources.Add(new SkillResource{owner="셀린",key="bomb",label="폭탄",amount=2,cap=4});c.playerSkills.resources.Add(new SkillResource{owner="셀린",key="fusion",label="융합",amount=1,cap=4});c.enemyBlock=5;int hp=c.enemyHp;
@@ -1607,7 +1635,9 @@ public static partial class CoreSmokeTests
             if(GameDatabase.Card(id).freeCastOnHit)
             {
                 var e=RecastFixture(id,target,resource,threshold,false);var c=e.State.combat;
-                Check(e.PlayCard(0)&&e.CombatActions.Last(a=>!a.enemy).avoided>0&&!RecastAvailable(c,target),id+": prepared attack must actually hit before it earns its reset");
+                if(AccuracyMechanics.GuaranteedHit(GameDatabase.Card(id)))
+                    Check(e.PlayCard(0)&&e.CombatActions.Last(a=>!a.enemy).avoided==0&&RecastAvailable(c,target),id+": targeted attack still lands through evasion and earns its prepared reset");
+                else Check(e.PlayCard(0)&&e.CombatActions.Last(a=>!a.enemy).avoided>0&&!RecastAvailable(c,target),id+": prepared attack must actually hit before it earns its reset");
                 if(id=="cathy_q")Check(SkillMechanics.Resource(c.playerSkills,GameDatabase.Card(id).owner,"wounded")==2,"a missed Cathy Q preserves the wound preparation rather than consuming it");
             }
         }
@@ -1839,7 +1869,7 @@ public static partial class CoreSmokeTests
         int rng=e.State.rngState;string snapshot=string.Join("|",e.SkillStateSnapshot(true).Select(x=>x.kind));for(int i=0;i<5;++i){var ignored=e.EnemyIntent;e.SkillStateSnapshot(true);}
         Check(e.State.rngState==rng && snapshot==string.Join("|",e.SkillStateSnapshot(true).Select(x=>x.kind)),"status previews are read-only and deterministic");
         var copy=StatusMechanics.Clone(c.enemyStatuses);copy.effects.Clear();Check(c.enemyStatuses.effects.Count==2,"status preview clones do not share effect instances");
-        Check(StatusMechanics.AccuracyPenalty(c.enemyStatuses)==25 && e.Evasion==25,"blind adds a single combined accuracy penalty");
+        Check(StatusMechanics.AccuracyPenalty(c.enemyStatuses)==25 && e.EnemyAccuracy==75 && e.Evasion==0,"blind reduces the attacker's accuracy without changing the defender's evasion");
         StatusMechanics.Add(c.playerStatuses,"fear","aya_r");int raw=GameDatabase.Card("basic_attack").damage;Check(e.CardDamage("basic_attack")==raw*4/5,"fear reduces attack damage moderately");
         StatusMechanics.Add(c.playerStatuses,"attack_down","darko_w");Check(e.CardDamage("basic_attack")==raw*4/5,"fear and attack reduction do not stack");
         c.playerStatuses.effects.RemoveAll(x=>x.kind=="silence");StatusMechanics.Add(c.playerStatuses,"heal_reduction","rozzi_w");e.State.hp=50;c.hand.Add("charlotte_w");e.PlayCard(0);Check(e.State.hp==56,"original healing reduction affects source recovery by twenty percent");

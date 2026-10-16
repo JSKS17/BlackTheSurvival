@@ -1,0 +1,12 @@
+{
+  "original_commit": "41ab261d3e12c6d8079292a03b73000750afcc53",
+  "original_git_path": "ArtSource/AnimationPrototypes/Subjects/echion/prompt.txt",
+  "original_prompt_sha256": "3be97bdfdc315f297ef3a6f081cacc311a2dfba14b1ba15ebc8b0fb1bcae704d",
+  "game_integrated": false,
+  "original_reference_paths": [
+    "Assets/Resources/Lumia/PortraitsReference/echion.png",
+    "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
+  ],
+  "official_identity_check_path": "ArtSource/AnimationPrototypes/Subjects/echion/official-reference.png",
+  "official_skill_source": "https://playeternalreturn.com/posts/news/1280?hl=ko-KR"
+}

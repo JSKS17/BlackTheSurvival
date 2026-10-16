@@ -53,6 +53,7 @@ namespace Lumia
         public List<SkillOwnerHistory> history = new List<SkillOwnerHistory>();
         public List<string> discountSources = new List<string>();
         public SynergyState synergy = new SynergyState();
+        public CompanionState companion = new CompanionState();
     }
     public sealed class SkillMechanicToken
     {
@@ -193,6 +194,7 @@ namespace Lumia
             if (actor.discounts == null) actor.discounts = new List<SkillCostDiscount>();
             if (actor.history == null) actor.history = new List<SkillOwnerHistory>();
             if (actor.discountSources == null) actor.discountSources = new List<string>();
+            CompanionMechanics.Ensure(actor);
             CrossSubjectSynergies.Ensure(actor);
             // Keep the owner/key/value layout used by existing saves, but restore binary semantics.
             foreach (var resource in actor.resources.Where(x => x.cap == 1 && IsState(x.owner, x.key)))
@@ -204,15 +206,16 @@ namespace Lumia
         }
         public static SkillActorState Clone(SkillActorState actor)
         {
-            actor = Ensure(actor);
-            return new SkillActorState {
-                resources = actor.resources.Select(x => new SkillResource { owner=x.owner, key=x.key, label=x.label, amount=x.amount, cap=x.cap, fraction=x.fraction,persistent=x.persistent,isState=x.isState }).ToList(),
-                effects = actor.effects.Select(x => new SkillTimedEffect { owner=x.owner, key=x.key, label=x.label, kind=x.kind, sourceCard=x.sourceCard, amount=x.amount, remaining=x.remaining, delay=x.delay, uses=x.uses,persistent=x.persistent,synergyBoosted=x.synergyBoosted,synergyBoostAmount=x.synergyBoostAmount }).ToList(),
-                discounts = actor.discounts.Select(x => new SkillCostDiscount { sourceCard=x.sourceCard, targetCard=x.targetCard, amount=x.amount }).ToList(),
-                history = actor.history.Select(x => new SkillOwnerHistory { owner=x.owner, cardId=x.cardId }).ToList(),
-                discountSources = actor.discountSources.ToList(),
-                synergy = CrossSubjectSynergies.Clone(actor.synergy)
-            };
+            actor = actor ?? new SkillActorState();
+            return Ensure(new SkillActorState {
+                resources = (actor.resources ?? new List<SkillResource>()).Select(x => new SkillResource { owner=x.owner, key=x.key, label=x.label, amount=x.amount, cap=x.cap, fraction=x.fraction,persistent=x.persistent,isState=x.isState }).ToList(),
+                effects = (actor.effects ?? new List<SkillTimedEffect>()).Select(x => new SkillTimedEffect { owner=x.owner, key=x.key, label=x.label, kind=x.kind, sourceCard=x.sourceCard, amount=x.amount, remaining=x.remaining, delay=x.delay, uses=x.uses,persistent=x.persistent,synergyBoosted=x.synergyBoosted,synergyBoostAmount=x.synergyBoostAmount }).ToList(),
+                discounts = (actor.discounts ?? new List<SkillCostDiscount>()).Select(x => new SkillCostDiscount { sourceCard=x.sourceCard, targetCard=x.targetCard, amount=x.amount }).ToList(),
+                history = (actor.history ?? new List<SkillOwnerHistory>()).Select(x => new SkillOwnerHistory { owner=x.owner, cardId=x.cardId }).ToList(),
+                discountSources = (actor.discountSources ?? new List<string>()).ToList(),
+                synergy = CrossSubjectSynergies.Clone(actor.synergy),
+                companion = CompanionMechanics.Clone(actor.companion)
+            });
         }
         public static int Resource(SkillActorState actor, string owner, string key)
         {
@@ -259,6 +262,13 @@ namespace Lumia
             bonus.damage = Clamp(bonus.damage, 0, 24); bonus.block = Clamp(bonus.block, 0, 24); bonus.heal = Clamp(bonus.heal, 0, 20);
             return bonus;
         }
+        // Shield destruction is evaluated from the state before this card is used,
+        // then applied only after a direct hit succeeds and before it absorbs damage.
+        public static bool BreaksBlock(SkillActorState actor, CardDef card, bool landed = true)
+        {
+            return card != null && actor != null && (card.mechanics?.rules ?? new SkillRule[0])
+                .Any(rule => rule.op == "break_block" && Condition(rule, actor, card, landed));
+        }
         public static int Discount(SkillActorState actor, string cardId)
         {
             return actor == null || actor.discounts == null ? 0 : actor.discounts.Where(x => x.targetCard == cardId).Select(x => Clamp(x.amount, 0, 7)).DefaultIfEmpty(0).Max();
@@ -269,6 +279,7 @@ namespace Lumia
         }
         public static void AfterCard(SkillActorState actor, SkillActorState before, CardDef card, bool landed, bool recordHistory = true, int paidCost = -1)
         {
+            actor = Ensure(actor);
             if (card.category == "basic" && card.key == "ATK") actor.effects.RemoveAll(x => x.kind == "empower_basic");
             if (card.mechanics != null)
                 foreach (var rule in card.mechanics.rules ?? new SkillRule[0])
@@ -351,12 +362,18 @@ namespace Lumia
             }
             return pulses;
         }
-        public static List<SkillPulse> Counters(SkillActorState defender)
+        public static bool CounterEveryHit(string sourceCard, string key) => sourceCard == "weapon_tonfa" && key == "spin";
+        public static List<SkillPulse> Counters(SkillActorState defender, int landedHits = 1)
         {
             var result = new List<SkillPulse>();
-            foreach (var effect in defender.effects.Where(x => x.kind == "counter" && x.uses == 0))
+            if (landedHits <= 0) return result;
+            foreach (var effect in defender.effects.Where(x => x.kind == "counter" && x.remaining > 0 && (x.uses == 0 || CounterEveryHit(x.sourceCard, x.key))))
             {
-                effect.uses++; result.Add(new SkillPulse { sourceCard=effect.sourceCard,key=effect.key, kind="counter", amount=Clamp(effect.amount, 0, 8),traitId=effect.owner?.StartsWith("trait:")==true?effect.owner.Substring(6):null });
+                int count = CounterEveryHit(effect.sourceCard, effect.key) ? landedHits : 1;
+                // Tonfa ignores the old save's uses value without growing it forever.
+                if (!CounterEveryHit(effect.sourceCard, effect.key)) effect.uses++;
+                for (int i = 0; i < count; i++)
+                    result.Add(new SkillPulse { sourceCard=effect.sourceCard,key=effect.key, kind="counter", amount=Clamp(effect.amount, 0, 8),traitId=effect.owner?.StartsWith("trait:")==true?effect.owner.Substring(6):null });
             }
             return result;
         }
@@ -431,7 +448,8 @@ namespace Lumia
                     case "hot": text = "자신의 턴 종료마다 체력을 " + amount + "씩 " + Clamp(rule.duration, 1, 3) + "회 회복하는 " + label + " 효과를 얻습니다"; break;
                     case "guard": text = "자신의 턴 종료마다 방어도를 " + amount + "씩 " + Clamp(rule.duration, 1, 3) + "회 얻는 " + label + " 효과를 얻습니다"; break;
                     case "delayed_damage": text = "자신의 턴 종료 " + Clamp(rule.delay, 1, 3) + "회 후 " + amount + "의 피해를 주는 " + CardPresentation.WithParticle(label,"를","을") + " 설치합니다"; break;
-                    case "counter": text = Clamp(rule.duration, 1, 3) + "턴 동안 적의 공격에 맞으면 " + amount + "의 피해로 반격하는 효과를 얻습니다(턴당 1회)"; break;
+                    case "counter": text = Clamp(rule.duration, 1, 3) + "턴 동안 적의 공격에 맞으면 " + amount + "의 피해로 반격하는 효과를 얻습니다" + (CounterEveryHit(card.id, rule.key) ? "(각 직접 적중마다, 횟수 제한 없음)" : "(턴당 1회)"); break;
+                    case "break_block": text = "피해를 주기 전에 적의 방어도를 모두 없앱니다"; note = "첫 추격으로 준비한 검거가 적중할 때만 발동합니다. 회피되거나 빗나가면 방어도는 유지되며, 방어도를 없앤 수치는 피해로 계산하지 않습니다."; break;
                     case "empower_basic": text = "다음 기본 공격의 첫 적중 피해를 " + amount + " 늘리는 강화 효과를 얻습니다(1회)"; break;
                     case "revive": text = Clamp(rule.duration, 1, 3) + "턴 동안 치명적인 피해를 1회 막고 체력을 " + amount + " 회복하는 효과를 얻습니다"; break;
                     case "clear_effect": text = label + "의 남은 지속 효과를 회수합니다"; break;

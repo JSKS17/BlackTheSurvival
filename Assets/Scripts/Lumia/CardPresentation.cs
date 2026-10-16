@@ -164,7 +164,9 @@ namespace Lumia
         {
             var lines = new List<string>();
             int d = damage < 0 ? c.damage : damage, b = block < 0 ? c.block : block, h = heal < 0 ? c.heal : heal;
-            if (d > 0) lines.Add(c.hits > 1 ? CardPresentation.WithParticle($"적에게 피해 {d}","를","을")+$" {c.hits}회 줍니다." : CardPresentation.WithParticle($"적에게 피해 {d}","를","을")+" 줍니다.");
+            if (d > 0 && !AdvancedCardMechanics.IsX(c)) lines.Add(c.hits > 1 ? CardPresentation.WithParticle($"적에게 피해 {d}","를","을")+$" {c.hits}회 줍니다." : CardPresentation.WithParticle($"적에게 피해 {d}","를","을")+" 줍니다.");
+            string accuracy = AccuracyMechanics.Description(c);
+            if (!string.IsNullOrEmpty(accuracy)) lines.Add(accuracy);
             if (b > 0) lines.Add(CardPresentation.WithParticle($"방어도 {b}","를","을")+" 얻습니다.");
             if (h > 0) lines.Add(CardPresentation.WithParticle($"체력 {h}","를","을")+" 회복합니다.");
             if (c.draw > 0) lines.Add($"카드 {c.draw}장을 뽑습니다.");
@@ -184,6 +186,9 @@ namespace Lumia
             lines.AddRange(DescriptionSummary.GroupEffects(effects));
             if (freeCastNote.Length > 0) lines.Add(freeCastNote);
             lines.AddRange(CrossSubjectSynergies.FullDescription(c));
+            string advanced = AdvancedCardMechanics.Description(c), companion = CompanionMechanics.Description(c);
+            if (!string.IsNullOrEmpty(advanced)) lines.Add(advanced);
+            if (!string.IsNullOrEmpty(companion)) lines.Add(companion);
             if (c.exhaust) lines.Add(FreeCastMechanics.ExhaustDescription(c));
             if (c.id == "basic_attack") lines.Add("장비의 공격력과 기본 공격 강화 효과를 받습니다. 기본 치명타 피해는 150%이며, 장비로 증가합니다. 별도로 발동하는 추가 피해에는 치명타가 적용되지 않습니다.");
             if (lines.Count == 0) lines.Add("턴을 준비하며 행동 기회를 얻습니다.");
@@ -193,6 +198,7 @@ namespace Lumia
         public static string Rules(CardDef c)
         {
             var lines = new List<string>();
+            if (c.damage > 0 && !AccuracyMechanics.GuaranteedHit(c)) lines.Add("기본 명중률은 100%입니다. 직접 공격의 각 타격마다 명중 판정 후 대상의 회피를 별도로 판정합니다. 실명은 명중률을 25%p 낮추며 필중에는 영향을 주지 않습니다.");
             if (c.block > 0) lines.Add("방어도는 피해를 먼저 막고 다음 내 턴이 시작될 때 사라집니다.");
             if (c.strength > 0) lines.Add("힘은 각 공격의 피해를 높입니다.");
             if (c.evasion > 0) lines.Add("카드의 회피 보너스는 가장 높은 값만 적용되며, 최종 회피율은 65%를 넘지 않습니다.");
@@ -228,6 +234,10 @@ namespace Lumia
         public static string DebuffRules(CardDef c)
         {
             var kinds = DebuffKinds(c);
+            // A possible full-charge control needs a rules explanation without
+            // classifying the uncharged attack as applying that control in combat.
+            if (c != null && CardInstances.BaseId(c.id) == "aiden_w" && !kinds.Contains("root")) kinds.Add("root");
+            if (c != null && CardInstances.BaseId(c.id) == "felix_r" && !kinds.Contains("stun")) kinds.Add("stun");
             if (kinds.Count == 0) return "";
             var statuses = (c.statuses ?? new CardStatusRule[0]).Where(x => x != null && !string.IsNullOrEmpty(x.key)).ToArray();
 

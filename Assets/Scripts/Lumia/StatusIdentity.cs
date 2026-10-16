@@ -47,6 +47,7 @@ namespace Lumia
             Add(table,"nicky_r","airborne");
             Add(table,"daniel_q","slow");
             Add(table,"daniel_w","slow");
+            Add(table,"daniel_w","blind");
             Add(table,"daniel_r","silence");
             Add(table,"tia_q","slow");
             Add(table,"tia_r","stun");

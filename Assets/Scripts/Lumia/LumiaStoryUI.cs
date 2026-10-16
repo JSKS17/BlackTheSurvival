@@ -23,20 +23,34 @@ namespace Lumia
         void InitializeRunStory()
         {
             CloseStoryReplay();
-            if (Engine != null) Engine.State.story = StoryScenes.NewRun(Engine.State);
+            EnsureStoryHistorySession();
+            if (!storyHistoryLoaded) RememberStoryHistory(null);
+            if (Engine != null)
+            {
+                Engine.State.story = StoryScenes.NewRun(Engine.State);
+                StoryScenes.ApplyRemembered(Engine.State.story, storyHistorySession);
+            }
         }
         void RestoreRunStory()
         {
             CloseStoryReplay();
-            if (Engine != null) StoryScenes.Normalize(Engine.State);
+            if (Engine != null)
+            {
+                StoryScenes.Normalize(Engine.State);
+                RememberStoryHistory(Engine.State);
+                StoryScenes.ApplyRemembered(Engine.State.story, storyHistorySession);
+            }
         }
         void UpdateStoryFlow()
         {
             if (lobby || Engine == null || storyReplaying || storyReplayMenu) return;
-            if (StoryScenes.QueueVictory(Engine.State)) WriteRunSave();
+            int completed = Engine.State.story?.completedScenes?.Count ?? 0;
+            if (StoryScenes.QueueVictory(Engine.State, researchStore?.Profile)
+                || completed != Engine.State.story.completedScenes.Count) WriteRunSave();
         }
         void OpenStoryReplayMenu()
         {
+            PreserveStoryBeforeNewRun();
             CloseStoryLayers(); storyReplayMenu = true; storyReplaying = false; storyReplayId = null;
         }
         bool OpenStoryReplay(string id)
@@ -83,7 +97,7 @@ namespace Lumia
                 GUI.Label(new Rect(narration.x + 18, narration.y + 12, narration.width - 36, narration.height - 24), frame.narration, storyNarrationStyle);
             }
             if (!string.IsNullOrEmpty(frame.dialogue)) DrawStoryDialogueText(frame, bubble);
-            Txt(new Rect(34, 607, 1210, 21), storyReplaying ? "스토리 다시보기 · 원정 진행과 보상은 바뀌지 않습니다." : "이전 · 다음으로 컷을 넘길 수 있습니다. 건너뛰어도 원정과 탈출 보상은 그대로 이어집니다.", 12, Muted);
+            Txt(new Rect(34, 607, 1210, 21), storyReplaying ? "스토리 다시보기 · 원정 진행과 보상은 바뀌지 않습니다." : "감상 완료하거나 건너뛴 이야기는 다시 자동 재생되지 않습니다. 로비에서 다시 볼 수 있습니다.", 12, Muted);
             if (Btn(new Rect(34, 647, 172, 42), storyReplaying ? "다시보기 종료" : "건너뛰기", false, Muted)) { FinishStoryDisplay(); return; }
             if (Btn(new Rect(222, 647, 172, 42), "<  이전", false, Mint, index > 0))
             {
@@ -97,16 +111,20 @@ namespace Lumia
                 if (storyReplaying)
                 {
                     if (index < scene.frames.Length - 1) storyReplayFrame++;
-                    else { CloseStoryReplay(); storyReplayMenu = true; }
+                    else FinishStoryDisplay();
                 }
-                else if (StoryScenes.Advance(Engine.State)) WriteRunSave();
+                else if (StoryScenes.Advance(Engine.State))
+                {
+                    if (StoryScenes.Pending(Engine.State) == null) RememberFinishedStory();
+                    else WriteRunSave();
+                }
             }
         }
 
         void FinishStoryDisplay()
         {
-            if (storyReplaying) { CloseStoryReplay(); storyReplayMenu = true; }
-            else if (Engine != null && StoryScenes.Skip(Engine.State)) WriteRunSave();
+            if (storyReplaying) { RememberReplayStory(); CloseStoryReplay(); storyReplayMenu = true; }
+            else if (Engine != null && StoryScenes.Skip(Engine.State)) RememberFinishedStory();
         }
         void DrawStoryReplayMenu()
         {
@@ -114,7 +132,7 @@ namespace Lumia
             Tex(new Rect(0, 0, W, H), PixelArt.Background(), ScaleMode.ScaleAndCrop);
             Fill(new Rect(0, 0, W, H), new Color(.02f, .04f, .07f, .82f));
             Txt(new Rect(60, 66, 1160, 48), "스토리 다시보기", 32, Pink);
-            Txt(new Rect(62, 126, 1156, 24), "프롤로그와 완료한 모드의 탈출 이야기를 다시 볼 수 있습니다.", 16, Muted);
+            Txt(new Rect(62, 126, 1156, 24), "한 번 본 이야기는 자동 재생하지 않습니다. 여기에서 프롤로그와 탈출 이야기를 다시 볼 수 있습니다.", 16, Muted);
             for (int index = 0; index < StoryScenes.All.Length; index++)
             {
                 var scene = StoryScenes.All[index]; bool unlocked = StoryScenes.ReplayAvailable(scene.id, researchStore?.Profile);

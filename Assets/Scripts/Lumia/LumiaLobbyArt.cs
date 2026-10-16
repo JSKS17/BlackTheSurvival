@@ -5,6 +5,7 @@ namespace Lumia
     public sealed partial class LumiaGame
     {
         PixelLayerSprite lobbyNiaPixels;
+        Texture2D lobbyLogo;
         RenderTexture lobbyBackgroundPixels;
         StoryCharacterGeometry lobbyNiaGeometry;
         bool lobbyArtOnly;
@@ -31,6 +32,17 @@ namespace Lumia
             var background = LobbyBackground(); var sprite = LobbyNia();
             Tex(new Rect(0, 0, W, H), background, ScaleMode.ScaleAndCrop);
             if (sprite != null) GUI.DrawTextureWithTexCoords(LobbyNiaRect(sprite), sprite.texture, sprite.uv, true);
+        }
+        void DrawLobbyLogo(Rect rect)
+        {
+            if (!lobbyLogo)
+            {
+                lobbyLogo = Resources.Load<Texture2D>("Lumia/Branding/black-the-survival-logo");
+                if (!lobbyLogo) return;
+                lobbyLogo.filterMode = FilterMode.Point;
+                lobbyLogo.wrapMode = TextureWrapMode.Clamp;
+            }
+            GUI.DrawTexture(rect, lobbyLogo, ScaleMode.ScaleToFit, true);
         }
         RenderTexture LobbyBackground()
         {

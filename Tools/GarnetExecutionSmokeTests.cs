@@ -82,8 +82,8 @@ public static partial class CoreSmokeTests
             && c.retainIndex == -1 && c.retainedCardId == null && c.freeCasts.Count == 0 && PileCount(c) == 1,
             "an unused recalled R exhausts when its free window closes and cannot be retained across turns");
 
-        bool firstMiss = false, recastMiss = false;
-        for (int seed = 1; seed <= 200 && (!firstMiss || !recastMiss); ++seed)
+        bool firstMiss = false, recastHit = false;
+        for (int seed = 1; seed <= 200 && (!firstMiss || !recastHit); ++seed)
         {
             if (!firstMiss)
             {
@@ -96,19 +96,18 @@ public static partial class CoreSmokeTests
                         "a fully evaded first R exhausts normally without a mark or a free recast"); firstMiss = true;
                 }
             }
-            if (!recastMiss)
+            if (!recastHit)
             {
                 e = GarnetFixture(); c = e.State.combat; e.PlayCard(0); c.enemyHp = 20; c.enemyEvasion = 100; e.State.rngState = seed;
+                StatusMechanics.Add(c.playerStatuses,"blind","weapon_camera");
+                Check(e.PreviewCardUse(0).guaranteedHit,"marked free Garnet recast preview discloses guaranteed hit");
                 e.PlayCard(0);
-                if (e.CombatActions.Last().avoided > 0)
-                {
-                    Check(c.enemyHp == 20 && !e.CombatActions.Last().execution && !RecastAvailable(c, card.id)
+                    Check(c.enemyHp == 0 && e.CombatActions.Last().execution && e.CombatActions.Last().avoided==0 && e.CombatActions.Last().missed==0 && !RecastAvailable(c, card.id)
                         && c.exhaustPile.SequenceEqual(new[] { card.id }),
-                        "an evaded free recast cannot execute and still spends its one free opportunity"); recastMiss = true;
-                }
+                        "marked free Garnet recast executes through blind and total evasion, spending its one free opportunity"); recastHit = true;
             }
         }
-        Check(firstMiss && recastMiss, "deterministic evasion fixtures cover both Garnet hits");
+        Check(firstMiss && recastHit, "deterministic evasion fixtures distinguish Garnet's skillshot from targeted recast");
 
         e = GarnetFixture(); c = e.State.combat; e.PlayCard(0); c.enemyHp = 20;
         c.enemySkills.effects.Add(new SkillTimedEffect { owner="fixture", key="life", kind="revive", sourceCard="nia_e", amount=18, remaining=2 });

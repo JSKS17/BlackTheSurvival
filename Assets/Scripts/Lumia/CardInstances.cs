@@ -150,6 +150,7 @@ namespace Lumia
             foreach (var pile in new[] { c.hand, c.drawPile, c.discardPile, c.exhaustPile })
                 if (pile != null) foreach (var reference in pile) yield return reference;
             yield return c.retainedCardId;
+            if(c.chargedCards!=null)foreach(var held in c.chargedCards)if(held!=null)yield return held.reference;
         }
 
         static int Serial(string reference)

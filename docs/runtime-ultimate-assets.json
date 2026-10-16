@@ -2,9 +2,9 @@
   "passed": true,
   "approvedAnimations": 91,
   "totalFrames": 1092,
-  "totalPngBytes": 163621225,
-  "sourceCatalogSha256": "abff1020edc144bc89f6e32ff2e75d1cadcbe7af938882f8c80f6ef8c0d13e2b",
-  "runtimeCatalogSha256": "6d7fd65a612cf99d828b186083e308c298a6b3b07c379d1651a90b531d1ccaba",
+  "totalPngBytes": 163907174,
+  "sourceCatalogSha256": "e96d3c7a7a918e0c25bb53aa513baf1591240927f926db518060acfa880701ab",
+  "runtimeCatalogSha256": "617ebbb7ae05cc44bacda162d2fc67cbcf257b343db60fea1a2786110b1a881e",
   "frameCoordinates": "Top-left source pixels; offsets are top-left placement within the recorded square canvas.",
   "artChanges": "None. All approved atlas PNGs copied byte-for-byte. No resizing, painting, cropping, or recompression.",
   "importing": "Default Texture2D, Point, Clamp, no mipmaps, no NPOT scaling, max 4096, uncompressed, input alpha, non-readable.",
@@ -501,17 +501,17 @@
       "name": "에키온",
       "source": "ArtSource/AnimationPrototypes/Subjects/echion/atlas.png",
       "destination": "Assets/Resources/Lumia/UltimateAnimations/echion.png",
-      "sourceSha256": "b3784a0c3e1d3b10ba57ec231cd13ec8c399065e8be3e38379d5134d82665769",
-      "bytes": 1258922,
+      "sourceSha256": "ebd402686b030241dd23f4524992f1cb6012c1290cabdabe16a6b6d327cad132",
+      "bytes": 1544871,
       "atlasSize": [
-        2000,
-        1500
+        1972,
+        1479
       ],
-      "canvas": 564,
+      "canvas": 557,
       "frameCount": 12,
       "framesPerSecond": 8,
       "validation": "ArtSource/AnimationPrototypes/Subjects/echion/validation.json",
-      "runtimeSha256": "b3784a0c3e1d3b10ba57ec231cd13ec8c399065e8be3e38379d5134d82665769",
+      "runtimeSha256": "ebd402686b030241dd23f4524992f1cb6012c1290cabdabe16a6b6d327cad132",
       "sourceBytesIdentical": true
     },
     {

@@ -1,0 +1,27 @@
+Use case: style-transfer.
+Asset type: an original transparent 16-frame pixel-art CHARACTER POSE atlas for a Black The Survival loading animation PREVIEW ONLY, not yet game integration.
+Input image 1 is NiaH's APPROVED R animation: authoritative PIXEL STYLE and character reference. Input image 2 is NiaH's existing lobby sprite: authoritative character face, palette, equipment and costume reference. Input image 3 is the existing cast pose: supporting anatomical/costume reference only. Reference identity faithfully, but draw a new coherent sequence.
+Produce ONE square canvas arranged in EXACTLY 4 columns and 4 rows of equal square cells, 16 sequential animation poses reading left to right then top to bottom. No drawn grid, no separators, no labels, no numbers, no text, no watermark, truly transparent background. These are isolated character cels that will be composited with a separate falling game logo later. DO NOT draw a logo, letters, floor or scenery in any cell.
+In EVERY cell show the SAME NiaH with exactly the same head/body proportions, the same full-body scale, and the same side-facing three-quarter view looking RIGHT. Upright body is roughly 70% cell height; fixed character center at 50% cell width, consistent foot/ground baseline 90% cell height. Even lying/squashed poses rest on that same ground baseline, NOT floating. Keep ample blank transparent margins inside EVERY cell. No frame may cross its cell border.
+NiaH identity: short wavy mauve/purple hair with side fringe, pink-lit black headphones, tired narrow half-lidded magenta eyes (small horizontal almond shapes, not round wide eyes), tiny closed mouth or tiny restrained smirk, dark oversized cropped gamer jacket with magenta piping and pale violet hood lining, black/magenta shorts, chunky black/pink boots, small black controller with pink buttons. Preserve her restrained gamer attitude. No shout, no huge grin, no huge mouth, no eye shape change. Small face remains readable, not hidden behind effects.
+Style: authentic compact chunky chibi pixel sprite matching the APPROVED R sheet, very large head and short limbs, roughly 60 logical pixels tall per upright character, clean square pixel clusters, restrained 3-tone shading, single pixel dark plum outlines, readable eye whites and tiny mouth. Crisp nearest-neighbor pixel edges ONLY. No smooth high-resolution illustration, no anti-aliasing, no gradients, no painterly detail.
+Animate actual arms/hands, knees/boots, torso lean, jacket hem, hair tips and controller orientation differently across poses. Do not duplicate a stationary sprite with changing particles or merely rotate a static character.
+The action is playful cartoon slapstick, NO gore, no wounds, no disturbing injury. A separate oversized game logo will fall onto her from above in playback; her anticipation/collapse/recovery poses need to make that readable.
+Frame choreography:
+1 walking RIGHT, left boot forward and right boot back, small arm swing, controller in right hand.
+2 walking RIGHT, legs passing, one boot slightly lifted, sleeves and hair shift.
+3 walking RIGHT, right boot forward and left boot back, opposite arm swing.
+4 walking RIGHT, second passing pose, body subtle down-bob, distinct knee angle.
+5 slows to stop, feet narrower, controller near waist, tired calm look.
+6 looks slightly up-right with half-lidded eyes, both knees bend, shoulders hunch to brace.
+7 impact anticipation, hands rise near headphones, crouches visibly lower, jacket sleeves pushed outward.
+8 comically compressed/sprawled on ground, face turned right and sideways, boots splayed, controller nearby in hand, not a standing character resized.
+9 fully flattened cartoon prone pose lying on belly along ground, elbows out, headphones and face intact, small restrained dazed expression.
+10 same prone position shifts one elbow and raises the head a little, tiny violet square spark at ground.
+11 prone body curls toward a kneel, a few crisp magenta/cyan square resurrection sparks, face unobscured.
+12 on one knee, controller held close, torso starts rising, upright violet pixel energy accents and small cyan-white square sparks, no letters.
+13 half-standing, one hand planted on ground and one knee still down, actual torso/arm change, energy fading.
+14 stands up from bent knees, adjusts headphones with left hand, relaxed tiny smirk, one last square spark.
+15 fully upright, adjusts jacket and brings controller back to waist.
+16 calm upright idle stance, half-lidded eyes and tiny mouth, both boots flat, no effects.
+Constraints: all sixteen cels clearly distinct, exactly two arms and hands, legs intact, no extra limbs. Controller stays small and consistent. All contents remain inside their own cells; same scale throughout (lying body's unfolded anatomical size equals standing body's size). Only NiaH and a restrained few pixel resurrection particles. Truly transparent background, no checkerboard drawn. Original approved R STYLE is top priority.

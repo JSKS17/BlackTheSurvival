@@ -1,0 +1,17 @@
+{
+  "Width": 1619,
+  "Height": 972,
+  "PixelFormat": "Format32bppArgb",
+  "FullyTransparentPixels": 949137,
+  "PartialAlphaPixels": 621472,
+  "OpaquePixels": 3059,
+  "AlphaBoundsAt128": [
+    141,
+    81,
+    1510,
+    906
+  ],
+  "Title": "Black the Survival",
+  "VisualCheck": "Correct words, readable gold pixel art, transparent background",
+  "Sha256": "8ECDC328DDE9D2B84C34C892040EB39C388FABA4570FF672643BB8E4EB2A33E7"
+}

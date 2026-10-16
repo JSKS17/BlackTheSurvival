@@ -129,10 +129,10 @@ namespace Lumia
                 color = color, accent = accent, seed = profile.seed ^ (action.id * 31 & 255) };
             burst.textUntil = Impact(burst) * duration + (reduced ? ReducedTextSeconds : ReadableTextSeconds);
             bursts.Add(burst);
-            if (action.damage > 0 || action.avoided > 0 || direct && card.damage > 0) burst.damageLane = ReserveFeedbackLane(!action.enemy);
+            if (action.damage > 0 || action.avoided > 0 || action.missed > 0 || direct && card.damage > 0) burst.damageLane = ReserveFeedbackLane(!action.enemy);
             if (action.heal > 0) burst.healLane = ReserveFeedbackLane(action.enemy);
             if (action.block > 0) burst.blockLane = ReserveFeedbackLane(action.enemy);
-            if (!direct && action.damage == 0 && action.avoided == 0 && action.heal == 0 && action.block == 0)
+            if (!direct && action.damage == 0 && action.avoided == 0 && action.missed == 0 && action.heal == 0 && action.block == 0)
                 burst.statusLane = ReserveFeedbackLane((action.kind ?? "").StartsWith("status_", StringComparison.Ordinal) ? !action.enemy : action.enemy);
             return duration;
         }
@@ -326,7 +326,7 @@ namespace Lumia
                 Vector2 target = b.action.enemy ? new Vector2(232, 282) : new Vector2(1015, 282);
                 bool status = (b.action.kind ?? "").StartsWith("status_", StringComparison.Ordinal);
                 bool stoppedWildlife = b.action.kind == "wildlife_interrupt" || b.action.kind == "wildlife_despair";
-                bool attack = !stoppedWildlife && (status || b.action.damage > 0 || b.action.avoided > 0 || b.card != null && (b.card.damage > 0 || b.card.poison > 0 || b.card.weak > 0 || b.card.vulnerable > 0));
+                bool attack = !stoppedWildlife && (status || b.action.damage > 0 || b.action.avoided > 0 || b.action.missed > 0 || b.card != null && (b.card.damage > 0 || b.card.poison > 0 || b.card.weak > 0 || b.card.vulnerable > 0));
                 float impactAt = Impact(b);
                 float hitProgress = Mathf.Clamp01((p - impactAt) / Mathf.Max(.1f, 1 - impactAt));
                 float alpha = Mathf.Min(1, (1 - p) * 3.5f);
@@ -358,8 +358,9 @@ namespace Lumia
                     if (b.action.damage > 0 && b.damageLane >= 0) Number(font, damageAt, label + (b.action.critical ? "치명타! −" : "−") + b.action.damage,
                         WithAlpha(b.action.critical ? new Color(1f, .82f, .39f) : new Color(1f, .58f, .51f), alpha), b.action.critical ? 24 : b.direct ? 21 : 14, b.direct ? 260 : 320);
                     if (VisualAlive(b) && b.action.critical && !motionReduced) Star(target, 25 * (1 - hitProgress), accent, 4, 0);
-                    if (b.direct && b.damageLane >= 0 && b.card.damage > 0 && b.action.damage == 0 && b.action.avoided == 0) Number(font, damageAt, "직접 피해 0", color, 16);
+                    if (b.direct && b.damageLane >= 0 && b.card.damage > 0 && b.action.damage == 0 && b.action.avoided == 0 && b.action.missed == 0) Number(font, damageAt, "직접 피해 0", color, 16);
                     if (b.action.avoided > 0 && b.damageLane >= 0) Number(font, damageAt, "회피!" + (b.action.avoided > 1 ? " ×" + b.action.avoided : ""), WithAlpha(new Color(.56f, .84f, .96f), alpha), 17);
+                    if (b.action.missed > 0 && b.damageLane >= 0) Number(font, damageAt + (b.action.avoided > 0 ? new Vector2(0, 24) : Vector2.zero), "빗나감" + (b.action.missed > 1 ? " ×" + b.action.missed : ""), WithAlpha(new Color(.75f, .73f, .84f), alpha), 17);
                     if (b.action.heal > 0 && b.healLane >= 0) Number(font, healAt, label + "+" + b.action.heal, WithAlpha(new Color(.65f, .91f, .57f), alpha), b.direct ? 20 : 14, 320);
                     if (b.action.block > 0 && b.blockLane >= 0) Number(font, blockAt, label + "방어 +" + b.action.block, color, b.direct ? 17 : 14, 320);
                     if (b.statusLane >= 0)

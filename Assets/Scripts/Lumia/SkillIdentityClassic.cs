@@ -144,7 +144,8 @@ namespace Lumia
             // Wilson's location changes bubble/pull outcomes and return empowers a basic.
             P(p, "sissela_q", 8, S("wilson", "윌슨 외출", 1, 1));
             P(p, "sissela_w", 0, Fx("delayed_damage", "bubble", "윌슨의 거품", 8), S("wilson", "윌슨 외출", 0, 1), Fx("empower_basic", "wilson_home", "윌슨 귀환", 5));
-            P(p, "sissela_e", 7, B("bonus_damage", 6, need:"wilson"), B("bonus_block", 8, need:"wilson", min:0, exact:true));
+            // Explicit self/enemy targeting is prepared by AdvancedCardMechanics.
+            P(p, "sissela_e", 7, B("bonus_damage", 6, need:"wilson")).block = 0;
             P(p, "sissela_r", 23, Fx("delayed_damage", "free", "모두 해방", 8), B("bonus_block", 6, need:"wilson", min:0, exact:true)).heal = 0;
 
             // Q/W/E generate finite fuel; Shift Gears toggles the bike and consumes it.
@@ -174,7 +175,9 @@ namespace Lumia
             // Three strikes exploit; Reinforce primes only one future attack.
             Exploit(p, "isaac_q", 9);
             P(p, "isaac_w", 0, Fx("empower_basic", "reinforce", "경화", 6), S("reinforce", "경화 준비", 1, 1));
-            Exploit(p, "isaac_e", 8, S("arrest", "검거", 1, 1), B("bonus_damage", 6, need:"arrest"), Spend("arrest", "검거", need:"arrest"));
+            // Original 1.4 moved shield destruction from Reinforce to Arrest (E2).
+            Exploit(p, "isaac_e", 8, S("arrest", "검거", 1, 1), B("bonus_damage", 6, need:"arrest"),
+                R("break_block", null, "보호막 파괴", 0, need:"arrest", hit:true), Spend("arrest", "검거", need:"arrest"));
             P(p, "isaac_r", 20, B("bonus_damage", 5, scale:"exploit", cap:3), Spend("exploit", "착취"));
 
             // Recognition -> infiltrating shot, plus actual successive EMP pulses.
@@ -199,7 +202,7 @@ namespace Lumia
 
             // Ampere -> backstep converts charge, a charged ring and two thunderbolts.
             P(p, "aiden_q", 7, G("ampere", "암페어", 1, 4, hit:true), B("bonus_damage", 4, need:"overcharge"), D("aiden_q", 1, need:"overcharge"), Spend("overcharge", "과전하", 1));
-            P(p, "aiden_w", 5, Fx("delayed_damage", "dissipation", "전하 소산", 8), Fx("burn", "sparkring", "전기 고리", 3, 2, need:"ampere", min:3));
+            P(p, "aiden_w", 8, Fx("burn", "sparkring", "전기 고리", 3, 2, need:"ampere", min:3));
             P(p, "aiden_e", 7, S("rush", "볼트 표식", 1, 1), B("bonus_damage", 6, need:"rush"), Spend("rush", "볼트 표식", need:"rush"), S("overcharge", "과전하", 2, 2, need:"ampere", min:3), Spend("ampere", "암페어", need:"ampere", min:3));
             P(p, "aiden_r", 16, S("ampere", "암페어", 4, 4), Fx("delayed_damage", "thunder", "두 번째 낙뢰", 13));
 
@@ -246,7 +249,8 @@ namespace Lumia
             P(p, "ian_r", 18, S("possessed", "빙의", 3, 3), Fx("hot", "ghost", "유령의 회복", 3, 3), B("bonus_damage", 3, scale:"thrash", cap:3), Spend("thrash", "난동"));
 
             // Sliders can be gathered during taunt, then sustain a short cyclone.
-            P(p, "eleven_q", 8, Fx("delayed_damage", "burger", "충전 버거", 5), G("slider", "미니 버거", 1, 4, hit:true));
+            // Charging is a hand-card choice, not an automatic delayed-damage pulse.
+            P(p, "eleven_q", 8, G("slider", "미니 버거", 1, 4, hit:true));
             P(p, "eleven_w", 0, B("bonus_heal", 3, scale:"slider", cap:4), Spend("slider", "미니 버거"), Fx("counter", "fork", "집중 도발", 3, 2));
             P(p, "eleven_e", 9, G("slider", "미니 버거", 1, 4, hit:true), B("bonus_damage", 5, previous:"eleven_w"));
             P(p, "eleven_r", 12, Fx("summon", "cyclone", "칼로리 회오리", 4, 3), Fx("hot", "cyclone", "회오리 회복", 3, 3)).heal = 4;
@@ -283,9 +287,10 @@ namespace Lumia
 
             // Nina attacks while commanded; theatre/recall relocate the doll.
             P(p, "chloe_q", 6, S("nina", "니나 전개", 1, 1), Fx("summon", "nina", "니나", 3, 3));
-            P(p, "chloe_w", 7, Fx("summon", "threads", "인형극 실", 3, 2), B("bonus_damage", 5, need:"nina"));
+            P(p, "chloe_w", 7, Fx("summon", "threads", "인형극 실", 3, 2, need:"nina"), B("bonus_damage", 5, need:"nina"));
             P(p, "chloe_e", 8, Fx("delayed_damage", "nina_recall", "니나 귀환", 6, need:"nina"));
-            P(p, "chloe_r", 12, Fx("counter", "soul_link", "생명 공유", 5, 2), Fx("summon", "nina", "연결된 니나", 6, 2, need:"nina"), D("chloe_w", 2), D("chloe_e", 2));
+            // CompanionMechanics supplies Nina HP, interception and finite life sharing.
+            P(p, "chloe_r", 12, Fx("summon", "nina", "연결된 니나", 6, 2), D("chloe_w", 2), D("chloe_e", 2));
 
             // Stigma feeds Last Judgement; shield and shackles mature separately.
             Stigma(p, "chiara_q", 8, Fx("hot", "corruption", "부정의 회복", 2, 2));
@@ -309,7 +314,7 @@ namespace Lumia
             Spear(p, "felix_q", 8, "bonus_damage", 8);
             Spear(p, "felix_w", 8, "bonus_block", 8);
             Spear(p, "felix_e", 7, "bonus_heal", 6);
-            P(p, "felix_r", 19, S("weaving", "연계 창술", 2, 3), Fx("delayed_damage", "hydra", "충전 뇌룡격", 9));
+            P(p, "felix_r", 19, S("weaving", "연계 창술", 2, 3));
 
             // Flowers bloom one action later; Q detonates, W shields, R bears fruit.
             P(p, "priya_q", 3, G("flower", "사라스바티 꽃", 1, 3, need:"flower", min:0, exact:true), B("bonus_damage", 5, scale:"flower", cap:3), Spend("flower", "사라스바티 꽃", need:"flower"));

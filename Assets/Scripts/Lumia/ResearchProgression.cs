@@ -28,6 +28,9 @@ namespace Lumia
     {
         public int version = 1, data, totalData, totalRuns, totalWins;
         public bool normalCleared, hardCleared;
+        // Account-wide story history survives replacing the current expedition.
+        public int storyHistoryVersion;
+        public List<string> seenStories = new List<string>();
         public List<ResearchSubjectProgress> subjects = new List<ResearchSubjectProgress>();
         public List<string> completedReports = new List<string>(), settledRunIds = new List<string>(), defeatedBosses = new List<string>(), synergyKeys = new List<string>();
         // The permanent ledger is separate from the twenty retained recent summaries.
@@ -91,6 +94,7 @@ namespace Lumia
             // All wins recorded before modes existed were normal-mode escapes.
             // Reading an older profile unlocks hard without paying rewards again.
             profile.normalCleared = profile.normalCleared || profile.hardCleared || profile.totalWins > 0;
+            StoryScenes.NormalizeHistory(profile);
             return profile;
         }
         public static ResearchRunState EnsureRun(RunState state, bool migrateExisting = false)

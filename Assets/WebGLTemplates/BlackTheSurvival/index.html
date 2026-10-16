@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0d14">
+  <title>블더스</title>
+  <link rel="icon" type="image/svg+xml" href="TemplateData/favicon.svg?v=nia-transparent-20261016">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/account-bridge.js"></script>
+</head>
+<body>
+  <div class="game-shell">
+    <main id="game-area">
+      <div id="game-frame">
+        <canvas id="unity-canvas" width="1280" height="720" tabindex="0" aria-label="블더스 게임 화면"></canvas>
+        <section id="loading" class="overlay" role="status" aria-live="polite" aria-busy="true">
+          <div class="loading-card">
+            <img id="loading-animation" src="TemplateData/nia-loading.webp" width="960" height="520" alt="" aria-hidden="true" fetchpriority="high">
+            <h1>실험을 준비하고 있습니다</h1>
+            <p id="loading-message">게임 파일을 불러오는 중입니다.</p>
+            <progress id="loading-progress" value="0" max="100" aria-label="게임 불러오기 진행률"></progress>
+            <p id="loading-percent" aria-hidden="true">0%</p>
+            <button id="retry" type="button" hidden>다시 불러오기</button>
+          </div>
+        </section>
+        <div id="notice" role="status" hidden></div>
+      </div>
+    </main>
+    <footer>
+      <span class="game-name">블더스 <small>v{{{ PRODUCT_VERSION }}}</small></span>
+      <span class="play-hint">화면을 클릭해서 조작 · 진행 상황은 이 브라우저에 저장됩니다</span>
+      <button id="fullscreen" type="button" disabled aria-label="전체 화면으로 플레이">전체 화면</button>
+    </footer>
+  </div>
+  <script>
+    "use strict";
+    const canvas = document.getElementById("unity-canvas");
+    const loading = document.getElementById("loading");
+    const animation = document.getElementById("loading-animation");
+    const message = document.getElementById("loading-message");
+    const progress = document.getElementById("loading-progress");
+    const percent = document.getElementById("loading-percent");
+    const retry = document.getElementById("retry");
+    const fullscreen = document.getElementById("fullscreen");
+    const notice = document.getElementById("notice");
+    const gameArea = document.getElementById("game-area");
+    const frame = document.getElementById("game-frame");
+    window.blackTheSurvival = { status: "loading", unityInstance: null, version: "{{{ PRODUCT_VERSION }}}" };
+    function reportLoading(type, progress, error) {
+      if (window.parent !== window) window.parent.postMessage({ type, ...(progress === undefined ? {} : { progress }), ...(error ? { error } : {}) }, window.location.origin);
+    }
+
+    function fitGame() {
+      const width = Math.floor(Math.min(gameArea.clientWidth, gameArea.clientHeight * 16 / 9));
+      frame.style.width = width + "px";
+      frame.style.height = Math.floor(width * 9 / 16) + "px";
+    }
+    new ResizeObserver(fitGame).observe(gameArea);
+    fitGame();
+
+    function fail(error, description) {
+      console.error(error);
+      window.blackTheSurvival.status = "error";
+      loading.hidden = false;
+      loading.setAttribute("aria-busy", "false");
+      animation.hidden = true;
+      loading.querySelector("h1").textContent = "게임을 불러오지 못했습니다";
+      message.textContent = description || "연결 상태를 확인하고 다시 불러와 주세요. 문제가 계속되면 최신 Chrome 또는 Edge에서 실행해 주세요.";
+      retry.hidden = false;
+      percent.hidden = true;
+      progress.hidden = true;
+      reportLoading("bts:load-error", undefined, message.textContent);
+    }
+    function banner(text, type) {
+      if (type === "error") { fail(text); return; }
+      if (type === "warning") console.warn(text);
+    }
+    retry.addEventListener("click", () => location.reload());
+    canvas.addEventListener("pointerdown", () => canvas.focus());
+    canvas.addEventListener("contextmenu", event => event.preventDefault());
+    fullscreen.addEventListener("click", () => {
+      if (window.blackTheSurvival.unityInstance) window.blackTheSurvival.unityInstance.SetFullscreen(1);
+      canvas.focus();
+    });
+    canvas.addEventListener("webglcontextlost", event => {
+      event.preventDefault();
+      fail("WebGL context lost");
+    });
+    if (location.protocol === "file:") {
+      fail("Unity Web builds must be served over HTTP or HTTPS.", "웹 게임은 임시 웹 주소 또는 로컬 웹 서버에서 열어 주세요.");
+    } else if (!document.createElement("canvas").getContext("webgl2")) {
+      fail("WebGL 2 is not available in this browser.", "브라우저의 하드웨어 가속을 켠 뒤 최신 Chrome 또는 Edge에서 다시 실행해 주세요.");
+    } else {
+      const buildUrl = "Build";
+      const config = {
+        dataUrl: buildUrl + "/{{{ DATA_FILENAME }}}",
+        frameworkUrl: buildUrl + "/{{{ FRAMEWORK_FILENAME }}}",
+        codeUrl: buildUrl + "/{{{ CODE_FILENAME }}}",
+#if MEMORY_FILENAME
+        memoryUrl: buildUrl + "/{{{ MEMORY_FILENAME }}}",
+#endif
+#if SYMBOLS_FILENAME
+        symbolsUrl: buildUrl + "/{{{ SYMBOLS_FILENAME }}}",
+#endif
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "{{{ COMPANY_NAME }}}",
+        productName: "{{{ PRODUCT_NAME }}}",
+        productVersion: "{{{ PRODUCT_VERSION }}}",
+        matchWebGLToCanvasSize: false,
+        devicePixelRatio: 1,
+        autoSyncPersistentDataPath: true,
+        showBanner: banner
+      };
+      const script = document.createElement("script");
+      script.src = buildUrl + "/{{{ LOADER_FILENAME }}}";
+      script.onerror = () => fail("The Unity loader could not be downloaded.");
+      script.onload = () => createUnityInstance(canvas, config, value => {
+        const amount = Math.floor(value * 100);
+        progress.value = amount;
+        percent.textContent = amount + "%";
+        reportLoading("bts:load-progress", amount);
+        if (value >= 0.9) message.textContent = "게임을 시작하고 있습니다.";
+      }).then(instance => {
+        window.blackTheSurvival.unityInstance = instance;
+        window.blackTheSurvival.status = "ready";
+        loading.hidden = true;
+        loading.setAttribute("aria-busy", "false");
+        reportLoading("bts:load-ready");
+        fullscreen.disabled = false;
+        canvas.focus();
+        window.BTSAccountBridge.attachUnity(instance);
+        window.dispatchEvent(new CustomEvent("blackthesurvivalready", { detail: instance }));
+      }).catch(fail);
+      window.BTSAccountBridge.prepare().then(() => document.body.appendChild(script)).catch(error => {
+        fail(error, error.message || "계정 저장 공간을 확인하지 못했습니다.");
+      });
+    }
+  </script>
+</body>
+</html>

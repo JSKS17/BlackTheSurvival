@@ -1,0 +1,12 @@
+{
+  "runtime_asset": "Assets\\Resources\\Lumia\\UltimateAnimations\\echion.png",
+  "tracked_head_sha256": "b3784a0c3e1d3b10ba57ec231cd13ec8c399065e8be3e38379d5134d82665769",
+  "sha256_before_assembly": "b3784a0c3e1d3b10ba57ec231cd13ec8c399065e8be3e38379d5134d82665769",
+  "sha256_after_assembly": "b3784a0c3e1d3b10ba57ec231cd13ec8c399065e8be3e38379d5134d82665769",
+  "unchanged": true,
+  "game_integrated": false,
+  "source_art_edited_in_code": false,
+  "every_translucent_pixel_in_partition_audit": true,
+  "all_partition_bands_completely_transparent": true,
+  "only_operations": "crop, integer translation, transparent padding, GIF/WebP encoding"
+}

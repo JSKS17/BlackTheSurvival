@@ -1,0 +1,37 @@
+{
+  "result": "PASS",
+  "date": "2026-10-16",
+  "focusedAssertions": 1043,
+  "fullAssertions": 140099,
+  "focusedCommand": "Tools/RunCoreTests.ps1 -AdvancedOnly",
+  "fullCommand": "Tools/RunCoreTests.ps1",
+  "runtimeTargets": [
+    {
+      "target": "UNITY_STANDALONE_WIN",
+      "result": "PASS",
+      "sources": 98,
+      "outputSha256": "0a7cf5b74c07e6f89c82169ed3ecc0b40fad9ba02fbcc94ef58c6a603ebb83be"
+    },
+    {
+      "target": "UNITY_WEBGL",
+      "result": "PASS",
+      "sources": 98,
+      "outputSha256": "d8d1aec826b6dcf4859d545ed850f9c74cf0a5239b23a554df36b0704673f056"
+    }
+  ],
+  "nativeWindowsBuild": "LUMIA BUILD Succeeded / errors=0",
+  "nativeAssemblySha256": "b6b75124231ae4351f1f33330eee3a75848a3647e72be06626bad7913aaf6ca9",
+  "nativeFontLayout": {
+    "result": "PASS",
+    "failure": "",
+    "version": "1.0.6",
+    "screenshots": 0,
+    "textMeasurements": 63,
+    "isolatedSavePath": true,
+    "allModalBoundsOnScreen": true,
+    "fontOnly": true,
+    "views": []
+  },
+  "screenshotVerification": "Not completed: hidden Windows player does not render OnGUI frames. Native font measurement and bounds checks passed.",
+  "gitHubReleaseUpdated": false
+}

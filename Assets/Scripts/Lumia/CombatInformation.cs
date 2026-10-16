@@ -15,9 +15,9 @@ namespace Lumia
     public sealed class CardUsePreview
     {
         public string cardId, name, classification, unavailableReason, bossWarning, damageNote;
-        public bool enemy, canUse, inHand, hasFreeCast, bossViolation, bossPossibleViolation;
+        public bool enemy, canUse, inHand, hasFreeCast, bossViolation, bossPossibleViolation, guaranteedHit;
         public int handIndex = -1, baseCost, currentCost, energy, discount, costPenalty, freeUses;
-        public int normalDamage, hits, targetBlock, evasionChance, criticalChance;
+        public int normalDamage, hits, targetBlock, accuracyChance, evasionChance, criticalChance;
         public List<CardConditionPreview> conditions = new List<CardConditionPreview>();
     }
 
@@ -27,7 +27,7 @@ namespace Lumia
         public int sequence, nodeId, act, turn;
         public string opponent, kind, cardId, traitId, title, detail;
         public bool enemy, critical, execution;
-        public int damage, block, heal, avoided, absorbed, paidCost = -1;
+        public int damage, block, heal, avoided, missed, absorbed, destroyedBlock, companionAbsorbed, paidCost = -1;
     }
 
     /// <summary>Read-only information models. Never resolve a card, sample RNG, or consume a grant.</summary>
@@ -164,7 +164,7 @@ namespace Lumia
         }
         CardUsePreview BuildCardUsePreview(string id, bool enemy, int handIndex)
         {
-            var card = enemy ? EnemyActionCard(id) : PlayerCard(id);
+            var card = enemy ? EnemyActionCard(id) : PreparedPlayerCard(id);
             var result = new CardUsePreview { cardId = id, enemy = enemy, handIndex = handIndex };
             if (card == null) { result.unavailableReason = "카드 정보가 없습니다."; return result; }
             result.name = card.name; result.classification = CardPresentation.ClassificationLabel(card); result.baseCost = card.cost;
@@ -174,7 +174,7 @@ namespace Lumia
             var traits = enemy ? c.enemyTraits : c.playerTraits;
             var statuses = enemy ? c.enemyStatuses : c.playerStatuses;
             result.currentCost = enemy ? EnemyEffectiveCardCost(id) : EffectiveCardCost(id);
-            result.energy = enemy ? c.enemyAvailableEnergy : c.energy;
+            result.energy = enemy ? c.enemyTurn?c.enemyAvailableEnergy:c.enemyEnergy : c.energy;
             result.discount = Math.Max(SkillMechanics.Discount(actor, card.id), SkillMechanics.Discount(traits.skills, card.id));
             result.costPenalty = StatusMechanics.CostPenalty(statuses, card);
             result.freeUses = (enemy ? c.enemyFreeCasts : c.freeCasts).Where(x => FreeCastMechanics.Matches(x,id)).Sum(x => x.uses);
@@ -188,11 +188,32 @@ namespace Lumia
             else if (!StatusMechanics.CanUse(statuses, card)) result.unavailableReason = InformationUseRestriction(statuses, card);
             else if (result.currentCost > result.energy && (!enemy || c.enemyTurn)) result.unavailableReason = "코스트가 " + (result.currentCost - result.energy) + " 부족합니다.";
             else result.unavailableReason = enemy ? "상대 예정 행동입니다. 앞선 행동의 적중·연계에 따라 변경될 수 있습니다." : "현재 사용할 수 있습니다.";
-            result.normalDamage = enemy ? EnemyDirectHitTotal(EnemyCardDamage(card), EnemyTotalBonusDamage(card, actor, traits, c.vulnerable), Math.Max(1, card.hits)) : CardTotalDamage(id);
+            if(enemy)
+            {
+                int planned=c.enemyPlan.FindIndex(c.enemyActionIndex, x=>x==id);
+                var action=EnemyAdvancedActionAt(planned);
+                int available=c.enemyTurn?c.enemyAvailableEnergy:c.enemyEnergy;
+                int price=AdvancedEnemyPrice(card,result.currentCost,available,result.hasFreeCast,action);
+                if(!c.enemyTurn && planned>=0 && planned<c.enemyPlanCosts.Count)price=c.enemyPlanCosts[planned];
+                result.currentCost=price;
+                card=AdvancedCardMechanics.PreparedCard(card,action.mode,action.charge,action.sacrificed,AdvancedCardMechanics.IsX(card)?result.hasFreeCast?0:price:0);
+                result.normalDamage=action.mode=="charge"?0:EnemyDirectHitTotal(EnemyCardDamage(card),EnemyTotalBonusDamage(card,actor,traits,c.vulnerable,EnemyAdvancedBonus(card,action,c.enemyHp,c.enemyBlock).damage),Math.Max(1,card.hits));
+            }
+            else result.normalDamage = CardTotalDamage(id);
             result.hits = Math.Max(1, card.hits); result.targetBlock = enemy ? c.block : c.enemyBlock;
             result.evasionChance = enemy ? Evasion : EnemyEvasion;
+            result.accuracyChance = enemy ? EnemyAccuracy : Accuracy;
+            result.guaranteedHit = AccuracyMechanics.GuaranteedHit(card, actor, result.hasFreeCast);
             result.criticalChance = card.id == "basic_attack" ? enemy ? EnemyCritChance : CritChance : 0;
-            result.damageNote = "일반 적중을 가정한 직접 피해 합계입니다. 현재 방어도·회피·피격 패시브·치명타·체력 제한은 차감하지 않았습니다. 설치물·지속 피해·후속 패시브 피해는 별도입니다.";
+            result.damageNote = "일반 적중을 가정한 직접 피해 합계입니다. 현재 방어도·명중 실패·회피·피격 패시브·치명타·체력 제한은 차감하지 않았습니다. 설치물·지속 피해·후속 패시브 피해는 별도입니다.";
+            result.damageNote += result.guaranteedHit ? " 이 카드의 직접 공격은 필중하여 명중률 감소와 대상 회피를 무시합니다." : " 각 직접 타격은 명중 판정 후 회피 판정을 따로 합니다. 명중 실패는 회피 성공 효과를 발동하지 않습니다.";
+            string advancedDescription=AdvancedCardMechanics.Description(enemy?GameDatabase.Card(id):PlayerCard(id));
+            if(!string.IsNullOrEmpty(advancedDescription))result.damageNote+=" "+advancedDescription;
+            if(!enemy && IsCharged(id))result.damageNote+=" 충전 완료: 현재 강화된 효과와 무료 발동을 반영했습니다.";
+            if ((card.mechanics?.rules ?? new SkillRule[0]).Any(rule => rule.op == "break_block"))
+                result.damageNote += SkillMechanics.BreaksBlock(actor, card)
+                    ? " 현재 검거가 준비되어 있어 적중하면 피해 전에 대상 방어도 " + result.targetBlock + "을 모두 없앱니다. 파괴한 방어도는 피해 합계에 포함되지 않습니다."
+                    : " 이번 사용은 검거를 준비하며 보호막을 파괴하지 않습니다. 준비 후 다음 사용이 적중해야 피해 전에 대상 방어도를 모두 없앱니다.";
             result.conditions = CombatInformation.Conditions(card, actor);
             if(enemy && WildlifeMechanics.IsAnimalSkill(id))
             {
@@ -207,11 +228,11 @@ namespace Lumia
                 bool mark = SkillMechanics.Resource(actor, card.owner, "embrace") > 0;
                 bool ready = FreeCastMechanics.GarnetExecutionReady(card, actor, result.hasFreeCast, targetHp, targetMaxHp);
                 result.conditions.Add(new CardConditionPreview {
-                    condition="이번 턴 무료 재사용 · 철처녀 표식 · 사용 전 체력 " + FreeCastMechanics.GarnetExecutionPercent + "% 이하 · 적중",
+                    condition="이번 턴 무료 재사용 · 철처녀 표식 · 사용 전 체력 " + FreeCastMechanics.GarnetExecutionPercent + "% 이하 · 필중",
                     effect="방어도를 무시하고 적의 남은 체력을 모두 없애 처형합니다.",
                     current="무료 사용권 " + result.freeUses + "회 · 철처녀 표식 " + (mark ? "활성" : "없음") + " · 대상 체력 " + targetHp + "/" + targetMaxHp,
                     met=ready, requiresHit=true,
-                    result=ready ? "현재 처형 조건 충족 · 재사용이 적중해야 처형" : "현재 처형 조건 미충족 · 일반 피해 적용" });
+                    result=ready ? "현재 처형 조건 충족 · 필중 재사용 시 처형" : "현재 처형 조건 미충족 · 일반 피해 적용" });
                 result.damageNote += " 가넷의 처형은 위 직접 피해와 별도로 표시한 조건을 확인하며, 재사용 피해를 주기 전 체력으로 판정합니다.";
             }
             if (!enemy) InformationBossWarning(result, card);
@@ -293,7 +314,10 @@ namespace Lumia
             string target = action.enemy ? "하나" : c.enemyName;
             if (action.damage > 0) parts.Add(target + " 체력 피해 " + action.damage);
             if (action.absorbed > 0) parts.Add(target + " 방어도 흡수 " + action.absorbed);
+            if (action.destroyedBlock > 0) parts.Add(target + " 방어도 파괴 " + action.destroyedBlock + " · 직접 피해 전 제거");
+            if (action.companionAbsorbed > 0) parts.Add(target + "의 니나가 피해 " + action.companionAbsorbed + "을 대신 받았습니다.");
             if (action.avoided > 0) parts.Add(target + " 회피 " + action.avoided + "회");
+            if (action.missed > 0) parts.Add("명중 실패 " + action.missed + "회");
             if (action.block > 0) parts.Add("방어도 +" + action.block);
             if (action.heal > 0) parts.Add("체력 회복 +" + action.heal);
             if (action.critical) parts.Add("치명타 " + Math.Max(1, action.criticalHits) + "회");
@@ -303,7 +327,7 @@ namespace Lumia
             if (parts.Count == 0) parts.Add(direct ? "직접 피해·방어·회복 수치 없음 · 카드의 조건·필드 효과를 처리했습니다." : "효과 발동");
             RecordCombatInformation(new CombatLogEntry { kind = direct ? "card_result" : status ? "debuff" : "effect", cardId = direct ? action.cardReference ?? action.cardId : action.cardId, traitId = action.traitId,
                 title = identity + (direct ? " 결과" : " 발동"), detail = string.Join(" · ", parts), enemy = action.enemy,
-                damage = action.damage, block = action.block, heal = action.heal, avoided = action.avoided, absorbed = action.absorbed, critical = action.critical, execution = action.execution });
+                damage = action.damage, block = action.block, heal = action.heal, avoided = action.avoided, missed = action.missed, absorbed = action.absorbed, destroyedBlock = action.destroyedBlock, companionAbsorbed = action.companionAbsorbed, critical = action.critical, execution = action.execution });
         }
         static string InformationKind(string kind)
         {
@@ -312,6 +336,7 @@ namespace Lumia
                 case "bleed": return "출혈 피해"; case "burn": return "화상 피해"; case "summon": return "소환물 공격";
                 case "delayed_damage": return "설치물 발동"; case "deferred_damage": return "유예 피해"; case "hot": return "지속 회복";
                 case "guard": return "지속 보호"; case "counter": return "반격"; case "revive": return "치명상 방지";
+                case "companion_damage": return "니나 피해 분담"; case "charge_start": return "충전 시작";
                 case "boss_interrupt": return "보스 특수 행동 저지"; case "augment": return "증강 발동";
                 case "wildlife_skill": return "동물 전용 기술"; case "wildlife_interrupt": return "동물 기술 시전 중단";
                 case "wildlife_despair": return "좌절 · 다음 내 턴까지 받는 피해 +50%";
