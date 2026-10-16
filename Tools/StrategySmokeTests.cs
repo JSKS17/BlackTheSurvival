@@ -62,7 +62,7 @@ public static partial class CoreSmokeTests
         var modified = loaded.PlayerCard(upgraded);
         Check(GameDatabase.Card("nia_q").mechanics.rules.First(r => r.op == "gain").amount == baseGain && modified.mechanics.rules.First(r => r.op == "gain").amount == baseGain + 1,
             "resource branch changes only the selected player copy and preserves the shared database");
-        Check(DescriptionSummary.CardPreview(modified).Contains("블록을 2 늘립니다") && DescriptionSummary.CardPreview(baseCard).Contains("블록을 1 늘립니다"),
+        Check(DescriptionSummary.CardPreview(modified).Contains("블록을 2 남깁니다") && DescriptionSummary.CardPreview(baseCard).Contains("블록을 1 남깁니다"),
             "upgraded Nia Q summary reflects the actual block gain without altering base previews");
         Check(DescriptionSummary.CardPreview(StrategyMechanics.Apply(GameDatabase.Card("nia_w"), "arcade")).Contains("블록당 피해 6"),
             "upgraded Nia W summary reflects its actual per-block damage");

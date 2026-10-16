@@ -52,8 +52,8 @@ namespace Lumia
                     case "eleven_e": card.movement = true; break;
                     case "aiden_w": card.damage = 8; card.statuses = (card.statuses ?? new CardStatusRule[0]).Where(rule => rule.key != "root").ToArray(); break;
                     case "felix_r": card.statuses = (card.statuses ?? new CardStatusRule[0]).Where(rule => rule.key != "stun").ToArray(); break;
-                    case "eva_r": card.damage = 6; card.hits = 1; card.cost = 1; break;
-                    case "sho_r": card.damage = 7; card.hits = 1; card.cost = 1; break;
+                    case "eva_r": card.damage = 8; card.hits = 1; card.cost = 1; break;
+                    case "sho_r": card.damage = 9; card.hits = 1; card.cost = 1; break;
                 }
             }
         }

@@ -20,7 +20,7 @@ namespace Lumia
             if (token == null) return;
             string text = "니나 " + token.amount + "/" + token.cap + " · "
                 + (token.remaining > 0 ? CompanionMechanics.LinkedSharePercent : CompanionMechanics.NormalSharePercent) + "% 분담"
-                + (token.remaining > 0 ? " · 공유 " + token.remaining + "턴" : "");
+                + (CompanionMechanics.HasLethalProtection(actor) ? " · 생존 1턴" : token.remaining > 0 ? " · 공유 " + token.remaining + "턴" : "");
             Box(rect, Ink, enemy ? Pink : Mint);
             Txt(new Rect(rect.x + 5, rect.y + 3, rect.width - 10, rect.height - 6), text, 10, enemy ? Pink : Mint, true);
         }
@@ -174,11 +174,11 @@ namespace Lumia
             int limit = AdvancedCardMechanics.SacrificeLimit(card);
             Txt(new Rect(426, 190, 683, 23), "소멸 선택 " + advancedSacrificeSelection.Count + " / " + limit + "  ·  덱에서는 제거되지 않습니다", 13, Gold);
             advancedChoiceScroll = GUI.BeginScrollView(new Rect(426, 225, 683, 293), advancedChoiceScroll,
-                new Rect(0, 0, Math.Max(661, choice.handReferences.Count * 180), 272));
+                new Rect(0, 0, Math.Max(661, choice.handReferences.Count * 180), 286));
             for (int i = 0; i < choice.handReferences.Count; i++)
             {
                 string reference = choice.handReferences[i]; bool selected = advancedSacrificeSelection.Contains(reference);
-                Rect rect = new Rect(i * 180, 0, 168, 253);
+                Rect rect = new Rect(i * 180, 0, 168, 267);
                 if (DrawAdvancedSelectionTile(rect, reference, selected, selected || advancedSacrificeSelection.Count < limit))
                 {
                     if (selected) advancedSacrificeSelection.Remove(reference);
@@ -203,7 +203,7 @@ namespace Lumia
             string price = AdvancedCardMechanics.IsX(card) ? "X" : card.cost.ToString();
             Txt(new Rect(rect.x + iconSize + 22, rect.y + 12, rect.width - iconSize - 31, 21), card.key + " · " + price + "코스트", 11, Gold);
             Para(new Rect(rect.x + 12, rect.y + iconSize + 23, rect.width - 24, 48), card.name + Engine.CardUpgradeSuffix(reference), 13, selected ? Gold : Text);
-            if (rect.height > 150) Para(new Rect(rect.x + 12, rect.y + iconSize + 82, rect.width - 24, 91), CardSummary(card, false, reference), 11, Muted);
+            if (rect.height > 150) Para(new Rect(rect.x + 12, rect.y + iconSize + 82, rect.width - 24, rect.height-iconSize-94), CardSummary(card, false, reference), 11, Muted);
             if (heading.Length > 0) Txt(new Rect(rect.x + iconSize + 22, rect.y + 36, rect.width - iconSize - 31, 20), heading, 10, Muted);
             return Hit(rect, enabled);
         }

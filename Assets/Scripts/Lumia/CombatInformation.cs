@@ -209,6 +209,8 @@ namespace Lumia
             result.damageNote += result.guaranteedHit ? " 이 카드의 직접 공격은 필중하여 명중률 감소와 대상 회피를 무시합니다." : " 각 직접 타격은 명중 판정 후 회피 판정을 따로 합니다. 명중 실패는 회피 성공 효과를 발동하지 않습니다.";
             string advancedDescription=AdvancedCardMechanics.Description(enemy?GameDatabase.Card(id):PlayerCard(id));
             if(!string.IsNullOrEmpty(advancedDescription))result.damageNote+=" "+advancedDescription;
+            string companionDescription=CompanionMechanics.Description(enemy?GameDatabase.Card(id):PlayerCard(id));
+            if(!string.IsNullOrEmpty(companionDescription))result.damageNote+=" "+companionDescription;
             if(!enemy && IsCharged(id))result.damageNote+=" 충전 완료: 현재 강화된 효과와 무료 발동을 반영했습니다.";
             if ((card.mechanics?.rules ?? new SkillRule[0]).Any(rule => rule.op == "break_block"))
                 result.damageNote += SkillMechanics.BreaksBlock(actor, card)
@@ -235,6 +237,8 @@ namespace Lumia
                     result=ready ? "현재 처형 조건 충족 · 필중 재사용 시 처형" : "현재 처형 조건 미충족 · 일반 피해 적용" });
                 result.damageNote += " 가넷의 처형은 위 직접 피해와 별도로 표시한 조건을 확인하며, 재사용 피해를 주기 전 체력으로 판정합니다.";
             }
+            if (CompanionMechanics.HasLethalProtection(enemy ? c.playerSkills : c.enemySkills))
+                result.damageNote += " 대상에게 니나 생존 보호가 있습니다. 피해 분담 후에도 니나가 살아 있으면 치명적인 피해를 받아도 체력 1을 남깁니다. 같은 타격으로 니나가 소멸하면 보호하지 못하며, 다음 대상 턴 시작에 보호가 끝납니다.";
             if (!enemy) InformationBossWarning(result, card);
             return result;
         }
@@ -322,8 +326,9 @@ namespace Lumia
             if (action.heal > 0) parts.Add("체력 회복 +" + action.heal);
             if (action.critical) parts.Add("치명타 " + Math.Max(1, action.criticalHits) + "회");
             if (action.execution) parts.Add("처형 · 재사용 전 체력 " + FreeCastMechanics.GarnetExecutionPercent + "% 이하");
+            if (action.kind == "companion_guard") parts.Add((action.enemy ? c.enemyName : "하나") + "의 니나가 치명적인 피해를 막아 체력 1을 유지했습니다.");
             if (status) parts.Add(target + " · " + StatusMechanics.Name(action.kind.Substring(7)));
-            if (!direct && !status && !string.IsNullOrEmpty(action.kind)) parts.Add(InformationKind(action.kind));
+            if (!direct && !status && !string.IsNullOrEmpty(action.kind) && action.kind != "companion_guard") parts.Add(InformationKind(action.kind));
             if (parts.Count == 0) parts.Add(direct ? "직접 피해·방어·회복 수치 없음 · 카드의 조건·필드 효과를 처리했습니다." : "효과 발동");
             RecordCombatInformation(new CombatLogEntry { kind = direct ? "card_result" : status ? "debuff" : "effect", cardId = direct ? action.cardReference ?? action.cardId : action.cardId, traitId = action.traitId,
                 title = identity + (direct ? " 결과" : " 발동"), detail = string.Join(" · ", parts), enemy = action.enemy,
@@ -336,7 +341,7 @@ namespace Lumia
                 case "bleed": return "출혈 피해"; case "burn": return "화상 피해"; case "summon": return "소환물 공격";
                 case "delayed_damage": return "설치물 발동"; case "deferred_damage": return "유예 피해"; case "hot": return "지속 회복";
                 case "guard": return "지속 보호"; case "counter": return "반격"; case "revive": return "치명상 방지";
-                case "companion_damage": return "니나 피해 분담"; case "charge_start": return "충전 시작";
+                case "companion_damage": return "니나 피해 분담"; case "companion_guard": return "니나 생존 보호 · 체력 1 유지"; case "charge_start": return "충전 시작";
                 case "boss_interrupt": return "보스 특수 행동 저지"; case "augment": return "증강 발동";
                 case "wildlife_skill": return "동물 전용 기술"; case "wildlife_interrupt": return "동물 기술 시전 중단";
                 case "wildlife_despair": return "좌절 · 다음 내 턴까지 받는 피해 +50%";

@@ -421,7 +421,7 @@ namespace Lumia
                 note="처형 조건은 재사용 피해를 주기 전 체력으로 판정합니다. 가넷 Q·E가 철처녀 표식을 소모했다면 처형되지 않습니다. 보스에게도 같은 체력 비율을 적용하며, 치명상 방지 효과는 기존 규칙대로 적용됩니다." });
             foreach (var rule in card.mechanics.rules ?? new SkillRule[0])
             {
-                string label = new[] { "gain", "set", "consume" }.Contains(rule.op) ? ResourceName(card, rule.key ?? rule.op) : rule.label ?? ResourceName(card, rule.key ?? rule.op);
+                string label = new[] { "gain", "set", "consume" }.Contains(rule.op) ? ResourceName(card, rule.key ?? rule.op) : string.IsNullOrWhiteSpace(rule.label) ? ResourceName(card, rule.key ?? rule.op) : rule.label;
                 string amount = !string.IsNullOrEmpty(rule.scaleKey) ? ResourceName(card, rule.scaleKey) + " × " + rule.amount : rule.amount.ToString();
                 if(!string.IsNullOrEmpty(rule.scaleKey))
                 {

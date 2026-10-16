@@ -269,7 +269,9 @@ namespace Lumia
                 int raw=RunModes.ScaleEnemyDirectDamage(State,perHit+(i==0?extra:0));
                 int absorbed=Math.Min(block,raw);block-=absorbed;
                 if(defenderStatuses!=null)StatusMechanics.ConsumeProtection(defenderStatuses,absorbed);
-                total+=Math.Min(hp-total,CompanionMechanics.Absorb(defender,raw-absorbed).remaining);
+                int shared=CompanionMechanics.Absorb(defender,raw-absorbed).remaining;
+                int deferred=(int)((long)shared*Math.Min(20,EquipmentSum(g=>g.damageDeferral))/100);
+                total+=CompanionMechanics.ClampOwnerDamage(defender,hp-total,shared-deferred);
             }
             return total;
         }

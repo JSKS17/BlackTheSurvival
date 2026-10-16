@@ -419,6 +419,8 @@ namespace Lumia
                 case "hot": return "지속 회복";
                 case "guard": return "지속 보호";
                 case "revive": return "치명상 방지";
+                case "companion_guard": return "니나 생존 보호 · 체력 1 유지";
+                case "companion_damage": return "니나 피해 분담";
                 case "boss_interrupt": return "보스 기믹 저지";
                 default: return "효과 발동";
             }
@@ -429,7 +431,8 @@ namespace Lumia
             if (b.action.heal > 0) { Cross(at + new Vector2(0, -18 - p * 20), 12, c); return; }
             if (b.action.block > 0) { Shield(at, p, c, b.seed, false); return; }
             string kind = b.action.kind ?? "";
-            if (kind == "bleed" || kind == "status_bleed") Drops(at, p, c, b.seed, 5, 40);
+            if (kind == "companion_guard") Shield(at, p, c, b.seed, false);
+            else if (kind == "bleed" || kind == "status_bleed") Drops(at, p, c, b.seed, 5, 40);
             else if (kind == "burn" || kind == "status_burn") Flames(at, p, c, accent, b.seed, 6, 35);
             else if (kind == "summon" || kind == "delayed_damage") { Star(at, 16 + p * 18, c, 4, b.seed % 90); Particles(at, p, accent, b.seed, 5, 42); }
             else if (b.action.cardId == "status_poison" || kind == "poison") Bubbles(at, p, c, b.seed, 5, 40);

@@ -618,18 +618,18 @@ namespace Lumia
             }
             Fill(new Rect(0, 442, W, 278), Ink);
             Fill(new Rect(0, 441, W, 2), Line);
-            Txt(new Rect(24, 454, 590, 22), "손패 " + c.hand.Count + "  /  뽑을 카드 " + c.drawPile.Count + "  /  버린 카드 " + c.discardPile.Count + "  /  소멸 " + c.exhaustPile.Count, 11, Muted);
+            Txt(new Rect(24, 442, 590, 16), "손패 " + c.hand.Count + "  /  뽑을 카드 " + c.drawPile.Count + "  /  버린 카드 " + c.discardPile.Count + "  /  소멸 " + c.exhaustPile.Count, 11, Muted);
             bool retaining = c.retainIndex >= 0 && c.retainIndex < c.hand.Count;
             string retainedName = retaining ? PlayerCardName(c.hand[c.retainIndex]) : "없음";
-            Txt(new Rect(615, 454, 413, 22), retainSelecting ? "보관할 카드를 누르세요. 다시 누르면 해제합니다." : "보관: " + retainedName + (retaining ? "  /  다음 턴 새로 뽑기 -1" : ""), 11, retaining || retainSelecting ? Gold : Muted);
+            Txt(new Rect(615, 442, 413, 16), retainSelecting ? "보관할 카드를 누르세요. 다시 누르면 해제합니다." : "보관: " + retainedName + (retaining ? "  /  다음 턴 새로 뽑기 -1" : ""), 11, retaining || retainSelecting ? Gold : Muted);
             if (Btn(new Rect(1070, 454, 186, 44), retainSelecting ? "보관 선택 닫기" : "카드 보관  " + Engine.RetainAvailable + "/2", retainSelecting, Gold, !c.enemyTurn && (Engine.RetainAvailable > 0 || retaining))) retainSelecting = !retainSelecting;
             if (displayedTurn != c.turn) { handScroll = Vector2.zero; displayedTurn = c.turn; retainSelecting = false; }
             var hand = c.hand.ToArray();
-            handScroll = GUI.BeginScrollView(new Rect(24, 485, 1004, 229), handScroll, new Rect(0, 0, Math.Max(1004, hand.Length * 178), 212));
+            handScroll = GUI.BeginScrollView(new Rect(24, 458, 1004, 262), handScroll, new Rect(0, 0, Math.Max(1004, hand.Length * 198), 245));
             bool cardUsed = false;
             for (int i = 0; i < hand.Length; i++)
             {
-                Rect r = new Rect(i * 178, 0, 168, 212);
+                Rect r = new Rect(i * 198, 0, 188, 245);
                 bool playable = Engine.CanPlayCard(i) && !effects.Casting && Time.unscaledTime >= nextPlayerActionAt;
                 bool selected = c.retainIndex == i;
                 DrawCard(r, hand[i], selected, retainSelecting ? !c.enemyTurn : playable, true);
@@ -735,7 +735,7 @@ namespace Lumia
                 : taxed ? "상태 코스트 +" + (cost-d.cost) + " / " + d.key : d.owner + " " + d.key;
             Txt(new Rect(r.x + 38, r.y + 11, r.width - (selected ? 73 : 45), 20), heading, d.owner.Length > 7 || sealedByStatus || xCost || chargeLabel.Length > 0 ? 9 : 11, sealedByStatus ? Pink : chargeLabel.Length > 0 ? Gold : enabled ? Text : Muted);
             if (selected) DrawCardSelectionCheck(new Rect(r.xMax - 31, r.y + 7, 24, 25));
-            float artHeight = r.height >= 350 ? 84 : r.height >= 250 ? 56 : 36;
+            float artHeight = CardArtHeight(r);
             var owner = GameDatabase.Characters.Find(x => x.id == d.owner || x.name == d.owner);
             float iconX = owner == null ? r.x + (r.width - artHeight) / 2 : r.x + 14;
             Rect iconRect = new Rect(iconX, r.y + 41, artHeight, artHeight);
@@ -744,7 +744,7 @@ namespace Lumia
             if (owner != null)
                 Tex(new Rect(r.xMax - 14 - artHeight * .8f, r.y + 39, artHeight * .8f, artHeight + 4), PixelArt.Portrait(owner.id), ScaleMode.ScaleToFit, enabled ? Color.white : Muted);
             float nameY = r.y + 43 + artHeight;
-            float nameHeight=r.height>=250?31:26;
+            float nameHeight=CardNameHeight(r);
             Para(new Rect(r.x + 9, nameY, r.width - 18, nameHeight), d.name + suffix, r.width < 130 || d.name.Length > 13 ? 11 : 13, upgraded ? upgradeTone : tone);
             // A card face is a brief overview. Complete rules belong to the detail panel.
             Rect preview = CardPreviewRect(r);
@@ -781,10 +781,12 @@ namespace Lumia
             return card == null ? reference : card.name + (Engine != null ? Engine.CardUpgradeSuffix(reference) : "");
         }
 
+        static float CardArtHeight(Rect r) => r.height>=350?84:r.height>=250 && r.width>=180?56:36;
+        static float CardNameHeight(Rect r) => r.height>=250 && r.width>=180?31:26;
         static Rect CardPreviewRect(Rect r)
         {
-            float artHeight=r.height>=350?84:r.height>=250?56:36;
-            float nameY=r.y+43+artHeight, nameHeight=r.height>=250?31:26;
+            float artHeight=CardArtHeight(r);
+            float nameY=r.y+43+artHeight, nameHeight=CardNameHeight(r);
             return new Rect(r.x+11,nameY+nameHeight+3,r.width-22,Math.Max(22,r.yMax-nameY-nameHeight-31));
         }
 
@@ -1147,10 +1149,10 @@ namespace Lumia
             if (inventoryTab == 0)
             {
                 var cards = s.deck.GroupBy(x => x).ToArray();
-                inventoryScroll = GUI.BeginScrollView(new Rect(80, 207, 1120, 424), inventoryScroll, new Rect(0, 0, 1090, Mathf.Ceil(cards.Length / 6f) * 244));
+                inventoryScroll = GUI.BeginScrollView(new Rect(80, 207, 1120, 424), inventoryScroll, new Rect(0, 0, 1090, Mathf.Ceil(cards.Length / 6f) * 274));
                 for (int i = 0; i < cards.Length; i++)
                 {
-                    Rect r = new Rect(i % 6 * 182, i / 6 * 244, 166, 226); DrawCard(r, cards[i].Key);
+                    Rect r = new Rect(i % 6 * 182, i / 6 * 274, 166, 255); DrawCard(r, cards[i].Key);
                     string upgrade = Engine.CardUpgradeLabel(cards[i].Key);
                     Txt(new Rect(r.x + 7, r.yMax + 1, r.width - 14, 16), string.IsNullOrEmpty(upgrade) ? "보유 " + cards[i].Count() + "장" : "강화 / " + upgrade + " · 1장", 11, Engine.CardUpgradeLevel(cards[i].Key)==2 ? RareTone : Gold, true);
                     if (Hit(r)) { inspectCard = cards[i].Key; inspectEnemyCard=false; inspectRareReward=false; }
@@ -1336,12 +1338,12 @@ namespace Lumia
             for (int i = 0; i < 12; i++)
             {
                 int index = catalogPage * 12 + i; if (index >= cards.Length) break;
-                Rect r = new Rect(49 + i % 6 * 198, 153 + i / 6 * 229, 181, 215); DrawCard(r, cards[index].id);
+                Rect r = new Rect(49 + i % 6 * 198, 145 + i / 6 * 247, 181, 245); DrawCard(r, cards[index].id);
                 if (Hit(r)) { inspectCard = cards[index].id; inspectEnemyCard=false; inspectRareReward=false; }
             }
-            if (Btn(new Rect(49, 626, 175, 39), "<  이전", false, Muted, catalogPage > 0)) catalogPage--;
-            Txt(new Rect(415, 635, 450, 25), (catalogPage + 1) + " / " + pages + "   ·   " + cards.Length + " RECORDS", 14, Text, true);
-            if (Btn(new Rect(1050, 626, 175, 39), "다음  >", false, Mint, catalogPage < pages - 1)) catalogPage++;
+            if (Btn(new Rect(49, 652, 175, 31), "<  이전", false, Muted, catalogPage > 0)) catalogPage--;
+            Txt(new Rect(415, 655, 450, 25), (catalogPage + 1) + " / " + pages + "   ·   " + cards.Length + " RECORDS", 14, Text, true);
+            if (Btn(new Rect(1050, 652, 175, 31), "다음  >", false, Mint, catalogPage < pages - 1)) catalogPage++;
         }
 
         void DrawCardDetail()
@@ -1495,6 +1497,7 @@ namespace Lumia
         static string TokenShort(SkillMechanicToken token)
         {
             if (token.kind == "control_protection") return "파랑새 보호 " + token.amount + " · 군중 제어 면역";
+            if (token.kind == "companion_guard") return "니나 생존 보호 · " + token.remaining + "턴 · 체력 1 유지";
             if (token.kind == "companion") return "니나 체력 " + token.amount + "/" + token.cap + (token.remaining > 0 ? " · 생명 공유 " + token.remaining + "턴" : "");
             if((token.kind??"").StartsWith("synergy_",StringComparison.Ordinal)) return CrossSubjectSynergies.TokenSummary(token);
             if(token.kind=="legacy_poison") return "중독 " + token.amount;
@@ -1521,14 +1524,14 @@ namespace Lumia
             Txt(new Rect(233, 109, 813, 37), (fieldEnemy ? "상대" : "나") + "의 필드 · 상태이상 · 회피율", 25, fieldEnemy ? Pink : Mint);
             var tokens=FieldTokens(fieldEnemy);
             Txt(new Rect(233, 156, 813, 26), "명중 " + (fieldEnemy?Engine.EnemyAccuracy:Engine.Accuracy) + "% · 회피 " + (fieldEnemy?Engine.EnemyEvasion:Engine.Evasion) + "% · 일반 공격 치명타 확률 " + (fieldEnemy?Engine.EnemyCritChance:Engine.CritChance) + "% · 피해 " + (fieldEnemy?Engine.EnemyCriticalDamagePercent:Engine.CriticalDamagePercent) + "%", 14, Muted);
-            float contentHeight=tokens.Sum(t=>t.kind=="control_protection"?96:(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)?84:72);
+            float contentHeight=tokens.Sum(t=>t.kind=="control_protection" || t.kind=="companion_guard"?96:(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)?84:72);
             fieldScroll=GUI.BeginScrollView(new Rect(233, 195, 813, 344), fieldScroll, new Rect(0, 0, 788, Math.Max(330,contentHeight)));
             if (tokens.Count == 0) Txt(new Rect(15, 35, 756, 40), "현재 설치물이나 남아 있는 연계 효과가 없습니다.", 16, Muted, true);
             float nextY=0;
             for (int i=0;i<tokens.Count;i++)
             {
                 var t=tokens[i]; float y=nextY;
-                float rowHeight=t.kind=="control_protection"?96:(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)?84:72;
+                float rowHeight=t.kind=="control_protection" || t.kind=="companion_guard"?96:(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)?84:72;
                 nextY+=rowHeight;
                 Box(new Rect(0,y,788,rowHeight-8),Panel,Line);
                 string traitId=(t.owner??"").Replace("trait:","");
@@ -1557,6 +1560,7 @@ namespace Lumia
                 if(t.kind=="resource" && gear!=null) detail=gear.name+"의 장비 효과에 사용하는 누적 수치입니다. 장비 아이콘에서 발동 조건을 확인하세요.";
                 if(t.kind=="deferred_damage") detail="아오자이로 미룬 체력 피해입니다. 남은 피해 "+t.amount+"을 "+t.remaining+"턴에 나누어 자신의 턴 시작마다 받습니다.";
                 if(t.kind=="companion") detail=CompanionMechanics.Summary(fieldEnemy ? Engine.State.combat.enemySkills : Engine.State.combat.playerSkills);
+                if(t.kind=="companion_guard") detail="다음 자기 턴 시작까지, 피해 분담 후에도 니나가 살아 있으면 치명적인 피해를 받아도 체력 1을 남깁니다. 같은 타격으로 니나가 소멸하면 즉시 보호가 끝납니다. 체력 소모 비용은 막지 않습니다.";
                 if(t.kind=="control_protection") detail="이 카드의 보호 방어도가 남아 있는 동안 새 군중 제어를 무시합니다. 보호 방어도를 먼저 소모하며, 모두 소모·파괴되거나 다음 자기 턴에 방어도가 초기화되면 면역이 끝납니다. 기존 상태는 해제하지 않습니다.";
                 if(t.kind=="legacy_poison") detail="자신의 턴 시작에 피해 "+t.amount+"을 받고 중독 수치가 1 감소합니다.";
                 if(t.kind=="legacy_weak") detail="공격 피해가 25% 감소합니다. 자신의 턴 종료에 남은 턴이 감소합니다.";
@@ -1742,36 +1746,57 @@ namespace Lumia
 
         [Serializable] public sealed class PreviewMeasurement
         {
-            public string card,layout,text;
+            public string card,layout,text,upgrade;
             public bool dynamicNumbers;
             public float width,availableHeight,requiredHeight;
         }
         [Serializable] public sealed class PreviewLayoutAudit
         {
             public int cards,fontSize=11,measurements;
+            public List<PreviewVariantExpectation> expectedVariants=new List<PreviewVariantExpectation>();
             public List<PreviewMeasurement> overflows=new List<PreviewMeasurement>();
             public List<PreviewMeasurement> samples=new List<PreviewMeasurement>();
+        }
+        [Serializable] public sealed class PreviewVariantExpectation
+        {
+            public string card;
+            public List<string> variants;
         }
 
         public void ExportPreviewLayoutAudit(string path)
         {
-            if(!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(),"-lumia-verify")<0)return;
+            if(!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(),"-lumia-verify")<0 && !AdvancedCardsVerificationEnabled)return;
             if(!initialized)throw new InvalidOperationException("Preview audit requires initialized native GUI styles.");
-            var audit=new PreviewLayoutAudit{cards=GameDatabase.Cards.Count};
-            Rect[] layouts={new Rect(0,0,168,212),new Rect(0,0,166,226),new Rect(0,0,181,215),new Rect(0,0,188,276),new Rect(0,0,208,279),new Rect(0,0,215,400)};
+            var definitions=GameDatabase.Cards.Concat(new[]{WildlifeMechanics.Card(WildlifeMechanics.BoarCharge),WildlifeMechanics.Card(WildlifeMechanics.BearSlam)}).ToList();
+            var audit=new PreviewLayoutAudit{cards=definitions.Count};
+            Rect[] layouts={new Rect(0,0,188,245),new Rect(0,0,166,255),new Rect(0,0,181,245),new Rect(0,0,188,276),new Rect(0,0,208,279),new Rect(0,0,215,400)};
             string[] names={"hand","inventory","catalog","draft","reward","detail-card"};
             var style=new GUIStyle(wrapped){fontSize=11};
-            foreach(var card in GameDatabase.Cards)
-            for(int variant=0;variant<2;variant++)
+            foreach(var definition in definitions)
             {
-                string text=variant==0?DescriptionSummary.CardPreview(card,GameDatabase.Cards):DescriptionSummary.CardPreview(card,GameDatabase.Cards,card.damage>0?99:0,card.block>0?99:0,card.heal>0?99:0);
-                font.RequestCharactersInTexture(text,11,FontStyle.Normal);
-                for(int index=0;index<layouts.Length;index++)
+                var variants=new List<KeyValuePair<string,CardDef>>{new KeyValuePair<string,CardDef>("base",definition)};
+                if(definition.category!="weapon" && definition.category!="wildlife")
                 {
-                    Rect body=CardPreviewRect(layouts[index]);
-                    var sample=new PreviewMeasurement{card=card.id,layout=names[index],text=text,dynamicNumbers=variant>0,width=body.width,availableHeight=body.height,requiredHeight=style.CalcHeight(new GUIContent(text),body.width)};
-                    audit.samples.Add(sample);audit.measurements++;
-                    if(sample.requiredHeight>sample.availableHeight+.1f)audit.overflows.Add(sample);
+                    if(StrategyMechanics.HasPowerUpgrade(definition))variants.Add(new KeyValuePair<string,CardDef>("power",StrategyMechanics.Apply(definition,"power")));
+                    if(definition.cost>=2)variants.Add(new KeyValuePair<string,CardDef>("efficiency",StrategyMechanics.Apply(definition,"efficiency")));
+                    if(definition.id=="nia_q" || definition.id=="nia_w")variants.Add(new KeyValuePair<string,CardDef>("arcade",StrategyMechanics.Apply(definition,"arcade")));
+                    if(definition.category=="skill")variants.Add(new KeyValuePair<string,CardDef>("rare",RareCardUpgrades.Apply(definition)));
+                }
+                if(AdvancedCardMechanics.CanCharge(definition))variants.Add(new KeyValuePair<string,CardDef>("charged",AdvancedCardMechanics.PreparedCard(definition,"",1,0,0)));
+                audit.expectedVariants.Add(new PreviewVariantExpectation{card=definition.id,variants=variants.Select(v=>v.Key).ToList()});
+                foreach(var entry in variants)
+                for(int variant=0;variant<2;variant++)
+                {
+                    var card=entry.Value;
+                    string text=variant==0?DescriptionSummary.CardPreview(card,GameDatabase.Cards):DescriptionSummary.CardPreview(card,GameDatabase.Cards,card.damage>0?99:0,card.block>0?99:0,card.heal>0?99:0);
+                    font.RequestCharactersInTexture(text,11,FontStyle.Normal);
+                    for(int index=0;index<layouts.Length;index++)
+                    {
+                        Rect body=CardPreviewRect(layouts[index]);
+                        var sample=new PreviewMeasurement{card=card.id,upgrade=entry.Key,layout=names[index],text=text,dynamicNumbers=variant>0,width=body.width,availableHeight=body.height,requiredHeight=style.CalcHeight(new GUIContent(text),body.width)};
+                        audit.samples.Add(sample);audit.measurements++;
+                        if(sample.requiredHeight>sample.availableHeight+.1f)audit.overflows.Add(sample);
+                    }
                 }
             }
             File.WriteAllText(path,JsonUtility.ToJson(audit,true));

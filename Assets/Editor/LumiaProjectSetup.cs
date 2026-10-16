@@ -71,8 +71,35 @@ namespace Lumia.Editor
             if (scenes.Length == 0) scenes = new[] { "Assets/Scenes/SampleScene.unity" };
             bool development = System.Environment.GetCommandLineArgs().Contains("-lumia-development");
             var result = BuildPipeline.BuildPlayer(scenes, "Build/Windows/" + GameIdentity.ExecutableName, BuildTarget.StandaloneWindows64, development ? BuildOptions.Development : BuildOptions.None);
+            string captureHash = "";
+            var args = System.Environment.GetCommandLineArgs();
+            int captureIndex = System.Array.IndexOf(args, "-lumia-source-capture");
+            if (captureIndex >= 0 && captureIndex + 1 < args.Length)
+                using (var stream = File.OpenRead(args[captureIndex + 1]))
+                using (var hash = System.Security.Cryptography.SHA256.Create())
+                    captureHash = System.BitConverter.ToString(hash.ComputeHash(stream)).Replace("-", "").ToLowerInvariant();
+            var manifest = new WindowsBuildManifest {
+                result = result.summary.result.ToString(), productVersion = PlayerSettings.bundleVersion,
+                unityVersion = Application.unityVersion, development = (result.summary.options & BuildOptions.Development) != 0,
+                errors = result.summary.totalErrors, warnings = result.summary.totalWarnings,
+                // Unity exposes UTC build-report ticks without a DateTime kind.
+                buildStartedAtUtc = System.DateTime.SpecifyKind(result.summary.buildStartedAt, System.DateTimeKind.Utc).ToString("o"),
+                buildEndedAtUtc = System.DateTime.SpecifyKind(result.summary.buildEndedAt, System.DateTimeKind.Utc).ToString("o"),
+                outputPath = result.summary.outputPath, totalBytes = result.summary.totalSize,
+                durationSeconds = result.summary.totalTime.TotalSeconds, sourceCaptureSha256 = captureHash
+            };
+            File.WriteAllText("Build/windows-build-manifest.json", JsonUtility.ToJson(manifest, true));
             Debug.Log("LUMIA BUILD " + result.summary.result + " / errors=" + result.summary.totalErrors);
             if (Application.isBatchMode) EditorApplication.Exit(result.summary.result == UnityEditor.Build.Reporting.BuildResult.Succeeded ? 0 : 1);
+        }
+
+        [System.Serializable] sealed class WindowsBuildManifest
+        {
+            public string result, productVersion, unityVersion, buildStartedAtUtc, buildEndedAtUtc, outputPath, sourceCaptureSha256;
+            public bool development;
+            public int errors, warnings;
+            public ulong totalBytes;
+            public double durationSeconds;
         }
 
         [MenuItem("Black The Survival/Configure pixel imports")]

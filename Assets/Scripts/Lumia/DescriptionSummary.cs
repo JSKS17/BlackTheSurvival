@@ -13,6 +13,8 @@ namespace Lumia
     /// <summary>Brief card previews and complete quantitative effect digests.</summary>
     public static class DescriptionSummary
     {
+        public const int CardPreviewMaxLines = 8;
+        public const int CardPreviewMaxWidth = 108;
         // Keep activation data separate from Korean prose. A matching first condition
         // alone must never merge a hit, miss, delayed hit or a different resource check.
         public static string ConditionKey(SkillRule rule, string timing = "cast", bool? onHit = null)
@@ -28,8 +30,8 @@ namespace Lumia
         {
             var clauses = (effects ?? Enumerable.Empty<string>()).Where(x => !string.IsNullOrWhiteSpace(x))
                 .Select(x => x.Trim().TrimEnd('.')).Distinct().ToList();
-            var endings = new[] { "증가시킵니다", "만듭니다", "줍니다", "얻습니다", "뽑습니다", "늘립니다", "줄입니다", "높입니다", "남깁니다", "있습니다", "합니다", "됩니다" };
-            var joins = new[] { "증가시키고", "만들고", "주고", "얻고", "뽑고", "늘리고", "줄이고", "높이고", "남기고", "있고", "하고", "되고" };
+            var endings = new[] { "증가시킵니다", "만듭니다", "바꿉니다", "줍니다", "얻습니다", "뽑습니다", "늘립니다", "줄입니다", "높입니다", "남깁니다", "쌓습니다", "있습니다", "합니다", "됩니다" };
+            var joins = new[] { "증가시키고", "만들고", "바꾸고", "주고", "얻고", "뽑고", "늘리고", "줄이고", "높이고", "남기고", "쌓고", "있고", "하고", "되고" };
             for (int i = 0; i < clauses.Count - 1; ++i)
             {
                 // A per-effect restriction stays attached to its own verb.
@@ -179,103 +181,12 @@ namespace Lumia
             return CleanLines(lines);
         }
 
-        // A preview explains the immediate action and its defining mechanic. Additional rules,
-        // secondary effects and exact shared limits remain in the full detail panel.
-        // Sentences are selected semantically; text is never cut in the middle of a sentence.
+        // Every core behavior survives compacting. Complex condition tables are summarized
+        // by behavior family; no rule is dropped because it ranks below a fixed part count.
         public static string CardPreview(CardDef card, List<CardDef> all = null, int damage = -1, int block = -1, int heal = -1)
         {
-            if (card == null) return "";
-            int d = damage < 0 ? card.damage : damage, b = block < 0 ? card.block : block, h = heal < 0 ? card.heal : heal;
-            var parts = new List<PreviewPart>();
-            string immediate = AdvancedCardMechanics.IsX(card) || AdvancedCardMechanics.HasTargetChoice(card) ? "" : PreviewImmediate(card, d, b, h);
-            if (immediate.Length > 0) parts.Add(new PreviewPart { text=immediate, priority=1000 });
-            string advanced = AdvancedCardMechanics.Summary(card), companion = CompanionMechanics.CardSummary(card);
-            if (!string.IsNullOrEmpty(advanced)) parts.Add(new PreviewPart { text=advanced, priority=1100 });
-            if (!string.IsNullOrEmpty(companion)) parts.Add(new PreviewPart { text=companion, priority=1100 });
-            // A curated identity sentence must never hide a newly required recast condition.
-            string curated = card.freeCastCondition == null ? PreviewIdentity(card) : null;
-            if (curated != null)
-            {
-                parts.Add(new PreviewPart { text=curated, priority=950 });
-                // A rare state-only card may add bounded protection while retaining
-                // its curated form/color description. Show that new benefit as well.
-                foreach (var rule in card.mechanics?.rules ?? new SkillRule[0])
-                {
-                    if (rule.op != "guard" || rule.key != "rare_guard") continue;
-                    ConditionEffect grouped;
-                    string text = PreviewRule(card, rule, card.mechanics.rules, out grouped);
-                    if (!string.IsNullOrEmpty(text)) parts.Add(new PreviewPart { text=text, priority=PreviewPriority(rule), grouped=grouped });
-                }
-            }
-            else
-            {
-                var rules = card.mechanics?.rules ?? new SkillRule[0];
-                foreach (var rule in rules)
-                {
-                    if (rule.op == "consume" || rule.op == "clear_effect") continue;
-                    ConditionEffect grouped;
-                    string text = PreviewRule(card, rule, rules, out grouped);
-                    if (!string.IsNullOrEmpty(text)) parts.Add(new PreviewPart { text=text, priority=PreviewPriority(rule), grouped=grouped });
-                }
-                if (card.freeCastCount > 0)
-                {
-                    var grouped = FreeCastMechanics.Effect(card,true);
-                    // A conditional recast defines how this card can chain. It takes priority
-                    // over an ordinary resource gain, whose exact amount remains in detail.
-                    int priority = card.freeCastCondition == null && !card.freeCastNextTurn ? 880 : 960;
-                    parts.Add(new PreviewPart { text=(grouped.condition.Length==0?"":grouped.condition+" ")+grouped.effect+".", priority=priority, grouped=grouped });
-                }
-            }
-            foreach (var rule in card.statuses ?? new CardStatusRule[0])
-            {
-                string when = rule.timing == "next_basic" ? "다음 기본 공격으로 " : rule.timing != "cast" ? "설치 효과로 " : rule.onHit ? "적중 시 " : "";
-                var grouped = new ConditionEffect { key=ConditionKey(rule,rule.timing=="cast"?"cast":rule.timing+"|castHit:"+rule.onHit,rule.timing!="cast" || rule.onHit),
-                    condition=(PreviewCondition(card,rule)+(rule.timing!="cast" && rule.onHit?"이 카드 적중 후 ":"")+when).Trim(), effect=CardPresentation.WithParticle(StatusMechanics.Name(rule.key),"를","을")+" "+rule.duration+"턴 부여합니다" };
-                parts.Add(new PreviewPart { text=(grouped.condition.Length==0?"":grouped.condition+" ")+grouped.effect+".", priority=420, grouped=grouped });
-            }
-            if (card.evasion > 0) parts.Add(new PreviewPart { text=card.duration+"턴 동안 회피율이 "+card.evasion+"% 증가합니다.",priority=460 });
-            if (card.draw > 0) parts.Add(new PreviewPart { text="카드 "+card.draw+"장을 뽑습니다.",priority=480 });
-            if (card.energy > 0) parts.Add(new PreviewPart { text="이번 턴 코스트를 "+card.energy+" 회복합니다.",priority=490 });
-            if (card.poison > 0) parts.Add(new PreviewPart { text="중독 "+card.poison+"을 부여합니다.",priority=410 });
-            if (card.weak > 0) parts.Add(new PreviewPart { text="약화를 "+card.weak+"턴 부여합니다.",priority=400 });
-            if (card.vulnerable > 0) parts.Add(new PreviewPart { text="취약을 "+card.vulnerable+"턴 부여합니다.",priority=400 });
-            if (card.strength > 0) parts.Add(new PreviewPart { text="이번 전투의 힘이 "+card.strength+" 증가합니다.",priority=500 });
-            if (card.exhaust) parts.Add(new PreviewPart { text="사용 후 소멸합니다.",priority=390 });
-            var identity = parts.Where(x=>x.priority>=600 && x.priority<1000).OrderByDescending(x=>x.priority).FirstOrDefault();
-            if(identity!=null && immediate.Length>0 && !PreviewFits(immediate+"\n"+identity.text))
-            {
-                // A secondary base heal/shield must not crowd out the defining transform/combo.
-                // Retain the leading immediate action; all three live numbers remain in full detail.
-                parts[0].text = d>0 ? CardPresentation.WithParticle("피해 "+d,"를","을")+(card.hits>1?" "+card.hits+"회":"")+" 줍니다."
-                    : b>0 ? CardPresentation.WithParticle("방어도 "+b,"를","을")+" 얻습니다."
-                    : CardPresentation.WithParticle("체력 "+h,"를","을")+" 회복합니다.";
-            }
-            var selected = new List<PreviewPart>();
-            foreach (var part in parts.OrderByDescending(x=>x.priority))
-            {
-                string text=Normalize(part.text);
-                if(selected.Any(x=>Normalize(x.text)==text))continue;
-                if (selected.Count == 0 || PreviewFits(PreviewText(selected.Concat(new[]{part}))))
-                    selected.Add(part);
-                if (selected.Count >= 2) break;
-            }
-            // Mixed-subject support never displaces the card's own defining action.
-            // Add its whole sentence only when the existing five-line preview can hold it.
-            string synergy = CrossSubjectSynergies.BriefDescription(card);
-            if (!string.IsNullOrEmpty(synergy))
-            {
-                var extra = new PreviewPart { text=synergy };
-                if (PreviewFits(PreviewText(selected.Concat(new[]{extra})))) selected.Add(extra);
-            }
-            return selected.Count == 0 ? "추가 효과 없이 행동합니다." : PreviewText(selected);
+            return CardSummaryMechanics.Text(card, damage, block, heal);
         }
-
-        static string PreviewText(IEnumerable<PreviewPart> parts)
-        {
-            return string.Join("\n", GroupEffects(parts.Select((part,index)=>part.grouped ?? new ConditionEffect { key="preview:"+index, effect=part.text })));
-        }
-
-        sealed class PreviewPart { public string text; public int priority; public ConditionEffect grouped; }
 
         // Korean glyphs use almost twice the width of Latin digits in the game's pixel font.
         // This budget corresponds to about five lines in the narrowest hand card.
@@ -296,133 +207,6 @@ namespace Lumia
         {
             return (text ?? "").Split('\n').Sum(line=>Math.Max(1,(int)Math.Ceiling(line.Sum(ch=>ch>=32&&ch<=126?PreviewAsciiAdvances[ch-32]:ch=='·'?4:ch=='×'||ch=='−'?7:11)*1.1/144)));
         }
-        static bool PreviewFits(string text) => PreviewWidth(text)<=66 && PreviewLines(text)<=5;
-
-        static string PreviewImmediate(CardDef card,int d,int b,int h)
-        {
-            var clauses=new List<string>();
-            if(d>0)clauses.Add(CardPresentation.WithParticle("피해 "+d,"를","을")+(card.hits>1?" "+card.hits+"회":"")+" 줍니다");
-            if(b>0)clauses.Add(CardPresentation.WithParticle("방어도 "+b,"를","을")+" 얻습니다");
-            if(h>0)clauses.Add(CardPresentation.WithParticle("체력 "+h,"를","을")+" 회복합니다");
-            return string.Join(". ",clauses)+(clauses.Count>0?".":"");
-        }
-
-        static string PreviewIdentity(CardDef card)
-        {
-            var rules = card.mechanics?.rules ?? new SkillRule[0];
-            switch(card.id)
-            {
-                case "nia_q":
-                    var gain = rules.FirstOrDefault(rule => rule.op == "gain" && rule.key == "blocks");
-                    return "아케이드 블록을 " + (gain?.amount ?? 1) + " 늘립니다(최대 " + (gain?.cap ?? 3) + ").";
-                case "nia_w":
-                    var bonus = rules.FirstOrDefault(rule => rule.op == "bonus_damage" && rule.scaleKey == "blocks");
-                    return "블록을 모두 소모해 블록당 " + CardPresentation.WithParticle("피해 " + (bonus?.amount ?? 4), "를", "을") + " 더하고 다음 Q 코스트를 1 줄입니다.";
-                case "nia_r":
-                    var batteryBonus = rules.FirstOrDefault(rule => rule.op == "bonus_block" && rule.scaleKey == "battery");
-                    int batteryAmount = batteryBonus?.amount ?? 5, batteryCap = batteryBonus?.cap ?? 4;
-                    return "배터리 ×" + batteryAmount + "(최대" + Math.Min(24, batteryAmount * batteryCap) + ")의 방어도를 더 얻고 배터리를 모두 소모합니다.";
-                case "emma_r":return "직전 Q·W·E의 마술을 소모해 피해 또는 방어도를 추가합니다.";
-                case "sua_r":return "직전 수아 Q·W·E를 이번 턴에 무료로 1회 다시 사용합니다.";
-                case "garnet_r":return "적중 시 이번 턴에 1회 무료 재사용합니다. 표식이 남고 체력이 20% 이하인 적을 맞히면 처형합니다.";
-                case "tia_q":case "tia_e":return "붓 색의 물감을 남기며 다른 색과 섞으면 피해·회복·방어가 강화됩니다.";
-                case "debi_marlene_q":case "debi_marlene_w":
-                    int twinDamage = rules.FirstOrDefault(rule => rule.op == "bonus_damage")?.amount ?? (card.key == "Q" ? 8 : 6);
-                    return "다른 색 잉크가 있으면 " + CardPresentation.WithParticle("추가 피해 " + twinDamage, "를", "을") + " 주고 현재 색 잉크를 남깁니다.";
-                case "debi_marlene_e":
-                    int switchDamage = rules.FirstOrDefault(rule => rule.op == "bonus_damage")?.amount ?? 7;
-                    return "현재 색과 잉크가 같으면 " + CardPresentation.WithParticle("추가 피해 " + switchDamage, "를", "을") + " 주고 색상을 교대합니다.";
-                case "tia_w":return "붓을 노랑·빨강·파랑 순으로 바꿉니다.";
-                case "silvia_r":return "연료가 있으면 바이크에 타고 탑승 중이면 내립니다. 연료를 1 소모합니다.";
-                case "coraline_w":return "백색 거울과 흑색 거울을 교대로 설치합니다.";
-                case "basic_attack":return "기본 치명타 피해는 150%이며, 장비로 증가합니다.";
-                case "isaac_e":return "첫 사용으로 검거를 준비합니다. 준비 후 적중 시 피해 전에 적의 방어도를 모두 없앱니다.";
-                default:return null;
-            }
-        }
-
-        static int PreviewPriority(SkillRule rule)
-        {
-            if(rule.op=="state_toggle")return 990;
-            if(!string.IsNullOrEmpty(rule.scaleKey))return 900;
-            switch(rule.op)
-            {
-                case "revive":return 940;
-                case "break_block":return 940;
-                case "discount":return 850;
-                case "bonus_damage":case "bonus_block":case "bonus_heal":return 820;
-                case "delayed_damage":case "summon":case "bleed":case "burn":return 800;
-                case "counter":case "hot":case "guard":case "empower_basic":return 780;
-                case "state_on":case "state_off":return 760;
-                case "gain":case "set":return 720;
-                default:return 600;
-            }
-        }
-
-        static string PreviewCardKey(string id)
-        {
-            var target=GameDatabase.Card(id);
-            return target==null?id:target.key;
-        }
-
-        static string PreviewCondition(CardDef card,SkillRule rule)
-        {
-            var conditions=new List<Func<bool,string>>();
-            if(!string.IsNullOrEmpty(rule.conditionKey))conditions.Add(last=>PreviewConditionValue(card,rule.conditionKey,rule.conditionAmount,rule.conditionExact,last));
-            if(!string.IsNullOrEmpty(rule.conditionKey2))conditions.Add(last=>PreviewConditionValue(card,rule.conditionKey2,rule.conditionAmount2,rule.conditionExact2,last));
-            if(!string.IsNullOrEmpty(rule.conditionPrevious))conditions.Add(last=>"직전 기술이 "+PreviewCardKey(rule.conditionPrevious)+(last?"이면":"이고"));
-            return conditions.Count==0?"":string.Join(" ",conditions.Select((f,i)=>f(i==conditions.Count-1)))+" ";
-        }
-
-        static string PreviewConditionValue(CardDef card,string key,int amount,bool exact,bool last)
-        {
-            if(SkillMechanics.IsState(card,key))
-            {
-                string condition=SkillMechanics.StateCondition(card,key,amount,exact);
-                return last?condition:condition.Replace("이면","이고").Replace("아니면","아니고");
-            }
-            return CardPresentation.WithParticle(SkillMechanics.ResourceName(card,key),"가","이")+" "+amount+(exact?"":" 이상")+(last?"이면":"이고");
-        }
-
-        static string PreviewRule(CardDef card,SkillRule rule,SkillRule[] rules,out ConditionEffect grouped)
-        {
-            grouped = null;
-            string label=SkillMechanics.ResourceName(card,rule.key), condition=PreviewCondition(card,rule);
-            string hit=rule.onHit?"적중 시 ":"";
-            string scale=string.IsNullOrEmpty(rule.scaleKey)?rule.amount.ToString():SkillMechanics.ResourceName(card,rule.scaleKey)+" ×"+rule.amount;
-            if(!string.IsNullOrEmpty(rule.scaleKey))
-            {
-                int limit=rule.op=="bonus_damage"||rule.op=="bonus_block"||rule.op=="delayed_damage"?24:rule.op=="bonus_heal"?20:rule.op=="counter"?8:rule.op=="discount"?7:rule.op=="revive"?40:rule.op=="empower_basic"?16:10;
-                scale+="(최대"+Math.Min(limit,rule.amount*rule.cap)+")";
-            }
-            string text;
-            switch(rule.op)
-            {
-                case "state_on":text=SkillMechanics.StateEnterText(card,rule.key);break;
-                case "state_off":text=SkillMechanics.StateExitText(card,rule.key);break;
-                case "state_toggle":text=SkillMechanics.StateName(card,rule.key)+"로 진입하거나 해제합니다";break;
-                case "gain":text=CardPresentation.WithParticle(label,"를","을")+" "+rule.amount+" 늘립니다(최대 "+rule.cap+")";break;
-                case "set":text=CardPresentation.WithParticle(label,"를","을")+" "+rule.amount+"로 만듭니다";break;
-                case "bonus_damage":text="추가 피해를 "+scale+"만큼 줍니다";break;
-                case "bonus_block":text="추가 방어도를 "+scale+"만큼 얻습니다";break;
-                case "bonus_heal":text="체력을 "+scale+"만큼 추가 회복합니다";break;
-                case "discount":text="다음 "+PreviewCardKey(rule.targetCard)+" 코스트를 "+scale+" 줄이는 할인을 얻습니다";break;
-                case "bleed":case "burn":case "summon":text="턴 종료마다 "+CardPresentation.WithParticle("피해 "+scale,"를","을")+" "+rule.duration+"회 주는 "+(rule.label??label)+" 효과를 남깁니다";break;
-                case "hot":text="턴 종료마다 체력을 "+scale+"씩 "+rule.duration+"회 회복하는 효과를 얻습니다";break;
-                case "guard":text="턴 종료마다 방어도를 "+scale+"씩 "+rule.duration+"회 얻는 효과를 얻습니다";break;
-                case "delayed_damage":text="턴 종료 "+rule.delay+"회 후 "+CardPresentation.WithParticle("피해 "+scale,"를","을")+" 주는 "+CardPresentation.WithParticle(rule.label??label,"를","을")+" 설치합니다";break;
-                case "counter":text=rule.duration+"턴 동안 "+(SkillMechanics.CounterEveryHit(card.id,rule.key)?"직접 공격에 맞을 때마다":"턴당 1회")+" 피해 "+scale+"의 반격 효과를 얻습니다";break;
-                case "break_block":text="피해 전에 적의 방어도를 모두 없앱니다";break;
-                case "empower_basic":text="다음 기본 공격 피해를 "+scale+" 늘리는 효과를 얻습니다";break;
-                case "revive":text=rule.duration+"턴 동안 치명상을 1회 막고 "+CardPresentation.WithParticle("체력 "+scale,"를","을")+" 회복하는 효과를 얻습니다";break;
-                default:return null;
-            }
-            if(!string.IsNullOrEmpty(rule.scaleKey) && rules.Any(r=>r.op=="consume" && r.key==rule.scaleKey && r.amount<=0 && !r.onHit && string.IsNullOrEmpty(r.conditionKey)))
-                text+="(해당 자원 모두 소모)";
-            grouped = new ConditionEffect { key=ConditionKey(rule), condition=(condition+hit).Trim(), effect=text };
-            return condition+hit+text+".";
-        }
-
         public static string Trait(TraitMechanicProfile profile, string fallback = "")
         {
             return profile == null ? Normalize(fallback) : TraitPresentation.Summary(profile);

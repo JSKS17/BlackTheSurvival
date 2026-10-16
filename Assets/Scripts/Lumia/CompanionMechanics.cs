@@ -6,7 +6,7 @@ namespace Lumia
 {
     [Serializable] public sealed class CompanionState
     {
-        public int version, hp, maxHp, linkTurns;
+        public int version, hp, maxHp, linkTurns, lethalGuardTurns;
     }
 
     public struct CompanionAbsorption
@@ -17,7 +17,7 @@ namespace Lumia
 
     // Nina's life is combat-local and is shared by all Chloe cards in the deck.
     // Absorb receives damage left after the owner's block; self-paid HP is excluded
-    // by the caller. The finite pet HP pool can never grant owner invulnerability.
+    // by the caller. R protects its owner only while Nina survives the current shared hit.
     public static class CompanionMechanics
     {
         public const int NinaMaxHp = 18;
@@ -25,6 +25,7 @@ namespace Lumia
         public const int ERepair = 6;
         public const int RReviveHp = 12;
         public const int RLinkTurns = 2;
+        public const int RLethalGuardTurns = 1;
         public const int NormalSharePercent = 25;
         public const int LinkedSharePercent = 50;
         const int CurrentVersion = 1;
@@ -53,13 +54,14 @@ namespace Lumia
             state.maxHp = NinaMaxHp;
             state.hp = Math.Max(0, Math.Min(state.maxHp, state.hp));
             state.linkTurns = state.hp > 0 ? Math.Max(0, Math.Min(RLinkTurns, state.linkTurns)) : 0;
+            state.lethalGuardTurns = state.hp > 0 ? Math.Max(0, Math.Min(RLethalGuardTurns, state.lethalGuardTurns)) : 0;
             return state;
         }
 
         public static CompanionState Clone(CompanionState state)
         {
             return state == null ? null : new CompanionState {
-                version = state.version, hp = state.hp, maxHp = state.maxHp, linkTurns = state.linkTurns
+                version = state.version, hp = state.hp, maxHp = state.maxHp, linkTurns = state.linkTurns, lethalGuardTurns=state.lethalGuardTurns
             };
         }
 
@@ -67,6 +69,25 @@ namespace Lumia
         {
             var state = ViewState(actor);
             return state != null && state.hp > 0;
+        }
+        public static bool HasLethalProtection(SkillActorState actor)
+        {
+            var state=ViewState(actor);
+            return state!=null && state.hp>0 && state.lethalGuardTurns>0;
+        }
+        // This is checked AFTER Absorb. A Nina killed by that very hit cannot save her owner.
+        // No healing/revival is performed, and a dead owner can never be restored by this clamp.
+        public static int ClampOwnerDamage(SkillActorState actor,int ownerHp,int incoming)
+        {
+            int damage=Math.Min(Math.Max(0,ownerHp),Math.Max(0,incoming));
+            return ownerHp>0 && damage>=ownerHp && HasLethalProtection(actor)?Math.Max(0,ownerHp-1):damage;
+        }
+        // Execution otherwise preserves its existing lethal semantics. Only an active R window
+        // pays its normal sharing cost and can prevent execution if Nina survives that cost.
+        public static int SimulateExecutionDamage(SkillActorState actor,int ownerHp)
+        {
+            if(HasLethalProtection(actor))Absorb(actor,ownerHp);
+            return ClampOwnerDamage(actor,ownerHp,ownerHp);
         }
 
         // Run after the ordinary skill rules so a newly deployed/revived Nina
@@ -85,6 +106,7 @@ namespace Lumia
             {
                 if (state.hp <= 0) state.hp = Math.Min(state.maxHp, RReviveHp);
                 state.linkTurns = RLinkTurns;
+                state.lethalGuardTurns = RLethalGuardTurns;
                 actor.effects.RemoveAll(x => ChloeEffect(x) && x.kind == "counter" && x.key == "soul_link");
             }
             if (state.hp > 0) ActivateNina(actor, card.owner);
@@ -105,6 +127,7 @@ namespace Lumia
             {
                 result.destroyed = true;
                 state.linkTurns = 0;
+                state.lethalGuardTurns = 0;
                 RemoveSupport(actor);
             }
             return result;
@@ -115,6 +138,7 @@ namespace Lumia
             var state = Ensure(actor);
             if (state == null) return;
             if (state.linkTurns > 0) state.linkTurns--;
+            if (state.lethalGuardTurns > 0) state.lethalGuardTurns--;
             if (state.hp <= 0) RemoveSupport(actor);
         }
 
@@ -124,7 +148,8 @@ namespace Lumia
             if (state == null || state.hp <= 0) return "";
             return "니나 체력 " + state.hp + "/" + state.maxHp + " · 피해 분담 "
                 + (state.linkTurns > 0 ? LinkedSharePercent : NormalSharePercent) + "%"
-                + (state.linkTurns > 0 ? " · 생명 공유 " + state.linkTurns + "턴" : "");
+                + (state.linkTurns > 0 ? " · 생명 공유 " + state.linkTurns + "턴" : "")
+                + (state.lethalGuardTurns > 0 ? " · 생존 보호 " + state.lethalGuardTurns + "턴" : "");
         }
 
         public static List<SkillMechanicToken> Snapshot(SkillActorState actor)
@@ -135,6 +160,8 @@ namespace Lumia
                 result.Add(new SkillMechanicToken { owner = "클로에", key = "nina", label = "니나 체력",
                     kind = "companion", sourceCard = state.linkTurns > 0 ? "chloe_r" : "chloe_q",
                     amount = state.hp, cap = state.maxHp, remaining = state.linkTurns });
+            if(state!=null && state.hp>0 && state.lethalGuardTurns>0)
+                result.Add(new SkillMechanicToken {owner="클로에",key="lethal_guard",label="니나 생존 보호",kind="companion_guard",sourceCard="chloe_r",remaining=state.lethalGuardTurns});
             return result;
         }
 
@@ -145,7 +172,7 @@ namespace Lumia
                 case "chloe_q": return "니나를 체력 18로 소환하거나 체력을 4 회복합니다.";
                 case "chloe_w": return "니나가 살아 있을 때만 협공합니다.";
                 case "chloe_e": return "니나를 6 회복하고 다음 내 턴 Q 무료 연계를 준비합니다.";
-                case "chloe_r": return "니나를 부활시키고 2턴간 피해를 50% 분담합니다.";
+                case "chloe_r": return "소멸한 니나를 체력 12로 부활시켜 2턴간 피해를 50% 분담합니다. 1턴간 분담 후 니나가 살아 있으면 체력 1로 버팁니다.";
                 default: return "";
             }
         }
@@ -162,10 +189,10 @@ namespace Lumia
                 case "chloe_e":
                     text = "니나가 살아 있을 때, 귀환 공격을 준비하고 니나의 체력을 6 회복합니다. 소멸한 니나는 회복되지 않습니다."; break;
                 case "chloe_r":
-                    text = "니나가 소멸한 상태일 때, 체력 12로 부활시킵니다. 2턴 동안 생명을 공유하여 방어도를 뚫고 들어오는 피해의 50%를 니나가 대신 받습니다. 살아 있는 니나의 체력은 그대로 유지됩니다."; break;
+                    text = "니나가 소멸한 상태일 때, 체력 12로 부활시킵니다. 2턴 동안 생명을 공유하여 방어도를 뚫고 들어오는 피해의 50%를 니나가 대신 받습니다. 사용 직후부터 다음 자기 턴이 시작될 때까지 1턴 동안, 해당 피해를 분담한 뒤에도 니나가 살아 있을 때 치명적인 외부 피해로 체력이 0이 되는 대신 1을 남깁니다. 니나가 해당 타격으로 소멸하면 보호는 즉시 끝나며 주인에게 남은 피해를 그대로 적용합니다. 생존 보호는 일반 치명타나 군중 제어 면역이 아니며 다른 1회 부활 효과를 소모하지 않습니다. 살아 있는 니나의 체력은 그대로 유지됩니다."; break;
                 default: return "";
             }
-            return text + " 니나는 최대 체력이 18이며, 생명 공유가 없을 때도 방어도 이후 피해의 25%를 분담합니다. 분담할 피해는 올림하며 니나의 남은 체력까지만 대신 받습니다. 니나의 체력이 0이 되면 협공과 귀환 공격은 종료됩니다. 체력 소모 비용은 분담하지 않습니다.";
+            return text + " 니나는 최대 체력이 18이며, 생명 공유가 없을 때도 방어도 이후 피해의 25%를 분담합니다. 분담할 피해는 올림하며 니나의 남은 체력까지만 대신 받습니다. 니나의 체력이 0이 되면 협공과 귀환 공격은 종료됩니다. 체력 소모 비용은 분담하지 않습니다. 자신의 자해와 체력 비용에는 생존 보호가 적용되지 않습니다.";
         }
 
         static bool ChloeOwner(string owner) { return owner == "클로에" || owner == "chloe"; }

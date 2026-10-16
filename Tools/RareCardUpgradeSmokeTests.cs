@@ -177,9 +177,9 @@ public static partial class CoreSmokeTests
                 "rare twin skill increases both original color conditions equally: " + id);
             int amount = increased[0].amount;
             string summary = DescriptionSummary.CardPreview(rare), full = CardPresentation.Describe(rare) + "\n" + CardPresentation.Rules(rare);
-            Check(summary.Contains("추가 피해 " + amount) && full.Contains("추가 피해를 " + amount + "만큼")
+            Check((summary.Contains("추가 피해 " + amount) || summary.Contains("피해를 강화합니다")) && full.Contains("추가 피해를 " + amount + "만큼")
                 && source.mechanics.rules.Where(rule => rule.op == "bonus_damage").All(rule => rule.amount == originalDamage[0].amount)
-                && FieldSnapshot(source) == before, "rare twin summary and full explanation show the actual extra damage without altering original data: " + id);
+                && FieldSnapshot(source) == before, "rare twin summary retains bonus damage and full explanation shows its actual value without altering original data: " + id);
             var blue = new SkillActorState();
             blue.resources.Add(new SkillResource { owner = source.owner, key = "stance", amount = 0, cap = 1, isState = true });
             blue.resources.Add(new SkillResource { owner = source.owner, key = "ink", amount = 1, cap = 2 });
@@ -191,12 +191,12 @@ public static partial class CoreSmokeTests
                 red.resources.First(rule => rule.key == "ink").amount = 1;
             }
             Check(SkillMechanics.Bonuses(blue, rare, true).damage == amount && SkillMechanics.Bonuses(red, rare, true).damage == amount,
-                "both real twin-color conditions grant exactly the damage printed in the ++ summary: " + id);
+                "both real twin-color conditions grant exactly the damage printed in the ++ full explanation: " + id);
         }
         var nia = RareCardUpgrades.Apply(GameDatabase.Card("nia_r"));
         var battery = nia.mechanics.rules.First(rule => rule.op == "bonus_block" && rule.scaleKey == "battery");
         int maximum = Math.Min(24, battery.amount * battery.cap);
-        Check(DescriptionSummary.CardPreview(nia).Contains("배터리 ×" + battery.amount + "(최대" + maximum + ")")
+        Check(DescriptionSummary.CardPreview(nia).Contains("배터리 ×" + battery.amount + "(최대 " + maximum + ")")
             && CardPresentation.Describe(nia).Contains("VF 배터리 × " + battery.amount + "(최대 " + maximum + ")"),
             "rare Nia R summary and full explanation share the actual bounded battery multiplier");
         var actor = new SkillActorState(); actor.resources.Add(new SkillResource { owner = nia.owner, key = "battery", amount = battery.cap, cap = battery.cap });

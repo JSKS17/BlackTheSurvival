@@ -86,7 +86,7 @@ public static partial class CoreSmokeTests
                     && AdvancedCardMechanics.Description(prepared) == AdvancedCardMechanics.Description(card),
                     "prepared X text keeps its per-energy coefficient instead of displaying the multiplied total as its coefficient: " + id + " / " + energy);
             }
-            Check(card.damage == (id == "eva_r" ? 6 : 7), "X uses a conservative per-energy coefficient: " + id);
+            Check(card.damage == (id == "eva_r" ? 8 : 9), "X uses the revised eight/nine per-energy coefficient: " + id);
             Check(AdvancedCardMechanics.PreparedCard(card, x: int.MaxValue).damage > 0,
                 "defensive integer handling cannot wrap enormous X damage negative: " + id);
         }

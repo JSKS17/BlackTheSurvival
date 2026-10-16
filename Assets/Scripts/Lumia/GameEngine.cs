@@ -728,9 +728,8 @@ namespace Lumia
                 }
                 if (garnetExecution)
                 {
-                    int remainingHp = c.enemyHp;
-                    c.enemyHp = 0; dealt += remainingHp; directDamage += remainingHp; execution = true;
-                    BossMechanics.CheckPhase(c); RecordBossProgress(BossMechanics.ObserveDamage(c, remainingHp));
+                    int executionDamage = TakeExecutionDamage(true);
+                    dealt += executionDamage; directDamage += executionDamage; execution = c.enemyHp<=0;
                     break;
                 }
                 int baseDamage = CardDamage(reference);
@@ -935,7 +934,7 @@ namespace Lumia
                 }
                 if (garnetExecution)
                 {
-                    dealt += State.hp; State.hp = 0; execution = true;
+                    dealt += TakeExecutionDamage(false); execution = State.hp<=0;
                     break;
                 }
                 int baseDamage = damagePerHit;
@@ -1735,21 +1734,44 @@ namespace Lumia
         }
         private int TakeHealthDamage(bool enemy,int damage)
         {
-            var combat=State.combat;int hp=enemy?combat.enemyHp:State.hp;
+            var combat=State.combat;
             var companion=CompanionMechanics.Absorb(enemy?combat.enemySkills:combat.playerSkills,damage);
             damage=companion.remaining;
+            RecordCompanionAbsorption(enemy,companion);
+            int deferral=Math.Min(20,enemy?EnemyEquipmentSum(g=>g.damageDeferral):EquipmentSum(g=>g.damageDeferral));
+            int delayed=(int)((long)Math.Max(0,damage)*deferral/100);
+            if(delayed>0)(enemy?combat.enemyDeferredDamage:combat.playerDeferredDamage).Add(new DeferredDamage{amount=delayed,remaining=3});
+            return ApplyExternalHealthDamage(enemy,Math.Max(0,damage-delayed));
+        }
+        private void RecordCompanionAbsorption(bool enemy,CompanionAbsorption companion)
+        {
+            var combat=State.combat;
             if(companion.absorbed>0)
             {
                 EmitCombatAction(new CombatAction { id=++actionSerial, cardId="chloe_r", kind="companion_damage", enemy=!enemy, companionAbsorbed=companion.absorbed });
                 Say((enemy?combat.enemyName:"하나")+"의 니나가 피해 "+companion.absorbed+"을 대신 받았습니다."+(companion.destroyed?" 니나가 파괴되었습니다.":""));
             }
-            int deferral=Math.Min(20,enemy?EnemyEquipmentSum(g=>g.damageDeferral):EquipmentSum(g=>g.damageDeferral));
-            int delayed=Math.Max(0,damage)*deferral/100;
-            if(delayed>0)(enemy?combat.enemyDeferredDamage:combat.playerDeferredDamage).Add(new DeferredDamage{amount=delayed,remaining=3});
-            int immediate=Math.Min(hp,Math.Max(0,damage-delayed));
+        }
+        // Incoming damage has already paid its Nina share and equipment deferral, if any.
+        // Self-paid HP and event costs intentionally do not enter this external-damage path.
+        private int ApplyExternalHealthDamage(bool enemy,int damage)
+        {
+            var combat=State.combat;int hp=enemy?combat.enemyHp:State.hp;
+            int immediate=CompanionMechanics.ClampOwnerDamage(enemy?combat.enemySkills:combat.playerSkills,hp,damage);
+            if(hp>0 && damage>=hp && immediate<hp)
+            {
+                EmitCombatAction(new CombatAction {id=++actionSerial,cardId="chloe_r",kind="companion_guard",enemy=enemy});
+                Say((enemy?combat.enemyName:"하나")+" · 니나 생존 보호 · 체력 1을 남깁니다.");
+            }
             if(enemy)combat.enemyHp-=immediate;else State.hp-=immediate;
             if (enemy) { BossMechanics.CheckPhase(combat); RecordBossProgress(BossMechanics.ObserveDamage(combat, immediate)); }
             return immediate;
+        }
+        private int TakeExecutionDamage(bool enemy)
+        {
+            var combat=State.combat;var owner=enemy?combat.enemySkills:combat.playerSkills;int hp=enemy?combat.enemyHp:State.hp;
+            if(CompanionMechanics.HasLethalProtection(owner))RecordCompanionAbsorption(enemy,CompanionMechanics.Absorb(owner,hp));
+            return ApplyExternalHealthDamage(enemy,hp);
         }
         private void ResolveDeferredDamage(bool enemy)
         {
@@ -1757,8 +1779,8 @@ namespace Lumia
             int total=0;
             foreach(var debt in pending){int amount=(debt.amount+debt.remaining-1)/Math.Max(1,debt.remaining);debt.amount-=amount;debt.remaining--;total+=amount;}
             pending.RemoveAll(x=>x.amount<=0 || x.remaining<=0);
-            int damage=Math.Min(enemy?combat.enemyHp:State.hp,total);
-            if(enemy)combat.enemyHp-=damage;else State.hp-=damage;
+            // Deferred damage already shared with Nina when it was first received.
+            int damage=ApplyExternalHealthDamage(enemy,total);
             if(damage<=0)return;
             EmitCombatAction(new CombatAction{id=++actionSerial,cardId="ao_dai",kind="deferred_damage",enemy=!enemy,damage=damage});
             Say((enemy?combat.enemyName:"하나")+" 유예 피해 "+damage);
@@ -1878,7 +1900,7 @@ namespace Lumia
                     if(planWeak>0)planExtra=planExtra*3/4;if(c.vulnerable>1)planExtra=planExtra*3/2;
                     int perHit=CalculateEnemyDamage(card,planStrength,Math.Max(0,c.vulnerable-1),weak:planWeak);
                     if (SkillMechanics.BreaksBlock(before, card)) planTargetBlock = 0;
-                    int actualDamage=garnetExecution?planTargetHp:SimulateSharedDirectDamage(planDefenderSkills,planTargetHp,ref planTargetBlock,perHit,planExtra,Math.Max(1,card.hits));planTargetHp-=actualDamage;
+                    int actualDamage=garnetExecution?CompanionMechanics.SimulateExecutionDamage(planDefenderSkills,planTargetHp):SimulateSharedDirectDamage(planDefenderSkills,planTargetHp,ref planTargetBlock,perHit,planExtra,Math.Max(1,card.hits));planTargetHp-=actualDamage;
                     int healed=Math.Min(c.enemyMaxHp-planHp,(EnemyAuxiliaryValue(card,card.heal)+bonuses.heal)*(100-Math.Max(TraitMechanics.HealingReduction(traitPlan),StatusMechanics.HealingReduction(c.enemyStatuses)))/100);planHp+=healed;planStrength+=card.strength;
                     available+=beforeTraits.pulses.Where(x=>x.kind=="energy").Sum(x=>x.amount);
                     available -= price; available += card.energy;
@@ -1958,22 +1980,23 @@ namespace Lumia
             int weak = c.enemyWeak, vulnerable = c.enemyTurn ? c.vulnerable : Math.Max(0, c.vulnerable - 1), actorHp = c.enemyHp, defenderHp = State.hp, defenderBlock = c.block;
             var attacker = StatusMechanics.Clone(c.enemyStatuses); var defender = StatusMechanics.Clone(c.playerStatuses);
             var traits = TraitMechanics.Clone(c.enemyTraits); var defenderTraits = TraitMechanics.Clone(c.playerTraits);
+            var skills=SkillMechanics.Clone(c.enemySkills);
             if (!c.enemyTurn)
             {
                 StatusMechanics.ClearProtection(attacker);
                 StatusMechanics.EndTurn(defender); TraitMechanics.EndTurn(defenderTraits);
-                var skills = SkillMechanics.Clone(c.enemySkills); SkillMechanics.StartTurn(skills);
+                SkillMechanics.StartTurn(skills);CompanionMechanics.StartTurn(skills);
                 TraitMechanics.StartTurn(traits);
                 var opening = TraitMechanics.Resolve(traits, ActorTraits(true), "turn_start", TraitContextFor(true, null, true, skillActor: skills));
                 if (opening.pulses.Any(pulse => pulse.kind == "cleanse")) { weak = 0; attacker.effects.RemoveAll(x => !x.pending); }
             }
             int unusedBlock;
-            return PreviewBossSpecial(ref actorHp, ref defenderHp, ref defenderBlock, ref weak, ref vulnerable, traits, defenderTraits, attacker, defender, out unusedBlock);
+            return PreviewBossSpecial(ref actorHp, ref defenderHp, ref defenderBlock, ref weak, ref vulnerable, traits, defenderTraits, attacker, defender, out unusedBlock,skills);
         }
 
         private int PreviewBossDefenderTrigger(string trigger, CardDef card, int damage, ref int actorHp, ref int defenderHp, ref int defenderBlock,
             ref int weak, ref int vulnerable, TraitActorState attackerTraits, TraitActorState defenderTraits,
-            SkillActorState defenderSkills, StatusActorState attackerStatuses, StatusActorState defenderStatuses)
+            SkillActorState defenderSkills, StatusActorState attackerStatuses, StatusActorState defenderStatuses, SkillActorState attackerSkills)
         {
             var context = TraitContextFor(false, card, true, damage, skillActor: defenderSkills, hp: defenderHp);
             context.targetHp = actorHp;
@@ -1999,7 +2022,7 @@ namespace Lumia
                         var buff = attackerTraits.buffs.FirstOrDefault(x => x.kind == pulse.kind && x.sourceId == pulse.sourceId);
                         if (buff == null) { buff = new TraitBuff { kind = pulse.kind, sourceId = pulse.sourceId }; attackerTraits.buffs.Add(buff); }
                         buff.amount = Math.Max(buff.amount, pulse.amount); buff.remaining = Math.Max(buff.remaining, Math.Min(2, pulse.duration)); break;
-                    case "execute": actorHp = 0; break;
+                    case "execute": actorHp -= CompanionMechanics.SimulateExecutionDamage(attackerSkills,actorHp); break;
                 }
             }
             return result.damageReduction;
@@ -2007,29 +2030,31 @@ namespace Lumia
 
         private int PreviewBossStrike(int amount, CardDef card, ref int actorHp, ref int defenderHp, ref int defenderBlock,
             ref int weak, ref int vulnerable, TraitActorState attackerTraits, TraitActorState defenderTraits,
-            SkillActorState defenderSkills, StatusActorState attackerStatuses, StatusActorState defenderStatuses)
+            SkillActorState defenderSkills, StatusActorState attackerStatuses, StatusActorState defenderStatuses, SkillActorState attackerSkills)
         {
             int reduction = PreviewBossDefenderTrigger("before_incoming", card, 0, ref actorHp, ref defenderHp, ref defenderBlock,
-                ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses);
+                ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses,attackerSkills);
             int previousBlock = defenderBlock;
             int raw = Math.Max(0, BossStrikeDamage(amount, weak, vulnerable, attackerStatuses, defenderStatuses) - reduction);
             int absorbed = Math.Min(defenderBlock, raw); defenderBlock -= absorbed;StatusMechanics.ConsumeProtection(defenderStatuses,absorbed);
-            int afterBlock = raw - absorbed, deferred = afterBlock * Math.Min(20, EquipmentSum(g => g.damageDeferral)) / 100;
-            int damage = Math.Min(defenderHp, afterBlock - deferred); defenderHp -= damage;
+            int shared = CompanionMechanics.Absorb(defenderSkills,raw-absorbed).remaining;
+            int deferred=(int)((long)shared*Math.Min(20,EquipmentSum(g=>g.damageDeferral))/100);
+            int damage=CompanionMechanics.ClampOwnerDamage(defenderSkills,defenderHp,shared-deferred);defenderHp-=damage;
             StatusMechanics.DamageTaken(defenderStatuses, damage);
             var triggers = new List<string> { "incoming_hit" };
             if (damage > 0) { triggers.Add("damaged"); triggers.Add("low_health"); }
             foreach (var trigger in triggers)
                 PreviewBossDefenderTrigger(trigger, card, damage, ref actorHp, ref defenderHp, ref defenderBlock,
-                    ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses);
+                    ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses,attackerSkills);
             if (previousBlock > 0 && defenderBlock == 0)
                 PreviewBossDefenderTrigger("block_break", card, damage, ref actorHp, ref defenderHp, ref defenderBlock,
-                    ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses);
+                    ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses,attackerSkills);
             return raw;
         }
 
         private int PreviewBossSpecial(ref int actorHp, ref int defenderHp, ref int defenderBlock, ref int weak, ref int vulnerable,
-            TraitActorState attackerTraits, TraitActorState defenderTraits, StatusActorState attackerStatuses, StatusActorState defenderStatuses, out int addedBlock)
+            TraitActorState attackerTraits, TraitActorState defenderTraits, StatusActorState attackerStatuses, StatusActorState defenderStatuses, out int addedBlock,
+            SkillActorState attackerSkills=null,SkillActorState defenderSkills=null)
         {
             addedBlock = 0;
             var c = State.combat; var b = BossMechanics.PreviewAtTurnEnd(c); if (!BossMechanics.NeedsSpecialAction(c, b)) return 0;
@@ -2043,7 +2068,8 @@ namespace Lumia
                 effects.Add(new KeyValuePair<BossEffect, int>(phase.secondaryEffect, phase.secondaryAmount));
             }
             int damageBudget = BossMechanics.MaxExtraDamage, supportBudget = BossMechanics.MaxSupport, totalDamage = 0;
-            var defenderSkills = SkillMechanics.Clone(c.playerSkills);
+            defenderSkills=defenderSkills ?? SkillMechanics.Clone(c.playerSkills);
+            attackerSkills=attackerSkills ?? SkillMechanics.Clone(c.enemySkills);
             for (int index = 0; index < effects.Count && defenderHp > 0 && actorHp > 0; ++index)
             {
                 var entry = effects[index];
@@ -2054,7 +2080,7 @@ namespace Lumia
                         amount = Math.Min(damageBudget, amount); damageBudget -= amount;
                         string source = hasDelayed && index == 0 ? b.delayedSourceCard ?? phase.signatureCardId : phase.signatureCardId;
                         if (amount > 0) totalDamage += PreviewBossStrike(amount, GameDatabase.Card(source), ref actorHp, ref defenderHp, ref defenderBlock,
-                            ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses); break;
+                            ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses,attackerSkills); break;
                     case BossEffect.Shield:
                         amount = Math.Min(supportBudget, amount); supportBudget -= amount; addedBlock += amount; break;
                     case BossEffect.Heal:
@@ -2103,7 +2129,7 @@ namespace Lumia
             // Existing player debuffs tick when this player turn ends, before the enemy acts.
             int vulnerable = c.enemyTurn ? c.vulnerable : Math.Max(0, c.vulnerable - 1);
             int specialBlock;
-            c.intentDamage += PreviewBossSpecial(ref actorHp, ref defenderHp, ref defenderBlock, ref weak, ref vulnerable, traitPreview, defenderTraits, attackerStatuses, defenderStatuses, out specialBlock);
+            c.intentDamage += PreviewBossSpecial(ref actorHp, ref defenderHp, ref defenderBlock, ref weak, ref vulnerable, traitPreview, defenderTraits, attackerStatuses, defenderStatuses, out specialBlock,skillPreview,defenderSkills);
             c.intentBlock += specialBlock;
             for(int intentIndex=c.enemyTurn?c.enemyActionIndex:0;intentIndex<c.enemyPlan.Count;++intentIndex)
             {
@@ -2152,7 +2178,7 @@ namespace Lumia
                 c.intentDamage+=garnetExecution?defenderHp:raw;c.intentBlock+=EnemyAuxiliaryValue(card,card.block)+bonuses.block+beforeTraits.bonus.block;
                 int previousDefenderBlock=defenderBlock;
                 if (SkillMechanics.BreaksBlock(skillBefore, card)) { defenderBlock = 0;StatusMechanics.ClearProtection(defenderStatuses); }
-                int actualDamage=garnetExecution?defenderHp:SimulateSharedDirectDamage(defenderSkills,defenderHp,ref defenderBlock,baseRaw,StatusMechanics.Damage(attackerStatuses,defenderStatuses,extra),Math.Max(1,card.hits),defenderStatuses);defenderHp-=actualDamage;
+                int actualDamage=garnetExecution?CompanionMechanics.SimulateExecutionDamage(defenderSkills,defenderHp):SimulateSharedDirectDamage(defenderSkills,defenderHp,ref defenderBlock,baseRaw,StatusMechanics.Damage(attackerStatuses,defenderStatuses,extra),Math.Max(1,card.hits),defenderStatuses);defenderHp-=actualDamage;
                 if(AdvancedCardMechanics.GrantsControlProtection(card))StatusMechanics.GrantControlProtection(attackerStatuses,EnemyAuxiliaryValue(card,card.block),card.id);
                 StatusMechanics.DamageTaken(defenderStatuses,actualDamage);
                 int cardHeal=Math.Min(c.enemyMaxHp-actorHp,(EnemyAuxiliaryValue(card,card.heal)+bonuses.heal)*(100-Math.Max(TraitMechanics.HealingReduction(traitPreview),StatusMechanics.HealingReduction(attackerStatuses)))/100);actorHp+=cardHeal;
@@ -2178,7 +2204,7 @@ namespace Lumia
                         var buff=defenderTraits.buffs.FirstOrDefault(x=>x.kind=="exposure" && x.sourceId==pulse.sourceId);
                         if(buff==null){buff=new TraitBuff{kind="exposure",sourceId=pulse.sourceId};defenderTraits.buffs.Add(buff);}buff.amount=Math.Max(buff.amount,pulse.amount);buff.remaining=Math.Max(buff.remaining,pulse.duration);
                     }
-                    if(pulse.kind=="execute"){c.intentDamage+=pulse.amount;defenderHp=0;}
+                    if(pulse.kind=="execute"){c.intentDamage+=pulse.amount;defenderHp-=CompanionMechanics.SimulateExecutionDamage(defenderSkills,defenderHp);}
                 }
                 // A shield broken by this card may cleanse the new debuff before the next planned card.
                 if(previousDefenderBlock>0 && defenderBlock==0)
@@ -2382,7 +2408,7 @@ namespace Lumia
                             var target=enemy?c.playerTraits:c.enemyTraits;var buff=target.buffs.FirstOrDefault(x=>x.sourceId==pulse.sourceId && x.kind==pulse.kind);
                             if(buff==null){buff=new TraitBuff {sourceId=pulse.sourceId,label=GameDatabase.Rune(pulse.sourceId)?.name ?? GameDatabase.Passive(pulse.sourceId)?.name ?? pulse.kind,kind=pulse.kind};target.buffs.Add(buff);}
                             buff.amount=Math.Max(buff.amount,pulse.amount);buff.remaining=Math.Max(buff.remaining,Math.Min(2,pulse.duration));break;
-                        case "execute":damage=enemy?State.hp:c.enemyHp;if(enemy)State.hp=0;else c.enemyHp=0;break;
+                        case "execute":damage=TakeExecutionDamage(!enemy);break;
                     }
                     EmitCombatAction(new CombatAction {id=++actionSerial,cardId=pulse.sourceCard,traitId=pulse.sourceId,kind=pulse.kind.StartsWith("status_",StringComparison.Ordinal)?pulse.kind:"trait_"+pulse.kind,enemy=enemy,damage=damage,heal=heal,block=block});
                 }

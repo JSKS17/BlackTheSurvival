@@ -244,6 +244,81 @@ public static partial class CoreSmokeTests
         Check(e.PlayCard(0) && c.enemySkills.companion.hp < 18
             && enemyHp - c.enemyHp + 18 - c.enemySkills.companion.hp == e.CardDamage("basic_attack"),
             "enemy Nina uses the same finite post-block damage sharing as player Nina");
+        AdvancedCompanionLethalProtection();
+    }
+
+    static void AdvancedCompanionLethalProtection()
+    {
+        var e=AdvancedFixture("chloe_r");var c=e.State.combat;
+        Check(e.PlayCard(0) && c.playerSkills.companion.lethalGuardTurns==1,"actual player Chloe R starts the survival window");
+        e.State.hp=3;c.block=0;c.playerSkills.effects.Add(new SkillTimedEffect {owner="fixture",key="spare_revive",kind="revive",amount=20,remaining=3});
+        var saved=new GameEngine((RunState)Clone(e.State));
+        AdvancedEnemyCast(e,"basic_attack");AdvancedEnemyCast(saved,"basic_attack");
+        Check(e.State.hp==1 && c.playerSkills.companion.hp==9 && e.State.stage==RunStage.Combat
+            && c.playerSkills.effects.Any(x=>x.key=="spare_revive") && !e.CombatActions.Any(x=>x.kind=="revive"),
+            "direct lethal damage leaves the player at one after sharing and does not spend another revival resource / hp="+e.State.hp+" / nina="+c.playerSkills.companion.hp+" / guard="+c.playerSkills.companion.lethalGuardTurns+" / stage="+e.State.stage);
+        Check(InformationFingerprint(e.State)==InformationFingerprint(saved.State),"saved and live survival protection resolve to identical state, RNG and history");
+        Check(e.CombatActions.Count(x=>x.kind=="companion_guard")==1
+            && e.State.combatHistory.Count(x=>x.detail.Contains("니나가 치명적인 피해를 막아"))==1,
+            "one lethal protection trigger emits one readable action and exactly one combat-history entry");
+        AdvancedEnemyCast(e,"basic_attack");
+        Check(e.State.hp==1 && c.playerSkills.companion.hp==6,"multiple hits during the window continue protection only by paying finite Nina HP");
+        AdvancedEnemyCast(e,"basic_attack");Check(e.State.hp==1 && c.playerSkills.companion.hp==3,"the survival window remains active while a third shared hit leaves Nina alive");
+        c.playerSkills.effects.RemoveAll(x=>x.key=="spare_revive");AdvancedEnemyCast(e,"basic_attack");
+        Check(e.State.hp==0 && c.playerSkills.companion.hp==0 && e.State.stage==RunStage.Lost,"a later hit killing Nina immediately allows lethal owner damage");
+
+        foreach(string kind in new[]{"bleed","burn","delayed_damage","counter"})
+        {
+            e=AdvancedFixture();c=e.State.combat;CompanionCast(c.playerSkills,"chloe_r");e.State.hp=3;
+            typeof(GameEngine).GetMethod("ResolveSkillPulse",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(e,new object[]{new SkillPulse {kind=kind,sourceCard="isol_q",key="fixture",amount=8},true});
+            Check(e.State.hp==1 && c.playerSkills.companion.hp==8,"external "+kind+" damage uses the same share-then-protect rule");
+        }
+        e=AdvancedFixture();c=e.State.combat;CompanionCast(c.playerSkills,"chloe_r");e.State.hp=3;
+        typeof(GameEngine).GetMethod("ResolveBossStrike",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(e,new object[]{8,"boss_guard_fixture","nia_r",false});
+        Check(e.State.hp==1 && c.playerSkills.companion.hp==8,"boss mechanic strikes pay Nina's share before protecting a lethal owner hit");
+        e=AdvancedFixture();c=e.State.combat;CompanionCast(c.playerSkills,"chloe_r");e.State.hp=3;c.animal="boar";
+        typeof(GameEngine).GetMethod("ResolveWildlifeSkill",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(e,new object[]{WildlifeMechanics.BoarCharge});
+        Check(e.State.hp==1 && c.playerSkills.companion.hp==6 && StatusMechanics.Has(c.playerStatuses,"knockback"),
+            "wildlife charge uses lethal protection without granting crowd-control immunity");
+        e=AdvancedFixture();c=e.State.combat;CompanionCast(c.enemySkills,"chloe_r");c.enemyHp=3;c.enemyPoison=8;
+        Check(e.BeginEndTurn() && c.enemyHp==1 && c.enemySkills.companion.hp==8 && c.enemySkills.companion.lethalGuardTurns==0,
+            "poison before the enemy's next turn is protected, then the enemy's own turn start expires its guard");
+        foreach(bool enemy in new[]{false,true})
+        {
+            e=AdvancedFixture();c=e.State.combat;var owner=enemy?c.enemySkills:c.playerSkills;CompanionCast(owner,"chloe_r");
+            if(enemy)c.enemyHp=3;else e.State.hp=3;
+            var result=(int)typeof(GameEngine).GetMethod("TakeHealthDamage",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(e,new object[]{enemy,8});
+            Check(result==2 && (enemy?c.enemyHp:e.State.hp)==1 && owner.companion.hp==8,"central external damage protects either actor after real Nina sharing");
+            int nina=owner.companion.hp;(enemy?c.enemyDeferredDamage:c.playerDeferredDamage).Add(new DeferredDamage {amount=3,remaining=1});
+            typeof(GameEngine).GetMethod("ResolveDeferredDamage",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(e,new object[]{enemy});
+            Check((enemy?c.enemyHp:e.State.hp)==1 && owner.companion.hp==nina,"already-shared equipment debt checks survival protection without charging Nina twice");
+        }
+
+        e=AdvancedFixture("basic_attack");c=e.State.combat;CompanionCast(c.enemySkills,"chloe_r");c.enemyHp=3;
+        string before=InformationFingerprint(e.State);var preview=e.PreviewCardUse(0);
+        Check(preview.damageNote.Contains("생존 보호") && before==InformationFingerprint(e.State),"use-before preview explains target survival protection without changing any live save field");
+        Check(e.PlayCard(0) && c.enemyHp==1 && c.enemySkills.companion.hp==9 && e.State.stage==RunStage.Combat,"player direct attacks obey the enemy's same finite survival protection");
+
+        e=AdvancedFixture("chloe_r");c=e.State.combat;Check(e.PlayCard(0),"expiry fixture casts Chloe R");
+        var cloned=SkillMechanics.Clone(c.playerSkills);int block=0;
+        var simulate=typeof(GameEngine).GetMethod("SimulateSharedDirectDamage",BindingFlags.NonPublic|BindingFlags.Instance);
+        object[] arguments={cloned,3,block,8,0,1,null};int predicted=(int)simulate.Invoke(e,arguments);
+        Check(predicted==2 && cloned.companion.hp==8 && c.playerSkills.companion.hp==12,
+            "damage simulation applies sharing and lethal protection on an independent Nina clone");
+        AdvancedRound(e);
+        Check(c.playerSkills.companion.lethalGuardTurns==0 && c.playerSkills.companion.linkTurns==1,
+            "actual next player turn ends the guard while preserving second-turn sharing");
+
+        foreach(bool enemy in new[]{false,true})
+        {
+            e=AdvancedFixture(enemy?new[]{"garnet_r"}:new string[0]);c=e.State.combat;
+            var defender=enemy?c.enemySkills:c.playerSkills;CompanionCast(defender,"chloe_r");
+            if(enemy){c.enemyHp=10;c.enemyMaxHp=100;RecastResource(c.playerSkills,"garnet_r","embrace",1,1);c.freeCasts.Add(new FreeCastGrant {cardId="garnet_r",uses=1});Check(e.PlayCard(0),"player attempts a prepared Garnet execution against protected Nina");}
+            else{e.State.hp=10;e.State.maxHp=100;RecastResource(c.enemySkills,"garnet_r","embrace",1,1);c.enemyFreeCasts.Add(new FreeCastGrant {cardId="garnet_r",uses=1});AdvancedEnemyCast(e,"garnet_r");}
+            Check((enemy?c.enemyHp:e.State.hp)==1 && defender.companion.hp==7 && e.State.stage==RunStage.Combat
+                && !AdvancedLast(e,"garnet_r",!enemy).execution,
+                "active R survives either side's execution after paying Nina's five HP share");
+        }
     }
 
     static void AdvancedEnemyParity()

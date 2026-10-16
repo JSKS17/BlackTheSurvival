@@ -23,7 +23,7 @@ public static partial class CoreSmokeTests
             }
             if (args.Contains("--advanced-only"))
             {
-                AdvancedCardRuleDefinitions(); CompanionMechanicTests(); AdvancedCombatMechanics(); AdvancedCardPresentation();
+                AdvancedCardRuleDefinitions(); CompanionMechanicTests(); AdvancedCombatMechanics(); AdvancedCardPresentation(); CardSummaryRegression();
                 Console.WriteLine("PASS: " + checks + " assertions across advanced card rules and Nina companion.");
                 return 0;
             }
@@ -59,13 +59,19 @@ public static partial class CoreSmokeTests
                 Console.WriteLine("PASS: " + checks + " assertions across selected-card upgrade regressions and actual encounter guidance.");
                 return 0;
             }
+            if (args.Contains("--summary-only"))
+            {
+                AdvancedCardPresentation(); CardSummaryRegression();
+                Console.WriteLine("PASS: " + checks + " assertions across all 394 card summaries, upgrades, combat numbers and defining conditions.");
+                return 0;
+            }
             KioskUnlockAndStock(); MapKioskProximity(); BossMapPreview(); BossPathLegacyMigration(); BossPathRouteRewards(); PermanentEnergyGrowth(); CriticalBasicAttacks();
             DatabaseIntegrity(); PreparationAndLocks(); RouteProgression(); CombatPilesAndEnergy();
             EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); SubjectAndBossRewardCardLimits(); PendingSubjectRewardMigration(); WildlifeDropTables(); WildlifeSupplyRewards(); SubjectDropTables();
             ShopEconomy(); CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
             StarterLocksAndCeiling(); FullEnemyLoadouts(); EquipmentIdentityAndAlex();
             WeaponSpecialMechanics(); WeaponAndTacticalDamageBalance();
-            AdvancedCardRuleDefinitions(); CompanionMechanicTests(); AdvancedCombatMechanics(); AdvancedCardPresentation();
+            AdvancedCardRuleDefinitions(); CompanionMechanicTests(); AdvancedCombatMechanics(); AdvancedCardPresentation(); CardSummaryRegression();
             SuaTargetAndBlindMechanics();
             SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); CrossSubjectRules(); CrossSubjectCombatAndSave(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();

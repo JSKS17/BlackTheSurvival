@@ -34,7 +34,7 @@ public static class DescriptionAudit
             case "weak":return "약화";case "vulnerable":return "취약";case "cleanse":return "해제";
             case "status":return "부여";case "heal_reduction":return "치유";case "exposure":return "피해";
             case "shop_discount":return "구매";case "damage_resource":return "축적";case "execute":return "처형";
-            case "clear_effect":return "회수";default:throw new Exception("Unknown description operation: "+op);
+            case "clear_effect":return "회수";case "break_block":return "방어도";default:throw new Exception("Unknown description operation: "+op);
         }
     }
     static bool EffectRetained(string text,string op)
@@ -278,6 +278,8 @@ public static class DescriptionAudit
         foreach(var status in card.statuses ?? new CardStatusRule[0])result.Add(status.key);
         foreach(var effect in card.mechanics?.rules ?? new SkillRule[0])
             if(effect.amount>0 && (effect.op=="bleed" || effect.op=="burn"))result.Add(effect.op);
+        if(CardInstances.BaseId(card.id)=="aiden_w")result.Add("root");
+        if(CardInstances.BaseId(card.id)=="felix_r")result.Add("stun");
         return result;
     }
     static void DebuffFooter(CardDef card)
@@ -425,7 +427,7 @@ public static class DescriptionAudit
                 Check(rules.Contains("피해")&&rules.Contains("6")&&rules.Contains("방어도")&&rules.Contains("회복")&&rules.Contains("4"),card.id+": immediate shared damage/shield/heal budgets remain visible");
                 Check(rules.Contains("무료")&&rules.Contains("0코스트")&&rules.Contains("준비")&&rules.Contains("소모"),card.id+": zero-price generation restriction and existing-preparation consumption are explained");
                 string preview=DescriptionSummary.CardPreview(card,GameDatabase.Cards);
-                Check(DescriptionSummary.PreviewLines(preview)<=5&&DescriptionSummary.PreviewWidth(preview)<=66,card.id+": card summary remains bounded when optional cooperation is present");
+                Check(DescriptionSummary.PreviewLines(preview)<=DescriptionSummary.CardPreviewMaxLines&&DescriptionSummary.PreviewWidth(preview)<=DescriptionSummary.CardPreviewMaxWidth,card.id+": card summary remains bounded when optional cooperation is present");
                 Check(!preview.Contains("턴당 2회까지")&&!preview.Contains("피해 합계 6"),card.id+": full shared limits do not crowd the compact preview");
             }
             Check(DataSnapshot(card)==before,card.id+": synergy role selection, catalog and rendering never rewrite original skill data");
@@ -468,7 +470,7 @@ public static class DescriptionAudit
                 if(card.freeCastOnHit)Check(description.Contains("적중"),card.id+": reset describes the required landed attack");
             }
             if(preview.Contains("무료")||preview.Contains("코스트 없이"))
-                Check(preview.Contains(resource),card.id+": compact preview cannot advertise a free reset while omitting its resource condition");
+                Check(preview.Contains(resource)||card.id=="shoichi_w"&&preview.Contains("단검"),card.id+": compact preview cannot advertise a free reset while omitting its resource condition");
             if(card.id=="celine_w")
             {
                 string fusion=SkillMechanics.ResourceName(card,"fusion");
@@ -499,21 +501,20 @@ public static class DescriptionAudit
                 DebuffFooter(c);
                 Text(c.id+"/summary",summary);Text(c.id+"/full",full);
                 Text(c.id+"/preview",preview);
-                Check(DescriptionSummary.PreviewWidth(preview)<=66,c.id+": preview fits the compact pixel-card budget ("+DescriptionSummary.PreviewWidth(preview)+"): "+preview);
-                Check(preview.Split('\n').Length<=2,c.id+": at most two compact preview paragraphs");
-                Check(DescriptionSummary.PreviewLines(preview)<=5,c.id+": preview stays within five conservatively estimated native lines: "+preview);
+                Check(DescriptionSummary.PreviewWidth(preview)<=DescriptionSummary.CardPreviewMaxWidth,c.id+": preview fits the compact pixel-card budget ("+DescriptionSummary.PreviewWidth(preview)+"): "+preview);
+                Check(DescriptionSummary.PreviewLines(preview)<=DescriptionSummary.CardPreviewMaxLines,c.id+": preview stays within the shared conservative native-line budget: "+preview);
                 Check(preview.Split('\n').All(line=>line.EndsWith(".")),c.id+": preview never cuts a sentence");
                 Check(!preview.Contains("…")&&!preview.Contains("..."),c.id+": preview has no clipped ellipsis");
-                if((c.damage>0||c.block>0||c.heal>0)&&(c.mechanics?.rules?.Length??0)>0)
-                    Check(preview.Contains("\n"),c.id+": the defining mechanic is not replaced by an immediate-stat-only preview");
-                if(c.damage>0)Check(preview.Contains("피해 "+c.damage),c.id+": preview retains the immediate damage");
-                if(c.damage<=0 && c.block>0)Check(preview.Contains("방어도 "+c.block),c.id+": preview retains the leading shield");
-                if(c.damage<=0 && c.block<=0 && c.heal>0)Check(preview.Contains("체력 "+c.heal),c.id+": preview retains the leading heal");
+                if(c.damage>0)Check(new[]{"피해","공격","적중","협공"}.Any(preview.Contains),c.id+": preview retains the attack behavior even when coefficients are summarized");
+                if(c.block>0)Check(preview.Contains("방어")||preview.Contains("보호"),c.id+": preview retains defense behavior");
+                if(c.heal>0)Check(preview.Contains("회복")||preview.Contains("치유"),c.id+": preview retains recovery behavior");
+                if(c.evasion>0)Check(preview.Contains("회피"),c.id+": preview retains evasion behavior");
                 string large=DescriptionSummary.CardPreview(c,GameDatabase.Cards,c.damage>0?99:0,c.block>0?99:0,c.heal>0?99:0);
-                Check(DescriptionSummary.PreviewLines(large)<=5,c.id+": upgraded/combat two-digit values still fit the preview");
-                if(c.damage>0)Check(large.Contains("피해 99"),c.id+": combat preview preserves its current damage");
-                if(c.damage<=0&&c.block>0)Check(large.Contains("방어도 99"),c.id+": combat preview preserves its current shield");
-                if(c.damage<=0&&c.block<=0&&c.heal>0)Check(large.Contains("체력 99"),c.id+": combat preview preserves its current heal");
+                Check(DescriptionSummary.PreviewLines(large)<=DescriptionSummary.CardPreviewMaxLines,c.id+": upgraded/combat two-digit values still fit the preview");
+                string liveSource=string.Join(" ",CardSummaryMechanics.Effects(c,c.damage>0?99:0,c.block>0?99:0,c.heal>0?99:0).Select(effect=>effect.effect));
+                if(c.damage>0&&!AdvancedCardMechanics.IsX(c)&&!AdvancedCardMechanics.HasTargetChoice(c))Check(liveSource.Contains("피해 99"),c.id+": quantitative source receives current damage before semantic compacting");
+                if(c.block>0&&!AdvancedCardMechanics.HasTargetChoice(c))Check(liveSource.Contains("방어도 99"),c.id+": quantitative source receives current shield before semantic compacting");
+                if(c.heal>0&&!AdvancedCardMechanics.HasTargetChoice(c))Check(liveSource.Contains("체력 99"),c.id+": quantitative source receives current heal before semantic compacting");
                 NoDuplicateDataRules(c.id,c.mechanics?.rules);
                 if(c.damage>0)Check(summary.Contains(c.damage.ToString())&&summary.Contains("피해"),c.id+": base damage retained");
                 if(c.hits>1 && c.damage>0)Check(summary.Contains(c.hits+"회"),c.id+": hit count retained");

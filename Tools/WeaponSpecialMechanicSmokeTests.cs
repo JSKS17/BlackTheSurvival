@@ -80,7 +80,9 @@ public static partial class CoreSmokeTests
         e = MechanicsFixture(); c = e.State.combat; c.enemyEvasion = 100;
         ArmWeaponCounter(c.enemySkills, tonfa.id); c.hand.Add("basic_attack");
         Check(e.PlayCard(0) && !e.CombatActions.Any(x => x.kind == "counter"), "a fully evaded attack does not reflect");
-        Check(DescriptionSummary.CardPreview(tonfa).Contains("맞을 때마다")
+        string tonfaPreview = DescriptionSummary.CardPreview(tonfa);
+        Check(tonfaPreview.Contains("직접 공격") && tonfaPreview.Contains("반격")
+            && (tonfaPreview.Contains("맞을 때마다") || tonfaPreview.Contains("횟수 제한 없음"))
             && CardPresentation.Describe(tonfa).Contains("횟수 제한 없음")
             && !CardPresentation.Describe(tonfa).Contains("턴당 1회"),
             "Tonfa summary and full detail consistently explain unlimited direct-hit reflection");

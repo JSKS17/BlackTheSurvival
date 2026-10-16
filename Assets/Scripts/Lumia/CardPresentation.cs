@@ -92,6 +92,15 @@ namespace Lumia
             return tags;
         }
 
+        /// <summary>Uses the field-object vocabulary shared by installation classification and brief prose.</summary>
+        public static bool IsFieldResource(CardDef card, string key)
+        {
+            if (card == null || string.IsNullOrEmpty(key)) return false;
+            string id = CardInstances.BaseId(card.id) ?? "";
+            int divider = id.LastIndexOf('_');
+            return divider > 0 && FieldResources.Contains(id.Substring(0, divider) + "|" + key);
+        }
+
         static bool IsInstallation(CardDef card)
         {
             string id = card.id ?? "";

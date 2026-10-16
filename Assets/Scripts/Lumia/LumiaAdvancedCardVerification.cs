@@ -13,7 +13,7 @@ namespace Lumia
         [Serializable] public sealed class Result
         {
             public string result = "RUNNING", failure, version;
-            public int screenshots, textMeasurements;
+            public int screenshots, textMeasurements, allCardDefinitions, previewLayouts;
             public bool isolatedSavePath, allModalBoundsOnScreen;
             public bool fontOnly;
             public List<string> views = new List<string>();
@@ -54,7 +54,14 @@ namespace Lumia
             yield return null; yield return new WaitForSecondsRealtime(.4f);
             var game = LumiaGame.Instance;
             game.GuardAdvancedCardVerification(); result.isolatedSavePath = true;
+            float styleDeadline=Time.realtimeSinceStartup+20f;
+            while(!game.AdvancedCardVerificationStylesReady && Time.realtimeSinceStartup<styleDeadline)yield return null;
+            if(!game.AdvancedCardVerificationStylesReady)throw new InvalidOperationException("The game did not render its first GUI frame before native verification.");
             result.version = Application.version;
+            string previewAuditPath=Path.Combine(output,"preview-layout.json");
+            game.ExportPreviewLayoutAudit(previewAuditPath);
+            var previewAudit=JsonUtility.FromJson<LumiaGame.PreviewLayoutAudit>(File.ReadAllText(previewAuditPath));
+            result.allCardDefinitions=previewAudit.cards;result.previewLayouts=previewAudit.measurements;
             result.textMeasurements = game.VerifyAdvancedCardText();
             result.allModalBoundsOnScreen = true;
             result.fontOnly=Array.IndexOf(Environment.GetCommandLineArgs(),"-bts-advanced-cards-font-verify")>=0;
@@ -63,10 +70,7 @@ namespace Lumia
                 result.result="PASS";WriteResult();Debug.Log("BTS ADVANCED CARD FONT PASS / text="+result.textMeasurements+" / isolatedSavePath=PASS / modalBounds=PASS");
                 Application.Quit(0);yield break;
             }
-            float styleDeadline=Time.realtimeSinceStartup+20f;
-            while(!game.AdvancedCardVerificationStylesReady && Time.realtimeSinceStartup<styleDeadline)yield return null;
-            if(!game.AdvancedCardVerificationStylesReady)throw new InvalidOperationException("The game did not render its first GUI frame before native verification.");
-            foreach (string view in new[] { "target", "charge", "foresight", "sacrifice", "ready_x_hand", "nina_link", "charged_preview" })
+            foreach (string view in new[] { "target", "charge", "foresight", "sacrifice", "ready_x_hand", "nina_link", "charged_preview", "summary_complex", "summary_catalog", "nina_guard_field" })
             {
                 game.ShowAdvancedCardVerification(view);
                 yield return new WaitForEndOfFrame();
@@ -108,7 +112,7 @@ namespace Lumia
             foreach (string id in ids)
             {
                 var card = GameDatabase.Card(id);
-                fits(DescriptionSummary.CardPreview(card, GameDatabase.Cards), 146, 76, 11, id + " hand summary");
+                fits(DescriptionSummary.CardPreview(card, GameDatabase.Cards), 166, 109, 11, id + " hand summary");
                 string summary = AdvancedCardMechanics.Summary(card);
                 if (summary.Length > 0) fits(summary, 202, 143, 13, id + " choice summary");
                 if (AdvancedCardMechanics.CanCharge(card)) fits(AdvancedCardMechanics.Description(card), 683, 133, 13, id + " full charge rules");
@@ -176,6 +180,17 @@ namespace Lumia
                 CompanionMechanics.AfterCard(c.enemySkills, GameDatabase.Card("chloe_q"));
                 CompanionMechanics.AfterCard(c.enemySkills, GameDatabase.Card("chloe_r"));
                 c.hand = new List<string> { "chloe_q", "chloe_w", "chloe_e", "chloe_r", "basic_guard" }; s.deck = c.hand.Concat(c.drawPile).ToList();
+            }
+            if (view == "summary_complex")
+            {
+                c.hand = new List<string> { "cathy_q", "garnet_r", "isaac_e", "sua_w", "chloe_r" };
+                s.deck = c.hand.Concat(c.drawPile).ToList();
+            }
+            if (view == "summary_catalog") { catalog=true; catalogQuery="클로에"; catalogPage=0; }
+            if (view == "nina_guard_field")
+            {
+                CompanionMechanics.AfterCard(c.playerSkills, GameDatabase.Card("chloe_r"));
+                fieldInfo=true;fieldEnemy=false;fieldScroll=Vector2.zero;
             }
         }
     }
