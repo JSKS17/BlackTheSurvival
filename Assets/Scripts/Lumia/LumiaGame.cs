@@ -1494,6 +1494,7 @@ namespace Lumia
 
         static string TokenShort(SkillMechanicToken token)
         {
+            if (token.kind == "control_protection") return "파랑새 보호 " + token.amount + " · 군중 제어 면역";
             if (token.kind == "companion") return "니나 체력 " + token.amount + "/" + token.cap + (token.remaining > 0 ? " · 생명 공유 " + token.remaining + "턴" : "");
             if((token.kind??"").StartsWith("synergy_",StringComparison.Ordinal)) return CrossSubjectSynergies.TokenSummary(token);
             if(token.kind=="legacy_poison") return "중독 " + token.amount;
@@ -1520,14 +1521,14 @@ namespace Lumia
             Txt(new Rect(233, 109, 813, 37), (fieldEnemy ? "상대" : "나") + "의 필드 · 상태이상 · 회피율", 25, fieldEnemy ? Pink : Mint);
             var tokens=FieldTokens(fieldEnemy);
             Txt(new Rect(233, 156, 813, 26), "명중 " + (fieldEnemy?Engine.EnemyAccuracy:Engine.Accuracy) + "% · 회피 " + (fieldEnemy?Engine.EnemyEvasion:Engine.Evasion) + "% · 일반 공격 치명타 확률 " + (fieldEnemy?Engine.EnemyCritChance:Engine.CritChance) + "% · 피해 " + (fieldEnemy?Engine.EnemyCriticalDamagePercent:Engine.CriticalDamagePercent) + "%", 14, Muted);
-            float contentHeight=tokens.Sum(t=>(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)?84:72);
+            float contentHeight=tokens.Sum(t=>t.kind=="control_protection"?96:(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)?84:72);
             fieldScroll=GUI.BeginScrollView(new Rect(233, 195, 813, 344), fieldScroll, new Rect(0, 0, 788, Math.Max(330,contentHeight)));
             if (tokens.Count == 0) Txt(new Rect(15, 35, 756, 40), "현재 설치물이나 남아 있는 연계 효과가 없습니다.", 16, Muted, true);
             float nextY=0;
             for (int i=0;i<tokens.Count;i++)
             {
                 var t=tokens[i]; float y=nextY;
-                float rowHeight=(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)?84:72;
+                float rowHeight=t.kind=="control_protection"?96:(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)?84:72;
                 nextY+=rowHeight;
                 Box(new Rect(0,y,788,rowHeight-8),Panel,Line);
                 string traitId=(t.owner??"").Replace("trait:","");
@@ -1556,6 +1557,7 @@ namespace Lumia
                 if(t.kind=="resource" && gear!=null) detail=gear.name+"의 장비 효과에 사용하는 누적 수치입니다. 장비 아이콘에서 발동 조건을 확인하세요.";
                 if(t.kind=="deferred_damage") detail="아오자이로 미룬 체력 피해입니다. 남은 피해 "+t.amount+"을 "+t.remaining+"턴에 나누어 자신의 턴 시작마다 받습니다.";
                 if(t.kind=="companion") detail=CompanionMechanics.Summary(fieldEnemy ? Engine.State.combat.enemySkills : Engine.State.combat.playerSkills);
+                if(t.kind=="control_protection") detail="이 카드의 보호 방어도가 남아 있는 동안 새 군중 제어를 무시합니다. 보호 방어도를 먼저 소모하며, 모두 소모·파괴되거나 다음 자기 턴에 방어도가 초기화되면 면역이 끝납니다. 기존 상태는 해제하지 않습니다.";
                 if(t.kind=="legacy_poison") detail="자신의 턴 시작에 피해 "+t.amount+"을 받고 중독 수치가 1 감소합니다.";
                 if(t.kind=="legacy_weak") detail="공격 피해가 25% 감소합니다. 자신의 턴 종료에 남은 턴이 감소합니다.";
                 if(t.kind=="legacy_vulnerable") detail="받는 공격 피해가 50% 증가합니다. 자신의 턴 종료에 남은 턴이 감소합니다.";

@@ -122,6 +122,7 @@ namespace Lumia
         public static string Card(CardDef card, List<CardDef> all = null, int damage = -1, int block = -1, int heal = -1)
         {
             if (card == null) return "";
+            if (AdvancedCardMechanics.HasTargetChoice(card)) return string.Join("\n", TargetChoiceLines(card));
             int d = damage < 0 ? card.damage : damage;
             int b = block < 0 ? card.block : block;
             int h = heal < 0 ? card.heal : heal;
@@ -156,6 +157,26 @@ namespace Lumia
             if (card.id == "basic_attack") lines.Add("장비 공격력과 기본 공격 강화가 적용됩니다. 기본 치명타 피해는 150%이며, 장비로 증가합니다.");
             if (lines.Count == 0) lines.Add("추가 효과 없이 행동합니다.");
             return string.Join("\n", CleanLines(lines));
+        }
+
+        // Targeted defense and attack are alternatives. Do not print their base
+        // numbers as simultaneous unconditional effects before the branch rules.
+        public static List<string> TargetChoiceLines(CardDef card)
+        {
+            var lines = new List<string> { AdvancedCardMechanics.Description(card) };
+            string accuracy = AccuracyMechanics.Description(card);
+            if (!string.IsNullOrEmpty(accuracy)) lines.Add("적을 선택했을 때, " + accuracy);
+            var effects = SkillMechanics.DescriptionEffects(card).ToList();
+            if (card.freeCastCount > 0 && card.freeCastTargets != null && card.freeCastTargets.Length > 0)
+                effects.Add(FreeCastMechanics.Effect(card));
+            foreach (var effect in effects)
+                effect.condition = string.IsNullOrEmpty(effect.condition) ? "적을 선택했을 때" : "적을 선택했으며 " + effect.condition;
+            lines.AddRange(GroupEffects(effects));
+            if (card.freeCastCount > 0)
+                lines.Add("적을 선택했을 때, 덱에 보유한 연계 대상 카드가 손패에 없으면 뽑을 카드 또는 버린 카드에서 한 장을 가져옵니다.");
+            lines.AddRange(CrossSubjectSynergies.FullDescription(card));
+            if (card.exhaust) lines.Add(FreeCastMechanics.ExhaustDescription(card));
+            return CleanLines(lines);
         }
 
         // A preview explains the immediate action and its defining mechanic. Additional rules,

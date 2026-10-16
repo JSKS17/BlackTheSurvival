@@ -220,7 +220,7 @@ namespace Lumia
                 TriggerAugment(AugDebuff, "debuffed_damage");
                 if (card.key == "R") TriggerAugment(AugDebuffUltimate, "debuffed_ultimate_damage");
             }
-            if (c.block >= 15 && TriggerAugment(AugShield, "shield_conversion")) c.block -= 5;
+            if (c.block >= 15 && TriggerAugment(AugShield, "shield_conversion")) AbsorbCombatBlock(false,5);
         }
         void AugmentBlock(int amount, CardDef source = null)
         {

@@ -58,8 +58,8 @@ public static partial class CoreSmokeTests
         int hit=0,miss=0,evade=0;
         for(int i=0;i<2000;i++)
         {
-            c.energy=99;c.hand.Add("basic_attack");e.PlayCard(0);
-            var action=e.CombatActions.Last(x=>x.cardId=="basic_attack" && x.kind==null);
+            c.energy=99;c.hand.Add("nia_q");e.PlayCard(0);
+            var action=e.CombatActions.Last(x=>x.cardId=="nia_q" && x.kind==null);
             hit+=action.damage>0?1:0;miss+=action.missed;evade+=action.avoided;
             Check(action.missed+action.avoided<=1,"a single hit is never counted as both accuracy failure and evasion");
             e.CombatActions.Clear();
@@ -79,8 +79,8 @@ public static partial class CoreSmokeTests
             bool found=false;
             for(int seed=1;seed<100 && !found;seed++)
             {
-                e.State.rngState=seed;c.energy=99;c.hand.Add("basic_attack");e.PlayCard(0);
-                found=e.CombatActions.Last(x=>x.cardId=="basic_attack" && x.kind==null).missed>0;
+                e.State.rngState=seed;c.energy=99;c.hand.Add("nia_q");e.PlayCard(0);
+                found=e.CombatActions.Last(x=>x.cardId=="nia_q" && x.kind==null).missed>0;
             }
             Check(found && c.enemyBlock==0,"accuracy failure does not trigger defender evade passives");
             c.playerStatuses.effects.Clear();c.enemyEvasion=100;c.energy=99;c.hand.Add("basic_attack");e.PlayCard(0);
@@ -101,7 +101,7 @@ public static partial class CoreSmokeTests
         }
         var source=MechanicsFixture();var combat=source.State.combat;combat.evasion=50;combat.enemyEvasion=50;
         StatusMechanics.Add(combat.playerStatuses,"blind","weapon_camera");StatusMechanics.Add(combat.enemyStatuses,"root","isol_q");
-        combat.hand.Add("basic_attack");var restored=new GameEngine((RunState)Clone(source.State));
+        combat.hand.Add("nia_q");var restored=new GameEngine((RunState)Clone(source.State));
         string before=InformationFingerprint(source.State);
         var p=source.PreviewCardUse(0);
         Check(p.accuracyChance==75 && p.evasionChance==30 && !p.guaranteedHit && InformationFingerprint(source.State)==before,"accuracy forecast is correct and does not mutate state or consume RNG");
@@ -111,7 +111,7 @@ public static partial class CoreSmokeTests
         for(int seed=1;seed<100 && !missed;seed++)
         {
             var e=MechanicsFixture();StatusMechanics.Add(e.State.combat.enemyStatuses,"blind","weapon_camera");e.State.rngState=seed;
-            AccuracyEnemyCast(e,"basic_attack");var action=e.CombatActions.Last(x=>x.cardId=="basic_attack" && x.kind==null);
+            AccuracyEnemyCast(e,"nia_q");var action=e.CombatActions.Last(x=>x.cardId=="nia_q" && x.kind==null);
             missed=action.missed>0;if(missed)Check(action.avoided==0 && action.damage==0,"enemy accuracy failures are distinct from player evasion");
         }
         Check(missed,"enemy blind participates in the accuracy system");

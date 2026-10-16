@@ -33,6 +33,7 @@ namespace Lumia
         static readonly string[] BombConsumers = { "isol_q", "isol_w", "isol_r", "rozzi_q", "rozzi_w", "rozzi_e", "rozzi_r", "celine_q", "celine_w", "theodore_q", "theodore_e", "theodore_r" };
         static readonly string[] FireCards = { "kenneth_w", "kenneth_r", "bihyung_w" };
         static readonly string[] SupportCards = { "sua_w", "johann_w", "johann_r", "leni_q", "leni_e", "charlotte_w", "charlotte_e" };
+        static bool IsSupport(CardDef card) => card != null && SupportCards.Contains(card.id) && (card.id != "sua_w" || card.block > 0);
         static readonly string[] MobileOwners = { "laura", "leon", "rozzi", "silvia" };
         static readonly string[] VfConsumers = { "echion_w", "echion_r", "blair_w", "blair_r" };
         sealed class Activation
@@ -203,7 +204,7 @@ namespace Lumia
                 else if (landed && IsAttack(actor,card)) add(new Activation {family="bloom",damage=2,charge=bloom});
             }
             var support=Foreign(actor,"support",card);
-            if (support!=null && SupportCards.Contains(card.id)) add(new Activation {family="support",charge=support,heal=card.heal>0?2:0,block=card.heal>0?0:2});
+            if (support!=null && IsSupport(card)) add(new Activation {family="support",charge=support,heal=card.heal>0?2:0,block=card.heal>0?0:2});
             return result;
         }
         public static SkillInstantBonus Bonuses(SkillActorState actor,CardDef card,bool landed=true)
@@ -290,7 +291,7 @@ namespace Lumia
                 if (Subject(card)!="magnus" && (card.statuses ?? new CardStatusRule[0]).Any(r=>r.key=="knockback" && r.timing=="cast" && StatusMechanics.Eligible(r,before,card,landed))) Prepare(actor,card,"displace");
                 if (card.movement && MobileOwners.Contains(Subject(card))) Prepare(actor,card,"mobility");
                 if ((Subject(card)=="priya" && Increased(actor,before,card,"flower")) || (Subject(card)=="vanya" && Increased(actor,before,card,"dream"))) Prepare(actor,card,"bloom");
-                if (SupportCards.Contains(card.id)) Prepare(actor,card,"support");
+                if (IsSupport(card)) Prepare(actor,card,"support");
             }
             if (SkillMechanics.Resource(actor,Owner("adriana"),"oil")==0) actor.synergy.charges.RemoveAll(x=>x.family=="oil");
             actor.synergy.charges.RemoveAll(x=>x.amount<=0);
@@ -395,9 +396,9 @@ namespace Lumia
                 else if(card.id=="priya_r") lines.Add("바냐의 꽃과 나비 준비가 있으면: 준비를 소모해 체력 2를 추가로 회복합니다.");
                 else if(attack) lines.Add(other+"의 꽃과 나비 준비가 있고 공격이 적중하면: 준비를 소모해 첫 적중에 추가 피해 2를 줍니다.");
             }
-            if(SupportCards.Contains(card.id))
+            if(IsSupport(card))
             {
-                lines.Add("코스트를 지불해 이 지원 카드를 사용하면 다른 실험체를 위한 보호 지원을 준비합니다. 수아 W, 요한 W·R, 레니 Q·E, 샬럿 W·E가 이 준비를 사용할 수 있습니다.");
+                lines.Add((card.id=="sua_w"?"자신을 대상으로 ":"")+"코스트를 지불해 이 지원 카드를 사용하면 다른 실험체를 위한 보호 지원을 준비합니다. 자신을 대상으로 한 수아 W, 요한 W·R, 레니 Q·E, 샬럿 W·E가 이 준비를 사용할 수 있습니다.");
                 lines.Add("다른 실험체의 보호 지원이 있으면: 준비를 소모해 "+(card.heal>0?"체력 2를 추가로 회복합니다.":"방어도 2를 추가로 얻습니다."));
             }
             foreach(var line in lines)yield return line;
@@ -427,7 +428,7 @@ namespace Lumia
             if(new[]{"priya","vanya"}.Contains(Subject(card)))
                 return card.key=="W"?"다른 실험체의 꽃·나비 준비로 방어도 2를 더 얻습니다."
                     : card.id=="priya_r"?"바냐의 꽃·나비 준비로 체력 2를 더 회복합니다.":"다른 실험체의 꽃·나비 준비로 첫 적중 피해 2를 더합니다.";
-            if(SupportCards.Contains(card.id))return card.heal>0?"다른 실험체의 지원 준비로 체력 2를 더 회복합니다.":"다른 실험체의 지원 준비로 방어도 2를 더 얻습니다.";
+            if(IsSupport(card))return card.heal>0?"다른 실험체의 지원 준비로 체력 2를 더 회복합니다.":(card.id=="sua_w"?"자신을 대상으로 할 때, ":"")+"다른 실험체의 지원 준비로 방어도 2를 더 얻습니다.";
             if(card.movement&&MobileOwners.Contains(Subject(card)))return "코스트를 지불하면 다른 실험체 공격의 추가 피해 2를 준비합니다.";
             if(MobileOwners.Contains(Subject(card)) && (card.damage>0 || (card.mechanics?.rules??new SkillRule[0]).Any(r=>r.op=="bonus_damage" && r.amount>0)))return "다른 실험체의 기동 준비로 첫 적중 피해 2를 더합니다.";
             if(new[]{"echion_q","echion_e"}.Contains(card.id))return "코스트를 지불해 VF가 늘면 블레어를 위한 공명을 준비합니다.";

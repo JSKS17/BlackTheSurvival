@@ -12,7 +12,8 @@ namespace Lumia
         sealed class PreparedDefinition : CardDef
         {
             public int xCoefficient;
-            public bool suppressAttack, emptyX;
+            public bool suppressAttack, emptyX, controlProtection;
+            public CardDef targetSource;
         }
         static readonly HashSet<string> ChargeCards = new HashSet<string>(StringComparer.Ordinal) {
             "eleven_q", "eleven_w", "eleven_e", "aiden_w", "felix_r"
@@ -21,7 +22,8 @@ namespace Lumia
         static string Id(CardDef card) => card == null ? "" : CardInstances.BaseId(card.id) ?? "";
         public static bool CanCharge(CardDef card) => ChargeCards.Contains(Id(card));
         public static bool IsX(CardDef card) => XCards.Contains(Id(card));
-        public static bool HasTargetChoice(CardDef card) => Id(card) == "sissela_e";
+        public static bool HasTargetChoice(CardDef card) => Id(card) == "sissela_e" || Id(card) == "sua_w";
+        public static bool GrantsControlProtection(CardDef card) => (card as PreparedDefinition)?.controlProtection == true;
         public static bool HasForesight(CardDef card) => Id(card) == "adina_r";
         public static int SacrificeLimit(CardDef card) => Id(card) == "tazia_r" || Id(card) == "echion_w" ? 3 : 0;
         public static string Kind(CardDef card) => HasTargetChoice(card) ? "target" : HasForesight(card) ? "foresight"
@@ -45,6 +47,7 @@ namespace Lumia
             foreach (var card in cards ?? new List<CardDef>()) {
                 switch (Id(card)) {
                     case "sissela_e": card.block = 0; break;
+                    case "sua_w": card.damage = 8; card.block = 10; break;
                     case "adina_r": card.cost = 1; card.draw = 0; card.energy = 0; break;
                     case "eleven_e": card.movement = true; break;
                     case "aiden_w": card.damage = 8; card.statuses = (card.statuses ?? new CardStatusRule[0]).Where(rule => rule.key != "root").ToArray(); break;
@@ -58,8 +61,11 @@ namespace Lumia
         public static CardDef PreparedCard(CardDef source, string mode = "", int charge = 0, int sacrificed = 0, int x = 0)
         {
             if (source == null) return null;
+            // Re-preparing a target display must start from its unchosen, upgraded definition.
+            // This also makes switching self/enemy previews idempotent without leaking both branches.
+            source=(source as PreparedDefinition)?.targetSource ?? source;
             var cloned = StrategyMechanics.Copy(source);
-            var card = new PreparedDefinition { xCoefficient = XCoefficient(source) };
+            var card = new PreparedDefinition { xCoefficient = XCoefficient(source), targetSource=HasTargetChoice(source)?source:null };
             foreach (var field in typeof(CardDef).GetFields()) field.SetValue(card, field.GetValue(cloned));
             card.statuses = (source.statuses ?? new CardStatusRule[0]).Where(rule => rule != null).Select(rule => {
                 var copy = new CardStatusRule();
@@ -69,9 +75,11 @@ namespace Lumia
             if (HasTargetChoice(card) && mode == "self") {
                 ClearEffects(card);
                 card.suppressAttack = true;
-                card.block = 12 + Math.Max(0, source.block);
+                card.block = Id(card) == "sua_w" ? Math.Max(0, source.block) : 12 + Math.Max(0, source.block);
+                card.controlProtection = Id(card) == "sua_w";
                 return card;
             }
+            if (Id(card) == "sua_w") card.block = 0;
             if (CanCharge(card) && charge > 0) {
                 card.damage += ChargeBonusDamage(card); // Exactly one charge stage, never charge * bonus.
                 if (Id(card) == "eleven_q" || Id(card) == "eleven_e")
@@ -135,6 +143,7 @@ namespace Lumia
         {
             switch (Id(card)) {
                 case "sissela_e": return "대상을 선택합니다. 자신은 방어, 적은 피해·기절을 받습니다.";
+                case "sua_w": return "대상을 선택합니다. 자신은 방어·군중 제어 면역, 적은 피해·실명을 받습니다.";
                 case "adina_r": return "뽑을 카드 3장을 보고 손패 1장과 교환합니다.";
                 case "eleven_q": case "eleven_e": return "1턴 충전하면 피해와 미니 버거 생성량이 증가합니다.";
                 case "eleven_w": return "1턴 충전하면 도발과 반격이 1턴 길어집니다.";
@@ -152,7 +161,9 @@ namespace Lumia
         public static string Description(CardDef card)
         {
             switch (Id(card)) {
-                case "sissela_e": return "사용할 때 대상을 선택합니다. 자신을 선택하면 방어도 12를 얻으며 적에게 피해나 기절을 주지 않습니다. 적을 선택하면 표시된 공격과 기절을 적용하며 자신에게 방어도를 주지 않습니다.";
+                case "sissela_e": return "사용할 때 대상을 선택합니다. " + TargetChoiceDescription(card,"self") + " " + TargetChoiceDescription(card,"enemy");
+                case "sua_w": return "사용할 때 자신 또는 적을 선택합니다. " + TargetChoiceDescription(card, "self") + " " + TargetChoiceDescription(card, "enemy")
+                    + " 보호는 새로 받는 군중 제어만 무시하며 기존 상태를 해제하지 않습니다. 이 카드로 얻은 보호 방어도를 먼저 소모하며 다른 카드로 방어도를 얻어도 보호량은 늘지 않습니다. 방어도가 파괴되어도 면역은 즉시 끝납니다. 중독·출혈·화상·피해 증감 등 군중 제어가 아닌 효과는 막지 않습니다.";
                 case "adina_r": return "뽑을 카드의 위에서 최대 3장을 미리 봅니다. 그중 1장과 이 카드를 제외한 손패 1장의 위치를 맞바꿉니다. 손패의 장수와 두 카드의 강화는 유지되며, 교환 없이 사용할 수도 있습니다. 교환으로 카드를 사용하거나 버린 것으로 처리하지 않습니다.";
                 case "eleven_q": case "eleven_e": return ChargeDescription(card) + " 충전 후 공격이 적중하면 미니 버거 생성량이 1 증가합니다. 미니 버거의 최대치는 4로 유지됩니다.";
                 case "eleven_w": return ChargeDescription(card) + " 충전을 시작할 때 방어도 3을 얻습니다. 충전 후 사용하면 도발과 집중 도발 반격의 지속 시간이 각각 1턴 증가합니다.";
@@ -166,6 +177,18 @@ namespace Lumia
                 case "lenox_q": return "자신의 최대 체력 25마다 직접 피해가 1 증가하며 최대 8입니다. 소수점은 버립니다.";
                 default: return "";
             }
+        }
+        public static string TargetChoiceDescription(CardDef card, string mode)
+        {
+            if (!HasTargetChoice(card) || mode != "self" && mode != "enemy") return "";
+            var prepared = PreparedCard(card, mode);
+            if (mode == "self")
+                return "자신: 방어도 " + prepared.block + "을 얻습니다. " + (Id(card) == "sua_w"
+                    ? "이 카드의 보호 방어도가 남아 있는 동안 군중 제어를 무시합니다. 보호량이 0이 되거나 다음 자기 턴에 방어도가 초기화되면 면역이 끝납니다. 적에게 피해나 실명을 주지 않습니다."
+                    : "적에게 피해나 기절을 주지 않습니다.");
+            string statuses = string.Join("·", (prepared.statuses ?? new CardStatusRule[0]).Select(rule => StatusMechanics.Name(rule.key) + " " + rule.duration + "턴"));
+            return "적: 기본 피해 " + prepared.damage + "을 주며" + (statuses.Length > 0 ? " 적중하면 " + statuses + "을 부여합니다." : " 공격합니다.")
+                + " 자신에게 방어도를 주지 않습니다.";
         }
         static string ChargeDescription(CardDef card)
         {

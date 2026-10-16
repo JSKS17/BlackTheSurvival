@@ -85,7 +85,7 @@ namespace Lumia
             {
                 var incoming=TraitEvent(false,"before_incoming",card,true);
                 int damage=Math.Max(0,RunModes.ScaleEnemyDirectDamage(State,raw)-incoming.damageReduction);
-                absorbed=Math.Min(c.block,damage);c.block-=absorbed;
+                absorbed=AbsorbCombatBlock(false,damage);
                 dealt=TakeHealthDamage(false,damage-absorbed);
                 StatusMechanics.DamageTaken(c.playerStatuses,dealt);
                 ApplyCardStatuses(true,c.enemySkills,card,true);

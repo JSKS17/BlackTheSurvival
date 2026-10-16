@@ -33,6 +33,9 @@ namespace Lumia
             if (c.chargedCards == null) c.chargedCards = new List<ChargedCard>();
             if (c.enemyChargedCards == null) c.enemyChargedCards = new List<ChargedCard>();
             if (c.enemyAdvancedActions == null) c.enemyAdvancedActions = new List<AdvancedEnemyAction>();
+            c.playerStatuses=StatusMechanics.Ensure(c.playerStatuses);c.enemyStatuses=StatusMechanics.Ensure(c.enemyStatuses);
+            c.playerStatuses.controlProtection=Math.Max(0,Math.Min(c.block,c.playerStatuses.controlProtection));
+            c.enemyStatuses.controlProtection=Math.Max(0,Math.Min(c.enemyBlock,c.enemyStatuses.controlProtection));
             c.chargedCards.RemoveAll(x => x == null || !AdvancedCardMechanics.CanCharge(GameDatabase.Card(x.reference)));
             c.enemyChargedCards.RemoveAll(x => x == null || !AdvancedCardMechanics.CanCharge(GameDatabase.Card(x.reference)));
         }
@@ -194,6 +197,19 @@ namespace Lumia
         {
             value.damage += extra.damage; value.block += extra.block; value.heal += extra.heal; return value;
         }
+        // Sua's shield is consumed before ordinary block so later block gains cannot prolong its immunity.
+        int AbsorbCombatBlock(bool enemy,int amount)
+        {
+            var c=State.combat;int absorbed=Math.Min(Math.Max(0,enemy?c.enemyBlock:c.block),Math.Max(0,amount));
+            if(enemy)c.enemyBlock-=absorbed;else c.block-=absorbed;
+            StatusMechanics.ConsumeProtection(enemy?c.enemyStatuses:c.playerStatuses,absorbed);
+            return absorbed;
+        }
+        void ClearCombatBlock(bool enemy)
+        {
+            var c=State.combat;if(enemy)c.enemyBlock=0;else c.block=0;
+            StatusMechanics.ClearProtection(enemy?c.enemyStatuses:c.playerStatuses);
+        }
         SkillInstantBonus EnemyAdvancedBonus(CardDef card, AdvancedEnemyAction action, int hp, int block)
         {
             return AdvancedCardMechanics.ContextualBonus(card, hp, State.combat.enemyMaxHp, block, action.charge, action.sacrificed, action.x);
@@ -245,13 +261,14 @@ namespace Lumia
                 if(!action.sacrificeCommitted && action.sacrificedReferences!=null)c.enemyDiscardPile.AddRange(action.sacrificedReferences);
             }
         }
-        int SimulateSharedDirectDamage(SkillActorState defender, int hp, ref int block, int perHit, int extra, int hits)
+        int SimulateSharedDirectDamage(SkillActorState defender, int hp, ref int block, int perHit, int extra, int hits, StatusActorState defenderStatuses = null)
         {
             int total=0;
             for(int i=0;i<Math.Max(1,hits) && total<hp;i++)
             {
                 int raw=RunModes.ScaleEnemyDirectDamage(State,perHit+(i==0?extra:0));
                 int absorbed=Math.Min(block,raw);block-=absorbed;
+                if(defenderStatuses!=null)StatusMechanics.ConsumeProtection(defenderStatuses,absorbed);
                 total+=Math.Min(hp-total,CompanionMechanics.Absorb(defender,raw-absorbed).remaining);
             }
             return total;

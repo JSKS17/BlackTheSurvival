@@ -724,7 +724,7 @@ namespace Lumia
                 landedHits++;
                 if (landedHits == 1 && SkillMechanics.BreaksBlock(skillBefore, card))
                 {
-                    destroyedBlock = c.enemyBlock; c.enemyBlock = 0;
+                    destroyedBlock = c.enemyBlock; ClearCombatBlock(true);
                 }
                 if (garnetExecution)
                 {
@@ -736,9 +736,9 @@ namespace Lumia
                 int baseDamage = CardDamage(reference);
                 // Only the universal basic attack's own hit is multiplied. Skill/passive bonus pulses remain separate.
                 if (id == "basic_attack" && baseDamage > 0 && Roll(CritChance)) { baseDamage = GearCriticalDamage(baseDamage); criticalHits++; }
-                int damage = Math.Max(0,baseDamage + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.enemyBlock, damage);
+                int damage = Math.Max(0,baseDamage + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = AbsorbCombatBlock(true, damage);
                 bonusUsed = true;
-                c.enemyBlock -= absorbed; damage -= absorbed; absorbedTotal += absorbed;
+                damage -= absorbed; absorbedTotal += absorbed;
                 int healthDamage = TakeHealthDamage(true, damage); dealt += healthDamage; directDamage += absorbed + healthDamage;
                 RecordBossProgress(BossMechanics.ObserveDamage(c, absorbed));
             }
@@ -746,6 +746,7 @@ namespace Lumia
             var bonuses = AddAdvancedBonus(SkillMechanics.Bonuses(skillBefore, card, landed), advancedBonus);
             int block = Math.Max(0, card.block) + bonuses.block, beforeHp = State.hp;
             c.block += block;
+            if(AdvancedCardMechanics.GrantsControlProtection(card))StatusMechanics.GrantControlProtection(c.playerStatuses,card.block,card.id);
             RecordBossProgress(BossMechanics.ObserveBlock(c, block));
             if (card.heal > 0 || bonuses.heal > 0) Heal(Math.Max(0, card.heal) + bonuses.heal);
             c.strength += card.strength;
@@ -825,7 +826,7 @@ namespace Lumia
             StatusMechanics.EndTurn(c.playerStatuses);
             if (CheckBattleEnd()) return true;
             RecordBossProgress(BossMechanics.FinalizeChallenge(c));
-            c.enemyBlock = 0;
+            ClearCombatBlock(true);
             if (c.enemyEvasionTurns > 0 && --c.enemyEvasionTurns == 0) c.enemyEvasion = BaseEnemyEvasion();
             c.enemyTurn = true; c.enemyActionIndex = 0; c.enemyFreeCasts.Clear(); c.enemyFreeCastSources.Clear();
             // Planning already moved the exact recalled copies into the enemy's finite piles.
@@ -930,7 +931,7 @@ namespace Lumia
                 landedHits++;
                 if (landedHits == 1 && SkillMechanics.BreaksBlock(skillBefore, card))
                 {
-                    destroyedBlock = c.block; c.block = 0;
+                    destroyedBlock = c.block; ClearCombatBlock(false);
                 }
                 if (garnetExecution)
                 {
@@ -939,13 +940,14 @@ namespace Lumia
                 }
                 int baseDamage = damagePerHit;
                 if (id == "basic_attack" && baseDamage > 0 && Roll(EnemyCritChance)) { baseDamage = GearCriticalDamage(baseDamage,true); criticalHits++; }
-                int damage = Math.Max(0,RunModes.ScaleEnemyDirectDamage(State, baseDamage + (bonusUsed ? 0 : bonusDamage)) - (bonusUsed?0:incomingReduction)), absorbed = Math.Min(c.block, damage); c.block -= absorbed; absorbedTotal += absorbed;
+                int damage = Math.Max(0,RunModes.ScaleEnemyDirectDamage(State, baseDamage + (bonusUsed ? 0 : bonusDamage)) - (bonusUsed?0:incomingReduction)), absorbed = AbsorbCombatBlock(false, damage); absorbedTotal += absorbed;
                 bonusUsed = true;
                 dealt += TakeHealthDamage(false,damage-absorbed);
             }
             var bonuses = AddAdvancedBonus(SkillMechanics.Bonuses(skillBefore, card, landed),advancedBonus);
             int addedBlock = EnemyAuxiliaryValue(card,card.block) + bonuses.block;
             c.enemyBlock += addedBlock;
+            if(AdvancedCardMechanics.GrantsControlProtection(card))StatusMechanics.GrantControlProtection(c.enemyStatuses,EnemyAuxiliaryValue(card,card.block),card.id);
             int beforeHp = c.enemyHp;
             HealEnemy(EnemyAuxiliaryValue(card,card.heal)+bonuses.heal);
             c.enemyStrength += card.strength;
@@ -1603,7 +1605,7 @@ namespace Lumia
             bool landed = !evadable || TryDirectHit(null, true, out accuracyMiss);
             int defenderBlock = c.block, avoided = !landed && !accuracyMiss ? 1 : 0, missed = accuracyMiss ? 1 : 0;
             int damage = !landed ? 0 : Math.Max(0, BossStrikeDamage(amount, c.enemyWeak, c.vulnerable, c.enemyStatuses, c.playerStatuses) - incoming.damageReduction);
-            int absorbed = Math.Min(c.block, damage); c.block -= absorbed; damage = TakeHealthDamage(false, damage - absorbed);
+            int absorbed = AbsorbCombatBlock(false, damage); damage = TakeHealthDamage(false, damage - absorbed);
             StatusMechanics.DamageTaken(c.playerStatuses, damage);
             EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = source, kind = kind, enemy = true, damage = damage, avoided = avoided, missed = missed });
             if (landed) TraitEvent(false, "incoming_hit", card, true, damage);
@@ -1779,7 +1781,7 @@ namespace Lumia
             if (!first) CompanionMechanics.StartTurn(c.playerSkills);
             TraitMechanics.StartTurn(c.playerTraits);
             c.enemyTurn = false; c.freeCasts.Clear(); c.freeCastSources.Clear();
-            if (!first) c.block = 0;
+            if (!first) ClearCombatBlock(false);
             c.block += TotalBlock + Modifier("turn_block"); Heal(Modifier("turn_heal"));
             RecordBossProgress(BossMechanics.ObserveBlock(c, TotalBlock + Modifier("turn_block")));
             TraitEvent(false,"turn_start",null,true);
@@ -1822,6 +1824,7 @@ namespace Lumia
                 CompanionMechanics.StartTurn(skillPlan);
                 var traitPlan=TraitMechanics.Clone(c.enemyTraits);TraitMechanics.StartTurn(traitPlan);
                 var planStatuses=StatusMechanics.Clone(c.enemyStatuses);
+                StatusMechanics.ClearProtection(planStatuses); // The enemy's old block expires at its turn start.
                 int planStrength=c.enemyStrength,planWeak=c.enemyWeak,planHp=c.enemyHp,planTargetHp=State.hp,planTargetBlock=c.block,planBlock=EnemyEquipmentSum(g=>g.block);
                 var planDefenderSkills=SkillMechanics.Clone(c.playerSkills);
                 var turnContext=TraitContextFor(true,null,true,skillActor:skillPlan);
@@ -1881,6 +1884,7 @@ namespace Lumia
                     available -= price; available += card.energy;
                     c.enemyHand.RemoveAt(index); c.enemyPlan.Add(id); c.enemyPlanCosts.Add(price); c.enemyPlanFreeCast.Add(freeGranted);
                     c.enemyAdvancedActions.Add(advanced);planBlock+=EnemyAuxiliaryValue(card,card.block)+bonuses.block;
+                    if(AdvancedCardMechanics.GrantsControlProtection(card))StatusMechanics.GrantControlProtection(planStatuses,EnemyAuxiliaryValue(card,card.block),card.id);
                     if(advanced.charge==0) { if (card.exhaust && !garnetRecall) c.enemyExhaustPile.Add(id); else c.enemyDiscardPile.Add(id); }
                     DrawInto(c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, card.draw);
                     RecordLastSkill(history, card);
@@ -1956,6 +1960,7 @@ namespace Lumia
             var traits = TraitMechanics.Clone(c.enemyTraits); var defenderTraits = TraitMechanics.Clone(c.playerTraits);
             if (!c.enemyTurn)
             {
+                StatusMechanics.ClearProtection(attacker);
                 StatusMechanics.EndTurn(defender); TraitMechanics.EndTurn(defenderTraits);
                 var skills = SkillMechanics.Clone(c.enemySkills); SkillMechanics.StartTurn(skills);
                 TraitMechanics.StartTurn(traits);
@@ -2008,7 +2013,7 @@ namespace Lumia
                 ref weak, ref vulnerable, attackerTraits, defenderTraits, defenderSkills, attackerStatuses, defenderStatuses);
             int previousBlock = defenderBlock;
             int raw = Math.Max(0, BossStrikeDamage(amount, weak, vulnerable, attackerStatuses, defenderStatuses) - reduction);
-            int absorbed = Math.Min(defenderBlock, raw); defenderBlock -= absorbed;
+            int absorbed = Math.Min(defenderBlock, raw); defenderBlock -= absorbed;StatusMechanics.ConsumeProtection(defenderStatuses,absorbed);
             int afterBlock = raw - absorbed, deferred = afterBlock * Math.Min(20, EquipmentSum(g => g.damageDeferral)) / 100;
             int damage = Math.Min(defenderHp, afterBlock - deferred); defenderHp -= damage;
             StatusMechanics.DamageTaken(defenderStatuses, damage);
@@ -2085,6 +2090,7 @@ namespace Lumia
             c.intentDamage = c.intentBlock = 0;
             if (!c.enemyTurn)
             {
+                StatusMechanics.ClearProtection(attackerStatuses);
                 SkillMechanics.StartTurn(skillPreview);TraitMechanics.StartTurn(traitPreview);TraitMechanics.EndTurn(defenderTraits);
                 CompanionMechanics.StartTurn(skillPreview);
                 StatusMechanics.EndTurn(defenderStatuses);
@@ -2145,8 +2151,9 @@ namespace Lumia
                 int raw=EnemyDirectHitTotal(baseRaw,StatusMechanics.Damage(attackerStatuses,defenderStatuses,extra),Math.Max(1,card.hits));
                 c.intentDamage+=garnetExecution?defenderHp:raw;c.intentBlock+=EnemyAuxiliaryValue(card,card.block)+bonuses.block+beforeTraits.bonus.block;
                 int previousDefenderBlock=defenderBlock;
-                if (SkillMechanics.BreaksBlock(skillBefore, card)) defenderBlock = 0;
-                int actualDamage=garnetExecution?defenderHp:SimulateSharedDirectDamage(defenderSkills,defenderHp,ref defenderBlock,baseRaw,StatusMechanics.Damage(attackerStatuses,defenderStatuses,extra),Math.Max(1,card.hits));defenderHp-=actualDamage;
+                if (SkillMechanics.BreaksBlock(skillBefore, card)) { defenderBlock = 0;StatusMechanics.ClearProtection(defenderStatuses); }
+                int actualDamage=garnetExecution?defenderHp:SimulateSharedDirectDamage(defenderSkills,defenderHp,ref defenderBlock,baseRaw,StatusMechanics.Damage(attackerStatuses,defenderStatuses,extra),Math.Max(1,card.hits),defenderStatuses);defenderHp-=actualDamage;
+                if(AdvancedCardMechanics.GrantsControlProtection(card))StatusMechanics.GrantControlProtection(attackerStatuses,EnemyAuxiliaryValue(card,card.block),card.id);
                 StatusMechanics.DamageTaken(defenderStatuses,actualDamage);
                 int cardHeal=Math.Min(c.enemyMaxHp-actorHp,(EnemyAuxiliaryValue(card,card.heal)+bonuses.heal)*(100-Math.Max(TraitMechanics.HealingReduction(traitPreview),StatusMechanics.HealingReduction(attackerStatuses)))/100);actorHp+=cardHeal;
                 strength += card.strength;
@@ -2481,8 +2488,7 @@ namespace Lumia
                 int amount = enemy && pulse.kind == "counter" ? RunModes.ScaleEnemyDirectDamage(State, pulse.amount) : pulse.amount;
                 if (pulse.kind != "bleed" && pulse.kind != "burn")
                 {
-                    int absorbed = Math.Min(enemy ? c.block : c.enemyBlock, amount);
-                    if (enemy) c.block -= absorbed; else c.enemyBlock -= absorbed;
+                    int absorbed = AbsorbCombatBlock(!enemy, amount);
                     if (!enemy) RecordBossProgress(BossMechanics.ObserveDamage(c, absorbed));
                     amount -= absorbed;
                 }

@@ -73,8 +73,8 @@ namespace Lumia
 
             q=P("책갈피를 남기며 기존 책갈피가 있으면 추가 피해를 줍니다.", When(Bonus("bonus_damage",6),"bookmark"), Set("bookmark","책갈피",1,1));
             q.rules[1].onHit=true; q.damage=12; q.vulnerable=1; p["sua_q"]=q;
-            q=P("파랑새가 보호막을 보충하며 적을 실명시킵니다.", Effect("guard","bluebird","파랑새 보호",2));
-            q.block=10; q.weak=1; p["sua_w"]=q;
+            q=P("파랑새의 대상을 선택해 자신을 보호하거나 적을 실명시킵니다.");
+            q.damage=8; q.block=10; p["sua_w"]=q;
             q=P("책갈피가 있는 적에게 추가 피해를 주고 책갈피를 다시 남깁니다.", When(Bonus("bonus_damage",6),"bookmark"), Set("bookmark","책갈피",1,1));
             q.rules[1].onHit=true; q.damage=10; q.heal=3; q.evasion=15; q.duration=1; p["sua_e"]=q;
             q=P("마지막으로 사용한 수아의 Q·W·E 중 하나를 기억해 다시 사용합니다.");

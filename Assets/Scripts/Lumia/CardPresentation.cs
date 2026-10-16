@@ -162,6 +162,7 @@ namespace Lumia
 
         public static List<string> Sentences(CardDef c, List<CardDef> all = null, int damage = -1, int block = -1, int heal = -1)
         {
+            if (AdvancedCardMechanics.HasTargetChoice(c)) return DescriptionSummary.TargetChoiceLines(c);
             var lines = new List<string>();
             int d = damage < 0 ? c.damage : damage, b = block < 0 ? c.block : block, h = heal < 0 ? c.heal : heal;
             if (d > 0 && !AdvancedCardMechanics.IsX(c)) lines.Add(c.hits > 1 ? CardPresentation.WithParticle($"적에게 피해 {d}","를","을")+$" {c.hits}회 줍니다." : CardPresentation.WithParticle($"적에게 피해 {d}","를","을")+" 줍니다.");
@@ -198,7 +199,7 @@ namespace Lumia
         public static string Rules(CardDef c)
         {
             var lines = new List<string>();
-            if (c.damage > 0 && !AccuracyMechanics.GuaranteedHit(c)) lines.Add("기본 명중률은 100%입니다. 직접 공격의 각 타격마다 명중 판정 후 대상의 회피를 별도로 판정합니다. 실명은 명중률을 25%p 낮추며 필중에는 영향을 주지 않습니다.");
+            if (c.damage > 0 && !AccuracyMechanics.GuaranteedHit(c)) lines.Add("기본 명중률은 100%입니다. 직접 공격의 각 타격마다 명중 판정 후 대상의 회피를 별도로 판정합니다. 실명은 기본 공격 사용을 막고 명중률을 25%p 낮추며 필중 기술의 명중 판정에는 영향을 주지 않습니다.");
             if (c.block > 0) lines.Add("방어도는 피해를 먼저 막고 다음 내 턴이 시작될 때 사라집니다.");
             if (c.strength > 0) lines.Add("힘은 각 공격의 피해를 높입니다.");
             if (c.evasion > 0) lines.Add("카드의 회피 보너스는 가장 높은 값만 적용되며, 최종 회피율은 65%를 넘지 않습니다.");

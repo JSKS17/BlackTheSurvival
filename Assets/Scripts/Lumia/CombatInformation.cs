@@ -243,7 +243,7 @@ namespace Lumia
             var reasons = new List<string>();
             if (card.movement && StatusMechanics.Has(statuses, "root")) reasons.Add("속박으로 이동 카드 사용 불가");
             if (card.category == "skill") foreach (string kind in new[] { "silence", "polymorph", "taunt", "berserk", "dance" }) if (StatusMechanics.Has(statuses, kind)) reasons.Add(StatusMechanics.Name(kind) + "으로 기술 사용 불가");
-            if (card.category == "basic" && card.key == "ATK") foreach (string kind in new[] { "disarm", "polymorph", "dance" }) if (StatusMechanics.Has(statuses, kind)) reasons.Add(StatusMechanics.Name(kind) + "으로 기본 공격 사용 불가");
+            if (card.category == "basic" && card.key == "ATK") foreach (string kind in new[] { "blind", "disarm", "polymorph", "dance" }) if (StatusMechanics.Has(statuses, kind)) reasons.Add(StatusMechanics.Name(kind) + "으로 기본 공격 사용 불가");
             return reasons.Count == 0 ? "현재 상태이상으로 사용할 수 없습니다." : string.Join(" · ", reasons);
         }
         void InformationBossWarning(CardUsePreview result, CardDef card)

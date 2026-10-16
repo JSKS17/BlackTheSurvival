@@ -15,6 +15,12 @@ public static partial class CoreSmokeTests
         try
         {
             if (args.Contains("--balance")) return BalanceSimulation.Run();
+            if (args.Contains("--sua-blind-only"))
+            {
+                SuaTargetAndBlindMechanics();
+                Console.WriteLine("PASS: " + checks + " assertions across Sua target choice, protected shields and blind basic-attack restrictions.");
+                return 0;
+            }
             if (args.Contains("--advanced-only"))
             {
                 AdvancedCardRuleDefinitions(); CompanionMechanicTests(); AdvancedCombatMechanics(); AdvancedCardPresentation();
@@ -60,6 +66,7 @@ public static partial class CoreSmokeTests
             StarterLocksAndCeiling(); FullEnemyLoadouts(); EquipmentIdentityAndAlex();
             WeaponSpecialMechanics(); WeaponAndTacticalDamageBalance();
             AdvancedCardRuleDefinitions(); CompanionMechanicTests(); AdvancedCombatMechanics(); AdvancedCardPresentation();
+            SuaTargetAndBlindMechanics();
             SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); CrossSubjectRules(); CrossSubjectCombatAndSave(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();
             OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates(); HealingDroneHealthTrigger(); RevisedEconomyAndEncounters();
@@ -1126,7 +1133,7 @@ public static partial class CoreSmokeTests
         Check(actor.discounts.Count == 1, "a discount source can operate normally again on the next own turn");
         var copy = SkillMechanics.Clone(actor); copy.resources[0].amount=0;
         Check(SkillMechanics.Resource(actor,"니아","bounded") == 8, "preview actor snapshots own their lists and entries");
-        var missingMechanics=GameDatabase.Cards.Where(x=>x.category=="skill" && (x.mechanics==null || (x.mechanics.rules.Length==0 && x.freeCastCount==0))).Select(x=>x.id).ToArray();
+        var missingMechanics=GameDatabase.Cards.Where(x=>x.category=="skill" && !AdvancedCardMechanics.HasTargetChoice(x) && (x.mechanics==null || (x.mechanics.rules.Length==0 && x.freeCastCount==0))).Select(x=>x.id).ToArray();
         Check(missingMechanics.Length==0, "every subject skill has an authored persistent mechanism or explicit source recast: "+string.Join(",",missingMechanics));
     }
 

@@ -128,9 +128,8 @@ namespace Lumia
         {
             if (Btn(new Rect(426, 223, 330, 72), "자신에게 사용", true, Mint)) { ResolveAdvancedCardChoice("self"); return; }
             if (Btn(new Rect(779, 223, 330, 72), "적에게 사용", true, Pink)) { ResolveAdvancedCardChoice("enemy"); return; }
-            int block = AdvancedCardMechanics.PreparedCard(card, "self").block;
-            Para(new Rect(440, 316, 302, 90), "자신을 끌어당겨 " + CardPresentation.WithParticle("방어도 " + block, "를", "을") + " 얻습니다.", 17, Mint);
-            Para(new Rect(793, 316, 302, 90), "적을 끌어당겨 피해와 제어 효과를 줍니다.", 17, Pink);
+            Para(new Rect(440, 310, 302, 128), AdvancedCardMechanics.TargetChoiceDescription(card, "self"), 15, Mint);
+            Para(new Rect(793, 310, 302, 128), AdvancedCardMechanics.TargetChoiceDescription(card, "enemy"), 15, Pink);
             Para(new Rect(426, 447, 683, 60), "자신을 지키는 효과와 적을 공격하는 효과는 동시에 발동하지 않습니다.", 14, Muted);
         }
 

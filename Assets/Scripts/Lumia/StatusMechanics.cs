@@ -17,12 +17,15 @@ namespace Lumia
     [Serializable] public sealed class StatusActorState
     {
         public List<CombatStatus> effects = new List<CombatStatus>();
+        public int controlProtection;
+        public string controlProtectionSource;
     }
     // Durations belong to the affected actor, never to the owner of the source card.
     // Hard control removes at most two energy and leaves at least one action energy.
     public static class StatusMechanics
     {
         static readonly string[] Hard = { "stun", "airborne", "knockback", "suppression", "freeze", "sleep", "stasis" };
+        static readonly HashSet<string> CrowdControl = new HashSet<string>(new[] { "stun", "airborne", "knockback", "suppression", "freeze", "sleep", "stasis", "root", "silence", "blind", "slow", "pull", "fear", "charm", "taunt", "disarm", "polymorph", "berserk", "dance" }, StringComparer.Ordinal);
         public static StatusActorState Ensure(StatusActorState state)
         {
             if(state==null)state=new StatusActorState();
@@ -31,15 +34,29 @@ namespace Lumia
         }
         public static StatusActorState Clone(StatusActorState state)
         {
-            return new StatusActorState { effects=Ensure(state).effects.Select(x=>new CombatStatus {kind=x.kind,sourceCard=x.sourceCard,timing=x.timing,remaining=x.remaining,pending=x.pending}).ToList() };
+            state=Ensure(state);
+            return new StatusActorState { controlProtection=state.controlProtection, controlProtectionSource=state.controlProtectionSource,
+                effects=state.effects.Select(x=>new CombatStatus {kind=x.kind,sourceCard=x.sourceCard,timing=x.timing,remaining=x.remaining,pending=x.pending}).ToList() };
         }
+        public static bool IsCrowdControl(string kind) => kind != null && CrowdControl.Contains(kind);
+        public static bool HasControlProtection(StatusActorState actor) => actor != null && actor.controlProtection > 0;
+        public static void GrantControlProtection(StatusActorState actor,int shield,string sourceCard="sua_w")
+        {
+            actor=Ensure(actor);actor.controlProtection=Math.Max(0,actor.controlProtection)+Math.Max(0,shield);actor.controlProtectionSource=sourceCard;
+        }
+        public static void ConsumeProtection(StatusActorState actor,int shieldConsumed)
+        {
+            actor=Ensure(actor);actor.controlProtection=Math.Max(0,actor.controlProtection-Math.Max(0,shieldConsumed));
+            if(actor.controlProtection==0)actor.controlProtectionSource=null;
+        }
+        public static void ClearProtection(StatusActorState actor) { actor=Ensure(actor);actor.controlProtection=0;actor.controlProtectionSource=null; }
         public static bool Has(StatusActorState actor,string kind) => actor!=null && actor.effects!=null && actor.effects.Any(x=>!x.pending && x.remaining>0 && x.kind==kind);
         public static bool CanUse(StatusActorState actor,CardDef card)
         {
             if(card==null)return false;
             if(card.category=="skill" && (Has(actor,"silence") || Has(actor,"polymorph") || Has(actor,"taunt") || Has(actor,"berserk") || Has(actor,"dance")))return false;
             if(card.movement && Has(actor,"root"))return false;
-            if(card.category=="basic" && card.key=="ATK" && (Has(actor,"disarm") || Has(actor,"polymorph") || Has(actor,"dance")))return false;
+            if(card.category=="basic" && card.key=="ATK" && (Has(actor,"blind") || Has(actor,"disarm") || Has(actor,"polymorph") || Has(actor,"dance")))return false;
             return true;
         }
         public static int CostPenalty(StatusActorState actor,CardDef card) => card?.movement==true && (Has(actor,"slow") || Has(actor,"pull")) ? 1 : 0;
@@ -91,32 +108,36 @@ namespace Lumia
             foreach(var rule in card.statuses ?? new CardStatusRule[0])
             {
                 if(!Eligible(rule,before,card,landed))continue;
-                Add(target,rule.key,card.id,rule.duration,rule.timing);
-                if(rule.timing=="cast" && rule.key!="armor_break" && rule.key!="heal_reduction" && rule.key!="attack_down")control=true;
+                if(Add(target,rule.key,card.id,rule.duration,rule.timing) && rule.timing=="cast" && IsCrowdControl(rule.key))control=true;
             }
             return control;
         }
-        public static void Add(StatusActorState actor,string kind,string sourceCard,int duration=1,string timing="cast")
+        public static bool Add(StatusActorState actor,string kind,string sourceCard,int duration=1,string timing="cast")
         {
             actor=Ensure(actor);
             bool pending=timing!="cast";
+            if(!pending && HasControlProtection(actor) && IsCrowdControl(kind))return false;
             var effect=actor.effects.FirstOrDefault(x=>x.kind==kind && x.pending==pending && (!pending || (x.sourceCard==sourceCard && x.timing==timing)));
             if(effect==null){effect=new CombatStatus {kind=kind};actor.effects.Add(effect);}
             effect.sourceCard=sourceCard;effect.timing=timing;effect.pending=pending;effect.remaining=Math.Max(effect.remaining,SkillMechanics.Clamp(duration,1,2));
+            return true;
         }
         public static bool Activate(StatusActorState target,string sourceCard,string timing)
         {
             bool control=false;
             foreach(var effect in Ensure(target).effects.Where(x=>x.pending && x.timing==timing && (timing=="next_basic" || x.sourceCard==sourceCard)).ToArray())
             {
-                target.effects.Remove(effect);Add(target,effect.kind,effect.sourceCard,effect.remaining);
-                if(effect.kind!="armor_break" && effect.kind!="heal_reduction" && effect.kind!="attack_down")control=true;
+                target.effects.Remove(effect);
+                if(Add(target,effect.kind,effect.sourceCard,effect.remaining) && IsCrowdControl(effect.kind))control=true;
             }
             return control;
         }
         public static List<SkillMechanicToken> Snapshot(StatusActorState actor)
         {
-            return Ensure(actor).effects.Where(x=>!x.pending && x.remaining>0).Select(x=>new SkillMechanicToken {kind="status_"+x.kind,label=Name(x.kind),sourceCard=x.sourceCard,owner=GameDatabase.Card(x.sourceCard)?.owner,remaining=x.remaining,amount=0}).ToList();
+            actor=Ensure(actor);
+            var result=actor.effects.Where(x=>!x.pending && x.remaining>0).Select(x=>new SkillMechanicToken {kind="status_"+x.kind,label=Name(x.kind),sourceCard=x.sourceCard,owner=GameDatabase.Card(x.sourceCard)?.owner,remaining=x.remaining,amount=0}).ToList();
+            if(HasControlProtection(actor))result.Add(new SkillMechanicToken {kind="control_protection",label="파랑새 보호 · 군중 제어 면역",sourceCard=actor.controlProtectionSource,owner=GameDatabase.Card(actor.controlProtectionSource)?.owner,amount=actor.controlProtection,remaining=0});
+            return result;
         }
         public static string Name(string kind)
         {
@@ -141,7 +162,7 @@ namespace Lumia
                 case "freeze":case "suppression":case "stasis":return "다음 자신의 턴에 사용할 코스트가 2 줄어듭니다. 하드 제어의 감소량은 가장 큰 값만 적용되며 최소 1 코스트는 유지됩니다."+(kind=="freeze"?" 공격 카드나 카드의 필드 효과로 체력 피해를 받으면 빙결이 해제됩니다.":"");
                 case "root":return "이동·돌진·순간 이동을 포함한 카드를 사용할 수 없습니다. 회피율이 20%p 감소합니다. 기절과 중첩되지 않으며 회피율은 0% 아래로 내려가지 않습니다.";
                 case "silence":return "실험체의 Q·W·E·R 카드를 사용할 수 없습니다. 기본·무기·전술 카드는 사용할 수 있습니다.";
-                case "blind":return "명중률이 기본 100%에서 25%p 감소합니다. 직접 공격의 각 타격은 명중 판정 후 대상의 회피 판정을 따로 합니다. 필중 공격에는 영향을 주지 않습니다. 명중 실패는 회피 성공 효과를 발동하지 않습니다.";
+                case "blind":return "기본 공격 카드를 사용할 수 없으며 명중률이 기본 100%에서 25%p 감소합니다. 직접 공격의 각 타격은 명중 판정 후 대상의 회피 판정을 따로 합니다. 필중 기술은 명중률 감소를 무시하지만 실명 중 기본 공격 사용 금지는 유지됩니다. 명중 실패는 회피 성공 효과를 발동하지 않습니다.";
                 case "slow":case "pull":return "이동·돌진·순간 이동 카드의 코스트가 1 증가합니다. 둔화와 끌어당김은 중첩되지 않습니다.";
                 case "fear":case "charm":return "공격 피해가 20% 감소합니다. 공포·매혹·공격력 감소는 중첩되지 않습니다.";
                 case "taunt":case "berserk":return "실험체 기술을 사용할 수 없으며 기본·무기·전술 카드로 대응해야 합니다.";
