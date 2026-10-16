@@ -15,6 +15,13 @@ public static partial class CoreSmokeTests
         try
         {
             if (args.Contains("--balance")) return BalanceSimulation.Run();
+            if (args.Contains("--crafting-only"))
+            {
+                CraftingCatalogCaching(); CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval();
+                EquipmentIdentityAndAlex(); ExpandedEquipmentCoverageAndCraft(); EquipmentCriticalDamageAndPersistence();
+                Console.WriteLine("PASS: " + checks + " assertions across crafting cache, viewport, search and equipment/camp behavior.");
+                return 0;
+            }
             if (args.Contains("--sua-blind-only"))
             {
                 SuaTargetAndBlindMechanics();
@@ -68,7 +75,7 @@ public static partial class CoreSmokeTests
             KioskUnlockAndStock(); MapKioskProximity(); BossMapPreview(); BossPathLegacyMigration(); BossPathRouteRewards(); PermanentEnergyGrowth(); CriticalBasicAttacks();
             DatabaseIntegrity(); PreparationAndLocks(); RouteProgression(); CombatPilesAndEnergy();
             EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); SubjectAndBossRewardCardLimits(); PendingSubjectRewardMigration(); WildlifeDropTables(); WildlifeSupplyRewards(); SubjectDropTables();
-            ShopEconomy(); CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
+            ShopEconomy(); CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval(); CraftingCatalogCaching(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
             StarterLocksAndCeiling(); FullEnemyLoadouts(); EquipmentIdentityAndAlex();
             WeaponSpecialMechanics(); WeaponAndTacticalDamageBalance();
             AdvancedCardRuleDefinitions(); CompanionMechanicTests(); AdvancedCombatMechanics(); AdvancedCardPresentation(); CardSummaryRegression();

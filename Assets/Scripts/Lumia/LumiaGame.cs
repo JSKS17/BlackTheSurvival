@@ -70,6 +70,7 @@ namespace Lumia
             verify |= WildlifeVerificationEnabled;
             verify |= RareV2VerificationEnabled;
             verify |= AdvancedCardsVerificationEnabled;
+            verify |= CraftPerformanceVerificationEnabled;
             string saveDirectory = BrowserSaveDirectory(verify);
             savePath = Path.Combine(saveDirectory, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
@@ -85,6 +86,8 @@ namespace Lumia
             Audio = GameAudio.Attach(gameObject);
             Audio.Configure(!audioVerification && sound, volume, musicVolume, effectsVolume);
             PixelArt.Ensure();
+            // Equipment text is immutable; prepare it during loading, not while scrolling the camp.
+            craftingCatalog = new CraftingCatalog(GameDatabase.Gear);
             if (font && font.material && font.material.mainTexture) font.material.mainTexture.filterMode = FilterMode.Point;
             Font.textureRebuilt += PixelFont;
         }
@@ -194,7 +197,7 @@ namespace Lumia
                     case RunStage.Combat: DrawCombat(); break;
                     case RunStage.Rewards: DrawRewards(); break;
                     case RunStage.Kiosk: DrawKiosk(); break;
-                    case RunStage.Campfire: DrawCamp(); break;
+                    case RunStage.Campfire: DrawCampProfiled(); break;
                     case RunStage.Encounter: DrawEncounter(); break;
                     case RunStage.PassiveChoice: DrawPassiveChoice(); break;
                     case RunStage.AugmentChoice: DrawAugmentChoice(); break;
@@ -883,7 +886,7 @@ namespace Lumia
             if (query != craftQuery) { craftQuery = query; scroll = Vector2.zero; }
             if (Btn(new Rect(471, 198, 100, 34), "초기화", false, Muted)) { craftQuery = ""; craftTags.Clear(); scroll = Vector2.zero; }
             Txt(new Rect(590, 203, 645, 24), "태그를 여러 개 고르면 모든 옵션을 가진 장비를 찾습니다.", 11, Muted);
-            var tags = GameDatabase.Gear.SelectMany(g => g.optionTags ?? new string[0]).Distinct().ToArray();
+            var tags = CraftCatalog.Tags;
             int longTags = tags.Count(tag => tag == "치명타 확률" || tag == "치명타 피해");
             float shortWidth = (1202f - Math.Max(0, tags.Length - 1) * 7 - longTags * 118) / Math.Max(1, tags.Length - longTags);
             float tagX = 36;
@@ -894,17 +897,20 @@ namespace Lumia
                 { if (!craftTags.Add(tags[i])) craftTags.Remove(tags[i]); scroll = Vector2.zero; }
                 tagX += tagWidth + 7;
             }
-            var gear = FilterCraftGear().ToArray();
+            var gear = CraftCatalog.Filter(craftSlot, craftQuery, craftTags);
             Txt(new Rect(36, 283, 1202, 20), "검색 결과 " + gear.Length + "개" + (craftTags.Count > 0 ? "  /  " + string.Join(" · ", craftTags) : ""), 11, Muted);
             scroll = GUI.BeginScrollView(new Rect(36, 310, 1202, 284), scroll, new Rect(0, 0, 1174, Mathf.Ceil(gear.Length / 3f) * 151));
             if (gear.Length == 0) Para(new Rect(15, 16, 1130, 55), "조건에 맞는 장비가 없습니다. 다른 슬롯을 선택하거나 검색어와 태그를 줄여보세요.", 15, Muted);
-            for (int i = 0; i < gear.Length; i++)
+            craftPerformanceItems = 0;
+            var visible = CraftingCatalog.VisibleItems(gear.Length, scroll.y, 284);
+            for (int i = visible.first; i < visible.end; i++)
             {
-                var g = gear[i]; Rect r = new Rect(i % 3 * 393, i / 3 * 151, 378, 136);
+                craftPerformanceItems++;
+                var g = gear[i].gear; Rect r = new Rect(i % 3 * 393, i / 3 * 151, 378, 136);
                 Box(r, Panel, g.rarity == "초월" ? Pink : Gold);
                 Tex(new Rect(r.x+15,r.y+10,34,34),PixelArt.SystemIcon(g.id),ScaleMode.ScaleToFit);
                 Txt(new Rect(r.x + 59, r.y + 12, 300, 26), g.name + " · " + g.rarity, 16, Gold);
-                FitText(new Rect(r.x + 15, r.y + 45, 344, 43), DescriptionSummary.Gear(g), 11, Text);
+                DrawCraftDescription(new Rect(r.x + 15, r.y + 45, 344, 43), gear[i], 11, Text);
                 if(Hit(new Rect(r.x+15,r.y+10,34,34))) {inspectGear=g.id;summaryMode=true;detailScroll=Vector2.zero;}
                 var o = GameDatabase.Object(g.objectId);
                 Tex(new Rect(r.x+16,r.y+92,28,28),PixelArt.SystemIcon(g.objectId),ScaleMode.ScaleToFit);
@@ -963,10 +969,7 @@ namespace Lumia
 
         IEnumerable<GearDef> FilterCraftGear()
         {
-            string query = (craftQuery ?? "").Trim();
-            return GameDatabase.Gear.Where(g => g.slot == craftSlot
-                && craftTags.All(tag => (g.optionTags ?? new string[0]).Contains(tag))
-                && (query.Length == 0 || (g.name + " " + g.weaponClass + " " + g.description + " " + string.Join(" ", g.optionTags ?? new string[0])).IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0));
+            return CraftCatalog.Filter(craftSlot, craftQuery, craftTags).Select(item => item.gear);
         }
 
         void DrawCraftReplacement()
@@ -1741,7 +1744,7 @@ namespace Lumia
         void OnApplicationPause(bool paused) { if (paused) Save(); }
         void OnApplicationQuit() { Save(); }
 
-        void PixelFont(Font rebuilt) { if (rebuilt == font && rebuilt.material && rebuilt.material.mainTexture) rebuilt.material.mainTexture.filterMode = FilterMode.Point; }
+        void PixelFont(Font rebuilt) { if (rebuilt == font) craftingFontRevision++; if (rebuilt == font && rebuilt.material && rebuilt.material.mainTexture) rebuilt.material.mainTexture.filterMode = FilterMode.Point; }
         void OnDestroy() { effects.Clear(); UltimateAnimations.ReleaseTextures(); ReleaseStoryPixelTextures(); ReleasePixelLayer(lobbyNiaPixels); ReleaseLobbyBackground(); Font.textureRebuilt -= PixelFont; foreach (var clip in skillSounds.Values) if (clip) Destroy(clip); }
 
         [Serializable] public sealed class PreviewMeasurement
@@ -2697,7 +2700,7 @@ namespace Lumia
 
         public void VerificationView(string view)
         {
-            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") < 0 && !LayeredStoryVerificationEnabled)) return;
+            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") < 0 && !LayeredStoryVerificationEnabled && !CraftPerformanceVerificationEnabled)) return;
             lobby = catalog = inventory = settings = help = fieldInfo = enemyLoadout = research = false;
             inspectCard = inspectTrait = inspectGear = craftPending = ""; inspectEnemyCard=false; inspectRareReward=false; summaryMode=true; scroll = inventoryScroll = encounterStoryScroll = detailScroll = Vector2.zero;summaryScroll.Clear();
             craftQuery = ""; craftTags.Clear(); craftSlot = GearSlot.Weapon; campRemovalSelection.Clear(); campSelectionState = null;
