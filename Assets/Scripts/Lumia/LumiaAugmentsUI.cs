@@ -8,6 +8,42 @@ namespace Lumia
 {
     public sealed partial class LumiaGame
     {
+        string[] ownedAugmentSnapshot = new string[0];
+        OwnedAugmentDisplay[] ownedAugmentDisplays = new OwnedAugmentDisplay[0];
+
+        sealed class OwnedAugmentDisplay
+        {
+            public EndlessAugmentDef definition;
+            public int stacks;
+            public string description, stackText;
+        }
+
+        OwnedAugmentDisplay[] OwnedAugmentDisplays()
+        {
+            var owned = Engine.State.augments;
+            int count = owned?.Count ?? 0;
+            bool unchanged = ownedAugmentSnapshot.Length == count;
+            for (int i = 0; unchanged && i < count; i++) unchanged = ownedAugmentSnapshot[i] == owned[i];
+            if (unchanged) return ownedAugmentDisplays;
+            ownedAugmentSnapshot = owned == null ? new string[0] : owned.ToArray();
+            var rows = new List<OwnedAugmentDisplay>();
+            var indices = new Dictionary<string, int>(StringComparer.Ordinal);
+            foreach (string id in ownedAugmentSnapshot)
+            {
+                var definition = EndlessAugments.Find(id); if (definition == null) continue;
+                int index;
+                if (indices.TryGetValue(id, out index)) rows[index].stacks++;
+                else { indices.Add(id, rows.Count); rows.Add(new OwnedAugmentDisplay { definition = definition, stacks = 1 }); }
+            }
+            foreach (var row in rows)
+            {
+                row.description = EndlessAugments.Description(row.definition.id, row.stacks);
+                row.stackText = AugmentStackText(row.definition, row.stacks, false);
+            }
+            ownedAugmentDisplays = rows.ToArray();
+            return ownedAugmentDisplays;
+        }
+
         static Color AugmentColor(AugmentTier tier)
         {
             return tier == AugmentTier.Silver ? C("c7d4e4") : tier == AugmentTier.Gold ? Gold : C("c69aef");
@@ -123,7 +159,7 @@ namespace Lumia
 
         void DrawOwnedAugments()
         {
-            var groups = Engine.State.augments.Where(id => EndlessAugments.Find(id) != null).GroupBy(id => id).ToArray();
+            var groups = OwnedAugmentDisplays();
             Txt(new Rect(83, 204, 1090, 27), RunModes.CycleLabel(Engine.State) + " / 총 " + Engine.AugmentCount + "회 획득 · 지속 효과와 지급된 지원 기록", 14, AugmentColor(AugmentTier.Prismatic));
             if (groups.Length == 0)
             {
@@ -132,15 +168,16 @@ namespace Lumia
                 return;
             }
             inventoryScroll = GUI.BeginScrollView(new Rect(80, 245, 1120, 386), inventoryScroll, new Rect(0, 0, 1090, Math.Max(386, groups.Length * 132)));
-            for (int index = 0; index < groups.Length; index++)
+            var visible = CraftingCatalog.VisibleItems(groups.Length, inventoryScroll.y, 386, 1, 132);
+            for (int index = visible.first; index < visible.end; index++)
             {
-                var definition = EndlessAugments.Find(groups[index].Key); int stacks = groups[index].Count();
+                var display = groups[index]; var definition = display.definition;
                 var row = new Rect(0, index * 132, 1083, 120); Color tone = AugmentColor(definition.tier);
                 Box(row, Panel, Line); DrawAugmentEmblem(new Rect(row.x + 17, row.y + 26, 48, 48), definition.tier);
                 Txt(new Rect(row.x + 82, row.y + 12, 660, 28), definition.name, 19, tone);
                 Txt(new Rect(row.x + 760, row.y + 16, 300, 22), EndlessAugments.TierName(definition.tier), 12, tone, true);
-                Para(new Rect(row.x + 82, row.y + 50, 978, 45), EndlessAugments.Description(definition.id, stacks), 13, Text);
-                Txt(new Rect(row.x + 82, row.y + 99, 978, 17), AugmentStackText(definition, stacks, false), 11, Muted);
+                Para(new Rect(row.x + 82, row.y + 50, 978, 45), display.description, 13, Text);
+                Txt(new Rect(row.x + 82, row.y + 99, 978, 17), display.stackText, 11, Muted);
             }
             GUI.EndScrollView();
         }

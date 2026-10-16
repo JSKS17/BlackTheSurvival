@@ -1,6 +1,6 @@
-param([string]$UnityEditor = 'C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor', [switch]$Balance, [switch]$UpgradeOnly, [switch]$RareOnly, [switch]$StoryOnly, [switch]$AccuracyOnly, [switch]$WeaponOnly, [switch]$AdvancedOnly, [switch]$SuaBlindOnly, [switch]$SummaryOnly, [switch]$CraftingOnly)
+param([string]$UnityEditor = 'C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor', [switch]$Balance, [switch]$UpgradeOnly, [switch]$RareOnly, [switch]$StoryOnly, [switch]$AccuracyOnly, [switch]$WeaponOnly, [switch]$AdvancedOnly, [switch]$SuaBlindOnly, [switch]$SummaryOnly, [switch]$CraftingOnly, [switch]$UiOnly)
 $ErrorActionPreference = 'Stop'
-if (@($Balance,$UpgradeOnly,$RareOnly,$StoryOnly,$AccuracyOnly,$WeaponOnly,$AdvancedOnly,$SuaBlindOnly,$SummaryOnly,$CraftingOnly).Where({$_}).Count -gt 1) { throw 'Choose only one focused test mode.' }
+if (@($Balance,$UpgradeOnly,$RareOnly,$StoryOnly,$AccuracyOnly,$WeaponOnly,$AdvancedOnly,$SuaBlindOnly,$SummaryOnly,$CraftingOnly,$UiOnly).Where({$_}).Count -gt 1) { throw 'Choose only one focused test mode.' }
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $outputPath = Join-Path $projectRoot 'Temp/CoreTests.exe'
 [IO.Directory]::CreateDirectory((Split-Path -Parent $outputPath)) | Out-Null
@@ -13,8 +13,8 @@ foreach ($dataFile in @('CardPresentation.cs', 'ClassicRoster.cs', 'RecentRoster
     if (Test-Path -LiteralPath $dataPath) { $arguments += $dataPath }
 }
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/CardInstances.cs'
-foreach ($advancedFile in @('AdvancedCardMechanics.cs','GameEngineAdvancedCards.cs','CompanionMechanics.cs','CardSummaryMechanics.cs','CraftingCatalog.cs')) { $arguments += Join-Path $projectRoot ('Assets/Scripts/Lumia/' + $advancedFile) }
-foreach ($advancedTest in @('AdvancedRulesSmokeTests.cs','CompanionSmokeTests.cs','AdvancedCombatSmokeTests.cs','AdvancedCardPresentationSmokeTests.cs','SuaBlindSmokeTests.cs','CardSummaryRegressionTests.cs','CraftingCatalogSmokeTests.cs')) {
+foreach ($advancedFile in @('AdvancedCardMechanics.cs','GameEngineAdvancedCards.cs','CompanionMechanics.cs','CardSummaryMechanics.cs','CraftingCatalog.cs','CardDisplayCatalog.cs','UiDeckSnapshot.cs','LumiaFieldDisplayCache.cs')) { $arguments += Join-Path $projectRoot ('Assets/Scripts/Lumia/' + $advancedFile) }
+foreach ($advancedTest in @('AdvancedRulesSmokeTests.cs','CompanionSmokeTests.cs','AdvancedCombatSmokeTests.cs','AdvancedCardPresentationSmokeTests.cs','SuaBlindSmokeTests.cs','CardSummaryRegressionTests.cs','CraftingCatalogSmokeTests.cs','CardDisplayCacheSmokeTests.cs','UiDeckSnapshotSmokeTests.cs')) {
     $advancedTestPath = Join-Path $PSScriptRoot $advancedTest
     if (Test-Path -LiteralPath $advancedTestPath) { $arguments += $advancedTestPath }
 }
@@ -72,5 +72,6 @@ elseif ($AdvancedOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mo
 elseif ($SuaBlindOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--sua-blind-only' }
 elseif ($SummaryOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--summary-only' }
 elseif ($CraftingOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--crafting-only' }
+elseif ($UiOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--ui-only' }
 else { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath }
 exit $LASTEXITCODE

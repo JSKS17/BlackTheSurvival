@@ -11,6 +11,27 @@ namespace Lumia
         readonly HashSet<string> advancedSacrificeSelection = new HashSet<string>(StringComparer.Ordinal);
         string advancedSwapHand = "", advancedSwapDraw = "";
         Vector2 advancedChoiceScroll;
+        readonly Dictionary<CardDef, AdvancedDisplayText> advancedDisplayText = new Dictionary<CardDef, AdvancedDisplayText>();
+
+        sealed class AdvancedDisplayText
+        {
+            public string summary, description, self, enemy;
+        }
+
+        AdvancedDisplayText AdvancedText(CardDef card)
+        {
+            AdvancedDisplayText value;
+            if (advancedDisplayText.TryGetValue(card, out value)) return value;
+            value = new AdvancedDisplayText { summary = AdvancedCardMechanics.Summary(card), description = AdvancedCardMechanics.Description(card) };
+            if (AdvancedCardMechanics.HasTargetChoice(card))
+            {
+                value.self = AdvancedCardMechanics.TargetChoiceDescription(card, "self");
+                value.enemy = AdvancedCardMechanics.TargetChoiceDescription(card, "enemy");
+            }
+            if (advancedDisplayText.Count >= 64) advancedDisplayText.Clear();
+            advancedDisplayText.Add(card, value);
+            return value;
+        }
 
         bool AdvancedCardChoiceOpen => !TutorialActive && Engine != null && Engine.PendingCardChoice != null;
 
@@ -68,10 +89,11 @@ namespace Lumia
             }
             if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.Escape)
             { Event.current.Use(); CancelAdvancedCardChoice(); return; }
-            var card = Engine.PlayerCard(choice.reference);
+            var display = DisplayCard(choice.reference);
+            var card = display?.card;
             if (card == null) { CancelAdvancedCardChoice(); return; }
             Modal(new Rect(144, 66, 992, 588));
-            Txt(new Rect(171, 91, 938, 36), card.name + Engine.CardUpgradeSuffix(choice.reference) + "  /  " + AdvancedChoiceTitle(choice.kind), 24, Gold);
+            Txt(new Rect(171, 91, 938, 36), card.name + display.suffix + "  /  " + AdvancedChoiceTitle(choice.kind), 24, Gold);
             Para(new Rect(171, 137, 938, 37), AdvancedChoicePrompt(choice.kind), 14, Text);
             DrawAdvancedChoiceCard(new Rect(171, 190, 230, 327), choice.reference);
             switch (choice.kind)
@@ -114,13 +136,13 @@ namespace Lumia
 
         void DrawAdvancedChoiceCard(Rect rect, string reference)
         {
-            var card = Engine.PlayerCard(reference); if (card == null) return;
+            var display = DisplayCard(reference); var card = display?.card; if (card == null) return;
             Box(rect, Panel, Gold);
             Tex(new Rect(rect.x + 75, rect.y + 18, 80, 80), PixelArt.SkillIcon(card.id), ScaleMode.ScaleToFit);
             Para(new Rect(rect.x + 14, rect.y + 112, rect.width - 28, 50), card.owner + " " + card.key + "  /  코스트 "
                 + (AdvancedCardMechanics.IsX(card) ? "X" : Engine.EffectiveCardCost(reference).ToString()), 15, Gold);
-            string text = AdvancedCardMechanics.Summary(card);
-            if (string.IsNullOrEmpty(text)) text = CardSummary(card, true, reference);
+            string text = AdvancedText(card).summary;
+            if (string.IsNullOrEmpty(text)) text = CardSummary(display, true, reference);
             Para(new Rect(rect.x + 14, rect.y + 172, rect.width - 28, rect.height - 184), text, 13, Text);
         }
 
@@ -128,8 +150,9 @@ namespace Lumia
         {
             if (Btn(new Rect(426, 223, 330, 72), "자신에게 사용", true, Mint)) { ResolveAdvancedCardChoice("self"); return; }
             if (Btn(new Rect(779, 223, 330, 72), "적에게 사용", true, Pink)) { ResolveAdvancedCardChoice("enemy"); return; }
-            Para(new Rect(440, 310, 302, 128), AdvancedCardMechanics.TargetChoiceDescription(card, "self"), 15, Mint);
-            Para(new Rect(793, 310, 302, 128), AdvancedCardMechanics.TargetChoiceDescription(card, "enemy"), 15, Pink);
+            var text = AdvancedText(card);
+            Para(new Rect(440, 310, 302, 128), text.self, 15, Mint);
+            Para(new Rect(793, 310, 302, 128), text.enemy, 15, Pink);
             Para(new Rect(426, 447, 683, 60), "자신을 지키는 효과와 적을 공격하는 효과는 동시에 발동하지 않습니다.", 14, Muted);
         }
 
@@ -139,7 +162,7 @@ namespace Lumia
             if (Btn(new Rect(779, 223, 330, 72), "충전하기", true, Gold)) { ResolveAdvancedCardChoice("charge"); return; }
             Para(new Rect(440, 316, 302, 90), "카드의 기본 효과를 지금 적용합니다.", 17, Mint);
             Para(new Rect(793, 316, 302, 87), "코스트를 먼저 지불하고 다음 내 턴부터 한 번 무료로 발동합니다.", 17, Gold);
-            Para(new Rect(426, 424, 683, 133), AdvancedCardMechanics.Description(card), 13, Muted);
+            Para(new Rect(426, 424, 683, 133), AdvancedText(card).description, 13, Muted);
         }
 
         void DrawAdvancedForesightChoice(AdvancedCardChoice choice)
@@ -157,7 +180,8 @@ namespace Lumia
             int count = choice.handReferences.Count;
             advancedChoiceScroll = GUI.BeginScrollView(new Rect(426, 390, 683, 128), advancedChoiceScroll,
                 new Rect(0, 0, Math.Max(661, count * 180), 108));
-            for (int i = 0; i < count; i++)
+            var visible = CraftingCatalog.VisibleItems(count, advancedChoiceScroll.x, 683, 1, 180);
+            for (int i = visible.first; i < visible.end; i++)
             {
                 string reference = choice.handReferences[i];
                 if (DrawAdvancedSelectionTile(new Rect(i * 180, 0, 168, 108), reference, advancedSwapHand == reference, true))
@@ -175,7 +199,8 @@ namespace Lumia
             Txt(new Rect(426, 190, 683, 23), "소멸 선택 " + advancedSacrificeSelection.Count + " / " + limit + "  ·  덱에서는 제거되지 않습니다", 13, Gold);
             advancedChoiceScroll = GUI.BeginScrollView(new Rect(426, 225, 683, 293), advancedChoiceScroll,
                 new Rect(0, 0, Math.Max(661, choice.handReferences.Count * 180), 286));
-            for (int i = 0; i < choice.handReferences.Count; i++)
+            var visible = CraftingCatalog.VisibleItems(choice.handReferences.Count, advancedChoiceScroll.x, 683, 1, 180);
+            for (int i = visible.first; i < visible.end; i++)
             {
                 string reference = choice.handReferences[i]; bool selected = advancedSacrificeSelection.Contains(reference);
                 Rect rect = new Rect(i * 180, 0, 168, 267);
@@ -196,14 +221,15 @@ namespace Lumia
 
         bool DrawAdvancedSelectionTile(Rect rect, string reference, bool selected, bool enabled, string heading = "")
         {
-            var card = Engine.PlayerCard(reference); if (card == null) return false;
+            var display = DisplayCard(reference);
+            var card = display?.card; if (card == null) return false;
             Box(rect, selected ? C("27433d") : Panel, selected ? Gold : enabled ? Line : C("253342"));
             float iconSize = rect.height > 150 ? 54 : 34;
             Tex(new Rect(rect.x + 12, rect.y + 12, iconSize, iconSize), PixelArt.SkillIcon(card.id), ScaleMode.ScaleToFit, enabled ? Color.white : Muted);
             string price = AdvancedCardMechanics.IsX(card) ? "X" : card.cost.ToString();
             Txt(new Rect(rect.x + iconSize + 22, rect.y + 12, rect.width - iconSize - 31, 21), card.key + " · " + price + "코스트", 11, Gold);
-            Para(new Rect(rect.x + 12, rect.y + iconSize + 23, rect.width - 24, 48), card.name + Engine.CardUpgradeSuffix(reference), 13, selected ? Gold : Text);
-            if (rect.height > 150) Para(new Rect(rect.x + 12, rect.y + iconSize + 82, rect.width - 24, rect.height-iconSize-94), CardSummary(card, false, reference), 11, Muted);
+            Para(new Rect(rect.x + 12, rect.y + iconSize + 23, rect.width - 24, 48), card.name + display.suffix, 13, selected ? Gold : Text);
+            if (rect.height > 150) Para(new Rect(rect.x + 12, rect.y + iconSize + 82, rect.width - 24, rect.height-iconSize-94), CardSummary(display, false, reference), 11, Muted);
             if (heading.Length > 0) Txt(new Rect(rect.x + iconSize + 22, rect.y + 36, rect.width - iconSize - 31, 20), heading, 10, Muted);
             return Hit(rect, enabled);
         }

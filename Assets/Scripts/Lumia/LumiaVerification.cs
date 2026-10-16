@@ -82,7 +82,7 @@ namespace Lumia
             {
                 LumiaGame.Instance.VerificationResearchFlows();
                 LumiaGame.Instance.VerificationRareContent();
-                views = new[] { "research_lobby", "research_empty", "research_progress", "research_ready", "research_insufficient", "research_completed", "research_report", "research_ending_lost", "research_ending_won", "research_encounter" };
+                views = new[] { "research_lobby", "research_empty", "research_progress", "research_ready", "research_insufficient", "research_completed", "research_report", "research_report_long", "research_report_long_bottom", "research_ending_lost", "research_ending_won", "research_encounter" };
             }
             bool modesOnly = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-bts-modes-verify") >= 0;
             if (modesOnly)

@@ -13,6 +13,10 @@ namespace Lumia
         int rareCopySelection = -1, rareSelectionNode = -1;
         bool rareSelectionIsCopy;
         RunState rareSelectionState;
+        int rareCandidateRevision = -1;
+        RunState rareCandidateState;
+        bool rareCandidateCopy;
+        List<int> rareCandidateIndices = new List<int>();
         Vector2 rareCardScroll;
         string rareRevealKey = "";
         float rareRevealStartedAt, rareRevealVerificationTime = -1;
@@ -86,7 +90,13 @@ namespace Lumia
                 rareRemovalSelection.Clear(); rareCopySelection = -1; rareCardScroll = Vector2.zero;
                 rareSelectionState = s; rareSelectionNode = s.activeNodeId; rareSelectionIsCopy = copy;
             }
-            var candidates = copy ? Engine.RareCopyIndices() : Engine.RareRemovalIndices();
+            var snapshot = EnsureDeckSnapshot();
+            if (!ReferenceEquals(rareCandidateState, s) || rareCandidateRevision != snapshot.Revision || rareCandidateCopy != copy)
+            {
+                rareCandidateIndices = copy ? Engine.RareCopyIndices() : Engine.RareRemovalIndices();
+                rareCandidateState = s; rareCandidateRevision = snapshot.Revision; rareCandidateCopy = copy;
+            }
+            var candidates = rareCandidateIndices;
             rareRemovalSelection.RemoveWhere(i => !candidates.Contains(i));
             if (!candidates.Contains(rareCopySelection)) rareCopySelection = -1;
             int limit = Math.Min(2, Math.Max(0, s.deck.Count - 5));
@@ -95,7 +105,8 @@ namespace Lumia
                 : "무기 스킬은 제외하며, 제거 후 덱에 최소 5장이 남아야 합니다. 같은 카드를 다시 누르면 취소합니다. 확정 전에는 제거되지 않습니다.", 13, Muted);
             Txt(new Rect(36, 195, 1200, 23), copy ? "복제 가능 " + candidates.Count + "장 · 선택 " + (rareCopySelection >= 0 ? "1 / 1" : "0 / 1") : "제거 가능 " + candidates.Count + "장 · 선택 " + rareRemovalSelection.Count + " / " + limit, 14, Gold);
             rareCardScroll = GUI.BeginScrollView(new Rect(36, 231, 1202, 353), rareCardScroll, new Rect(0, 0, 1174, Math.Max(340, Mathf.Ceil(candidates.Count / 6f) * 246)));
-            for (int i = 0; i < candidates.Count; i++)
+            var visible = CraftingCatalog.VisibleItems(candidates.Count, rareCardScroll.y, 353, 6, 246);
+            for (int i = visible.first; i < visible.end; i++)
             {
                 int deckIndex = candidates[i]; bool selected = copy ? rareCopySelection == deckIndex : rareRemovalSelection.Contains(deckIndex);
                 bool enabled = copy || selected || rareRemovalSelection.Count < limit;

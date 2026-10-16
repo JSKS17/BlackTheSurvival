@@ -71,6 +71,7 @@ namespace Lumia
             verify |= RareV2VerificationEnabled;
             verify |= AdvancedCardsVerificationEnabled;
             verify |= CraftPerformanceVerificationEnabled;
+            verify |= ListPerformanceVerificationEnabled;
             string saveDirectory = BrowserSaveDirectory(verify);
             savePath = Path.Combine(saveDirectory, verify ? "lumia-verification.json" : GameIdentity.SaveFileName);
             GameIdentity.MigrateLegacyData(savePath, verify);
@@ -173,6 +174,11 @@ namespace Lumia
         }
 
         void OnGUI()
+        {
+            DrawGameUIProfiled();
+        }
+
+        void DrawGameUI()
         {
             if (BrowserAccountFrozen) return;
             InitStyles();
@@ -416,7 +422,7 @@ namespace Lumia
             string[] actNames = { "숲의 잔향", "금지구역의 신호", "게임 월드의 끝" };
             Txt(new Rect(35, 110, 800, 35), "0" + s.act + "  /  " + actNames[s.act - 1] + (RunModes.ModeFor(s) == RunMode.Endless ? "  ·  " + RunModes.CycleLabel(s) : ""), 25, Text);
             Txt(new Rect(35, 153, 800, 23), "막당 " + s.mapRows + "구역  ·  현재 " + Math.Max(0, s.row + 1) + " / " + s.mapRows + "  ·  지도를 가로로 스크롤할 수 있습니다.", 14, Muted);
-            var nodes = s.map.Where(x => x.act == s.act).ToArray();
+            var nodes = MapDisplayNodes(s);
             var reachable = hyperloopSelecting ? Engine.AvailableHyperloopNodes() : Engine.AvailableNodes();
             if (mapAct != s.act || mapRow != s.row)
             {
@@ -430,12 +436,19 @@ namespace Lumia
             Txt(new Rect(35, 596, 830, 16), string.IsNullOrEmpty(pending) ? "콘솔: 다음 두 단계 정보 확인  /  하이퍼루프: 바로 다음 단계의 연결되지 않은 구역으로 이동" : pending, 10, string.IsNullOrEmpty(pending) ? Muted : Gold);
             int selectedLane = -1;
             mapScroll = GUI.BeginScrollView(new Rect(27, 225, 843, 371), mapScroll, new Rect(0, 0, Math.Max(843, s.mapRows * 119 + 40), 348));
-            foreach (var n in nodes)
-                foreach (var next in nodes.Where(x => x.row == n.row + 1 && Math.Abs(x.lane - n.lane) <= 1))
-                    PixelLine(NodeRect(n).center, NodeRect(next).center, n.visited && next.visited ? Mint : C("2a3b4b"), 2);
+            foreach (var connection in mapDisplayConnections)
+            {
+                Vector2 from = NodeRect(connection.from).center, to = NodeRect(connection.to).center;
+                Rect bounds = new Rect(Math.Min(from.x, to.x) - 2, Math.Min(from.y, to.y) - 2,
+                    Math.Abs(to.x - from.x) + 8, Math.Abs(to.y - from.y) + 8);
+                if (MapDisplayVisible(bounds, mapScroll))
+                    PixelLine(from, to, connection.from.visited && connection.to.visited ? Mint : C("2a3b4b"), 2);
+            }
             foreach (var n in nodes)
             {
                 Rect r = NodeRect(n);
+                // Include the name, boss label and scouted information surrounding the icon.
+                if (!MapDisplayVisible(new Rect(r.x - 25, r.y - 20, 112, 121), mapScroll)) continue;
                 bool available = reachable.Any(x => x.id == n.id);
                 Color tone = n.kind == ZoneKind.Boss ? Pink : n.kind == ZoneKind.Kiosk ? Gold : n.kind == ZoneKind.Campfire ? C("dfac7d") : Mint;
                 Box(r, n.visited ? C("2b4540") : available ? C("20394a") : C("142231"), available ? tone : n.visited ? Mint : Line);
@@ -462,7 +475,11 @@ namespace Lumia
                 }
                 if (Hit(r, available)) selectedLane = n.lane;
             }
-            for (int i = 0; i < s.mapRows; i++) Txt(new Rect(8 + i * 119, 8, 94, 24), (i + 1).ToString("00"), 11, Muted, true);
+            for (int i = 0; i < s.mapRows; i++)
+            {
+                Rect step = new Rect(8 + i * 119, 8, 94, 24);
+                if (MapDisplayVisible(step, mapScroll)) Txt(step, (i + 1).ToString("00"), 11, Muted, true);
+            }
             GUI.EndScrollView();
             if (selectedLane >= 0)
             {
@@ -530,7 +547,7 @@ namespace Lumia
             Modal(new Rect(220, 110, 840, 500));
             Txt(new Rect(250, 139, 780, 37), "보안 콘솔 / 키오스크 재고", 25, Gold);
             string text = mapIntel.Replace(" · ", "\n");
-            wrapped.fontSize = 17; float height = Math.Max(305, wrapped.CalcHeight(new GUIContent(text), 757) + 12);
+            wrapped.fontSize = 17; float height = Math.Max(305, CachedTextHeight(text, 17, 757) + 12);
             mapIntelScroll = GUI.BeginScrollView(new Rect(250, 195, 780, 315), mapIntelScroll, new Rect(0, 0, 757, height));
             Para(new Rect(0, 0, 757, height), text, 17, Text); GUI.EndScrollView();
             if (Btn(new Rect(250, 540, 780, 43), "지도 돌아가기", true, Mint)) mapIntel = "";
@@ -630,7 +647,8 @@ namespace Lumia
             var hand = c.hand.ToArray();
             handScroll = GUI.BeginScrollView(new Rect(24, 458, 1004, 262), handScroll, new Rect(0, 0, Math.Max(1004, hand.Length * 198), 245));
             bool cardUsed = false;
-            for (int i = 0; i < hand.Length; i++)
+            var visibleHand = CraftingCatalog.VisibleItems(hand.Length, handScroll.x, 1004, 1, 198);
+            for (int i = visibleHand.first; i < visibleHand.end; i++)
             {
                 Rect r = new Rect(i * 198, 0, 188, 245);
                 bool playable = Engine.CanPlayCard(i) && !effects.Casting && Time.unscaledTime >= nextPlayerActionAt;
@@ -705,8 +723,8 @@ namespace Lumia
                 var boss = Engine.CurrentBossView;
                 dynamic = "현재 전투 / PHASE " + boss.phase + " · " + boss.phaseName + "\n" + boss.pendingPhaseText + "\n" + boss.nextCondition + "\n" + boss.progressText + "\n" + boss.nextActionDetails + "\n\n";
             }
-            string text = DescriptionSummary.Normalize(dynamic + "고유 기믹\n" + guide.mechanicDescription + "\n\n페이즈 전환\n" + guide.phaseRules + "\n\n대응 방법\n" + guide.counterplay + "\n\n특수 행동 예고와 효과\n" + guide.previewEffects);
-            wrapped.fontSize = 16; float height = Math.Max(294, wrapped.CalcHeight(new GUIContent(text), 781) + 12);
+            string text = CachedNormalize(dynamic + "고유 기믹\n" + guide.mechanicDescription + "\n\n페이즈 전환\n" + guide.phaseRules + "\n\n대응 방법\n" + guide.counterplay + "\n\n특수 행동 예고와 효과\n" + guide.previewEffects);
+            wrapped.fontSize = 16; float height = Math.Max(294, CachedTextHeight(text, 16, 781) + 12);
             bossGuideScroll = GUI.BeginScrollView(new Rect(237, 235, 804, 310), bossGuideScroll, new Rect(0, 0, 781, height));
             Para(new Rect(0, 0, 781, height), text, 16, Text); GUI.EndScrollView();
             if (Btn(new Rect(237, 580, 804, 40), "공략 닫기", true, Mint)) inspectBoss = "";
@@ -714,11 +732,14 @@ namespace Lumia
 
         void DrawCard(Rect r, string id, bool selected = false, bool enabled = true, bool combat = false, bool rareRewardPreview = false)
         {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            LumiaListPerformanceVerification.RecordCard();
+#endif
             bool enemyPreview = inspectEnemyCard && inspectCard == id && currentLayer == 6;
-            var d = rareRewardPreview ? RareCardUpgrades.Apply(GameDatabase.Card(id)) : Engine != null && !enemyPreview ? Engine.PlayerCard(id) : GameDatabase.Card(id); if (d == null) return;
-            string upgrade = rareRewardPreview ? "레어 강화" : Engine != null && !enemyPreview ? Engine.CardUpgradeLabel(id) : "";
-            string suffix = rareRewardPreview ? " ++" : Engine != null && !enemyPreview ? Engine.CardUpgradeSuffix(id) : "";
-            bool rareUpgraded = rareRewardPreview || Engine != null && !enemyPreview && Engine.CardUpgradeLevel(id) == 2;
+            var variant = DisplayCard(id, enemyPreview, rareRewardPreview); if (variant == null) return;
+            var d = variant.card;
+            string upgrade = variant.label, suffix = variant.suffix;
+            bool rareUpgraded = variant.level == 2;
             bool upgraded = !string.IsNullOrEmpty(upgrade);
             Color upgradeTone = rareUpgraded ? RareTone : Gold;
             Color tone = d.damage > 0 ? Pink : d.block > 0 ? Mint : Gold;
@@ -739,23 +760,23 @@ namespace Lumia
             Txt(new Rect(r.x + 38, r.y + 11, r.width - (selected ? 73 : 45), 20), heading, d.owner.Length > 7 || sealedByStatus || xCost || chargeLabel.Length > 0 ? 9 : 11, sealedByStatus ? Pink : chargeLabel.Length > 0 ? Gold : enabled ? Text : Muted);
             if (selected) DrawCardSelectionCheck(new Rect(r.xMax - 31, r.y + 7, 24, 25));
             float artHeight = CardArtHeight(r);
-            var owner = GameDatabase.Characters.Find(x => x.id == d.owner || x.name == d.owner);
+            string owner = variant.ownerId;
             float iconX = owner == null ? r.x + (r.width - artHeight) / 2 : r.x + 14;
             Rect iconRect = new Rect(iconX, r.y + 41, artHeight, artHeight);
             Box(iconRect, Ink, enabled ? tone : Line);
             Tex(new Rect(iconRect.x + 2, iconRect.y + 2, iconRect.width - 4, iconRect.height - 4), PixelArt.SkillIcon(d.id), ScaleMode.ScaleToFit, enabled ? Color.white : Muted);
             if (owner != null)
-                Tex(new Rect(r.xMax - 14 - artHeight * .8f, r.y + 39, artHeight * .8f, artHeight + 4), PixelArt.Portrait(owner.id), ScaleMode.ScaleToFit, enabled ? Color.white : Muted);
+                Tex(new Rect(r.xMax - 14 - artHeight * .8f, r.y + 39, artHeight * .8f, artHeight + 4), PixelArt.Portrait(owner), ScaleMode.ScaleToFit, enabled ? Color.white : Muted);
             float nameY = r.y + 43 + artHeight;
             float nameHeight=CardNameHeight(r);
             Para(new Rect(r.x + 9, nameY, r.width - 18, nameHeight), d.name + suffix, r.width < 130 || d.name.Length > 13 ? 11 : 13, upgraded ? upgradeTone : tone);
             // A card face is a brief overview. Complete rules belong to the detail panel.
             Rect preview = CardPreviewRect(r);
-            Para(preview, CardSummary(d, combat, id), 11, enabled ? Text : Muted);
+            Para(preview, CardSummary(variant, combat, id), 11, enabled ? Text : Muted);
             Rect info = new Rect(r.x + 7, r.yMax - 25, r.width - 14, 19);
             Fill(info, C("203343"));
             int badgeWidth = upgraded ? 49 : 25;
-            Txt(new Rect(info.x+4,info.y,info.width-badgeWidth-8,19),CardPresentation.ClassificationLabel(d),upgraded?9:10,selected?Gold:Text);
+            Txt(new Rect(info.x+4,info.y,info.width-badgeWidth-8,19),variant.classification,upgraded?9:10,selected?Gold:Text);
             if(inspectCard!=id || upgraded)
             {
                 Rect more=new Rect(info.xMax-badgeWidth,info.y,badgeWidth,19);
@@ -772,16 +793,16 @@ namespace Lumia
             for (int i = 0; i < 11; i++) Fill(new Rect(r.x + 8 + i, r.y + 16 - i, 3, 3), Gold);
         }
 
-        string CardSummary(CardDef d, bool combat, string reference)
+        string CardSummary(CardDisplayVariant variant, bool combat, string reference)
         {
-            var display = combat ? Engine.DisplayCombatCard(reference) : d;
-            return DescriptionSummary.CardPreview(d, GameDatabase.Cards, combat ? Engine.CardDamage(reference) : d.damage, display.block, display.heal);
+            var display = combat ? Engine.DisplayCombatCard(reference) : variant.card;
+            return CardDisplays.Preview(variant, combat ? Engine.CardDamage(reference) : variant.card.damage, display.block, display.heal);
         }
 
         string PlayerCardName(string reference)
         {
-            var card = Engine != null ? Engine.PlayerCard(reference) : GameDatabase.Card(reference);
-            return card == null ? reference : card.name + (Engine != null ? Engine.CardUpgradeSuffix(reference) : "");
+            var variant = DisplayCard(reference);
+            return variant == null ? reference : variant.card.name + variant.suffix;
         }
 
         static float CardArtHeight(Rect r) => r.height>=350?84:r.height>=250 && r.width>=180?56:36;
@@ -936,7 +957,8 @@ namespace Lumia
             Txt(new Rect(36, 180, 1202, 22), "같은 카드를 다시 누르면 선택을 취소합니다. 장비가 부여한 무기 스킬은 제거할 수 없습니다.", 12, Muted);
             scroll = GUI.BeginScrollView(new Rect(36, 214, 1202, 365), scroll, new Rect(0, 0, 1174, Math.Max(350, Mathf.Ceil(s.deck.Count / 6f) * 245)));
             if (s.deck.Count == 0) Para(new Rect(15, 38, 1130, 75), "덱에 카드가 없습니다. 카드 제거 없이 휴식을 마칠 수 있습니다.", 18, Muted);
-            for (int i = 0; i < s.deck.Count; i++)
+            var visibleRestCards = CraftingCatalog.VisibleItems(s.deck.Count, scroll.y, 365, 6, 245);
+            for (int i = visibleRestCards.first; i < visibleRestCards.end; i++)
             {
                 Rect card = new Rect(i % 6 * 196, i / 6 * 245, 181, 215);
                 bool selected = campRemovalSelection.Contains(i), removable = Engine.CanRemoveCampCard(i);
@@ -986,8 +1008,9 @@ namespace Lumia
             {
                 var g = GameDatabase.Equipment(gear[i]); if (g.slot != pending.slot) continue;
                 int replace = i;Rect option=new Rect(0,row++*84,690,74);
+                if (option.yMax <= craftReplacementScroll.y || option.y >= craftReplacementScroll.y + 220) continue;
                 Box(option,Panel,Line);Txt(new Rect(14,option.y+8,662,24),g.name,16,Text);
-                FitText(new Rect(14,option.y+39,662,27),DescriptionSummary.Gear(g),11,Muted);
+                FitText(new Rect(14,option.y+39,662,27),CachedGearSummary(g),11,Muted);
                 if(Hit(option))
                 {
                     GUI.EndScrollView();
@@ -1030,7 +1053,7 @@ namespace Lumia
                 if (rare && Btn(new Rect(55, 580, 294, 38), "보상 없이 지나가기  >", false, Muted)) { Act(Engine.SkipRareEncounter, "ui.cancel"); return; }
                 Txt(new Rect(403, 124, 830, 32), e.owner + "  /  " + e.title, 25, rare ? Gold : Mint);
                 if (rare) FitText(new Rect(403, 157, 825, 19), "레어 조우 · " + RareSkinCatalog.NameForSubject(rareSubject) + " · 특별 기술과 고유 보상", 12, RareTone);
-                wrapped.fontSize=18;float storyHeight=Math.Max(104,wrapped.CalcHeight(new GUIContent(e.story),801)+10);
+                wrapped.fontSize=18;float storyHeight=Math.Max(104,CachedTextHeight(e.story,18,801)+10);
                 encounterStoryScroll=GUI.BeginScrollView(new Rect(403,178,825,112),encounterStoryScroll,new Rect(0,0,801,storyHeight));
                 Para(new Rect(0,0,801,storyHeight),e.story,18,Text);GUI.EndScrollView();
                 for (int i = 0; i < e.options.Length; i++)
@@ -1061,13 +1084,14 @@ namespace Lumia
 
         void DrawUpgradeChoice()
         {
-            var candidates = Engine.UpgradeCardIndices();
+            var candidates = EnsureDeckSnapshot().UpgradeIndices;
             if (!candidates.Contains(upgradeSelected)) { upgradeSelected = -1; upgradeBranch = ""; }
             Txt(new Rect(36, 111, 1160, 32), "기술 개조 / 카드와 강화 방향을 선택하세요.", 25, Mint);
             Para(new Rect(36, 151, 1160, 26), "선택한 한 장에만 적용됩니다. 같은 종류의 다른 카드와 새로 얻는 카드는 강화되지 않습니다. 확정 전에는 자유롭게 변경하세요.", 13, Gold);
             Txt(new Rect(36, 185, 570, 23), "강화할 카드  /  " + candidates.Count + "장", 14, Muted);
             upgradeCardScroll = GUI.BeginScrollView(new Rect(36, 220, 571, 379), upgradeCardScroll, new Rect(0, 0, 548, Math.Max(360, Mathf.Ceil(candidates.Count / 3f) * 228)));
-            for (int i = 0; i < candidates.Count; i++)
+            var visibleUpgrades = CraftingCatalog.VisibleItems(candidates.Count, upgradeCardScroll.y, 379, 3, 228);
+            for (int i = visibleUpgrades.first; i < visibleUpgrades.end; i++)
             {
                 int deckIndex = candidates[i]; string id = Engine.State.deck[deckIndex];
                 Rect r = new Rect(i % 3 * 182, i / 3 * 228, 168, 212);
@@ -1077,7 +1101,7 @@ namespace Lumia
             }
             GUI.EndScrollView();
             Box(new Rect(638, 185, 602, 414), Panel, Line);
-            var options = Engine.CardUpgradeOptions(upgradeSelected);
+            var options = CachedUpgradeOptions(upgradeSelected);
             if (options.Count == 0)
                 Para(new Rect(663, 215, 552, 100), candidates.Count == 0 ? "강화 가능한 카드가 없습니다. 강화 없이 다음 구역으로 이동할 수 있습니다." : "왼쪽에서 카드를 선택하면 강화 방향과 실제 효과를 확인할 수 있습니다.", 18, Muted);
             else
@@ -1093,7 +1117,7 @@ namespace Lumia
                 {
                     Txt(new Rect(663, 264, 552, 29), PlayerCardName(Engine.State.deck[upgradeSelected]) + "  /  " + selected.name, 18, Gold);
                     wrapped.fontSize = 15;
-                    float height = Math.Max(250, wrapped.CalcHeight(new GUIContent(selected.description), 529) + 12);
+                    float height = Math.Max(250, CachedTextHeight(selected.description, 15, 529) + 12);
                     upgradePreviewScroll = GUI.BeginScrollView(new Rect(663, 308, 552, 264), upgradePreviewScroll, new Rect(0, 0, 529, height));
                     Para(new Rect(0, 0, 529, height), selected.description, 15, Text); GUI.EndScrollView();
                 }
@@ -1151,14 +1175,15 @@ namespace Lumia
             for (int i = 0; i < tabs.Length; i++) if (Btn(new Rect(79 + i * tabStep, 150, tabWidth, 35), tabs[i], i == inventoryTab, Mint)) { inventoryTab = i; inventoryScroll = Vector2.zero; }
             if (inventoryTab == 0)
             {
-                var cards = s.deck.GroupBy(x => x).ToArray();
+                var cards = EnsureDeckSnapshot().Groups;
                 inventoryScroll = GUI.BeginScrollView(new Rect(80, 207, 1120, 424), inventoryScroll, new Rect(0, 0, 1090, Mathf.Ceil(cards.Length / 6f) * 274));
-                for (int i = 0; i < cards.Length; i++)
+                var visibleCards = CraftingCatalog.VisibleItems(cards.Length, inventoryScroll.y, 424, 6, 274);
+                for (int i = visibleCards.first; i < visibleCards.end; i++)
                 {
-                    Rect r = new Rect(i % 6 * 182, i / 6 * 274, 166, 255); DrawCard(r, cards[i].Key);
-                    string upgrade = Engine.CardUpgradeLabel(cards[i].Key);
-                    Txt(new Rect(r.x + 7, r.yMax + 1, r.width - 14, 16), string.IsNullOrEmpty(upgrade) ? "보유 " + cards[i].Count() + "장" : "강화 / " + upgrade + " · 1장", 11, Engine.CardUpgradeLevel(cards[i].Key)==2 ? RareTone : Gold, true);
-                    if (Hit(r)) { inspectCard = cards[i].Key; inspectEnemyCard=false; inspectRareReward=false; }
+                    Rect r = new Rect(i % 6 * 182, i / 6 * 274, 166, 255); DrawCard(r, cards[i].reference);
+                    var display = DisplayCard(cards[i].reference); string upgrade = display?.label ?? "";
+                    Txt(new Rect(r.x + 7, r.yMax + 1, r.width - 14, 16), string.IsNullOrEmpty(upgrade) ? "보유 " + cards[i].count + "장" : "강화 / " + upgrade + " · 1장", 11, display != null && display.level == 2 ? RareTone : Gold, true);
+                    if (Hit(r)) { inspectCard = cards[i].reference; inspectEnemyCard=false; inspectRareReward=false; }
                 }
                 GUI.EndScrollView();
             }
@@ -1179,8 +1204,8 @@ namespace Lumia
                     int displayed=Math.Max(capacity,held.Length),rows=displayed/2+displayed%2;
                     Txt(new Rect(1,slotY+9,170,25),SlotName(kind),16,Gold);
                     Txt(new Rect(1,slotY+38,170,20),"장착 "+held.Length+" / "+capacity,11,Muted);
-                    int firstRow=(int)Math.Max(0,Math.Min(rows-1,Math.Floor((inventoryScroll.y-slotY)/80)-1));
-                    int lastRow=Math.Min(rows-1,firstRow+7);
+                    int firstRow = Math.Max(0, (int)Math.Floor((inventoryScroll.y - slotY) / 80));
+                    int lastRow = Math.Min(rows - 1, (int)Math.Ceiling((inventoryScroll.y + 424 - slotY) / 80) - 1);
                     for (int row=firstRow;row<=lastRow;row++) for(int col=0;col<2;col++)
                     {
                         int i=row*2+col;if(i>=displayed)continue;
@@ -1191,7 +1216,7 @@ namespace Lumia
                         Txt(new Rect(r.x + 73, r.y + 8, r.width - 86, 24), g == null ? "빈 슬롯" : g.name + " · " + g.rarity, 14, g == null ? Muted : Text);
                         if (g != null)
                         {
-                            FitText(new Rect(r.x + 73, r.y + 36, r.width - 86, 22), DescriptionSummary.Gear(g), 11, Muted);
+                            FitText(new Rect(r.x + 73, r.y + 36, r.width - 86, 22), CachedGearSummary(g), 11, Muted);
                             if(Hit(new Rect(r.x+10,r.y+7,52,52))) {inspectGear=g.id;summaryMode=true;detailScroll=Vector2.zero;}
                         }
                     }
@@ -1212,7 +1237,8 @@ namespace Lumia
                 var foods = s.foods.ToArray();
                 inventoryScroll = GUI.BeginScrollView(new Rect(80, 256, 1120, 376), inventoryScroll, new Rect(0, 0, 1090, Math.Max(376, foods.Length * 82)));
                 if (foods.Length == 0) Txt(new Rect(10, 36, 1000, 40), "가방이 비어 있습니다. 키오스크에서 음식과 요리 재료를 구입할 수 있습니다.", 16, Muted);
-                for (int i = 0; i < foods.Length; i++)
+                var visibleFoods = CraftingCatalog.VisibleItems(foods.Length, inventoryScroll.y, 376, 1, 82);
+                for (int i = visibleFoods.first; i < visibleFoods.end; i++)
                 {
                     var f = GameDatabase.Food(foods[i]); if (f == null) continue;
                     int index = i; Rect r = new Rect(0, i * 82, 1083, 72); Box(r, Panel, Line);
@@ -1245,7 +1271,8 @@ namespace Lumia
                 var runes=Engine.OwnedRuneIds().Select(GameDatabase.Rune).Where(r=>r!=null).ToArray();
                 Txt(new Rect(82,211,1095,26),"보유 룬 "+runes.Length+"개 · 레어 조우로 얻은 추가 보조 룬도 함께 적용됩니다.",14,Muted);
                 inventoryScroll=GUI.BeginScrollView(new Rect(80,250,1120,380),inventoryScroll,new Rect(0,0,1090,Math.Max(370,runes.Length*151)));
-                for(int i=0;i<runes.Length;i++)
+                var visibleRunes = CraftingCatalog.VisibleItems(runes.Length, inventoryScroll.y, 380, 1, 151);
+                for(int i=visibleRunes.first;i<visibleRunes.end;i++)
                 {
                     var r=runes[i];if(r==null) continue;
                     Rect box=new Rect(0,i*151,1085,139);Box(box,Panel,r.main?Mint:Gold);
@@ -1264,26 +1291,16 @@ namespace Lumia
             return passive.owner + "의 스킬이 무작위 카드 선택지에 더 자주 등장합니다.";
         }
 
-        static string TraitSummary(TraitMechanicProfile profile,string fallback) => DescriptionSummary.Trait(profile,fallback);
+        static string TraitSummary(TraitMechanicProfile profile,string fallback) => CachedTraitSummary(profile,fallback);
 
         void FitText(Rect r,string text,int size,Color color)
         {
-            SummaryText(r,DescriptionSummary.Normalize(text),size,color,"preview/"+text+"/"+r.width+"/"+r.height);
+            DrawCachedSummary(r, text, size, color, null, true);
         }
 
         void SummaryText(Rect r,string text,int size,Color color,string key)
         {
-            text=text??"";
-            wrapped.fontSize=size;
-            float plainHeight=wrapped.CalcHeight(new GUIContent(text),r.width);
-            if(plainHeight<=r.height) { Para(r,text,size,color); return; }
-            float width=Math.Max(30,r.width-15);
-            wrapped.fontSize=size;
-            float height=wrapped.CalcHeight(new GUIContent(text),width)+5;
-            Vector2 position;summaryScroll.TryGetValue(key,out position);
-            position=GUI.BeginScrollView(r,position,new Rect(0,0,width,height),false,true);
-            Para(new Rect(0,0,width,height),text,size,color);
-            GUI.EndScrollView();summaryScroll[key]=position;
+            DrawCachedSummary(r, text, size, color, key, false);
         }
 
         void DescriptionTabs(Rect r)
@@ -1321,8 +1338,8 @@ namespace Lumia
             Txt(new Rect(445,110,590,40),name,name.Length>16?20:25,Mint);
             Txt(new Rect(445,164,590,25),owner+" / "+(passive!=null?"패시브":"룬"),16,Gold);
             DescriptionTabs(new Rect(445,200,590,32));
-            string text=summaryMode ? (passive!=null?DescriptionSummary.Passive(passive):DescriptionSummary.Rune(rune)) : DescriptionSummary.Normalize(description)+"\n\n"+(passive!=null?"패시브의 전투 효과는 주인의 카드가 없어도 발동합니다.\n"+PassiveAffinity(passive):"룬의 효과는 중첩·발동 횟수와 지속 턴 제한을 따릅니다.");
-            wrapped.fontSize=15;float height=Math.Max(273,wrapped.CalcHeight(new GUIContent(text),568)+12);
+            string text=summaryMode ? (passive!=null?CachedPassiveSummary(passive):CachedRuneSummary(rune)) : CachedNormalize(description)+"\n\n"+(passive!=null?"패시브의 전투 효과는 주인의 카드가 없어도 발동합니다.\n"+PassiveAffinity(passive):"룬의 효과는 중첩·발동 횟수와 지속 턴 제한을 따릅니다.");
+            wrapped.fontSize=15;float height=Math.Max(273,CachedTextHeight(text, 15, 568)+12);
             detailScroll=GUI.BeginScrollView(new Rect(445,244,590,279),detailScroll,new Rect(0,0,568,height));
             Para(new Rect(0,0,568,height),text,15,Text);GUI.EndScrollView();
             if(Btn(new Rect(237,580,804,40),"효과 설명 닫기",true,Mint)) inspectTrait="";
@@ -1336,7 +1353,7 @@ namespace Lumia
             string query = GUI.TextField(new Rect(49, 95, 880, 38), catalogQuery, field);
             if (query != catalogQuery) { catalogQuery = query; catalogPage = 0; }
             Txt(new Rect(949, 104, 270, 25), "카드명 · 실험체 · 분류 검색", 11, Muted);
-            var cards = GameDatabase.Cards.Where(x => string.IsNullOrEmpty(catalogQuery) || (x.name + x.owner + x.key+" "+CardPresentation.ClassificationLabel(x)).IndexOf(catalogQuery, StringComparison.OrdinalIgnoreCase) >= 0).ToArray();
+            var cards = CardDisplays.Filter(catalogQuery);
             int pages = Math.Max(1, (cards.Length + 11) / 12); catalogPage = Math.Min(catalogPage, pages - 1);
             for (int i = 0; i < 12; i++)
             {
@@ -1352,33 +1369,33 @@ namespace Lumia
         void DrawCardDetail()
         {
             if (WildlifeMechanics.IsAnimalSkill(inspectCard)) { DrawWildlifeSkillDetail(); return; }
-            var d = inspectRareReward ? RareCardUpgrades.Apply(GameDatabase.Card(inspectCard)) : Engine != null && !inspectEnemyCard ? Engine.PlayerCard(inspectCard) : GameDatabase.Card(inspectCard); if (d == null) { inspectCard = ""; inspectRareReward=false; return; }
+            var variant = DisplayCard(inspectCard, inspectEnemyCard, inspectRareReward); var d = variant?.card;
+            if (d == null) { inspectCard = ""; inspectRareReward=false; return; }
             Modal(new Rect(210, 82, 860, 562));
             bool inBattle = Engine != null && Engine.State.stage == RunStage.Combat;
             bool combat = inBattle && !inspectEnemyCard && !inspectRareReward;
             int currentCost=inBattle ? (inspectEnemyCard ? Engine.EnemyEffectiveCardCost(inspectCard) : Engine.EffectiveCardCost(inspectCard)) : d.cost;
             DrawCard(new Rect(237, 113, 215, 400), inspectCard, false, true, combat, inspectRareReward);
-            string upgrade = inspectRareReward ? "레어 강화" : Engine != null && !inspectEnemyCard ? Engine.CardUpgradeLabel(inspectCard) : "";
-            string suffix = inspectRareReward ? " ++" : Engine != null && !inspectEnemyCard ? Engine.CardUpgradeSuffix(inspectCard) : "";
-            bool rareUpgraded = inspectRareReward || Engine != null && !inspectEnemyCard && Engine.CardUpgradeLevel(inspectCard)==2;
+            string upgrade = variant.label, suffix = variant.suffix;
+            bool rareUpgraded = variant.level == 2;
             Txt(new Rect(480, 111, 560, 39), d.name + suffix, d.name.Length > 17 ? 20 : 25, rareUpgraded ? RareTone : string.IsNullOrEmpty(upgrade) ? Mint : Gold);
             Txt(new Rect(480, 163, 560, 28), d.owner + "  /  " + d.key + "  /  코스트 " + (AdvancedCardMechanics.IsX(d) ? "X" + (inBattle ? " → 현재 " + currentCost : "") : d.cost + (currentCost != d.cost ? " → 현재 " + currentCost : "")), 16, Gold);
             DescriptionTabs(new Rect(480,201,559,32));
             if(inBattle && inspectEnemyCard) Txt(new Rect(480,240,560,16),"상대 기본 효과 · 난이도·패시브·장비 보정은 행동 예고에 반영됩니다.",10,Muted);
             if(combat && Engine.CardTotalDamage(inspectCard)>0) Txt(new Rect(480,240,560,16),"일반 적중 예상 피해 " + Engine.CardTotalDamage(inspectCard) + " · 방어·회피" + (d.id == "basic_attack" ? "·치명타" : "") + "에 따라 달라집니다.",10,Mint);
             string description = combat ? CardPresentation.Describe(d, GameDatabase.Cards, Engine.CardDamage(inspectCard), d.block, d.heal) : d.description;
-            string rules = CardPresentation.Rules(d);
+            string rules = variant.rules;
             string extra = d.id == "basic_attack" && Engine!=null ? "\n\n현재 치명타 확률: " + (inspectEnemyCard ? Engine.EnemyCritChance : Engine.CritChance) + "%. 현재 " + RunModes.Name(Engine.State.mode) + " 모드의 합산 상한은 " + Engine.DynamicCriticalChanceCap + "%입니다. 치명타 피해는 일반 공격 피해의 " + (inspectEnemyCard ? Engine.EnemyCriticalDamagePercent : Engine.CriticalDamagePercent) + "%이며 소수점은 버립니다." : "";
-            string summary=CardSummary(d,combat,inspectCard),cooperation=CrossSubjectSynergies.BriefDescription(d);
+            string summary=CardSummary(variant,combat,inspectCard),cooperation=CrossSubjectSynergies.BriefDescription(d);
             if(!string.IsNullOrEmpty(cooperation))
                 summary=string.Join("\n",DescriptionSummary.CleanLines(new[]{summary,cooperation,"각 외부 연계는 자신의 턴당 1회 발동합니다."}));
-            string fullText = summaryMode ? summary : DescriptionSummary.Normalize(description + extra + (string.IsNullOrEmpty(rules) ? "" : "\n\n" + rules));
+            string fullText = summaryMode ? summary : CachedNormalize(description + extra + (string.IsNullOrEmpty(rules) ? "" : "\n\n" + rules));
             if (!string.IsNullOrEmpty(upgrade)) fullText = (inspectRareReward ? "획득할 카드 미리보기 / 레어 강화 ++ · 아래 강화 효과를 가진 새 카드 한 장을 얻습니다." : "강화 / " + upgrade + " · 이 카드 한 장에만 적용됩니다.") + "\n\n" + fullText;
             fullText=(summaryMode?"카드 분류: "+CardPresentation.ClassificationLabel(d):CardPresentation.ClassificationRules(d))+"\n\n"+fullText;
             if(combat && !StatusMechanics.CanUse(Engine.State.combat.playerStatuses,d))
                 fullText="현재 상태이상으로 이 카드를 사용할 수 없습니다. 나의 필드에서 발동한 상태와 남은 턴을 확인하세요.\n\n"+fullText;
             wrapped.fontSize = 16;
-            float height = Math.Max(263, wrapped.CalcHeight(new GUIContent(fullText), 536) + 12);
+            float height = Math.Max(263, CachedTextHeight(fullText, 16, 536) + 12);
             detailScroll = GUI.BeginScrollView(new Rect(480, 263, 559, 263), detailScroll, new Rect(0, 0, 536, height));
             Para(new Rect(0, 0, 536, height), fullText, 16, Text);
             GUI.EndScrollView();
@@ -1394,7 +1411,7 @@ namespace Lumia
             Txt(new Rect(445,110,590,40),g.name,25,Gold);
             Txt(new Rect(445,164,590,25),SlotName(g.slot)+" / "+g.rarity+(g.slot==GearSlot.Weapon?" / "+g.weaponClass:""),16,Mint);
             DescriptionTabs(new Rect(445,200,590,32));
-            string text=summaryMode?DescriptionSummary.Gear(g):DescriptionSummary.Normalize(g.description);
+            string text=summaryMode?CachedGearSummary(g):CachedNormalize(g.description);
             if(!summaryMode)
             {
                 var material=GameDatabase.Object(g.objectId);
@@ -1404,7 +1421,7 @@ namespace Lumia
                 if(g.slot==GearSlot.Weapon) text+="\n무기를 교체하면 장비로 추가된 D 카드도 교체됩니다. 보상이나 이벤트로 얻은 카드는 유지됩니다.\n알렉스 패시브가 있으면 무기마다 다른 무기군의 D 1장을 추가로 얻습니다.";
                 text+="\n"+SlotName(g.slot)+" 부위의 현재 장착 한도는 "+(Engine==null?2:Engine.EquipmentCapacity(g.slot))+"개입니다. 무한 모드에서는 3막을 완료할 때 선택한 한 부위의 한도를 1 늘릴 수 있습니다.";
             }
-            wrapped.fontSize=15;float height=Math.Max(273,wrapped.CalcHeight(new GUIContent(text),568)+12);
+            wrapped.fontSize=15;float height=Math.Max(273,CachedTextHeight(text, 15, 568)+12);
             detailScroll=GUI.BeginScrollView(new Rect(445,244,590,279),detailScroll,new Rect(0,0,568,height));
             Para(new Rect(0,0,568,height),text,15,Text);GUI.EndScrollView();
             if(Btn(new Rect(237,580,804,40),"장비 설명 닫기",true,Mint))inspectGear="";
@@ -1430,22 +1447,23 @@ namespace Lumia
             var p=GameDatabase.Passive(c.enemyPassiveId);
             float total=125+(c.enemyGear?.Count??0)*86;
             inventoryScroll=GUI.BeginScrollView(new Rect(210,265,860,300),inventoryScroll,new Rect(0,0,838,Math.Max(292,total)));
-            if(p!=null)
+            if(p!=null && ScrollRowVisible(0,111,inventoryScroll.y,300))
             {
                 Box(new Rect(0,0,838,111),Panel,Line);
                 Tex(new Rect(12,18,61,61),PixelArt.PassiveIcon(p.id),ScaleMode.ScaleToFit);
                 Txt(new Rect(88,10,724,26),"패시브 / "+p.name,17,Mint);
-                SummaryText(new Rect(88,43,724,55),DescriptionSummary.Passive(p),13,Text,"enemy/"+p.id);
+                SummaryText(new Rect(88,43,724,55),CachedPassiveSummary(p),13,Text,"enemy/"+p.id);
                 if(Hit(new Rect(12,18,61,61))){inspectTrait=p.id;summaryMode=true;detailScroll=Vector2.zero;}
             }
             if(c.enemyGear==null || c.enemyGear.Count==0) Txt(new Rect(16,139,800,33),"장착한 장비가 없습니다. 후반 실험체와 보스는 장비를 갖춥니다.",14,Muted);
             else for(int i=0;i<c.enemyGear.Count;i++)
             {
+                if(!ScrollRowVisible(125+i*86,78,inventoryScroll.y,300))continue;
                 var g=GameDatabase.Equipment(c.enemyGear[i]);if(g==null)continue;
                 float y=125+i*86;Box(new Rect(0,y,838,78),Panel,Line);
                 Tex(new Rect(12,y+15,48,48),PixelArt.SystemIcon(g.id),ScaleMode.ScaleToFit);
                 Txt(new Rect(78,y+9,739,23),g.name+" · "+g.rarity+" / "+SlotName(g.slot),15,Gold);
-                SummaryText(new Rect(78,y+35,739,33),DescriptionSummary.Gear(g),12,Text,"enemy/gear/"+g.id);
+                SummaryText(new Rect(78,y+35,739,33),CachedGearSummary(g),12,Text,"enemy/gear/"+g.id);
                 if(Hit(new Rect(12,y+15,48,48))){inspectGear=g.id;summaryMode=true;detailScroll=Vector2.zero;}
             }
             GUI.EndScrollView();
@@ -1536,12 +1554,12 @@ namespace Lumia
                 var t=tokens[i]; float y=nextY;
                 float rowHeight=t.kind=="control_protection" || t.kind=="companion_guard"?96:(t.kind??"").StartsWith("synergy_",StringComparison.Ordinal)?84:72;
                 nextY+=rowHeight;
+                if (nextY <= fieldScroll.y || y >= fieldScroll.y + 344) continue;
                 Box(new Rect(0,y,788,rowHeight-8),Panel,Line);
                 string traitId=(t.owner??"").Replace("trait:","");
                 var passive=GameDatabase.Passive(traitId);var rune=GameDatabase.Rune(traitId);
                 var gear=traitId.StartsWith("gear:")?GameDatabase.Equipment(traitId.Substring(5)):null;
-                string source=t.sourceCard;
-                if (string.IsNullOrEmpty(source)) source=GameDatabase.Cards.FirstOrDefault(x=>x.owner==t.owner && x.mechanics!=null && x.mechanics.rules.Any(a=>a.key==t.key && (a.op=="gain" || a.op=="set" || a.op=="state_on" || a.op=="state_toggle")))?.id;
+                string source=FieldCardSource(t);
                 if(passive!=null || rune!=null || gear!=null)
                 {
                     Rect icon=new Rect(10,y+10,44,44);
@@ -1551,7 +1569,7 @@ namespace Lumia
                 }
                 else if (!string.IsNullOrEmpty(source))
                 {
-                    Rect icon=new Rect(10,y+10,44,44); Tex(icon,PixelArt.SkillIcon(GameDatabase.Card(source)?.id ?? source),ScaleMode.ScaleToFit);
+                    Rect icon=new Rect(10,y+10,44,44); Tex(icon,PixelArt.SkillIcon(CardDisplays.Definition(source)?.id ?? source),ScaleMode.ScaleToFit);
                     if (Hit(icon)) { inspectCard=source; inspectEnemyCard=fieldEnemy; inspectRareReward=false; detailScroll=Vector2.zero; }
                 }
                 Txt(new Rect(67,y+9,706,23),TokenShort(t),15,fieldEnemy?Pink:Mint);
@@ -1637,7 +1655,7 @@ namespace Lumia
             text+="\n\n11  대상 선택·충전·카드 교환·다른 손패 소멸 기술은 사용 방법을 고른 뒤 확정합니다. 선택 중에는 다른 카드를 사용하거나 턴을 마칠 수 없으며 사용 취소 또는 Esc로 돌아갑니다. 충전은 코스트를 먼저 지불하고 실제 카드 한 장을 손패에 보존합니다. 다음 자기 턴부터 한 번 무료로 발동하며, 사용하기 전까지 새로 뽑을 자리 한 칸을 차지합니다. X 코스트 카드는 남은 코스트를 모두 사용합니다. 소멸 선택은 이번 전투에만 적용되며 영구 덱에서는 제거하지 않습니다. 니나의 체력과 피해 분담은 전투 화면과 필드에서 확인하세요.";
             text+="\n\n12  명중률은 기본 100%이며 회피율과 따로 판정합니다. 실명은 명중률을 25%p 낮춥니다. 적을 직접 지정하는 필중 기술은 명중률 감소와 상대 회피율을 무시합니다. 속박과 기절은 회피율을 20%p 낮추며, 둘이 함께 걸려도 이 감소는 중첩되지 않습니다. 명중률과 회피율은 나와 상대의 필드 창에서 확인하세요.";
             if(Engine!=null)text+="\n\n현재 장비 부위별 장착 한도 / "+EquipmentCapacityLabel()+". 장비 목록과 교체 목록은 스크롤하여 모두 확인할 수 있습니다.";
-            wrapped.fontSize = 15; float height = Math.Max(350, wrapped.CalcHeight(new GUIContent(text), 877) + 12);
+            wrapped.fontSize = 15; float height = Math.Max(350, CachedTextHeight(text, 15, 877) + 12);
             helpScroll = GUI.BeginScrollView(new Rect(185, 181, 900, 356), helpScroll, new Rect(0, 0, 877, height));
             Para(new Rect(0, 0, 877, height), text, 15, Text); GUI.EndScrollView();
             if (Btn(new Rect(185, 550, 900, 45), "기록 확인", true, Mint)) help = false;
@@ -2485,7 +2503,8 @@ namespace Lumia
                 string upgradedRef = s.deck[2];
                 var upgraded = Engine.PlayerCard(upgradedRef);
                 var normal = Engine.PlayerCard(s.deck[3]);
-                if (!DescriptionSummary.CardPreview(upgraded, GameDatabase.Cards).Contains("블록을 2 늘립니다"))
+                string actualPreview = DescriptionSummary.CardPreview(upgraded, GameDatabase.Cards);
+                if (!actualPreview.Contains("아케이드 블록을 2 남깁니다(최대 3)") || CardDisplays.Preview(DisplayCard(upgradedRef)) != actualPreview)
                     throw new InvalidOperationException("Upgraded Nia Q's compact summary must show its actual block generation.");
                 if (upgraded.mechanics.rules.Where(r => r.op == "gain").Sum(r => r.amount) <= GameDatabase.Card("nia_q").mechanics.rules.Where(r => r.op == "gain").Sum(r => r.amount))
                     throw new InvalidOperationException("Nia Q's block branch was not applied in native rules.");
@@ -2700,7 +2719,7 @@ namespace Lumia
 
         public void VerificationView(string view)
         {
-            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") < 0 && !LayeredStoryVerificationEnabled && !CraftPerformanceVerificationEnabled)) return;
+            if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") < 0 && !LayeredStoryVerificationEnabled && !CraftPerformanceVerificationEnabled && !ListPerformanceVerificationEnabled)) return;
             lobby = catalog = inventory = settings = help = fieldInfo = enemyLoadout = research = false;
             inspectCard = inspectTrait = inspectGear = craftPending = ""; inspectEnemyCard=false; inspectRareReward=false; summaryMode=true; scroll = inventoryScroll = encounterStoryScroll = detailScroll = Vector2.zero;summaryScroll.Clear();
             craftQuery = ""; craftTags.Clear(); craftSlot = GearSlot.Weapon; campRemovalSelection.Clear(); campSelectionState = null;

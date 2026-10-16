@@ -11,6 +11,60 @@ namespace Lumia
         bool research, researchReadReport;
         string researchQuery = "", researchSubject = "nia";
         Vector2 researchListScroll, researchEndingScroll;
+        bool researchLongReportVerification, researchLongReportBottomVerification;
+        string researchVerifiedReportLayout;
+        string researchFilteredQuery;
+        CharacterDef[] researchFilteredCharacters;
+        ResearchProfile researchTaskProfile;
+        readonly Dictionary<string, ResearchTaskDisplay> researchTaskDisplays = new Dictionary<string, ResearchTaskDisplay>(StringComparer.Ordinal);
+        readonly Dictionary<string, ResearchSubjectDef> researchDefinitions = new Dictionary<string, ResearchSubjectDef>(StringComparer.Ordinal);
+
+        sealed class ResearchTaskDisplay
+        {
+            public ResearchSubjectProgress progress;
+            public bool observed, uniqueCompleted;
+            public string[] usedSkills;
+            public ResearchTaskView[] tasks;
+        }
+
+        CharacterDef[] ResearchDisplayCharacters()
+        {
+            string query = (researchQuery ?? "").Trim();
+            if (researchFilteredCharacters != null && string.Equals(query, researchFilteredQuery, StringComparison.OrdinalIgnoreCase)) return researchFilteredCharacters;
+            researchFilteredQuery = query;
+            researchFilteredCharacters = GameDatabase.Characters.Where(character => query.Length == 0 || character.name.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0).ToArray();
+            return researchFilteredCharacters;
+        }
+
+        ResearchTaskView[] ResearchDisplayTasks(ResearchProfile profile, string subjectId)
+        {
+            if (!ReferenceEquals(profile, researchTaskProfile)) { researchTaskProfile = profile; researchTaskDisplays.Clear(); }
+            ResearchSubjectProgress progress = null;
+            if (profile?.subjects != null)
+                for (int i = 0; i < profile.subjects.Count; i++)
+                    if (profile.subjects[i]?.subjectId == subjectId) { progress = profile.subjects[i]; break; }
+            var skills = progress?.usedSkills;
+            int count = skills?.Count ?? 0;
+            ResearchTaskDisplay display;
+            bool reusable = researchTaskDisplays.TryGetValue(subjectId, out display)
+                && ReferenceEquals(display.progress, progress) && display.observed == (progress?.observed == true)
+                && display.uniqueCompleted == (progress?.uniqueCompleted == true) && display.usedSkills.Length == count;
+            for (int i = 0; reusable && i < count; i++) reusable = display.usedSkills[i] == skills[i];
+            if (reusable) return display.tasks;
+            display = new ResearchTaskDisplay { progress = progress, observed = progress?.observed == true,
+                uniqueCompleted = progress?.uniqueCompleted == true, usedSkills = skills == null ? new string[0] : skills.ToArray(),
+                tasks = ResearchProgression.Tasks(profile, subjectId) };
+            researchTaskDisplays[subjectId] = display;
+            return display.tasks;
+        }
+
+        ResearchSubjectDef ResearchDisplayDefinition(string subjectId)
+        {
+            ResearchSubjectDef definition;
+            if (!researchDefinitions.TryGetValue(subjectId, out definition))
+            { definition = ResearchProgression.ForSubject(subjectId); researchDefinitions[subjectId] = definition; }
+            return definition;
+        }
 
         void OpenResearch()
         {
@@ -36,11 +90,12 @@ namespace Lumia
 
             researchQuery = GUI.TextField(new Rect(64, 202, 274, 35), researchQuery, field);
             if (string.IsNullOrEmpty(researchQuery)) Txt(new Rect(78, 211, 244, 22), "실험체 이름 검색", 13, Muted);
-            var characters = GameDatabase.Characters.Where(character => string.IsNullOrWhiteSpace(researchQuery) || character.name.IndexOf(researchQuery.Trim(), StringComparison.OrdinalIgnoreCase) >= 0).ToArray();
+            var characters = ResearchDisplayCharacters();
             researchListScroll = GUI.BeginScrollView(new Rect(64, 247, 274, 373), researchListScroll, new Rect(0, 0, 250, Math.Max(373, characters.Length * 43)));
-            for (int i = 0; i < characters.Length; i++)
+            var visible = CraftingCatalog.VisibleItems(characters.Length, researchListScroll.y, 373, 1, 43);
+            for (int i = visible.first; i < visible.end; i++)
             {
-                var character = characters[i]; var tasks = ResearchProgression.Tasks(profile, character.id);
+                var character = characters[i]; var tasks = ResearchDisplayTasks(profile, character.id);
                 Rect item = new Rect(0, i * 43, 250, 38);
                 bool selected = researchSubject == character.id, complete = profile.completedReports.Contains(character.id);
                 Box(item, selected ? C("254239") : Panel, selected ? Mint : Line);
@@ -65,7 +120,7 @@ namespace Lumia
         void DrawResearchSubject()
         {
             var profile = researchStore.Profile; var character = GameDatabase.Character(researchSubject) ?? GameDatabase.Characters[0];
-            var definition = ResearchProgression.ForSubject(character.id); var tasks = ResearchProgression.Tasks(profile, character.id);
+            var definition = ResearchDisplayDefinition(character.id); var tasks = ResearchDisplayTasks(profile, character.id);
             bool complete = profile.completedReports.Contains(character.id), ready = tasks.All(task => task.completed);
             Tex(new Rect(361, 201, 86, 88), PixelArt.RarePortrait(character.id), ScaleMode.ScaleToFit);
             Txt(new Rect(465, 207, 726, 31), definition.title, 22, Mint);
@@ -77,7 +132,9 @@ namespace Lumia
                 Txt(new Rect(380, 317, 812, 27), "연구 보고서", 19, Gold);
                 Para(new Rect(380, 359, 812, 130), definition.reportText, 17, Text);
                 Fill(new Rect(380, 501, 812, 2), Line);
-                Para(new Rect(380, 519, 812, 46), definition.unlockText, 15, Mint);
+                Rect unlockRect = new Rect(380, 519, 812, 46);
+                FitText(unlockRect, definition.unlockText, 15, Mint);
+                VerifyResearchReportScroll(character.id, unlockRect, definition.unlockText);
                 if (Btn(new Rect(380, 578, 812, 28), "연구 과제로 돌아가기", false, Muted)) researchReadReport = false;
                 return;
             }
@@ -111,6 +168,43 @@ namespace Lumia
             Notify(error); return false;
         }
 
+        void VerifyResearchReportScroll(string subjectId, Rect viewport, string text)
+        {
+            if (!Debug.isDebugBuild || Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") < 0
+                || Event.current.type != EventType.Repaint || researchVerifiedReportLayout == subjectId) return;
+            string normalized = CachedNormalize(text);
+            var key = new SummaryLayoutKey { text = text ?? "", size = 15, width = viewport.width, height = viewport.height, normalize = true };
+            SummaryLayout layout;
+            if (!summaryLayouts.TryGetValue(key, out layout) || layout.plain.content.text != normalized
+                || Math.Abs(layout.plain.height - CachedTextHeight(normalized, 15, viewport.width)) > .1f)
+                throw new InvalidOperationException("Research report must render its full normalized unlock text using the native cached layout: " + subjectId);
+            bool scrolling = layout.plain.height > viewport.height;
+            Vector2 position = Vector2.zero;
+            float maxScrollY = 0;
+            if (scrolling)
+            {
+                float expectedHeight = CachedTextHeight(normalized, 15, 797) + 5;
+                if (layout.scrolling == null || layout.scrolling.content.text != normalized || layout.scrollWidth != 797
+                    || Math.Abs(layout.scrollHeight - expectedHeight) > .1f || layout.scrollHeight <= viewport.height
+                    || !summaryScroll.TryGetValue(layout.scrollKey, out position))
+                    throw new InvalidOperationException("Research report must retain the complete unlock text in its real vertical scroll view: " + subjectId);
+                maxScrollY = Math.Max(0, expectedHeight - viewport.height);
+            }
+            else if (layout.scrolling != null)
+                throw new InvalidOperationException("A fitting research unlock must retain the plain text layout: " + subjectId);
+            if (researchLongReportVerification && (subjectId != "yuki" || !scrolling))
+                throw new InvalidOperationException("The long research report fixture must visibly exercise Yuki's unlock scrollbar.");
+            if (researchLongReportVerification && (researchLongReportBottomVerification
+                    ? position.y <= 0 || Math.Abs(position.y - maxScrollY) > .1f : Math.Abs(position.y) > .1f))
+                throw new InvalidOperationException("The long research report must reach its requested real scroll position.");
+            researchVerifiedReportLayout = subjectId;
+            Debug.Log("BTS RESEARCH REPORT SCROLL PASS / subject=" + subjectId + " / scrolling=" + scrolling
+                + " / viewport=46 / contentWidth=" + (scrolling ? layout.scrollWidth : viewport.width)
+                + " / fullText=PASS / cachedNativeHeight=PASS / position=" + (researchLongReportVerification ? researchLongReportBottomVerification ? "bottom" : "top" : "plain")
+                + " / scrollY=" + position.y.ToString("R", System.Globalization.CultureInfo.InvariantCulture)
+                + " / maxScrollY=" + maxScrollY.ToString("R", System.Globalization.CultureInfo.InvariantCulture));
+        }
+
         void DrawResearchEnding()
         {
             var state = Engine.State; bool won = state.stage == RunStage.Won;
@@ -142,7 +236,7 @@ namespace Lumia
             Box(new Rect(622, 183, 610, 402), Panel, Mint);
             Txt(new Rect(642, 200, 568, 30), "이번 원정의 연구 성과", 22, Mint);
             string notes = ResearchEndingNotes(report, state);
-            wrapped.fontSize = 15; float notesHeight = Math.Max(280, wrapped.CalcHeight(new GUIContent(notes), 540) + 12);
+            float notesHeight = Math.Max(280, CachedTextHeight(notes, 15, 540) + 12);
             researchEndingScroll = GUI.BeginScrollView(new Rect(643, 249, 567, 310), researchEndingScroll, new Rect(0, 0, 540, notesHeight));
             Para(new Rect(0, 0, 540, notesHeight), notes, 15, Text); GUI.EndScrollView();
             bool pending = !string.IsNullOrEmpty(researchSaveError) || researchStore.IsReadOnly;
@@ -474,22 +568,37 @@ namespace Lumia
                 if (reportHeight > 130.1f) throw new InvalidOperationException("Research report text does not fit: " + character.id + " / " + reportHeight);
             }
             Debug.Log("BTS RESEARCH LAYOUT PASS / measurements=" + measurements + " / taskMax=" + maxTask + " / reportMax=" + maxReport + " / nativeFont=PASS");
-            int rareMeasurements = 0, previewMeasurements = 0; float maxUnlock = 0, maxSkin = 0;
+            int rareMeasurements = 0, previewMeasurements = 0, scrollingUnlocks = 0; float maxUnlock = 0, maxSkin = 0;
             var unlockStyle = new GUIStyle(wrapped) { fontSize = 15 }; var skinStyle = new GUIStyle(wrapped) { fontSize = 12 };
             var previewStyle = new GUIStyle(wrapped) { fontSize = 14 };
             foreach (var character in GameDatabase.Characters)
             {
                 string unlock = ResearchProgression.ForSubject(character.id).unlockText, skin = "레어 조우 모습 · " + RareSkinCatalog.NameForSubject(character.id);
-                font.RequestCharactersInTexture(unlock, 15, FontStyle.Normal); font.RequestCharactersInTexture(skin, 12, FontStyle.Normal);
-                float unlockHeight = unlockStyle.CalcHeight(new GUIContent(unlock), 812), skinHeight = skinStyle.CalcHeight(new GUIContent(skin), 726);
+                string normalizedUnlock = CachedNormalize(unlock);
+                font.RequestCharactersInTexture(normalizedUnlock, 15, FontStyle.Normal); font.RequestCharactersInTexture(skin, 12, FontStyle.Normal);
+                float unlockHeight = unlockStyle.CalcHeight(new GUIContent(normalizedUnlock), 812), skinHeight = skinStyle.CalcHeight(new GUIContent(skin), 726);
                 maxUnlock = Math.Max(maxUnlock, unlockHeight); maxSkin = Math.Max(maxSkin, skinHeight); rareMeasurements += 2;
-                if (unlockHeight > 46.1f || skinHeight > 19.1f) throw new InvalidOperationException("Rare report text does not fit: " + character.id + " / " + unlockHeight + " / " + skinHeight);
+                if (skinHeight > 19.1f) throw new InvalidOperationException("Rare report skin name does not fit: " + character.id + " / " + skinHeight);
+                if (string.IsNullOrWhiteSpace(normalizedUnlock) || Math.Abs(CachedTextHeight(normalizedUnlock, 15, 812) - unlockHeight) > .1f)
+                    throw new InvalidOperationException("Research unlock native height and complete normalized content must match the display cache: " + character.id);
+                if (unlockHeight > 46)
+                {
+                    float contentHeight = CachedTextHeight(normalizedUnlock, 15, 797) + 5;
+                    float measuredHeight = unlockStyle.CalcHeight(new GUIContent(normalizedUnlock), 797) + 5;
+                    if (float.IsNaN(contentHeight) || float.IsInfinity(contentHeight) || contentHeight <= 46
+                        || contentHeight < unlockHeight || Math.Abs(contentHeight - measuredHeight) > .1f)
+                        throw new InvalidOperationException("Research unlock scroll content must preserve the full native text height: " + character.id);
+                    scrollingUnlocks++;
+                }
                 string preview = RareSkinStories.Preview(ResearchEncounters.EventForSubject(character.id).story);
                 font.RequestCharactersInTexture(preview, 14, FontStyle.Normal);
                 float previewHeight = previewStyle.CalcHeight(new GUIContent(preview), 337); previewMeasurements++;
                 if (previewHeight > 65.1f) throw new InvalidOperationException("Rare encounter preview needs scrolling: " + character.id + " / " + previewHeight);
             }
             Debug.Log("BTS RARE LAYOUT PASS / measurements=" + rareMeasurements + " / unlockMax=" + maxUnlock + " / skinMax=" + maxSkin + " / nativeFont=PASS");
+            if (scrollingUnlocks == 0) throw new InvalidOperationException("The native research audit must exercise the authored long unlock texts.");
+            Debug.Log("BTS RARE UNLOCK SCROLL LAYOUT PASS / scrollingUnlocks=" + scrollingUnlocks
+                + " / viewport=46 / contentWidth=797 / fullText=PASS / cachedNativeHeight=PASS");
             Debug.Log("BTS RARE PREVIEW PASS / scenes=" + previewMeasurements + " / nativeFont=PASS");
         }
 
@@ -525,10 +634,22 @@ namespace Lumia
         void VerificationResearchView(string view)
         {
             researchQuery = ""; researchSubject = "nia"; researchListScroll = researchEndingScroll = Vector2.zero; researchReadReport = false; toastUntil = 0;
-            ResetResearchVerificationProfile(view == "research_empty" || view == "research_lobby" ? new ResearchProfile()
-                : ResearchVerificationProfile(view == "research_insufficient" ? ResearchProgression.ReportCost - 1 : ResearchProgression.ReportCost + 250, view != "research_progress", view == "research_completed" || view == "research_report" || view == "research_encounter"));
+            researchLongReportVerification = view == "research_report_long" || view == "research_report_long_bottom";
+            researchLongReportBottomVerification = view == "research_report_long_bottom"; researchVerifiedReportLayout = null;
+            var profile = view == "research_empty" || view == "research_lobby" ? new ResearchProfile()
+                : ResearchVerificationProfile(view == "research_insufficient" ? ResearchProgression.ReportCost - 1 : ResearchProgression.ReportCost + 250, view != "research_progress", view == "research_completed" || view == "research_report" || view == "research_encounter");
+            if (researchLongReportVerification)
+            {
+                profile.completedReports.Add("yuki");
+                profile.subjects.Add(new ResearchSubjectProgress { subjectId = "yuki", observed = true, uniqueCompleted = true,
+                    usedSkills = GameDatabase.Character("yuki").cards.ToList() });
+            }
+            ResetResearchVerificationProfile(profile);
             lobby = true; research = view != "research_lobby";
             if (view == "research_report") researchReadReport = true;
+            if (researchLongReportVerification) { researchSubject = "yuki"; researchReadReport = true; }
+            if (researchLongReportBottomVerification)
+                summaryScroll["preview/" + ResearchProgression.ForSubject("yuki").unlockText + "/812/46"] = new Vector2(0, 1000);
             if (view == "research_ending_lost")
             {
                 ResetResearchVerificationProfile(new ResearchProfile()); PrepareResearchNiaVictory(79201); Engine.State.stage = RunStage.Lost; Engine.State.hp = 0; Save(); research = false;

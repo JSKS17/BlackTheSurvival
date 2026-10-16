@@ -15,6 +15,13 @@ public static partial class CoreSmokeTests
         try
         {
             if (args.Contains("--balance")) return BalanceSimulation.Run();
+            if (args.Contains("--ui-only"))
+            {
+                CardDisplayCaching(); UiDeckSnapshotCaching(); CraftingCatalogCaching(); CardSummaryRegression();
+                CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval(); EquipmentIdentityAndAlex(); ExpandedEquipmentCoverageAndCraft(); EquipmentCriticalDamageAndPersistence();
+                Console.WriteLine("PASS: " + checks + " assertions across UI display snapshots, live numeric summaries, viewport, search and camp/equipment behavior.");
+                return 0;
+            }
             if (args.Contains("--crafting-only"))
             {
                 CraftingCatalogCaching(); CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval();
@@ -75,7 +82,7 @@ public static partial class CoreSmokeTests
             KioskUnlockAndStock(); MapKioskProximity(); BossMapPreview(); BossPathLegacyMigration(); BossPathRouteRewards(); PermanentEnergyGrowth(); CriticalBasicAttacks();
             DatabaseIntegrity(); PreparationAndLocks(); RouteProgression(); CombatPilesAndEnergy();
             EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); SubjectAndBossRewardCardLimits(); PendingSubjectRewardMigration(); WildlifeDropTables(); WildlifeSupplyRewards(); SubjectDropTables();
-            ShopEconomy(); CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval(); CraftingCatalogCaching(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
+            ShopEconomy(); CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval(); CraftingCatalogCaching(); CardDisplayCaching(); UiDeckSnapshotCaching(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
             StarterLocksAndCeiling(); FullEnemyLoadouts(); EquipmentIdentityAndAlex();
             WeaponSpecialMechanics(); WeaponAndTacticalDamageBalance();
             AdvancedCardRuleDefinitions(); CompanionMechanicTests(); AdvancedCombatMechanics(); AdvancedCardPresentation(); CardSummaryRegression();
