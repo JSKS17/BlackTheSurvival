@@ -51,7 +51,14 @@ $unityArgs = @('-batchmode', '-nographics', '-buildTarget', 'WebGL', '-projectPa
     '-lumia-web-output', ('"' + $outputRoot + '"'), '-lumia-web-compression', $Compression)
 if ($Development) { $unityArgs += '-lumia-development' }
 if ($LowMemory) { $unityArgs += @('-job-worker-count', '1', '-import-worker-count', '1') }
-$process = Start-Process -FilePath $unityExecutable -ArgumentList $unityArgs -WindowStyle Hidden -PassThru
+$previousBeeBuildThreads = if ($LowMemory) { [Environment]::GetEnvironmentVariable('BEE_BUILD_THREADS', 'Process') } else { $null }
+try {
+    if ($LowMemory) { [Environment]::SetEnvironmentVariable('BEE_BUILD_THREADS', '1', 'Process') }
+    $process = Start-Process -FilePath $unityExecutable -ArgumentList $unityArgs -WindowStyle Hidden -PassThru
+}
+finally {
+    if ($LowMemory) { [Environment]::SetEnvironmentVariable('BEE_BUILD_THREADS', $previousBeeBuildThreads, 'Process') }
+}
 [pscustomobject]@{ ProcessId = $process.Id; Log = $logPath; Project = $buildProject; Output = $outputRoot }
 if ($Wait) {
     $process.WaitForExit()
