@@ -20,12 +20,13 @@ namespace Lumia
         {
             var candidates = EnsureDeckSnapshot().UpgradeIndices;
             return index >= 0 && Engine != null && index < Engine.State.deck.Count && candidates.Contains(index)
-                ? CardDisplays.UpgradeOptions(Engine.State.deck[index]) : CardDisplays.UpgradeOptions((CardDef)null);
+                ? CardDisplays.UpgradeOptions(Engine.State.deck[index], EnsureDeckSnapshot().TacticalEnhanced(Engine.State.deck[index])) : CardDisplays.UpgradeOptions((CardDef)null);
         }
-        CardDisplayVariant DisplayCard(string reference, bool enemy = false, bool rare = false)
+        CardDisplayVariant DisplayCard(string reference, bool enemy = false, bool rare = false, bool tacticalReward = false)
         {
             string branch = rare ? RareCardUpgrades.BranchId : Engine != null && !enemy ? EnsureDeckSnapshot().Branch(reference) : null;
-            return CardDisplays.Variant(reference, branch);
+            bool tacticalEnhanced = tacticalReward || Engine != null && !enemy && !rare && EnsureDeckSnapshot().TacticalEnhanced(reference);
+            return CardDisplays.Variant(reference, branch, tacticalEnhanced);
         }
         static string CachedNormalize(string text)
         {
@@ -102,9 +103,9 @@ namespace Lumia
             if (layout.scrolling == null) { GUI.Label(rect, layout.plain.content, wrapped); return; }
             string scrollKey = normalize ? layout.scrollKey : key;
             Vector2 position; summaryScroll.TryGetValue(scrollKey, out position);
-            position = GUI.BeginScrollView(rect, position, new Rect(0, 0, layout.scrollWidth, layout.scrollHeight), false, true);
+            position = BeginTouchScrollView(scrollKey, rect, position, new Rect(0, 0, layout.scrollWidth, layout.scrollHeight), false, true);
             GUI.Label(new Rect(0, 0, layout.scrollWidth, layout.scrollHeight), layout.scrolling.content, wrapped);
-            GUI.EndScrollView(); summaryScroll[scrollKey] = position;
+            EndTouchScrollView(); summaryScroll[scrollKey] = position;
         }
     }
 }

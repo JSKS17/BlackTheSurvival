@@ -20,6 +20,7 @@ namespace Lumia
         public string op, key, label, targetCard, scaleKey, conditionKey, conditionKey2, conditionPrevious;
         public int amount, cap = 3, duration = 2, delay = 1, conditionAmount = 1, conditionAmount2 = 1;
         public bool onHit, conditionExact, conditionExact2, isState;
+        internal SkillRule ShallowCopy() => (SkillRule)MemberwiseClone();
     }
     [Serializable] public sealed class SkillResource
     {
@@ -34,6 +35,7 @@ namespace Lumia
         public int amount, remaining, delay, uses;
         public bool persistent;
         public bool synergyBoosted;
+        public bool tacticalEnhanced;
         public int synergyBoostAmount;
     }
     [Serializable] public sealed class SkillCostDiscount
@@ -64,8 +66,77 @@ namespace Lumia
     public struct SkillInstantBonus { public int damage, block, heal; }
     public sealed class SkillPulse { public string sourceCard, kind, traitId, key; public int amount; }
 
+    // A reviewed semantic link, never an automatic match on a resource key. The
+    // passive may use a different key or encode a physical resource as a state.
+    public sealed class SharedPassiveResourceDefinition
+    {
+        public readonly string passiveId, subjectId, passiveKey, skillKey, label;
+        public readonly int cap;
+        public readonly bool isState, passiveStateAsResource, legacyOnly;
+        public bool persistent => false; // Reviewed shared identities all reset per battle; permanent growth stays private.
+        public string owner => GameDatabase.Character(subjectId)?.name ?? subjectId;
+        internal SharedPassiveResourceDefinition(string subjectId, string skillKey, int cap, string label,
+            string passiveKey = null, bool isState = false, bool passiveStateAsResource = false, bool legacyOnly = false)
+        {
+            this.subjectId=subjectId; passiveId=subjectId+"_p"; this.skillKey=skillKey; this.passiveKey=passiveKey ?? skillKey;
+            this.cap=cap; this.label=label; this.isState=isState; this.passiveStateAsResource=passiveStateAsResource; this.legacyOnly=legacyOnly;
+        }
+    }
+
     public static class SkillMechanics
     {
+        static readonly SharedPassiveResourceDefinition[] sharedPassiveResources = {
+            new SharedPassiveResourceDefinition("yuki","cuff",3,"단추"),
+            new SharedPassiveResourceDefinition("nathapon","picturesque",3,"구도"),
+            new SharedPassiveResourceDefinition("nicky","rage",4,"분노"),
+            new SharedPassiveResourceDefinition("leon","pool",3,"물웅덩이"),
+            new SharedPassiveResourceDefinition("dailin","bac",4,"취기"),
+            new SharedPassiveResourceDefinition("markus","rattled",1,"흔들림 상태",isState:true),
+            new SharedPassiveResourceDefinition("magnus","tough",4,"근성"),
+            new SharedPassiveResourceDefinition("vanya","dream",4,"나비의 꿈"),
+            new SharedPassiveResourceDefinition("bianca","blood",4,"혈액"),
+            new SharedPassiveResourceDefinition("shoichi","dagger",4,"바닥 단검"),
+            new SharedPassiveResourceDefinition("jan","unyielding",3,"열혈"),
+            new SharedPassiveResourceDefinition("aiden","ampere",4,"암페어"),
+            new SharedPassiveResourceDefinition("elena","chill",3,"냉기"),
+            new SharedPassiveResourceDefinition("elena","frozen",1,"빙결 상태",isState:true),
+            new SharedPassiveResourceDefinition("william","ball",4,"바닥 공"),
+            new SharedPassiveResourceDefinition("eleven","slider",4,"미니 버거"),
+            new SharedPassiveResourceDefinition("zahir","eye",1,"사신의 눈 상태",isState:true),
+            new SharedPassiveResourceDefinition("karla","readiness",3,"장전"),
+            new SharedPassiveResourceDefinition("chiara","stigma",4,"낙인"),
+            new SharedPassiveResourceDefinition("tazia","shard",4,"유리 파편"),
+            new SharedPassiveResourceDefinition("tazia","collection",4,"파편 수집"),
+            new SharedPassiveResourceDefinition("tazia","sword",1,"유리 검",legacyOnly:true),
+            new SharedPassiveResourceDefinition("felix","weaving",3,"연계 창술"),
+            new SharedPassiveResourceDefinition("priya","flower",3,"사라스바티 꽃"),
+            new SharedPassiveResourceDefinition("fiora","touche",3,"뚜셰"),
+            new SharedPassiveResourceDefinition("debi_marlene","ink",2,"블루&레드 잉크"),
+            new SharedPassiveResourceDefinition("arda","antiquity",3,"고대의 정수"),
+            new SharedPassiveResourceDefinition("tsubame","seal",4,"생사 각인"),
+            new SharedPassiveResourceDefinition("kenneth","rage",4,"불타는 도끼"),
+            new SharedPassiveResourceDefinition("justyna","astra",4,"아스트라 에너지"),
+            new SharedPassiveResourceDefinition("justyna","justice",1,"정의의 표적 상태",isState:true),
+            new SharedPassiveResourceDefinition("istvan","variable",3,"연산 변수"),
+            new SharedPassiveResourceDefinition("blair","form",1,"블레이드 형태 상태",isState:true),
+            new SharedPassiveResourceDefinition("mirka","impulse",4,"리펄스 게이지"),
+            new SharedPassiveResourceDefinition("coraline","shard",1,"거울 조각 표식 상태",isState:true),
+            new SharedPassiveResourceDefinition("bihyung","divine",3,"신력"),
+            new SharedPassiveResourceDefinition("lucia","crystal",1,"수정"),
+            new SharedPassiveResourceDefinition("jackie","bleeding",3,"출혈 표식",passiveKey:"blood_marks"),
+            new SharedPassiveResourceDefinition("cathy","wounded",3,"상처",passiveKey:"wound_stacks"),
+            new SharedPassiveResourceDefinition("blair","shift",1,"시프트 상태",passiveKey:"shifting",isState:true),
+            new SharedPassiveResourceDefinition("yumin","wind",2,"바람 지대",passiveKey:"wind_zone",passiveStateAsResource:true)
+        };
+        static readonly Dictionary<string,SharedPassiveResourceDefinition[]> sharedByPassive = sharedPassiveResources
+            .GroupBy(x=>x.passiveId).ToDictionary(x=>x.Key,x=>x.ToArray(),StringComparer.Ordinal);
+        static readonly SharedPassiveResourceDefinition[] noSharedResources = new SharedPassiveResourceDefinition[0];
+        public static IEnumerable<SharedPassiveResourceDefinition> SharedPassiveResourceDefinitions => sharedPassiveResources;
+        public static SharedPassiveResourceDefinition[] SharedResourcesFor(string passiveId)
+        {
+            SharedPassiveResourceDefinition[] definitions;
+            return passiveId!=null && sharedByPassive.TryGetValue(passiveId,out definitions) ? definitions : noSharedResources;
+        }
         // Explicit semantic classification: forms, preparations, and attached marks are binary
         // states. Physical objects (chess pieces, crystals, logs, charms) remain numerical resources.
         private static readonly Dictionary<string, string> stateNames = new Dictionary<string, string>(StringComparer.Ordinal)
@@ -209,7 +280,7 @@ namespace Lumia
             actor = actor ?? new SkillActorState();
             return Ensure(new SkillActorState {
                 resources = (actor.resources ?? new List<SkillResource>()).Select(x => new SkillResource { owner=x.owner, key=x.key, label=x.label, amount=x.amount, cap=x.cap, fraction=x.fraction,persistent=x.persistent,isState=x.isState }).ToList(),
-                effects = (actor.effects ?? new List<SkillTimedEffect>()).Select(x => new SkillTimedEffect { owner=x.owner, key=x.key, label=x.label, kind=x.kind, sourceCard=x.sourceCard, amount=x.amount, remaining=x.remaining, delay=x.delay, uses=x.uses,persistent=x.persistent,synergyBoosted=x.synergyBoosted,synergyBoostAmount=x.synergyBoostAmount }).ToList(),
+                effects = (actor.effects ?? new List<SkillTimedEffect>()).Select(x => new SkillTimedEffect { owner=x.owner, key=x.key, label=x.label, kind=x.kind, sourceCard=x.sourceCard, amount=x.amount, remaining=x.remaining, delay=x.delay, uses=x.uses,persistent=x.persistent,synergyBoosted=x.synergyBoosted,synergyBoostAmount=x.synergyBoostAmount,tacticalEnhanced=x.tacticalEnhanced }).ToList(),
                 discounts = (actor.discounts ?? new List<SkillCostDiscount>()).Select(x => new SkillCostDiscount { sourceCard=x.sourceCard, targetCard=x.targetCard, amount=x.amount }).ToList(),
                 history = (actor.history ?? new List<SkillOwnerHistory>()).Select(x => new SkillOwnerHistory { owner=x.owner, cardId=x.cardId }).ToList(),
                 discountSources = (actor.discountSources ?? new List<string>()).ToList(),
@@ -222,6 +293,97 @@ namespace Lumia
             if (actor == null || actor.resources == null || string.IsNullOrEmpty(key)) return 0;
             var resource = actor.resources.FirstOrDefault(x => x.owner == owner && x.key == key);
             return resource == null ? 0 : Clamp(resource.amount, 0, Clamp(resource.cap, 1, 12));
+        }
+        public static string TaziaResourceOwner => GameDatabase.Card("tazia_q")?.owner ?? "타지아";
+        // The inspector shows E's collection before forging spends it. Read the
+        // passed copy's actual gain rules so upgraded copies keep their own values.
+        public static int TaziaCollectionAfterE(SkillActorState before, CardDef card)
+        {
+            int collection=Resource(before,card?.owner,"collection");
+            if (card == null || CardInstances.BaseId(card.id) != "tazia_e") return collection;
+            foreach (var rule in card.mechanics?.rules ?? new SkillRule[0])
+                if (rule.op == "gain" && rule.key == "collection" && Condition(rule,before,card,true))
+                    collection=Clamp(collection+Math.Max(0,rule.amount),0,Clamp(rule.cap,1,8));
+            return collection;
+        }
+        public static void ShareTaziaResources(SkillActorState skills, SkillActorState legacy) => SharePassiveResources(skills,legacy,"tazia_p");
+        // Merge only reviewed identities. Consuming the old entries makes save/load
+        // idempotent; unrelated passive meters, counters and effects stay private.
+        public static void SharePassiveResources(SkillActorState skills, SkillActorState legacy, string passiveId = null)
+        {
+            if (skills==null || legacy==null || ReferenceEquals(skills,legacy)) return;
+            if (skills.resources==null) skills.resources=new List<SkillResource>();
+            if (legacy.resources==null) legacy.resources=new List<SkillResource>();
+            foreach (var definition in passiveId==null ? sharedPassiveResources : SharedResourcesFor(passiveId))
+            {
+                string owner=definition.owner;
+                int total=0, count=0; SkillResource only=null; bool old=false;
+                foreach (var resource in skills.resources)
+                    if (SharedResourceMatch(resource,definition,owner)) { total=Math.Min(definition.cap,total+Clamp(resource.amount,0,definition.cap)); count++; only=resource; }
+                foreach (var resource in legacy.resources)
+                    if (SharedResourceMatch(resource,definition,owner)) { total=Math.Min(definition.cap,total+Clamp(resource.amount,0,definition.cap)); count++; old=true; }
+                if (count==0) continue;
+                if (!old && count==1 && only.owner==owner && only.key==definition.skillKey && only.cap==definition.cap
+                    && only.amount>=0 && only.amount<=definition.cap && only.fraction==0 && only.isState==definition.isState && !only.persistent) continue;
+                skills.resources.RemoveAll(resource=>SharedResourceMatch(resource,definition,owner));
+                legacy.resources.RemoveAll(resource=>SharedResourceMatch(resource,definition,owner));
+                var merged=SharedResourceCopy(definition,total);
+                skills.resources.Add(merged);
+            }
+        }
+        static bool SharedResourceMatch(SkillResource resource, SharedPassiveResourceDefinition definition, string owner) => resource!=null
+            && ((resource.owner==owner || resource.owner==definition.subjectId) && resource.key==definition.skillKey
+                || resource.owner=="trait:"+definition.passiveId && resource.key==definition.passiveKey);
+        static SkillResource SharedResourceCopy(SharedPassiveResourceDefinition definition, int amount) => new SkillResource {
+            owner=definition.owner,key=definition.skillKey,label=definition.isState ? StateName(definition.owner,definition.skillKey,definition.label) : definition.label,
+            amount=definition.isState ? amount>0 ? 1 : 0 : Clamp(amount,0,definition.cap),cap=definition.cap,isState=definition.isState
+        };
+        public static void PullSharedPassiveResources(SkillActorState view, SkillActorState shared, string passiveId)
+        {
+            if (view==null || shared==null || ReferenceEquals(view,shared)) return;
+            SharePassiveResources(shared,view,passiveId);
+            foreach (var definition in SharedResourcesFor(passiveId))
+            {
+                if (definition.legacyOnly) continue;
+                var current=shared.resources.FirstOrDefault(resource=>resource.owner==definition.owner && resource.key==definition.skillKey);
+                if (current==null) continue;
+                var copy=SharedResourceCopy(definition,current.amount);
+                copy.owner="trait:"+passiveId; copy.key=definition.passiveKey;
+                view.resources.Add(copy);
+            }
+        }
+        public static void CommitSharedPassiveResources(SkillActorState view, SkillActorState shared, string passiveId)
+        {
+            if (view==null || shared==null || ReferenceEquals(view,shared)) return;
+            foreach (var definition in SharedResourcesFor(passiveId))
+            {
+                if (definition.legacyOnly) continue;
+                var source=view.resources.FirstOrDefault(resource=>resource.owner=="trait:"+passiveId && resource.key==definition.passiveKey);
+                if (source==null) continue;
+                var current=shared.resources.FirstOrDefault(resource=>resource.owner==definition.owner && resource.key==definition.skillKey);
+                if (current==null) { current=SharedResourceCopy(definition,source.amount); shared.resources.Add(current); }
+                else { current.amount=definition.isState ? source.amount>0 ? 1 : 0 : Clamp(source.amount,0,definition.cap); current.cap=definition.cap; current.isState=definition.isState; current.fraction=0; current.persistent=false; }
+                view.resources.RemoveAll(resource=>resource.owner=="trait:"+passiveId && resource.key==definition.passiveKey);
+            }
+        }
+        // Resource producers use the common physical cap. Scale caps and explicit
+        // set amounts retain their original balance, as do every unrelated rule.
+        public static SkillRule SharedPassiveRule(string passiveId, SkillRule rule)
+        {
+            if (rule==null) return null;
+            var definition=SharedResourcesFor(passiveId).FirstOrDefault(x=>!x.legacyOnly && x.passiveKey==rule.key);
+            if (definition==null) return rule;
+            bool producer=rule.op=="gain" || rule.op=="set" || rule.op=="state_on" || rule.op=="state_off" || rule.op=="state_toggle";
+            if (!producer || rule.cap==definition.cap && !definition.passiveStateAsResource) return rule;
+            var copy=rule.ShallowCopy();
+            copy.cap=definition.cap;
+            if (definition.passiveStateAsResource)
+            {
+                copy.isState=false; copy.label=definition.label;
+                if (copy.op=="state_on") copy.op="set";
+                else if (copy.op=="state_off") copy.op="consume";
+            }
+            return copy;
         }
         private static bool Condition(SkillRule rule, SkillActorState actor, CardDef card, bool landed)
         {
@@ -259,6 +421,8 @@ namespace Lumia
             if (card.category == "basic" && card.key == "ATK") bonus.damage += actor.effects.Where(x => x.kind == "empower_basic").Sum(x => x.amount);
             var cross=CrossSubjectSynergies.Bonuses(actor,card,landed);
             bonus.damage+=cross.damage;bonus.block+=cross.block;bonus.heal+=cross.heal;
+            var tactical=TacticalSkills.Bonuses(actor,card,landed);
+            bonus.damage+=tactical.damage;bonus.block+=tactical.block;bonus.heal+=tactical.heal;
             bonus.damage = Clamp(bonus.damage, 0, 24); bonus.block = Clamp(bonus.block, 0, 24); bonus.heal = Clamp(bonus.heal, 0, 20);
             return bonus;
         }
@@ -284,6 +448,17 @@ namespace Lumia
             if (card.mechanics != null)
                 foreach (var rule in card.mechanics.rules ?? new SkillRule[0])
                 {
+                    // Only Tazia E completes its newly collected glass in this cast.
+                    // Every ordinary rule below still uses the pre-card snapshot.
+                    if (rule.op == "forge_sword")
+                    {
+                        if (CardInstances.BaseId(card.id) != "tazia_e" || !Condition(rule, actor, card, landed)) continue;
+                        var sword = actor.resources.FirstOrDefault(x => x.owner == card.owner && x.key == rule.key);
+                        if (sword == null) { sword = new SkillResource { owner=card.owner, key=rule.key }; actor.resources.Add(sword); }
+                        sword.label=rule.label; sword.cap=1; sword.amount=Clamp(rule.amount, 0, sword.cap);
+                        foreach (var collection in actor.resources.Where(x => x.owner == card.owner && x.key == rule.conditionKey)) collection.amount=0;
+                        continue;
+                    }
                     if (!Condition(rule, before, card, landed)) continue;
                     string key = string.IsNullOrEmpty(rule.key) ? rule.op : rule.key;
                     if (rule.op == "gain" || rule.op == "set" || rule.op == "consume" || rule.op == "state_on" || rule.op == "state_off" || rule.op == "state_toggle")
@@ -313,7 +488,7 @@ namespace Lumia
                     else if (rule.op == "clear_effect") actor.effects.RemoveAll(x => x.owner == card.owner && x.key == key);
                     else if (new[] { "bleed", "burn", "delayed_damage", "summon", "hot", "guard", "counter", "empower_basic", "revive" }.Contains(rule.op))
                     {
-                        int limit = rule.op == "counter" ? 8 : rule.op == "empower_basic" ? 16 : rule.op == "revive" ? 40 : rule.op == "delayed_damage" ? 24 : 10;
+                        int limit = rule.op == "counter" ? 8 : rule.op == "empower_basic" ? 16 : rule.op == "revive" ? 40 : rule.op == "delayed_damage" ? (TacticalSkills.IsTactical(card)?40:24) : 10;
                         int amount = Amount(rule, before, card, limit);
                         if (amount == 0) continue;
                         var effect = actor.effects.FirstOrDefault(x => x.owner == card.owner && x.kind == rule.op && x.key == key);
@@ -329,6 +504,7 @@ namespace Lumia
                     }
                 }
             if (recordHistory) CrossSubjectSynergies.AfterCard(actor,before,card,landed,paidCost<0?card.cost:paidCost);
+            TacticalSkills.AfterCard(actor,before,card,landed);
             if (recordHistory && card.category == "skill")
             {
                 var history = actor.history.FirstOrDefault(x => x.owner == card.owner);
@@ -352,6 +528,7 @@ namespace Lumia
             var pulses = new List<SkillPulse>(); int damageBudget = 40, healBudget = 25;
             foreach (var effect in actor.effects.ToArray())
             {
+                if (effect.kind == "tactical_buff" || effect.kind == "tactical_pending") continue;
                 if (effect.kind == "counter" || effect.kind == "revive" || effect.kind == "empower_basic") continue;
                 if (effect.kind == "delayed_damage" && --effect.delay > 0) continue;
                 bool heal = effect.kind == "hot", guard = effect.kind == "guard";
@@ -434,6 +611,7 @@ namespace Lumia
                     case "gain": text = CardPresentation.WithParticle(label,"를","을") + " " + rule.amount + " 증가시킵니다(최대 " + Clamp(rule.cap, 1, 8) + ")"; break;
                     case "set": text = CardPresentation.WithParticle(label,"를","을") + " " + rule.amount + "로 만듭니다"; break;
                     case "consume": text = CardPresentation.WithParticle(label,"를","을") + " " + (rule.amount <= 0 ? "모두" : rule.amount.ToString()) + " 소모합니다"; break;
+                    case "forge_sword": text = "파편 수집을 모두 소모해 유리 검을 " + rule.amount + "로 만듭니다(최대 " + rule.cap + ")"; break;
                     case "state_on": text = StateEnterText(card,rule.key); break;
                     case "state_off": text = StateExitText(card,rule.key); break;
                     case "state_toggle":
@@ -456,7 +634,7 @@ namespace Lumia
                     default: continue;
                 }
                 var conditions = new List<string>();
-                if (!string.IsNullOrEmpty(rule.conditionKey)) conditions.Add(StateCondition(card, rule.conditionKey, rule.conditionAmount, rule.conditionExact));
+                if (!string.IsNullOrEmpty(rule.conditionKey)) conditions.Add((rule.op == "forge_sword" ? "이번 E의 파편 수집을 마친 직후 " : "") + StateCondition(card, rule.conditionKey, rule.conditionAmount, rule.conditionExact));
                 if (!string.IsNullOrEmpty(rule.conditionKey2)) conditions.Add(StateCondition(card, rule.conditionKey2, rule.conditionAmount2, rule.conditionExact2));
                 if (!string.IsNullOrEmpty(rule.conditionPrevious)) conditions.Add("같은 실험체의 직전 기술이 " + (GameDatabase.Card(rule.conditionPrevious)?.name ?? rule.conditionPrevious) + "이면");
                 if (rule.onHit) conditions.Add("공격이 적중하면");
@@ -467,8 +645,15 @@ namespace Lumia
         public static string Rules(CardDef card)
         {
             if (card?.mechanics == null) return "";
+            if(TacticalSkills.IsDelayed(card))return "준비한 전술 효과는 다음 자기 턴 시작에 한 번 적용됩니다. 시전한 턴의 종료에는 발동하지 않습니다. 효과와 예약한 상태이상은 저장·이어하기에도 유지됩니다.";
             var rules=card.mechanics.rules ?? new SkillRule[0]; var text=new List<string>();
-            if (rules.Any(r=>r.op=="gain" || r.op=="set" || r.op=="consume" || r.op.StartsWith("state_",StringComparison.Ordinal) || !string.IsNullOrEmpty(r.scaleKey))) text.Add("자원과 상태는 같은 실험체의 카드끼리 공유하며 전투가 끝나면 초기화됩니다.");
+            if (rules.Any(r=>r.op=="gain" || r.op=="set" || r.op=="consume" || r.op.StartsWith("state_",StringComparison.Ordinal) || !string.IsNullOrEmpty(r.scaleKey)))
+            {
+                var shared=SharedResourcesFor(StateOwner(card.owner)+"_p").Where(x=>!x.legacyOnly).ToArray();
+                text.Add("자원과 상태는 같은 실험체의 카드끼리 공유하며 전투가 끝나면 초기화됩니다."
+                    + (shared.Length>0 ? " 패시브의 "+string.Join("·",shared.Select(x=>x.label))+"도 공유하며, 패시브와 기술의 획득·소모는 각각 적용됩니다." : "")
+                    + (card.owner==TaziaResourceOwner ? " 유리 검은 Q가 소모하며, 빗나가도 소모됩니다." : ""));
+            }
             if (rules.Any(r=>r.op=="discount")) text.Add("할인은 다음 대상 카드 1회에 적용되며, 같은 카드의 할인 부여는 자신의 한 턴에 1회로 제한됩니다.");
             else if (rules.Any(r=>new[] {"bleed","burn","delayed_damage","summon","hot","guard"}.Contains(r.op))) text.Add("지속 효과는 시전자의 턴 종료에 적용되며, 같은 설치물을 다시 놓으면 수치와 남은 횟수의 큰 값을 유지합니다. 실험체 한 명의 기술·패시브·룬을 합친 턴 종료 효과는 피해 40, 회복과 방어 합계 25까지 적용됩니다.");
             else if (rules.Any(r=>r.op=="counter" || r.op=="revive")) text.Add("반격과 치명상 방지의 남은 턴은 자신의 다음 턴 시작부터 감소합니다.");

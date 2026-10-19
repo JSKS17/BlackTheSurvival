@@ -12,6 +12,7 @@ import hashlib
 import json
 import re
 import sys
+import subprocess
 from collections import deque
 from pathlib import Path
 
@@ -345,6 +346,11 @@ def process_batch(root: Path, batch: dict, expected: dict, args) -> tuple[list[d
         destination = root / "Assets/Resources/Lumia" / directory / f"{asset_id}.png"
         destination.parent.mkdir(parents=True, exist_ok=True)
         output.save(destination, format="PNG", optimize=False)
+        if kind == 'portrait' and asset_id == 'nia':
+            subprocess.run(['node', str(root / 'Tools/ApplyNiaEyeOverrides.mjs'),
+                            '--target', relative(root, destination)], cwd=root, check=True)
+            with Image.open(destination) as approved_output:
+                output = approved_output.convert('RGBA')
         metrics = alpha_metrics(output)
         entries.append({
             "id": asset_id, "kind": kind, "name": expected[group][asset_id].get("name", asset_id),

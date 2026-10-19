@@ -20,6 +20,11 @@ namespace Lumia.Editor
                 if (!BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.WebGL, BuildTarget.WebGL))
                     throw new BuildFailedException("Install Web Build Support for Unity " + Application.unityVersion + " in Unity Hub.");
 
+                // This game's runtime UI uses IMGUI. Input System only does not support
+                // its mouse/touch compatibility events; Both must be active at editor startup.
+                ValidateInputHandling();
+                LumiaProjectSetup.PreserveDisabledServices();
+
                 bool development = Environment.GetCommandLineArgs().Contains("-lumia-development");
                 WebGLCompressionFormat compression;
                 if (!Enum.TryParse(Argument("-lumia-web-compression", "Gzip"), true, out compression))
@@ -43,6 +48,7 @@ namespace Lumia.Editor
                 PlayerSettings.WebGL.memoryGrowthMode = WebGLMemoryGrowthMode.Geometric;
                 PlayerSettings.WebGL.exceptionSupport = WebGLExceptionSupport.ExplicitlyThrownExceptionsOnly;
                 AssetDatabase.SaveAssets();
+                TacticalIconAssetValidation.Validate();
                 UltimateAnimationAssetValidation.Validate();
 
                 var scenes = EditorBuildSettings.scenes.Where(scene => scene.enabled).Select(scene => scene.path).ToArray();
@@ -55,6 +61,7 @@ namespace Lumia.Editor
                     target = BuildTarget.WebGL,
                     options = development ? BuildOptions.Development : BuildOptions.None
                 });
+                LumiaProjectSetup.PreserveDisabledServices();
                 WriteReport(output, report, development, compression);
                 Debug.Log("LUMIA WEB BUILD " + report.summary.result + " / errors=" + report.summary.totalErrors + " / output=" + output);
                 if (Application.isBatchMode) EditorApplication.Exit(report.summary.result == BuildResult.Succeeded ? 0 : 1);
@@ -76,6 +83,49 @@ namespace Lumia.Editor
             return index >= 0 && index + 1 < args.Length ? args[index + 1] : fallback;
         }
 
+        static int ActiveInputHandler()
+        {
+            UnityEngine.Object[] settings = AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/ProjectSettings.asset");
+            if (settings.Length == 0) throw new BuildFailedException("Cannot read Active Input Handling from Project Settings.");
+            using (var serialized = new SerializedObject(settings[0]))
+            {
+                serialized.Update();
+                SerializedProperty handler = serialized.FindProperty("activeInputHandler");
+                if (handler == null) throw new BuildFailedException("Active Input Handling is missing from Project Settings.");
+                return handler.intValue;
+            }
+        }
+
+        static bool LegacyInputManagerEnabled
+        {
+            get
+            {
+#if ENABLE_LEGACY_INPUT_MANAGER
+                return true;
+#else
+                return false;
+#endif
+            }
+        }
+
+        static bool InputSystemPackageEnabled
+        {
+            get
+            {
+#if ENABLE_INPUT_SYSTEM
+                return true;
+#else
+                return false;
+#endif
+            }
+        }
+
+        static void ValidateInputHandling()
+        {
+            if (ActiveInputHandler() != 2 || !LegacyInputManagerEnabled || !InputSystemPackageEnabled)
+                throw new BuildFailedException("Runtime IMGUI requires Active Input Handling = Both. Restart Unity after changing this setting before building.");
+        }
+
         static void WriteReport(string output, BuildReport report, bool development, WebGLCompressionFormat compression)
         {
             var manifest = new WebBuildManifest
@@ -86,6 +136,10 @@ namespace Lumia.Editor
                 builtAtUtc = DateTime.UtcNow.ToString("o"),
                 development = development,
                 compression = compression.ToString(),
+                activeInputHandler = ActiveInputHandler(),
+                activeInputHandling = "Both",
+                legacyInputManagerEnabled = LegacyInputManagerEnabled,
+                inputSystemPackageEnabled = InputSystemPackageEnabled,
                 decompressionFallback = PlayerSettings.WebGL.decompressionFallback,
                 threads = PlayerSettings.WebGL.threadsSupport,
                 totalBytes = report.summary.totalSize,
@@ -105,11 +159,11 @@ namespace Lumia.Editor
 
         [Serializable] class WebBuildManifest
         {
-            public string result, unityVersion, productVersion, builtAtUtc, compression;
-            public bool development, decompressionFallback, threads;
+            public string result, unityVersion, productVersion, builtAtUtc, compression, activeInputHandling;
+            public bool development, decompressionFallback, threads, legacyInputManagerEnabled, inputSystemPackageEnabled;
             public ulong totalBytes;
             public double durationSeconds;
-            public int errors, warnings;
+            public int errors, warnings, activeInputHandler;
             public WebBuildFile[] files;
             public WebBuildAsset[] largestAssets;
         }

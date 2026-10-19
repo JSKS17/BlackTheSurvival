@@ -1,0 +1,8 @@
+{
+  "id": "tactical_repulsor",
+  "prompt": "Use case: style-transfer. Asset type: individual tactical ability game icon. Input images: Image 1 is the original icon and is the authoritative subject, composition, silhouette, orientation, placement, and color reference. Image 2 is ONLY a pixel-art style reference; do not copy its subject, magenta palette, frame, or composition. Redraw the recognizable original from Image 1 as deliberately coarse pixel art on a logical 32x32 square pixel grid, presented enlarged so each logical pixel is a large clean square. Broad flat square pixel clusters, jagged stepped hard edges, 12-16 total colors, strong readable silhouette and simple clustered shading. Opaque dark navy background. Preserve the original recognizable subject, motion, major shapes and color family. No antialiasing, smoothing, blur, gradients, soft glows, thin vector curves, tiny detail, typography, numbers, border or frame. One isolated square icon only, no grid lines or mockup. Subject: Preserve Image 1's three diagonal blue-black metallic cylindrical projectiles with round open muzzles, cyan electrical energy streaks, and cobalt blue circular backing. Retain the large central upper-left to lower-right diagonal cylinder and the two smaller flanking cylinders.",
+  "tool": "built-in image_gen",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a154c1-5c2b-7a30-a434-9d0315db1346\\exec-fec0f8f5-b9de-480d-a247-1d0ecab5c346.png",
+  "referencePath": "docs/art-tactical-pixel/references/tactical_repulsor.png",
+  "styleReferencePath": "docs/art-tactical-pixel/references/style_nia_q.png"
+}

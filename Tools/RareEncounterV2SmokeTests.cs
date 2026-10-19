@@ -26,8 +26,10 @@ public static partial class CoreSmokeTests
     {
         int rosterCount = GameDatabase.Characters.Count;
         Check(ResearchEncounters.Events.Count == 91 && GameDatabase.Characters.Count == 91, "all ninety-one subjects retain a rare encounter: " + ResearchEncounters.Events.Count + "/" + GameDatabase.Characters.Count);
-        var groups = ResearchEncounters.Events.GroupBy(ev => ev.options[2].effect).Select(group => group.Count()).OrderBy(count => count).ToArray();
-        Check(groups.SequenceEqual(new[] {22,23,23,23}), "four character-themed third rewards are evenly distributed");
+        var groups = ResearchEncounters.Events.GroupBy(ev => ev.options[2].effect).ToDictionary(group => group.Key, group => group.Count());
+        Check(groups.Count == 6 && groups["tactical_module"] == 6 && groups["trade_tactical_enhanced"] == 8
+            && new[] { "rare_remove_cards", "rare_support_runes", "rare_copy_cards", "rare_tactical" }.All(effect => groups[effect] >= 15),
+            "specialist tactical choices expand selected rare stories while retaining all four earlier reward families");
         Check(GameDatabase.Events.SelectMany(ev => ev.options).All(option => !option.effect.StartsWith("rare_", StringComparison.Ordinal)), "ordinary encounters do not inherit rare rewards");
         var representatives = ResearchEncounters.Events.Select(ev => ev.options[0].cardId).ToArray();
         RareEncounterRules.Configure(ResearchEncounters.Events); EventPresentation.Configure(ResearchEncounters.Events);
@@ -60,6 +62,9 @@ public static partial class CoreSmokeTests
                 else if (option.effect == "passive") Check(engine.State.passives.Contains(subject.passiveId), "rare passive belongs to encountered subject: " + subject.id);
                 else if (option.effect == "card") Check(engine.State.deck.Count == deck + 1 && engine.State.deck.Last() == subject.cards.First(id => GameDatabase.Card(id).key == "R"), "second card reward is the subject's ordinary R: " + subject.id);
                 else if (option.effect == "rare_tactical") Check(engine.State.deck.Count == deck + 1 && GameDatabase.Card(engine.State.deck.Last()).category == "tactical", "random tactical reward adds one real F card: " + subject.id);
+                else if (option.effect == "tactical_module") Check(engine.State.tacticalModules == option.amount && engine.State.deck.Count == deck, "rare module reward is carried in the bag: " + subject.id);
+                else if (option.effect == "trade_tactical_enhanced") Check(engine.State.deck.Count == deck + 1 && engine.IsTacticalUpgraded(engine.State.deck.Last())
+                    && engine.State.credits == credits - option.amount, "rare tactical sale charges exactly and grants one enhanced F copy: " + subject.id);
                 if (engine.State.rareRemovalPending) Check(engine.SkipRareRemoval(), "optional removal can be declined: " + subject.id);
                 if (engine.State.rareCopyPending) Check(engine.SkipRareCopy(), "optional copies can be declined: " + subject.id);
                 Check(engine.State.stage == RunStage.Map, "rare action does not softlock: " + subject.id + ":" + index);

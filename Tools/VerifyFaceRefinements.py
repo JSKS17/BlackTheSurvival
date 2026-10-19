@@ -80,7 +80,7 @@ def changed_mask(before: Image.Image, after: Image.Image) -> Image.Image:
     return mask.point(lambda value: 255 if value else 0)
 
 
-def validate(root: Path, manifest_path: Path) -> dict:
+def validate(root: Path, manifest_path: Path, metadata_baseline_path: Path | None = None) -> dict:
     manifest = read_json(manifest_path)
     commit = manifest.get("baselineCommit", "")
     if not re.fullmatch(r"[0-9a-fA-F]{40}", commit):
@@ -112,6 +112,16 @@ def validate(root: Path, manifest_path: Path) -> dict:
         path = VARIANTS[variant] + "/" + asset_id + ".png"
         paths += [path, path + ".meta"]
     baseline = git_objects(root, commit, paths)
+    # Unity's importer may have legitimately changed metadata since the older
+    # face-art commit. An explicit frozen release inventory can establish the
+    # byte-exact metadata baseline while retaining the original pixel baseline.
+    metadata_hashes = None
+    if metadata_baseline_path is not None:
+        metadata_snapshot = read_json(metadata_baseline_path)
+        metadata_hashes = {item['path']: item['sha256'] for item in metadata_snapshot['files']}
+        missing_meta = [path for path in paths if path.endswith('.meta') and path not in metadata_hashes]
+        if missing_meta:
+            raise ValueError('metadata baseline omits runtime files: ' + str(missing_meta))
     provenance = {
         "default": {entry["id"]: entry for entry in read_json(root / "docs/art-reference-chibi/asset-index.json")["assets"]},
         "rare": {entry["id"]: entry for entry in read_json(root / "docs/art-rare-skins/asset-index.json")["assets"]},
@@ -167,7 +177,8 @@ def validate(root: Path, manifest_path: Path) -> dict:
             if changed_pixels % 4:
                 local_errors.append("changed pixel count is not a whole number of logical blocks")
             metadata = (root / (path + ".meta")).read_bytes()
-            if metadata != baseline[path + ".meta"]:
+            metadata_matches = (sha(metadata) == metadata_hashes[path + '.meta']) if metadata_hashes is not None else (metadata == baseline[path + '.meta'])
+            if not metadata_matches:
                 local_errors.append("Unity .meta bytes changed")
             text = metadata.decode("utf8")
             guid = re.search(r"^guid: ([0-9a-f]{32})\r?$", text, re.M)
@@ -193,7 +204,7 @@ def validate(root: Path, manifest_path: Path) -> dict:
                 "editMaskLogicalPixels": mask.histogram()[255] // 4,
                 "alphaUnchanged": before.getchannel("A").tobytes() == after.getchannel("A").tobytes(),
                 "outsideMaskUnchanged": outside.getbbox() is None,
-                "metadataUnchanged": metadata == baseline[path + ".meta"],
+                "metadataUnchanged": metadata_matches,
                 "beforeSha256": sha(before_bytes), "afterSha256": sha(after_bytes),
             })
         except (OSError, ValueError, KeyError) as error:
@@ -202,6 +213,8 @@ def validate(root: Path, manifest_path: Path) -> dict:
     return {
         "schema": 1, "passed": not errors, "baselineCommit": commit,
         "manifest": manifest_path.relative_to(root).as_posix(), "manifestSha256": sha(manifest_path.read_bytes()),
+        "metadataBaseline": metadata_baseline_path.relative_to(root).as_posix() if metadata_baseline_path is not None else commit,
+        "metadataBaselineSha256": sha(metadata_baseline_path.read_bytes()) if metadata_baseline_path is not None else None,
         "expectedAssets": 183, "checkedAssets": len(results),
         "defaultAssets": sum(item["variant"] == "default" for item in results),
         "rareAssets": sum(item["variant"] == "rare" for item in results),
@@ -223,10 +236,11 @@ def main() -> int:
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--manifest", default="docs/art-face-refinement/manifest.json")
     parser.add_argument("--report", default="docs/art-face-refinement/validation.json")
+    parser.add_argument("--metadata-baseline", help="Explicit frozen release source-hashes.json used only for exact .meta byte hashes")
     args = parser.parse_args()
     root = args.root.resolve()
     try:
-        result = validate(root, root / args.manifest)
+        result = validate(root, root / args.manifest, root / args.metadata_baseline if args.metadata_baseline else None)
         report = root / args.report
         report.parent.mkdir(parents=True, exist_ok=True)
         report.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf8")

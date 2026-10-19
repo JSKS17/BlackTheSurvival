@@ -12,7 +12,7 @@ public static partial class CoreSmokeTests
     static void CardSummaryRegression()
     {
         var catalog = GameDatabase.Cards.Concat(new[] { WildlifeMechanics.Card(WildlifeMechanics.BoarCharge), WildlifeMechanics.Card(WildlifeMechanics.BearSlam) }).ToArray();
-        Check(catalog.Length == 394 && catalog.Select(c => c.id).Distinct().Count() == 394, "summary regression covers all 392 playable and both animal-only cards");
+        Check(catalog.Length == 417 && catalog.Select(c => c.id).Distinct().Count() == 417, "summary regression covers all 415 playable and both animal-only cards");
         foreach (var source in catalog)
         {
             string before = SummarySnapshot(source);
@@ -37,7 +37,7 @@ public static partial class CoreSmokeTests
                     label + ": bounded summary / " + DescriptionSummary.PreviewLines(text) + " lines " + DescriptionSummary.PreviewWidth(text) + " / " + text);
                 Check(!Regex.IsMatch(text, @"(?:이면|라면|다면|하면|있으면|없으면)\s*:"), label + ": conditions retain readable sentence clauses");
                 if (card.damage > 0 && !AdvancedCardMechanics.IsX(card) && !AdvancedCardMechanics.HasTargetChoice(card) && card.category != "wildlife")
-                    Check(Regex.IsMatch(SummarySentences(text)[0], @"^(?:피해 \d+|(?:필중 )?공격)"),
+                    Check(Regex.IsMatch(SummarySentences(text)[0], @"^(?:(?:고정 )?피해 \d+|(?:필중 )?공격)"),
                         label + ": the opening sentence preserves the direct attack rather than only a next-basic, delayed or summoned attack");
                 if (card.block > 0) Check(ContainsAny(text, "방어", "보호"), label + ": defensive action remains visible");
                 if (card.heal > 0) Check(ContainsAny(text, "회복", "치유"), label + ": recovery action remains visible");

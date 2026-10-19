@@ -9,7 +9,7 @@ namespace Lumia
     {
         static readonly HashSet<string> BasicOps = new HashSet<string>(StringComparer.Ordinal) {
             "gain", "set", "consume", "state_on", "state_off", "state_toggle", "bonus_damage", "bonus_block", "bonus_heal",
-            "discount", "bleed", "burn", "summon", "hot", "guard", "delayed_damage", "counter", "break_block", "empower_basic", "revive", "clear_effect"
+            "discount", "bleed", "burn", "summon", "hot", "guard", "delayed_damage", "counter", "break_block", "empower_basic", "revive", "clear_effect", "forge_sword"
         };
 
         public static bool Supports(string operation) => BasicOps.Contains(operation ?? "");
@@ -25,6 +25,7 @@ namespace Lumia
         {
             var result = new List<ConditionEffect>();
             if (card == null) return result;
+            if (TacticalSkills.IsTactical(card)) { Add(result,"tactical","",TacticalSkills.Brief(card,damage,block,heal)); return result; }
             if (WildlifeMechanics.IsAnimalSkill(card.id))
             {
                 Add(result, "wildlife", "", card.id == WildlifeMechanics.BoarCharge
@@ -143,6 +144,9 @@ namespace Lumia
                 if (card.strength > 0) Add(result, "cast", "", "이번 전투의 힘을 높입니다");
             }
             var rules = (card.mechanics?.rules ?? new SkillRule[0]).Where(r => r != null).ToArray();
+            foreach (var forge in rules.Where(r => r.op == "forge_sword"))
+                Add(result, "tazia:forge", "수집 직후 " + forge.conditionAmount + " 이상이면",
+                    "수집을 소모하고 유리 검 " + forge.amount + "을 얻습니다");
             var gains = rules.Where(r => r.op == "gain" || r.op == "set").ToArray();
             foreach (var group in gains.GroupBy(r => r.onHit))
             {
@@ -405,6 +409,7 @@ namespace Lumia
         public static string Condition(CardDef card, SkillRule rule, bool onHit, bool eitherResource = false)
         {
             var conditions = new List<string>();
+            if (rule.op == "forge_sword") conditions.Add("이번 E의 파편 수집 직후");
             if (!string.IsNullOrEmpty(rule.conditionKey)) conditions.Add(ResourceCondition(card, rule.conditionKey, rule.conditionAmount, rule.conditionExact));
             if (!string.IsNullOrEmpty(rule.conditionKey2)) conditions.Add(ResourceCondition(card, rule.conditionKey2, rule.conditionAmount2, rule.conditionExact2));
             if (eitherResource && conditions.Count == 2)
@@ -453,6 +458,7 @@ namespace Lumia
                 case "gain": return Particle(label) + " " + rule.amount + (CardPresentation.IsFieldResource(card, rule.key) ? " 남깁니다" : " 늘립니다") + "(최대 " + SkillMechanics.Clamp(rule.cap, 1, 8) + ")";
                 case "set": return CardPresentation.IsFieldResource(card, rule.key) ? Particle(label) + (rule.amount > 0 ? " " + rule.amount + " 남깁니다" : " 모두 없앱니다") : Particle(label) + " " + rule.amount + "로 만듭니다";
                 case "consume": return Particle(label) + " " + (rule.amount <= 0 ? "모두" : rule.amount.ToString()) + " 소모합니다";
+                case "forge_sword": return "파편 수집을 모두 소모해 유리 검을 " + rule.amount + "로 만듭니다(최대 " + rule.cap + ")";
                 case "state_on": return SkillMechanics.StateEnterText(card, rule.key);
                 case "state_off": return SkillMechanics.StateExitText(card, rule.key);
                 case "state_toggle": return SkillMechanics.StateName(card, rule.key) + "로 진입하거나 해제합니다";

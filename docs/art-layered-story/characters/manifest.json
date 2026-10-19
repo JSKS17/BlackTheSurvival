@@ -31,7 +31,7 @@
         1230
       ],
       "output_path": "Assets/Resources/Lumia/Story/Characters/nia_frustrated.png",
-      "output_sha256": "27924ac37ea8c73729b48545653fd386b84e99b756ccce785d99f39437da1887",
+      "output_sha256": "fe3bb122b3594a892480a17f1809046e88a55494adf79f83d4c94175ad3ea772",
       "output_dimensions": [
         1254,
         1254
@@ -85,7 +85,17 @@
         "original_character_hair_outfit_identity_preserved": true,
         "short_limbs_big_head_pixel_style_preserved": true,
         "no_background_ui_text_or_speech_bubble": true
-      }
+      },
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "previousRuntimeSha256": "27924ac37ea8c73729b48545653fd386b84e99b756ccce785d99f39437da1887",
+          "currentRuntimeSha256": "fe3bb122b3594a892480a17f1809046e88a55494adf79f83d4c94175ad3ea772"
+        }
+      ]
     },
     {
       "id": "nia_overload",
@@ -107,7 +117,7 @@
         1199
       ],
       "output_path": "Assets/Resources/Lumia/Story/Characters/nia_overload.png",
-      "output_sha256": "c850878dbdf4585f1d865da62e63ecc60fa499ca5fd7313b465e0162dd3a18dc",
+      "output_sha256": "3a4782d04d9bccda99c7bb49cd89f03c7ddfbda75b8003b271a61d81f56bb0c7",
       "output_dimensions": [
         1254,
         1254
@@ -265,7 +275,17 @@
           "short_limbs_big_head_pixel_style_preserved": true,
           "no_background_ui_text_or_speech_bubble": true
         }
-      }
+      },
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "previousRuntimeSha256": "274e283f18b3efc2f3d68c266bb943ebf88af2ec5ddfcf34cd75eb60e843346e",
+          "currentRuntimeSha256": "3a4782d04d9bccda99c7bb49cd89f03c7ddfbda75b8003b271a61d81f56bb0c7"
+        }
+      ]
     },
     {
       "id": "nia_defeated",
@@ -287,7 +307,7 @@
         1214
       ],
       "output_path": "Assets/Resources/Lumia/Story/Characters/nia_defeated.png",
-      "output_sha256": "b0439b4d8af9114f9b87cb4c84abf1032b9606cbd712fc1fcfe20ff00012aba1",
+      "output_sha256": "6ed38f61723b17bdf49167734e7742e3b827ff1a0e727765ec1af5217ec3953b",
       "output_dimensions": [
         1254,
         1254
@@ -341,7 +361,17 @@
         "original_character_hair_outfit_identity_preserved": true,
         "short_limbs_big_head_pixel_style_preserved": true,
         "no_background_ui_text_or_speech_bubble": true
-      }
+      },
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "previousRuntimeSha256": "b0439b4d8af9114f9b87cb4c84abf1032b9606cbd712fc1fcfe20ff00012aba1",
+          "currentRuntimeSha256": "6ed38f61723b17bdf49167734e7742e3b827ff1a0e727765ec1af5217ec3953b"
+        }
+      ]
     },
     {
       "id": "nia_taunt",
@@ -363,7 +393,7 @@
         1159
       ],
       "output_path": "Assets/Resources/Lumia/Story/Characters/nia_taunt.png",
-      "output_sha256": "4f47cead9ae1c67b7c31e100b9c68734a6995fbcff41b572e9fea2509c70520b",
+      "output_sha256": "7a7aafcfd2764724165e0aaadd579a3fb08585778cf5ca5f4bad0aa628ab6e20",
       "output_dimensions": [
         1254,
         1254
@@ -417,7 +447,17 @@
         "original_character_hair_outfit_identity_preserved": true,
         "short_limbs_big_head_pixel_style_preserved": true,
         "no_background_ui_text_or_speech_bubble": true
-      }
+      },
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "previousRuntimeSha256": "4f47cead9ae1c67b7c31e100b9c68734a6995fbcff41b572e9fea2509c70520b",
+          "currentRuntimeSha256": "7a7aafcfd2764724165e0aaadd579a3fb08585778cf5ca5f4bad0aa628ab6e20"
+        }
+      ]
     },
     {
       "id": "nia_cocky",
@@ -439,7 +479,7 @@
         1237
       ],
       "output_path": "Assets/Resources/Lumia/Story/Characters/nia_cocky.png",
-      "output_sha256": "9bf7c363b9f7e60424dac1985802d1cc8fe76ffb08990121f7145cc81154fefd",
+      "output_sha256": "b8e8d4808ef45e03bbeb2b6f59e091546a3c96bdd70c3ee10233a38da0e9c8d8",
       "output_dimensions": [
         1254,
         1254
@@ -493,7 +533,17 @@
         "original_character_hair_outfit_identity_preserved": true,
         "short_limbs_big_head_pixel_style_preserved": true,
         "no_background_ui_text_or_speech_bubble": true
-      }
+      },
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "previousRuntimeSha256": "9bf7c363b9f7e60424dac1985802d1cc8fe76ffb08990121f7145cc81154fefd",
+          "currentRuntimeSha256": "b8e8d4808ef45e03bbeb2b6f59e091546a3c96bdd70c3ee10233a38da0e9c8d8"
+        }
+      ]
     },
     {
       "id": "nia_wake",
@@ -515,7 +565,7 @@
         1230
       ],
       "output_path": "Assets/Resources/Lumia/Story/Characters/nia_wake.png",
-      "output_sha256": "7b61b15dca50b5e09a6713703b4ba61b48d8330d5cd586d081096342f34764b3",
+      "output_sha256": "64e96e1442fd32a32960b0588ec0ac595beadedce49663b166eb71e32b4bdfba",
       "output_dimensions": [
         1254,
         1254
@@ -569,7 +619,17 @@
         "original_character_hair_outfit_identity_preserved": true,
         "short_limbs_big_head_pixel_style_preserved": true,
         "no_background_ui_text_or_speech_bubble": true
-      }
+      },
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "previousRuntimeSha256": "7b61b15dca50b5e09a6713703b4ba61b48d8330d5cd586d081096342f34764b3",
+          "currentRuntimeSha256": "64e96e1442fd32a32960b0588ec0ac595beadedce49663b166eb71e32b4bdfba"
+        }
+      ]
     },
     {
       "id": "nia_cast",
@@ -591,7 +651,7 @@
         1230
       ],
       "output_path": "Assets/Resources/Lumia/Story/Characters/nia_cast.png",
-      "output_sha256": "42c91bca9be53772b57e515a941a3e155414e1535785fa23914fd796f16f9a40",
+      "output_sha256": "38e3ff9e48ddfd1fc76bac3a33be104e6ff5fdbdeff74a392459a5709f6f2719",
       "output_dimensions": [
         1254,
         1254
@@ -645,7 +705,17 @@
         "original_character_hair_outfit_identity_preserved": true,
         "short_limbs_big_head_pixel_style_preserved": true,
         "no_background_ui_text_or_speech_bubble": true
-      }
+      },
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "previousRuntimeSha256": "42c91bca9be53772b57e515a941a3e155414e1535785fa23914fd796f16f9a40",
+          "currentRuntimeSha256": "38e3ff9e48ddfd1fc76bac3a33be104e6ff5fdbdeff74a392459a5709f6f2719"
+        }
+      ]
     },
     {
       "id": "nia_challenge",
@@ -667,7 +737,7 @@
         1230
       ],
       "output_path": "Assets/Resources/Lumia/Story/Characters/nia_challenge.png",
-      "output_sha256": "ceaf7cd5a0fc140b74681d70e76931db7386fe5cbb5499d3e3b22e16a8668b93",
+      "output_sha256": "f3a2e4c2d457eec03788bc1d7ddda026981353a513bbe241fb560cc682e34017",
       "output_dimensions": [
         1254,
         1254
@@ -721,7 +791,17 @@
         "original_character_hair_outfit_identity_preserved": true,
         "short_limbs_big_head_pixel_style_preserved": true,
         "no_background_ui_text_or_speech_bubble": true
-      }
+      },
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "previousRuntimeSha256": "ceaf7cd5a0fc140b74681d70e76931db7386fe5cbb5499d3e3b22e16a8668b93",
+          "currentRuntimeSha256": "f3a2e4c2d457eec03788bc1d7ddda026981353a513bbe241fb560cc682e34017"
+        }
+      ]
     },
     {
       "id": "hana_work",
@@ -1026,6 +1106,15 @@
         "short_limbs_big_head_pixel_style_preserved": true,
         "no_background_ui_text_or_speech_bubble": true
       }
+    }
+  ],
+  "userOverrides": [
+    {
+      "manifest": "docs/art-nia-black-eyes/manifest.json",
+      "date": "2026-10-19",
+      "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+      "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+      "note": "Original generation records and historical no-retouch assertions above describe their original production. This later user override changes iris RGB only; see preserved prior records in the override manifest."
     }
   ]
 }

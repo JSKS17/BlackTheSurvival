@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0a0d14">
   <title>블더스</title>
-  <link rel="icon" type="image/svg+xml" href="TemplateData/favicon.svg?v=nia-transparent-20261016">
-  <link rel="stylesheet" href="TemplateData/style.css">
+  <link rel="icon" type="image/svg+xml" href="TemplateData/favicon.svg?v=nia-black-eyes-20261019">
+  <link rel="stylesheet" href="TemplateData/style.css?v=windowed-20261019">
   <script src="TemplateData/account-bridge.js"></script>
 </head>
 <body>
@@ -16,7 +16,7 @@
         <canvas id="unity-canvas" width="1280" height="720" tabindex="0" aria-label="블더스 게임 화면"></canvas>
         <section id="loading" class="overlay" role="status" aria-live="polite" aria-busy="true">
           <div class="loading-card">
-            <img id="loading-animation" src="TemplateData/nia-loading.webp" width="960" height="520" alt="" aria-hidden="true" fetchpriority="high">
+            <img id="loading-animation" src="TemplateData/nia-loading.webp?v=nia-black-eyes-20261019" width="960" height="520" alt="" aria-hidden="true" fetchpriority="high">
             <h1>실험을 준비하고 있습니다</h1>
             <p id="loading-message">게임 파일을 불러오는 중입니다.</p>
             <progress id="loading-progress" value="0" max="100" aria-label="게임 불러오기 진행률"></progress>
@@ -29,7 +29,7 @@
     </main>
     <footer>
       <span class="game-name">블더스 <small>v{{{ PRODUCT_VERSION }}}</small></span>
-      <span class="play-hint">화면을 클릭해서 조작 · 진행 상황은 이 브라우저에 저장됩니다</span>
+      <span id="save-hint" class="play-hint">이 기기에 저장 · 다른 기기에서 이어하려면 계정으로 로그인</span>
       <button id="fullscreen" type="button" disabled aria-label="전체 화면으로 플레이">전체 화면</button>
     </footer>
   </div>
@@ -47,21 +47,76 @@
     const gameArea = document.getElementById("game-area");
     const frame = document.getElementById("game-frame");
     window.blackTheSurvival = { status: "loading", unityInstance: null, version: "{{{ PRODUCT_VERSION }}}" };
-    function reportLoading(type, progress, error) {
-      if (window.parent !== window) window.parent.postMessage({ type, ...(progress === undefined ? {} : { progress }), ...(error ? { error } : {}) }, window.location.origin);
+    function reportLoading(type, progress, error, errorKind) {
+      if (window.parent !== window) window.parent.postMessage({ type, ...(progress === undefined ? {} : { progress }), ...(error ? { error, errorKind } : {}) }, window.location.origin);
     }
+
+    // The host expands the existing iframe; the running Unity session stays put.
+    let windowedActive = false;
+    let nativeFullscreenActive = !!document.fullscreenElement;
+    let nativeFullscreenExitedAt = -Infinity;
+    window.addEventListener("message", event => {
+      if (window.parent === window || event.origin !== window.location.origin || event.source !== window.parent) return;
+      const data = event.data;
+      if (!data || typeof data !== "object" || data.type !== "bts:windowed-state" || typeof data.active !== "boolean") return;
+      windowedActive = data.active;
+      document.body.dataset.btsWindowed = String(windowedActive);
+    });
+    document.addEventListener("fullscreenchange", () => {
+      const active = !!document.fullscreenElement;
+      if (nativeFullscreenActive && !active) nativeFullscreenExitedAt = Date.now();
+      nativeFullscreenActive = active;
+    });
+    document.addEventListener("keydown", event => {
+      if (!windowedActive || event.key !== "Escape" || event.isComposing || document.fullscreenElement || Date.now() - nativeFullscreenExitedAt < 250) return;
+      event.preventDefault();
+      event.stopPropagation();
+      window.parent.postMessage({ type: "bts:windowed-exit" }, window.location.origin);
+    }, true);
+    if (window.parent !== window) window.parent.postMessage({ type: "bts:windowed-ready" }, window.location.origin);
 
     function fitGame() {
       const width = Math.floor(Math.min(gameArea.clientWidth, gameArea.clientHeight * 16 / 9));
       frame.style.width = width + "px";
       frame.style.height = Math.floor(width * 9 / 16) + "px";
     }
+    function focusCanvas() {
+      canvas.focus({ preventScroll: true });
+    }
+    let viewportRefreshPending = false;
+    function refreshViewport() {
+      if (viewportRefreshPending) return;
+      viewportRefreshPending = true;
+      requestAnimationFrame(() => {
+        viewportRefreshPending = false;
+        // Unity owns the fullscreen canvas size. Fit only its normal-page frame;
+        // automatic canvas synchronization keeps rendering and input in step.
+        fitGame();
+        if (window.blackTheSurvival.status === "ready" && !document.hidden) focusCanvas();
+      });
+    }
     new ResizeObserver(fitGame).observe(gameArea);
+    window.addEventListener("resize", refreshViewport);
+    document.addEventListener("fullscreenchange", refreshViewport);
+    window.visualViewport?.addEventListener("resize", refreshViewport);
     fitGame();
 
-    function fail(error, description) {
+    function classifyError(error) {
+      const text = String(error && error.message || error).toLowerCase();
+      if (/webgl|graphics|gpu|context lost|하드웨어|그래픽/.test(text)) return "graphics";
+      if (/indexeddb|idbfs|persist|storage|저장|계정/.test(text)) return "storage";
+      if (/download|fetch|network|loader|http|네트워크/.test(text)) return "download";
+      return "connection";
+    }
+    function fail(error, description, kind) {
+      if (window.blackTheSurvival.status === "error") return;
       console.error(error);
       window.blackTheSurvival.status = "error";
+      fullscreen.disabled = true;
+      if (document.fullscreenElement && typeof document.exitFullscreen === "function") {
+        // Unity can fullscreen only its canvas, hiding both recovery panels.
+        try { Promise.resolve(document.exitFullscreen()).catch(() => {}); } catch {}
+      }
       loading.hidden = false;
       loading.setAttribute("aria-busy", "false");
       animation.hidden = true;
@@ -70,18 +125,18 @@
       retry.hidden = false;
       percent.hidden = true;
       progress.hidden = true;
-      reportLoading("bts:load-error", undefined, message.textContent);
+      reportLoading("bts:load-error", undefined, message.textContent, kind || classifyError(error));
     }
     function banner(text, type) {
       if (type === "error") { fail(text); return; }
       if (type === "warning") console.warn(text);
     }
     retry.addEventListener("click", () => location.reload());
-    canvas.addEventListener("pointerdown", () => canvas.focus());
+    canvas.addEventListener("pointerdown", focusCanvas);
     canvas.addEventListener("contextmenu", event => event.preventDefault());
     fullscreen.addEventListener("click", () => {
       if (window.blackTheSurvival.unityInstance) window.blackTheSurvival.unityInstance.SetFullscreen(1);
-      canvas.focus();
+      focusCanvas();
     });
     canvas.addEventListener("webglcontextlost", event => {
       event.preventDefault();
@@ -107,33 +162,46 @@
         companyName: "{{{ COMPANY_NAME }}}",
         productName: "{{{ PRODUCT_NAME }}}",
         productVersion: "{{{ PRODUCT_VERSION }}}",
-        matchWebGLToCanvasSize: false,
+        matchWebGLToCanvasSize: true,
         devicePixelRatio: 1,
         autoSyncPersistentDataPath: true,
         showBanner: banner
       };
       const script = document.createElement("script");
       script.src = buildUrl + "/{{{ LOADER_FILENAME }}}";
-      script.onerror = () => fail("The Unity loader could not be downloaded.");
-      script.onload = () => createUnityInstance(canvas, config, value => {
-        const amount = Math.floor(value * 100);
-        progress.value = amount;
-        percent.textContent = amount + "%";
-        reportLoading("bts:load-progress", amount);
-        if (value >= 0.9) message.textContent = "게임을 시작하고 있습니다.";
-      }).then(instance => {
-        window.blackTheSurvival.unityInstance = instance;
-        window.blackTheSurvival.status = "ready";
-        loading.hidden = true;
-        loading.setAttribute("aria-busy", "false");
-        reportLoading("bts:load-ready");
-        fullscreen.disabled = false;
-        canvas.focus();
-        window.BTSAccountBridge.attachUnity(instance);
-        window.dispatchEvent(new CustomEvent("blackthesurvivalready", { detail: instance }));
-      }).catch(fail);
-      window.BTSAccountBridge.prepare().then(() => document.body.appendChild(script)).catch(error => {
-        fail(error, error.message || "계정 저장 공간을 확인하지 못했습니다.");
+      script.onerror = () => fail("The Unity loader could not be downloaded.", undefined, "download");
+      script.onload = () => {
+        if (window.blackTheSurvival.status !== "loading") return;
+        Promise.resolve().then(() => createUnityInstance(canvas, config, value => {
+          if (window.blackTheSurvival.status !== "loading") return;
+          const amount = Math.floor(value * 100);
+          progress.value = amount;
+          percent.textContent = amount + "%";
+          reportLoading("bts:load-progress", amount);
+          if (value >= 0.9) message.textContent = "게임을 시작하고 있습니다.";
+        })).then(instance => {
+          if (window.blackTheSurvival.status !== "loading") {
+            // A late successful download must not reopen a failed game.
+            if (instance && typeof instance.Quit === "function") Promise.resolve(instance.Quit()).catch(() => {});
+            return;
+          }
+          window.blackTheSurvival.unityInstance = instance;
+          window.blackTheSurvival.status = "ready";
+          loading.hidden = true;
+          loading.setAttribute("aria-busy", "false");
+          reportLoading("bts:load-ready");
+          fullscreen.disabled = false;
+          focusCanvas();
+          window.BTSAccountBridge.attachUnity(instance);
+          window.dispatchEvent(new CustomEvent("blackthesurvivalready", { detail: instance }));
+        }).catch(error => fail(error));
+      };
+      window.BTSAccountBridge.prepare().then(() => {
+        if (window.blackTheSurvival.status !== "loading") return;
+        if (window.BTSAccountBridge.accountId) document.getElementById("save-hint").textContent = "계정에 자동 저장 · 연결 대기 중에는 이 기기에 보관";
+        document.body.appendChild(script);
+      }).catch(error => {
+        fail(error, error.message || "계정 저장 공간을 확인하지 못했습니다.", "storage");
       });
     }
   </script>

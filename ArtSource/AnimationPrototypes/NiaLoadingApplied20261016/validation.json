@@ -1,7 +1,7 @@
 {
   "runtimeCopiesApproved": true,
-  "sourceSheetSha256": "52047c5af894364211391cabc0f6f785f7aa1a5870b09f8776e489ec06b79f53",
-  "walkSheetSha256": "54f8a5b89db3f3d9f5281f51067f93311f9ed81b628bda8158d0ea86b8700e8f",
+  "sourceSheetSha256": "cbdb4e019ce9c106a72a7cf46e8a3f68822ffcfdff182e710d8e5e039f390801",
+  "walkSheetSha256": "2d0ef9d1fdd5e9e85da8f3c0efed532b4905c3e881b3b1b2b4d4f605cb759cbf",
   "logoSha256": "8ecdc328dde9d2b84c34c892040eb39c388faba4570ff672643bb8e4eb2a33e7",
   "oneUpSha256": "eabf51adacda3b025b02ec648a865010c90dab3c0c50ed40cafdba727c42a792",
   "generatedPoseCount": 16,
@@ -140,6 +140,7 @@
     "gif": {
       "format": "gif",
       "mediaType": "image/gif",
+      "size": 4125702,
       "width": 960,
       "height": 50440,
       "space": "srgb",
@@ -266,17 +267,37 @@
   "checks": {
     "webpAndGifDuration8000": true,
     "webpAndGifLoopForever": true,
-    "sourceFramesDrawnFromOriginalBytes": true,
+    "sourceFramesDrawnFromAuthorizedEditedPNGBytes": true,
     "htmlAndExportsShareTimeline": true,
     "actualWalkAndRecoveryPoseChanges": true,
     "controllerHeldByBothHandsEveryWalkCel": true,
-    "approvedRecoveryCelsUnchanged": true
+    "recoveryNonEyeRGBAUnchanged": true,
+    "walkingAlphaAndGeometryUnchanged": true,
+    "logoAndEEffectSourcesUnchanged": true
+  },
+  "userOverride": {
+    "date": "2026-10-19",
+    "request": "Every Nia iris becomes near-black; opening walk material colors match the recovery sequence. All other pixels remain unchanged.",
+    "guideTool": "built-in image_gen.imagegen",
+    "application": "Strict Node.js/sharp RGB masks; original alpha and geometry preserved.",
+    "validation": "Build/NiaEyesVerification/loading/masked-sheet-validation.json",
+    "originals": "Build/NiaEyesVerification/originals/ArtSource/AnimationPrototypes/NiaLoadingApplied20261016",
+    "originalWalkSheetSha256": "54f8a5b89db3f3d9f5281f51067f93311f9ed81b628bda8158d0ea86b8700e8f",
+    "originalRecoverySheetSha256": "52047c5af894364211391cabc0f6f785f7aa1a5870b09f8776e489ec06b79f53",
+    "preserved": "All non-eye recovery pixels, original walking poses and held controller geometry, all alpha, logo, external and baked-in E effects, 8-second animation timeline."
   },
   "runtimeCopies": [
     {
       "path": "Assets/WebGLTemplates/BlackTheSurvival/TemplateData/nia-loading.webp",
-      "sha256": "f875be931b2cb281f7299c3aa045f93130cda54b3bc365aed99fe56b956af5e3",
-      "bytes": 9981172
+      "sha256": "9abb6f62093aad1045ab34162375ce32207f745178175cacdd1d39adfc4d6faa",
+      "bytes": 9995378
     }
-  ]
+  ],
+  "gifPalettePreservation": {
+    "source": "Original GIF palette and disposal data",
+    "method": "Original image-block index replacement with unchanged RGB palettes; nearest existing RGB inside caller-approved masks only.",
+    "validation": "Build/NiaEyesVerification/loading/applied-gif-palette-validation.json",
+    "allDecodedMaskExternalRGBAUnchanged": true,
+    "sha256": "1d69bf0f1715e1ecb92d26ea8587a13df1209f47d45d4a27123f656bb7765565"
+  }
 }

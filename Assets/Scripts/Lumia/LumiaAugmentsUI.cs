@@ -167,7 +167,7 @@ namespace Lumia
                 Para(new Rect(250, 397, 780, 88), "아직 획득한 증강이 없습니다.\n무한 모드에서 3막의 니아를 처치하고 보상과 패시브 선택을 마치면 증강을 선택합니다.\n첫 세 번은 "+EndlessAugments.TierName(AugmentTier.Silver)+", "+EndlessAugments.TierName(AugmentTier.Gold)+", "+EndlessAugments.TierName(AugmentTier.Prismatic)+" 등급 순서로 등장합니다.", 16, Muted);
                 return;
             }
-            inventoryScroll = GUI.BeginScrollView(new Rect(80, 245, 1120, 386), inventoryScroll, new Rect(0, 0, 1090, Math.Max(386, groups.Length * 132)));
+            inventoryScroll = BeginTouchScrollView("inventory-augments", new Rect(80, 245, 1120, 386), inventoryScroll, new Rect(0, 0, 1090, Math.Max(386, groups.Length * 132)));
             var visible = CraftingCatalog.VisibleItems(groups.Length, inventoryScroll.y, 386, 1, 132);
             for (int index = visible.first; index < visible.end; index++)
             {
@@ -179,7 +179,7 @@ namespace Lumia
                 Para(new Rect(row.x + 82, row.y + 50, 978, 45), display.description, 13, Text);
                 Txt(new Rect(row.x + 82, row.y + 99, 978, 17), display.stackText, 11, Muted);
             }
-            GUI.EndScrollView();
+            EndTouchScrollView();
         }
 
         bool AugmentVerificationEnabled => Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-augment-verify") >= 0;

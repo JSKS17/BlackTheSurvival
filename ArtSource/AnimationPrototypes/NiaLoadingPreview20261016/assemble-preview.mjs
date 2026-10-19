@@ -1,4 +1,5 @@
-// Preview renderer only. Source PNG pixels are never painted, erased or changed.
+// Preview renderer only. The 2026-10-19 user override changes iris RGB only;
+// every other source RGBA pixel, alpha, original pose and timing is preserved.
 // Cropping and integer positioning select animation cels, then the same timeline
 // drives the browser canvas and the encoded GIF/WebP preview.
 import fs from 'node:fs/promises';
@@ -6,6 +7,7 @@ import path from 'node:path';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
+import {preserveLoadingGif} from '../../../Build/NiaEyesVerification/loading/preserve-gif.mjs';
 const folder=path.dirname(fileURLToPath(import.meta.url));
 const require=createRequire(path.resolve(folder,'../../../WebSite/package.json'));
 const sharp=require('sharp');
@@ -28,7 +30,8 @@ for(let i=0;i<16;i++){
   if(boundaryMaxAlpha>=16)throw Error('A visible cel crosses its partition '+i+' / '+boundaryMaxAlpha);
   cells.push({left,top,width:right-left,height:bottom-top,anchorX:Math.round((minX+maxX)/2)-left,anchorY:maxY-top,bbox:[minX,minY,maxX+1,maxY+1],boundaryMaxAlpha,label:labels[i]});
 }
-const manifest={type:'unintegrated_loading_animation_preview',generatedWith:'built-in image_gen.imagegen',width:W,height:H,fps:FPS,seconds:SECONDS,characterPoseCount:16,cells,sourcePixels:'Original PNG bytes unchanged; canvas crop/translation and nearest-neighbor drawing only. No alpha cleanup. Partition alpha under 16 is preserved.',oneUpReference:'Assets/Resources/Lumia/SkillIcons/nia_e.png',gameIntegrated:false};
+const userOverride={date:'2026-10-19',request:'All Nia irises become near-black. This older preview preserves its original walking poses and ALL non-eye colors; walking palette correction applies only to the current approved loading animation.',guideTool:'built-in image_gen.imagegen',application:'Same verified iris-only RGB mask as the identical approved recovery source sheet.',validation:'Build/NiaEyesVerification/loading/masked-sheet-validation.json',originalSourceSha256:'52047c5af894364211391cabc0f6f785f7aa1a5870b09f8776e489ec06b79f53',preserved:'All non-eye source RGBA, all source alpha and geometry, logo and E effects, original older walk movement, and complete 8-second timeline.',runtimeCopy:false};
+const manifest={type:'unintegrated_loading_animation_preview',generatedWith:'built-in image_gen.imagegen',width:W,height:H,fps:FPS,seconds:SECONDS,characterPoseCount:16,cells,sourcePixels:'Authorized iris RGB changes only (2026-10-19). Every non-eye source RGBA pixel and all geometry/alpha remain unchanged. Renderer only selects cels and draws nearest-neighbor.',userOverride,oneUpReference:'Assets/Resources/Lumia/SkillIcons/nia_e.png',gameIntegrated:false};
 await fs.writeFile(path.join(folder,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
 const lerp=(a,b,t)=>a+(b-a)*t,clamp=t=>Math.max(0,Math.min(1,t));
 function state(t){
@@ -79,14 +82,18 @@ function render(t){
   if(s.logoVisible&&t<4.05)drawLogo();
   return canvas;
 }
-const count=FPS*SECONDS,joined=Buffer.alloc(W*H*4*count);
+const count=FPS*SECONDS;let joined=Buffer.alloc(W*H*4*count);
 for(let i=0;i<count;i++){render(i/FPS).copy(joined,i*W*H*4);if(i%20===0)process.stdout.write('render '+i+'/'+count+'\n');}
 await sharp(joined,{raw:{width:W,height:H*count,channels:4,pageHeight:H}}).webp({lossless:true,loop:0,delay:100,effort:4}).toFile(path.join(folder,'nia-loading-preview.webp'));
 await sharp(joined,{raw:{width:W,height:H*count,channels:4,pageHeight:H}}).gif({loop:0,delay:Array(count).fill(100),effort:4,colors:256,dither:0}).toFile(path.join(folder,'nia-loading-preview.gif'));
 for(const [name,t] of [['walk',1],['impact',3.12],['revive',4.35],['ready',6.4]])await sharp(render(t),{raw:{width:W,height:H,channels:4}}).png().toFile(path.join(folder,'key-'+name+'.png'));
+joined=null;global.gc?.();
 const sha=async name=>createHash('sha256').update(await fs.readFile(path.join(folder,name))).digest('hex');
 const proof={gameIntegrated:false,sourceSheetSha256:await sha('generated-sheet.png'),logoSha256:await sha('game-logo.png'),oneUpSha256:await sha('one-up-effect.png'),generatedPoseCount:16,visibleBoundaryPixelsCut:false,maxPartitionBoundaryAlpha:Math.max(...cells.map(c=>c.boundaryMaxAlpha)),durationMilliseconds:8000,files:{webp:await sharp(path.join(folder,'nia-loading-preview.webp'),{animated:true}).metadata(),gif:await sharp(path.join(folder,'nia-loading-preview.gif'),{animated:true}).metadata()}};
 for(const [format,metadata] of Object.entries(proof.files)){if(metadata.delay.reduce((a,b)=>a+b,0)!==8000)throw Error(format+' duration mismatch');if(metadata.width!==W||metadata.pageHeight!==H||!metadata.hasAlpha||metadata.loop!==0)throw Error(format+' animation format mismatch');}
-proof.checks={webpAndGifDuration8000:true,webpAndGifLoopForever:true,sourceFramesDrawnFromOriginalBytes:true,htmlAndExportsShareTimeline:true,actualWalkAndRecoveryPoseChanges:true,noneOfTheseAssetsReferencedByGame:true};
+proof.userOverride=userOverride;
+proof.checks={webpAndGifDuration8000:true,webpAndGifLoopForever:true,sourceFramesDrawnFromAuthorizedIrisOnlyEditedBytes:true,htmlAndExportsShareTimeline:true,actualWalkAndRecoveryPoseChanges:true,nonEyeSourceRGBAUnchanged:true,originalOlderWalkColorsAndMovementUnchanged:true,noneOfTheseAssetsReferencedByGame:true};
 await fs.writeFile(path.join(folder,'validation.json'),JSON.stringify(proof,null,2)+'\n');
+await fs.writeFile(path.join(folder,'provenance.json'),JSON.stringify({date:'2026-10-19',tool:'built-in image_gen.imagegen guide plus strict Node.js/sharp iris RGB mask',gameIntegrated:false,userOverride,promptReference:'Build/NiaEyesVerification/loading/imagegen-prompts.json',originals:'Build/NiaEyesVerification/originals/ArtSource/AnimationPrototypes/NiaLoadingPreview20261016'},null,2)+'\n');
+await preserveLoadingGif('preview');
 process.stdout.write(JSON.stringify({success:true,poses:16,frames:count,seconds:SECONDS,partitionMaxAlpha:proof.maxPartitionBoundaryAlpha})+'\n');

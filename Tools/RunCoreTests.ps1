@@ -1,6 +1,6 @@
-param([string]$UnityEditor = 'C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor', [switch]$Balance, [switch]$UpgradeOnly, [switch]$RareOnly, [switch]$StoryOnly, [switch]$AccuracyOnly, [switch]$WeaponOnly, [switch]$AdvancedOnly, [switch]$SuaBlindOnly, [switch]$SummaryOnly, [switch]$CraftingOnly, [switch]$UiOnly)
+param([string]$UnityEditor = 'C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor', [switch]$Balance, [switch]$UpgradeOnly, [switch]$RareOnly, [switch]$StoryOnly, [switch]$AccuracyOnly, [switch]$WeaponOnly, [switch]$WeaponGrantsOnly, [switch]$AdvancedOnly, [switch]$SuaBlindOnly, [switch]$SummaryOnly, [switch]$CraftingOnly, [switch]$UiOnly, [switch]$SharedResourcesOnly, [switch]$TacticalOnly)
 $ErrorActionPreference = 'Stop'
-if (@($Balance,$UpgradeOnly,$RareOnly,$StoryOnly,$AccuracyOnly,$WeaponOnly,$AdvancedOnly,$SuaBlindOnly,$SummaryOnly,$CraftingOnly,$UiOnly).Where({$_}).Count -gt 1) { throw 'Choose only one focused test mode.' }
+if (@($Balance,$UpgradeOnly,$RareOnly,$StoryOnly,$AccuracyOnly,$WeaponOnly,$WeaponGrantsOnly,$AdvancedOnly,$SuaBlindOnly,$SummaryOnly,$CraftingOnly,$UiOnly,$SharedResourcesOnly,$TacticalOnly).Where({$_}).Count -gt 1) { throw 'Choose only one focused test mode.' }
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $outputPath = Join-Path $projectRoot 'Temp/CoreTests.exe'
 [IO.Directory]::CreateDirectory((Split-Path -Parent $outputPath)) | Out-Null
@@ -13,6 +13,14 @@ foreach ($dataFile in @('CardPresentation.cs', 'ClassicRoster.cs', 'RecentRoster
     if (Test-Path -LiteralPath $dataPath) { $arguments += $dataPath }
 }
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/CardInstances.cs'
+foreach ($tacticalFile in @('TacticalSkills.cs','GameEngineTacticalSkills.cs','TacticalModules.cs','GameEngineTacticalModules.cs','TacticalEncounterOptions.cs')) {
+    $tacticalPath = Join-Path $projectRoot ('Assets/Scripts/Lumia/' + $tacticalFile)
+    if (Test-Path -LiteralPath $tacticalPath) { $arguments += $tacticalPath }
+}
+foreach ($tacticalTest in @('TacticalSkillSmokeTests.cs','TacticalModuleSmokeTests.cs','TacticalDisplaySmokeTests.cs')) {
+    $tacticalTestPath = Join-Path $PSScriptRoot $tacticalTest
+    if (Test-Path -LiteralPath $tacticalTestPath) { $arguments += $tacticalTestPath }
+}
 foreach ($advancedFile in @('AdvancedCardMechanics.cs','GameEngineAdvancedCards.cs','CompanionMechanics.cs','CardSummaryMechanics.cs','CraftingCatalog.cs','CardDisplayCatalog.cs','UiDeckSnapshot.cs','LumiaFieldDisplayCache.cs')) { $arguments += Join-Path $projectRoot ('Assets/Scripts/Lumia/' + $advancedFile) }
 foreach ($advancedTest in @('AdvancedRulesSmokeTests.cs','CompanionSmokeTests.cs','AdvancedCombatSmokeTests.cs','AdvancedCardPresentationSmokeTests.cs','SuaBlindSmokeTests.cs','CardSummaryRegressionTests.cs','CraftingCatalogSmokeTests.cs','CardDisplayCacheSmokeTests.cs','UiDeckSnapshotSmokeTests.cs')) {
     $advancedTestPath = Join-Path $PSScriptRoot $advancedTest
@@ -22,6 +30,9 @@ $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/AccuracyMechanics.cs'
 $arguments += Join-Path $PSScriptRoot 'AccuracySmokeTests.cs'
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/WeaponDamageBalance.cs'
 $arguments += Join-Path $PSScriptRoot 'WeaponSpecialMechanicSmokeTests.cs'
+$arguments += Join-Path $PSScriptRoot 'WeaponGrantIntegritySmokeTests.cs'
+$arguments += Join-Path $PSScriptRoot 'TaziaMechanicSmokeTests.cs'
+$arguments += Join-Path $PSScriptRoot 'SharedPassiveResourceSmokeTests.cs'
 $arguments += Join-Path $PSScriptRoot 'WeaponDamageBalanceSmokeTests.cs'
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/GameEngineCardInstances.cs'
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/RareCardUpgrades.cs'
@@ -62,12 +73,15 @@ $arguments += @(Get-ChildItem -LiteralPath $PSScriptRoot -Filter 'Research*Smoke
 $arguments += @(Get-ChildItem -LiteralPath (Join-Path $projectRoot 'Assets/Scripts/Lumia') -Filter 'BossProfiles*.cs' | Where-Object { $_.Name -ne 'BossProfiles.cs' } | ForEach-Object { $_.FullName })
 & $runtimePath @arguments
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-if ($Balance) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--balance' }
+if ($TacticalOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--tactical-only' }
+elseif ($SharedResourcesOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--shared-resources-only' }
+elseif ($Balance) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--balance' }
 elseif ($UpgradeOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--upgrade-only' }
 elseif ($RareOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--rare-only' }
 elseif ($StoryOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--story-only' }
 elseif ($AccuracyOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--accuracy-only' }
 elseif ($WeaponOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--weapon-only' }
+elseif ($WeaponGrantsOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--weapon-grants-only' }
 elseif ($AdvancedOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--advanced-only' }
 elseif ($SuaBlindOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--sua-blind-only' }
 elseif ($SummaryOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--summary-only' }

@@ -15,6 +15,24 @@ public static partial class CoreSmokeTests
         try
         {
             if (args.Contains("--balance")) return BalanceSimulation.Run();
+            if (args.Contains("--tactical-only"))
+            {
+                TacticalModuleMechanics(); TacticalDisplaySnapshots();
+                TacticalSkillMechanics();
+                Console.WriteLine("PASS: " + checks + " assertions across tactical skills, modules, encounters and display isolation.");
+                return 0;
+            }
+            if (args.Contains("--shared-resources-only"))
+            {
+                checks += SharedPassiveResourceSmokeTests.Run();
+                checks += TaziaMechanicSmokeTests.Run();
+                TraitCoverageAndDescriptions(); GlobalPassiveCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent();
+                BossProfileCoverage(); BossEntryAndReadOnlyGuides(); BossChallengeGoals(); BossPhaseTransitions();
+                BossFailureEffects(); BossIntentAndSignature(); BossPersistenceAndMigration();
+                BossRestrictionRules(); BossHeavyAttackBoundary(); BossRestrictionPersistence();
+                Console.WriteLine("PASS: " + checks + " assertions across shared passive/skill resources, actor isolation, migration, forecasts and Tazia regressions.");
+                return 0;
+            }
             if (args.Contains("--ui-only"))
             {
                 CardDisplayCaching(); UiDeckSnapshotCaching(); CraftingCatalogCaching(); CardSummaryRegression();
@@ -47,6 +65,12 @@ public static partial class CoreSmokeTests
                 Console.WriteLine("PASS: " + checks + " assertions across repeat Tonfa reflection, Isaac shield breaking and D/F damage balance.");
                 return 0;
             }
+            if (args.Contains("--weapon-grants-only"))
+            {
+                WeaponGrantChoiceIdentity();
+                Console.WriteLine("PASS: " + checks + " assertions across weapon grants, choice identities and save recovery.");
+                return 0;
+            }
             if (args.Contains("--accuracy-only"))
             {
                 AccuracyAndTargeting(); AccuracyMissAndEvasionHooks(); AccuracyEnemyAndPersistence(); AccuracySpecialAttacksAndDefense(); GarnetExecutionAndRecall();
@@ -76,18 +100,22 @@ public static partial class CoreSmokeTests
             if (args.Contains("--summary-only"))
             {
                 AdvancedCardPresentation(); CardSummaryRegression();
-                Console.WriteLine("PASS: " + checks + " assertions across all 394 card summaries, upgrades, combat numbers and defining conditions.");
+                Console.WriteLine("PASS: " + checks + " assertions across all card summaries, upgrades, combat numbers and defining conditions.");
                 return 0;
             }
+            TacticalModuleMechanics(); TacticalDisplaySnapshots(); TacticalSkillMechanics();
             KioskUnlockAndStock(); MapKioskProximity(); BossMapPreview(); BossPathLegacyMigration(); BossPathRouteRewards(); PermanentEnergyGrowth(); CriticalBasicAttacks();
             DatabaseIntegrity(); PreparationAndLocks(); RouteProgression(); CombatPilesAndEnergy();
             EnemyDeckAndStatus(); EnemyPreview(); RewardsOnlyOnce(); SubjectAndBossRewardCardLimits(); PendingSubjectRewardMigration(); WildlifeDropTables(); WildlifeSupplyRewards(); SubjectDropTables();
             ShopEconomy(); CampAndEquipment(); FoodAndCooking(); CampRestAndDeckRemoval(); CraftingCatalogCaching(); CardDisplayCaching(); UiDeckSnapshotCaching(); PassiveCapacity(); EventEffects(); BasicAttackEncounters();
             StarterLocksAndCeiling(); FullEnemyLoadouts(); EquipmentIdentityAndAlex();
             WeaponSpecialMechanics(); WeaponAndTacticalDamageBalance();
+            WeaponGrantChoiceIdentity();
             AdvancedCardRuleDefinitions(); CompanionMechanicTests(); AdvancedCombatMechanics(); AdvancedCardPresentation(); CardSummaryRegression();
             SuaTargetAndBlindMechanics();
             SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); CrossSubjectRules(); CrossSubjectCombatAndSave(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
+            checks += TaziaMechanicSmokeTests.Run();
+            checks += SharedPassiveResourceSmokeTests.Run();
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();
             OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates(); HealingDroneHealthTrigger(); RevisedEconomyAndEncounters();
             AccuracyAndTargeting(); AccuracyMissAndEvasionHooks(); AccuracyEnemyAndPersistence(); AccuracySpecialAttacksAndDefense();
@@ -116,7 +144,7 @@ public static partial class CoreSmokeTests
             EndlessCriticalCapsAndSave(); EndlessCriticalGuaranteedHits(); EndlessCriticalEnemyAndPreview();
             ExpandedEquipmentCoverageAndCraft(); EquipmentCriticalDamageAndPersistence();
             WildlifeSpecialActions(); WildlifeMutationsAndPersistence(); WildlifeMutationRewardsAndIsolation();
-            Console.WriteLine("PASS: " + checks + " assertions across 130 game-rule scenarios.");
+            Console.WriteLine("PASS: " + checks + " assertions across core game rules and Tazia integration.");
             return 0;
         }
         catch (Exception ex) { Console.Error.WriteLine("FAIL: " + ex); return 1; }
@@ -845,7 +873,8 @@ public static partial class CoreSmokeTests
             if (SampleCards(weighted, pair, 1)[0] == "nia_q") favoredHits++;
         }
         Check(normalHits > samples * .48 && normalHits < samples * .52, "unowned equal candidates remain approximately 50/50");
-        Check(favoredHits > samples * .58 && favoredHits < samples * .62 && favoredHits > normalHits + 1500, "1.5x weighting yields approximately 60/40 for one owned candidate");
+        Check(Math.Abs(GameEngine.PassiveSkillOfferMultiplier - 1.8f) < .0001f, "passive offer multiplier matches the 9:5 sampling weights");
+        Check(favoredHits > samples * .625 && favoredHits < samples * .66 && favoredHits > normalHits + 2300, "1.8x weighting yields approximately 64.29/35.71 for one owned candidate");
         Console.WriteLine("Passive offer distribution: uniform " + normalHits + "/" + samples + ", favored " + favoredHits + "/" + samples + ".");
 
         var boundaryPool = new[] { "nia_q", "nia_q", "jackie_q", "basic_attack", "tactical_blink", null, "missing_card" };
@@ -1442,7 +1471,7 @@ public static partial class CoreSmokeTests
         Check(e.CardTotalDamage("basic_attack")==basic+6 && e.PlayCard(0) && e.State.hp==54,"Isaac's third basic adds both damage and actual healing");
         Check(e.CombatActions.Count(x=>x.traitId=="isaac_p")>=4,"passive activations retain their identity for effects");
         e=MechanicsFixture("yuki_p");c=e.State.combat;c.hand.Add("aya_q");int predicted=e.CardTotalDamage("aya_q"),before=c.enemyHp;
-        Check(e.PlayCard(0) && before-c.enemyHp==predicted && SkillMechanics.Resource(c.playerTraits.skills,"trait:yuki_p","cuff")==2,"Yuki's buttons strengthen a different owner's skill and consume once per card");
+        Check(e.PlayCard(0) && before-c.enemyHp==predicted && SkillMechanics.Resource(c.playerSkills,"유키","cuff")==2,"Yuki's buttons strengthen a different owner's skill and consume once per card");
         e=MechanicsFixture("abigail_p");c=e.State.combat;c.hand=new List<string>{"nia_q","basic_attack"};
         Check(e.PlayCard(0) && TraitMechanics.EmpowerBonus(c.playerTraits,GameDatabase.Card("basic_attack"))==4,"a foreign skill can prepare Abigail's next basic attack");
         int hp=c.enemyHp;basic=e.CardDamage("basic_attack");Check(e.PlayCard(0) && hp-c.enemyHp==basic+4 && TraitMechanics.EmpowerBonus(c.playerTraits,GameDatabase.Card("basic_attack"))==0,"trait basic empowerment resolves once and is consumed");
@@ -1465,18 +1494,18 @@ public static partial class CoreSmokeTests
     private static void TraitHitAndHealingHooks()
     {
         var e=MechanicsFixture("arda_p");var c=e.State.combat;e.State.hp=50;c.hand=new List<string>{"charlotte_w","nia_q"};
-        Check(e.PlayCard(0) && SkillMechanics.Resource(c.playerTraits.skills,"trait:arda_p","antiquity")==0,"healing setup does not count as a skill hit");
-        c.enemyBlock=999;Check(e.PlayCard(0) && SkillMechanics.Resource(c.playerTraits.skills,"trait:arda_p","antiquity")==1,"a landed skill blocked by armor still counts as a hit");
+        Check(e.PlayCard(0) && SkillMechanics.Resource(c.playerSkills,"아르다","antiquity")==0,"healing setup does not count as a skill hit");
+        c.enemyBlock=999;Check(e.PlayCard(0) && SkillMechanics.Resource(c.playerSkills,"아르다","antiquity")==1,"a landed skill blocked by armor still counts as a hit");
         e=MechanicsFixture(null,"aya");c=e.State.combat;e.State.hp=50;c.hand.Add("charlotte_w");
         Check(e.PlayCard(0) && c.enemyTraits.counters.Count==0 && c.enemyBlock==0,"healing setup does not consume the defender's before-incoming protection");
         e.EndTurn();c.hand.Add("basic_attack");c.energy=99;Check(e.PlayCard(c.hand.Count-1) && e.CombatActions.Any(x=>x.enemy && x.traitId=="aya_p" && x.block==5),"Aya's protection is ready for the later real attack");
         e=MechanicsFixture("dailin_p");c=e.State.combat;e.State.hp=50;e.State.foods.Add("soup");
-        Check(e.UseFood(0) && SkillMechanics.Resource(c.playerTraits.skills,"trait:dailin_p","bac")==1,"combat food recovery fires global healing traits");
+        Check(e.UseFood(0) && SkillMechanics.Resource(c.playerSkills,"리 다이린","bac")==1,"combat food recovery fires global healing traits");
         e=MechanicsFixture("tia_p");c=e.State.combat;e.State.passives.Add("dailin_p");e.State.hp=50;
         c.playerTraits.skills.resources.Add(new SkillResource{owner="trait:tia_p",key="mixed",label="혼합",amount=1,cap=3});
         // A synthetic before-card bonus heal must not masquerade as the original card's recovery event.
         var tia=GameDatabase.Passive("tia_p");var profile=tia.mechanics;
-        try{tia.mechanics=new TraitMechanicProfile{rules=new[]{new TraitRule{trigger="before_card",op="bonus_heal",amount=2}}};c.hand.Add("basic_attack");Check(e.PlayCard(0) && e.State.hp==52 && SkillMechanics.Resource(c.playerTraits.skills,"trait:dailin_p","bac")==0,"trait bonus healing cannot recursively grant another healing trait");}
+        try{tia.mechanics=new TraitMechanicProfile{rules=new[]{new TraitRule{trigger="before_card",op="bonus_heal",amount=2}}};c.hand.Add("basic_attack");Check(e.PlayCard(0) && e.State.hp==52 && SkillMechanics.Resource(c.playerSkills,"리 다이린","bac")==0,"trait bonus healing cannot recursively grant another healing trait");}
         finally{tia.mechanics=profile;}
         e=MechanicsFixture();c=e.State.combat;c.enemyHp=50;c.enemyMaxHp=100;
         c.enemyTraits.buffs.Add(new TraitBuff{sourceId="fixture",kind="heal_reduction",amount=20,remaining=2});c.enemySkills.effects.Add(new SkillTimedEffect{owner="펜리르",key="hot",kind="hot",sourceCard="fenrir_r",amount=3,remaining=1});
@@ -1824,7 +1853,10 @@ public static partial class CoreSmokeTests
             Check(card.weak==0 && card.vulnerable==0,"unrelated generic weakness/vulnerability removed: "+card.id);
             foreach(var status in card.statuses)
             {
-                Check(status.duration==1 && StatusMechanics.Name(status.key)!=status.key,"localized, bounded source status: "+card.id+"/"+status.key);
+                // These two authored F skills deliberately keep their two-turn slow.
+                // All earlier Q/W/E/R and D controls retain the one-turn source budget.
+                int expectedDuration=status.key=="slow" && (card.id=="tactical_quake" || card.id=="tactical_plasma")?2:1;
+                Check(status.duration==expectedDuration && StatusMechanics.Name(status.key)!=status.key,"localized, bounded source status: "+card.id+"/"+status.key);
                 Check(card.description.Contains(StatusMechanics.Name(status.key)),"card detail names actual status: "+card.id+"/"+status.key);
                 if(status.timing!="cast" && status.timing!="next_basic")Check(card.mechanics!=null && card.mechanics.rules.Any(x=>x.key==status.timing && new[]{"delayed_damage","counter","summon","bleed","burn"}.Contains(x.op)),"delayed status has a real source effect: "+card.id+"/"+status.timing);
             }

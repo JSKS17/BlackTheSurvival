@@ -18,7 +18,7 @@
     1230
   ],
   "output_path": "Assets/Resources/Lumia/Story/Characters/nia_frustrated.png",
-  "output_sha256": "27924ac37ea8c73729b48545653fd386b84e99b756ccce785d99f39437da1887",
+  "output_sha256": "fe3bb122b3594a892480a17f1809046e88a55494adf79f83d4c94175ad3ea772",
   "output_dimensions": [
     1254,
     1254
@@ -72,5 +72,15 @@
     "original_character_hair_outfit_identity_preserved": true,
     "short_limbs_big_head_pixel_style_preserved": true,
     "no_background_ui_text_or_speech_bubble": true
-  }
+  },
+  "userOverrides": [
+    {
+      "manifest": "docs/art-nia-black-eyes/manifest.json",
+      "date": "2026-10-19",
+      "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+      "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+      "previousRuntimeSha256": "27924ac37ea8c73729b48545653fd386b84e99b756ccce785d99f39437da1887",
+      "currentRuntimeSha256": "fe3bb122b3594a892480a17f1809046e88a55494adf79f83d4c94175ad3ea772"
+    }
+  ]
 }

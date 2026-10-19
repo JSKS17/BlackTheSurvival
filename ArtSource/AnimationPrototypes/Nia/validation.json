@@ -1,5 +1,5 @@
 {
-  "type": "unintegrated_art_prototype",
+  "type": "approved_runtime_art",
   "generated_with": "built-in image_gen.imagegen",
   "atlas": {
     "width": 1448,
@@ -8,8 +8,8 @@
     "rows": 3,
     "cell_width": 362,
     "cell_height": 362,
-    "sha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
-    "original_bytes_preserved": true
+    "sha256": "719e68557a1cff9d185a38bb74cd212f96ca39ab9915810d35c204bb95de6ffa",
+    "original_bytes_preserved": false
   },
   "animation": {
     "fps": 8,
@@ -61,13 +61,19 @@
     "all_12_frames_distinct": true,
     "webp_visible_rgba_lossless": true,
     "transparent_pixels_present_each_frame": true,
-    "game_assets_or_scripts_modified": false
+    "game_assets_or_scripts_modified": true,
+    "only_reviewed_iris_rgb_changed": true,
+    "outside_iris_rgba_preserved": true,
+    "alpha_geometry_and_effects_preserved": true,
+    "gif_visible_rgba_preserved_outside_iris": true,
+    "webp_visible_rgba_preserved_outside_iris": true,
+    "preview_timing_and_geometry_preserved": true
   },
   "frames": [
     {
       "index": 0,
-      "sha256": "6d783f4f4b564a02144c1b1d56012be09afef3b3d6c350d8fed5ceebdccddb61",
-      "rgba_sha256": "3c2763b8ca6dbb0ad12a6ec6bfec2b861275f236ef47ce72f7e51f5aca235776",
+      "sha256": "4c35dbd74fbebcb7e4132b6ded86ad8d17d1b4cc83a5bbbe2b55e14f67333c79",
+      "rgba_sha256": "fbfc0753119d41e61720e736f2a5f339e576fa66afffcd74e15c34968e68a1b2",
       "alpha_bbox": [
         76,
         68,
@@ -85,8 +91,8 @@
     },
     {
       "index": 1,
-      "sha256": "bebc437cbb75a729a92830af461848ddc8c9bcf07c45dd13f0c6a1791348847a",
-      "rgba_sha256": "9c3043d6c2a914cc7e7e8407fece3457f59f232b2e4166f27ad27be0e3e18883",
+      "sha256": "d556233e3e5635999ed478f684df2c71a08b02cb40ee73ebd504dbce8f4d375f",
+      "rgba_sha256": "8160c236352d89ed0e43394b7c095a0ec3b543154f08beff6547368bdc5b6940",
       "alpha_bbox": [
         78,
         73,
@@ -104,8 +110,8 @@
     },
     {
       "index": 2,
-      "sha256": "afac9a98a7de711218f7eb6a2b3d048018e7799f5e26fa9fdc19c1fe0d5dfed9",
-      "rgba_sha256": "bab789f264fdc7467041247d92828cf2d0c65ca3f91cf8e26050babc41d2c74c",
+      "sha256": "b9b88454d6b39d7b37c03d4c091d26caf448de6478e3bdd38bde8c79685cc5d4",
+      "rgba_sha256": "fb0d305406772e6c8bb717a6f7b099aba576068a8b2f2d1229f4e2e8ef8ab9a0",
       "alpha_bbox": [
         73,
         68,
@@ -123,8 +129,8 @@
     },
     {
       "index": 3,
-      "sha256": "03749043fac1c2f126fa9c02018a824ff15ea516b5ac4b6e65d7a264736d82c1",
-      "rgba_sha256": "46d67aec9f933e4d18c1d23da299d0dbd01a88c2a4830866a575ebbb993c9195",
+      "sha256": "f7d522eae192395cf1d61cc1c8a477c98c4476b07b3c097cc3c63b4bcd7f8c37",
+      "rgba_sha256": "edbeb3544e83e6f9e9da5808f940ded58a7fe9bd95039ed57f5015dfef79a204",
       "alpha_bbox": [
         10,
         68,
@@ -142,8 +148,8 @@
     },
     {
       "index": 4,
-      "sha256": "f1da97fb324d77b890feca751705ecc622cdca0b8fd3c93b62445f7e59b3996b",
-      "rgba_sha256": "3785192ef7d19559da8c812534c728a9057da12f56b07f67bae821a21b965e69",
+      "sha256": "2ac988a6aabb5811c7fafa275f49cb84f1b0b8ee1f577131a2b490b5b7c5c0e2",
+      "rgba_sha256": "68bddd128377bda98c77567b2cb909c013499f10fb38f2e7f93f50d429204d1a",
       "alpha_bbox": [
         31,
         44,
@@ -161,8 +167,8 @@
     },
     {
       "index": 5,
-      "sha256": "b269f884b7f0374bdd76d6a98f0eb29683df7d1bd172f0b9020af55713275b12",
-      "rgba_sha256": "0803eaed99184ae6d409e24fdb2a2ce3ef6985444c3dc3fa7b88427688242f1e",
+      "sha256": "d0c76cee32c92532bb3bd5643b52c04b229d7ad66e380a8455bfae32b089affb",
+      "rgba_sha256": "a922c07773b5724e25f57b289aa380fc0f4afd56467a90c8e57f9f549ec5d06b",
       "alpha_bbox": [
         33,
         44,
@@ -180,8 +186,8 @@
     },
     {
       "index": 6,
-      "sha256": "4c40e13d28936e392e9a5ca82313cb42225d44cd3a51f7756ec13b32aed5ed75",
-      "rgba_sha256": "33c445665ab5ebc72d5feb59c9cabeb0cc29e9c3c1c61aea592c3ad37ba49d69",
+      "sha256": "a75b2f5c9a155dc11e55c9ce694bf86757a8ef59ed3506d85954fcd980dc26ec",
+      "rgba_sha256": "35b287c334c87a71e78d5ee20590bd1cdd13f6f0dc7a8a4043564390dbf42e7a",
       "alpha_bbox": [
         32,
         44,
@@ -199,8 +205,8 @@
     },
     {
       "index": 7,
-      "sha256": "89e34988d2434abbe007ae6afec570632a8196301eb667ffa8989e729c5ef858",
-      "rgba_sha256": "1021d99ab4f019d754e8312c81680acf2ff2b331d5425ec48710cc5e04863f87",
+      "sha256": "8db457ec6059c727b9644a734486d220535b8f6e56f1ed094dc3c84a8cecb66a",
+      "rgba_sha256": "75fd3f4643928ae84f67da2881b397661e52ad9b46c6a611046a1cf089a24c1f",
       "alpha_bbox": [
         33,
         44,
@@ -218,8 +224,8 @@
     },
     {
       "index": 8,
-      "sha256": "0b8294667f8e994e919268e8f92432e2514b6ab23ce73af95f1bb4c2e39702a3",
-      "rgba_sha256": "44901b1c5f9c031adfc3482cdc72875e6c48ed0766b485cb464952146e5dc4bf",
+      "sha256": "4c7a5fab020bd8a389dbbafc94ef5c6a0a29e25d21c743e632ce14f1815b929b",
+      "rgba_sha256": "dc634f4bf3b2eaa9545370eb9ee7e435a6205a767110c2258c07ad1d93d8fd90",
       "alpha_bbox": [
         29,
         9,
@@ -237,8 +243,8 @@
     },
     {
       "index": 9,
-      "sha256": "0693a88957a3fd60eb764bdcc1b06675f19dfa2f40bff90beb1fd2c43f58f42f",
-      "rgba_sha256": "ddaf07e18832b81d2c986ec98cdda0e25b121c32c78bf112dc6c65dfdecc491d",
+      "sha256": "c4a8c6548638f20500aba6130e4d2f7ade0509652dbc1b92c463ac39ef96f717",
+      "rgba_sha256": "72d7d3a2aca1cbe58163c14e07129be952afad61275f9df0039cf7dbea92b71a",
       "alpha_bbox": [
         29,
         9,
@@ -256,8 +262,8 @@
     },
     {
       "index": 10,
-      "sha256": "d7cb5038ece8d85a7de01c48b13a48fb5ca36260661d22c8c1d1b56244836b06",
-      "rgba_sha256": "6b32e9658cfa7abb61705f75738ddc043051e890225641df7ce7fa30779c0c36",
+      "sha256": "ee0d6999e506b93efabe02bb146f1b1f3d2479a149064934edd9215d19cb22eb",
+      "rgba_sha256": "7a13c07a0c7fcac1dee7bcdbe9dd6ec324e88a497d1d9097b6767c6fcd0170c4",
       "alpha_bbox": [
         43,
         12,
@@ -275,8 +281,8 @@
     },
     {
       "index": 11,
-      "sha256": "34e694d24ab6c7845f708cda1573b7fd56ddc278281eab84b41816ae0a2b3132",
-      "rgba_sha256": "dad6f961f9258f715116fb0642f112e99aa2fb783403780cf405d61e83e9b950",
+      "sha256": "5e71a0b9fff7b82843b517f9a9812b879bdcf2153d43c4726ffb4aa42b20de02",
+      "rgba_sha256": "e5b8ab36e76a32a2169af2614e80e2c0f5ba453077b4a06a23430bf2987e251b",
       "alpha_bbox": [
         68,
         9,
@@ -292,5 +298,21 @@
         106
       ]
     }
-  ]
+  ],
+  "iris_color_edit": {
+    "date": "2026-10-19",
+    "tool": "built-in image_gen.imagegen with strict original-pixel iris compositing",
+    "original_atlas_sha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
+    "changed_pixels": 2015,
+    "outside_iris_changed_pixels": 0,
+    "alpha_changed_pixels": 0,
+    "mask": "Build/NiaEyesVerification/ultimate/iris-mask.json",
+    "proof": "Build/NiaEyesVerification/ultimate/proof.json",
+    "palette": [
+      "#141318",
+      "#222126",
+      "#3c3942"
+    ],
+    "preview_proof": "Build/NiaEyesVerification/ultimate/preview-proof.json"
+  }
 }

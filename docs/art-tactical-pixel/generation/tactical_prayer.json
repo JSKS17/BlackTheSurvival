@@ -1,0 +1,8 @@
+{
+  "id": "tactical_prayer",
+  "prompt": "Use case: style-transfer\nAsset type: tactical game ability icon, intended final 96x96.\nInput images: Image 1 is the exact subject, composition and color reference. Image 2 is pixel style ONLY; do not borrow its subject or pink palette.\nPrimary request: Redraw Image 1 as deliberately COARSE 32x32 logical-resolution pixel art. Preserve the original golden three-dimensional open orbital halo rings around a central descending gold light column, with smaller orbiting curved rings, tiny square gold sparkles and dark navy surrounding negative space. Preserve the ring angles, arrangement, glowing golden-yellow palette, and centered composition.\nStyle/medium: use Image 2's chunky square pixel clusters, very low resolution stepped silhouettes and deliberate pixel highlights; make the art visibly coarse at full size. Treat this as a 32x32 pixel sprite enlarged with nearest neighbor into a square image. Use only 12-16 hard-edged solid colors. Opaque dark navy background fills the whole square.\nConstraints: keep the original recognizable subject, layout, proportions and dominant colors. Crisp axis-aligned square pixels, hard stepped edges, no anti-aliasing, no smoothing, no blur, no gradients, no photographic texture, no text, no letters, no numbers, no frame, no UI border. Output a single square icon only.",
+  "tool": "built-in image_gen",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a154bf-4649-7211-9fcf-095c7a896af5\\exec-01c33319-d658-42c2-9105-16d3aff4ee44.png",
+  "referencePath": "docs/art-tactical-pixel/references/tactical_prayer.png",
+  "styleReferencePath": "docs/art-tactical-pixel/references/style_nia_q.png"
+}

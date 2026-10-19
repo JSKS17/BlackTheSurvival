@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-10-20",
+  "result": "PASS",
+  "reviewedCount": 27,
+  "method": "Inspected every local reference through view_image before generation. Inspected all 27 final normalized outputs beside original references in the contact sheet; delegated authors also inspected each generated original.",
+  "contactSheetPath": "docs/art-tactical-pixel/tactical-pixel-contact-sheet.png",
+  "checks": [
+    "All 26 F icon subjects remain recognizable with original dominant palettes and compositions.",
+    "All 26 F icons use opaque dark navy square backgrounds and coarse stepped pixel silhouettes.",
+    "Tactical module preserves its cyan triangular device identity and generated transparency.",
+    "No text, labels, card frames or accidental Nia Q subject copying is present in generated icons.",
+    "Full-tile nearest-neighbour normalization preserves generated art; no repainting, quantization, smoothing or blur was added.",
+    "Runtime output dimensions are 96x96 for F skills and 64x64 for the system module.",
+    "All original reference SHA-256 values are preserved and all 27 runtime PNGs differ from the original source PNGs.",
+    "All 27 Unity texture GUIDs are preserved, Point filtering is configured, and mipmaps remain disabled."
+  ],
+  "provenanceManifestPath": "docs/art-tactical-pixel/output-manifest.json"
+}

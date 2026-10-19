@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-19",
+  "tool": "built-in image_gen.imagegen guide plus strict Node.js/sharp iris RGB mask",
+  "gameIntegrated": false,
+  "userOverride": {
+    "date": "2026-10-19",
+    "request": "All Nia irises become near-black. This older preview preserves its original walking poses and ALL non-eye colors; walking palette correction applies only to the current approved loading animation.",
+    "guideTool": "built-in image_gen.imagegen",
+    "application": "Same verified iris-only RGB mask as the identical approved recovery source sheet.",
+    "validation": "Build/NiaEyesVerification/loading/masked-sheet-validation.json",
+    "originalSourceSha256": "52047c5af894364211391cabc0f6f785f7aa1a5870b09f8776e489ec06b79f53",
+    "preserved": "All non-eye source RGBA, all source alpha and geometry, logo and E effects, original older walk movement, and complete 8-second timeline.",
+    "runtimeCopy": false
+  },
+  "promptReference": "Build/NiaEyesVerification/loading/imagegen-prompts.json",
+  "originals": "Build/NiaEyesVerification/originals/ArtSource/AnimationPrototypes/NiaLoadingPreview20261016",
+  "gifPreservation": {
+    "method": "Original image-block index replacement with unchanged RGB palettes; nearest existing RGB inside caller-approved masks only.",
+    "validation": "Build/NiaEyesVerification/loading/preview-gif-palette-validation.json",
+    "rgbaOutsideAllowedMasksChanged": 0,
+    "alphaChanged": 0,
+    "sourcePalettesAndFrameControlPreserved": true,
+    "sha256": "18ceab8ad8958292a01fcfaa4af0380deaa7a0eeb61fb63c4ee55c86c6e20427"
+  }
+}

@@ -1,0 +1,72 @@
+<div id="bts-tactical-preview">
+  <h2>전술 스킬 26종</h2>
+  <div id="bts-tactical-selected" class="tactical-selected" aria-live="polite">
+    <img id="bts-tactical-icon" alt="" width="64" height="64">
+    <div><h3 id="bts-tactical-name"></h3><span id="bts-tactical-meta" class="text-small text-muted"></span></div>
+  </div>
+  <div id="bts-tactical-grid" class="tactical-grid" aria-label="전술 스킬 선택"></div>
+  <p class="text-small text-muted">일반 출신 14종 · 코발트 출신 12종 · 초월 제외 · 과거 스킬과 전술 교체 인퓨전 포함</p>
+  <div class="tactical-effects" aria-live="polite">
+    <section><h3>기본 효과</h3><div id="bts-tactical-base" class="tactical-text"></div></section>
+    <section><h3 id="bts-tactical-enhanced-title">모듈 강화 후</h3><div id="bts-tactical-enhanced" class="tactical-text"></div></section>
+  </div>
+  <hr>
+  <dl>
+    <dt>추가되는 강화 효과</dt><dd id="bts-tactical-change"></dd>
+    <dt>특정 카드 판매 조우</dt><dd id="bts-tactical-sales"></dd>
+    <dt><img id="bts-module-icon" alt="전술강화 모듈 도트 아이콘" width="28" height="28"> 모듈 획득 조우</dt><dd id="bts-tactical-modules"></dd>
+  </dl>
+  <div id="bts-tactical-sources" class="text-small"></div>
+</div>
+<style>
+#bts-tactical-preview { color:var(--foreground); }
+#bts-tactical-preview .tactical-selected { display:flex; align-items:center; gap:16px; margin:16px 0; }
+#bts-tactical-preview .tactical-selected h3 { margin:0 0 8px; }
+#bts-tactical-preview .tactical-selected img { object-fit:contain; image-rendering:pixelated; flex-shrink:0; }
+#bts-tactical-preview .tactical-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+#bts-tactical-preview .tactical-effects { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+#bts-tactical-preview .tactical-text { white-space:pre-line; overflow-wrap:anywhere; }
+#bts-tactical-preview dd { margin:8px 0 16px; overflow-wrap:anywhere; }
+@media(max-width:520px) { #bts-tactical-preview .tactical-effects { grid-template-columns:1fr; gap:8px; } #bts-tactical-preview .tactical-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:360px) { #bts-tactical-preview .tactical-grid { grid-template-columns:1fr; } }
+</style>
+<script type="application/json" id="bts-tactical-data">__TACTICAL_PREVIEW_DATA__</script>
+<script>
+(() => {
+  const root=document.getElementById('bts-tactical-preview');
+  const data=JSON.parse(document.getElementById('bts-tactical-data').textContent);
+  const grid=root.querySelector('#bts-tactical-grid');
+  const buttons=new Map();
+  const byId=new Map(data.cards.map(card=>[card.id,card]));
+  root.querySelector('#bts-module-icon').src=data.moduleIcon;
+  let selectedId=data.cards[0].id;
+  const text=(id,value)=>{root.querySelector('#'+id).textContent=value;};
+  function savedId(state) { return state?.modelContent?.tacticalCardId || state?.privateContent?.selectedId; }
+  function select(id,persist=false) {
+    const card=byId.get(id)||data.cards[0]; selectedId=card.id;
+    for(const [key,button] of buttons)button.setAttribute('aria-pressed',String(key===selectedId));
+    const icon=root.querySelector('#bts-tactical-icon');icon.src=card.icon;icon.alt=card.name+' 도트 아이콘';
+    text('bts-tactical-name',card.name);
+    text('bts-tactical-meta','F · '+card.base.cost+'코스트 · '+card.originLabel+' · '+card.statusLabel);
+    text('bts-tactical-base',card.base.description);
+    text('bts-tactical-enhanced',card.enhanced.description);
+    text('bts-tactical-enhanced-title',card.cobalt?'모듈 강화 후 · 턴제 확장':'모듈 강화 후');
+    text('bts-tactical-change',card.moduleChange);
+    text('bts-tactical-sales',card.sales.length?card.sales.map(s=>s.subject+' — 일반 '+s.normalPrice+' CR / 레어 '+s.rareEnhancedPrice+' CR (전술 강화된 한 장)').join(' · '):'전용 판매 조우 없음 · 카드 보상과 무작위 전술 카드 획득에 포함');
+    const source=root.querySelector('#bts-tactical-sources');source.replaceChildren();
+    const label=document.createElement('span');label.textContent='원작 자료 · ';source.append(label);
+    for(const [i,url] of card.sourceUrls.entries()) {
+      if(i)source.append(document.createTextNode(' · '));
+      const a=document.createElement('a');a.href=url;a.textContent='공식 자료 '+(i+1);a.target='_blank';a.rel='noopener noreferrer';source.append(a);
+    }
+    source.append(document.createTextNode(' / 원작 아이콘을 참고한 도트 재작화 · 원작 IP 저작권: 님블뉴런'));
+    if(persist&&window.openai?.setWidgetState)window.openai.setWidgetState({modelContent:{tacticalCardId:card.id,tacticalCardName:card.name},privateContent:{selectedId:card.id}}).catch(()=>{});
+  }
+  for(const card of data.cards) {
+    const button=document.createElement('button');button.type='button';button.className='btn viz-tile';button.textContent=card.name;button.setAttribute('aria-pressed','false');button.addEventListener('click',()=>select(card.id,true));buttons.set(card.id,button);grid.append(button);
+  }
+  text('bts-tactical-modules',data.moduleSubjects.map(s=>s.name).join(' · ')+' — 일반 조우 '+data.normalModuleAmount+'개 / 레어 조우 '+data.rareModuleAmount+'개');
+  select(savedId(window.openai?.widgetState));
+  window.addEventListener('openai:set_globals',event=>{const id=savedId(event.detail?.globals?.widgetState);if(byId.has(id)&&id!==selectedId)select(id);});
+})();
+</script>

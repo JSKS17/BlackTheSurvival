@@ -31,10 +31,12 @@ namespace Lumia
             foreach (string id in new[] { "vanya_q", "bianca_w", "chloe_e", "magnus_w" }) Card(id).freeCastNextTurn = true;
             WeaponDamageBalance.Configure(Cards);
             AdvancedCardMechanics.Configure(Cards);
+            TacticalSkills.Configure(Cards);
             foreach (var card in Cards) card.description = CardPresentation.Describe(card, Cards);
             TraitMechanics.Configure(Passives, Runes);
             EquipmentIdentity.Configure(Gear);
             EncounterChains.Configure(Events);
+            TacticalEncounterOptions.ConfigureNormal(Events);
             EventPresentation.Configure(Events);
             EventPresentation.Configure(EncounterChains.Events);
             ResearchEncounters.Configure();
@@ -168,6 +170,7 @@ namespace Lumia
             Skill("tactical_blink", "블링크", "전술", "F", 45, block:12, evasion:60, duration:2, exhaust:true, category:"tactical");
             Skill("tactical_wind", "치유의 바람", "전술", "F", 50, heal:25, block:8, exhaust:true, category:"tactical");
             Skill("tactical_plasma", "플라즈마 대시", "전술", "F", 50, damage:25, evasion:40, duration:2, exhaust:true, category:"tactical");
+            TacticalSkills.AddCards(Cards);
         }
 
         static void Skill(string id, string name, string owner, string key, float cooldown, int damage=0, int block=0, int heal=0, int draw=0, int energy=0, int poison=0, int vulnerable=0, int weak=0, int strength=0, int evasion=0, int duration=1, int hits=1, bool exhaust=false, string category="skill")

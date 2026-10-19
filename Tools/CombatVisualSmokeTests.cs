@@ -20,7 +20,7 @@ public static partial class CoreSmokeTests
         int draftRandom = engine.State.draftSeed;
         int deck = engine.State.deck.Count;
 
-        Check(GameDatabase.Cards.Count == 392, "visual coverage fixture includes the entire 392-card runtime catalog");
+        Check(GameDatabase.Cards.Count == 415, "visual coverage fixture includes the entire 415-card runtime catalog");
         foreach (var card in GameDatabase.Cards)
         {
             var value = CombatVisualProfiles.For(card);

@@ -1,0 +1,1258 @@
+{
+  "schemaVersion": 2,
+  "researchedDate": "2026-10-19",
+  "assetVersion": "12.6.0",
+  "scope": "26 named unique original tactical skills including historical and tactical-replacement infusion skills; Transcendence and unnamed placeholders excluded.",
+  "counts": {
+    "total": 26,
+    "normalOrigin": 14,
+    "cobaltOrigin": 12,
+    "normalRemoved": 1,
+    "cobaltRemoved": 1,
+    "cobaltHistoricalRetained": 3,
+    "cobaltTacticalReplacementInfusions": 3
+  },
+  "criticalNotesKo": [
+    "원본 API 카탈로그에 항목이 남아 있어도 현재 게임의 선택 가능 목록이라는 뜻은 아닙니다.",
+    "원작 쿨다운은 일반/코발트/과거 버전을 구분해 보관합니다. 팬 게임 카드 코스트와 효과 수치는 별도 밸런스 값입니다.",
+    "코발트 전용 기술은 원작에 모듈 강화가 없었던 경우가 많습니다. 해당 기술의 팬 게임 모듈 효과는 새 턴제 확장으로 표기해야 합니다.",
+    "8.2 코발트 제외 목록은 치유의 바람, 프로토콜 위반, 강한 결속입니다. 강한 결속의 영문 표기는 Soul Stealer이나 원작 한국명은 영혼 흡수가 아닙니다.",
+    "라이트 윙 기본 공격 둔화는 12.1에 삭제되었습니다. 모듈의 기본 공격 적중 시 지속 연장은 남아 있습니다.",
+    "플라즈마 대시, 라이트 윙, 폭진, 블레싱: 명상이 원본 한국어 이름입니다."
+  ],
+  "sources": {
+    "s129": {
+      "url": "https://playeternalreturn.com/posts/news/2132?hl=ko-KR",
+      "version": "1.29",
+      "date": "2024-08-29",
+      "scope": "Two-level tactical system and normal-mode cooldown references."
+    },
+    "s132": {
+      "url": "https://playeternalreturn.com/posts/news/2237?hl=ko-KR",
+      "version": "1.32",
+      "date": "2024-10-10",
+      "scope": "Quake immediate hit; Blade of Truth second strike."
+    },
+    "s134": {
+      "url": "https://playeternalreturn.com/posts/news/2304?hl=ko-KR",
+      "version": "1.34",
+      "date": "2024-11-07",
+      "scope": "Soul Stealer cooldown and energy change."
+    },
+    "s146": {
+      "url": "https://playeternalreturn.com/posts/news/2674?hl=ko-KR",
+      "version": "1.46 cobalt reboot",
+      "date": "2025-04-30",
+      "scope": "Cobalt selected tacticals and tactical-replacement infusions."
+    },
+    "s146normal": {
+      "url": "https://playeternalreturn.com/posts/news/2673?hl=ko-KR",
+      "version": "1.46",
+      "date": "2025-04-30",
+      "scope": "Electric Shift cooldown; Strijder hit power."
+    },
+    "s82": {
+      "url": "https://playeternalreturn.com/posts/news/2885?hl=ko-KR",
+      "version": "8.2",
+      "date": "2025-07-24",
+      "scope": "Cobalt 14-selection change; excludes Healing Wind, Protocol Violation, Soul Stealer."
+    },
+    "s94": {
+      "url": "https://playeternalreturn.com/posts/news/3182?hl=ko-KR",
+      "version": "9.4",
+      "date": "2025-11-27",
+      "scope": "Cobalt Quake and Nullification cooldowns; False Oath balance."
+    },
+    "s103": {
+      "url": "https://playeternalreturn.com/posts/news/3374?hl=ko-KR",
+      "version": "10.3",
+      "date": "2026-02-19",
+      "scope": "Cobalt Blink, Electric Shift, Strijder, Totem cooldowns; Lock On 150+150 damage."
+    },
+    "s110": {
+      "url": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+      "version": "11.0",
+      "date": "2026-04-30",
+      "scope": "False Oath removed; Wings of Light, Repulsor Missiles, Plasma Dash; Cobalt Prayer removed and Asthenia added; module effect changes."
+    },
+    "s112": {
+      "url": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
+      "version": "11.2",
+      "date": "2026-05-14",
+      "scope": "Rolling Thunder speed250% for5s, Meteor25s, Asthenia40s."
+    },
+    "s113": {
+      "url": "https://playeternalreturn.com/posts/news/3606?hl=ko-KR",
+      "version": "11.3",
+      "date": "2026-05-28",
+      "scope": "Wings duration extension; Plasma slow30%; Protocol HP value; cleanse bonus speed."
+    },
+    "s114": {
+      "url": "https://playeternalreturn.com/posts/news/3629?hl=ko-KR",
+      "version": "11.4",
+      "date": "2026-06-11",
+      "scope": "Blade of Truth10/8s; Asthenia slow40%; Wings7s."
+    },
+    "s115": {
+      "url": "https://playeternalreturn.com/posts/news/3657?hl=ko-KR",
+      "version": "11.5",
+      "date": "2026-06-25",
+      "scope": "HealingWind/Protocol/Plasma50/40s; Cobalt Plasma40s; Asthenia immediate application."
+    },
+    "s121": {
+      "url": "https://playeternalreturn.com/posts/news/3769?hl=ko-KR",
+      "version": "12.1",
+      "date": "2026-08-13",
+      "scope": "Wings no longer slows with basic attacks."
+    },
+    "s123": {
+      "url": "https://playeternalreturn.com/posts/news/3813?hl=ko-KR",
+      "version": "12.3",
+      "date": "2026-09-03",
+      "scope": "Soul Stealer speed energy scaling; Wings attack speed20%; Gravity infusion casting slow10%."
+    },
+    "s100cobalt": {
+      "url": "https://playeternalreturn.com/posts/news/1285?hl=ko-KR",
+      "version": "1.0.0 cobalt",
+      "date": "2023-07-20",
+      "scope": "Original Truth Explosion and Blessing: Calm Mind behavior, reference values for retained legacy entries."
+    },
+    "s14": {
+      "url": "https://playeternalreturn.com/posts/news/1424?hl=ko-KR",
+      "version": "1.4",
+      "date": "2023-09-14",
+      "scope": "Lightning Shield behavior and17s reference cooldown."
+    },
+    "s111": {
+      "url": "https://playeternalreturn.com/posts/news/1633?hl=ko-KR",
+      "version": "1.11",
+      "date": "2023-12-21",
+      "scope": "Truth Explosion/LightningShield removed from that rotation; later API entries remain."
+    },
+    "s118": {
+      "url": "https://playeternalreturn.com/posts/news/1812?hl=ko-KR",
+      "version": "1.18",
+      "date": "2024-03-28",
+      "scope": "Historical all-candidate Cobalt roster includes Truth Explosion, LightningShield, Blessing; tactical rotations differ from catalog membership."
+    }
+  },
+  "cards": [
+    {
+      "cardId": "tactical_blink",
+      "originalId": 30,
+      "originalNameKo": "블링크",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4000000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_blink.png",
+      "sha256": "b8ba0a3856e4d086e643c230713c8935524b2260dd0435ecc5fb7e28850356a1",
+      "bytes": 19145,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "블링크",
+      "originalCoreParaphraseKo": "짧은 순간이동으로 위치를 바꿉니다.",
+      "originalModuleParaphraseKo": "이동 직후 이동 속도가 증가하고 충돌을 무시합니다.",
+      "turnBasedAdaptationSuggestionKo": "즉시 회피와 이동 판정으로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            90,
+            45
+          ],
+          "mode": "normal",
+          "sourceKey": "s129",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2132?hl=ko-KR",
+          "sourceVersion": "1.29"
+        },
+        {
+          "seconds": 40,
+          "mode": "cobalt",
+          "sourceKey": "s103",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3374?hl=ko-KR",
+          "sourceVersion": "10.3"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_blink.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_blink.png",
+      "sourceSha256": "b8ba0a3856e4d086e643c230713c8935524b2260dd0435ecc5fb7e28850356a1",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_quake",
+      "originalId": 40,
+      "originalNameKo": "퀘이크",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4001000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_quake.png",
+      "sha256": "e51746df593962be137667aa9e52584cfc333a1eb18040a36e667b254894126f",
+      "bytes": 17907,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "퀘이크",
+      "originalCoreParaphraseKo": "주변에 즉발 피해를 입히고 둔화시킵니다.",
+      "originalModuleParaphraseKo": "주변에 지진 지속 피해를 추가합니다.",
+      "turnBasedAdaptationSuggestionKo": "즉발 피해와 둔화, 다음 턴까지 지진 피해로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            40,
+            30
+          ],
+          "mode": "normal",
+          "sourceKey": "s132",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2237?hl=ko-KR",
+          "sourceVersion": "1.32"
+        },
+        {
+          "seconds": 45,
+          "mode": "cobalt",
+          "sourceKey": "s94",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3182?hl=ko-KR",
+          "sourceVersion": "9.4"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_quake.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_quake.png",
+      "sourceSha256": "e51746df593962be137667aa9e52584cfc333a1eb18040a36e667b254894126f",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_protocol",
+      "originalId": 50,
+      "originalNameKo": "프로토콜 위반",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4101000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_protocol.png",
+      "sha256": "f3ae5390a328684b8a551397bc506ee55b64d50fe99cebbe1b321907f2e79c34",
+      "bytes": 17305,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "프로토콜 위반",
+      "originalCoreParaphraseKo": "드론이 잠시 후 폭발하여 적에게 고정 피해를 주고 아군의 최대 체력을 높입니다.",
+      "originalModuleParaphraseKo": "고정 피해와 최대 체력 증가량을 높입니다.",
+      "turnBasedAdaptationSuggestionKo": "지연 폭발 고정 피해와 전투 중 최대 체력 증가로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            50,
+            40
+          ],
+          "mode": "normal",
+          "sourceKey": "s115",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3657?hl=ko-KR",
+          "sourceVersion": "11.5"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_protocol.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_protocol.png",
+      "sourceSha256": "f3ae5390a328684b8a551397bc506ee55b64d50fe99cebbe1b321907f2e79c34",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_redstorm",
+      "originalId": 60,
+      "originalNameKo": "붉은 폭풍",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4102000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_redstorm.png",
+      "sha256": "8590697993887930f7b936d2e848647406df8b24e660357feae65a6aea0fbcd9",
+      "bytes": 15901,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "붉은 폭풍",
+      "originalCoreParaphraseKo": "짧게 이동하고 일정 시간 기본 공격 사거리를 늘립니다.",
+      "originalModuleParaphraseKo": "기본 공격 사거리 증가폭이 커집니다.",
+      "turnBasedAdaptationSuggestionKo": "이동 판정에 기본 공격 강화 상태를 부여합니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            40,
+            30
+          ],
+          "mode": "normal",
+          "sourceKey": "s146normal",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2673?hl=ko-KR",
+          "sourceVersion": "1.46"
+        },
+        {
+          "seconds": 30,
+          "mode": "cobalt",
+          "sourceKey": "s103",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3374?hl=ko-KR",
+          "sourceVersion": "10.3"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_redstorm.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_redstorm.png",
+      "sourceSha256": "8590697993887930f7b936d2e848647406df8b24e660357feae65a6aea0fbcd9",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_artifact",
+      "originalId": 80,
+      "originalNameKo": "아티팩트",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4104000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_artifact.png",
+      "sha256": "9e5d2527da91282f369190cf64e379e5cd9bf83837af30d9d6aa121ae4e552e1",
+      "bytes": 15595,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "아티팩트",
+      "originalCoreParaphraseKo": "정지 상태에 들어가 잠시 피해와 행동에서 벗어납니다.",
+      "originalModuleParaphraseKo": "정지 상태인 동안 자신의 스킬 쿨다운이 빠르게 감소합니다.",
+      "turnBasedAdaptationSuggestionKo": "한시적 무적과 행동 종료, 강화 시 다음 턴 기술 자원 회복으로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            90,
+            45
+          ],
+          "mode": "normal",
+          "sourceKey": "s129",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2132?hl=ko-KR",
+          "sourceVersion": "1.29"
+        },
+        {
+          "seconds": 40,
+          "mode": "cobalt",
+          "sourceKey": "s103",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3374?hl=ko-KR",
+          "sourceVersion": "10.3"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_artifact.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_artifact.png",
+      "sourceSha256": "9e5d2527da91282f369190cf64e379e5cd9bf83837af30d9d6aa121ae4e552e1",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_nullification",
+      "originalId": 90,
+      "originalNameKo": "무효화",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4105000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_nullification.png",
+      "sha256": "5b483e01efa1efb992a06cd5bc84a64eb2cfa15c3c3651a7c9aa2650a3305cce",
+      "bytes": 14578,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "무효화",
+      "originalCoreParaphraseKo": "자신과 주변 아군의 해로운 상태 이상을 해제하고 이동 속도를 높입니다.",
+      "originalModuleParaphraseKo": "잠시 방해 효과 저항을 크게 높입니다.",
+      "turnBasedAdaptationSuggestionKo": "디버프 해제와 회피, 강화 시 군중 제어 저항으로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            40,
+            30
+          ],
+          "mode": "normal",
+          "sourceKey": "s110",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+          "sourceVersion": "11.0"
+        },
+        {
+          "seconds": 30,
+          "mode": "cobalt",
+          "sourceKey": "s103",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3374?hl=ko-KR",
+          "sourceVersion": "10.3"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_nullification.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_nullification.png",
+      "sourceSha256": "5b483e01efa1efb992a06cd5bc84a64eb2cfa15c3c3651a7c9aa2650a3305cce",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_soul",
+      "originalId": 110,
+      "originalNameKo": "강한 결속",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4107000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_soul.png",
+      "sha256": "cb34d828dce6a049c51ae9d0f9a06690180645d8f015389fa6ae3f514318dfe6",
+      "bytes": 16109,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "강한 결속",
+      "originalCoreParaphraseKo": "주변 전투에서 잃은 체력에 비례해 에너지를 모으고, 사용 시 이를 소모해 이동 속도와 모든 피해 흡혈을 높입니다.",
+      "originalModuleParaphraseKo": "에너지 획득 효율이 좋아집니다.",
+      "turnBasedAdaptationSuggestionKo": "실제 체력 피해로 에너지를 모아 소모하는 흡혈 강화기로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            60,
+            45
+          ],
+          "mode": "normal",
+          "sourceKey": "s134",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2304?hl=ko-KR",
+          "sourceVersion": "1.34"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_soul.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_soul.png",
+      "sourceSha256": "cb34d828dce6a049c51ae9d0f9a06690180645d8f015389fa6ae3f514318dfe6",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_strider",
+      "originalId": 120,
+      "originalNameKo": "스트라이더 - A13",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4110000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_strider.png",
+      "sha256": "9fd4b65d8eb51fa29356559d157f1dabbb1c38b7bcfe679d35e606572f0683a5",
+      "bytes": 17039,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "스트라이더 - A13",
+      "originalCoreParaphraseKo": "적을 향해 빨라지고, 지속 시간 안에 적에게 피해를 주면 추가 피해와 이동 속도 증가를 얻습니다.",
+      "originalModuleParaphraseKo": "추가 피해에 둔화가 붙습니다.",
+      "turnBasedAdaptationSuggestionKo": "다음 적중을 기다리는 추격 상태와 조건부 추가 피해로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            40,
+            30
+          ],
+          "mode": "normal",
+          "sourceKey": "s129",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2132?hl=ko-KR",
+          "sourceVersion": "1.29"
+        },
+        {
+          "seconds": 30,
+          "mode": "cobalt",
+          "sourceKey": "s103",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3374?hl=ko-KR",
+          "sourceVersion": "10.3"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_strider.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_strider.png",
+      "sourceSha256": "9fd4b65d8eb51fa29356559d157f1dabbb1c38b7bcfe679d35e606572f0683a5",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_truth_blade",
+      "originalId": 130,
+      "originalNameKo": "진실의 칼날",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4112000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_truth_blade.png",
+      "sha256": "6eb45cc79d5817f7200631c82b365ee5c7e3c2e7268a6393351ca6fd04cc3981",
+      "bytes": 16032,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "진실의 칼날",
+      "originalCoreParaphraseKo": "근처 적에게 피해를 주고 적중한 대상 수에 따라 이동 속도가 증가합니다.",
+      "originalModuleParaphraseKo": "칼날이 한 번 더 피해를 줍니다.",
+      "turnBasedAdaptationSuggestionKo": "빠른 피해와 회피, 강화 시 별도 두 번째 타격으로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            10,
+            8
+          ],
+          "mode": "normal",
+          "sourceKey": "s114",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3629?hl=ko-KR",
+          "sourceVersion": "11.4"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_truth_blade.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_truth_blade.png",
+      "sourceSha256": "6eb45cc79d5817f7200631c82b365ee5c7e3c2e7268a6393351ca6fd04cc3981",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_false_oath",
+      "originalId": 140,
+      "originalNameKo": "거짓 서약",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4113000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_false_oath.png",
+      "sha256": "81132d80f2109d0197237507186a1ff40c2786b378fadf1ef5a36de08be35e16",
+      "bytes": 16216,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "legacy_removed",
+      "displayNameKo": "거짓 서약",
+      "originalCoreParaphraseKo": "체력을 먼저 소모하고 지속적으로 회복하며 모든 피해가 점차 강해집니다.",
+      "originalModuleParaphraseKo": "적 처치 관여 시 지속 시간이 갱신됩니다.",
+      "turnBasedAdaptationSuggestionKo": "체력 선지급과 누적되는 공격 강화, 지연 회복으로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            40,
+            30
+          ],
+          "mode": "normal_historical",
+          "sourceKey": "s129",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2132?hl=ko-KR",
+          "sourceVersion": "1.29"
+        },
+        {
+          "seconds": 30,
+          "mode": "cobalt_historical",
+          "sourceKey": "s146",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2674?hl=ko-KR",
+          "sourceVersion": "1.46 cobalt reboot"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s110",
+        "noteKo": "11.0 일반 전술 목록에서 삭제되었습니다. 팬 게임에는 과거 전술로 구현합니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_false_oath.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_false_oath.png",
+      "sourceSha256": "81132d80f2109d0197237507186a1ff40c2786b378fadf1ef5a36de08be35e16",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_wind",
+      "originalId": 150,
+      "originalNameKo": "치유의 바람",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4108000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_wind.png",
+      "sha256": "e4b749abab73cfe4f20167590e08ec895f31ffe517730394e2f7e8fd4db3a074",
+      "bytes": 16168,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "치유의 바람",
+      "originalCoreParaphraseKo": "범위 안 아군의 체력을 즉시 회복합니다.",
+      "originalModuleParaphraseKo": "즉시 회복 후 일정 시간 추가로 체력을 회복합니다.",
+      "turnBasedAdaptationSuggestionKo": "즉시 회복과 강화 시 재생으로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            50,
+            40
+          ],
+          "mode": "normal",
+          "sourceKey": "s115",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3657?hl=ko-KR",
+          "sourceVersion": "11.5"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_wind.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_wind.png",
+      "sourceSha256": "e4b749abab73cfe4f20167590e08ec895f31ffe517730394e2f7e8fd4db3a074",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_repulsor",
+      "originalId": 160,
+      "originalNameKo": "리펄서 미사일",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4115000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_repulsor.png",
+      "sha256": "0c6284e852d21310de19c3cc199a3cd73408342ded33018d49b1a940abd738cf",
+      "bytes": 19120,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "리펄서 미사일",
+      "originalCoreParaphraseKo": "짧게 이동하며 가까운 적에게 여러 발의 고정 피해 미사일을 발사합니다.",
+      "originalModuleParaphraseKo": "미사일 발사 수가 늘어납니다.",
+      "turnBasedAdaptationSuggestionKo": "이동 판정과 여러 번의 작은 고정 피해로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            40,
+            30
+          ],
+          "mode": "normal",
+          "sourceKey": "s110",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+          "sourceVersion": "11.0"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s110",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_repulsor.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_repulsor.png",
+      "sourceSha256": "0c6284e852d21310de19c3cc199a3cd73408342ded33018d49b1a940abd738cf",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_plasma",
+      "originalId": 170,
+      "originalNameKo": "플라즈마 대시",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4116000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_plasma.png",
+      "sha256": "57f1ed5244f3f3e487b1e451a6c0ba450328b4004c24dc4025ebbaaecb2099f1",
+      "bytes": 18873,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "플라즈마 대시",
+      "originalCoreParaphraseKo": "짧게 이동하며 플라즈마를 발사해 피해와 둔화를 줍니다.",
+      "originalModuleParaphraseKo": "적중한 적의 방어력을 낮춥니다.",
+      "turnBasedAdaptationSuggestionKo": "이동 판정과 피해·둔화, 강화 시 취약으로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            50,
+            40
+          ],
+          "mode": "normal",
+          "sourceKey": "s115",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3657?hl=ko-KR",
+          "sourceVersion": "11.5"
+        },
+        {
+          "seconds": 40,
+          "mode": "cobalt",
+          "sourceKey": "s115",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3657?hl=ko-KR",
+          "sourceVersion": "11.5"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s110",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_plasma.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_plasma.png",
+      "sourceSha256": "57f1ed5244f3f3e487b1e451a6c0ba450328b4004c24dc4025ebbaaecb2099f1",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_lightwing",
+      "originalId": 190,
+      "originalNameKo": "라이트 윙",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4118000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_lightwing.png",
+      "sha256": "4ba578c29d918de12ad951d8b87c5aaf5829fa9e9087fa0b3ebcd61e99e3d196",
+      "bytes": 17950,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "normal",
+      "sourceStatus": "normal_catalog",
+      "displayNameKo": "라이트 윙",
+      "originalCoreParaphraseKo": "자신의 둔화를 해제하고 일정 시간 이동 속도와 공격 속도를 높입니다.",
+      "originalModuleParaphraseKo": "기본 공격 적중 시 지속 시간이 연장됩니다.",
+      "turnBasedAdaptationSuggestionKo": "둔화 해제와 기본 공격 강화, 기본 공격으로 효과 유지로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": [
+            50,
+            40
+          ],
+          "mode": "normal",
+          "sourceKey": "s110",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3530?hl=ko-KR",
+          "sourceVersion": "11.0"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s110",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_lightwing.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_lightwing.png",
+      "sourceSha256": "4ba578c29d918de12ad951d8b87c5aaf5829fa9e9087fa0b3ebcd61e99e3d196",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_gravity",
+      "originalId": 500020,
+      "originalNameKo": "중력장",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4502000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_gravity.png",
+      "sha256": "357236108eac9ea65735010b2a94a45f71a60e7ea2c498ab02c6df4d109fa041",
+      "bytes": 18087,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "cobalt",
+      "sourceStatus": "tactical_replacement_infusion",
+      "displayNameKo": "중력장",
+      "originalCoreParaphraseKo": "주변 적을 끌어당겨 고정 피해를 주고 기절시킵니다.",
+      "originalModuleParaphraseKo": "원작 전용 모듈 효과는 확인되지 않았습니다.",
+      "turnBasedAdaptationSuggestionKo": "고정 피해와 기절, 준비 동작을 가진 강한 제어기로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": 60,
+          "mode": "cobalt_infusion",
+          "sourceKey": "s146",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2674?hl=ko-KR",
+          "sourceVersion": "1.46 cobalt reboot"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "코발트의 전술 스킬 교체 인퓨전으로 소개됩니다. 직접 선택 전술 목록과 구분합니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_gravity.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_gravity.png",
+      "sourceSha256": "357236108eac9ea65735010b2a94a45f71a60e7ea2c498ab02c6df4d109fa041",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_rolling_thunder",
+      "originalId": 500030,
+      "originalNameKo": "롤링썬더",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4503000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_rolling_thunder.png",
+      "sha256": "e1dc4eab7e84276af9859032128e629963249bbf21706ce0f4e60d23259a230f",
+      "bytes": 19650,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "cobalt",
+      "sourceStatus": "tactical_replacement_infusion",
+      "displayNameKo": "롤링썬더",
+      "originalCoreParaphraseKo": "속도가 크게 증가하고 처음 충돌한 적에게 피해와 밀쳐내기를 줍니다.",
+      "originalModuleParaphraseKo": "원작 전용 모듈 효과는 확인되지 않았습니다.",
+      "turnBasedAdaptationSuggestionKo": "이동·회피와 다음 적중의 충돌 피해로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": 40,
+          "mode": "cobalt_infusion",
+          "sourceKey": "s146",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2674?hl=ko-KR",
+          "sourceVersion": "1.46 cobalt reboot"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "코발트의 전술 스킬 교체 인퓨전으로 소개됩니다. 직접 선택 전술 목록과 구분합니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_rolling_thunder.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_rolling_thunder.png",
+      "sourceSha256": "e1dc4eab7e84276af9859032128e629963249bbf21706ce0f4e60d23259a230f",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_truth_burst",
+      "originalId": 500040,
+      "originalNameKo": "폭진",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4504000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_truth_burst.png",
+      "sha256": "d44cc4cbe4cb784bedf7238677a534ef44dcc1d563eb862ac9e8104a2e9760c3",
+      "bytes": 16202,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "cobalt",
+      "sourceStatus": "legacy_retained",
+      "displayNameKo": "폭진",
+      "originalCoreParaphraseKo": "잠시 뒤 에너지를 터뜨립니다. 적중하면 폭주 보너스를 얻지만 빗나가면 자신이 기절하고 느려집니다.",
+      "originalModuleParaphraseKo": "원작 전용 모듈 효과는 확인되지 않았습니다.",
+      "turnBasedAdaptationSuggestionKo": "적중 성공 시 공격 강화, 실패 시 다음 행동 제약으로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": 7,
+          "mode": "cobalt_historical",
+          "sourceKey": "s100cobalt",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/1285?hl=ko-KR",
+          "sourceVersion": "1.0.0 cobalt"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s118",
+        "noteKo": "과거 코발트 전술로 공식 목록과 원본 데이터에 존재합니다. 1.46 리부트 직접 선택 목록에는 없으며 현재 선택 가능으로 소개하지 않습니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_truth_burst.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_truth_burst.png",
+      "sourceSha256": "d44cc4cbe4cb784bedf7238677a534ef44dcc1d563eb862ac9e8104a2e9760c3",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_impulse",
+      "originalId": 500050,
+      "originalNameKo": "임펄스",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4512000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_impulse.png",
+      "sha256": "1978a2765ee4bf8190919362e6022ddcb7c7688fd2fc7e915e6e0a0ddf4f9914",
+      "bytes": 16792,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "cobalt",
+      "sourceStatus": "cobalt_catalog",
+      "displayNameKo": "임펄스",
+      "originalCoreParaphraseKo": "잠깐 정지 상태에 들어간 뒤 지정한 방향으로 빠르게 이동합니다.",
+      "originalModuleParaphraseKo": "원작 전용 모듈 효과는 확인되지 않았습니다.",
+      "turnBasedAdaptationSuggestionKo": "즉시 보호 후 다음 턴 회피 강화로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": 40,
+          "mode": "cobalt",
+          "sourceKey": "s82",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2885?hl=ko-KR",
+          "sourceVersion": "8.2"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_impulse.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_impulse.png",
+      "sourceSha256": "1978a2765ee4bf8190919362e6022ddcb7c7688fd2fc7e915e6e0a0ddf4f9914",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_prayer",
+      "originalId": 500060,
+      "originalNameKo": "기원",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4506000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_prayer.png",
+      "sha256": "b04fec2ccfcbedaf05c4cd188eef762b5f137911162d5ad869ed284d509eb3b8",
+      "bytes": 16409,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "cobalt",
+      "sourceStatus": "legacy_removed",
+      "displayNameKo": "기원",
+      "originalCoreParaphraseKo": "주변 아군에게 잠시 보호막을 부여합니다.",
+      "originalModuleParaphraseKo": "원작 전용 모듈 효과는 확인되지 않았습니다.",
+      "turnBasedAdaptationSuggestionKo": "보호막 지속 또는 잔여 보호막 보존으로 초월과 구분합니다.",
+      "cooldownReferences": [
+        {
+          "seconds": 45,
+          "mode": "cobalt_historical",
+          "sourceKey": "s82",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2885?hl=ko-KR",
+          "sourceVersion": "8.2"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s110",
+        "noteKo": "11.0 코발트에서 삭제되고 쇠약으로 교체되었습니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_prayer.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_prayer.png",
+      "sourceSha256": "b04fec2ccfcbedaf05c4cd188eef762b5f137911162d5ad869ed284d509eb3b8",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_fissure",
+      "originalId": 500070,
+      "originalNameKo": "대지분쇄",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4507000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_fissure.png",
+      "sha256": "f125f357ca94adb7bf271b427988466448f04e167e7f1334af0d7250826b00dd",
+      "bytes": 18575,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "cobalt",
+      "sourceStatus": "tactical_replacement_infusion",
+      "displayNameKo": "대지분쇄",
+      "originalCoreParaphraseKo": "잠시 뒤 지면을 분쇄해 적 현재 체력에 비례한 고정 피해, 기절과 둔화를 줍니다.",
+      "originalModuleParaphraseKo": "원작 전용 모듈 효과는 확인되지 않았습니다.",
+      "turnBasedAdaptationSuggestionKo": "지연 고정 피해와 제어를 함께 주는 설치기로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": 50,
+          "mode": "cobalt_infusion",
+          "sourceKey": "s146",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2674?hl=ko-KR",
+          "sourceVersion": "1.46 cobalt reboot"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "코발트의 전술 스킬 교체 인퓨전으로 소개됩니다. 직접 선택 전술 목록과 구분합니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_fissure.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_fissure.png",
+      "sourceSha256": "f125f357ca94adb7bf271b427988466448f04e167e7f1334af0d7250826b00dd",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_punch",
+      "originalId": 500080,
+      "originalNameKo": "힘껏 펀치",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4508000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_punch.png",
+      "sha256": "e6d319c21d675317358b84f8f9f891d122bd373bdd8f2b106a3232115f3f58e2",
+      "bytes": 16120,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "cobalt",
+      "sourceStatus": "cobalt_catalog",
+      "displayNameKo": "힘껏 펀치",
+      "originalCoreParaphraseKo": "큰 주먹을 날려 적 최대 체력에 비례한 피해를 주고 멀리 밀쳐냅니다.",
+      "originalModuleParaphraseKo": "원작 전용 모듈 효과는 확인되지 않았습니다.",
+      "turnBasedAdaptationSuggestionKo": "최대 체력 비례 타격과 밀쳐내기의 공격 약화로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": 20,
+          "mode": "cobalt",
+          "sourceKey": "s146",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2674?hl=ko-KR",
+          "sourceVersion": "1.46 cobalt reboot"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_punch.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_punch.png",
+      "sourceSha256": "e6d319c21d675317358b84f8f9f891d122bd373bdd8f2b106a3232115f3f58e2",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_meteor",
+      "originalId": 500090,
+      "originalNameKo": "메테오",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4509000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_meteor.png",
+      "sha256": "3f78a4e56d3996e2fdef156d75d9e35aef3dbfec701dc164f93b5c461b3f0c1e",
+      "bytes": 17339,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "cobalt",
+      "sourceStatus": "cobalt_catalog",
+      "displayNameKo": "메테오",
+      "originalCoreParaphraseKo": "지정한 위치에 잠시 뒤 운석을 떨어뜨려 강한 고정 피해를 줍니다.",
+      "originalModuleParaphraseKo": "원작 전용 모듈 효과는 확인되지 않았습니다.",
+      "turnBasedAdaptationSuggestionKo": "지연 고정 피해로 옮깁니다. 기절은 초기 사양에 있었으나 리부트 설명에는 없습니다.",
+      "cooldownReferences": [
+        {
+          "seconds": 25,
+          "mode": "cobalt",
+          "sourceKey": "s112",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
+          "sourceVersion": "11.2"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_meteor.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_meteor.png",
+      "sourceSha256": "3f78a4e56d3996e2fdef156d75d9e35aef3dbfec701dc164f93b5c461b3f0c1e",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_lightning_shield",
+      "originalId": 500100,
+      "originalNameKo": "라이트닝 쉴드",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4510000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_lightning_shield.png",
+      "sha256": "28f843996410d4c2afa3ae969a0c55cca96e391ded57bfd690f96b278106c0f3",
+      "bytes": 17446,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "cobalt",
+      "sourceStatus": "legacy_retained",
+      "displayNameKo": "라이트닝 쉴드",
+      "originalCoreParaphraseKo": "아군에게 해로운 효과를 지우는 보호막을 씌우고, 보호막이 끝날 때 흡수한 피해에 비례해 주변 적에게 피해를 줍니다.",
+      "originalModuleParaphraseKo": "원작 전용 모듈 효과는 확인되지 않았습니다.",
+      "turnBasedAdaptationSuggestionKo": "해제·보호막 후 실제 흡수량 비례 반격으로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": 17,
+          "mode": "cobalt_historical",
+          "sourceKey": "s14",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/1424?hl=ko-KR",
+          "sourceVersion": "1.4"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s118",
+        "noteKo": "과거 코발트 전술로 공식 목록과 원본 데이터에 존재합니다. 1.46 리부트 직접 선택 목록에는 없으며 현재 선택 가능으로 소개하지 않습니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_lightning_shield.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_lightning_shield.png",
+      "sourceSha256": "28f843996410d4c2afa3ae969a0c55cca96e391ded57bfd690f96b278106c0f3",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_meditation",
+      "originalId": 500110,
+      "originalNameKo": "블레싱: 명상",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4511000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_meditation.png",
+      "sha256": "64a6b137110a3be7f6e26fa131312fa379cd147edbbc73a323bff13615d82290",
+      "bytes": 13670,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "cobalt",
+      "sourceStatus": "legacy_retained",
+      "displayNameKo": "블레싱: 명상",
+      "originalCoreParaphraseKo": "최대 체력의 일부를 즉시 회복한 뒤 추가로 회복하며, 피해를 받으면 추가 회복이 끊깁니다.",
+      "originalModuleParaphraseKo": "원작 전용 모듈 효과는 확인되지 않았습니다.",
+      "turnBasedAdaptationSuggestionKo": "즉시 회복과 피격 시 중단되는 명상 재생으로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": 30,
+          "mode": "cobalt_historical",
+          "sourceKey": "s100cobalt",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/1285?hl=ko-KR",
+          "sourceVersion": "1.0.0 cobalt"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s118",
+        "noteKo": "과거 코발트 전술로 공식 목록과 원본 데이터에 존재합니다. 1.46 리부트 직접 선택 목록에는 없으며 현재 선택 가능으로 소개하지 않습니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_meditation.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_meditation.png",
+      "sourceSha256": "64a6b137110a3be7f6e26fa131312fa379cd147edbbc73a323bff13615d82290",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_lock_on",
+      "originalId": 500240,
+      "originalNameKo": "부착",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4524000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_lock_on.png",
+      "sha256": "e5c5edb6a940f6e42d671d552cc1264841a1acca51fcd4e3a26a86a2f6c9c2e7",
+      "bytes": 18426,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "cobalt",
+      "sourceStatus": "cobalt_catalog",
+      "displayNameKo": "부착 / 추적",
+      "originalCoreParaphraseKo": "투사체를 맞혀 표적의 시야를 얻고, 제한 시간 안에 다시 사용하면 표적에게 돌진해 다시 피해를 줍니다.",
+      "originalModuleParaphraseKo": "원작 전용 모듈 효과는 확인되지 않았습니다.",
+      "turnBasedAdaptationSuggestionKo": "첫 적중 성공 시에만 무료 추적 연계를 생성합니다.",
+      "cooldownReferences": [
+        {
+          "seconds": 30,
+          "mode": "cobalt",
+          "sourceKey": "s146",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/2674?hl=ko-KR",
+          "sourceVersion": "1.46 cobalt reboot"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s146",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_lock_on.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_lock_on.png",
+      "sourceSha256": "e5c5edb6a940f6e42d671d552cc1264841a1acca51fcd4e3a26a86a2f6c9c2e7",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_asthenia",
+      "originalId": 500270,
+      "originalNameKo": "쇠약",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4117000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_asthenia.png",
+      "sha256": "420ef3744717908249bc0ecfeb0507efff9064c9dcbfad28ad96846d05de06d6",
+      "bytes": 16842,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "origin": "cobalt",
+      "sourceStatus": "cobalt_catalog",
+      "displayNameKo": "쇠약",
+      "originalCoreParaphraseKo": "적에게 즉시 쇠약을 부여하여 이동 속도와 입히는 피해를 낮춥니다.",
+      "originalModuleParaphraseKo": "원작 전용 모듈 효과는 확인되지 않았습니다.",
+      "turnBasedAdaptationSuggestionKo": "공격력 약화와 둔화로 옮깁니다.",
+      "cooldownReferences": [
+        {
+          "seconds": 40,
+          "mode": "cobalt",
+          "sourceKey": "s112",
+          "sourceUrl": "https://playeternalreturn.com/posts/news/3572?hl=ko-KR",
+          "sourceVersion": "11.2"
+        }
+      ],
+      "cooldownVerification": "Versioned documentary reference only. Not a claim of an exhaustive latest-patch audit; never silently mix normal and Cobalt values.",
+      "statusEvidence": {
+        "sourceKey": "s110",
+        "noteKo": "원작 이름과 핵심 효과가 공식 패치 및 원본 게임 데이터 카탈로그에 확인됩니다."
+      },
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_asthenia.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_asthenia.png",
+      "sourceSha256": "420ef3744717908249bc0ecfeb0507efff9064c9dcbfad28ad96846d05de06d6",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    }
+  ],
+  "iconProvenance": {
+    "originalBytesScope": "Archived source references only; runtime pixel redraws are independent files with independent hashes.",
+    "sourceReferenceDirectory": "docs/art-tactical-pixel/references",
+    "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+  }
+}

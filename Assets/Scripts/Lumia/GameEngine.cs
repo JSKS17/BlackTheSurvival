@@ -132,6 +132,8 @@ namespace Lumia
         public List<string> additionalSupportRunes = new List<string>();
         public int cardInstanceVersion, nextCardInstanceId = 1;
         public List<CardUpgradeSelection> cardUpgrades = new List<CardUpgradeSelection>();
+        public int tacticalModules;
+        public List<string> tacticalCardUpgrades = new List<string>();
         public List<int> scoutedActs = new List<int>(), hyperloopActs = new List<int>(), revealedNodeIds = new List<int>();
         public List<PendingEncounterFollowup> pendingEncounterFollowups = new List<PendingEncounterFollowup>();
         public List<string> completedChainEvents = new List<string>();
@@ -157,7 +159,8 @@ namespace Lumia
     public sealed partial class GameEngine
     {
         public const int RowsPerAct = 12;
-        public const float PassiveSkillOfferMultiplier = 1.5f;
+        private const int PassiveSkillOfferWeight = 9, OrdinaryCardOfferWeight = 5;
+        public const float PassiveSkillOfferMultiplier = (float)PassiveSkillOfferWeight / OrdinaryCardOfferWeight;
         public const int StartingMaxEnergy = 5;
         public const int CriticalChanceCap = 30;
         public const int EndlessCriticalChanceCap = 100;
@@ -235,8 +238,8 @@ namespace Lumia
         }
         public int Accuracy { get { return AccuracyMechanics.Accuracy(State.combat?.playerStatuses); } }
         public int EnemyAccuracy { get { return AccuracyMechanics.Accuracy(State.combat?.enemyStatuses); } }
-        public int Evasion { get { return AccuracyMechanics.Evasion(Math.Min(65, EquipmentSum(g => g.evasion) + Modifier("evade_bonus") + (State.combat == null ? 0 : State.combat.evasion + Modifier("battle_start_evasion") + TraitMechanics.EvasionBonus(State.combat.playerTraits))), State.combat?.playerStatuses); } }
-        public int EnemyEvasion { get { var c=State.combat;return c==null?0:AccuracyMechanics.Evasion(c.enemyEvasion>=100?100:Math.Min(65,c.enemyEvasion+TraitMechanics.EvasionBonus(c.enemyTraits)),c.enemyStatuses); } }
+        public int Evasion { get { return AccuracyMechanics.Evasion(Math.Min(65, EquipmentSum(g => g.evasion) + Modifier("evade_bonus") + (State.combat == null ? 0 : Math.Max(State.combat.evasion,TacticalSkills.EvasionBonus(State.combat.playerSkills)) + Modifier("battle_start_evasion") + TraitMechanics.EvasionBonus(State.combat.playerTraits))), State.combat?.playerStatuses); } }
+        public int EnemyEvasion { get { var c=State.combat;return c==null?0:AccuracyMechanics.Evasion(c.enemyEvasion>=100?100:Math.Min(65,Math.Max(c.enemyEvasion,TacticalSkills.EvasionBonus(c.enemySkills))+TraitMechanics.EvasionBonus(c.enemyTraits)),c.enemyStatuses); } }
         public string EnemyIntent
         {
             get
@@ -368,6 +371,8 @@ namespace Lumia
                 c.playerSkills = SkillMechanics.Ensure(c.playerSkills); c.enemySkills = SkillMechanics.Ensure(c.enemySkills);
                 EnsureAdvancedCombat();
                 c.playerTraits=TraitMechanics.Ensure(c.playerTraits);c.enemyTraits=TraitMechanics.Ensure(c.enemyTraits);
+                SkillMechanics.SharePassiveResources(c.playerSkills,c.playerTraits.skills);
+                SkillMechanics.SharePassiveResources(c.enemySkills,c.enemyTraits.skills);
                 c.playerStatuses=StatusMechanics.Ensure(c.playerStatuses);c.enemyStatuses=StatusMechanics.Ensure(c.enemyStatuses);
                 if(c.enemyGear==null)c.enemyGear=new List<string>();
                 if(c.playerDeferredDamage==null)c.playerDeferredDamage=new List<DeferredDamage>();
@@ -396,6 +401,8 @@ namespace Lumia
                 else c.boss = null;
             }
             CardInstances.NormalizeLegacy(State);
+            NormalizeTacticalModules();
+            NormalizeWeaponGrantReferences();
             NormalizeRareEncounters();
             // Equipment grants synchronize between nodes; instance migration preserves existing piles.
             EnsureEndlessAugments();
@@ -638,13 +645,14 @@ namespace Lumia
         {
             var c = State.combat;
             return pendingCardChoice == null && State.stage == RunStage.Combat && c != null && !c.enemyTurn && handIndex >= 0 && handIndex < c.hand.Count
-                && GameDatabase.Card(c.hand[handIndex]) != null && StatusMechanics.CanUse(c.playerStatuses,GameDatabase.Card(c.hand[handIndex])) && EffectiveCardCost(c.hand[handIndex]) <= c.energy;
+                && TacticalSkills.CanAct(c.playerSkills) && GameDatabase.Card(c.hand[handIndex]) != null && StatusMechanics.CanUse(c.playerStatuses,GameDatabase.Card(c.hand[handIndex])) && EffectiveCardCost(c.hand[handIndex]) <= c.energy;
         }
 
         public int CardDamage(string id)
         {
             var card = PreparedPlayerCard(id);
             if (card == null || card.damage <= 0) return 0;
+            if(TacticalSkills.TrueDamage(card))return card.damage;
             int value = card.damage + State.level / 3 + TotalAttack + (State.combat == null ? 0 : State.combat.strength);
             value += Modifier(card.category == "basic" ? "attack_bonus" : "skill_bonus");
             if (State.combat != null && State.combat.weak > 0) value = value * 3 / 4;
@@ -735,7 +743,7 @@ namespace Lumia
                 int baseDamage = CardDamage(reference);
                 // Only the universal basic attack's own hit is multiplied. Skill/passive bonus pulses remain separate.
                 if (id == "basic_attack" && baseDamage > 0 && Roll(CritChance)) { baseDamage = GearCriticalDamage(baseDamage); criticalHits++; }
-                int damage = Math.Max(0,baseDamage + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = AbsorbCombatBlock(true, damage);
+                int damage = Math.Max(0,baseDamage + (bonusUsed ? 0 : bonusDamage) - (bonusUsed?0:incomingReduction)), absorbed = TacticalSkills.TrueDamage(card)?0:AbsorbCombatBlock(true, damage);
                 bonusUsed = true;
                 damage -= absorbed; absorbedTotal += absorbed;
                 int healthDamage = TakeHealthDamage(true, damage); dealt += healthDamage; directDamage += absorbed + healthDamage;
@@ -755,6 +763,7 @@ namespace Lumia
             c.energy += card.energy;
             DrawCards(card.draw);
             SkillMechanics.AfterCard(c.playerSkills, skillBefore, card, landed, paidCost: price);
+            ResolveTacticalCard(false,card,landed,dealt,skillBefore);
             CompanionMechanics.AfterCard(c.playerSkills, card);
             c.chargedCards.RemoveAll(x => x.reference == reference);
             StatusMechanics.CancelMissingInstallations(c.enemyStatuses,c.playerSkills);
@@ -839,6 +848,7 @@ namespace Lumia
             TraitMechanics.StartTurn(c.enemyTraits);
             TraitEvent(true,"turn_start",null,true);
             c.enemyBlock+=EnemyEquipmentSum(g=>g.block);
+            StartTacticalTurn(true);
             ResolveDeferredDamage(true);
             if(CheckBattleEnd())return true;
             c.enemyAvailableEnergy=Math.Max(1,c.enemyAvailableEnergy-ControlEnergyPenalty(true,c.enemyStatuses));
@@ -872,7 +882,7 @@ namespace Lumia
             var card = GameDatabase.Card(id);
             var advancedAction = EnemyAdvancedActionAt(index);
             if (card == null) return true;
-            if(!StatusMechanics.CanUse(c.enemyStatuses,card)){Say(c.enemyName+"의 "+card.name+" 사용이 상태이상으로 막혔습니다.");return true;}
+            if(!TacticalSkills.CanAct(c.enemySkills) || !StatusMechanics.CanUse(c.enemyStatuses,card)){Say(c.enemyName+"의 "+card.name+" 사용이 상태이상으로 막혔습니다.");return true;}
             bool freeGranted = advancedAction.charge==0 && c.enemyFreeCasts.Any(g => g.cardId == id && g.uses > 0);
             bool garnetExecution = FreeCastMechanics.GarnetExecutionReady(card, c.enemySkills, freeGranted, State.hp, State.maxHp);
             bool execution = false;
@@ -939,7 +949,7 @@ namespace Lumia
                 }
                 int baseDamage = damagePerHit;
                 if (id == "basic_attack" && baseDamage > 0 && Roll(EnemyCritChance)) { baseDamage = GearCriticalDamage(baseDamage,true); criticalHits++; }
-                int damage = Math.Max(0,RunModes.ScaleEnemyDirectDamage(State, baseDamage + (bonusUsed ? 0 : bonusDamage)) - (bonusUsed?0:incomingReduction)), absorbed = AbsorbCombatBlock(false, damage); absorbedTotal += absorbed;
+                int damage = Math.Max(0,RunModes.ScaleEnemyDirectDamage(State, baseDamage + (bonusUsed ? 0 : bonusDamage)) - (bonusUsed?0:incomingReduction)), absorbed = TacticalSkills.TrueDamage(card)?0:AbsorbCombatBlock(false, damage); absorbedTotal += absorbed;
                 bonusUsed = true;
                 dealt += TakeHealthDamage(false,damage-absorbed);
             }
@@ -954,6 +964,7 @@ namespace Lumia
             if (card.evasion > 0 && string.IsNullOrEmpty(c.animal)) { c.enemyEvasion = Math.Max(BaseEnemyEvasion(), card.evasion); c.enemyEvasionTurns = Math.Max(c.enemyEvasionTurns, card.duration); }
             RecordLegacyDebuffs(card, true, landed, poisonBefore, weakBefore, vulnerableBefore);
             SkillMechanics.AfterCard(c.enemySkills, skillBefore, card, landed, paidCost: price);
+            ResolveTacticalCard(true,card,landed,dealt,skillBefore);
             CompanionMechanics.AfterCard(c.enemySkills,card);
             StatusMechanics.CancelMissingInstallations(c.playerStatuses,c.enemySkills);
             StatusMechanics.DamageTaken(c.playerStatuses,dealt);
@@ -1250,7 +1261,9 @@ namespace Lumia
             if (State.research.completedResearchEvents.Contains(ev.id)) return false;
             if (ev.chainOnly && State.completedChainEvents.Contains(ev.id)) return false;
             if (!CanChooseRareOption(option)) return false;
-            int totalCreditCost = Math.Max(0, option.creditCost) + (option.effect == "trade_card" || option.effect == "trade_object" || option.effect == "rare_trade_card" ? Math.Max(0, option.amount) : 0);
+            if (option.effect == "trade_tactical_enhanced" && !TacticalSkills.IsTactical(GameDatabase.Card(option.cardId))) return false;
+            if (option.effect == "trade_card" && GameDatabase.Card(option.cardId) == null) return false;
+            int totalCreditCost = Math.Max(0, option.creditCost) + (option.effect == "trade_card" || option.effect == "trade_object" || option.effect == "rare_trade_card" || option.effect == "trade_tactical_enhanced" ? Math.Max(0, option.amount) : 0);
             if (totalCreditCost > State.credits || (!string.IsNullOrEmpty(option.requiredFoodId) && !State.foods.Contains(option.requiredFoodId))
                 || (!string.IsNullOrEmpty(option.requiredObjectId) && !State.objects.Contains(option.requiredObjectId))) return false;
             if (!string.IsNullOrEmpty(option.followupId) && (State.completedChainEvents.Contains(option.followupId) || State.pendingEncounterFollowups.Any(x => x.eventId == option.followupId))) return false;
@@ -1279,7 +1292,8 @@ namespace Lumia
             if (!string.IsNullOrEmpty(option.followupId) && State.pendingEncounterFollowups.Any(x => x.eventId == option.followupId)) return "이미 다음 만남을 약속했습니다.";
             switch(ev.options[index].effect)
             {
-                case "trade_card":case "trade_object":return "필요한 크레딧이 부족합니다.";
+                case "trade_card":case "trade_object":return "필요한 크레딧이 부족하거나 구입할 대상이 없습니다.";
+                case "trade_tactical_enhanced":return TacticalSkills.IsTactical(GameDatabase.Card(option.cardId)) ? "필요한 크레딧이 부족합니다." : "구입할 전술 스킬이 없습니다.";
                 case "risky_card":case "risky_object":return "생존할 체력이 부족합니다.";
                 case "remove_card":return "제거할 카드가 없거나 덱에 최소 5장을 남길 수 없습니다.";
                 case "upgrade_card":return "강화할 일반 카드가 없습니다.";
@@ -1322,6 +1336,8 @@ namespace Lumia
                 case "rare_tactical":
                     var tactics = GameDatabase.Cards.Where(card => card.category == "tactical").Select(card => card.id).Distinct().ToList();
                     State.deck.Add(tactics[Next(tactics.Count)]); break;
+                case "tactical_module": State.tacticalModules += Math.Max(1, o.amount); break;
+                case "trade_tactical_enhanced": State.credits -= Math.Max(0, o.amount); AddEnhancedTacticalRewardCard(o.cardId); break;
                 case "heal": Heal(o.amount); break;
                 case "credits": State.credits = Math.Max(0, State.credits + o.amount); break;
                 case "damage": State.hp = Math.Max(0, State.hp - Math.Max(0, o.amount)); break;
@@ -1554,14 +1570,14 @@ namespace Lumia
             if (character == null || string.IsNullOrEmpty(phase.resourceKey)) return;
             var rules = character.cards.Select(GameDatabase.Card).Where(card => card?.mechanics != null)
                 .SelectMany(card => card.mechanics.rules ?? new SkillRule[0])
-                .Where(rule => rule.key == phase.resourceKey && new[] { "gain", "set", "state_on", "state_toggle" }.Contains(rule.op)).ToList();
+                .Where(rule => rule.key == phase.resourceKey && new[] { "gain", "set", "state_on", "state_toggle", "forge_sword" }.Contains(rule.op)).ToList();
             if (rules.Count == 0) return;
             bool state = SkillMechanics.IsState(character.name, phase.resourceKey) || rules.Any(rule => rule.isState);
             int cap = state ? 1 : Math.Max(1, rules.Max(rule => rule.cap));
             var ready = c.boss.preparedResources.FirstOrDefault(x => x.key == phase.resourceKey);
             if (ready == null) { ready = new BossPreparedResource { key = phase.resourceKey }; c.boss.preparedResources.Add(ready); }
             ready.label = state ? SkillMechanics.StateName(character.name, phase.resourceKey, phase.resourceLabel) : phase.resourceLabel ?? phase.resourceKey;
-            ready.isState = state; ready.cap = cap; ready.amount = state ? 1 : Math.Min(2, Math.Max(ready.amount, amount));
+            ready.isState = state; ready.cap = cap; ready.amount = state ? 1 : Math.Min(cap, Math.Min(2, Math.Max(ready.amount, amount)));
         }
 
         private void ResolveBossSpecial()
@@ -1735,6 +1751,7 @@ namespace Lumia
         private int TakeHealthDamage(bool enemy,int damage)
         {
             var combat=State.combat;
+            damage=TacticalSkills.IncomingDamage(enemy?combat.enemySkills:combat.playerSkills,damage);
             var companion=CompanionMechanics.Absorb(enemy?combat.enemySkills:combat.playerSkills,damage);
             damage=companion.remaining;
             RecordCompanionAbsorption(enemy,companion);
@@ -1757,6 +1774,7 @@ namespace Lumia
         private int ApplyExternalHealthDamage(bool enemy,int damage)
         {
             var combat=State.combat;int hp=enemy?combat.enemyHp:State.hp;
+            damage=TacticalSkills.IncomingDamage(enemy?combat.enemySkills:combat.playerSkills,damage);
             int immediate=CompanionMechanics.ClampOwnerDamage(enemy?combat.enemySkills:combat.playerSkills,hp,damage);
             if(hp>0 && damage>=hp && immediate<hp)
             {
@@ -1764,6 +1782,7 @@ namespace Lumia
                 Say((enemy?combat.enemyName:"하나")+" · 니나 생존 보호 · 체력 1을 남깁니다.");
             }
             if(enemy)combat.enemyHp-=immediate;else State.hp-=immediate;
+            if((enemy?combat.enemyDeck:State.deck).Any(id=>CardInstances.BaseId(id)=="tactical_soul"))TacticalSkills.RecordDamage(enemy?combat.enemySkills:combat.playerSkills,immediate);
             if (enemy) { BossMechanics.CheckPhase(combat); RecordBossProgress(BossMechanics.ObserveDamage(combat, immediate)); }
             return immediate;
         }
@@ -1805,6 +1824,8 @@ namespace Lumia
             c.enemyTurn = false; c.freeCasts.Clear(); c.freeCastSources.Clear();
             if (!first) ClearCombatBlock(false);
             c.block += TotalBlock + Modifier("turn_block"); Heal(Modifier("turn_heal"));
+            if(!first)StartTacticalTurn(false);
+            if(CheckBattleEnd())return;
             RecordBossProgress(BossMechanics.ObserveBlock(c, TotalBlock + Modifier("turn_block")));
             TraitEvent(false,"turn_start",null,true);
             ResolveDeferredDamage(false);
@@ -1849,6 +1870,12 @@ namespace Lumia
                 StatusMechanics.ClearProtection(planStatuses); // The enemy's old block expires at its turn start.
                 int planStrength=c.enemyStrength,planWeak=c.enemyWeak,planHp=c.enemyHp,planTargetHp=State.hp,planTargetBlock=c.block,planBlock=EnemyEquipmentSum(g=>g.block);
                 var planDefenderSkills=SkillMechanics.Clone(c.playerSkills);
+                var planDefenderTraits=TraitMechanics.Clone(c.playerTraits);
+                var planDefenderStatuses=StatusMechanics.Clone(c.playerStatuses);
+                int tacticalOpeningDamage;
+                int tacticalReward=PreviewTacticalTurnStart(skillPlan,planDefenderSkills,planDefenderStatuses,ref planTargetHp,ref planTargetBlock,out tacticalOpeningDamage);
+                available+=tacticalReward;
+                if(tacticalReward>0)DrawInto(c.enemyHand,c.enemyDrawPile,c.enemyDiscardPile,tacticalReward);
                 var turnContext=TraitContextFor(true,null,true,skillActor:skillPlan);
                 var opening=TraitMechanics.Resolve(traitPlan,ActorTraits(true),"turn_start",turnContext);available+=opening.pulses.Where(x=>x.kind=="energy").Sum(x=>x.amount);
                 foreach(var pulse in opening.pulses){if(pulse.kind=="strength")planStrength+=pulse.amount;if(pulse.kind=="heal")planHp=Math.Min(c.enemyMaxHp,planHp+pulse.amount*(100-TraitMechanics.HealingReduction(traitPlan))/100);if(pulse.kind=="cleanse")planWeak=0;}
@@ -1859,6 +1886,7 @@ namespace Lumia
                 // Moving each planned card into a pile now preserves a finite deck even when a reset reuses a copy.
                 while (c.enemyPlan.Count < 40)
                 {
+                    if(!TacticalSkills.CanAct(skillPlan))break;
                     int index = c.enemyHand.FindIndex(id => StatusMechanics.CanUse(planStatuses,GameDatabase.Card(id)) && (AdvancedCardMechanics.IsX(GameDatabase.Card(id)) || HasUnplannedEnemyCharge(id) || (grants.Any(g => g.cardId == id && g.uses > 0) ? 0 : Math.Max(0, CardCost(id) + StatusMechanics.CostPenalty(planStatuses,GameDatabase.Card(id)) - Math.Max(SkillMechanics.Discount(skillPlan,id),SkillMechanics.Discount(traitPlan.skills,id)))) <= available));
                     if (index < 0) break;
                     string id = c.enemyHand[index]; var card = GameDatabase.Card(id);
@@ -1900,8 +1928,8 @@ namespace Lumia
                     if(planWeak>0)planExtra=planExtra*3/4;if(c.vulnerable>1)planExtra=planExtra*3/2;
                     int perHit=CalculateEnemyDamage(card,planStrength,Math.Max(0,c.vulnerable-1),weak:planWeak);
                     if (SkillMechanics.BreaksBlock(before, card)) planTargetBlock = 0;
-                    int actualDamage=garnetExecution?CompanionMechanics.SimulateExecutionDamage(planDefenderSkills,planTargetHp):SimulateSharedDirectDamage(planDefenderSkills,planTargetHp,ref planTargetBlock,perHit,planExtra,Math.Max(1,card.hits));planTargetHp-=actualDamage;
-                    int healed=Math.Min(c.enemyMaxHp-planHp,(EnemyAuxiliaryValue(card,card.heal)+bonuses.heal)*(100-Math.Max(TraitMechanics.HealingReduction(traitPlan),StatusMechanics.HealingReduction(c.enemyStatuses)))/100);planHp+=healed;planStrength+=card.strength;
+                    int actualDamage=garnetExecution?CompanionMechanics.SimulateExecutionDamage(planDefenderSkills,planTargetHp):SimulateSharedDirectDamage(planDefenderSkills,planTargetHp,ref planTargetBlock,perHit,planExtra,Math.Max(1,card.hits),planDefenderStatuses,TacticalSkills.TrueDamage(card));planTargetHp-=actualDamage;
+                    int healed=Math.Min(c.enemyMaxHp-planHp,(EnemyAuxiliaryValue(card,card.heal)+bonuses.heal)*(100-Math.Max(TraitMechanics.HealingReduction(traitPlan),StatusMechanics.HealingReduction(planStatuses)))/100);planHp+=healed;planStrength+=card.strength;
                     available+=beforeTraits.pulses.Where(x=>x.kind=="energy").Sum(x=>x.amount);
                     available -= price; available += card.energy;
                     c.enemyHand.RemoveAt(index); c.enemyPlan.Add(id); c.enemyPlanCosts.Add(price); c.enemyPlanFreeCast.Add(freeGranted);
@@ -1911,8 +1939,13 @@ namespace Lumia
                     DrawInto(c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, card.draw);
                     RecordLastSkill(history, card);
                     SkillMechanics.AfterCard(skillPlan, before, card, true, paidCost: price);
+                    PreviewTacticalCard(card,skillPlan,planStatuses,true,ref planHp,c.enemyMaxHp,ref planWeak,ref available,before,actualDamage,planDefenderSkills,traitPlan,planDefenderTraits,planDefenderStatuses);
                     CompanionMechanics.AfterCard(skillPlan,card);
-                    var afterTraits=SimulateAfterTraits(traitPlan,true,card,before,actualDamage,EnemyAuxiliaryValue(card,card.block)+bonuses.block,healed,planHp,planTargetHp,planTargetBlock);
+                    StatusMechanics.CancelMissingInstallations(planDefenderStatuses,skillPlan);
+                    StatusMechanics.DamageTaken(planDefenderStatuses,actualDamage);
+                    bool statusControl=StatusMechanics.Apply(planDefenderStatuses,before,card,true);
+                    if(card.category=="basic" && card.key=="ATK")statusControl|=StatusMechanics.Activate(planDefenderStatuses,card.id,"next_basic");
+                    var afterTraits=SimulateAfterTraits(traitPlan,true,card,before,actualDamage,EnemyAuxiliaryValue(card,card.block)+bonuses.block,healed,planHp,planTargetHp,planTargetBlock,skillPlan,statusControl,planDefenderStatuses);
                     available+=afterTraits.pulses.Where(x=>x.kind=="energy").Sum(x=>x.amount);
                     foreach(var pulse in beforeTraits.pulses.Concat(afterTraits.pulses)){if(pulse.kind=="strength")planStrength+=pulse.amount;if(pulse.kind=="heal" || pulse.kind=="bonus_heal")planHp=Math.Min(c.enemyMaxHp,planHp+pulse.amount*(100-TraitMechanics.HealingReduction(traitPlan))/100);}
                     RecallSkillDiscounts(skillPlan, before, c.enemyDeck, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile);
@@ -1950,7 +1983,7 @@ namespace Lumia
             if(AdvancedCardMechanics.SuppressesAttack(card))return 0;
             int bonus=SkillMechanics.Bonuses(skillActor,card).damage+advanced;
             if(card.damage<=0 && bonus<=0 && TraitMechanics.EmpowerBonus(traits,card)<=0)return 0;
-            bonus+=ResolveBeforeTraits(TraitMechanics.Clone(traits),true,card,true,skillActor).bonus.damage+TraitMechanics.DamageBonus(traits)+TraitMechanics.EmpowerBonus(traits,card);
+            bonus+=ResolveBeforeTraits(TraitMechanics.Clone(traits),true,card,true,SkillMechanics.Clone(skillActor)).bonus.damage+TraitMechanics.DamageBonus(traits)+TraitMechanics.EmpowerBonus(traits,card);
             if(State.combat.enemyWeak>0)bonus=bonus*3/4;if(vulnerable>0)bonus=bonus*3/2;
             return StatusMechanics.Damage(State.combat.enemyStatuses,State.combat.playerStatuses,bonus*(100+TraitMechanics.Exposure(State.combat.playerTraits))/100);
         }
@@ -1958,6 +1991,7 @@ namespace Lumia
         private int CalculateEnemyDamage(CardDef card, int strength, int vulnerable,int exposure=-1,int weak=-1,StatusActorState attackerStatuses=null,StatusActorState defenderStatuses=null)
         {
             if (card == null || card.damage <= 0) return 0;
+            if(TacticalSkills.TrueDamage(card))return EnemyAuxiliaryValue(card,card.damage);
             var c = State.combat;
             int value;
             if (!string.IsNullOrEmpty(c.animal))
@@ -2037,7 +2071,7 @@ namespace Lumia
             int previousBlock = defenderBlock;
             int raw = Math.Max(0, BossStrikeDamage(amount, weak, vulnerable, attackerStatuses, defenderStatuses) - reduction);
             int absorbed = Math.Min(defenderBlock, raw); defenderBlock -= absorbed;StatusMechanics.ConsumeProtection(defenderStatuses,absorbed);
-            int shared = CompanionMechanics.Absorb(defenderSkills,raw-absorbed).remaining;
+            int shared = CompanionMechanics.Absorb(defenderSkills,TacticalSkills.IncomingDamage(defenderSkills,raw-absorbed)).remaining;
             int deferred=(int)((long)shared*Math.Min(20,EquipmentSum(g=>g.damageDeferral))/100);
             int damage=CompanionMechanics.ClampOwnerDamage(defenderSkills,defenderHp,shared-deferred);defenderHp-=damage;
             StatusMechanics.DamageTaken(defenderStatuses, damage);
@@ -2129,10 +2163,17 @@ namespace Lumia
             // Existing player debuffs tick when this player turn ends, before the enemy acts.
             int vulnerable = c.enemyTurn ? c.vulnerable : Math.Max(0, c.vulnerable - 1);
             int specialBlock;
+            if(!c.enemyTurn)
+            {
+                int tacticalOpeningDamage;
+                available+=PreviewTacticalTurnStart(skillPreview,defenderSkills,defenderStatuses,ref defenderHp,ref defenderBlock,out tacticalOpeningDamage);
+                c.intentDamage+=tacticalOpeningDamage;
+            }
             c.intentDamage += PreviewBossSpecial(ref actorHp, ref defenderHp, ref defenderBlock, ref weak, ref vulnerable, traitPreview, defenderTraits, attackerStatuses, defenderStatuses, out specialBlock,skillPreview,defenderSkills);
             c.intentBlock += specialBlock;
             for(int intentIndex=c.enemyTurn?c.enemyActionIndex:0;intentIndex<c.enemyPlan.Count;++intentIndex)
             {
+                if(!TacticalSkills.CanAct(skillPreview))break;
                 var id=c.enemyPlan[intentIndex];
                 var animalSkill=WildlifeMechanics.Card(id);
                 if(animalSkill!=null)
@@ -2178,18 +2219,20 @@ namespace Lumia
                 c.intentDamage+=garnetExecution?defenderHp:raw;c.intentBlock+=EnemyAuxiliaryValue(card,card.block)+bonuses.block+beforeTraits.bonus.block;
                 int previousDefenderBlock=defenderBlock;
                 if (SkillMechanics.BreaksBlock(skillBefore, card)) { defenderBlock = 0;StatusMechanics.ClearProtection(defenderStatuses); }
-                int actualDamage=garnetExecution?CompanionMechanics.SimulateExecutionDamage(defenderSkills,defenderHp):SimulateSharedDirectDamage(defenderSkills,defenderHp,ref defenderBlock,baseRaw,StatusMechanics.Damage(attackerStatuses,defenderStatuses,extra),Math.Max(1,card.hits),defenderStatuses);defenderHp-=actualDamage;
+                int actualDamage=garnetExecution?CompanionMechanics.SimulateExecutionDamage(defenderSkills,defenderHp):SimulateSharedDirectDamage(defenderSkills,defenderHp,ref defenderBlock,baseRaw,StatusMechanics.Damage(attackerStatuses,defenderStatuses,extra),Math.Max(1,card.hits),defenderStatuses,TacticalSkills.TrueDamage(card));defenderHp-=actualDamage;
                 if(AdvancedCardMechanics.GrantsControlProtection(card))StatusMechanics.GrantControlProtection(attackerStatuses,EnemyAuxiliaryValue(card,card.block),card.id);
                 StatusMechanics.DamageTaken(defenderStatuses,actualDamage);
                 int cardHeal=Math.Min(c.enemyMaxHp-actorHp,(EnemyAuxiliaryValue(card,card.heal)+bonuses.heal)*(100-Math.Max(TraitMechanics.HealingReduction(traitPreview),StatusMechanics.HealingReduction(attackerStatuses)))/100);actorHp+=cardHeal;
                 strength += card.strength;
                 SkillMechanics.AfterCard(skillPreview,skillBefore,card,true,paidCost:price);
+                PreviewTacticalCard(card,skillPreview,attackerStatuses,true,ref actorHp,c.enemyMaxHp,ref weak,ref available,skillBefore,actualDamage,defenderSkills,traitPreview,defenderTraits,defenderStatuses);
                 CompanionMechanics.AfterCard(skillPreview,card);
                 RecordLastSkill(history,card);
                 GrantFreeCasts(card,c.enemyDeck,grants,sources,null,null,null,false,LastSkill(history,card.owner),skillBefore,true);
-                StatusMechanics.Apply(defenderStatuses,skillBefore,card,true);
-                if(card.category=="basic" && card.key=="ATK")StatusMechanics.Activate(defenderStatuses,card.id,"next_basic");
-                var after=SimulateAfterTraits(traitPreview,true,card,skillBefore,actualDamage,EnemyAuxiliaryValue(card,card.block)+bonuses.block,cardHeal,actorHp,defenderHp,defenderBlock);
+                StatusMechanics.CancelMissingInstallations(defenderStatuses,skillPreview);
+                bool statusControl=StatusMechanics.Apply(defenderStatuses,skillBefore,card,true);
+                if(card.category=="basic" && card.key=="ATK")statusControl|=StatusMechanics.Activate(defenderStatuses,card.id,"next_basic");
+                var after=SimulateAfterTraits(traitPreview,true,card,skillBefore,actualDamage,EnemyAuxiliaryValue(card,card.block)+bonuses.block,cardHeal,actorHp,defenderHp,defenderBlock,skillPreview,statusControl,defenderStatuses);
                 var pulses=beforeTraits.pulses.Concat(after.pulses).ToList();
                 c.intentBlock+=pulses.Where(x=>x.kind=="block").Sum(x=>x.amount);
                 foreach(var pulse in pulses)
@@ -2209,7 +2252,7 @@ namespace Lumia
                 // A shield broken by this card may cleanse the new debuff before the next planned card.
                 if(previousDefenderBlock>0 && defenderBlock==0)
                 {
-                    var broken=TraitMechanics.Resolve(defenderTraits,ActorTraits(false),"block_break",TraitContextFor(false,card,true,actualDamage,hp:defenderHp));
+                    var broken=TraitMechanics.Resolve(defenderTraits,ActorTraits(false),"block_break",TraitContextFor(false,card,true,actualDamage,skillActor:defenderSkills,hp:defenderHp));
                     if(broken.pulses.Any(x=>x.kind=="cleanse"))
                     {
                         defenderStatuses.effects.RemoveAll(x=>!x.pending);vulnerable=0;
@@ -2302,7 +2345,7 @@ namespace Lumia
         }
         private TraitResult PreviewBeforeTraits(bool enemy,CardDef card,SkillActorState skills)
         {
-            return ResolveBeforeTraits(TraitMechanics.Clone(enemy?State.combat.enemyTraits:State.combat.playerTraits),enemy,card,true,skills);
+            return ResolveBeforeTraits(TraitMechanics.Clone(enemy?State.combat.enemyTraits:State.combat.playerTraits),enemy,card,true,SkillMechanics.Clone(skills));
         }
         private void PruneUnownedTraits()
         {
@@ -2359,10 +2402,12 @@ namespace Lumia
             if(StatusMechanics.Snapshot(targetStatuses).Any(x=>!previousControls.Any(p=>p.kind==x.kind) && x.kind!="status_armor_break" && x.kind!="status_heal_reduction" && x.kind!="status_attack_down"))TraitEvent(enemy,"control",card,true,damage);
             TraitMechanics.RecordCard(enemy?c.enemyTraits:c.playerTraits,ActorTraits(enemy),card);
         }
-        private TraitResult SimulateAfterTraits(TraitActorState actor,bool enemy,CardDef card,SkillActorState skills,int damage,int block,int heal,int hp,int targetHp=-1,int targetBlock=-1)
+        private TraitResult SimulateAfterTraits(TraitActorState actor,bool enemy,CardDef card,SkillActorState skills,int damage,int block,int heal,int hp,int targetHp=-1,int targetBlock=-1,SkillActorState sharedSkills=null,bool statusControl=false,StatusActorState targetStatuses=null)
         {
             var result=new TraitResult();bool attack=card.damage>0 || SkillMechanics.Bonuses(skills,card).damage>0 || TraitMechanics.EmpowerBonus(actor,card)>0;
             var context=TraitContextFor(enemy,card,attack,damage,block,heal,skillActor:skills,hp:hp);var sources=ActorTraits(enemy);
+            context.sharedSkillActor=sharedSkills;
+            var previousControls=targetStatuses==null ? null : StatusMechanics.Snapshot(targetStatuses);
             if(targetHp>=0)context.targetHp=targetHp;if(targetBlock>=0)context.targetBlock=targetBlock;
             var triggers=new List<string>{"after_card"};
             if(card.category=="basic" && card.key=="ATK")triggers.Add("after_basic");
@@ -2375,9 +2420,21 @@ namespace Lumia
             {
                 context.landed=trigger=="control" || attack;
                 var current=TraitMechanics.Resolve(actor,sources,trigger,context);result.pulses.AddRange(current.pulses);result.bonus.block+=current.bonus.block;result.bonus.heal+=current.bonus.heal;
+                if(targetStatuses!=null)foreach(var pulse in current.pulses.Where(x=>x.kind.StartsWith("status_",StringComparison.Ordinal)))StatusMechanics.Add(targetStatuses,pulse.kind.Substring(7),pulse.sourceCard,pulse.duration);
+            }
+            if(targetStatuses!=null && StatusMechanics.Snapshot(targetStatuses).Any(x=>!previousControls.Any(p=>p.kind==x.kind) && x.kind!="status_armor_break" && x.kind!="status_heal_reduction" && x.kind!="status_attack_down"))
+            {
+                context.landed=true;
+                var current=TraitMechanics.Resolve(actor,sources,"control",context);result.pulses.AddRange(current.pulses);result.bonus.block+=current.bonus.block;result.bonus.heal+=current.bonus.heal;
             }
             if(card.category=="basic" && card.key=="ATK")actor.skills.effects.RemoveAll(x=>x.kind=="empower_basic");
-            TraitMechanics.RecordCard(actor,sources,card);return result;
+            TraitMechanics.RecordCard(actor,sources,card);
+            if(statusControl)
+            {
+                context.landed=true;
+                var current=TraitMechanics.Resolve(actor,sources,"control",context);result.pulses.AddRange(current.pulses);result.bonus.block+=current.bonus.block;result.bonus.heal+=current.bonus.heal;
+            }
+            return result;
         }
         private void ApplyTraitResult(bool enemy,TraitResult result)
         {
@@ -2491,6 +2548,8 @@ namespace Lumia
         }
         private void RecordStatusChanges(bool enemy,StatusActorState target,List<SkillMechanicToken> previous)
         {
+            if(TacticalSkills.Has(enemy?State.combat.playerSkills:State.combat.enemySkills,"tenacity"))
+                foreach(var status in target.effects.Where(x=>!x.pending && StatusMechanics.IsCrowdControl(x.kind) && !previous.Any(old=>old.kind==x.kind && old.remaining>=x.remaining)))status.remaining=Math.Max(1,(status.remaining+1)/2);
             foreach(var status in StatusMechanics.Snapshot(target))
                 if(!previous.Any(x=>x.kind==status.kind && x.remaining>=status.remaining))
                     EmitCombatAction(new CombatAction {id=++actionSerial,cardId=status.sourceCard,kind=status.kind,enemy=enemy});
@@ -2512,7 +2571,7 @@ namespace Lumia
             else
             {
                 int amount = enemy && pulse.kind == "counter" ? RunModes.ScaleEnemyDirectDamage(State, pulse.amount) : pulse.amount;
-                if (pulse.kind != "bleed" && pulse.kind != "burn")
+                if (pulse.kind != "bleed" && pulse.kind != "burn" && pulse.kind != "tactical_true")
                 {
                     int absorbed = AbsorbCombatBlock(!enemy, amount);
                     if (!enemy) RecordBossProgress(BossMechanics.ObserveDamage(c, absorbed));
@@ -2673,21 +2732,62 @@ namespace Lumia
         }
         private void SyncWeaponCards()
         {
+            NormalizeWeaponGrantReferences();
+            var previous=new List<string>();
+            foreach(var reference in State.weaponGrantedCards)
+            {
+                int index=State.deck.LastIndexOf(reference);
+                if(index<0)continue;
+                previous.Add(reference);State.deck.RemoveAt(index);
+            }
+            var next=new List<string>();
+            foreach(var id in WeaponIdentity.EquipmentCards(State.gear,State.passives.Contains("alex_p")))
+            {
+                // An identified or legacy-upgraded D remains the same physical
+                // card while its weapon family is still equipped.
+                int index=previous.FindIndex(reference=>CardInstances.SameType(reference,id));
+                next.Add(index>=0?previous[index]:id);
+                if(index>=0)previous.RemoveAt(index);
+            }
+            State.weaponGrantedCards=next;
+            State.deck.AddRange(next);State.weaponGrantVersion=1;
+        }
+        private void NormalizeWeaponGrantReferences()
+        {
             if(State.weaponGrantedCards==null)State.weaponGrantedCards=new List<string>();
-            // Old saves did not record provenance. Infer only the copies granted by their equipped weapons.
+            // Old saves did not record provenance. Include Alex's existing grants
+            // in the inference, rather than appending another alternate D on load.
             // Without equipment, every previously acquired D card is preserved.
             if(State.weaponGrantVersion==0)
             {
                 State.weaponGrantedCards.Clear();
-                foreach(var id in WeaponIdentity.EquipmentCards(State.gear,false))
-                    if(State.deck.Count(x=>x==id)>State.weaponGrantedCards.Count(x=>x==id))State.weaponGrantedCards.Add(id);
+                var available=State.deck.ToList();
+                foreach(var id in WeaponIdentity.EquipmentCards(State.gear,State.passives.Contains("alex_p")))
+                {
+                    int index=available.FindLastIndex(reference=>CardInstances.SameType(reference,id));
+                    if(index<0)continue;
+                    State.weaponGrantedCards.Add(available[index]);available.RemoveAt(index);
+                }
+                State.weaponGrantVersion=1;
             }
-            foreach(var id in State.weaponGrantedCards)
+            // A saved battle from before the choice-identity fix can have an
+            // identified D in its deck while its grant ledger still names the raw
+            // ID. Reconnect only a missing exact reference, without deleting a
+            // card or touching combat piles, upgrades or independently earned D.
+            var claimed=new HashSet<int>();
+            for(int grant=0;grant<State.weaponGrantedCards.Count;++grant)
             {
-                int index=State.deck.LastIndexOf(id);if(index>=0)State.deck.RemoveAt(index);
+                string reference=State.weaponGrantedCards[grant];
+                int index=-1;
+                for(int candidate=State.deck.Count-1;candidate>=0;--candidate)
+                    if(!claimed.Contains(candidate) && State.deck[candidate]==reference){index=candidate;break;}
+                if(index<0)
+                    for(int candidate=State.deck.Count-1;candidate>=0;--candidate)
+                        if(!claimed.Contains(candidate) && CardInstances.IsInstance(State.deck[candidate])
+                            && CardInstances.SameType(State.deck[candidate],reference))
+                        { index=candidate;State.weaponGrantedCards[grant]=State.deck[index];break; }
+                if(index>=0)claimed.Add(index);
             }
-            State.weaponGrantedCards=WeaponIdentity.EquipmentCards(State.gear,State.passives.Contains("alex_p"));
-            State.deck.AddRange(State.weaponGrantedCards);State.weaponGrantVersion=1;
         }
         private List<string> Offer(IEnumerable<string> pool, int amount)
         {
@@ -2718,12 +2818,12 @@ namespace Lumia
             var result = new List<string>();
             while (result.Count < amount && candidates.Count > 0)
             {
-                // Integer weights 3:2 give an owner's Q/W/E/R a modest 1.5x preference.
-                int total = candidates.Sum(card => FavoredSkill(card, owners) ? 3 : 2);
+                // 9:5 modestly raises the former 3:2 owner preference by 20%.
+                int total = candidates.Sum(card => FavoredSkill(card, owners) ? PassiveSkillOfferWeight : OrdinaryCardOfferWeight);
                 int pick = Next(ref randomState, total), selected = 0;
                 for (; selected < candidates.Count - 1; ++selected)
                 {
-                    pick -= FavoredSkill(candidates[selected], owners) ? 3 : 2;
+                    pick -= FavoredSkill(candidates[selected], owners) ? PassiveSkillOfferWeight : OrdinaryCardOfferWeight;
                     if (pick < 0) break;
                 }
                 result.Add(candidates[selected].id); candidates.RemoveAt(selected);

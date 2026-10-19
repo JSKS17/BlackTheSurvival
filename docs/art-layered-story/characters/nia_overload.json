@@ -18,7 +18,7 @@
     1199
   ],
   "output_path": "Assets/Resources/Lumia/Story/Characters/nia_overload.png",
-  "output_sha256": "c850878dbdf4585f1d865da62e63ecc60fa499ca5fd7313b465e0162dd3a18dc",
+  "output_sha256": "a6acebca2cd4a10f41fbff0f1c1ef53b765a2d5dda7d93019551213ff02450d9",
   "output_dimensions": [
     1254,
     1254
@@ -176,5 +176,33 @@
       "short_limbs_big_head_pixel_style_preserved": true,
       "no_background_ui_text_or_speech_bubble": true
     }
-  }
+  },
+  "userOverrides": [
+    {
+      "manifest": "docs/art-nia-black-eyes/manifest.json",
+      "date": "2026-10-19",
+      "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+      "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+      "previousRuntimeSha256": "274e283f18b3efc2f3d68c266bb943ebf88af2ec5ddfcf34cd75eb60e843346e",
+      "currentRuntimeSha256": "3a4782d04d9bccda99c7bb49cd89f03c7ddfbda75b8003b271a61d81f56bb0c7"
+    },
+    {
+      "manifest": "docs/art-nia-black-eyes/manifest.json",
+      "date": "2026-10-19",
+      "authorization": "Remove only the two eye-glint clusters from the prologue page 2 Nia sprite.",
+      "method": "Built-in image_gen guide with exact connected-component RGB mask composition. No alpha or unmasked RGBA edits.",
+      "previousRuntimeSha256": "3a4782d04d9bccda99c7bb49cd89f03c7ddfbda75b8003b271a61d81f56bb0c7",
+      "currentRuntimeSha256": "97383c95f972255b8d35b513c8a9bb4b95243ef835eee1dc489e1ddcaadf3bbb",
+      "proof": "Build/WindowedPrologueVerification/prologue/pre-aa/validation.json"
+    },
+    {
+      "manifest": "docs/art-nia-black-eyes/manifest.json",
+      "date": "2026-10-19",
+      "authorization": "Remove the remaining dark anti-alias rim of the same two prologue page 2 eye glints; leave all surrounding pixels unchanged.",
+      "method": "Existing built-in image_gen guide; exact manually reviewed row mask and same-row dark-iris RGB interpolation. Original alpha retained.",
+      "previousRuntimeSha256": "97383c95f972255b8d35b513c8a9bb4b95243ef835eee1dc489e1ddcaadf3bbb",
+      "currentRuntimeSha256": "a6acebca2cd4a10f41fbff0f1c1ef53b765a2d5dda7d93019551213ff02450d9",
+      "proof": "Build/WindowedPrologueVerification/prologue/validation.json"
+    }
+  ]
 }

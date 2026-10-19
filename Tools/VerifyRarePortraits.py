@@ -27,7 +27,13 @@ for skin in skins:
     assert record['customOutfit'] == skin['customOutfit'], asset_id + ': original casual flag'
     assert sha(rare) != sha(base), asset_id + ': base sprite reused'
     tracked_base = subprocess.check_output(['git', 'show', 'HEAD:' + base.relative_to(ROOT).as_posix()], cwd=ROOT)
-    assert hashlib.sha256(tracked_base).hexdigest() == sha(base), asset_id + ': base sprite modified'
+    if asset_id == 'nia':
+        eye_overrides = json.loads((ROOT / 'docs/art-nia-black-eyes/manifest.json').read_text(encoding='utf8'))
+        approved = next(item for item in eye_overrides['runtime'] if item['path'] == base.relative_to(ROOT).as_posix())
+        assert hashlib.sha256(tracked_base).hexdigest() in (approved['beforeSha256'], approved['afterSha256']), asset_id + ': unapproved Nia baseline'
+        assert sha(base) == approved['afterSha256'], asset_id + ': approved iris-only Nia override mismatch'
+    else:
+        assert hashlib.sha256(tracked_base).hexdigest() == sha(base), asset_id + ': base sprite modified'
     metadata = rare.with_suffix('.png.meta').read_text(encoding='utf8')
     guid = re.search(r'^guid: ([0-9a-f]{32})$', metadata, re.M)
     assert guid and guid[1] not in guids, asset_id + ': invalid/duplicate Unity GUID'

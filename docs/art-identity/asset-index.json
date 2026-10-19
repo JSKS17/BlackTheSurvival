@@ -51,7 +51,7 @@
       "referenceSha256": "ed283cf94adffa8761131e992d997db038fecbf6a07ad891c6773da97b2b8618",
       "prompt": "Use case: style-transfer. Asset type: one transparent game character battle sprite for a pixel-art deckbuilding game. Make a NEW single full-body sprite of the Eternal Return character in reference image 1. Original outfit, colors, hair, face and signature accessory MUST stay recognizable. Use expressive handheld GBA Pokemon/Moemon battle-sprite pixel craft: a 128 x 160 logical pixel grid enlarged with crisp square pixels, confident dark 1-pixel contours, selective colored interior outlines, 3-4 flat shades per material, deliberate clusters, no smooth airbrush, no anti-aliasing, no blur, no painterly rendering, no doll face. Cute roughly 2.5-head-tall proportions with a VERY LARGE clear head: face is 35-45 logical pixels tall, each eye at least 7 pixels across. Eyelids, brows, iris, nose and mouth must survive display at 128 x 160. One single character, complete feet and weapon, centered with 5% transparent padding, three-quarter front view facing slightly right, dynamic but calm battle-ready stance. Transparent background, no text, no labels, no ground, no shadow rectangle, no scenery. Character-specific face takes priority over a generic cute template.\nCharacter-specific face and pose: Nia: adolescent sleepy gamer girl. Preserve the reference's HALF-CLOSED drooping upper eyelids, tiny visible dark violet irises, soft low straight eyebrows and unimpressed expression. Small cheek-to-mouth pink bubblegum bubble, still allow visible nose and both differently angled eyelids. NO round wide-open star eyes or cheerful generic smile. Dusty lavender bob with curled ends, small pink headset accents. Hold black-and-pink game controller.\n",
       "generatedSource": "docs/art-identity/generated/nia.png",
-      "generatedSha256": "992b5c5dc92a8ac53ad7a676f03ed4ecc480fdffb4930f0b9d369a20df0d1373",
+      "generatedSha256": "a94c7ed67f6140aebafdf295d574b1d40a9488286143fcc3f8ab15a5f90de1c4",
       "generatedSize": [
         1122,
         1402
@@ -69,8 +69,20 @@
       "path": "Assets/Resources/Lumia/PortraitsIdentity/nia.png",
       "width": 160,
       "height": 160,
-      "sha256": "59b53e1a6b513323019b4313c2a058812a9f715855084b7ed211baf71b2e8139",
-      "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding."
+      "sha256": "9dd9f1743c4a787cce5855e5e7e982dfb4aeaceea5c7aaf237cfaf20e24442af",
+      "processing": "Alpha-bound crop, nearest-neighbour resize, transparent padding.",
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "previousGeneratedSha256": "992b5c5dc92a8ac53ad7a676f03ed4ecc480fdffb4930f0b9d369a20df0d1373",
+          "currentGeneratedSha256": "a94c7ed67f6140aebafdf295d574b1d40a9488286143fcc3f8ab15a5f90de1c4",
+          "previousRuntimeSha256": "59b53e1a6b513323019b4313c2a058812a9f715855084b7ed211baf71b2e8139",
+          "currentRuntimeSha256": "9dd9f1743c4a787cce5855e5e7e982dfb4aeaceea5c7aaf237cfaf20e24442af"
+        }
+      ]
     },
     {
       "id": "jackie",

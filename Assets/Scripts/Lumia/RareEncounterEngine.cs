@@ -156,7 +156,7 @@ namespace Lumia
         public bool SkipRareRemoval() => ConfirmRareRemoval(new int[0]);
 
         public List<int> RareCopyIndices() => Enumerable.Range(0, State.deck.Count).Where(index =>
-            CardUpgradeLevel(State.deck[index]) == 0 && GameDatabase.Card(State.deck[index]) != null && GameDatabase.Card(State.deck[index]).cost <= 1).ToList();
+            CardUpgradeLevel(State.deck[index]) == 0 && !IsTacticalUpgraded(State.deck[index]) && GameDatabase.Card(State.deck[index]) != null && GameDatabase.Card(State.deck[index]).cost <= 1).ToList();
         public bool ConfirmRareCopy(int deckIndex)
         {
             if (!RareActionPending(false) || !RareCopyIndices().Contains(deckIndex)) return false;

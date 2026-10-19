@@ -170,7 +170,7 @@ namespace Lumia
             if (card.category == "basic" && card.key == "ATK" && landed && actualDamage > 0 && ownActions.Any(x => x.traitId == "isaac_p" && x.kind == "trait_heal" && x.heal > 0))
                 Add(state.research.completedUniqueSubjects, "isaac");
             var experiment = ExperimentFor(subjectId);
-            if (experiment != null && subjectId != "nia" && subjectId != "isaac" && experiment.card?.id == card.id && ExperimentSucceeded(experiment, before, after, landed, actualDamage, ownActions))
+            if (experiment != null && subjectId != "nia" && subjectId != "isaac" && experiment.card?.id == card.id && ExperimentSucceeded(experiment, before, after, landed, actualDamage, ownActions, card))
                 Add(state.research.completedUniqueSubjects, subjectId);
             RecordSynergies(state.research, before, after, card);
         }
@@ -209,7 +209,7 @@ namespace Lumia
         {
             if (r == null) return -1;
             bool condition = !string.IsNullOrEmpty(r.conditionKey) || !string.IsNullOrEmpty(r.conditionKey2) || !string.IsNullOrEmpty(r.conditionPrevious);
-            if (condition && new[] { "bonus_damage", "bonus_block", "bonus_heal", "consume", "state_off", "discount", "delayed_damage", "bleed", "burn", "empower_basic" }.Contains(r.op)) return 100 + Math.Max(r.conditionAmount, r.conditionAmount2);
+            if (condition && new[] { "bonus_damage", "bonus_block", "bonus_heal", "consume", "state_off", "discount", "delayed_damage", "bleed", "burn", "empower_basic", "forge_sword" }.Contains(r.op)) return 100 + Math.Max(r.conditionAmount, r.conditionAmount2);
             if (r.op == "bonus_damage" && !string.IsNullOrEmpty(r.scaleKey)) return 90;
             if (r.op == "consume") return 80;
             if (r.op == "state_toggle") return 75;
@@ -242,7 +242,7 @@ namespace Lumia
         static string ConditionText(CardDef card, SkillRule rule)
         {
             var conditions = new List<string>();
-            if (!string.IsNullOrEmpty(rule.conditionKey)) conditions.Add(SkillMechanics.StateCondition(card, rule.conditionKey, rule.conditionAmount, rule.conditionExact));
+            if (!string.IsNullOrEmpty(rule.conditionKey)) conditions.Add((rule.op == "forge_sword" ? "이번 E의 파편 수집을 마친 직후 " : "") + SkillMechanics.StateCondition(card, rule.conditionKey, rule.conditionAmount, rule.conditionExact));
             if (!string.IsNullOrEmpty(rule.conditionKey2)) conditions.Add(SkillMechanics.StateCondition(card, rule.conditionKey2, rule.conditionAmount2, rule.conditionExact2));
             if (!string.IsNullOrEmpty(rule.conditionPrevious)) conditions.Add("직전에 " + (GameDatabase.Card(rule.conditionPrevious)?.name ?? rule.conditionPrevious) + " 사용");
             if (!string.IsNullOrEmpty(rule.scaleKey)) conditions.Add(SkillMechanics.ResourceName(card, rule.scaleKey) + " 1 이상");
@@ -254,6 +254,7 @@ namespace Lumia
             string label = SkillMechanics.ResourceName(card, rule.key ?? rule.op);
             string action;
             if (rule.op == "consume") action = label + " 수치를 실제로 소모합니다";
+            else if (rule.op == "forge_sword") action = "파편 수집을 모두 소모하고 " + label + " " + rule.amount + "을 실제로 완성합니다";
             else if (rule.op == "gain") action = label + " 수치를 " + rule.cap + "까지 높입니다";
             else if (rule.op == "state_toggle") action = SkillMechanics.StateName(card, rule.key) + "를 실제로 전환합니다";
             else if (rule.op == "state_on") action = SkillMechanics.StateName(card, rule.key) + "를 새로 활성화합니다";
@@ -287,10 +288,21 @@ namespace Lumia
             }
             return string.IsNullOrEmpty(r.scaleKey) || SkillMechanics.Resource(before, card.owner, r.scaleKey) > 0;
         }
-        static bool ExperimentSucceeded(Experiment e, SkillActorState before, SkillActorState after, bool landed, int actualDamage, List<CombatAction> actions)
+        static bool ExperimentSucceeded(Experiment e, SkillActorState before, SkillActorState after, bool landed, int actualDamage, List<CombatAction> actions, CardDef playedCard = null)
         {
             if (e.kind == "hit") return landed && actualDamage > 0;
             var r = e.rule; var card = e.card;
+            if (r?.op == "forge_sword")
+            {
+                // E's old collection-spend experiment now witnesses same-cast
+                // forging. Use this played copy's gain rules, including rare upgrades.
+                var actual=playedCard ?? card;
+                var forge=(actual?.mechanics?.rules ?? new SkillRule[0]).FirstOrDefault(rule=>rule.op=="forge_sword");
+                return after!=null && forge!=null && (!forge.onHit || landed)
+                    && SkillMechanics.TaziaCollectionAfterE(before,actual)>=forge.conditionAmount
+                    && SkillMechanics.Resource(after,actual.owner,forge.key)==1
+                    && SkillMechanics.Resource(after,actual.owner,forge.conditionKey)==0;
+            }
             if (r == null || after == null || !Eligible(r, before, card, landed)) return false;
             int old = SkillMechanics.Resource(before, card.owner, r.key), current = SkillMechanics.Resource(after, card.owner, r.key);
             if (r.op == "consume" || r.op == "state_off") return old > 0 && current < old;

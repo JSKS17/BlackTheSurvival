@@ -47,6 +47,9 @@ namespace Lumia
         public int targetHp, targetBlock;
         public bool wildlife;
         public SkillActorState skillActor;
+        // Forecasts keep their pre-card attack snapshot, while shared resources
+        // advance in the separate post-card simulation pool.
+        public SkillActorState sharedSkillActor;
     }
     public sealed class TraitPulse
     {
@@ -162,19 +165,24 @@ namespace Lumia
             var result=new TraitResult();
             foreach (var source in sources.Where(x=>x?.profile!=null).GroupBy(x=>x.id).Select(x=>x.First()))
             {
-                var scoped=new CardDef { id=context.card?.id ?? "basic_guard",name=source.name,owner="trait:"+source.id,category=context.card?.category ?? "trait",key=context.card?.key ?? "T" };
-                var before=SkillMechanics.Clone(actor.skills);
-                var eligible=new List<SkillRule>();
                 var rules=source.profile.rules ?? new TraitRule[0];
+                if(!rules.Any(rule=>rule.trigger==trigger)) continue;
+                var sharedSkills=context.sharedSkillActor ?? context.skillActor;
+                bool sharedResources=sharedSkills!=null && !ReferenceEquals(sharedSkills,actor.skills) && SkillMechanics.SharedResourcesFor(source.id).Length>0;
+                var resources=actor.skills;
+                if(sharedResources) SkillMechanics.PullSharedPassiveResources(resources,sharedSkills,source.id);
+                var scoped=new CardDef { id=context.card?.id ?? "basic_guard",name=source.name,owner="trait:"+source.id,category=context.card?.category ?? "trait",key=context.card?.key ?? "T" };
+                var before=SkillMechanics.Clone(resources);
+                var eligible=new List<SkillRule>();
                 for (int i=0;i<rules.Length;++i)
                 {
-                    var rule=rules[i];
+                    var rule=sharedResources ? (TraitRule)SkillMechanics.SharedPassiveRule(source.id,rules[i]) : rules[i];
                     if (rule.trigger!=trigger) continue;
                     var counter=actor.counters.FirstOrDefault(x=>x.sourceId==source.id && x.ruleIndex==i);
                     if (counter==null) { counter=new TraitCounter { sourceId=source.id,label=source.name,trigger=trigger,ruleIndex=i,every=SkillMechanics.Clamp(rule.every,1,8),persistent=rule.persistent };actor.counters.Add(counter); }
                     // Count observed attacks even when their hit-gated effect misses.
                     counter.count=(counter.count+1)%counter.every;
-                    if (counter.count!=0 || counter.cooldown>0 || (rule.maxPerBattle>0 && counter.battleUses>=rule.maxPerBattle) || (rule.maxPerTurn>0 && counter.turnUses>=rule.maxPerTurn) || !Conditions(rule,rule.op=="execute" ? actor.skills : before,scoped,context)) continue;
+                    if (counter.count!=0 || counter.cooldown>0 || (rule.maxPerBattle>0 && counter.battleUses>=rule.maxPerBattle) || (rule.maxPerTurn>0 && counter.turnUses>=rule.maxPerTurn) || !Conditions(rule,rule.op=="execute" ? resources : before,scoped,context)) continue;
                     counter.battleUses++; counter.turnUses++; counter.cooldown=SkillMechanics.Clamp(rule.cooldown,0,6);
                     if (rule.op=="bonus_damage" && !(context.card!=null && context.card.damage<=0 && SkillMechanics.Bonuses(context.skillActor,context.card).damage<=0 && EmpowerBonus(actor,context.card)<=0)) {int amount=Amount(rule,before,scoped,5);result.bonus.damage+=amount;result.pulses.Add(new TraitPulse{sourceId=source.id,sourceCard=scoped.id,kind="bonus_damage",amount=amount});}
                     else if (rule.op=="bonus_block") {int amount=Amount(rule,before,scoped,5);result.bonus.block+=amount;result.pulses.Add(new TraitPulse{sourceId=source.id,sourceCard=scoped.id,kind="bonus_block",amount=amount});}
@@ -226,14 +234,15 @@ namespace Lumia
                 if (eligible.Count>0)
                 {
                     scoped.mechanics=new SkillMechanicProfile { rules=eligible.ToArray() };
-                    SkillMechanics.AfterCard(actor.skills,before,scoped,context.landed,false);
+                    SkillMechanics.AfterCard(resources,before,scoped,context.landed,false);
                     result.pulses.Add(new TraitPulse{sourceId=source.id,sourceCard=scoped.id,kind="state"});
                     foreach(var rule in eligible.OfType<TraitRule>().Where(x=>x.persistent))
                     {
-                        foreach(var resource in actor.skills.resources.Where(x=>x.owner==scoped.owner && x.key==(rule.key??rule.op))) resource.persistent=true;
-                        foreach(var effect in actor.skills.effects.Where(x=>x.owner==scoped.owner && x.key==(rule.key??rule.op))) effect.persistent=true;
+                        foreach(var resource in resources.resources.Where(x=>x.owner==scoped.owner && x.key==(rule.key??rule.op))) resource.persistent=true;
+                        foreach(var effect in resources.effects.Where(x=>x.owner==scoped.owner && x.key==(rule.key??rule.op))) effect.persistent=true;
                     }
                 }
+                if(sharedResources) SkillMechanics.CommitSharedPassiveResources(resources,sharedSkills,source.id);
             }
             result.bonus.damage=Math.Min(10,result.bonus.damage); result.bonus.block=Math.Min(10,result.bonus.block);result.bonus.heal=Math.Min(12,result.bonus.heal);
             return result;

@@ -104,7 +104,7 @@ namespace Lumia
             Para(new Rect(36, 151, 1200, 42), copy ? "미강화 카드 중 기본 코스트가 1 이하인 카드를 한 장 선택합니다. 같은 카드를 다시 누르면 취소합니다. 기존 카드는 유지됩니다."
                 : "무기 스킬은 제외하며, 제거 후 덱에 최소 5장이 남아야 합니다. 같은 카드를 다시 누르면 취소합니다. 확정 전에는 제거되지 않습니다.", 13, Muted);
             Txt(new Rect(36, 195, 1200, 23), copy ? "복제 가능 " + candidates.Count + "장 · 선택 " + (rareCopySelection >= 0 ? "1 / 1" : "0 / 1") : "제거 가능 " + candidates.Count + "장 · 선택 " + rareRemovalSelection.Count + " / " + limit, 14, Gold);
-            rareCardScroll = GUI.BeginScrollView(new Rect(36, 231, 1202, 353), rareCardScroll, new Rect(0, 0, 1174, Math.Max(340, Mathf.Ceil(candidates.Count / 6f) * 246)));
+            rareCardScroll = BeginTouchScrollView("rare-card-selection", new Rect(36, 231, 1202, 353), rareCardScroll, new Rect(0, 0, 1174, Math.Max(340, Mathf.Ceil(candidates.Count / 6f) * 246)));
             var visible = CraftingCatalog.VisibleItems(candidates.Count, rareCardScroll.y, 353, 6, 246);
             for (int i = visible.first; i < visible.end; i++)
             {
@@ -116,7 +116,7 @@ namespace Lumia
                 if (Hit(r, enabled)) ToggleRareCardSelection(deckIndex, copy);
             }
             if (candidates.Count == 0) Para(new Rect(20, 32, 1120, 68), "선택할 수 있는 카드가 없습니다. 카드 변경 없이 다음 구역으로 진행할 수 있습니다.", 18, Muted);
-            GUI.EndScrollView();
+            EndTouchScrollView();
             if (Btn(new Rect(36, 626, 200, 48), "선택 취소", false, Muted, rareCopySelection >= 0 || rareRemovalSelection.Count > 0)) { rareCopySelection = -1; rareRemovalSelection.Clear(); }
             if (Btn(new Rect(255, 626, 454, 48), copy ? "선택한 카드의 일반 사본 2장 추가" : "선택한 " + rareRemovalSelection.Count + "장 영구 제거", true, RareTone, copy ? rareCopySelection >= 0 : rareRemovalSelection.Count > 0))
                 if (Act(() => copy ? Engine.ConfirmRareCopy(rareCopySelection) : Engine.ConfirmRareRemoval(rareRemovalSelection.ToArray()), "encounter.choose")) { rareCopySelection = -1; rareRemovalSelection.Clear(); }
@@ -144,7 +144,7 @@ namespace Lumia
             if (!RareV2VerificationEnabled || Path.GetFileName(savePath) != "lumia-verification.json")
                 throw new InvalidOperationException("Rare v2 UI verification requires the isolated development save.");
             lobby = catalog = inventory = settings = help = fieldInfo = enemyLoadout = research = modeSelecting = runMenu = endlessConfirm = false;
-            inspectCard = inspectTrait = inspectGear = inspectBoss = mapIntel = ""; inspectEnemyCard = inspectRareReward = false; summaryMode = true;
+            inspectCard = inspectTrait = inspectGear = inspectBoss = mapIntel = ""; inspectEnemyCard = inspectRareReward = inspectTacticalReward = false; summaryMode = true;
             scroll = inventoryScroll = detailScroll = encounterStoryScroll = rareCardScroll = Vector2.zero; summaryScroll.Clear();
             rareSelectionState = null; rareRemovalSelection.Clear(); rareCopySelection = -1; rareRevealKey = ""; rareRevealVerificationTime = -1;
             effects.Clear(); CloseCombatInformation(); CloseStoryReplay(); CloseStoryLayers(); tutorial = null; tutorialOffer = tutorialQueued = false; toastUntil = 0;
@@ -258,7 +258,7 @@ namespace Lumia
             var encounter = EnterRareV2Event("nia"); var purchase = encounter.options.First(o => o.effect == "rare_trade_card");
             if (view == "rare_v2_purchase_detail")
             {
-                inspectCard = purchase.cardId; inspectRareReward = true; summaryMode = false;
+                inspectCard = purchase.cardId; inspectRareReward = true; inspectTacticalReward = false; summaryMode = false;
                 var preview = EventPresentation.RewardCard(purchase); var actual = RareCardUpgrades.Apply(GameDatabase.Card(purchase.cardId));
                 if (preview.damage != actual.damage || preview.cost != actual.cost || preview.damage <= GameDatabase.Card(purchase.cardId).damage)
                     throw new InvalidOperationException("Purchase preview must show the exact ++ card values before the card enters the deck.");

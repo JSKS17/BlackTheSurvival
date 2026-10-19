@@ -1,0 +1,536 @@
+{
+  "schemaVersion": 2,
+  "retrievedDate": "2026-10-19",
+  "assetVersion": "12.6.0",
+  "catalogUrl": "https://er.dakgg.io/api/v1/data/tactical-skills?hl=ko",
+  "copyrightOwner": "Nimble Neuron",
+  "assetProvider": "dak.gg original Eternal Return game-asset CDN mirror",
+  "excludedOriginalIds": [
+    70,
+    500160
+  ],
+  "excludedReason": "User excluded Transcendence / 초월.",
+  "invalidUnnamedIdsExcluded": [
+    500010,
+    1000000
+  ],
+  "entries": [
+    {
+      "cardId": "tactical_blink",
+      "originalId": 30,
+      "originalNameKo": "블링크",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4000000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_blink.png",
+      "sha256": "b8ba0a3856e4d086e643c230713c8935524b2260dd0435ecc5fb7e28850356a1",
+      "bytes": 19145,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_blink.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_blink.png",
+      "sourceSha256": "b8ba0a3856e4d086e643c230713c8935524b2260dd0435ecc5fb7e28850356a1",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_quake",
+      "originalId": 40,
+      "originalNameKo": "퀘이크",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4001000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_quake.png",
+      "sha256": "e51746df593962be137667aa9e52584cfc333a1eb18040a36e667b254894126f",
+      "bytes": 17907,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_quake.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_quake.png",
+      "sourceSha256": "e51746df593962be137667aa9e52584cfc333a1eb18040a36e667b254894126f",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_protocol",
+      "originalId": 50,
+      "originalNameKo": "프로토콜 위반",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4101000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_protocol.png",
+      "sha256": "f3ae5390a328684b8a551397bc506ee55b64d50fe99cebbe1b321907f2e79c34",
+      "bytes": 17305,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_protocol.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_protocol.png",
+      "sourceSha256": "f3ae5390a328684b8a551397bc506ee55b64d50fe99cebbe1b321907f2e79c34",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_redstorm",
+      "originalId": 60,
+      "originalNameKo": "붉은 폭풍",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4102000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_redstorm.png",
+      "sha256": "8590697993887930f7b936d2e848647406df8b24e660357feae65a6aea0fbcd9",
+      "bytes": 15901,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_redstorm.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_redstorm.png",
+      "sourceSha256": "8590697993887930f7b936d2e848647406df8b24e660357feae65a6aea0fbcd9",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_artifact",
+      "originalId": 80,
+      "originalNameKo": "아티팩트",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4104000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_artifact.png",
+      "sha256": "9e5d2527da91282f369190cf64e379e5cd9bf83837af30d9d6aa121ae4e552e1",
+      "bytes": 15595,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_artifact.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_artifact.png",
+      "sourceSha256": "9e5d2527da91282f369190cf64e379e5cd9bf83837af30d9d6aa121ae4e552e1",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_nullification",
+      "originalId": 90,
+      "originalNameKo": "무효화",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4105000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_nullification.png",
+      "sha256": "5b483e01efa1efb992a06cd5bc84a64eb2cfa15c3c3651a7c9aa2650a3305cce",
+      "bytes": 14578,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_nullification.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_nullification.png",
+      "sourceSha256": "5b483e01efa1efb992a06cd5bc84a64eb2cfa15c3c3651a7c9aa2650a3305cce",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_soul",
+      "originalId": 110,
+      "originalNameKo": "강한 결속",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4107000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_soul.png",
+      "sha256": "cb34d828dce6a049c51ae9d0f9a06690180645d8f015389fa6ae3f514318dfe6",
+      "bytes": 16109,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_soul.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_soul.png",
+      "sourceSha256": "cb34d828dce6a049c51ae9d0f9a06690180645d8f015389fa6ae3f514318dfe6",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_strider",
+      "originalId": 120,
+      "originalNameKo": "스트라이더 - A13",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4110000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_strider.png",
+      "sha256": "9fd4b65d8eb51fa29356559d157f1dabbb1c38b7bcfe679d35e606572f0683a5",
+      "bytes": 17039,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_strider.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_strider.png",
+      "sourceSha256": "9fd4b65d8eb51fa29356559d157f1dabbb1c38b7bcfe679d35e606572f0683a5",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_truth_blade",
+      "originalId": 130,
+      "originalNameKo": "진실의 칼날",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4112000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_truth_blade.png",
+      "sha256": "6eb45cc79d5817f7200631c82b365ee5c7e3c2e7268a6393351ca6fd04cc3981",
+      "bytes": 16032,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_truth_blade.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_truth_blade.png",
+      "sourceSha256": "6eb45cc79d5817f7200631c82b365ee5c7e3c2e7268a6393351ca6fd04cc3981",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_false_oath",
+      "originalId": 140,
+      "originalNameKo": "거짓 서약",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4113000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_false_oath.png",
+      "sha256": "81132d80f2109d0197237507186a1ff40c2786b378fadf1ef5a36de08be35e16",
+      "bytes": 16216,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_false_oath.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_false_oath.png",
+      "sourceSha256": "81132d80f2109d0197237507186a1ff40c2786b378fadf1ef5a36de08be35e16",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_wind",
+      "originalId": 150,
+      "originalNameKo": "치유의 바람",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4108000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_wind.png",
+      "sha256": "e4b749abab73cfe4f20167590e08ec895f31ffe517730394e2f7e8fd4db3a074",
+      "bytes": 16168,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_wind.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_wind.png",
+      "sourceSha256": "e4b749abab73cfe4f20167590e08ec895f31ffe517730394e2f7e8fd4db3a074",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_repulsor",
+      "originalId": 160,
+      "originalNameKo": "리펄서 미사일",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4115000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_repulsor.png",
+      "sha256": "0c6284e852d21310de19c3cc199a3cd73408342ded33018d49b1a940abd738cf",
+      "bytes": 19120,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_repulsor.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_repulsor.png",
+      "sourceSha256": "0c6284e852d21310de19c3cc199a3cd73408342ded33018d49b1a940abd738cf",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_plasma",
+      "originalId": 170,
+      "originalNameKo": "플라즈마 대시",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4116000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_plasma.png",
+      "sha256": "57f1ed5244f3f3e487b1e451a6c0ba450328b4004c24dc4025ebbaaecb2099f1",
+      "bytes": 18873,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_plasma.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_plasma.png",
+      "sourceSha256": "57f1ed5244f3f3e487b1e451a6c0ba450328b4004c24dc4025ebbaaecb2099f1",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_lightwing",
+      "originalId": 190,
+      "originalNameKo": "라이트 윙",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4118000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_lightwing.png",
+      "sha256": "4ba578c29d918de12ad951d8b87c5aaf5829fa9e9087fa0b3ebcd61e99e3d196",
+      "bytes": 17950,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_lightwing.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_lightwing.png",
+      "sourceSha256": "4ba578c29d918de12ad951d8b87c5aaf5829fa9e9087fa0b3ebcd61e99e3d196",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_gravity",
+      "originalId": 500020,
+      "originalNameKo": "중력장",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4502000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_gravity.png",
+      "sha256": "357236108eac9ea65735010b2a94a45f71a60e7ea2c498ab02c6df4d109fa041",
+      "bytes": 18087,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_gravity.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_gravity.png",
+      "sourceSha256": "357236108eac9ea65735010b2a94a45f71a60e7ea2c498ab02c6df4d109fa041",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_rolling_thunder",
+      "originalId": 500030,
+      "originalNameKo": "롤링썬더",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4503000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_rolling_thunder.png",
+      "sha256": "e1dc4eab7e84276af9859032128e629963249bbf21706ce0f4e60d23259a230f",
+      "bytes": 19650,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_rolling_thunder.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_rolling_thunder.png",
+      "sourceSha256": "e1dc4eab7e84276af9859032128e629963249bbf21706ce0f4e60d23259a230f",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_truth_burst",
+      "originalId": 500040,
+      "originalNameKo": "폭진",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4504000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_truth_burst.png",
+      "sha256": "d44cc4cbe4cb784bedf7238677a534ef44dcc1d563eb862ac9e8104a2e9760c3",
+      "bytes": 16202,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_truth_burst.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_truth_burst.png",
+      "sourceSha256": "d44cc4cbe4cb784bedf7238677a534ef44dcc1d563eb862ac9e8104a2e9760c3",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_impulse",
+      "originalId": 500050,
+      "originalNameKo": "임펄스",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4512000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_impulse.png",
+      "sha256": "1978a2765ee4bf8190919362e6022ddcb7c7688fd2fc7e915e6e0a0ddf4f9914",
+      "bytes": 16792,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_impulse.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_impulse.png",
+      "sourceSha256": "1978a2765ee4bf8190919362e6022ddcb7c7688fd2fc7e915e6e0a0ddf4f9914",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_prayer",
+      "originalId": 500060,
+      "originalNameKo": "기원",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4506000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_prayer.png",
+      "sha256": "b04fec2ccfcbedaf05c4cd188eef762b5f137911162d5ad869ed284d509eb3b8",
+      "bytes": 16409,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_prayer.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_prayer.png",
+      "sourceSha256": "b04fec2ccfcbedaf05c4cd188eef762b5f137911162d5ad869ed284d509eb3b8",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_fissure",
+      "originalId": 500070,
+      "originalNameKo": "대지분쇄",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4507000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_fissure.png",
+      "sha256": "f125f357ca94adb7bf271b427988466448f04e167e7f1334af0d7250826b00dd",
+      "bytes": 18575,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_fissure.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_fissure.png",
+      "sourceSha256": "f125f357ca94adb7bf271b427988466448f04e167e7f1334af0d7250826b00dd",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_punch",
+      "originalId": 500080,
+      "originalNameKo": "힘껏 펀치",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4508000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_punch.png",
+      "sha256": "e6d319c21d675317358b84f8f9f891d122bd373bdd8f2b106a3232115f3f58e2",
+      "bytes": 16120,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_punch.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_punch.png",
+      "sourceSha256": "e6d319c21d675317358b84f8f9f891d122bd373bdd8f2b106a3232115f3f58e2",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_meteor",
+      "originalId": 500090,
+      "originalNameKo": "메테오",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4509000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_meteor.png",
+      "sha256": "3f78a4e56d3996e2fdef156d75d9e35aef3dbfec701dc164f93b5c461b3f0c1e",
+      "bytes": 17339,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_meteor.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_meteor.png",
+      "sourceSha256": "3f78a4e56d3996e2fdef156d75d9e35aef3dbfec701dc164f93b5c461b3f0c1e",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_lightning_shield",
+      "originalId": 500100,
+      "originalNameKo": "라이트닝 쉴드",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4510000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_lightning_shield.png",
+      "sha256": "28f843996410d4c2afa3ae969a0c55cca96e391ded57bfd690f96b278106c0f3",
+      "bytes": 17446,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_lightning_shield.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_lightning_shield.png",
+      "sourceSha256": "28f843996410d4c2afa3ae969a0c55cca96e391ded57bfd690f96b278106c0f3",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_meditation",
+      "originalId": 500110,
+      "originalNameKo": "블레싱: 명상",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4511000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_meditation.png",
+      "sha256": "64a6b137110a3be7f6e26fa131312fa379cd147edbbc73a323bff13615d82290",
+      "bytes": 13670,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_meditation.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_meditation.png",
+      "sourceSha256": "64a6b137110a3be7f6e26fa131312fa379cd147edbbc73a323bff13615d82290",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_lock_on",
+      "originalId": 500240,
+      "originalNameKo": "부착",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4524000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_lock_on.png",
+      "sha256": "e5c5edb6a940f6e42d671d552cc1264841a1acca51fcd4e3a26a86a2f6c9c2e7",
+      "bytes": 18426,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_lock_on.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_lock_on.png",
+      "sourceSha256": "e5c5edb6a940f6e42d671d552cc1264841a1acca51fcd4e3a26a86a2f6c9c2e7",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "cardId": "tactical_asthenia",
+      "originalId": 500270,
+      "originalNameKo": "쇠약",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4117000.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_asthenia.png",
+      "sha256": "420ef3744717908249bc0ecfeb0507efff9064c9dcbfad28ad96846d05de06d6",
+      "bytes": 16842,
+      "size": [
+        90,
+        90
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "availabilityNote": "Data catalog contains retained legacy entries. See official-patch scope notes; presence alone is not proof of current selection availability.",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_asthenia.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_asthenia.png",
+      "sourceSha256": "420ef3744717908249bc0ecfeb0507efff9064c9dcbfad28ad96846d05de06d6",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    },
+    {
+      "itemId": "tactical_module",
+      "originalId": 999999,
+      "originalNameKo": "전술 강화 모듈",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/ItemIcon_999999.png",
+      "targetPath": "docs/art-tactical-pixel/references/tactical_module.png",
+      "sha256": "c1247f1f30c76b05e518077058fe72497674fddfb07b365de2564e9e8765a1ec",
+      "bytes": 8733,
+      "size": [
+        66,
+        67
+      ],
+      "transformation": "Source reference: exact original PNG bytes archived unchanged. Runtime: separately generated pixel-art reinterpretation; final hashes and processing are recorded in runtimeArtManifest.",
+      "runtimePath": "Assets/Resources/Lumia/SystemIcons/tactical_module.png",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_module.png",
+      "sourceSha256": "c1247f1f30c76b05e518077058fe72497674fddfb07b365de2564e9e8765a1ec",
+      "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+    }
+  ],
+  "iconProvenance": {
+    "originalBytesScope": "Archived source references only; runtime pixel redraws are independent files with independent hashes.",
+    "sourceReferenceDirectory": "docs/art-tactical-pixel/references",
+    "runtimeArtManifest": "docs/art-tactical-pixel/output-manifest.json"
+  }
+}

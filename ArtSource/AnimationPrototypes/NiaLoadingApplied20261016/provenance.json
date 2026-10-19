@@ -1,17 +1,29 @@
 {
-  "date": "2026-10-16",
+  "date": "2026-10-19",
   "userApprovedRuntimeUse": true,
-  "tool": "built-in image_gen.imagegen",
-  "change": "Replace opening walk only: both hands remain on the controller, stable upper body, alternating contact and passing legs.",
+  "tool": "built-in image_gen.imagegen guides plus strict Node.js/sharp RGB-mask compositing",
+  "change": "Near-black irises in every source cel, with opening walk material colors matched to recovery cels. Prior two-hand controller grip, stable upper body, alternating legs and all timing are preserved.",
   "prompts": [
     "walk-prompt.txt",
-    "walk-correction-prompt.txt"
+    "walk-correction-prompt.txt",
+    "../../../Build/NiaEyesVerification/loading/imagegen-prompts.json"
   ],
   "selectedGeneration": "C:/Users/azxar/.codex/generated_images/01a140c6-d3f5-77c0-b346-2c777239737c/exec-1cda1aa1-35c4-47f6-bf50-bae435158695.png",
   "references": [
     "ArtSource/AnimationPrototypes/NiaLoadingPreview20261016/generated-sheet.png",
     "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png"
   ],
+  "userOverride": {
+    "date": "2026-10-19",
+    "request": "Every Nia iris becomes near-black; opening walk material colors match the recovery sequence. All other pixels remain unchanged.",
+    "guideTool": "built-in image_gen.imagegen",
+    "application": "Strict Node.js/sharp RGB masks; original alpha and geometry preserved.",
+    "validation": "Build/NiaEyesVerification/loading/masked-sheet-validation.json",
+    "originals": "Build/NiaEyesVerification/originals/ArtSource/AnimationPrototypes/NiaLoadingApplied20261016",
+    "originalWalkSheetSha256": "54f8a5b89db3f3d9f5281f51067f93311f9ed81b628bda8158d0ea86b8700e8f",
+    "originalRecoverySheetSha256": "52047c5af894364211391cabc0f6f785f7aa1a5870b09f8776e489ec06b79f53",
+    "preserved": "All non-eye recovery pixels, original walking poses and held controller geometry, all alpha, logo, external and baked-in E effects, 8-second animation timeline."
+  },
   "generatedWalkCels": 6,
   "selectedWalkCelsZeroBased": [
     0,
@@ -22,14 +34,23 @@
   "walkPosesPerSecond": 6,
   "compositorFramesPerSecond": 20,
   "totalMilliseconds": 8000,
-  "recoverySequence": "Approved original source PNG and timing unchanged from 2.2 seconds onward",
-  "rasterRetouchingInCode": false,
+  "recoverySequence": "Non-eye source RGBA and complete timing unchanged from 2.2 seconds onward",
+  "rasterRetouchingInCode": true,
+  "retouchScope": "Only iris RGB; walking poses additionally receive material-specific RGB palette deltas. No alpha/geometry edits.",
   "rendererOperations": "Source cel selection, anchor placement, nearest-neighbor runtime drawing, native canvas VFX and GIF/WebP encoding.",
   "runtimeCopies": [
     {
       "path": "Assets/WebGLTemplates/BlackTheSurvival/TemplateData/nia-loading.webp",
-      "sha256": "f875be931b2cb281f7299c3aa045f93130cda54b3bc365aed99fe56b956af5e3",
-      "bytes": 9981172
+      "sha256": "9abb6f62093aad1045ab34162375ce32207f745178175cacdd1d39adfc4d6faa",
+      "bytes": 9995378
     }
-  ]
+  ],
+  "gifPreservation": {
+    "method": "Original image-block index replacement with unchanged RGB palettes; nearest existing RGB inside caller-approved masks only.",
+    "validation": "Build/NiaEyesVerification/loading/applied-gif-palette-validation.json",
+    "rgbaOutsideAllowedMasksChanged": 0,
+    "alphaChanged": 0,
+    "sourcePalettesAndFrameControlPreserved": true,
+    "sha256": "1d69bf0f1715e1ecb92d26ea8587a13df1209f47d45d4a27123f656bb7765565"
+  }
 }

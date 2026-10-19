@@ -103,9 +103,9 @@ namespace Lumia
             }
             string text = informationText;
             float height = Math.Max(245, CachedTextHeight(text, 14, 815) + 15);
-            informationScroll = GUI.BeginScrollView(new Rect(209, 291, 851, 250), informationScroll, new Rect(0, 0, 815, height));
+            informationScroll = BeginTouchScrollView("combat-information", new Rect(209, 291, 851, 250), informationScroll, new Rect(0, 0, 815, height));
             Para(new Rect(0, 0, 815, height), text, 14, Text);
-            GUI.EndScrollView();
+            EndTouchScrollView();
             if (Btn(new Rect(209, 560, 410, 43), "확인 닫기", false, Mint)) { CloseCombatInformation(); return; }
             bool mayPlay = !p.enemy && p.canUse && CanPlayInformationCard(p.handIndex);
             if (Btn(new Rect(635, 560, 425, 43), p.enemy ? "상대 행동 정보" : p.canUse ? "이 카드 사용  ·  코스트 " + (AdvancedCardMechanics.IsX(card) ? "X (" + p.currentCost + ")" : p.currentCost.ToString()) : "현재 사용할 수 없음", true, Gold, mayPlay))
@@ -131,7 +131,7 @@ namespace Lumia
             int node = Engine.State.stage == RunStage.Combat ? Engine.State.activeNodeId : history?.LastOrDefault()?.nodeId ?? -1;
             EnsureCombatHistoryLayout(history, node);
             var rows = historyRows;
-            combatHistoryScroll = GUI.BeginScrollView(new Rect(176, 228, 927, 330), combatHistoryScroll, new Rect(0, 0, 899, Math.Max(330, historyContentHeight)));
+            combatHistoryScroll = BeginTouchScrollView("combat-history", new Rect(176, 228, 927, 330), combatHistoryScroll, new Rect(0, 0, 899, Math.Max(330, historyContentHeight)));
             for (int i = FirstCombatHistoryRow(combatHistoryScroll.y); i < rows.Length && historyRowOffsets[i] <= combatHistoryScroll.y + 330; i++)
             {
                 var entry = rows[i]; float rowHeight = historyRowHeights[i], y = historyRowOffsets[i];
@@ -158,7 +158,7 @@ namespace Lumia
                 }
             }
             if (rows.Length == 0) Para(new Rect(14, 15, 860, 50), "표시할 기록이 없습니다. 이전 버전에서 진행한 행동은 복원하지 않으며, 업데이트 후 발생한 전투 행동부터 기록합니다.", 14, Muted);
-            GUI.EndScrollView();
+            EndTouchScrollView();
             if (Btn(new Rect(176, 581, 927, 43), "전투 기록 닫기", true, Mint)) CloseCombatInformation();
         }
 

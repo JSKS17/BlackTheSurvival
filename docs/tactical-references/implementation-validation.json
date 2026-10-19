@@ -1,0 +1,45 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-19T15:09:02.693881+00:00",
+  "scope": "Historical local logic/runtime compilation and pre-pixel-redraw preview proof; no release build or deployment is established by this report.",
+  "tacticalCards": 26,
+  "addedCards": 23,
+  "moduleEncounterSubjects": 6,
+  "specificSaleSubjects": 8,
+  "fullCoreAssertions": 233914,
+  "runtimeCompilation": "PASS",
+  "verificationLimit": "C# logic tests, full runtime compilation against Unity assemblies, and standalone preview browser checks; native Unity gameplay was not launched.",
+  "runtimeSourceManifestSha256": "85c533a1c6a073999ce64d2da2848efc772f25709d1102b4c8503f18f8d5aef7",
+  "runtimeAssemblySha256": "406ecff043c329276ab8e2f506c25374a1a1237aa775024420cda58050a1f379",
+  "coreTestAssemblySha256": "4e632479f779fac3baa2e2d4579cf3abc9b54eff68d3d38a342d600f0abc42b2",
+  "coreTestLogSha256": "083f6533c52c2fa3bc6919ed4c7bed88b4c035658962f529aaac9b5276d34c8f",
+  "originalReferenceIconsVerified": 27,
+  "prePixelRedrawBrowserPreview": {
+    "selectedCards": 26,
+    "exactLiveBaseAndModuleDescriptions": true,
+    "viewportWidths": [
+      736,
+      320
+    ],
+    "noClipping": true,
+    "consoleErrors": 0
+  },
+  "prePixelRedrawPreviewFragmentSha256": "64fe0007069a34b16af7f18d9a0842e77aaa598074968e0649aea1dc4de47d1d",
+  "artworkValidation": {
+    "status": "PASS",
+    "checkedAtUtc": "2026-10-19T15:30:15.409111+00:00",
+    "report": "docs/tactical-references/icon-validation.json",
+    "reportSha256": "0d9b4ae1ad684f8f32854e03d964dc07ac331c39a9e82dcdf27b7e17fbdcbfe0",
+    "pixelArtManifest": "docs/art-tactical-pixel/output-manifest.json",
+    "pixelArtManifestSha256": "0a42dc1814b303fceb1bbd59d1dbfdbf9942e1d96056e7487f9482ec66256adb",
+    "originalReferencesVerified": 27,
+    "generatedSourcesVerified": 27,
+    "runtimeRedrawsVerified": 27,
+    "note": "Independent file/hash/import verification; this does not establish a new browser gameplay or release-build pass.",
+    "previewReport": "docs/tactical-references/preview-validation.json",
+    "previewReportSha256": "96edb8f5bafe0b9b0fdea37ec844a1fcd88c9d8ed153678bf5165ebb0495187b",
+    "previewFragmentSha256": "da9257c8d06e3bee58a5f072ca08d55032d998ecbd5dbb194cf7a28e24879998",
+    "previewJavaScriptSyntax": "PASS",
+    "gameDefinitionPayloadUnchanged": true
+  }
+}

@@ -178,7 +178,7 @@ namespace Lumia
             if (choice.drawReferences.Count == 0) Txt(new Rect(426, 238, 683, 65), "뽑을 카드가 없습니다. 교환 없이 사용할 수 있습니다.", 15, Muted, true);
             Txt(new Rect(426, 357, 683, 23), "교환할 손패 · 사용 중인 카드는 제외됩니다", 13, Mint);
             int count = choice.handReferences.Count;
-            advancedChoiceScroll = GUI.BeginScrollView(new Rect(426, 390, 683, 128), advancedChoiceScroll,
+            advancedChoiceScroll = BeginTouchScrollView("advanced-foresight", new Rect(426, 390, 683, 128), advancedChoiceScroll,
                 new Rect(0, 0, Math.Max(661, count * 180), 108));
             var visible = CraftingCatalog.VisibleItems(count, advancedChoiceScroll.x, 683, 1, 180);
             for (int i = visible.first; i < visible.end; i++)
@@ -187,7 +187,7 @@ namespace Lumia
                 if (DrawAdvancedSelectionTile(new Rect(i * 180, 0, 168, 108), reference, advancedSwapHand == reference, true))
                     advancedSwapHand = advancedSwapHand == reference ? "" : reference;
             }
-            GUI.EndScrollView();
+            EndTouchScrollView();
             if (Btn(new Rect(426, 581, 330, 43), "교환 없이 사용", false, Mint)) { ResolveAdvancedCardChoice("skip"); return; }
             if (Btn(new Rect(779, 581, 330, 43), "교환 후 사용", true, Gold, advancedSwapHand.Length > 0 && advancedSwapDraw.Length > 0))
                 ResolveAdvancedCardChoice("swap");
@@ -197,7 +197,7 @@ namespace Lumia
         {
             int limit = AdvancedCardMechanics.SacrificeLimit(card);
             Txt(new Rect(426, 190, 683, 23), "소멸 선택 " + advancedSacrificeSelection.Count + " / " + limit + "  ·  덱에서는 제거되지 않습니다", 13, Gold);
-            advancedChoiceScroll = GUI.BeginScrollView(new Rect(426, 225, 683, 293), advancedChoiceScroll,
+            advancedChoiceScroll = BeginTouchScrollView("advanced-sacrifice", new Rect(426, 225, 683, 293), advancedChoiceScroll,
                 new Rect(0, 0, Math.Max(661, choice.handReferences.Count * 180), 286));
             var visible = CraftingCatalog.VisibleItems(choice.handReferences.Count, advancedChoiceScroll.x, 683, 1, 180);
             for (int i = visible.first; i < visible.end; i++)
@@ -210,7 +210,7 @@ namespace Lumia
                     else advancedSacrificeSelection.Add(reference);
                 }
             }
-            GUI.EndScrollView();
+            EndTouchScrollView();
             if (choice.handReferences.Count == 0) Txt(new Rect(426, 295, 683, 80), "선택할 다른 손패가 없습니다. 기본 효과로 사용할 수 있습니다.", 15, Muted, true);
             if (Btn(new Rect(426, 581, 683, 43), advancedSacrificeSelection.Count == 0 ? "소멸 없이 사용" : "선택한 " + advancedSacrificeSelection.Count + "장 소멸 후 사용", true, Gold))
                 ResolveAdvancedCardChoice("cast");

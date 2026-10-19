@@ -1,0 +1,8 @@
+{
+  "id": "tactical_meteor",
+  "prompt": "Use case: style-transfer\nAsset type: tactical game ability icon, intended final 96x96.\nInput images: Image 1 is the exact subject, composition and color reference. Image 2 is pixel style ONLY; do not borrow its subject or pink palette.\nPrimary request: Redraw Image 1 as deliberately COARSE 32x32 logical-resolution pixel art. Preserve the original fiery orange-red meteor falling diagonally from the upper-right toward the lower-left; its dark oval rocky head sits at lower-left/center encircled by a brilliant pale yellow fire rim, and long orange/yellow flame streaks trail to the upper-right across dark reddish navy background. Preserve the head shape, diagonal angle and tapered flaming tail.\nStyle/medium: use Image 2's chunky square pixel clusters, very low resolution stepped silhouettes and deliberate pixel highlights; make the art visibly coarse at full size. Treat this as a 32x32 pixel sprite enlarged with nearest neighbor into a square image. Use only 12-16 hard-edged solid colors. Opaque dark navy background fills the whole square.\nConstraints: keep the original recognizable subject, layout, proportions and dominant colors. Crisp axis-aligned square pixels, hard stepped edges, no anti-aliasing, no smoothing, no blur, no gradients, no photographic texture, no text, no letters, no numbers, no frame, no UI border. Output a single square icon only.",
+  "tool": "built-in image_gen",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a154bf-4649-7211-9fcf-095c7a896af5\\exec-eb189e68-587e-4b8e-abf3-6fd07a1fe968.png",
+  "referencePath": "docs/art-tactical-pixel/references/tactical_meteor.png",
+  "styleReferencePath": "docs/art-tactical-pixel/references/style_nia_q.png"
+}

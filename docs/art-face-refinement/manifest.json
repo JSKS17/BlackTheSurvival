@@ -1698,7 +1698,7 @@
       "variant": "default",
       "path": "Assets/Resources/Lumia/PortraitsReference/nia.png",
       "beforeSha256": "8213158b05ecff2654cd1fc3c66a9c97d403a0934c413f3a75dc383e20db2813",
-      "afterSha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+      "afterSha256": "489cd427f2da91af66e6ccb55771f0ee201a5537b57f369f6b1d70547912b015",
       "editMaskLogicalRects": [
         [
           37,
@@ -1807,13 +1807,65 @@
           37,
           48,
           38
+        ],
+        [
+          46,
+          31,
+          47,
+          32
+        ],
+        [
+          47,
+          31,
+          48,
+          32
+        ],
+        [
+          48,
+          31,
+          49,
+          32
+        ],
+        [
+          46,
+          32,
+          47,
+          33
+        ],
+        [
+          38,
+          33,
+          39,
+          34
+        ],
+        [
+          39,
+          33,
+          40,
+          34
+        ],
+        [
+          39,
+          34,
+          40,
+          35
         ]
       ],
-      "changeReason": "반쯤 감긴 졸린 눈은 유지하고 보랏빛 동공과 분홍 껌의 둥근 경계를 분명하게 합니다.",
+      "changeReason": "반쯤 감긴 졸린 눈은 유지하고 보랏빛 동공과 분홍 껌의 둥근 경계를 분명하게 합니다. 2026-10-19: Explicit iris-only black-eye correction; original white highlights, alpha and all other sprite pixels retained.",
       "referencePaths": [
         "docs/art-chibi/references/subjects/nia.png"
       ],
-      "auditPath": "docs/art-face-refinement/default-audit.json"
+      "auditPath": "docs/art-face-refinement/default-audit.json",
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "previousRuntimeSha256": "7709789d189894fc95a46ba17643ba7a0727d857fdf6142a135d00ca95a24d5c",
+          "currentRuntimeSha256": "489cd427f2da91af66e6ccb55771f0ee201a5537b57f369f6b1d70547912b015"
+        }
+      ]
     },
     {
       "id": "nicky",
@@ -3710,7 +3762,7 @@
       "variant": "rare",
       "path": "Assets/Resources/Lumia/PortraitsRare/nia.png",
       "beforeSha256": "cbc3a6c7c0e71e58808a9bd2f57e672ba55883b79d9bbbbfb3822194ca894275",
-      "afterSha256": "4b7d7561007469468e66ffe4f24358ae9beb8a00fdb8432d8423f370b15b6a63",
+      "afterSha256": "c3b0be3fc3ceb99434f9b4327f6b551b8fe0739af5e232c8da651c6551f6aab2",
       "editMaskLogicalRects": [
         [
           35,
@@ -3735,14 +3787,36 @@
           39,
           41,
           40
+        ],
+        [
+          44,
+          34,
+          45,
+          35
+        ],
+        [
+          36,
+          36,
+          37,
+          37
         ]
       ],
-      "changeReason": "졸린 보라색 눈의 기존 동공만 보완합니다. 입을 가린 분홍 풍선껌은 유지하고 접촉 가장자리의 분홍 대비만 살립니다.",
+      "changeReason": "졸린 보라색 눈의 기존 동공만 보완합니다. 입을 가린 분홍 풍선껌은 유지하고 접촉 가장자리의 분홍 대비만 살립니다. 2026-10-19: Explicit iris-only black-eye correction; original white highlights, alpha and all other sprite pixels retained.",
       "referencePaths": [
         "docs/art-rare-skins/references/nia.png",
         "docs/art-identity/face-designs.json"
       ],
-      "auditPath": "docs/art-face-refinement/rare-audit.json"
+      "auditPath": "docs/art-face-refinement/rare-audit.json",
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "previousRuntimeSha256": "4b7d7561007469468e66ffe4f24358ae9beb8a00fdb8432d8423f370b15b6a63",
+          "currentRuntimeSha256": "c3b0be3fc3ceb99434f9b4327f6b551b8fe0739af5e232c8da651c6551f6aab2"
+        }
+      ]
     },
     {
       "id": "nicky",

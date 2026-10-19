@@ -302,7 +302,7 @@ public static partial class CoreSmokeTests
         e=AdvancedFixture("chloe_r");c=e.State.combat;Check(e.PlayCard(0),"expiry fixture casts Chloe R");
         var cloned=SkillMechanics.Clone(c.playerSkills);int block=0;
         var simulate=typeof(GameEngine).GetMethod("SimulateSharedDirectDamage",BindingFlags.NonPublic|BindingFlags.Instance);
-        object[] arguments={cloned,3,block,8,0,1,null};int predicted=(int)simulate.Invoke(e,arguments);
+        object[] arguments={cloned,3,block,8,0,1,null,false};int predicted=(int)simulate.Invoke(e,arguments);
         Check(predicted==2 && cloned.companion.hp==8 && c.playerSkills.companion.hp==12,
             "damage simulation applies sharing and lethal protection on an independent Nina clone");
         AdvancedRound(e);

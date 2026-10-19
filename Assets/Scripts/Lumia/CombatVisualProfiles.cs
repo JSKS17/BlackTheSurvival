@@ -122,6 +122,29 @@ namespace Lumia
                 case "tactical_blink": token = "prism:blink"; primary = "8EE4ED"; accent = "F0FFFF"; break;
                 case "tactical_wind": token = "heal"; primary = "8CDDAD"; accent = "E5FFCC"; break;
                 case "tactical_plasma": token = "lightning:dash"; primary = "80CFF5"; accent = "E6FFFF"; break;
+                case "tactical_quake": token = "earth"; primary = "B9C87B"; accent = "F2F4CA"; break;
+                case "tactical_protocol": token = "bomb"; primary = "E5AA65"; accent = "FFF2B6"; break;
+                case "tactical_redstorm": token = "wind:dash"; primary = "DF747E"; accent = "FFD5D6"; break;
+                case "tactical_artifact": token = "shield:none"; primary = "DBBE70"; accent = "FFF5C1"; break;
+                case "tactical_nullification": token = "wind"; primary = "8ED7C7"; accent = "E3FFF5"; break;
+                case "tactical_soul": token = "blood"; primary = "BF8DBE"; accent = "F2D2EC"; break;
+                case "tactical_strider": token = "wind:dash"; primary = "C594E5"; accent = "F7DBFF"; break;
+                case "tactical_truth_blade": token = "slash"; primary = "E5D699"; accent = "FFFFD5"; break;
+                case "tactical_false_oath": token = "blood"; primary = "C76B8B"; accent = "FFD4DD"; break;
+                case "tactical_repulsor": token = "bullet:retreat"; primary = "90BCE8"; accent = "E5F4FF"; break;
+                case "tactical_lightwing": token = "prism"; primary = "E4D68F"; accent = "FFFFD7"; break;
+                case "tactical_gravity": token = "sigil"; primary = "A69CE4"; accent = "E6E0FF"; break;
+                case "tactical_rolling_thunder": token = "wind"; primary = "ADD4E8"; accent = "EDFCFF"; break;
+                case "tactical_truth_burst": token = "orb"; primary = "E3AA87"; accent = "FFE5D0"; break;
+                case "tactical_impulse": token = "lightning:dash"; primary = "A0CBE7"; accent = "E7F9FF"; break;
+                case "tactical_prayer": token = "shield"; primary = "DBCA91"; accent = "FFFFD9"; break;
+                case "tactical_fissure": token = "earth"; primary = "D2AE7E"; accent = "FFDFC0"; break;
+                case "tactical_punch": token = "thrust"; primary = "CB9CDF"; accent = "FBE4FF"; break;
+                case "tactical_meteor": token = "flame"; primary = "E49366"; accent = "FFE7A3"; break;
+                case "tactical_lightning_shield": token = "lightning"; primary = "9DC6EB"; accent = "EDFCFF"; break;
+                case "tactical_meditation": token = "heal"; primary = "A8D5AD"; accent = "E7FFD5"; break;
+                case "tactical_lock_on": token = "chain:dash"; primary = "D2B386"; accent = "FFF0CC"; break;
+                case "tactical_asthenia": token = "poison"; primary = "A3B48B"; accent = "E5EBCD"; break;
             }
         }
 

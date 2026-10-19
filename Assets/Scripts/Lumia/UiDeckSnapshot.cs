@@ -15,8 +15,9 @@ namespace Lumia
     public sealed class UiDeckSnapshot
     {
         RunState state;
-        string[] deck = new string[0], upgrades = new string[0];
+        string[] deck = new string[0], upgrades = new string[0], tacticalUpgrades = new string[0];
         readonly Dictionary<string, string> branches = new Dictionary<string, string>(StringComparer.Ordinal);
+        readonly HashSet<string> tacticalReferences = new HashSet<string>(StringComparer.Ordinal);
         public UiDeckGroup[] Groups { get; private set; } = new UiDeckGroup[0];
         public List<int> UpgradeIndices { get; private set; } = new List<int>();
         public int Revision { get; private set; }
@@ -25,16 +26,22 @@ namespace Lumia
         {
             var cards = value?.deck;
             var selections = value?.cardUpgrades;
-            int count = cards?.Count ?? 0, selectionCount = selections?.Count ?? 0;
-            bool changed = !ReferenceEquals(state, value) || deck.Length != count || upgrades.Length != selectionCount * 3;
+            var tactical = value?.tacticalCardUpgrades;
+            int count = cards?.Count ?? 0, selectionCount = selections?.Count ?? 0, tacticalCount = tactical?.Count ?? 0;
+            bool changed = !ReferenceEquals(state, value) || deck.Length != count || upgrades.Length != selectionCount * 3 || tacticalUpgrades.Length != tacticalCount;
             for (int i = 0; !changed && i < count; i++) changed = deck[i] != cards[i];
             for (int i = 0; !changed && i < selectionCount; i++)
             {
                 var entry = selections[i];
                 changed = upgrades[i * 3] != entry?.cardId || upgrades[i * 3 + 1] != entry?.instanceId || upgrades[i * 3 + 2] != entry?.branchId;
             }
+            for (int i = 0; !changed && i < tacticalCount; i++) changed = tacticalUpgrades[i] != tactical[i];
             if (!changed) return false;
             state = value; deck = cards == null ? new string[0] : cards.ToArray();
+            tacticalUpgrades = tactical == null ? new string[0] : tactical.ToArray();
+            tacticalReferences.Clear();
+            foreach (string reference in tacticalUpgrades)
+                if (CardInstances.IsInstance(reference) && TacticalSkills.IsTactical(GameDatabase.Card(reference))) tacticalReferences.Add(reference);
             upgrades = new string[selectionCount * 3]; branches.Clear();
             for (int i = 0; i < selectionCount; i++)
             {
@@ -65,5 +72,7 @@ namespace Lumia
             string branch;
             return reference != null && branches.TryGetValue(reference, out branch) ? branch : null;
         }
+
+        public bool TacticalEnhanced(string reference) => reference != null && tacticalReferences.Contains(reference);
     }
 }

@@ -1,6 +1,6 @@
 {
   "gameIntegrated": false,
-  "sourceSheetSha256": "52047c5af894364211391cabc0f6f785f7aa1a5870b09f8776e489ec06b79f53",
+  "sourceSheetSha256": "cbdb4e019ce9c106a72a7cf46e8a3f68822ffcfdff182e710d8e5e039f390801",
   "logoSha256": "8ecdc328dde9d2b84c34c892040eb39c388faba4570ff672643bb8e4eb2a33e7",
   "oneUpSha256": "eabf51adacda3b025b02ec648a865010c90dab3c0c50ed40cafdba727c42a792",
   "generatedPoseCount": 16,
@@ -86,6 +86,7 @@
     "gif": {
       "format": "gif",
       "mediaType": "image/gif",
+      "size": 2405413,
       "width": 960,
       "height": 27040,
       "space": "srgb",
@@ -164,12 +165,31 @@
       }
     }
   },
+  "userOverride": {
+    "date": "2026-10-19",
+    "request": "All Nia irises become near-black. This older preview preserves its original walking poses and ALL non-eye colors; walking palette correction applies only to the current approved loading animation.",
+    "guideTool": "built-in image_gen.imagegen",
+    "application": "Same verified iris-only RGB mask as the identical approved recovery source sheet.",
+    "validation": "Build/NiaEyesVerification/loading/masked-sheet-validation.json",
+    "originalSourceSha256": "52047c5af894364211391cabc0f6f785f7aa1a5870b09f8776e489ec06b79f53",
+    "preserved": "All non-eye source RGBA, all source alpha and geometry, logo and E effects, original older walk movement, and complete 8-second timeline.",
+    "runtimeCopy": false
+  },
   "checks": {
     "webpAndGifDuration8000": true,
     "webpAndGifLoopForever": true,
-    "sourceFramesDrawnFromOriginalBytes": true,
+    "sourceFramesDrawnFromAuthorizedIrisOnlyEditedBytes": true,
     "htmlAndExportsShareTimeline": true,
     "actualWalkAndRecoveryPoseChanges": true,
+    "nonEyeSourceRGBAUnchanged": true,
+    "originalOlderWalkColorsAndMovementUnchanged": true,
     "noneOfTheseAssetsReferencedByGame": true
+  },
+  "gifPalettePreservation": {
+    "source": "Original GIF palette and disposal data",
+    "method": "Original image-block index replacement with unchanged RGB palettes; nearest existing RGB inside caller-approved masks only.",
+    "validation": "Build/NiaEyesVerification/loading/preview-gif-palette-validation.json",
+    "allDecodedMaskExternalRGBAUnchanged": true,
+    "sha256": "18ceab8ad8958292a01fcfaa4af0380deaa7a0eeb61fb63c4ee55c86c6e20427"
   }
 }

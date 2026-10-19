@@ -13,16 +13,20 @@ namespace Lumia
         public readonly string branch, label, suffix, classification, ownerId;
         public readonly string description, rules, classificationRules;
         public readonly int level;
+        public readonly bool tacticalEnhanced;
 
-        internal CardDisplayVariant(CardDef source, string branch, string ownerId)
+        internal CardDisplayVariant(CardDef source, string branch, string ownerId, bool tacticalEnhanced = false)
         {
             this.branch = branch;
             this.ownerId = ownerId;
+            this.tacticalEnhanced = tacticalEnhanced && TacticalSkills.IsTactical(source);
             // Even an ordinary display copy is isolated: Copy itself intentionally
             // shares some arrays which are safe in the engine's read-only paths.
-            card = CardDisplayCatalog.IsolatedCopy(branch.Length == 0 ? source : StrategyMechanics.Apply(source, branch));
-            label = branch.Length == 0 ? "" : StrategyMechanics.BranchName(source.id, branch);
-            suffix = RareCardUpgrades.SuffixForLabel(label);
+            var upgraded = branch.Length == 0 ? source : StrategyMechanics.Apply(source, branch);
+            card = CardDisplayCatalog.IsolatedCopy(this.tacticalEnhanced ? TacticalSkills.ApplyModuleUpgrade(upgraded) : upgraded);
+            string ordinaryLabel = branch.Length == 0 ? "" : StrategyMechanics.BranchName(source.id, branch);
+            label = ordinaryLabel + (this.tacticalEnhanced ? (ordinaryLabel.Length > 0 ? " · " : "") + "전술 강화" : "");
+            suffix = RareCardUpgrades.SuffixForLabel(ordinaryLabel) + (this.tacticalEnhanced ? " [전술+]" : "");
             level = branch.Length == 0 ? 0 : branch == RareCardUpgrades.BranchId ? 2 : 1;
             classification = CardPresentation.ClassificationLabel(card);
             description = card.description;
@@ -39,7 +43,7 @@ namespace Lumia
         readonly Dictionary<string, string> ownerIds = new Dictionary<string, string>(StringComparer.Ordinal);
         readonly Lru<VariantKey, CardDisplayVariant> variants;
         readonly Lru<PreviewKey, string> previews;
-        readonly Lru<CardDef, CardUpgradeOption[]> options;
+        readonly Lru<UpgradeOptionsKey, CardUpgradeOption[]> options;
         string[] searchText;
         string previousQuery;
         bool hasFilter;
@@ -62,7 +66,7 @@ namespace Lumia
             Capacity = capacity;
             variants = new Lru<VariantKey, CardDisplayVariant>(capacity);
             previews = new Lru<PreviewKey, string>(capacity);
-            options = new Lru<CardDef, CardUpgradeOption[]>(capacity, ReferenceComparer<CardDef>.Instance);
+            options = new Lru<UpgradeOptionsKey, CardUpgradeOption[]>(capacity);
             Clear();
         }
 
@@ -96,19 +100,20 @@ namespace Lumia
             return id != null && byId.TryGetValue(id, out value) ? value : null;
         }
 
-        public CardDisplayVariant Variant(string reference, string branch = null) => Variant(Definition(reference), branch);
+        public CardDisplayVariant Variant(string reference, string branch = null, bool tacticalEnhanced = false) => Variant(Definition(reference), branch, tacticalEnhanced);
 
-        public CardDisplayVariant Variant(CardDef source, string branch = null)
+        public CardDisplayVariant Variant(CardDef source, string branch = null, bool tacticalEnhanced = false)
         {
             if (source == null) return null;
             branch = branch ?? "";
-            var key = new VariantKey(source, branch);
+            tacticalEnhanced = tacticalEnhanced && TacticalSkills.IsTactical(source);
+            var key = new VariantKey(source, branch, tacticalEnhanced);
             CardDisplayVariant value;
             if (variants.TryGet(key, out value)) return value;
             string ownerId;
             if (source.owner == null) ownerId = nullOwnerId;
             else if (!ownerIds.TryGetValue(source.owner, out ownerId)) ownerId = null;
-            value = new CardDisplayVariant(source, branch, ownerId);
+            value = new CardDisplayVariant(source, branch, ownerId, tacticalEnhanced);
             variants.Add(key, value);
             return value;
         }
@@ -142,15 +147,17 @@ namespace Lumia
             return previousResult;
         }
 
-        public CardUpgradeOption[] UpgradeOptions(string reference) => UpgradeOptions(Definition(reference));
+        public CardUpgradeOption[] UpgradeOptions(string reference, bool tacticalEnhanced = false) => UpgradeOptions(Definition(reference), tacticalEnhanced);
 
-        public CardUpgradeOption[] UpgradeOptions(CardDef source)
+        public CardUpgradeOption[] UpgradeOptions(CardDef source, bool tacticalEnhanced = false)
         {
             if (source == null) return EmptyOptions;
+            tacticalEnhanced = tacticalEnhanced && TacticalSkills.IsTactical(source);
+            var key = new UpgradeOptionsKey(source, tacticalEnhanced);
             CardUpgradeOption[] value;
-            if (options.TryGet(source, out value)) return value;
-            value = StrategyMechanics.Options(source).ToArray();
-            options.Add(source, value);
+            if (options.TryGet(key, out value)) return value;
+            value = TacticalModules.UpgradeOptions(source, tacticalEnhanced).ToArray();
+            options.Add(key, value);
             return value;
         }
 
@@ -176,14 +183,25 @@ namespace Lumia
             return copy;
         }
 
+        struct UpgradeOptionsKey : IEquatable<UpgradeOptionsKey>
+        {
+            readonly CardDef source;
+            readonly bool tacticalEnhanced;
+            public UpgradeOptionsKey(CardDef source, bool tacticalEnhanced) { this.source = source; this.tacticalEnhanced = tacticalEnhanced; }
+            public bool Equals(UpgradeOptionsKey other) => ReferenceEquals(source, other.source) && tacticalEnhanced == other.tacticalEnhanced;
+            public override bool Equals(object other) => other is UpgradeOptionsKey && Equals((UpgradeOptionsKey)other);
+            public override int GetHashCode() => unchecked(RuntimeHelpers.GetHashCode(source) * 397 ^ tacticalEnhanced.GetHashCode());
+        }
+
         struct VariantKey : IEquatable<VariantKey>
         {
             readonly CardDef source;
             readonly string branch;
-            public VariantKey(CardDef source, string branch) { this.source = source; this.branch = branch; }
-            public bool Equals(VariantKey other) => ReferenceEquals(source, other.source) && branch == other.branch;
+            readonly bool tacticalEnhanced;
+            public VariantKey(CardDef source, string branch, bool tacticalEnhanced) { this.source = source; this.branch = branch; this.tacticalEnhanced = tacticalEnhanced; }
+            public bool Equals(VariantKey other) => ReferenceEquals(source, other.source) && branch == other.branch && tacticalEnhanced == other.tacticalEnhanced;
             public override bool Equals(object other) => other is VariantKey && Equals((VariantKey)other);
-            public override int GetHashCode() => unchecked(RuntimeHelpers.GetHashCode(source) * 397 ^ branch.GetHashCode());
+            public override int GetHashCode() => unchecked((RuntimeHelpers.GetHashCode(source) * 397 ^ branch.GetHashCode()) * 397 ^ tacticalEnhanced.GetHashCode());
         }
 
         struct PreviewKey : IEquatable<PreviewKey>

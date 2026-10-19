@@ -145,6 +145,7 @@ namespace Lumia
             foreach (var reference in state.deck ?? new List<string>()) yield return reference;
             foreach (var selection in state.cardUpgrades ?? new List<CardUpgradeSelection>())
                 if (selection != null) yield return selection.instanceId;
+            foreach (var reference in state.tacticalCardUpgrades ?? new List<string>()) yield return reference;
             var c = state.combat;
             if (c == null) yield break;
             foreach (var pile in new[] { c.hand, c.drawPile, c.discardPile, c.exhaustPile })

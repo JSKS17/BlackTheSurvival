@@ -8,6 +8,7 @@ import hashlib
 import json
 import os
 import shutil
+import subprocess
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
@@ -58,6 +59,9 @@ def save_asset(asset_id, source, prompt, face):
     canvas.alpha_composite(sprite, ((160 - size[0]) // 2, 156 - size[1]))
     target = OUT / (asset_id + ".png")
     write_png(canvas, target)
+    if asset_id == 'nia':
+        subprocess.run(['node', str(ROOT / 'Tools/ApplyNiaEyeOverrides.mjs'),
+                        '--target', target.relative_to(ROOT).as_posix()], cwd=ROOT, check=True)
     record = {
         "id": asset_id, "name": ref["name"], "tool": "builtin image_gen",
         "intent": "style-transfer", "faceDesign": face,

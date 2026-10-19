@@ -1,0 +1,726 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-19T15:30:15.409111+00:00",
+  "cards": 26,
+  "added": 23,
+  "runtimeDataSha256": "5e590134d11f950c88403530467c0c363ae7e8c92686b3eb73a72b67c345c2cd",
+  "originalCatalogSha256": "89d89402b48779fd0bfa898c1d9faa84f5a9b308ba6ab5134e19a1e279c937e4",
+  "originalReferenceManifestSha256": "5b5aa44eea4e9a6355d743929bb5e9a81c48b8af8b3682f94453ebda5c7eaa29",
+  "pixelArtManifestPath": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\art-tactical-pixel\\output-manifest.json",
+  "pixelArtManifestSha256": "0a42dc1814b303fceb1bbd59d1dbfdbf9942e1d96056e7487f9482ec66256adb",
+  "fragmentPath": "C:\\Users\\azxar\\.codex\\visualizations\\2026\\10\\08\\01a11b0b-8163-7693-bdd7-3bc64571a398\\tactical-skills.html",
+  "fragmentBytes": 619445,
+  "fragmentSha256": "da9257c8d06e3bee58a5f072ca08d55032d998ecbd5dbb194cf7a28e24879998",
+  "iconChecks": [
+    {
+      "id": "tactical_blink",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_blink.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4000000.png",
+      "originalSha256": "b8ba0a3856e4d086e643c230713c8935524b2260dd0435ecc5fb7e28850356a1",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_blink.png",
+      "generatedSha256": "7b6e3a8d6ca82f18498d50c5b7caaaf25f759c28bc91f8b5b14b6d30496dcdd9",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_blink.json",
+      "generationRecordSha256": "d02ed3b17486b1e2ce5ad5c331c427d4fc22a029f3aa0d2f67568ce4ea698ae2",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_blink.png",
+      "runtimeSha256": "0a5983f8b0ab38fe7c3eb46cb6b1e954d30c2afc7f861500ef9733b9c7b40f98",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "14daf5092227706418b9f29bfa5ff969",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_quake",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_quake.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4001000.png",
+      "originalSha256": "e51746df593962be137667aa9e52584cfc333a1eb18040a36e667b254894126f",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_quake.png",
+      "generatedSha256": "fe6087b4c98ab44a9051b83150e7723304a5c2f43112b09b6d06a385ff89c47c",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_quake.json",
+      "generationRecordSha256": "c8d2a1568c2f4031a8895b27edc0dac0b47a8af1830a7b92d7a54fda97015e81",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_quake.png",
+      "runtimeSha256": "a0b37641b968190d488badc84ae32ac9e8e69f069f3671e70b8c801607705386",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "7c56b03245164f68a2fc03256b8523bf",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_protocol",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_protocol.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4101000.png",
+      "originalSha256": "f3ae5390a328684b8a551397bc506ee55b64d50fe99cebbe1b321907f2e79c34",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_protocol.png",
+      "generatedSha256": "5b8d63415b2c3abdbd8806899f4ce405a8d6ff84ae68430a695cba696845ad6a",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_protocol.json",
+      "generationRecordSha256": "7c11be923df503eac7d8449c0cedf00a2820e6c636830a983f4c58ad97d0b8c6",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_protocol.png",
+      "runtimeSha256": "984c3150b1d63efefca76d963cceae77da5609cc4bd73ebeef932c26fbf6cbf3",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "3cc51de4df1442b4a2a0a870d13176fd",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_redstorm",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_redstorm.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4102000.png",
+      "originalSha256": "8590697993887930f7b936d2e848647406df8b24e660357feae65a6aea0fbcd9",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_redstorm.png",
+      "generatedSha256": "6ca3b41ab24996ea59e7a679af07ef9368afc5388a36108611897f864adba66f",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_redstorm.json",
+      "generationRecordSha256": "2c199af6a00cf3e2392a7311065fa4654af550b70fc251e796d34822d72a1fcf",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_redstorm.png",
+      "runtimeSha256": "c4551481bb04ce32b30befe0c092b8eebd0bb289b4ee792c97cd3b41e447dcab",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "24030c661bb8459083f762bc822efa4d",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_artifact",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_artifact.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4104000.png",
+      "originalSha256": "9e5d2527da91282f369190cf64e379e5cd9bf83837af30d9d6aa121ae4e552e1",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_artifact.png",
+      "generatedSha256": "2e44e26023d43c8bf6ceb79c42e394de469eaab4f369f92f4c9da87c75deb7f2",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_artifact.json",
+      "generationRecordSha256": "86c2eaa5eebc50814111ef28a3c6a68f9806b6efa6ac795f712cf2170332d665",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_artifact.png",
+      "runtimeSha256": "6f14530f7336a02889ea285192cfd9fb24a9cabd81fea5fdae8bb881692fc0ba",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "749e54c4d6444874a3fd483456e93eb2",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_nullification",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_nullification.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4105000.png",
+      "originalSha256": "5b483e01efa1efb992a06cd5bc84a64eb2cfa15c3c3651a7c9aa2650a3305cce",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_nullification.png",
+      "generatedSha256": "d57138c3d84aca70b4a6870e9b5ed61709aa4e4829ed90189269b7c6aceb50ef",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_nullification.json",
+      "generationRecordSha256": "ae0a5dd9324b0ee44ebb49657387109b997fe60b0392f67ad37be9acf03eb3cf",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_nullification.png",
+      "runtimeSha256": "1836be4ebcab9314567753be69dfb9795ed9796b3177835b9dec67c1ac78521c",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "5a4906c7f492460891610d05f85cb389",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_soul",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_soul.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4107000.png",
+      "originalSha256": "cb34d828dce6a049c51ae9d0f9a06690180645d8f015389fa6ae3f514318dfe6",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_soul.png",
+      "generatedSha256": "3fe7422cc813518348552939331a4a886288b6d8fc8f793a37a7b37b3660d7b6",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_soul.json",
+      "generationRecordSha256": "afad57884a9de3ba505b1031a15f2b4041732bc8fdfbd8482d1c052abaede61e",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_soul.png",
+      "runtimeSha256": "db4249302538c3415aae93d471b9ca57f53ca79bf0c9c0f68b9d21e74bf16085",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "b7cc2b95e84343cbaf6f0f56416f896c",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_strider",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_strider.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4110000.png",
+      "originalSha256": "9fd4b65d8eb51fa29356559d157f1dabbb1c38b7bcfe679d35e606572f0683a5",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_strider.png",
+      "generatedSha256": "636cdff2dc526a1e667509c21c327914999691932f27c0c2c41387820be3307d",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_strider.json",
+      "generationRecordSha256": "f3330025ebaf3b886fb76c94de34c5fe9fc8e397a647e0216f80651179239680",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_strider.png",
+      "runtimeSha256": "fb4847534d7c399370aa217049e4ecb0f58ec45b5d3e7c63f5a0792efa56464a",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "1834ace9767e42839a92cd79795510a8",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_truth_blade",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_truth_blade.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4112000.png",
+      "originalSha256": "6eb45cc79d5817f7200631c82b365ee5c7e3c2e7268a6393351ca6fd04cc3981",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_truth_blade.png",
+      "generatedSha256": "08f285ff65272dc54eb5bfaa6afc71cf39d552c4e5e05616361ffb3e0eb2ccbe",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_truth_blade.json",
+      "generationRecordSha256": "277feb1b2578b2eec13400b08c538431dcec14dd14d537956fdc023ac7302e16",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_truth_blade.png",
+      "runtimeSha256": "2b6d1b93ccf91da9e8e0463851367ee1b6eb6545e36b27e0a0b45c71372e2399",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "e3b403153c8f4b6a87f68c730dfc7d60",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_false_oath",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_false_oath.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4113000.png",
+      "originalSha256": "81132d80f2109d0197237507186a1ff40c2786b378fadf1ef5a36de08be35e16",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_false_oath.png",
+      "generatedSha256": "e79c90b50feb73493538d22e9abc694589f72b7e8128281a28e2359c16fed636",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_false_oath.json",
+      "generationRecordSha256": "2eb362be0adce3a1ad704a4767c008066e75daa106b6564c2d869e19f7159855",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_false_oath.png",
+      "runtimeSha256": "4058cd86e201e48aa981f33dd7e248738f526f3ccd8de45d89e0f4b2a4ea76a9",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "9dc792af063141e6ab45b7a98c9e62c3",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_wind",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_wind.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4108000.png",
+      "originalSha256": "e4b749abab73cfe4f20167590e08ec895f31ffe517730394e2f7e8fd4db3a074",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_wind.png",
+      "generatedSha256": "ddd2d6e0a39cbf178c9ee6ff92cee3b3c8550223c6a6dc1d508afb50983cf745",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_wind.json",
+      "generationRecordSha256": "4620524a3e9e751f38ba82bf98785ac9329ccfbb1773cdcec34599858acf66ad",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_wind.png",
+      "runtimeSha256": "4d302dbfbb468ee2b7cbe0f2ca51e18fb71d61f52f408d6949d738f922facbdc",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "64ba8eff87ee7a542a6416d27e6cd123",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_repulsor",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_repulsor.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4115000.png",
+      "originalSha256": "0c6284e852d21310de19c3cc199a3cd73408342ded33018d49b1a940abd738cf",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_repulsor.png",
+      "generatedSha256": "911647b53e350a7af0ec83474f8e7a38c99babdf10b2a5abe8feb02c74e0a87d",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_repulsor.json",
+      "generationRecordSha256": "19e650917e8b1987596fd1b224b26e8c9a692461016d4fac4fe4efba0ef1ca05",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_repulsor.png",
+      "runtimeSha256": "5e171e0ff4d86ebea503912d0e59b9dd6494ce7bb72408303c4e055952acb5f0",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "aa0c3c1e17944cde958053af84d53fa4",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_plasma",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_plasma.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4116000.png",
+      "originalSha256": "57f1ed5244f3f3e487b1e451a6c0ba450328b4004c24dc4025ebbaaecb2099f1",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_plasma.png",
+      "generatedSha256": "97907fefcf102cc7dc22112d428d4826c9425ea6c435e68d422ceb9cb7baac57",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_plasma.json",
+      "generationRecordSha256": "e8618c99521a9408bbb860ac993e22c925b5b64fbcf52d62c7451d8d877a364b",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_plasma.png",
+      "runtimeSha256": "e0c5a6b79f83bc077e29dfda23ff530d0f5f9d24b3346e44bd6b81313fc4710f",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "d0143ea2de6c3044e9137daaf1bbcf57",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_lightwing",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_lightwing.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4118000.png",
+      "originalSha256": "4ba578c29d918de12ad951d8b87c5aaf5829fa9e9087fa0b3ebcd61e99e3d196",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_lightwing.png",
+      "generatedSha256": "d01bffc95dfc9c943c3299f5193aa04cae68ed0cef7b3ac1e76a13ab5793911d",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_lightwing.json",
+      "generationRecordSha256": "bb52d058355ff1743c9798aad6897990904f1fe93752e0d419fa6869872a658c",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_lightwing.png",
+      "runtimeSha256": "5c68a23c042170fead0d0e2cfa6fb43fb9e5fb7047f5497c4d7522b21ac52567",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "4fd1b5e7c49a41e9ad03380f48327597",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_gravity",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_gravity.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4502000.png",
+      "originalSha256": "357236108eac9ea65735010b2a94a45f71a60e7ea2c498ab02c6df4d109fa041",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_gravity.png",
+      "generatedSha256": "5432b05a4b72a6f250e8da668516ce4eee2f040d248e8921817c94ee69f5dd21",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_gravity.json",
+      "generationRecordSha256": "8142ecf7589bcd17ce57778327576a3a8420b7bc29ccfd026c8ed97d52038938",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_gravity.png",
+      "runtimeSha256": "330f88d3c1f3f4eab72623b69493a73e56ddec3884e6eb0993addb563d7f3672",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "e5ee40e5359a43a5a07de50c7943124d",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_rolling_thunder",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_rolling_thunder.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4503000.png",
+      "originalSha256": "e1dc4eab7e84276af9859032128e629963249bbf21706ce0f4e60d23259a230f",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_rolling_thunder.png",
+      "generatedSha256": "6bc0cd8611202573939d9d561366f0df02caf0ec7fef5a75734dce1bd9bb617f",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_rolling_thunder.json",
+      "generationRecordSha256": "61416657c456448ec45a7b01b06ef1df5befcf2b8f2696eed2e0526e4653f00c",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_rolling_thunder.png",
+      "runtimeSha256": "753d991debe5761a9c4b4df08ca58191050b10cc29492b5d32674230a53c5afb",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "aa14144c1d5d4257bd847cf3b44bdfd2",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_truth_burst",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_truth_burst.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4504000.png",
+      "originalSha256": "d44cc4cbe4cb784bedf7238677a534ef44dcc1d563eb862ac9e8104a2e9760c3",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_truth_burst.png",
+      "generatedSha256": "2f899b177fd245f834e25707f3b1026174af28c24d10338e018facd3763a68fa",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_truth_burst.json",
+      "generationRecordSha256": "b3d4040fd93fe2972ecf3582b46be18618fd804f56df3d43bb3315168b3bbb92",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_truth_burst.png",
+      "runtimeSha256": "257ccfd14ecd5ebe574611db73fadd64fe4d1551fc24c656d3e66285d3c2af42",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "d090cc9d967b4c269fe7d7ab4bda5fd2",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_impulse",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_impulse.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4512000.png",
+      "originalSha256": "1978a2765ee4bf8190919362e6022ddcb7c7688fd2fc7e915e6e0a0ddf4f9914",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_impulse.png",
+      "generatedSha256": "52978c764558150a9dc1b07c890d402c723c20323f37ef7ae146b3b8eb6df686",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_impulse.json",
+      "generationRecordSha256": "555f148a91dcaad40387ded245be9bf0bba4310d7c64b7b326327364bc797f1f",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_impulse.png",
+      "runtimeSha256": "5fca09c81c4771ebbaad5e9043cc10e453f0a33cd0b6df3789f65d7bce8222ac",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "8a6adb0162334afe9381f4074dcf9db3",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_prayer",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_prayer.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4506000.png",
+      "originalSha256": "b04fec2ccfcbedaf05c4cd188eef762b5f137911162d5ad869ed284d509eb3b8",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_prayer.png",
+      "generatedSha256": "66a34ff9ed526ec982c441f3c51c5cfb5390221696dc388a5efeb7755c57f412",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_prayer.json",
+      "generationRecordSha256": "836af6487a68dd28836eb5494877e331413dbd9f62c9a553790cf124373120fd",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_prayer.png",
+      "runtimeSha256": "03063305639ca262285f91e9b1764f4d4b6c50dd68e74a6efd1f0556798dddde",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "3117457c5e7b4f518fb74cb491a12c6e",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_fissure",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_fissure.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4507000.png",
+      "originalSha256": "f125f357ca94adb7bf271b427988466448f04e167e7f1334af0d7250826b00dd",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_fissure.png",
+      "generatedSha256": "dc96f8c7adfca49f3e2ceed2fc8be1f5d7f963cb79a6795fbb0b442e30311adb",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_fissure.json",
+      "generationRecordSha256": "312d60aa60336f97f04a63eeebeb70f6681f8e7dc06eafde08696fb98f61ef87",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_fissure.png",
+      "runtimeSha256": "fbc401a811be04bbdecbe7bc127a7e9889bd1aafe9759c27859d7fb5d7ac1eb8",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "57923a08593143168b02f0594a105df2",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_punch",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_punch.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4508000.png",
+      "originalSha256": "e6d319c21d675317358b84f8f9f891d122bd373bdd8f2b106a3232115f3f58e2",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_punch.png",
+      "generatedSha256": "1c6a38fd0bb672d72b2d523073d0edc1df3e3740bc1c1f5e2e4ca04eb6b40ccb",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_punch.json",
+      "generationRecordSha256": "c4f61f479dc2c24db689c5d7eb90dacdf36c075a7a62813bc1ba0b26e5d770ba",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_punch.png",
+      "runtimeSha256": "c6ff84d16d6b7ea0768a7df9020d107f67289022f6769111e47b19c0cd40c1dc",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "d4f058a3dc3f4575b701d35a1d511a72",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_meteor",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_meteor.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4509000.png",
+      "originalSha256": "3f78a4e56d3996e2fdef156d75d9e35aef3dbfec701dc164f93b5c461b3f0c1e",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_meteor.png",
+      "generatedSha256": "cf4b01e7186fca38001677521e449b063d622742dd39b9c81ec84c1f96428d6b",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_meteor.json",
+      "generationRecordSha256": "bb0209c1a1a264412187fa41df93939fb899ccc133e57bffeb1559a9aa9494cb",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_meteor.png",
+      "runtimeSha256": "f9630a5624ec5722b90379846dfbcf8aee99a0313bb66467df1ef6d655f59322",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "e744ef53b83c49529b9abccad9a3abe5",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_lightning_shield",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_lightning_shield.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4510000.png",
+      "originalSha256": "28f843996410d4c2afa3ae969a0c55cca96e391ded57bfd690f96b278106c0f3",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_lightning_shield.png",
+      "generatedSha256": "c261f8806f8d2454dd943242edb88dcb6a5c1ec03329040a3ddd2ade7cde732e",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_lightning_shield.json",
+      "generationRecordSha256": "ce1d39ca500b91fc90c87fe98db771d8fa2ff87a6b060acaa09dac05136cf07e",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_lightning_shield.png",
+      "runtimeSha256": "7bca5007eefe5b70f505359285fd99da346a6724a06b3ba90da56cd80f7890d8",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "085e95fc50894a2c9c23247ba470080f",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_meditation",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_meditation.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4511000.png",
+      "originalSha256": "64a6b137110a3be7f6e26fa131312fa379cd147edbbc73a323bff13615d82290",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_meditation.png",
+      "generatedSha256": "c3f64d7550ddc451926a54caaeba8738400c443ca91438522fcadf75a2b5944b",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_meditation.json",
+      "generationRecordSha256": "ae950a0bea3055bad3062b2fe27b61a3286f46c3eae8969e0edd38cab68726a9",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_meditation.png",
+      "runtimeSha256": "a9b3b221c18cc6322b319789baae98c575ff43ddc84667b3941391f127003280",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "322db437cc164f169a68f754fe69e2d5",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_lock_on",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_lock_on.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4524000.png",
+      "originalSha256": "e5c5edb6a940f6e42d671d552cc1264841a1acca51fcd4e3a26a86a2f6c9c2e7",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_lock_on.png",
+      "generatedSha256": "9437d26f41d09773aea84b2ff3ca7c5fe9f7f55b7d97f93060ce3293a08e328d",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_lock_on.json",
+      "generationRecordSha256": "a05c9842786449ea7c3e6ed39f3ab0188e3287262e57e2805204b746b328f4a7",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_lock_on.png",
+      "runtimeSha256": "4da02ef9846524f0c779e51467f0efcba7c76e92fdd78fb4c8d3a1d0246164cd",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "07ee9dd5ad4b4b3fbfe8d3f480e1657c",
+      "pointTexture2D": true
+    },
+    {
+      "id": "tactical_asthenia",
+      "sourceReferencePath": "docs/art-tactical-pixel/references/tactical_asthenia.png",
+      "sourceUrl": "https://cdn.dak.gg/assets/er/game-assets/12.6.0/VSkillIcon_4117000.png",
+      "originalSha256": "420ef3744717908249bc0ecfeb0507efff9064c9dcbfad28ad96846d05de06d6",
+      "originalSize": [
+        90,
+        90
+      ],
+      "generatedPath": "docs/art-tactical-pixel/generated/tactical_asthenia.png",
+      "generatedSha256": "942802f9a91c9db92363901d3cfa3afc02872c27cd8ea4d1fbebc0956a521cf1",
+      "generationRecordPath": "docs/art-tactical-pixel/generation/tactical_asthenia.json",
+      "generationRecordSha256": "d96cf8307e3c56121013b2d7a8e0b7c0daa09b0de2beae8acaffa3728e1b9287",
+      "runtimePath": "Assets/Resources/Lumia/SkillIcons/tactical_asthenia.png",
+      "runtimeSha256": "f772d99ec7cdad70c6dd42aa213eecf5ed1932b5eb594cbcd5af4ec8ea53f2da",
+      "runtimeSize": [
+        96,
+        96
+      ],
+      "runtimeAlphaRange": [
+        255,
+        255
+      ],
+      "processing": "ProcessChibiArt.normalize_icon convention: full generated tile nearest resize to 96x96; aspect-preserving letterbox only if needed.",
+      "guid": "9926cecb0c3644da98b67c180949e1a5",
+      "pointTexture2D": true
+    }
+  ],
+  "moduleIconSha256": "e6e2dec45cde71680de44f4f3cfbd0dbd1599c50ffce1b7b6efd411087e85b92",
+  "moduleOriginalReferenceSha256": "c1247f1f30c76b05e518077058fe72497674fddfb07b365de2564e9e8765a1ec",
+  "exportedAtUtc": "2026-10-19T15:30:13.7172632Z",
+  "javascriptSyntax": "PASS",
+  "embeddedRuntimeIconBytesVerified": 27,
+  "gameDefinitionPayloadUnchanged": true,
+  "containsNoOriginalBytesDisplayClaims": true,
+  "browserLayoutVerification": "Not rerun in this export; earlier browser proof remains explicitly prePixelRedrawBrowserPreview."
+}

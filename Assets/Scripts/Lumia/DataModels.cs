@@ -26,6 +26,8 @@ namespace Lumia
         public SkillMechanicProfile mechanics;
         public CardStatusRule[] statuses = new CardStatusRule[0];
         public bool movement;
+        // A tactical module upgrades one physical F card independently of + / ++.
+        public bool tacticalEnhanced;
     }
     [Serializable] public class PassiveDef
     {

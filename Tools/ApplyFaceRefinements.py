@@ -8,6 +8,7 @@ applying contrast changes cumulatively.
 import hashlib
 import io
 import json
+import subprocess
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -71,6 +72,18 @@ def apply():
             image.save(ROOT / entry['path'])
         else:
             assert (ROOT / entry['path']).read_bytes() == before, 'unreviewed asset changed: ' + str(key)
+        if key[0] == 'nia':
+            # The original face/mouth refinement remains deterministic; the
+            # user's later black-iris patch is applied by Node, not Pillow.
+            subprocess.run(['node', str(ROOT / 'Tools/ApplyNiaEyeOverrides.mjs'),
+                            '--target', entry['path']], cwd=ROOT, check=True)
+            eye_manifest = read(ROOT / 'docs/art-nia-black-eyes/manifest.json')
+            eye_patch = next(item for item in eye_manifest['runtime'] if item['path'] == entry['path'])
+            rects = {tuple(rect) for rect in entry['editMaskLogicalRects']}
+            for x, y, *_ in eye_patch['pixels']:
+                xx, yy = x // 2, y // 2
+                rects.add((xx, yy, xx + 1, yy + 1))
+            entry['editMaskLogicalRects'] = [list(rect) for rect in sorted(rects)]
         entry['afterSha256'] = digest((ROOT / entry['path']).read_bytes())
         entry['auditPath'] = 'docs/art-face-refinement/' + key[1] + '-audit.json'
     write(DOC / 'manifest.json', manifest)

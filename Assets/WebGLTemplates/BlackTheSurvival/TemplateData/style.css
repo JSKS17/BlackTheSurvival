@@ -5,9 +5,11 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
 .game-shell { height: 100%; height: 100dvh; display: flex; flex-direction: column; }
 #game-area { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; background: radial-gradient(ellipse at center, #172234, #080b11 75%); }
 #game-frame { position: relative; background: #080b11; box-shadow: 0 0 70px #0008; }
-#unity-canvas { display: block; width: 100%; height: 100%; background: #080b11; outline: none; touch-action: none; }
+#unity-canvas { display: block; width: 100%; height: 100%; background: #080b11; outline: none; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 footer { flex: none; min-height: 48px; padding: 8px max(14px, env(safe-area-inset-right)) 8px max(14px, env(safe-area-inset-left)); display: flex; align-items: center; gap: 16px; border-top: 1px solid #263248; background: #0b1019; font-size: 12px; }
 .game-name { font-weight: 700; letter-spacing: .02em; }
+body[data-bts-windowed="true"] .game-name { visibility: hidden; }
+body[data-bts-windowed="true"] footer { min-height: calc(48px + env(safe-area-inset-bottom)); padding-bottom: calc(8px + env(safe-area-inset-bottom)); }
 small { color: #73839b; font-size: 10px; margin-left: 7px; }
 .play-hint { margin-left: auto; color: #93a1b6; }
 button { border: 1px solid #52647c; background: #172334; color: #e3e7ef; border-radius: 4px; padding: 7px 13px; font: inherit; cursor: pointer; }

@@ -111,11 +111,14 @@ namespace Lumia
             {
                 var rule = group.First();
                 var text = descriptions.Where(x => x.key == group.Key).ToList();
-                bool met = ConditionsMet(rule, actor, card);
+                bool forge=rule.op=="forge_sword" && CardInstances.BaseId(card.id)=="tazia_e";
+                int collected=forge ? SkillMechanics.TaziaCollectionAfterE(actor,card) : 0;
+                bool met = forge ? collected>=rule.conditionAmount : ConditionsMet(rule, actor, card);
                 result.Add(new CardConditionPreview { condition = DescriptionSummary.ConditionPrefix(text.FirstOrDefault()?.condition ?? "추가 효과 조건").TrimEnd(',', ' '),
                     effect = DescriptionSummary.Normalize(string.Join(", ", text.Select(x => x.effect).Distinct())),
-                    current = CurrentCondition(rule, actor, card), met = met, requiresHit = rule.onHit,
-                    result = !met ? "현재 수치·직전 기술 조건 미충족" : rule.onHit ? "현재 수치 조건 충족 · 적중 후 발동 여부 결정" : "현재 사용 전 조건 충족" });
+                    current = forge ? "이번 E의 수집 직후 예상 파편 수집 " + collected + " / 필요 " + rule.conditionAmount + " 이상" : CurrentCondition(rule, actor, card), met = met, requiresHit = rule.onHit,
+                    result = forge ? met ? "수집 직후 조건 충족 · 즉시 유리 검 완성" : "이번 E의 수집 직후에도 조건 미충족"
+                        : !met ? "현재 수치·직전 기술 조건 미충족" : rule.onHit ? "현재 수치 조건 충족 · 적중 후 발동 여부 결정" : "현재 사용 전 조건 충족" });
             }
             if (card.freeCastCount > 0 && card.freeCastTargets?.Length > 0)
             {
@@ -185,6 +188,7 @@ namespace Lumia
             if (State.stage != RunStage.Combat) result.unavailableReason = "진행 중인 전투가 아닙니다.";
             else if (!enemy && c.enemyTurn) result.unavailableReason = "상대의 행동이 진행 중입니다.";
             else if (!result.inHand) result.unavailableReason = enemy ? "현재 상대의 남은 예정 행동에 없습니다." : "현재 손패에 없습니다.";
+            else if (!TacticalSkills.CanAct(actor)) result.unavailableReason = "아티팩트 경직 중에는 카드를 사용할 수 없습니다. 다음 자기 턴에 해제됩니다.";
             else if (!StatusMechanics.CanUse(statuses, card)) result.unavailableReason = InformationUseRestriction(statuses, card);
             else if (result.currentCost > result.energy && (!enemy || c.enemyTurn)) result.unavailableReason = "코스트가 " + (result.currentCost - result.energy) + " 부족합니다.";
             else result.unavailableReason = enemy ? "상대 예정 행동입니다. 앞선 행동의 적중·연계에 따라 변경될 수 있습니다." : "현재 사용할 수 있습니다.";

@@ -29,10 +29,16 @@ public static partial class CoreSmokeTests
 
     static void WeaponDamageCatalogBudget()
     {
-        var cards = GameDatabase.Cards.Where(card => card.key == "D" || card.key == "F").ToArray();
-        Check(cards.Count(card => card.key == "D") == 23 && cards.Count(card => card.key == "F") == 3
-            && cards.Select(card => card.id).OrderBy(id => id).SequenceEqual(PriorWeaponAndTacticalDamage.Keys.OrderBy(id => id)),
-            "damage audit covers all 23 weapon and three tactical cards, including nondamaging utility cards");
+        var current = GameDatabase.Cards.Where(card => card.key == "D" || card.key == "F").ToArray();
+        Check(current.Count(card => card.key == "D") == 23 && current.Count(card => card.key == "F") == 26
+            && current.Where(card => card.key == "F").Select(card => card.id).OrderBy(id => id)
+                .SequenceEqual(TacticalSkills.Definitions.Select(card => card.id).OrderBy(id => id)),
+            "damage catalog covers all 23 weapons and 26 distinct tactical identities");
+        // Preserve the exact historical 20% budget regression for the original
+        // shipped cards. New tactical identities have their own behavior/cap tests.
+        var cards = current.Where(card => PriorWeaponAndTacticalDamage.ContainsKey(card.id)).ToArray();
+        Check(cards.Select(card => card.id).OrderBy(id => id).SequenceEqual(PriorWeaponAndTacticalDamage.Keys.OrderBy(id => id)),
+            "all 23 original weapons and three original tacticals retain their budget audit");
         foreach (var card in cards)
         {
             int previous = PriorWeaponAndTacticalDamage[card.id];

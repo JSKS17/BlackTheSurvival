@@ -1,0 +1,8 @@
+{
+  "id": "tactical_protocol",
+  "prompt": "Use case: style-transfer. Asset type: ONE square tactical skill icon in a 16-bit pixel-art deckbuilding game. Input image 1 is the original Eternal Return icon: preserve its exact recognizable subject, composition, orientation and dominant colors. Input image 2 is established pixel-art style reference ONLY; do not copy its pink skill subject. Repaint image 1 as genuinely coarse handmade pixel art matching reference 2, logical grid 32x32 pixels enlarged nearest-neighbor, large solid square pixel clusters, stepped hard edges, limited 12-16 color palette. Subject: Protocol Violation: a lime-green spherical E.M.O.T.E bomb/grenade device tilted slightly clockwise, upper domed shell and lower ring marked with bright green plus symbols, small projecting dark green fin panels and a yellow-green center seam. Preserve original green device silhouette. Fill square canvas, dark navy almost-black background. Keep entire original symbol legible at 96px. Use crisp solid pixel highlight steps instead of smooth glow. No letters, numbers, labels, badge, card frame, border or watermark. No smooth gradient, no antialiasing, no blur, no smooth vector curves. One icon only.",
+  "tool": "built-in image_gen",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0e-55ec-75c0-8a39-1fb6f9272c87\\exec-6503c471-4433-4e5f-9ebe-3605f3cc9051.png",
+  "referencePath": "docs/art-tactical-pixel/references/tactical_protocol.png",
+  "styleReferencePath": "docs/art-tactical-pixel/references/style_nia_q.png"
+}

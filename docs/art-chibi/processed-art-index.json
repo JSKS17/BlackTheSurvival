@@ -29669,7 +29669,7 @@
       "pixelSha256": "defc2feed4df7a84289fb86bba2605f337e720031987d2d449060ddfdc8147f8",
       "batch": "sprites_01",
       "source": "docs/art-chibi/generated/sprites_01_raw.png",
-      "sourceSha256": "2c8eafa212b0d295f59f0d076a5f338dcbde8260824d1259458586870168dbd6",
+      "sourceSha256": "671e30dab31106b0e2af658d86f3a326fb05cdc55ea80b4873aa3e6b75141345",
       "sourceSize": [
         1536,
         1024
@@ -29728,7 +29728,16 @@
       "islandCoreAlpha": 128,
       "islandFringe": 6,
       "warnings": [],
-      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding",
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "note": "The shared source atlas hash changed only in the Nia eye tile; this derived character image remains unchanged."
+        }
+      ]
     },
     {
       "id": "barbara",
@@ -31811,7 +31820,7 @@
       "pixelSha256": "077ee6d2865a3f4c9eb1262ee7acd850d94f1c9ec1dda723667d72e5b506c83f",
       "batch": "sprites_01",
       "source": "docs/art-chibi/generated/sprites_01_raw.png",
-      "sourceSha256": "2c8eafa212b0d295f59f0d076a5f338dcbde8260824d1259458586870168dbd6",
+      "sourceSha256": "671e30dab31106b0e2af658d86f3a326fb05cdc55ea80b4873aa3e6b75141345",
       "sourceSize": [
         1536,
         1024
@@ -31870,7 +31879,16 @@
       "islandCoreAlpha": 128,
       "islandFringe": 6,
       "warnings": [],
-      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding",
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "note": "The shared source atlas hash changed only in the Nia eye tile; this derived character image remains unchanged."
+        }
+      ]
     },
     {
       "id": "hart",
@@ -32189,7 +32207,7 @@
       "pixelSha256": "0bedcb683f37a6657bb96b827e8d5563a490664c3e20d4c32a57836af9b760ae",
       "batch": "sprites_01",
       "source": "docs/art-chibi/generated/sprites_01_raw.png",
-      "sourceSha256": "2c8eafa212b0d295f59f0d076a5f338dcbde8260824d1259458586870168dbd6",
+      "sourceSha256": "671e30dab31106b0e2af658d86f3a326fb05cdc55ea80b4873aa3e6b75141345",
       "sourceSize": [
         1536,
         1024
@@ -32248,7 +32266,16 @@
       "islandCoreAlpha": 128,
       "islandFringe": 6,
       "warnings": [],
-      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding",
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "note": "The shared source atlas hash changed only in the Nia eye tile; this derived character image remains unchanged."
+        }
+      ]
     },
     {
       "id": "hyunwoo",
@@ -32261,7 +32288,7 @@
       "pixelSha256": "5eef30f5c4d6ac6cee0217baeb660c40315b4eae4b155716fa6faa28d868204f",
       "batch": "sprites_01",
       "source": "docs/art-chibi/generated/sprites_01_raw.png",
-      "sourceSha256": "2c8eafa212b0d295f59f0d076a5f338dcbde8260824d1259458586870168dbd6",
+      "sourceSha256": "671e30dab31106b0e2af658d86f3a326fb05cdc55ea80b4873aa3e6b75141345",
       "sourceSize": [
         1536,
         1024
@@ -32320,7 +32347,16 @@
       "islandCoreAlpha": 128,
       "islandFringe": 6,
       "warnings": [],
-      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding",
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "note": "The shared source atlas hash changed only in the Nia eye tile; this derived character image remains unchanged."
+        }
+      ]
     },
     {
       "id": "ian",
@@ -32702,7 +32738,7 @@
       "pixelSha256": "43229c3be2147cabd3a37e324931c4ad34ab3039d49808bb3d8a23bbde3844ff",
       "batch": "sprites_01",
       "source": "docs/art-chibi/generated/sprites_01_raw.png",
-      "sourceSha256": "2c8eafa212b0d295f59f0d076a5f338dcbde8260824d1259458586870168dbd6",
+      "sourceSha256": "671e30dab31106b0e2af658d86f3a326fb05cdc55ea80b4873aa3e6b75141345",
       "sourceSize": [
         1536,
         1024
@@ -32761,7 +32797,16 @@
       "islandCoreAlpha": 128,
       "islandFringe": 6,
       "warnings": [],
-      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding",
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "note": "The shared source atlas hash changed only in the Nia eye tile; this derived character image remains unchanged."
+        }
+      ]
     },
     {
       "id": "jan",
@@ -34291,11 +34336,11 @@
       "path": "Assets/Resources/Lumia/Portraits/nia.png",
       "width": 128,
       "height": 128,
-      "fileSha256": "1fbc869879b6a6723ed7b2e17153e731d4949761284431f07f3f13612d8b27b7",
-      "pixelSha256": "0f5056682b34c9207fbdcb8019b88b793d0a34a6fcf877d2821fe3e252587b45",
+      "fileSha256": "787a353f9589479ac9b30a45c9a77ed8394dc3792ca78c470ef1b64960b9465b",
+      "pixelSha256": "465f206a25058faeb66e30e07c693844c426592d1ba125ffb984fd41419760c9",
       "batch": "sprites_01",
       "source": "docs/art-chibi/generated/sprites_01_raw.png",
-      "sourceSha256": "2c8eafa212b0d295f59f0d076a5f338dcbde8260824d1259458586870168dbd6",
+      "sourceSha256": "671e30dab31106b0e2af658d86f3a326fb05cdc55ea80b4873aa3e6b75141345",
       "sourceSize": [
         1536,
         1024
@@ -34354,7 +34399,16 @@
       "islandCoreAlpha": 128,
       "islandFringe": 6,
       "warnings": [],
-      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding",
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "note": "Only Nia irises changed in this shared source atlas."
+        }
+      ]
     },
     {
       "id": "nicky",
@@ -35015,7 +35069,7 @@
       "pixelSha256": "8f0175f929d3df676e9160fbd1d5b5e4ef1f0a86227550fa0dedc848c283e022",
       "batch": "sprites_01",
       "source": "docs/art-chibi/generated/sprites_01_raw.png",
-      "sourceSha256": "2c8eafa212b0d295f59f0d076a5f338dcbde8260824d1259458586870168dbd6",
+      "sourceSha256": "671e30dab31106b0e2af658d86f3a326fb05cdc55ea80b4873aa3e6b75141345",
       "sourceSize": [
         1536,
         1024
@@ -35074,7 +35128,16 @@
       "islandCoreAlpha": 128,
       "islandFringe": 6,
       "warnings": [],
-      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding",
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "note": "The shared source atlas hash changed only in the Nia eye tile; this derived character image remains unchanged."
+        }
+      ]
     },
     {
       "id": "tazia",
@@ -35627,7 +35690,7 @@
       "pixelSha256": "45a6ceaef260c29f83425eb91c4d9a372aafb5b0220aadaa626aa782916ebd83",
       "batch": "sprites_01",
       "source": "docs/art-chibi/generated/sprites_01_raw.png",
-      "sourceSha256": "2c8eafa212b0d295f59f0d076a5f338dcbde8260824d1259458586870168dbd6",
+      "sourceSha256": "671e30dab31106b0e2af658d86f3a326fb05cdc55ea80b4873aa3e6b75141345",
       "sourceSize": [
         1536,
         1024
@@ -35686,7 +35749,16 @@
       "islandCoreAlpha": 128,
       "islandFringe": 6,
       "warnings": [],
-      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding"
+      "processing": "island-unpack/crop/alpha-trim/nearest-resize/transparent-padding",
+      "userOverrides": [
+        {
+          "manifest": "docs/art-nia-black-eyes/manifest.json",
+          "date": "2026-10-19",
+          "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+          "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+          "note": "The shared source atlas hash changed only in the Nia eye tile; this derived character image remains unchanged."
+        }
+      ]
     },
     {
       "id": "yumin",

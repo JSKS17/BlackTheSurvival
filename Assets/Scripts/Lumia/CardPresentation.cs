@@ -103,6 +103,7 @@ namespace Lumia
 
         static bool IsInstallation(CardDef card)
         {
+            if(new[]{"tactical_protocol","tactical_gravity","tactical_meteor"}.Contains(CardInstances.BaseId(card.id)))return true;
             string id = card.id ?? "";
             int divider = id.LastIndexOf('_');
             if (divider < 1) return false;
@@ -171,6 +172,7 @@ namespace Lumia
 
         public static List<string> Sentences(CardDef c, List<CardDef> all = null, int damage = -1, int block = -1, int heal = -1)
         {
+            if (TacticalSkills.IsTactical(c) && c.mechanics!=null) return TacticalSkills.Description(c,damage,block,heal);
             if (AdvancedCardMechanics.HasTargetChoice(c)) return DescriptionSummary.TargetChoiceLines(c);
             var lines = new List<string>();
             int d = damage < 0 ? c.damage : damage, b = block < 0 ? c.block : block, h = heal < 0 ? c.heal : heal;
@@ -232,6 +234,7 @@ namespace Lumia
             if (c.poison > 0) kinds.Add("poison");
             if (c.weak > 0) kinds.Add("weak");
             if (c.vulnerable > 0) kinds.Add("vulnerable");
+            if (CardInstances.BaseId(c.id)=="tactical_strider" && c.tacticalEnhanced) kinds.Add("slow");
             var statuses = (c.statuses ?? new CardStatusRule[0])
                 .Where(x => x != null && !string.IsNullOrEmpty(x.key)).ToArray();
             kinds.AddRange(statuses.Select(x => x.key));

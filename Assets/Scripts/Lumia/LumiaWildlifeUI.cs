@@ -81,9 +81,9 @@ namespace Lumia
             text += WildlifeMechanics.Description(skill.id);
             wrapped.fontSize = 16;
             float height = Math.Max(300, wrapped.CalcHeight(new GUIContent(text), 536) + 12);
-            detailScroll = GUI.BeginScrollView(new Rect(480, 221, 559, 317), detailScroll, new Rect(0, 0, 536, height));
+            detailScroll = BeginTouchScrollView("wildlife-skill-detail", new Rect(480, 221, 559, 317), detailScroll, new Rect(0, 0, 536, height));
             Para(new Rect(0, 0, 536, height), text, 16, Text);
-            GUI.EndScrollView();
+            EndTouchScrollView();
             if (Btn(new Rect(237, 580, 804, 40), "동물 기술 설명 닫기", true, Mint)) inspectCard = "";
         }
     }

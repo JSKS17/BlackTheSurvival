@@ -18,7 +18,7 @@
     1159
   ],
   "output_path": "Assets/Resources/Lumia/Story/Characters/nia_taunt.png",
-  "output_sha256": "4f47cead9ae1c67b7c31e100b9c68734a6995fbcff41b572e9fea2509c70520b",
+  "output_sha256": "7a7aafcfd2764724165e0aaadd579a3fb08585778cf5ca5f4bad0aa628ab6e20",
   "output_dimensions": [
     1254,
     1254
@@ -72,5 +72,15 @@
     "original_character_hair_outfit_identity_preserved": true,
     "short_limbs_big_head_pixel_style_preserved": true,
     "no_background_ui_text_or_speech_bubble": true
-  }
+  },
+  "userOverrides": [
+    {
+      "manifest": "docs/art-nia-black-eyes/manifest.json",
+      "date": "2026-10-19",
+      "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+      "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+      "previousRuntimeSha256": "4f47cead9ae1c67b7c31e100b9c68734a6995fbcff41b572e9fea2509c70520b",
+      "currentRuntimeSha256": "7a7aafcfd2764724165e0aaadd579a3fb08585778cf5ca5f4bad0aa628ab6e20"
+    }
+  ]
 }

@@ -91,7 +91,7 @@ namespace Lumia
             researchQuery = GUI.TextField(new Rect(64, 202, 274, 35), researchQuery, field);
             if (string.IsNullOrEmpty(researchQuery)) Txt(new Rect(78, 211, 244, 22), "실험체 이름 검색", 13, Muted);
             var characters = ResearchDisplayCharacters();
-            researchListScroll = GUI.BeginScrollView(new Rect(64, 247, 274, 373), researchListScroll, new Rect(0, 0, 250, Math.Max(373, characters.Length * 43)));
+            researchListScroll = BeginTouchScrollView("research-subjects", new Rect(64, 247, 274, 373), researchListScroll, new Rect(0, 0, 250, Math.Max(373, characters.Length * 43)));
             var visible = CraftingCatalog.VisibleItems(characters.Length, researchListScroll.y, 373, 1, 43);
             for (int i = visible.first; i < visible.end; i++)
             {
@@ -104,7 +104,7 @@ namespace Lumia
                 Txt(new Rect(185, item.y + 10, 58, 20), complete ? "완성" : tasks.Count(task => task.completed) + " / 3", 12, complete ? Gold : Muted, true);
                 if (Hit(item)) { researchSubject = character.id; researchReadReport = false; }
             }
-            GUI.EndScrollView();
+            EndTouchScrollView();
             if (characters.Length == 0) Txt(new Rect(76, 265, 245, 28), "검색 결과가 없습니다.", 14, Muted);
             Txt(new Rect(64, 628, 274, 20), "전체 " + GameDatabase.Characters.Count + "명 · 진척은 원정 종료 후 반영", 11, Muted);
             DrawResearchSubject();
@@ -237,8 +237,8 @@ namespace Lumia
             Txt(new Rect(642, 200, 568, 30), "이번 원정의 연구 성과", 22, Mint);
             string notes = ResearchEndingNotes(report, state);
             float notesHeight = Math.Max(280, CachedTextHeight(notes, 15, 540) + 12);
-            researchEndingScroll = GUI.BeginScrollView(new Rect(643, 249, 567, 310), researchEndingScroll, new Rect(0, 0, 540, notesHeight));
-            Para(new Rect(0, 0, 540, notesHeight), notes, 15, Text); GUI.EndScrollView();
+            researchEndingScroll = BeginTouchScrollView("research-ending", new Rect(643, 249, 567, 310), researchEndingScroll, new Rect(0, 0, 540, notesHeight));
+            Para(new Rect(0, 0, 540, notesHeight), notes, 15, Text); EndTouchScrollView();
             bool pending = !string.IsNullOrEmpty(researchSaveError) || researchStore.IsReadOnly;
             Txt(new Rect(49, 598, 1182, 25), pending ? "연구 정산이 보류되었습니다. 기록을 저장한 뒤 다시 시도해주세요." : "보유 관측 데이터 " + researchStore.Profile.data + (report?.legacy == true ? " · 새 원정부터 연구 기록이 축적됩니다." : " · 연구 진척과 첫 관측 기록이 보존되었습니다."), 14, pending ? Pink : Muted, true);
             if (pending && Btn(new Rect(935, 133, 297, 31), "연구 정산 다시 시도", false, Pink)) Save();

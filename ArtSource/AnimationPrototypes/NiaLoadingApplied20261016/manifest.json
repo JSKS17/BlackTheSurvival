@@ -260,7 +260,18 @@
       "label": "대기"
     }
   ],
-  "sourcePixels": "Original PNG bytes unchanged; canvas crop/translation and nearest-neighbor drawing only. No alpha cleanup. Partition alpha under 16 is preserved.",
+  "sourcePixels": "Authorized 2026-10-19 iris RGB edits and walking material RGB correction only. Renderer uses source-sheet crop/translation and nearest-neighbor drawing; no alpha or geometry cleanup. Partition alpha under 16 is preserved.",
+  "userOverride": {
+    "date": "2026-10-19",
+    "request": "Every Nia iris becomes near-black; opening walk material colors match the recovery sequence. All other pixels remain unchanged.",
+    "guideTool": "built-in image_gen.imagegen",
+    "application": "Strict Node.js/sharp RGB masks; original alpha and geometry preserved.",
+    "validation": "Build/NiaEyesVerification/loading/masked-sheet-validation.json",
+    "originals": "Build/NiaEyesVerification/originals/ArtSource/AnimationPrototypes/NiaLoadingApplied20261016",
+    "originalWalkSheetSha256": "54f8a5b89db3f3d9f5281f51067f93311f9ed81b628bda8158d0ea86b8700e8f",
+    "originalRecoverySheetSha256": "52047c5af894364211391cabc0f6f785f7aa1a5870b09f8776e489ec06b79f53",
+    "preserved": "All non-eye recovery pixels, original walking poses and held controller geometry, all alpha, logo, external and baked-in E effects, 8-second animation timeline."
+  },
   "oneUpReference": "Assets/Resources/Lumia/SkillIcons/nia_e.png",
   "runtimeCopiesApproved": true
 }

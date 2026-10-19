@@ -169,7 +169,7 @@ def main() -> None:
             totalPngBytes=sum(item["bytes"] for item in records), sourceCatalogSha256=sha256(SOURCE / "catalog.json"),
             runtimeCatalogSha256=sha256(DESTINATION / "catalog.json"),
             frameCoordinates="Top-left source pixels; offsets are top-left placement within the recorded square canvas.",
-            artChanges="None. All approved atlas PNGs copied byte-for-byte. No resizing, painting, cropping, or recompression.",
+            artChanges="All current approved atlas PNGs copied byte-for-byte without export-time image processing. Nia has an approved iris RGB edit; outside-iris RGBA, alpha, effects and layout are unchanged (ArtSource/AnimationPrototypes/Nia/provenance.json).",
             importing="Default Texture2D, Point, Clamp, no mipmaps, no NPOT scaling, max 4096, uncompressed, input alpha, non-readable.",
             excluded="GIF, WebP, generated raw sheets, thumbnails, official references and prompt files remain source-only.",
             items=records), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

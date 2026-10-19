@@ -184,7 +184,7 @@ public static partial class CoreSmokeTests
             {
                 string expected = GameDatabase.Cards.FirstOrDefault(candidate => candidate.owner == card.owner && candidate.mechanics != null
                     && candidate.mechanics.rules.Any(candidateRule => candidateRule.key == rule.key
-                        && (candidateRule.op == "gain" || candidateRule.op == "set" || candidateRule.op == "state_on" || candidateRule.op == "state_toggle")))?.id;
+                        && (candidateRule.op == "gain" || candidateRule.op == "set" || candidateRule.op == "state_on" || candidateRule.op == "state_toggle" || candidateRule.op == "forge_sword")))?.id;
                 Check(sources.Find(card.owner, rule.key) == expected, "field source cache preserves first owner/key generator lookup: " + card.id + "/" + rule.key);
                 int count = sources.Count;
                 Check(sources.Find(card.owner, rule.key) == expected && sources.Count == count, "positive and negative field source lookups reuse cached results");

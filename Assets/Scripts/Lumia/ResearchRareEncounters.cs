@@ -56,6 +56,7 @@ namespace Lumia
                 string thirdLabel = thirdEffect == "rare_remove_cards" ? "최대 2장 제거" : thirdEffect == "rare_support_runes" ? "보조 룬 습득" : thirdEffect == "rare_copy_cards" ? "2장 복제" : "무작위 F 습득";
                 PreserveNarrative(third, original[2], thirdLabel);
                 encounter.options = new[] { first, second, third };
+                TacticalEncounterOptions.ConfigureRare(encounter, subject.id);
             }
         }
 

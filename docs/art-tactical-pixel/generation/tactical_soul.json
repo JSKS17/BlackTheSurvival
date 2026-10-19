@@ -1,0 +1,8 @@
+{
+  "id": "tactical_soul",
+  "prompt": "Use case: style-transfer. Asset type: ONE square tactical skill icon in a 16-bit pixel-art deckbuilding game. Input image1 is original Eternal Return icon: preserve recognizable subject, composition, orientation, dominant colors. Image2 is pixel-art style reference ONLY; do not copy pink skill subject. Repaint image1 in genuinely coarse handmade pixel art matching image2, logical32x32 enlarged nearest-neighbor, large solid square pixelclusters, stepped hardedges, limited12-16colors. Subject: Strong Bond: two pale beige and pink human hands tightly clasping one another at center, one arm rising diagonally from lower-left, the other from lower-right. Warm golden orange burst behind joined hands, original intimate handshake silhouette and colors. Full square canvas, dark navy nearly-black background. Entire symbol legible at96px. Crisp solid highlight steps instead of smooth glow. No letters, numbers, labels, badge, cardframe, border, watermark, smooth gradient, antialiasing, blur or vectorcurves. Oneicon only.",
+  "tool": "built-in image_gen",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0e-55ec-75c0-8a39-1fb6f9272c87\\exec-a3cab7a1-279c-4157-845a-787d90c8bda1.png",
+  "referencePath": "docs/art-tactical-pixel/references/tactical_soul.png",
+  "styleReferencePath": "docs/art-tactical-pixel/references/style_nia_q.png"
+}

@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-19",
+  "userApprovedEdit": "Change only Nia iris RGB to black eyes; preserve all other pixels, alpha, effects, frame geometry, timing and positions.",
+  "tool": "built-in image_gen.imagegen",
+  "imagegenRole": "Charcoal iris color guide; original full generated image was never substituted for production art.",
+  "prompt": "eye-color-prompt.txt",
+  "guide": "Build/NiaEyesVerification/ultimate/imagegen-guide.png",
+  "guideSha256": "e5a9161fe54c6e2f5ce9b19b100ce2c2b7ca8727259c400a793ddaec7f3956e8",
+  "finalAtlas": "nia-ultimate-atlas.png",
+  "finalAtlasSha256": "719e68557a1cff9d185a38bb74cd212f96ca39ab9915810d35c204bb95de6ffa",
+  "originalAtlasSha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
+  "originalBackup": "Build/NiaEyesVerification/originals/ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png",
+  "onlyIrisRgbChanged": true,
+  "outsideIrisRgbaChanges": 0,
+  "alphaChanges": 0,
+  "pixelEditProgram": "Build/NiaEyesVerification/ultimate/apply-iris.cjs",
+  "mask": "Build/NiaEyesVerification/ultimate/iris-mask.json",
+  "proof": "Build/NiaEyesVerification/ultimate/proof.json",
+  "previewProof": "Build/NiaEyesVerification/ultimate/preview-proof.json",
+  "regeneration": {
+    "sourceOfTruth": "nia-ultimate-atlas.png; updated validation.json atlas.sha256 must match before export",
+    "export": "Tools/ExportUltimateAnimations.py copies this approved edited atlas byte-for-byte into runtime",
+    "gallery": "Tools/BuildUltimatePreviews.py has a special Nia catalog entry and retains this atlas and its existing frames/previews",
+    "subjectImporter": "Tools/SaveUltimateAtlas.py writes Subjects/<id>/atlas.png; it does not overwrite the special Nia directory",
+    "doNotRestoreOriginalGeneratedOutput": true
+  },
+  "previews": [
+    {
+      "file": "ArtSource/AnimationPrototypes/Nia/nia-ultimate-preview.webp",
+      "sha256": "ed3937a0cdf58c3c0dfc2ef9d385e911774a98df672786db8bcef3f729ab7c9c",
+      "frameCount": 12,
+      "frameDelays": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "loop": 0
+    },
+    {
+      "file": "ArtSource/AnimationPrototypes/Nia/nia-ultimate-preview.gif",
+      "sha256": "04058bf768af849d9ae53cc0b3611ea5d4a8042e995707b544f9ae2cbeed699f",
+      "frameCount": 12,
+      "frameDelays": [
+        130,
+        120,
+        130,
+        120,
+        130,
+        120,
+        130,
+        120,
+        130,
+        120,
+        130,
+        120
+      ],
+      "loop": 0
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "id": "tactical_redstorm",
+  "prompt": "Use case: style-transfer. Asset type: ONE square tactical skill icon in a 16-bit pixel-art deckbuilding game. Input image 1 is the original Eternal Return icon: preserve recognizable subject, composition, orientation and dominant colors. Input image 2 is pixel-art style reference ONLY, do not copy its pink skill subject. Repaint image 1 as genuinely coarse handmade pixel art matching image 2, logical grid32x32 enlarged nearest-neighbor, large solid square pixel clusters, stepped hard edges, limited12-16color palette. Subject: Red Storm: vivid ruby-red hand-like forked claw/flame silhouette rising diagonally from lower center, several crooked yellow-orange lightning branches surrounding the dark red form. Preserve the exact organic red lightning composition of original. Full square canvas, dark navy nearly-black background. Entire symbol legible at96px. Crisp solid pixel highlight steps instead of smooth glow. No letters, numbers, labels, badge, card frame, border or watermark. No smooth gradient, antialiasing, blur or vector curves. One icon only.",
+  "tool": "built-in image_gen",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a11b0e-55ec-75c0-8a39-1fb6f9272c87\\exec-533b35df-58b5-420a-9329-bf4f008fdcc7.png",
+  "referencePath": "docs/art-tactical-pixel/references/tactical_redstorm.png",
+  "styleReferencePath": "docs/art-tactical-pixel/references/style_nia_q.png"
+}

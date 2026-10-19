@@ -42,9 +42,9 @@ namespace Lumia
             if (layout.plainHeight <= rect.height) { GUI.Label(rect, layout.content, wrapped); return; }
             Vector2 position;
             summaryScroll.TryGetValue(layout.scrollKey, out position);
-            position = GUI.BeginScrollView(rect, position, new Rect(0, 0, layout.scrollWidth, layout.scrollHeight), false, true);
+            position = BeginTouchScrollView(layout.scrollKey, rect, position, new Rect(0, 0, layout.scrollWidth, layout.scrollHeight), false, true);
             GUI.Label(new Rect(0, 0, layout.scrollWidth, layout.scrollHeight), layout.content, wrapped);
-            GUI.EndScrollView();
+            EndTouchScrollView();
             summaryScroll[layout.scrollKey] = position;
         }
     }

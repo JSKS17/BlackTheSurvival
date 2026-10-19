@@ -4,7 +4,7 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 정식 버전은 [v1.0.11](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.11)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 정식 버전은 [v1.0.18](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.18)에 있습니다.
 - [웹에서 플레이](https://bser-sts.com): 계정별 진행 기록과 환경 설정을 저장하며 Windows와 같은 게임 규칙을 사용합니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
@@ -42,6 +42,9 @@
 
 연구 프로필은 `bts-research-v1.json`에 원정과 별도로 저장합니다. 새 게임으로 원정 기록을 바꾸어도 연구는 남으며, 같은 종료 기록을 불러와도 보상은 한 번만 받습니다. [연구 규칙과 보상](docs/RESEARCH_PROGRESSION.md), [실제 검증 기록](docs/validation-research/README.md)을 참고하세요.
 - Unity 메뉴 **Black The Survival → Build Windows game**으로 다시 빌드할 수 있습니다.
+
+
+전술 스킬(F)은 초월을 제외한 일반·코발트 출신 26종을 제공합니다. 일부 조우의 전술강화 모듈은 가방에서 선택한 F 카드 한 장만 강화하며, 캐릭터별 전술 카드 거래도 지원합니다. [전체 목록과 강화 효과](docs/TACTICAL_SKILLS.md)를 참고하세요.
 
 ## 플레이
 

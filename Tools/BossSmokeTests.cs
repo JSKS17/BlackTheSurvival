@@ -62,7 +62,7 @@ public static partial class CoreSmokeTests
                 if (phase.effect == BossEffect.ResourcePrepare || phase.secondaryEffect == BossEffect.ResourcePrepare)
                 {
                     Check(!string.IsNullOrEmpty(phase.resourceKey) && !string.IsNullOrEmpty(phase.resourceLabel) && phase.resourceCap > 0, "resource preparation names a bounded skill resource: " + character.id);
-                    Check(character.cards.Select(GameDatabase.Card).Where(x => x.mechanics != null).SelectMany(x => x.mechanics.rules).Any(x => x.key == phase.resourceKey && new[] { "gain", "set", "state_on", "state_toggle" }.Contains(x.op)), "prepared resource is really produced by this subject's skills: " + character.id + "/" + phase.resourceKey);
+                    Check(character.cards.Select(GameDatabase.Card).Where(x => x.mechanics != null).SelectMany(x => x.mechanics.rules).Any(x => x.key == phase.resourceKey && new[] { "gain", "set", "state_on", "state_toggle", "forge_sword" }.Contains(x.op)), "prepared resource is really produced by this subject's skills: " + character.id + "/" + phase.resourceKey);
                 }
                 string text = BossMechanics.EffectsText(phase);
                 Check(!string.IsNullOrEmpty(text) && !text.Contains("null"), "failure preview resolves names and numbers: " + character.id);
@@ -201,14 +201,32 @@ public static partial class CoreSmokeTests
             {
                 var phase = phases[index]; if (phase.effect != BossEffect.ResourcePrepare && phase.secondaryEffect != BossEffect.ResourcePrepare) continue;
                 var e = BossFixture(character.id, 2); var c = e.State.combat; c.boss.phase = index + 1; c.boss.challengeActive = true;
-                var rules = character.cards.Select(GameDatabase.Card).SelectMany(x => x.mechanics.rules).Where(x => x.key == phase.resourceKey && new[] { "gain", "set", "state_on", "state_toggle" }.Contains(x.op)).ToArray();
+                var rules = character.cards.Select(GameDatabase.Card).SelectMany(x => x.mechanics.rules).Where(x => x.key == phase.resourceKey && new[] { "gain", "set", "state_on", "state_toggle", "forge_sword" }.Contains(x.op)).ToArray();
                 bool isState = SkillMechanics.IsState(character.name, phase.resourceKey) || rules.Any(x => x.isState);
                 int cap = isState ? 1 : rules.Max(x => x.cap);
                 c.enemySkills.resources.Add(new SkillResource { owner = character.name, key = phase.resourceKey, label = phase.resourceLabel, cap = cap, amount = cap, isState = isState });
                 Check(e.BeginEndTurn() && e.AdvanceEnemyAction() && c.boss.preparedResources.Count > 0, "every authored resource special really queues a skill resource: " + character.id);
+                var pending = c.boss.preparedResources.Single(x => x.key == phase.resourceKey);
+                int pendingAmount = pending.amount;
+                Check(pending.cap == cap && pending.isState == isState && pending.amount <= cap, "queued resource preserves its actual producer cap and state: " + character.id + "/" + phase.resourceKey);
+                // Isolate preparation from the intervening passive turn-end effects.
+                // Shared blood can legitimately be spent before the queued refill.
+                var preparationOnly = new GameEngine((RunState)Clone(e.State));
+                typeof(GameEngine).GetMethod("PrepareBossNextTurn", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic).Invoke(preparationOnly, null);
+                var prepared = preparationOnly.State.combat.enemySkills.resources.Single(x => x.owner == character.name && x.key == phase.resourceKey);
+                Check(prepared.amount == cap && prepared.cap == cap && prepared.isState == isState && preparationOnly.State.combat.boss.preparedResources.Count == 0,
+                    "preparation alone preserves an existing full source cap and binary state: " + character.id + "/" + phase.resourceKey);
                 BossFinishEnemy(e);
                 var resource = c.enemySkills.resources.First(x => x.owner == character.name && x.key == phase.resourceKey);
-                Check(resource.amount == cap && resource.cap == cap && resource.isState == isState, "resource preparation preserves an existing full source cap and binary state: " + character.id + "/" + phase.resourceKey);
+                if (character.id == "bianca" && phase.resourceKey == "blood")
+                {
+                    int spendIndex = Array.FindIndex(GameDatabase.Passive("bianca_p").mechanics.rules, rule => rule.trigger == "turn_end" && rule.op == "consume" && rule.key == "blood");
+                    Check(pendingAmount == 1 && c.enemyTraits.counters.Any(x => x.sourceId == "bianca_p" && x.ruleIndex == spendIndex && x.battleUses == 1),
+                        "Bianca actually consumes the shared blood at turn end before the authored one-blood refill");
+                    Check(resource.amount == 1 && resource.cap == 4 && !resource.isState,
+                        "Bianca's real cycle spends four blood then receives one queued blood under the original cap four");
+                }
+                else Check(resource.amount == cap && resource.cap == cap && resource.isState == isState, "the real resource cycle preserves a full value when passive consumption is absent or replenished: " + character.id + "/" + phase.resourceKey);
             }
         }
     }

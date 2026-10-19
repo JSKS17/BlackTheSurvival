@@ -10,7 +10,8 @@ namespace Lumia
             var source = GameDatabase.Card(reference);
             if (source == null) return null;
             string branch = CardInstances.UpgradeBranch(State, reference);
-            return string.IsNullOrEmpty(branch) ? source : StrategyMechanics.Apply(source, branch);
+            var card = string.IsNullOrEmpty(branch) ? source : StrategyMechanics.Apply(source, branch);
+            return IsTacticalUpgraded(reference) ? TacticalSkills.ApplyModuleUpgrade(card) : card;
         }
 
         public string CardUpgradeLabel(string reference)
@@ -53,7 +54,7 @@ namespace Lumia
 
         public List<CardUpgradeOption> CardUpgradeOptions(int deckIndex)
         {
-            return UpgradeCardIndices().Contains(deckIndex) ? StrategyMechanics.Options(GameDatabase.Card(State.deck[deckIndex]))
+            return UpgradeCardIndices().Contains(deckIndex) ? TacticalModules.UpgradeOptions(GameDatabase.Card(State.deck[deckIndex]), IsTacticalUpgraded(State.deck[deckIndex]))
                 : new List<CardUpgradeOption>();
         }
 
@@ -72,6 +73,7 @@ namespace Lumia
             string reference = CardInstances.CreateReference(State, original);
             State.deck[deckIndex] = reference;
             State.cardUpgrades.Add(new CardUpgradeSelection { cardId = CardInstances.BaseId(original), instanceId = reference, branchId = branchId });
+            TransferTacticalUpgrade(original, reference);
             State.cardUpgradePending = false;
             Say(GameDatabase.Card(reference).name + "+ · " + CardUpgradeLabel(reference) + " 완료. 선택한 카드 1장에만 적용됩니다.");
             CompleteNode();

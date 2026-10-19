@@ -1,0 +1,8 @@
+{
+  "id": "tactical_rolling_thunder",
+  "prompt": "Use case: style-transfer. Asset type: individual tactical ability game icon. Input images: Image 1 is the original icon and is the authoritative subject, composition, silhouette, orientation, placement, and color reference. Image 2 is ONLY a pixel-art style reference; do not copy its subject, magenta palette, frame, or composition. Redraw the recognizable original from Image 1 as deliberately coarse pixel art on a logical 32x32 square pixel grid, presented enlarged so each logical pixel is a large clean square. Broad flat square pixel clusters, jagged stepped hard edges, 12-16 total colors, strong readable silhouette and simple clustered shading. Opaque dark navy background. Preserve the original recognizable subject, motion, major shapes and color family. No antialiasing, smoothing, blur, gradients, soft glows, thin vector curves, tiny detail, typography, numbers, border or frame. One isolated square icon only, no grid lines or mockup. Subject: Preserve Image 1's centered cyan and electric-blue swirling vortex, tightening into a small dark spiral at the center. Retain the asymmetric broken outer cyan lightning arcs and navy negative spaces between the concentric spiral arms.",
+  "tool": "built-in image_gen",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a154c1-5c2b-7a30-a434-9d0315db1346\\exec-7bf5791b-68f1-44ba-80af-b928b4e6d0f6.png",
+  "referencePath": "docs/art-tactical-pixel/references/tactical_rolling_thunder.png",
+  "styleReferencePath": "docs/art-tactical-pixel/references/style_nia_q.png"
+}

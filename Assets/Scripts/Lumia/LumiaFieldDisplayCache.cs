@@ -28,7 +28,7 @@ namespace Lumia
             if (sources.TryGetValue(identity, out source)) return source;
             source = cards.FirstOrDefault(card => card.owner == owner && card.mechanics != null
                 && card.mechanics.rules.Any(rule => rule.key == key
-                    && (rule.op == "gain" || rule.op == "set" || rule.op == "state_on" || rule.op == "state_toggle")))?.id;
+                    && (rule.op == "gain" || rule.op == "set" || rule.op == "state_on" || rule.op == "state_toggle" || rule.op == "forge_sword")))?.id;
             if (sources.Count >= capacity) sources.Clear();
             sources.Add(identity, source);
             return source;

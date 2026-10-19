@@ -1,0 +1,8 @@
+{
+  "id": "tactical_gravity",
+  "prompt": "Use case: style-transfer. Asset type: individual tactical ability game icon. Input images: Image 1 is the original icon and is the authoritative subject, composition, silhouette, orientation, placement, and color reference. Image 2 is ONLY a pixel-art style reference; do not copy its subject, magenta palette, frame, or composition. Redraw the recognizable original from Image 1 as deliberately coarse pixel art on a logical 32x32 square pixel grid, presented enlarged so each logical pixel is a large clean square. Broad flat square pixel clusters, jagged stepped hard edges, 12-16 total colors, strong readable silhouette and simple clustered shading. Opaque dark navy background. Preserve the original recognizable subject, motion, major shapes and color family. No antialiasing, smoothing, blur, gradients, soft glows, thin vector curves, tiny detail, typography, numbers, border or frame. One isolated square icon only, no grid lines or mockup. Subject: Preserve Image 1's tilted elliptical black-hole ring centered in a dark purple cosmic field, with a dark central sphere and vivid pink, violet and blue orbital bands. Keep the diagonally tilted ring, bright pink right rim, and sparse pixel star accents.",
+  "tool": "built-in image_gen",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a154c1-5c2b-7a30-a434-9d0315db1346\\exec-17c49e6d-542e-41b6-8a97-3367b1747c92.png",
+  "referencePath": "docs/art-tactical-pixel/references/tactical_gravity.png",
+  "styleReferencePath": "docs/art-tactical-pixel/references/style_nia_q.png"
+}

@@ -79,7 +79,20 @@ namespace Lumia
             if(CardInstances.IsInstance(pile[index]))return;
             string old=pile[index],reference=CardInstances.CreateReference(State,old);
             pile[index]=reference;
-            int owned=State.deck.IndexOf(old);if(owned>=0)State.deck[owned]=reference;
+            int owned=State.deck.IndexOf(old);
+            if(owned>=0)
+            {
+                // Assigning a physical identity must rename the same equipment
+                // grant, or the next weapon sync will mistake it for an earned D
+                // and append another copy. Check provenance before changing it:
+                // an earned raw copy may precede an identical equipment grant.
+                if(IsEquipmentGrantedCard(owned))
+                {
+                    int grant=State.weaponGrantedCards.LastIndexOf(old);
+                    if(grant>=0)State.weaponGrantedCards[grant]=reference;
+                }
+                State.deck[owned]=reference;
+            }
             foreach(var grant in State.combat.freeCasts.Where(x=>x.cardReference==old))grant.cardReference=reference;
         }
         public bool BeginCardChoice(int handIndex)
@@ -261,15 +274,15 @@ namespace Lumia
                 if(!action.sacrificeCommitted && action.sacrificedReferences!=null)c.enemyDiscardPile.AddRange(action.sacrificedReferences);
             }
         }
-        int SimulateSharedDirectDamage(SkillActorState defender, int hp, ref int block, int perHit, int extra, int hits, StatusActorState defenderStatuses = null)
+        int SimulateSharedDirectDamage(SkillActorState defender, int hp, ref int block, int perHit, int extra, int hits, StatusActorState defenderStatuses = null,bool ignoreBlock=false)
         {
             int total=0;
             for(int i=0;i<Math.Max(1,hits) && total<hp;i++)
             {
                 int raw=RunModes.ScaleEnemyDirectDamage(State,perHit+(i==0?extra:0));
-                int absorbed=Math.Min(block,raw);block-=absorbed;
+                int absorbed=ignoreBlock?0:Math.Min(block,raw);block-=absorbed;
                 if(defenderStatuses!=null)StatusMechanics.ConsumeProtection(defenderStatuses,absorbed);
-                int shared=CompanionMechanics.Absorb(defender,raw-absorbed).remaining;
+                int shared=CompanionMechanics.Absorb(defender,TacticalSkills.IncomingDamage(defender,raw-absorbed)).remaining;
                 int deferred=(int)((long)shared*Math.Min(20,EquipmentSum(g=>g.damageDeferral))/100);
                 total+=CompanionMechanics.ClampOwnerDamage(defender,hp-total,shared-deferred);
             }

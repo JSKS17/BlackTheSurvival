@@ -301,7 +301,7 @@ namespace Lumia
             // Shards -> collection -> sword, with barrier shards and separate Paradiso.
             P(p, "tazia_q", 3, G("shard", "유리 파편", 1, 4, hit:true), B("bonus_damage", 8, need:"sword"), Spend("sword", "유리 검"));
             P(p, "tazia_w", 7, Fx("delayed_damage", "barrier", "유리 장벽", 6), G("shard", "유리 파편", 2, 4));
-            P(p, "tazia_e", 6, B("bonus_damage", 3, scale:"shard", cap:4), B("bonus_block", 2, scale:"shard", cap:4), G("collection", "파편 수집", 1, 4, need:"shard"), G("collection", "파편 수집", 1, 4, need:"shard", min:2), G("collection", "파편 수집", 1, 4, need:"shard", min:3), G("collection", "파편 수집", 1, 4, need:"shard", min:4), S("sword", "유리 검", 1, 1, need:"collection", min:3), Spend("collection", "파편 수집", need:"collection", min:3), Spend("shard", "유리 파편"));
+            P(p, "tazia_e", 6, B("bonus_damage", 3, scale:"shard", cap:4), B("bonus_block", 2, scale:"shard", cap:4), G("collection", "파편 수집", 1, 4, need:"shard"), G("collection", "파편 수집", 1, 4, need:"shard", min:2), G("collection", "파편 수집", 1, 4, need:"shard", min:3), G("collection", "파편 수집", 1, 4, need:"shard", min:4), Spend("shard", "유리 파편"), R("forge_sword", "sword", "유리 검", 1, 1, need:"collection", min:3));
             P(p, "tazia_r", 15, B("bonus_damage", 4, scale:"shard", cap:4), Spend("shard", "유리 파편"), Fx("delayed_damage", "paradiso", "파라디소 파괴", 9));
 
             // Screen duplicates cannon; a lock-on enables a later rooted hit.

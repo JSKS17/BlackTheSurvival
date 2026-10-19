@@ -57,7 +57,9 @@ namespace Lumia.Editor
         [MenuItem("Black The Survival/Build Windows game")]
         public static void BuildWindows()
         {
+            PreserveDisabledServices();
             ConfigurePixelAssets();
+            TacticalIconAssetValidation.Validate();
             UltimateAnimationAssetValidation.Validate();
             Directory.CreateDirectory("Build/Windows");
             PlayerSettings.productName = GameIdentity.ProductName;
@@ -71,6 +73,7 @@ namespace Lumia.Editor
             if (scenes.Length == 0) scenes = new[] { "Assets/Scenes/SampleScene.unity" };
             bool development = System.Environment.GetCommandLineArgs().Contains("-lumia-development");
             var result = BuildPipeline.BuildPlayer(scenes, "Build/Windows/" + GameIdentity.ExecutableName, BuildTarget.StandaloneWindows64, development ? BuildOptions.Development : BuildOptions.None);
+            PreserveDisabledServices();
             string captureHash = "";
             var args = System.Environment.GetCommandLineArgs();
             int captureIndex = System.Array.IndexOf(args, "-lumia-source-capture");
@@ -100,6 +103,31 @@ namespace Lumia.Editor
             public int errors, warnings;
             public ulong totalBytes;
             public double durationSeconds;
+        }
+
+        public static void PreserveDisabledServices()
+        {
+            // Editor sign-in may enable this flag during startup. Keep the
+            // project's disabled service setting in the shipped player.
+            const string assetPath = "ProjectSettings/UnityConnectSettings.asset";
+            var settings = AssetDatabase.LoadAllAssetsAtPath(assetPath);
+            if (settings.Length != 1)
+                throw new UnityEditor.Build.BuildFailedException("Cannot load the project's Unity service settings.");
+            using (var serialized = new SerializedObject(settings[0]))
+            {
+                serialized.Update();
+                var enabled = serialized.FindProperty("m_Enabled");
+                if (enabled == null || enabled.propertyType != SerializedPropertyType.Boolean)
+                    throw new UnityEditor.Build.BuildFailedException("Cannot preserve disabled Unity services.");
+                enabled.boolValue = false;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+            }
+            EditorUtility.SetDirty(settings[0]);
+            AssetDatabase.SaveAssets();
+            string filename = Path.Combine(Path.GetDirectoryName(Application.dataPath), assetPath);
+            if (!System.Text.RegularExpressions.Regex.IsMatch(File.ReadAllText(filename), @"(?m)^  m_Enabled: 0\r?$"))
+                throw new UnityEditor.Build.BuildFailedException("Unity services were enabled unexpectedly before building.");
+            Debug.Log("LUMIA PRODUCTION SERVICES / UnityConnect disabled");
         }
 
         [MenuItem("Black The Survival/Configure pixel imports")]

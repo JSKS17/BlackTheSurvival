@@ -22,19 +22,20 @@ namespace Lumia
 
         public static CardDef RewardCard(EventOption option)
         {
-            if (option == null || (option.effect != "card" && option.effect != "trade_card" && option.effect != "risky_card" && option.effect != "rare_trade_card")) return null;
+            if (option == null || (option.effect != "card" && option.effect != "trade_card" && option.effect != "risky_card" && option.effect != "rare_trade_card" && option.effect != "trade_tactical_enhanced")) return null;
             var card = GameDatabase.Card(option.cardId);
-            return option.effect == "rare_trade_card" ? RareCardUpgrades.Apply(card) : card;
+            return option.effect == "rare_trade_card" ? RareCardUpgrades.Apply(card) : option.effect == "trade_tactical_enhanced" ? TacticalSkills.ApplyModuleUpgrade(card) : card;
         }
 
         public static string RewardTitle(EventOption option)
         {
             var card = RewardCard(option);
-            if (card != null) return card.owner + " · " + card.name + (option.effect == "rare_trade_card" ? "++" : "") + " [" + card.key + "] · " + card.cost + "코스트";
+            if (card != null) return card.owner + " · " + card.name + (option.effect == "rare_trade_card" ? "++" : option.effect == "trade_tactical_enhanced" ? " [전술 강화]" : "") + " [" + card.key + "] · " + card.cost + "코스트";
             if (option == null) return "";
             switch (option.effect)
             {
                 case "food": return (GameDatabase.Food(option.objectId)?.name ?? "음식") + " 1개";
+                case "tactical_module": return TacticalModules.Name + " " + System.Math.Max(1, option.amount) + "개";
                 case "object": case "trade_object": case "risky_object": return (GameDatabase.Object(option.objectId)?.name ?? "오브젝트") + " 1개";
                 case "credits": return "크레딧 " + option.amount;
                 case "heal": return "체력 " + option.amount + " 회복";
@@ -90,7 +91,8 @@ namespace Lumia
             switch (option.effect)
             {
                 case "card": return cardName + " 1장을 덱에 추가합니다.";
-                case "trade_card": return "크레딧 " + option.amount + "을 지불하고 " + cardName + " 1장을 덱에 추가합니다.";
+                case "trade_card": return "크레딧 " + option.amount + "을 지불하고 " + cardName + " 1장을 덱에 추가합니다." + (TacticalSkills.IsTactical(card) ? " 효과: " + DescriptionSummary.CardPreview(card) : "");
+                case "trade_tactical_enhanced": return "크레딧 " + option.amount + "을 지불하고 전술 강화된 " + cardName + " 1장을 덱에 추가합니다. 효과: " + DescriptionSummary.CardPreview(card) + " " + TacticalSkills.ModuleUpgradeDescription(GameDatabase.Card(option.cardId)) + " 같은 종류의 다른 카드는 강화되지 않습니다.";
                 case "rare_trade_card": return "크레딧 " + option.amount + "을 지불하고 특별 강화된 ‘" + card.owner + " · " + card.name + "++ [" + card.key + "]’ 카드 1장을 덱에 추가합니다. 같은 종류의 다른 카드는 강화되지 않습니다.";
                 case "risky_card": return "체력 " + option.amount + "을 소모하고 " + cardName + " 1장을 덱에 추가합니다.";
                 case "heal": return "체력을 " + option.amount + " 회복합니다.";
@@ -102,6 +104,7 @@ namespace Lumia
                 case "trade_object": return "크레딧 " + option.amount + "을 지불하고 " + material + " 1개를 획득합니다.";
                 case "risky_object": return "체력 " + option.amount + "을 소모하고 " + material + " 1개를 획득합니다.";
                 case "food": return (food?.name ?? "지정 음식") + " 1개를 가방에 넣습니다. 사용하면 " + (food != null && food.fullHeal ? "체력을 모두 회복합니다." : "체력을 " + (food?.heal ?? 0) + " 회복합니다.");
+                case "tactical_module": return TacticalModules.Name + " " + System.Math.Max(1, option.amount) + "개를 가방에 넣습니다. 전투 밖에서 사용하면 원하는 전술 스킬(F) 카드 1장에 고유 전술 강화를 적용합니다. 취소하면 소모하지 않습니다.";
                 case "passive": return (GameDatabase.Passive(option.passiveId)?.name ?? "지정 패시브") + " 패시브를 획득합니다.";
                 case "rune_change": case "swap_rune": return "메인 룬과 같은 계열의 보조 룬을 새로 선택합니다.";
                 case "remove_card": return "무기 카드 이외의 무작위 카드 1장을 제거합니다. 덱에는 최소 5장을 남깁니다.";

@@ -18,7 +18,7 @@
     1214
   ],
   "output_path": "Assets/Resources/Lumia/Story/Characters/nia_defeated.png",
-  "output_sha256": "b0439b4d8af9114f9b87cb4c84abf1032b9606cbd712fc1fcfe20ff00012aba1",
+  "output_sha256": "6ed38f61723b17bdf49167734e7742e3b827ff1a0e727765ec1af5217ec3953b",
   "output_dimensions": [
     1254,
     1254
@@ -72,5 +72,15 @@
     "original_character_hair_outfit_identity_preserved": true,
     "short_limbs_big_head_pixel_style_preserved": true,
     "no_background_ui_text_or_speech_bubble": true
-  }
+  },
+  "userOverrides": [
+    {
+      "manifest": "docs/art-nia-black-eyes/manifest.json",
+      "date": "2026-10-19",
+      "authorization": "User explicitly requested all existing Nia sprites and animations have black irises, with every other pixel retained.",
+      "method": "image_gen palette guide; manually reviewed iris windows, protected highlights and lashes, deterministic RGB-only mask composition.",
+      "previousRuntimeSha256": "b0439b4d8af9114f9b87cb4c84abf1032b9606cbd712fc1fcfe20ff00012aba1",
+      "currentRuntimeSha256": "6ed38f61723b17bdf49167734e7742e3b827ff1a0e727765ec1af5217ec3953b"
+    }
+  ]
 }

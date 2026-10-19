@@ -35,7 +35,8 @@ namespace Lumia
 
         static List<string> EffectLines(TraitMechanicProfile profile, bool compact)
         {
-            var rules = (profile.rules ?? new TraitRule[0]).Where(r => r != null).ToArray();
+            string passiveId=profile.stateOwner!=null && profile.stateOwner.StartsWith("trait:",StringComparison.Ordinal) ? profile.stateOwner.Substring(6) : null;
+            var rules = (profile.rules ?? new TraitRule[0]).Where(r => r != null).Select(r=>(TraitRule)SkillMechanics.SharedPassiveRule(passiveId,r)).ToArray();
             var labels = new Dictionary<string, string>(StringComparer.Ordinal);
             foreach (var r in rules.OrderBy(r => r.op == "gain" || r.op == "set" || r.op.StartsWith("state_",StringComparison.Ordinal) || r.op == "damage_resource" ? 0 : 1))
                 if (!string.IsNullOrEmpty(r.key) && !string.IsNullOrEmpty(r.label) && !labels.ContainsKey(r.key)) labels[r.key] = r.label;
@@ -85,6 +86,11 @@ namespace Lumia
                 string common = sharedLimit && group.effects[0].limit.Length > 0 ? " (" + group.effects[0].limit + ")" : "";
                 lines.Add(DescriptionSummary.ConditionPrefix(group.when) + joined + common + ".");
             }
+            var shared=SkillMechanics.SharedResourcesFor(passiveId).Where(x=>!x.legacyOnly).ToArray();
+            if(shared.Length>0)
+                lines.Add(string.Join("·",shared.Select(x=>x.label).Distinct())+"은 해당 실험체의 기술과 공유하며 전투가 끝나면 초기화됩니다. 패시브와 기술의 획득·소모 효과는 각각 적용됩니다.");
+            if (profile.stateOwner == "trait:tazia_p")
+                lines.Add("유리 파편·파편 수집은 타지아 Q·W·E·R과 공유합니다. E는 파편을 수집한 직후 수집이 3 이상이면 모두 소모해 유리 검 1을 얻습니다(최대 1). 유리 검은 Q의 첫 적중 추가 피해를 8 늘리며 Q 사용 시 빗나가도 소모됩니다.");
             // This equipment-dependent Alex rule is resolved by the engine outside the trigger table.
             if ((profile.summary ?? "").Contains("장착한 무기마다"))
                 lines.Add("장착한 무기마다 해당 무기군과 다른 D 스킬 카드 1장을 추가로 받습니다. 장비·패시브를 바꾸면 자동으로 갱신됩니다.");

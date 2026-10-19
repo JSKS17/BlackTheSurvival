@@ -264,7 +264,17 @@
       "label": "대기"
     }
   ],
-  "sourcePixels": "Original PNG bytes unchanged; canvas crop/translation and nearest-neighbor drawing only. No alpha cleanup. Partition alpha under 16 is preserved.",
+  "sourcePixels": "Authorized iris RGB changes only (2026-10-19). Every non-eye source RGBA pixel and all geometry/alpha remain unchanged. Renderer only selects cels and draws nearest-neighbor.",
+  "userOverride": {
+    "date": "2026-10-19",
+    "request": "All Nia irises become near-black. This older preview preserves its original walking poses and ALL non-eye colors; walking palette correction applies only to the current approved loading animation.",
+    "guideTool": "built-in image_gen.imagegen",
+    "application": "Same verified iris-only RGB mask as the identical approved recovery source sheet.",
+    "validation": "Build/NiaEyesVerification/loading/masked-sheet-validation.json",
+    "originalSourceSha256": "52047c5af894364211391cabc0f6f785f7aa1a5870b09f8776e489ec06b79f53",
+    "preserved": "All non-eye source RGBA, all source alpha and geometry, logo and E effects, original older walk movement, and complete 8-second timeline.",
+    "runtimeCopy": false
+  },
   "oneUpReference": "Assets/Resources/Lumia/SkillIcons/nia_e.png",
   "gameIntegrated": false
 }

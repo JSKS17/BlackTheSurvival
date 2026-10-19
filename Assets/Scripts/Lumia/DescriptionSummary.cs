@@ -124,6 +124,7 @@ namespace Lumia
         public static string Card(CardDef card, List<CardDef> all = null, int damage = -1, int block = -1, int heal = -1)
         {
             if (card == null) return "";
+            if (TacticalSkills.IsTactical(card)) return string.Join("\n",TacticalSkills.Description(card,damage,block,heal));
             if (AdvancedCardMechanics.HasTargetChoice(card)) return string.Join("\n", TargetChoiceLines(card));
             int d = damage < 0 ? card.damage : damage;
             int b = block < 0 ? card.block : block;

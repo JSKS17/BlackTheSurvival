@@ -1,0 +1,8 @@
+{
+  "id": "tactical_meditation",
+  "prompt": "Use case: style-transfer\nAsset type: tactical game ability icon, intended final 96x96.\nInput images: Image 1 is the exact subject, composition and color reference. Image 2 is pixel style ONLY; do not borrow its subject or pink palette.\nPrimary request: Redraw Image 1 as deliberately COARSE 32x32 logical-resolution pixel art. Preserve the original concentrated vertical golden-white beam rising from a shallow elliptical circular golden platform at bottom-center; use a brilliant white-yellow center, parallel gold shafts above it, stepped small gold sparkles on either side, and dark navy negative space. Preserve the centered upright composition and flattened ringed pedestal.\nStyle/medium: use Image 2's chunky square pixel clusters, very low resolution stepped silhouettes and deliberate pixel highlights; make the art visibly coarse at full size. Treat this as a 32x32 pixel sprite enlarged with nearest neighbor into a square image. Use only 12-16 hard-edged solid colors. Opaque dark navy background fills the whole square.\nConstraints: keep the original recognizable subject, layout, proportions and dominant colors. Crisp axis-aligned square pixels, hard stepped edges, no anti-aliasing, no smoothing, no blur, no gradients, no photographic texture, no text, no letters, no numbers, no frame, no UI border. Output a single square icon only.",
+  "tool": "built-in image_gen",
+  "originalGeneratedPath": "C:\\Users\\azxar\\.codex\\generated_images\\01a154bf-4649-7211-9fcf-095c7a896af5\\exec-a9d2e0a8-cc35-4406-a71d-00e00b2bc16e.png",
+  "referencePath": "docs/art-tactical-pixel/references/tactical_meditation.png",
+  "styleReferencePath": "docs/art-tactical-pixel/references/style_nia_q.png"
+}

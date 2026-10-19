@@ -2,11 +2,11 @@
   "passed": true,
   "approvedAnimations": 91,
   "totalFrames": 1092,
-  "totalPngBytes": 163907174,
+  "totalPngBytes": 164435552,
   "sourceCatalogSha256": "e96d3c7a7a918e0c25bb53aa513baf1591240927f926db518060acfa880701ab",
   "runtimeCatalogSha256": "617ebbb7ae05cc44bacda162d2fc67cbcf257b343db60fea1a2786110b1a881e",
   "frameCoordinates": "Top-left source pixels; offsets are top-left placement within the recorded square canvas.",
-  "artChanges": "None. All approved atlas PNGs copied byte-for-byte. No resizing, painting, cropping, or recompression.",
+  "artChanges": "All approved atlas PNGs copied byte-for-byte without export-time image processing. Nia source has an approved 2026-10-19 iris RGB edit; outside-iris RGBA, alpha, effects and layout are unchanged (ArtSource/AnimationPrototypes/Nia/provenance.json).",
   "importing": "Default Texture2D, Point, Clamp, no mipmaps, no NPOT scaling, max 4096, uncompressed, input alpha, non-readable.",
   "excluded": "GIF, WebP, generated raw sheets, thumbnails, official references and prompt files remain source-only.",
   "items": [
@@ -1275,8 +1275,8 @@
       "name": "니아",
       "source": "ArtSource/AnimationPrototypes/Nia/nia-ultimate-atlas.png",
       "destination": "Assets/Resources/Lumia/UltimateAnimations/nia.png",
-      "sourceSha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
-      "bytes": 1637772,
+      "sourceSha256": "719e68557a1cff9d185a38bb74cd212f96ca39ab9915810d35c204bb95de6ffa",
+      "bytes": 2166150,
       "atlasSize": [
         1448,
         1086
@@ -1285,7 +1285,7 @@
       "frameCount": 12,
       "framesPerSecond": 8,
       "validation": "ArtSource/AnimationPrototypes/Nia/validation.json",
-      "runtimeSha256": "5a1338743a972789ce4dec6239ef7919626973693cd473f5c94380dbd8bf47fa",
+      "runtimeSha256": "719e68557a1cff9d185a38bb74cd212f96ca39ab9915810d35c204bb95de6ffa",
       "sourceBytesIdentical": true
     },
     {
