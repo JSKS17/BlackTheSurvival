@@ -1,16 +1,16 @@
 {
   "result": "PASS",
-  "checkedAtUtc": "2026-10-19T15:30:15.409111+00:00",
+  "checkedAtUtc": "2026-10-20T06:08:17.842458+00:00",
   "cards": 26,
   "added": 23,
-  "runtimeDataSha256": "5e590134d11f950c88403530467c0c363ae7e8c92686b3eb73a72b67c345c2cd",
+  "runtimeDataSha256": "61638f9af72f3e6d8009bd59072bcbb5544ae931cf35da0f5c547a9b6fc83314",
   "originalCatalogSha256": "89d89402b48779fd0bfa898c1d9faa84f5a9b308ba6ab5134e19a1e279c937e4",
   "originalReferenceManifestSha256": "5b5aa44eea4e9a6355d743929bb5e9a81c48b8af8b3682f94453ebda5c7eaa29",
   "pixelArtManifestPath": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\art-tactical-pixel\\output-manifest.json",
   "pixelArtManifestSha256": "0a42dc1814b303fceb1bbd59d1dbfdbf9942e1d96056e7487f9482ec66256adb",
   "fragmentPath": "C:\\Users\\azxar\\.codex\\visualizations\\2026\\10\\08\\01a11b0b-8163-7693-bdd7-3bc64571a398\\tactical-skills.html",
-  "fragmentBytes": 619445,
-  "fragmentSha256": "da9257c8d06e3bee58a5f072ca08d55032d998ecbd5dbb194cf7a28e24879998",
+  "fragmentBytes": 623011,
+  "fragmentSha256": "ceeb348eed6a0a6ae3c940349c698afc930e3035d1446645be21e870f08cd173",
   "iconChecks": [
     {
       "id": "tactical_blink",
@@ -717,10 +717,5 @@
   ],
   "moduleIconSha256": "e6e2dec45cde71680de44f4f3cfbd0dbd1599c50ffce1b7b6efd411087e85b92",
   "moduleOriginalReferenceSha256": "c1247f1f30c76b05e518077058fe72497674fddfb07b365de2564e9e8765a1ec",
-  "exportedAtUtc": "2026-10-19T15:30:13.7172632Z",
-  "javascriptSyntax": "PASS",
-  "embeddedRuntimeIconBytesVerified": 27,
-  "gameDefinitionPayloadUnchanged": true,
-  "containsNoOriginalBytesDisplayClaims": true,
-  "browserLayoutVerification": "Not rerun in this export; earlier browser proof remains explicitly prePixelRedrawBrowserPreview."
+  "exportedAtUtc": "2026-10-20T06:08:16.2358289Z"
 }

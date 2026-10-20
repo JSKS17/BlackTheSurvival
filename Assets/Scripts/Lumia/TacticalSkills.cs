@@ -39,7 +39,7 @@ namespace Lumia
             D("gravity","중력장",500020,"흡인 피해가 4 증가하며 기절이 1턴 길어집니다.",true),
             D("rolling_thunder","롤링썬더",500030,"회피율이 10%p 증가하고 카드를 1장 더 뽑습니다.",true),
             D("truth_burst","폭진",500040,"적중 보상으로 코스트를 1 더 회복합니다.",true,true),
-            D("impulse","임펄스",500050,"다음 턴 돌진의 피해가 5 증가하고 방어도 5를 얻습니다.",true),
+            D("impulse","임펄스",500050,"돌진 후 받는 체력 피해 감소율이 20%에서 30%로 증가하고 방어도 5를 얻습니다.",true),
             D("prayer","기원",500060,"방어도가 8 증가하고 2턴간 방어도 3을 얻습니다.",true,true),
             D("fissure","대지분쇄",500070,"피해가 4 증가하고 둔화가 1턴 길어집니다.",true),
             D("punch","힘껏 펀치",500080,"피해가 5 증가하고 넉백과 함께 방어력 감소를 1턴 부여합니다.",true),
@@ -96,7 +96,7 @@ namespace Lumia
                     case "tactical_redstorm": c.mechanics.rules=new[]{R("empower_basic","폭풍의 사거리",8,2)}; break;
                     case "tactical_plasma": c.statuses=new[]{S("slow",2)}; break;
                     case "tactical_gravity": c.mechanics.rules=new[]{R("delayed_damage","중력 붕괴",WeaponDamageBalance.ReducedDamage(20))}; c.statuses=new[]{S("pull",1,"중력 붕괴",false),S("stun",1,"중력 붕괴",false)}; break;
-                    case "tactical_impulse": c.mechanics.rules=new[]{R("delayed_damage","임펄스 돌진",WeaponDamageBalance.ReducedDamage(20))}; c.statuses=new[]{S("knockback",1,"임펄스 돌진",false)}; break;
+                    case "tactical_impulse": c.statuses=new[]{S("knockback",1,"임펄스 돌진",false)}; break;
                     case "tactical_fissure": c.statuses=new[]{S("stun"),S("slow")}; break;
                     case "tactical_punch": c.statuses=new[]{S("knockback")}; break;
                     case "tactical_meteor": c.mechanics.rules=new[]{R("delayed_damage","메테오 낙하",WeaponDamageBalance.ReducedDamage(32))}; c.statuses=new[]{S("stun",1,"메테오 낙하",false)}; break;
@@ -124,7 +124,7 @@ namespace Lumia
                 case "tactical_plasma": c.statuses=c.statuses.Concat(new[]{S("armor_break",2)}).ToArray();break;
                 case "tactical_gravity": c.mechanics.rules[0].amount+=4;c.statuses.First(x=>x.key=="stun").duration++;break;
                 case "tactical_rolling_thunder": c.evasion+=10;c.draw++;break;
-                case "tactical_impulse": c.mechanics.rules[0].amount+=5;c.block+=5;break;
+                case "tactical_impulse": c.block+=5;break;
                 case "tactical_prayer": c.block+=8;c.mechanics.rules=new[]{R("guard","기원의 보호",3,2)};break;
                 case "tactical_fissure": c.damage+=4;c.statuses.First(x=>x.key=="slow").duration++;break;
                 case "tactical_punch": c.damage+=5;c.statuses=c.statuses.Concat(new[]{S("armor_break")}).ToArray();break;
@@ -149,7 +149,12 @@ namespace Lumia
             b.sourceCard=card.id;b.label=label;b.amount=amount;b.remaining=Math.Max(b.remaining,turns);
         }
         public static int EvasionBonus(SkillActorState actor) => Math.Max(Effect(actor,"lightwing")?.amount ?? 0,Effect(actor,"impulse_active")?.amount??0);
-        public static int IncomingDamage(SkillActorState actor,int amount) => Has(actor,"stasis")?0:Math.Max(0,amount);
+        public static int IncomingDamage(SkillActorState actor,int amount,bool applyReduction=true)
+        {
+            if(Has(actor,"stasis"))return 0;
+            int reduction=applyReduction?Math.Min(30,Math.Max(0,Effect(actor,"impulse_guard")?.amount??0)):0;
+            return (int)((long)Math.Max(0,amount)*(100-reduction)/100);
+        }
         public static int Healing(CardDef card,int maxHp) => Id(card)=="tactical_meditation"?Math.Max(1,maxHp*(card.tacticalEnhanced?25:20)/100):0;
         public static int LifeSteal(SkillActorState actor,int damage) => Math.Min(8,Math.Max(0,damage)*(Effect(actor,"lifesteal")?.amount??0)/100);
         public static int SoulCharge(SkillActorState actor) => Math.Max(0,Math.Min(30,actor?.resources?.FirstOrDefault(x=>x.owner=="전술"&&x.key=="soul_charge")?.amount??0));
@@ -181,6 +186,11 @@ namespace Lumia
                 case "tactical_false_oath": Buff(actor,card,"oath","거짓 서약",card.tacticalEnhanced?6:4,2);break;
                 case "tactical_lightwing": Buff(actor,card,"lightwing",card.tacticalEnhanced?"라이트 윙 · 연장":"라이트 윙",30,2);Effect(actor,"lightwing").tacticalEnhanced=card.tacticalEnhanced;break;
                 case "tactical_nullification": if(card.tacticalEnhanced)Buff(actor,card,"tenacity","무효화 제어 저항",1,1);break;
+                case "tactical_impulse":
+                    // A defensive reservation must survive even though it deals no damage.
+                    var impulse=actor.effects.FirstOrDefault(x=>x.sourceCard==card.id && x.kind=="tactical_pending");
+                    if(impulse==null){impulse=new SkillTimedEffect {owner="전술",sourceCard=card.id,kind="tactical_pending",key="임펄스 돌진",label="임펄스 돌진"};actor.effects.Add(impulse);}
+                    impulse.amount=0;impulse.remaining=1;impulse.tacticalEnhanced=card.tacticalEnhanced;break;
                 case "tactical_meditation":
                     var hot=actor.effects.FirstOrDefault(x=>x.sourceCard==card.id && x.key=="명상의 회복");
                     if(hot==null)actor.effects.Add(new SkillTimedEffect {owner="전술",kind="hot",key="명상의 회복",label="명상의 회복",sourceCard=card.id,amount=5,remaining=2});break;
@@ -198,22 +208,27 @@ namespace Lumia
         public static List<SkillPulse> TurnStartPulses(SkillActorState actor)
         {
             var pending=actor.effects.Where(x=>x.kind=="tactical_pending").ToArray();
-            var result=pending.Select(x=>new SkillPulse {sourceCard=x.sourceCard,key=x.key,kind=x.sourceCard=="tactical_meteor" || x.sourceCard=="tactical_protocol"?"tactical_true":"delayed_damage",amount=x.amount}).ToList();
+            // Old saves can still contain the former damaging impulse reservation.
+            var result=pending.Select(x=>new SkillPulse {sourceCard=x.sourceCard,key=x.key,kind=x.sourceCard=="tactical_impulse"?"tactical_impulse":x.sourceCard=="tactical_meteor" || x.sourceCard=="tactical_protocol"?"tactical_true":"delayed_damage",amount=x.sourceCard=="tactical_impulse"?0:x.amount}).ToList();
             foreach(var p in pending)actor.effects.Remove(p);return result;
         }
-        public static TacticalTurnStart BeginTurn(SkillActorState actor)
+        public static TacticalTurnStart BeginTurn(SkillActorState actor,StatusActorState statuses=null)
         {
+            if(statuses!=null)StatusMechanics.StartTurn(statuses);
+            bool enhancedImpulse=actor.effects.Any(x=>x.kind=="tactical_pending" && x.sourceCard=="tactical_impulse" && x.tacticalEnhanced);
             var result=new TacticalTurnStart {reward=StartTurn(actor),pulses=TurnStartPulses(actor)};
             if(result.pulses.Any(x=>x.sourceCard=="tactical_impulse"))
             {
                 result.evasion=35;
                 actor.effects.Add(new SkillTimedEffect {owner="전술",sourceCard="tactical_impulse",kind="tactical_buff",key="impulse_active",label="임펄스 가속",amount=35,remaining=1});
+                actor.effects.Add(new SkillTimedEffect {owner="전술",sourceCard="tactical_impulse",kind="tactical_buff",key="impulse_guard",label="임펄스 보호 · 군중 제어 면역",amount=enhancedImpulse?30:20,remaining=1});
+                if(statuses!=null)StatusMechanics.GrantControlImmunity(statuses,1,"tactical_impulse");
             }
             return result;
         }
         public static string FieldEffectDescription(SkillMechanicToken token)
         {
-            if(token?.kind=="tactical_pending")return "다음 자기 턴 시작에 피해 "+token.amount+"를 줍니다."+(token.sourceCard=="tactical_meteor"?" 방어도를 무시하고 기절을 부여합니다.":token.sourceCard=="tactical_protocol"?" 방어도를 무시합니다.":token.sourceCard=="tactical_gravity"?" 끌어당김과 기절을 부여합니다.":" 넉백을 부여하고 회피율이 35% 증가합니다.");
+            if(token?.kind=="tactical_pending")return token.sourceCard=="tactical_impulse"?"다음 자기 턴 시작에 피해 없이 돌진하여 넉백을 부여합니다. 이후 1턴간 군중 제어에 면역이 되고 받는 체력 피해가 감소하며 회피율이 35% 증가합니다.":"다음 자기 턴 시작에 피해 "+token.amount+"를 줍니다."+(token.sourceCard=="tactical_meteor"?" 방어도를 무시하고 기절을 부여합니다.":token.sourceCard=="tactical_protocol"?" 방어도를 무시합니다.":" 끌어당김과 기절을 부여합니다.");
             if(token?.kind!="tactical_buff")return "";
             switch(token.key)
             {
@@ -223,6 +238,7 @@ namespace Lumia
                 case "oath":return "공격 카드에 추가 피해 "+token.amount+"를 줍니다.";
                 case "tenacity":return "새로 받는 군중 제어의 지속 시간을 절반으로 줄입니다(최소 1턴).";
                 case "lightwing":case "impulse_active":return "회피율이 "+token.amount+"% 증가합니다. 다른 카드 회피 효과와는 가장 높은 값만 적용합니다.";
+                case "impulse_guard":return "다음 자기 턴 시작까지 새로 받는 군중 제어를 무시하고, 방어도 적용 후 받는 체력 피해가 "+token.amount+"% 감소합니다. 기존 상태이상과 체력 소모 비용에는 영향을 주지 않으며, 이미 감소시켜 미룬 피해를 다시 감소시키지 않습니다.";
                 default:return "남은 자기 턴 시작 횟수에 따라 유지되는 전술 효과입니다.";
             }
         }
@@ -250,7 +266,7 @@ namespace Lumia
                 case "tactical_false_oath": lines.Add("최대 체력의 10%만큼 체력을 소모합니다(최대 20, 최소 체력 1). 2턴간 공격 카드에 추가 피해 "+(c.tacticalEnhanced?6:4)+"를 주고 소모한 체력을 "+(c.tacticalEnhanced?"이번 턴 종료에":"2턴에 걸쳐")+" 회복합니다. 턴 종료의 회복·방어 효과는 합계 25까지 적용됩니다.");break;
                 case "tactical_lightwing": lines.Add("자신의 둔화를 해제하고 2턴간 회피율을 30% 높입니다."+(c.tacticalEnhanced?" 기본 공격 적중 시 지속 시간을 1턴 늘립니다(턴당 1회, 최대 3턴).": ""));break;
                 case "tactical_truth_burst": lines.Add("공격이 적중하면 코스트를 "+(c.tacticalEnhanced?2:1)+" 회복합니다. 빗나가면 체력을 5 소모합니다(최소 체력 1). ");break;
-                case "tactical_impulse": lines.Add("다음 자기 턴 시작에 돌진하여 "+P("피해 "+c.mechanics.rules[0].amount)+" 주고 넉백을 1턴 부여하며 회피율이 35% 증가합니다(1턴). ");break;
+                case "tactical_impulse": lines.Add("다음 자기 턴 시작에 피해 없이 돌진하여 넉백을 1턴 부여합니다. 이후 1턴간 새로 받는 군중 제어를 무시하고, 방어도 적용 후 받는 체력 피해가 "+(c.tacticalEnhanced?30:20)+"% 감소하며 회피율이 35% 증가합니다. 기존 상태이상과 체력 소모 비용에는 영향을 주지 않습니다.");break;
                 case "tactical_lightning_shield": lines.Add("자신의 중독·약화·취약·상태이상과 지속 피해를 해제합니다.");break;
                 case "tactical_meditation": lines.Add("최대 체력의 "+(c.tacticalEnhanced?25:20)+"%를 즉시 회복하고, 2턴간 체력을 5씩 회복합니다.");break;
                 case "tactical_lock_on": lines.Add("첫 공격이 적중했을 때만 이번 턴 무료로 재사용할 수 있습니다. 무료 사용권은 턴당 1회이며 재사용 시 다시 획득하지 않습니다.");break;
@@ -262,38 +278,41 @@ namespace Lumia
         public static string Brief(CardDef c,int damage=-1,int block=-1,int heal=-1)
         {
             int d=damage<0?c.damage:damage,b=block<0?c.block:block,h=heal<0?c.heal:heal;string t="";
+            string evasion=c.duration+"턴간 회피율이 "+c.evasion+"% 증가합니다.";
+            string attack=P((TrueDamage(c)?"고정 피해 ":"피해 ")+d)+(c.hits>1?" "+c.hits+"회 줍니다.":" 줍니다.");
             switch(Id(c))
             {
-                case "tactical_blink":t="방어 "+b+". 회피 +"+c.evasion+"% · "+c.duration+"턴.";break;
-                case "tactical_quake":t="피해 "+d+", 둔화 2턴."+(c.tacticalEnhanced?" 여진 피해 4 · 2턴.":"");break;
-                case "tactical_protocol":t="방어 "+b+". 다음 내 턴 고정 피해 "+c.mechanics.rules[0].amount+".";break;
-                case "tactical_redstorm":t="다음 기본 공격 피해 +"+(c.mechanics.rules.FirstOrDefault()?.amount??8)+". 회피 +"+c.evasion+"% · 2턴.";break;
-                case "tactical_artifact":t="다음 내 턴까지 체력 피해 무시·추가 행동 불가."+(c.tacticalEnhanced?" 다음 턴 코스트·뽑기 +1.":"");break;
+                case "tactical_blink":t=P("방어도 "+b)+" 얻습니다. "+evasion;break;
+                case "tactical_quake":t=attack+" 적중했을 때, 둔화를 2턴 부여"+(c.tacticalEnhanced?"하고 "+P("여진 피해 "+c.mechanics.rules.First(rule=>rule.op=="summon").amount)+" 2턴간 줍니다.":"합니다.");break;
+                case "tactical_protocol":t=P("방어도 "+b)+" 얻습니다. 다음 내 턴 시작에 "+P("고정 피해 "+c.mechanics.rules[0].amount)+" 줍니다.";break;
+                case "tactical_redstorm":t="다음 기본 공격 피해가 "+(c.mechanics.rules.FirstOrDefault()?.amount??8)+" 증가합니다. "+evasion;break;
+                case "tactical_artifact":t="다음 내 턴까지 체력 피해를 무시하며 카드를 더 사용할 수 없습니다."+(c.tacticalEnhanced?" 경직 해제 시 코스트 1을 회복하고 카드 1장을 뽑습니다.":"");break;
                 case "tactical_nullification":t="내 디버프를 모두 해제합니다. 회피 +"+c.evasion+"%."+(c.tacticalEnhanced?" 군중 제어 기간 절반.":"");break;
                 case "tactical_soul":t="잃은 체력을 결속 에너지로 축적·소모해 회복합니다. 2턴간 직접 공격 흡혈·회피 +"+c.evasion+"%.";break;
-                case "tactical_strider":t="다음 적중 공격 피해 +8. 회피 +"+c.evasion+"%."+(c.tacticalEnhanced?" 추격 적중 시 둔화.":"");break;
-                case "tactical_truth_blade":t="피해 "+d+(c.hits>1?" × "+c.hits:"")+". 회피 +"+c.evasion+"%.";break;
-                case "tactical_false_oath":t="체력 10%(최대 20) 소모·회복 예약. 2턴간 공격 피해 +"+(c.tacticalEnhanced?6:4)+".";break;
-                case "tactical_wind":t="체력 "+h+" 회복, 방어 "+b+"."+(c.tacticalEnhanced?" 2턴간 5씩 추가 회복.":"");break;
-                case "tactical_repulsor":t="고정 피해 "+d+(c.hits>1?" × "+c.hits:"")+". 회피 +"+c.evasion+"%.";break;
-                case "tactical_plasma":t="피해 "+d+", 둔화 2턴. 회피 +"+c.evasion+"%."+(c.tacticalEnhanced?" 방어력 감소 2턴.":"");break;
-                case "tactical_lightwing":t="둔화 해제. 2턴간 회피 +30%, 카드 "+c.draw+"장을 뽑습니다."+(c.tacticalEnhanced?" 기본 공격 적중 시 기간 연장.":"");break;
-                case "tactical_gravity":t="다음 내 턴 피해 "+c.mechanics.rules[0].amount+"·끌어당김·기절.";break;
-                case "tactical_rolling_thunder":t="회피 +"+c.evasion+"% · 2턴. 카드 "+c.draw+"장을 뽑습니다.";break;
-                case "tactical_truth_burst":t="피해 "+d+". 적중 시 코스트 +"+(c.tacticalEnhanced?2:1)+", 빗나가면 체력 -5.";break;
-                case "tactical_impulse":t="다음 내 턴 피해 "+c.mechanics.rules[0].amount+"·넉백·회피 +35%."+(b>0?" 방어 "+b+".":"");break;
-                case "tactical_prayer":t="방어 "+b+"."+(c.tacticalEnhanced?" 2턴간 방어 +3.":"");break;
-                case "tactical_fissure":t="피해 "+d+", 기절 1턴·둔화 "+c.statuses.First(x=>x.key=="slow").duration+"턴.";break;
-                case "tactical_punch":t="피해 "+d+", 넉백 1턴."+(c.tacticalEnhanced?" 방어력 감소 1턴.":"");break;
-                case "tactical_meteor":t="다음 내 턴 고정 피해 "+c.mechanics.rules[0].amount+"·기절 1턴.";break;
-                case "tactical_lightning_shield":t="내 디버프 해제, 방어 "+b+". 피격 시 반격 "+c.mechanics.rules[0].amount+"(턴당 1회).";break;
-                case "tactical_meditation":t="최대 체력 "+(c.tacticalEnhanced?25:20)+"% 회복. 2턴간 체력 +5.";break;
-                case "tactical_lock_on":t="피해 "+d+". 적중하면 F를 이번 턴 1회 무료로 돌진 재사용.";break;
+                case "tactical_strider":t="2턴 내 다음 적중 공격의 피해가 8 증가합니다. "+evasion+(c.tacticalEnhanced?" 추격 적중 시 둔화를 1턴 부여합니다.":"");break;
+                case "tactical_truth_blade":t=attack+" "+evasion;break;
+                case "tactical_false_oath":t="최대 체력의 10%(최대 20)를 소모합니다. 2턴간 공격 피해가 "+(c.tacticalEnhanced?6:4)+" 증가하며 소모한 체력을 "+(c.tacticalEnhanced?"이번 턴 끝에":"2턴간")+" 회복합니다.";break;
+                case "tactical_wind":t=P("체력 "+h)+" 회복하고 "+P("방어도 "+b)+" 얻습니다."+(c.tacticalEnhanced?" 2턴간 체력을 5씩 더 회복합니다.":"");break;
+                case "tactical_repulsor":t=attack+" "+evasion;break;
+                case "tactical_plasma":t=attack+" 적중 시 둔화를 2턴 부여합니다. "+evasion+(c.tacticalEnhanced?" 적중 시 방어력 감소를 2턴 부여합니다.":"");break;
+                case "tactical_lightwing":t="둔화를 해제하고 2턴간 회피율이 30% 증가합니다. 카드 "+c.draw+"장을 뽑습니다."+(c.tacticalEnhanced?" 기본 공격 적중 시 회피 효과를 연장합니다.":"");break;
+                case "tactical_gravity":t="다음 내 턴 시작에 "+P("피해 "+c.mechanics.rules[0].amount)+" 주고 끌어당김·기절을 부여합니다.";break;
+                case "tactical_rolling_thunder":t=evasion+" 카드 "+c.draw+"장을 뽑습니다.";break;
+                case "tactical_truth_burst":t=attack+" 적중 시 코스트를 "+(c.tacticalEnhanced?2:1)+" 회복하고, 빗나갔을 때는 체력을 5 소모합니다.";break;
+                case "tactical_impulse":t="다음 내 턴에 넉백을 부여합니다. 1턴간 군중 제어 면역·체력 피해 "+(c.tacticalEnhanced?30:20)+"% 감소·회피율 35% 증가를 얻습니다."+(b>0?" "+P("방어도 "+b)+" 얻습니다.":"");break;
+                case "tactical_prayer":t=P("방어도 "+b)+" 얻습니다."+(c.tacticalEnhanced?" 2턴간 방어도 3을 더 얻습니다.":"");break;
+                case "tactical_fissure":t=attack+" 적중 시 기절을 1턴, 둔화를 "+c.statuses.First(x=>x.key=="slow").duration+"턴 부여합니다.";break;
+                case "tactical_punch":t=attack+" 적중 시 "+(c.tacticalEnhanced?"넉백·방어력 감소를 각각":"넉백을")+" 1턴 부여합니다.";break;
+                case "tactical_meteor":t="다음 내 턴 시작에 "+P("고정 피해 "+c.mechanics.rules[0].amount)+" 주고 기절을 1턴 부여합니다.";break;
+                case "tactical_lightning_shield":t="내 디버프를 해제하고 "+P("방어도 "+b)+" 얻습니다. 2턴간 피격 시 반격으로 "+P("피해 "+c.mechanics.rules[0].amount)+" 줍니다(턴당 1회).";break;
+                case "tactical_meditation":t="최대 체력의 "+(c.tacticalEnhanced?25:20)+"%를 회복하고 2턴간 체력을 5씩 더 회복합니다.";break;
+                case "tactical_lock_on":t=attack+" 첫 공격 적중 시 F를 이번 턴 1회 무료로 재사용해 돌진합니다.";break;
                 case "tactical_asthenia":t="적에게 둔화·공격력 감소를 "+c.statuses[0].duration+"턴 부여합니다.";break;
             }
             var rareGuard=c.mechanics?.rules.FirstOrDefault(rule=>rule.op=="guard" && rule.key=="rare_guard");
-            if(rareGuard!=null)t+=" 턴 끝 방어 +"+rareGuard.amount+" · "+rareGuard.duration+"턴.";
-            return t+(c.exhaust?" 소멸.":"");
+            bool preserve=Id(c)=="tactical_nullification" || Id(c)=="tactical_soul";
+            if(rareGuard!=null)t+=preserve?" 턴 끝 방어 +"+rareGuard.amount+" · "+rareGuard.duration+"턴.":" "+rareGuard.duration+"턴간 턴 끝에 "+P("방어도 "+rareGuard.amount)+" 얻습니다.";
+            return t+(c.exhaust?(preserve?" 소멸.":" 사용 후 소멸합니다."):"");
         }
     }
 }

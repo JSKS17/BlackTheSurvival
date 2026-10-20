@@ -1758,7 +1758,7 @@ namespace Lumia
             int deferral=Math.Min(20,enemy?EnemyEquipmentSum(g=>g.damageDeferral):EquipmentSum(g=>g.damageDeferral));
             int delayed=(int)((long)Math.Max(0,damage)*deferral/100);
             if(delayed>0)(enemy?combat.enemyDeferredDamage:combat.playerDeferredDamage).Add(new DeferredDamage{amount=delayed,remaining=3});
-            return ApplyExternalHealthDamage(enemy,Math.Max(0,damage-delayed));
+            return ApplyExternalHealthDamage(enemy,Math.Max(0,damage-delayed),false);
         }
         private void RecordCompanionAbsorption(bool enemy,CompanionAbsorption companion)
         {
@@ -1771,10 +1771,10 @@ namespace Lumia
         }
         // Incoming damage has already paid its Nina share and equipment deferral, if any.
         // Self-paid HP and event costs intentionally do not enter this external-damage path.
-        private int ApplyExternalHealthDamage(bool enemy,int damage)
+        private int ApplyExternalHealthDamage(bool enemy,int damage,bool applyTacticalReduction=true)
         {
             var combat=State.combat;int hp=enemy?combat.enemyHp:State.hp;
-            damage=TacticalSkills.IncomingDamage(enemy?combat.enemySkills:combat.playerSkills,damage);
+            damage=TacticalSkills.IncomingDamage(enemy?combat.enemySkills:combat.playerSkills,damage,applyTacticalReduction);
             int immediate=CompanionMechanics.ClampOwnerDamage(enemy?combat.enemySkills:combat.playerSkills,hp,damage);
             if(hp>0 && damage>=hp && immediate<hp)
             {
@@ -1790,7 +1790,8 @@ namespace Lumia
         {
             var combat=State.combat;var owner=enemy?combat.enemySkills:combat.playerSkills;int hp=enemy?combat.enemyHp:State.hp;
             if(CompanionMechanics.HasLethalProtection(owner))RecordCompanionAbsorption(enemy,CompanionMechanics.Absorb(owner,hp));
-            return ApplyExternalHealthDamage(enemy,hp);
+            // Execution is lethal regardless of percentage mitigation; stasis and Nina still protect it.
+            return ApplyExternalHealthDamage(enemy,hp,false);
         }
         private void ResolveDeferredDamage(bool enemy)
         {
@@ -1799,7 +1800,7 @@ namespace Lumia
             foreach(var debt in pending){int amount=(debt.amount+debt.remaining-1)/Math.Max(1,debt.remaining);debt.amount-=amount;debt.remaining--;total+=amount;}
             pending.RemoveAll(x=>x.amount<=0 || x.remaining<=0);
             // Deferred damage already shared with Nina when it was first received.
-            int damage=ApplyExternalHealthDamage(enemy,total);
+            int damage=ApplyExternalHealthDamage(enemy,total,false);
             if(damage<=0)return;
             EmitCombatAction(new CombatAction{id=++actionSerial,cardId="ao_dai",kind="deferred_damage",enemy=!enemy,damage=damage});
             Say((enemy?combat.enemyName:"하나")+" 유예 피해 "+damage);
@@ -1873,7 +1874,7 @@ namespace Lumia
                 var planDefenderTraits=TraitMechanics.Clone(c.playerTraits);
                 var planDefenderStatuses=StatusMechanics.Clone(c.playerStatuses);
                 int tacticalOpeningDamage;
-                int tacticalReward=PreviewTacticalTurnStart(skillPlan,planDefenderSkills,planDefenderStatuses,ref planTargetHp,ref planTargetBlock,out tacticalOpeningDamage);
+                int tacticalReward=PreviewTacticalTurnStart(skillPlan,planStatuses,planDefenderSkills,planDefenderStatuses,ref planTargetHp,ref planTargetBlock,out tacticalOpeningDamage);
                 available+=tacticalReward;
                 if(tacticalReward>0)DrawInto(c.enemyHand,c.enemyDrawPile,c.enemyDiscardPile,tacticalReward);
                 var turnContext=TraitContextFor(true,null,true,skillActor:skillPlan);
@@ -2166,7 +2167,7 @@ namespace Lumia
             if(!c.enemyTurn)
             {
                 int tacticalOpeningDamage;
-                available+=PreviewTacticalTurnStart(skillPreview,defenderSkills,defenderStatuses,ref defenderHp,ref defenderBlock,out tacticalOpeningDamage);
+                available+=PreviewTacticalTurnStart(skillPreview,attackerStatuses,defenderSkills,defenderStatuses,ref defenderHp,ref defenderBlock,out tacticalOpeningDamage);
                 c.intentDamage+=tacticalOpeningDamage;
             }
             c.intentDamage += PreviewBossSpecial(ref actorHp, ref defenderHp, ref defenderBlock, ref weak, ref vulnerable, traitPreview, defenderTraits, attackerStatuses, defenderStatuses, out specialBlock,skillPreview,defenderSkills);
@@ -2590,7 +2591,7 @@ namespace Lumia
                 RecordStatusChanges(enemy,target,beforeStatuses);
                 if(control)TraitEvent(enemy,"control",card,true,damage);
             }
-            Say((card == null ? "지속 효과" : card.name) + (block > 0 ? " · 방어 " + block : heal > 0 ? " · 회복 " + heal : " · 추가 피해 " + damage));
+            Say((card == null ? "지속 효과" : card.name) + (pulse.kind=="tactical_impulse"?" · 돌진 · 군중 제어 면역 · 피해 감소":block > 0 ? " · 방어 " + block : heal > 0 ? " · 회복 " + heal : " · 추가 피해 " + damage));
             if(string.IsNullOrEmpty(pulse.traitId))
             {
                 if(damage>0)

@@ -41,7 +41,7 @@ namespace Lumia
         void StartTacticalTurn(bool enemy)
         {
             var c=State.combat;var actor=enemy?c.enemySkills:c.playerSkills;
-            var opening=TacticalSkills.BeginTurn(actor);int reward=opening.reward;
+            var opening=TacticalSkills.BeginTurn(actor,enemy?c.enemyStatuses:c.playerStatuses);int reward=opening.reward;
             if(reward>0)
             {
                 if(enemy)c.enemyAvailableEnergy+=reward;else{c.energy+=reward;DrawCards(reward);}
@@ -54,9 +54,9 @@ namespace Lumia
                 if(CheckBattleEnd())break;
             }
         }
-        int PreviewTacticalTurnStart(SkillActorState actor,SkillActorState defender,StatusActorState defenderStatuses,ref int defenderHp,ref int defenderBlock,out int rawDamage)
+        int PreviewTacticalTurnStart(SkillActorState actor,StatusActorState actorStatuses,SkillActorState defender,StatusActorState defenderStatuses,ref int defenderHp,ref int defenderBlock,out int rawDamage)
         {
-            var opening=TacticalSkills.BeginTurn(actor);rawDamage=0;
+            var opening=TacticalSkills.BeginTurn(actor,actorStatuses);rawDamage=0;
             foreach(var pulse in opening.pulses)
             {
                 rawDamage+=pulse.amount;

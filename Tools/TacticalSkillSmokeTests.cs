@@ -28,11 +28,11 @@ public static partial class CoreSmokeTests
             e=AdvancedFixture();AdvancedEnemyCast(e,card.id);
             Check(e.State.hp>0 && e.State.combat.enemyHp>0,"enemy executes identical tactical identity: "+def.id);
         }
-        TacticalDelayAndStasis();TacticalTrueDamageAndCleanse();TacticalFollowupAndResources();TacticalForecastAndCaps();TacticalSummarySemantics();
+        TacticalDelayAndStasis();TacticalImpulseDefense();TacticalTrueDamageAndCleanse();TacticalFollowupAndResources();TacticalForecastAndCaps();TacticalSummarySemantics();
     }
     static void TacticalDelayAndStasis()
     {
-        foreach(var id in new[]{"tactical_gravity","tactical_impulse","tactical_meteor"})
+        foreach(var id in new[]{"tactical_gravity","tactical_meteor"})
         {
             var card=TacticalSkills.ApplyModuleUpgrade(GameDatabase.Card(id));var actor=new SkillActorState();
             SkillMechanics.AfterCard(actor,SkillMechanics.Clone(actor),card,true);
@@ -56,6 +56,69 @@ public static partial class CoreSmokeTests
         var actor2=new SkillActorState();var enhancedArtifact=TacticalSkills.ApplyModuleUpgrade(GameDatabase.Card("tactical_artifact"));
         SkillMechanics.AfterCard(actor2,SkillMechanics.Clone(actor2),enhancedArtifact,true);
         Check(TacticalSkills.IncomingDamage(actor2,99)==0 && TacticalSkills.BeginTurn(actor2).reward==1 && TacticalSkills.IncomingDamage(actor2,99)==99,"enhanced artifact returns exactly one opening reward");
+    }
+    static void TacticalImpulseDefense()
+    {
+        var source=GameDatabase.Card("tactical_impulse");
+        Check(source.damage==0 && source.mechanics.rules.All(x=>x.op!="delayed_damage"),"impulse has no direct or delayed damage rule");
+        foreach(bool enhanced in new[]{false,true})
+        {
+            var card=enhanced?TacticalSkills.ApplyModuleUpgrade(source):source;
+            var actor=new SkillActorState();var statuses=new StatusActorState();var target=new StatusActorState();
+            SkillMechanics.AfterCard(actor,SkillMechanics.Clone(actor),card,true);
+            StatusMechanics.Apply(target,new SkillActorState(),card,true);
+            Check(SkillMechanics.Tick(actor).Count==0 && TacticalSkills.IncomingDamage(actor,100)==100 && statuses.controlImmunityTurns==0,"impulse waits until next own turn before protecting");
+            var opening=TacticalSkills.BeginTurn(actor,statuses);
+            Check(opening.pulses.Count==1 && opening.pulses[0].amount==0 && opening.pulses[0].kind=="tactical_impulse","impulse emits a non-damaging defensive activation");
+            Check(StatusMechanics.Activate(target,source.id,opening.pulses[0].key) && StatusMechanics.Has(target,"knockback"),"non-damaging impulse retains delayed knockback");
+            int expected=enhanced?70:80;
+            Check(TacticalSkills.IncomingDamage(actor,100)==expected && TacticalSkills.EvasionBonus(actor)==35,"impulse grants exact 20/30 percent mitigation and existing evasion");
+            Check(!StatusMechanics.Add(statuses,"stun","hyunwoo_e") && !StatusMechanics.Add(statuses,"slow","hyunwoo_q"),"impulse blocks both hard and soft crowd control");
+            Check(StatusMechanics.Add(statuses,"armor_break","isaac_w") && StatusMechanics.Add(statuses,"heal_reduction","jackie_q"),"impulse immunity permits non-control debuffs");
+            StatusMechanics.Add(statuses,"root","test",1,"delayed_test");
+            Check(!StatusMechanics.Activate(statuses,"test","delayed_test") && !StatusMechanics.Has(statuses,"root"),"impulse blocks delayed crowd control when it activates");
+            var cloned=StatusMechanics.Clone(statuses);
+            Check(cloned.controlImmunityTurns==1 && cloned.controlImmunitySource==source.id,"timed immunity survives forecast cloning");
+            StatusMechanics.EndTurn(statuses);
+            Check(!StatusMechanics.Add(statuses,"blind","sua_w"),"one own-turn immunity covers the following opposing turn");
+            TacticalSkills.BeginTurn(actor,statuses);
+            Check(TacticalSkills.IncomingDamage(actor,100)==100 && StatusMechanics.Add(statuses,"stun","hyunwoo_e"),"impulse immunity and damage reduction expire at next own turn start");
+
+            var e=AdvancedFixture();var c=e.State.combat;
+            SkillMechanics.AfterCard(c.playerSkills,SkillMechanics.Clone(c.playerSkills),card,true);
+            TacticalSkills.BeginTurn(c.playerSkills,c.playerStatuses);
+            var take=typeof(GameEngine).GetMethod("TakeHealthDamage",BindingFlags.Instance|BindingFlags.NonPublic);
+            int hp=e.State.hp, actual=(int)take.Invoke(e,new object[]{false,100});
+            Check(actual==expected && hp-e.State.hp==expected,"real health-damage path applies impulse reduction exactly once");
+            var saved=new GameEngine((RunState)Clone(e.State));
+            Check(saved.State.combat.playerStatuses.controlImmunityTurns==1 && TacticalSkills.IncomingDamage(saved.State.combat.playerSkills,100)==expected,"active impulse immunity and reduction survive save/load");
+            e=AdvancedFixture();c=e.State.combat;e.State.gear.Add("ao_dai");
+            SkillMechanics.AfterCard(c.playerSkills,SkillMechanics.Clone(c.playerSkills),card,true);
+            TacticalSkills.BeginTurn(c.playerSkills,c.playerStatuses);
+            CompanionCast(c.playerSkills,"chloe_q");
+            int nina=c.playerSkills.companion.hp, afterNina=expected-Math.Min(nina,(expected+3)/4);
+            actual=(int)take.Invoke(e,new object[]{false,100});
+            Check(actual==afterNina-afterNina/5 && c.playerDeferredDamage.Sum(x=>x.amount)==afterNina/5,"impulse reduction precedes Nina sharing and one equipment deferral");
+            hp=e.State.hp;
+            int debt=c.playerDeferredDamage.Sum(x=>x.amount), repayment=(debt+2)/3;
+            typeof(GameEngine).GetMethod("ResolveDeferredDamage",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(e,new object[]{false});
+            Check(hp-e.State.hp==repayment,"already reduced deferred damage is not reduced a second time");
+
+            e=AdvancedFixture();c=e.State.combat;
+            SkillMechanics.AfterCard(c.enemySkills,SkillMechanics.Clone(c.enemySkills),card,true);
+            typeof(GameEngine).GetMethod("StartTacticalTurn",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(e,new object[]{true});
+            Check(TacticalSkills.IncomingDamage(c.enemySkills,100)==expected && !StatusMechanics.Add(c.enemyStatuses,"silence","test"),"enemy impulse uses identical defense and timed immunity");
+            hp=c.enemyHp;actual=(int)take.Invoke(e,new object[]{true,100});
+            Check(actual==expected && hp-c.enemyHp==expected,"enemy impulse also reduces health damage once");
+            Check(TacticalSkills.Brief(card).Contains("면역") && TacticalSkills.Brief(card).Contains((enhanced?30:20)+"%") && TacticalSkills.Description(card).All(x=>!x.Contains("피해 16")),"impulse summaries and full explanations describe defense rather than removed damage");
+        }
+        var legacy=new SkillActorState();legacy.effects.Add(new SkillTimedEffect{kind="tactical_pending",sourceCard="tactical_impulse",key="임펄스 돌진",amount=21,remaining=1});
+        var migrated=TacticalSkills.BeginTurn(legacy,new StatusActorState());
+        Check(migrated.pulses.Single().amount==0 && TacticalSkills.IncomingDamage(legacy,100)==80,"legacy damaging impulse reservation converts safely to zero damage and defense");
+        var game=AdvancedFixture("tactical_impulse");var combat=game.State.combat;int targetHp=combat.enemyHp;
+        Check(game.PlayCard(0) && combat.enemyHp==targetHp,"real impulse cast deals no immediate damage");
+        AdvancedRound(game);
+        Check(combat.enemyHp==targetHp && StatusMechanics.Has(combat.enemyStatuses,"knockback") && combat.playerStatuses.controlImmunityTurns==1,"real delayed impulse activates without damage and preserves knockback and protection");
     }
     static void TacticalTrueDamageAndCleanse()
     {
@@ -98,7 +161,7 @@ public static partial class CoreSmokeTests
         var shield=TacticalSkills.ApplyModuleUpgrade(RareCardUpgrades.Apply(GameDatabase.Card("tactical_lightning_shield")));
         var skills=new SkillActorState();SkillMechanics.AfterCard(skills,SkillMechanics.Clone(skills),shield,true);
         Check(SkillMechanics.Counters(skills).Single().amount==shield.mechanics.rules[0].amount && shield.mechanics.rules[0].amount<=8,"rare plus module shield matches its real counter cap");
-        foreach(var id in new[]{"tactical_protocol","tactical_gravity","tactical_impulse","tactical_meteor"})
+        foreach(var id in new[]{"tactical_protocol","tactical_gravity","tactical_meteor"})
         {
             var e=AdvancedFixture();var c=e.State.combat;var card=GameDatabase.Card(id);
             SkillMechanics.AfterCard(c.enemySkills,SkillMechanics.Clone(c.enemySkills),card,true);
@@ -131,7 +194,7 @@ public static partial class CoreSmokeTests
                 if(card.draw>0)Check(text.Contains("뽑") || text.Contains("교환"),"tactical preview retains the draw action: "+label);
                 if(card.evasion>0)Check(text.Contains("회피"),"tactical preview retains its movement evasion: "+label);
                 foreach(var status in card.statuses)Check(text.Contains(StatusMechanics.Name(status.key)),"tactical preview names every real status: "+label+" "+status.key);
-                foreach(var guard in card.mechanics.rules.Where(rule=>rule.op=="guard" && rule.key=="rare_guard"))Check(text.Contains("방어 +"+guard.amount) && text.Contains("턴 끝"),"tactical preview keeps rare utility guard: "+label);
+                foreach(var guard in card.mechanics.rules.Where(rule=>rule.op=="guard" && rule.key=="rare_guard"))Check((text.Contains("방어도 "+guard.amount) || text.Contains("방어 +"+guard.amount)) && text.Contains("턴 끝"),"tactical preview keeps rare utility guard: "+label+" text="+text);
                 if(card.freeCastCount>0)Check(text.Contains("F") && text.Contains("이번 턴") && text.Contains(card.freeCastCount+"회") && text.Contains("무료"),"tactical preview keeps target, turn and finite free reuse: "+label);
                 if(TacticalSkills.IsDelayed(card))Check(text.Contains("다음 내 턴") && !SkillMechanics.Rules(card).Contains("턴 종료에 적용"),"tactical delayed text retains next-turn rather than turn-end timing: "+label);
             }

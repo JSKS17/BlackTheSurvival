@@ -27,19 +27,14 @@
   "prePixelRedrawPreviewFragmentSha256": "64fe0007069a34b16af7f18d9a0842e77aaa598074968e0649aea1dc4de47d1d",
   "artworkValidation": {
     "status": "PASS",
-    "checkedAtUtc": "2026-10-19T15:30:15.409111+00:00",
+    "checkedAtUtc": "2026-10-20T06:08:17.842458+00:00",
     "report": "docs/tactical-references/icon-validation.json",
-    "reportSha256": "0d9b4ae1ad684f8f32854e03d964dc07ac331c39a9e82dcdf27b7e17fbdcbfe0",
+    "reportSha256": "34aeb310299177838b48c13e826c8e71806b004663b92c4dd89475098a3ca184",
     "pixelArtManifest": "docs/art-tactical-pixel/output-manifest.json",
     "pixelArtManifestSha256": "0a42dc1814b303fceb1bbd59d1dbfdbf9942e1d96056e7487f9482ec66256adb",
     "originalReferencesVerified": 27,
     "generatedSourcesVerified": 27,
     "runtimeRedrawsVerified": 27,
-    "note": "Independent file/hash/import verification; this does not establish a new browser gameplay or release-build pass.",
-    "previewReport": "docs/tactical-references/preview-validation.json",
-    "previewReportSha256": "96edb8f5bafe0b9b0fdea37ec844a1fcd88c9d8ed153678bf5165ebb0495187b",
-    "previewFragmentSha256": "da9257c8d06e3bee58a5f072ca08d55032d998ecbd5dbb194cf7a28e24879998",
-    "previewJavaScriptSyntax": "PASS",
-    "gameDefinitionPayloadUnchanged": true
+    "note": "Independent file/hash/import verification; this does not establish a new browser gameplay or release-build pass."
   }
 }

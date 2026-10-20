@@ -19,6 +19,8 @@ namespace Lumia
         public List<CombatStatus> effects = new List<CombatStatus>();
         public int controlProtection;
         public string controlProtectionSource;
+        public int controlImmunityTurns;
+        public string controlImmunitySource;
     }
     // Durations belong to the affected actor, never to the owner of the source card.
     // Hard control removes at most two energy and leaves at least one action energy.
@@ -36,10 +38,20 @@ namespace Lumia
         {
             state=Ensure(state);
             return new StatusActorState { controlProtection=state.controlProtection, controlProtectionSource=state.controlProtectionSource,
+                controlImmunityTurns=state.controlImmunityTurns,controlImmunitySource=state.controlImmunitySource,
                 effects=state.effects.Select(x=>new CombatStatus {kind=x.kind,sourceCard=x.sourceCard,timing=x.timing,remaining=x.remaining,pending=x.pending}).ToList() };
         }
         public static bool IsCrowdControl(string kind) => kind != null && CrowdControl.Contains(kind);
         public static bool HasControlProtection(StatusActorState actor) => actor != null && actor.controlProtection > 0;
+        public static void GrantControlImmunity(StatusActorState actor,int turns,string sourceCard)
+        {
+            actor=Ensure(actor);actor.controlImmunityTurns=Math.Max(actor.controlImmunityTurns,Math.Max(0,turns));actor.controlImmunitySource=sourceCard;
+        }
+        public static void StartTurn(StatusActorState actor)
+        {
+            actor=Ensure(actor);actor.controlImmunityTurns=Math.Max(0,actor.controlImmunityTurns-1);
+            if(actor.controlImmunityTurns==0)actor.controlImmunitySource=null;
+        }
         public static void GrantControlProtection(StatusActorState actor,int shield,string sourceCard="sua_w")
         {
             actor=Ensure(actor);actor.controlProtection=Math.Max(0,actor.controlProtection)+Math.Max(0,shield);actor.controlProtectionSource=sourceCard;
@@ -116,7 +128,7 @@ namespace Lumia
         {
             actor=Ensure(actor);
             bool pending=timing!="cast";
-            if(!pending && HasControlProtection(actor) && IsCrowdControl(kind))return false;
+            if(!pending && (HasControlProtection(actor) || actor.controlImmunityTurns>0) && IsCrowdControl(kind))return false;
             var effect=actor.effects.FirstOrDefault(x=>x.kind==kind && x.pending==pending && (!pending || (x.sourceCard==sourceCard && x.timing==timing)));
             if(effect==null){effect=new CombatStatus {kind=kind};actor.effects.Add(effect);}
             effect.sourceCard=sourceCard;effect.timing=timing;effect.pending=pending;effect.remaining=Math.Max(effect.remaining,SkillMechanics.Clamp(duration,1,2));
