@@ -8,6 +8,11 @@ namespace Lumia
     // Keeping this pure makes enemy planning and previews use the same checks as play.
     public static class FreeCastMechanics
     {
+        public static bool IsReplaySkill(CardDef card)
+        {
+            return card != null && card.category == "skill" && (card.key == "Q" || card.key == "W" || card.key == "E");
+        }
+
         public static bool Matches(FreeCastGrant grant, string reference)
         {
             return grant != null && grant.uses > 0 && CardInstances.SameType(grant.cardId,reference)
@@ -131,11 +136,13 @@ namespace Lumia
                 conditions.Add(compact ? "직전 " + (previous?.key ?? rule.conditionPrevious) : "같은 실험체의 직전 기술이 " + (previous?.name ?? rule.conditionPrevious) + "이면");
             }
             if (onHit) conditions.Add(compact ? "적중 시" : "공격이 적중하면");
-            string[] targets = card.freeCastTargets.Select(id => compact ? GameDatabase.Card(id)?.key ?? id : GameDatabase.Card(id)?.name ?? id).ToArray();
+            string[] targets = card.freeCastLastSkill ? new string[0]
+                : card.freeCastTargets.Select(id => compact ? GameDatabase.Card(id)?.key ?? id : GameDatabase.Card(id)?.name ?? id).ToArray();
             string targetNames = string.Join("·", targets);
             string availableTurn = card.freeCastNextTurn ? "다음 내 턴" : "이번 턴";
             string effect = card.freeCastLastSkill
-                ? compact ? "직전 Q·W·E를 이번 턴에 무료로 1회 다시 사용합니다" : "이번 전투에서 마지막으로 사용한 수아의 Q·W·E 카드 한 장을 이번 턴에 코스트 없이 다시 사용할 수 있습니다"
+                ? compact ? "실험체 구분 없이 마지막 Q·W·E 한 장을 이번 턴에 무료로 " + card.freeCastCount + "회 다시 사용합니다"
+                    : "실험체에 관계없이 이번 전투에서 마지막으로 사용한 Q·W·E 카드 한 장을 이번 턴에 코스트 없이 " + card.freeCastCount + "회 다시 사용할 수 있습니다. 기본 공격과 R·D·F 카드는 대상에서 제외됩니다"
                 : compact ? card.freeCastCondition != null ? targetNames + " 무료 사용권을 " + card.freeCastCount + "회 " + (card.freeCastNextTurn ? "예약합니다(다음 내 턴)" : "얻습니다(이번 턴)")
                     : targetNames + (targetNames.EndsWith("R",StringComparison.Ordinal)?"을":"를") + " " + availableTurn + "에 무료로 " + card.freeCastCount + "회 사용할 수 있습니다"
                 : availableTurn + "에 " + targetNames + " 카드를 " + (targets.Length > 1 ? "각각 " : "") + card.freeCastCount + "회 코스트 없이 사용할 수 있습니다";

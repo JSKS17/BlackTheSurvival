@@ -34,7 +34,7 @@ public static class DescriptionAudit
             case "weak":return "약화";case "vulnerable":return "취약";case "cleanse":return "해제";
             case "status":return "부여";case "heal_reduction":return "치유";case "exposure":return "피해";
             case "shop_discount":return "구매";case "damage_resource":return "축적";case "execute":return "처형";
-            case "clear_effect":return "회수";case "break_block":return "방어도";default:throw new Exception("Unknown description operation: "+op);
+            case "clear_effect":return "회수";case "break_block":return "방어도";case "forge_sword":return "유리 검";default:throw new Exception("Unknown description operation: "+op);
         }
     }
     static bool EffectRetained(string text,string op)
@@ -44,8 +44,9 @@ public static class DescriptionAudit
     }
     static void TraitEffects(string id,TraitMechanicProfile profile,string summary)
     {
-        foreach(var rule in profile?.rules ?? new TraitRule[0])
+        foreach(var original in profile?.rules ?? new TraitRule[0])
         {
+            var rule=(TraitRule)SkillMechanics.SharedPassiveRule(id,original);
             Check(!SkillMechanics.IsState(id,rule.scaleKey),id+": a binary state is not multiplied as a resource");
             Check(EffectRetained(summary,rule.op),id+": "+rule.op+" effect retained");
             if(rule.every>1)Check(summary.Contains(SkillMechanics.Clamp(rule.every,1,8)+"회마다"),id+": trigger frequency retained");
@@ -246,11 +247,16 @@ public static class DescriptionAudit
         var actor=new TraitActorState();
         var source=new TraitSource {id=fiora.id,name=fiora.name,owner=fiora.owner,profile=fiora.mechanics};
         var sources=new[]{source};
-        var touche=new SkillResource {owner="trait:fiora_p",key="touche",label="뚜셰",amount=3,cap=3};actor.skills.resources.Add(touche);
+        // Touche now lives in the canonical skill resource store. A legacy trait-only
+        // entry is migrated on the first resolve and its original object is detached;
+        // mutating that old fixture object would not prepare the second activation.
+        var touche=new SkillResource {owner=fiora.owner,key="touche",label="뚜셰",amount=3,cap=3};
         var context=new TraitContext {card=GameDatabase.Card("nia_q"),landed=true,hp=40,maxHp=80,skillActor=new SkillActorState()};
+        context.skillActor.resources.Add(touche);
         Check(TraitMechanics.Resolve(actor,sources,"before_skill",context).bonus.damage==4,"Fiora pre-skill damage remains a separate engine phase");
         var first=TraitMechanics.Resolve(actor,sources,"after_skill",context);
         Check(first.pulses.Any(p=>p.kind=="heal"&&p.amount==3)&&first.pulses.Any(p=>p.kind=="energy"&&p.amount==1)&&touche.amount==0,"Fiora first activation still heals 3, recovers 1 cost, and consumes Touche");
+        Check(context.skillActor.resources.Contains(touche)&&!actor.skills.resources.Any(r=>r.owner=="trait:fiora_p"&&r.key=="touche"),"Fiora grouped effects consume the canonical shared skill resource without retaining a duplicate trait meter");
         touche.amount=3;
         var second=TraitMechanics.Resolve(actor,sources,"after_skill",context);
         Check(!second.pulses.Any(p=>p.kind=="heal"||p.kind=="energy")&&touche.amount==0,"Fiora resource consumption remains independent of healing/energy's turn and cooldown caps");
@@ -424,7 +430,8 @@ public static class DescriptionAudit
                 }
                 string rules=string.Join("\n",lines);
                 Check(rules.Contains("1회")&&rules.Contains("2회")&&rules.Contains("턴"),card.id+": own-turn activation, preparation generation and expiry limits remain visible");
-                Check(rules.Contains("피해")&&rules.Contains("6")&&rules.Contains("방어도")&&rules.Contains("회복")&&rules.Contains("4"),card.id+": immediate shared damage/shield/heal budgets remain visible");
+                Check(!rules.Contains("피해 합계 6")&&!rules.Contains("방어도 합계 6")&&!rules.Contains("회복 합계 4")&&!rules.Contains("턴당 합계 6")&&!rules.Contains("피해 합계 40"),card.id+": removed shared external amount limits do not appear in descriptions");
+                Check(!full.Contains("카드 1회의 추가 피해는 최대 24")&&!full.Contains("턴 종료 효과는 피해 40"),card.id+": external-synergy card details do not present native budgets as limits on external effects");
                 Check(rules.Contains("무료")&&rules.Contains("0코스트")&&rules.Contains("준비")&&rules.Contains("소모"),card.id+": zero-price generation restriction and existing-preparation consumption are explained");
                 string preview=DescriptionSummary.CardPreview(card,GameDatabase.Cards);
                 Check(DescriptionSummary.PreviewLines(preview)<=DescriptionSummary.CardPreviewMaxLines&&DescriptionSummary.PreviewWidth(preview)<=DescriptionSummary.CardPreviewMaxWidth,card.id+": card summary remains bounded when optional cooperation is present");
@@ -451,10 +458,21 @@ public static class DescriptionAudit
             Check(pair.Value.All(text.Contains),pair.Key+": actual family partners, source resources and characteristic effect are named");
         }
         foreach(string id in new[]{"isol_q","rozzi_r","celine_q","theodore_w","adriana_w","kenneth_w"})
-            Check(string.Join("\n",CrossSubjectSynergies.FullDescription(GameDatabase.Card(id))).Contains("40"),id+": scheduled bomb/fire support retains the existing turn-end damage ceiling");
+            Check(!string.Join("\n",CrossSubjectSynergies.FullDescription(GameDatabase.Card(id))).Contains("40"),id+": scheduled external bomb/fire descriptions do not retain the removed total-damage limit");
     }
     static void ConditionalRecastDescriptions()
     {
+        var sua=GameDatabase.Card("sua_r");
+        var replaySkills=GameDatabase.Cards.Where(c=>c.category=="skill"&&new[]{"Q","W","E"}.Contains(c.key)).Select(c=>c.id).ToArray();
+        Check(sua.freeCastLastSkill&&sua.freeCastCount==1&&!sua.freeCastNextTurn,"Sua R advertises the latest eligible skill, one free use, and this-turn availability");
+        Check(new HashSet<string>(sua.freeCastTargets).SetEquals(replaySkills)&&sua.freeCastTargets.Length==replaySkills.Length,"Sua R's described universal Q/W/E eligibility matches every actual target without R, D, F or basic cards");
+        foreach(string text in new[]{DescriptionSummary.Card(sua,GameDatabase.Cards),CardPresentation.Describe(sua,GameDatabase.Cards),DescriptionSummary.CardPreview(sua,GameDatabase.Cards)})
+        {
+            Check(new[]{"실험체","마지막","Q·W·E","이번 턴","1회"}.All(text.Contains),"Sua R's preview, effect digest and full description retain universal ownership, recency, skill keys, timing and number of uses");
+            Check((text.Contains("코스트 없이")||text.Contains("무료"))&&text.Contains("소멸"),"Sua R's preview, effect digest and full description retain its free replay and exhaustion");
+        }
+        string suaFull=CardPresentation.Describe(sua,GameDatabase.Cards);
+        Check(suaFull.Contains("기본 공격과 R·D·F 카드는 대상에서 제외")&&suaFull.Contains("덱에 보유한 대상 카드")&&suaFull.Contains("뽑을 카드 또는 버린 카드에서 한 장"),"Sua R's full explanation explicitly excludes ineligible cards and retains actual-owned-card recall");
         string[][] gates={new[]{"cathy_q","wounded","2"},new[]{"shoichi_w","dagger","1"},
             new[]{"celine_w","bomb","1"},new[]{"jan_q","unyielding","3"},
             new[]{"jan_e","unyielding","3"},new[]{"karla_w","harpoon","1"},new[]{"bianca_w","blood","2"}};
@@ -531,7 +549,7 @@ public static class DescriptionAudit
                 foreach(var r in c.statuses ?? new CardStatusRule[0])
                     Check(summary.Contains(StatusMechanics.Name(r.key))&&summary.Contains(r.duration+"턴"),c.id+": named status and duration retained");
                 if(c.exhaust)Check(summary.Contains("소멸"),c.id+": exhaust retained");
-                if(c.freeCastCount>0)Check(summary.Contains("코스트 없이"),c.id+": recall retained");
+                if(c.freeCastCount>0)Check(summary.Contains("코스트 없이") || summary.Contains("무료"),c.id+": recall retained");
                 Check(DataSnapshot(c)==sourceBefore,c.id+": rendering grouped descriptions does not mutate card stats, conditions, timings or effects");
                 output.Append("## "+c.owner+" · "+c.name+" ["+c.key+"] · "+c.cost+"코스트\n\n**미리보기·요약**\n\n"+preview.Replace("\n","  \n")+"\n\n**전체 효과 정리**\n\n"+summary.Replace("\n","  \n")+"\n\n");
                 string debuffFooter=CardPresentation.DebuffRules(c);
@@ -629,6 +647,7 @@ public static class DescriptionAudit
             GroupedEffectCases();
             CrossSubjectDescriptions();
             ConditionalRecastDescriptions();
+            Check(!Regex.IsMatch(output.ToString(),@"피해 합계 6|방어도 합계 6|회복 합계 4|턴당 합계 6|피해 합계 40|synergy_budget"),"The generated complete catalog contains no removed shared external-synergy amount limit or field budget token");
             if(args.Length>0)File.WriteAllText(args[0],output.ToString(),new UTF8Encoding(false));
             Console.WriteLine("PASS: "+assertions+" readability/effect assertions; cards="+GameDatabase.Cards.Count+", passives="+GameDatabase.Passives.Count+", runes="+GameDatabase.Runes.Count+", equipment="+GameDatabase.Gear.Count+".");
             var debuffCards=GameDatabase.Cards.Where(c=>ExpectedDebuffs(c).Count>0).ToArray();

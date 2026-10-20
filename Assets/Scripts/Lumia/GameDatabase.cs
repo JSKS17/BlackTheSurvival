@@ -58,7 +58,7 @@ namespace Lumia
             Card("nia_r").freeCastCount = 1;
             Combo("yuki_w", false, "yuki_e");
             foreach (string id in new[] { "yuki_e", "hyejin_q", "emma_q", "emma_w", "sua_e" }) Combo(id, true, id);
-            Combo("sua_r", false, "sua_q", "sua_w", "sua_e");
+            Combo("sua_r", false, Cards.FindAll(FreeCastMechanics.IsReplaySkill).ConvertAll(card => card.id).ToArray());
             Card("sua_r").freeCastLastSkill = true;
             Card("sua_r").draw = Card("sua_r").energy = 0;
         }

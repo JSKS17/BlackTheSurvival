@@ -77,7 +77,7 @@ namespace Lumia
             q.damage=8; q.block=10; p["sua_w"]=q;
             q=P("책갈피가 있는 적에게 추가 피해를 주고 책갈피를 다시 남깁니다.", When(Bonus("bonus_damage",6),"bookmark"), Set("bookmark","책갈피",1,1));
             q.rules[1].onHit=true; q.damage=10; q.heal=3; q.evasion=15; q.duration=1; p["sua_e"]=q;
-            q=P("마지막으로 사용한 수아의 Q·W·E 중 하나를 기억해 다시 사용합니다.");
+            q=P("실험체와 관계없이 마지막으로 사용한 Q·W·E 한 장을 이번 턴에 무료로 1회 다시 사용합니다.");
             q.block=8; p["sua_r"]=q;
 
             q=P("부착 폭탄을 남기고 폭탄 공격 준비를 쌓습니다.", Effect("delayed_damage","semtex","셈텍스",8,1,2), Gain("charge","폭탄 공격 준비"));

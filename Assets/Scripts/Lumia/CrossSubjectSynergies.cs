@@ -19,6 +19,8 @@ namespace Lumia
         public List<SynergyCharge> charges = new List<SynergyCharge>();
         public List<SynergyUse> uses = new List<SynergyUse>();
         public List<SynergyUse> generations = new List<SynergyUse>();
+        // Per-turn totals are retained for save compatibility and diagnostics;
+        // they no longer limit cooperative bonuses or produce field tokens.
         public int damageUsed, blockUsed, healUsed;
         public string budgetSourceCard;
     }
@@ -146,12 +148,8 @@ namespace Lumia
         {
             var result=new List<Activation>();
             if (actor==null || card==null || card.category!="skill" || string.IsNullOrEmpty(card.owner)) return result;
-            var state=actor.synergy ?? new SynergyState();
             Action<Activation> add=activation=> {
                 if (activation.kind!="transfer" && Used(actor,activation.family)) return;
-                activation.damage=Math.Min(activation.damage,Math.Max(0,6-state.damageUsed-result.Sum(x=>x.damage)));
-                activation.block=Math.Min(activation.block,Math.Max(0,6-state.blockUsed-result.Sum(x=>x.block)));
-                activation.heal=Math.Min(activation.heal,Math.Max(0,4-state.healUsed-result.Sum(x=>x.heal)));
                 if (activation.damage+activation.block+activation.heal>0 || activation.kind=="delayed" || activation.kind=="plasma" || activation.kind=="kindle" || activation.kind=="wound") result.Add(activation);
             };
             if (VfConsumers.Contains(card.id) && Charges(actor,"vf").Select(x=>x.owner).Distinct().Count()==2)
@@ -264,7 +262,7 @@ namespace Lumia
                 if (activation.kind=="delayed")
                 {
                     var effect=actor.effects.FirstOrDefault(x=>x.owner==card.owner && x.key==activation.effectKey && x.sourceCard==card.id && x.kind=="delayed_damage" && x.remaining>0);
-                    if (effect!=null && !effect.synergyBoosted) {int old=effect.amount;effect.amount=Math.Min(24,effect.amount+activation.power);effect.synergyBoostAmount=effect.amount-old;effect.synergyBoosted=true;}
+                    if (effect!=null && !effect.synergyBoosted) {effect.amount+=activation.power;effect.synergyBoostAmount=activation.power;effect.synergyBoosted=true;}
                 }
                 else if (activation.kind=="plasma") AddResource(actor,Owner("celine"),"bomb",1,4,"플라즈마 폭탄");
                 else if (activation.kind=="wound") AddResource(actor,Owner("cathy"),"wounded",1,3,"상처");
@@ -310,25 +308,16 @@ namespace Lumia
                 if(use.count>0)result.Add(new SkillMechanicToken {owner="synergy",key=use.family,label=FamilyName(use.family),kind="synergy_limit",sourceCard=use.sourceCard,amount=use.count,cap=1});
             foreach(var generation in actor?.synergy?.generations ?? new List<SynergyUse>())
                 if(generation.count>0)result.Add(new SkillMechanicToken {owner="synergy",key=generation.family,label=FamilyName(generation.family),kind="synergy_generation",sourceCard=generation.sourceCard,amount=generation.count,cap=2});
-            string source=actor?.synergy?.budgetSourceCard ?? result.Select(x=>x.sourceCard).FirstOrDefault(x=>!string.IsNullOrEmpty(x));
-            if(source!=null)
-            {
-                result.Add(new SkillMechanicToken {owner="synergy",key="damage_budget",label="외부 연계 추가 피해",kind="synergy_budget",sourceCard=source,amount=actor.synergy.damageUsed,cap=6});
-                result.Add(new SkillMechanicToken {owner="synergy",key="block_budget",label="외부 연계 추가 방어도",kind="synergy_budget",sourceCard=source,amount=actor.synergy.blockUsed,cap=6});
-                result.Add(new SkillMechanicToken {owner="synergy",key="heal_budget",label="외부 연계 추가 회복",kind="synergy_budget",sourceCard=source,amount=actor.synergy.healUsed,cap=4});
-            }
             return result;
         }
         public static string TokenSummary(SkillMechanicToken token)
         {
-            if(token.kind=="synergy_budget")return token.label+" · 이번 턴 "+token.amount+"/"+token.cap;
             if(token.kind=="synergy_generation")return token.label+" · 준비 생성 "+token.amount+"/2";
             if(token.kind=="synergy_limit")return token.label+" · 이번 턴 사용 완료";
             return (GameDatabase.Card(token.sourceCard)?.owner ?? "실험체")+"의 "+token.label+" "+token.amount+" · 준비";
         }
         public static string TokenDescription(SkillMechanicToken token)
         {
-            if(token.kind=="synergy_budget")return "모든 외부 연계가 공유하는 이번 턴의 즉시 추가량입니다. 남은 양은 "+Math.Max(0,token.cap-token.amount)+"입니다.";
             if(token.kind=="synergy_generation")return "이번 턴에 이 준비를 "+token.amount+"회 만들었습니다. 턴당 생성은 최대 2회이며 무료 사용은 준비를 만들지 않습니다.";
             if(token.kind=="synergy_limit")return "이번 턴의 "+token.label+" 연계를 사용했습니다. 다음 자신의 턴에 다시 발동할 수 있습니다.";
             return "다른 실험체가 소모하는 준비입니다. 계열당 턴당 1회 발동하며 자신의 턴 시작 "+token.remaining+"회 후 사라집니다.";
@@ -368,7 +357,7 @@ namespace Lumia
             if(new[]{"rozzi_q","rozzi_w","rozzi_e"}.Contains(card.id))
                 lines.Add("기존 셈텍스탄의 외부 강화를 이어 받는 경우가 아니고 다른 실험체의 폭파 준비가 있으며 공격이 적중하면: 준비를 소모해 첫 적중에 추가 피해 2를 줍니다.");
             if(new[]{"rozzi_q","rozzi_w","rozzi_e","rozzi_r"}.Contains(card.id))
-                lines.Add("기존 셈텍스탄을 Q·W·E로 조기 기폭하면 저장된 외부 강화량을 이어 받으며 새 폭파 준비는 중복해서 소모하지 않습니다. 이월 피해도 즉시 추가 피해의 턴당 합계 6에 포함되고 새 폭파 연계의 발동으로 세지 않습니다.");
+                lines.Add("기존 셈텍스탄을 Q·W·E로 조기 기폭하면 저장된 외부 강화량을 이어 받으며 새 폭파 준비는 중복해서 소모하지 않습니다. 이월 피해는 새 폭파 연계의 발동으로 세지 않습니다.");
 
             if(subject=="adriana" && rules.Any(r=>r.key=="oil" && r.op=="gain"))
                 lines.Add("코스트를 지불한 뒤 기름이 실제 증가하면 다른 실험체의 점화를 준비합니다. 케네스의 업화·화염 분쇄 또는 비형의 도깨비 불 지대가 이 준비와 기름 1을 소모하면 턴 종료마다 피해 3을 2회 주는 연계 기름 화재를 남깁니다.");
@@ -405,9 +394,9 @@ namespace Lumia
             if(lines.Count>0)
             {
                 yield return "각 외부 연계는 자신의 턴당 1회 발동하고 준비는 연계마다 턴당 2회까지 만듭니다. 준비는 자신의 턴 시작 2회 후 사라집니다.";
-                yield return "모든 외부 연계의 한 턴 즉시 추가량은 피해 합계 6, 방어도 합계 6, 회복 합계 4까지입니다. 무료·0코스트 사용은 준비를 만들지 않지만 이미 가진 준비는 소모할 수 있습니다. 추가 효과는 다른 연계를 다시 준비하지 않습니다.";
+                yield return "무료·0코스트 사용은 준비를 만들지 않지만 이미 가진 준비는 소모할 수 있습니다. 추가 효과는 다른 연계를 다시 준비하지 않습니다.";
                 if(BombSetups.Contains(card.id) || BombConsumers.Contains(card.id) || FireCards.Contains(card.id) || (subject=="adriana" && rules.Any(r=>r.key=="oil" && r.op=="gain")))
-                    yield return "폭탄과 기름 화재의 피해는 기존 턴 종료 피해 합계 40 안에서 적용됩니다. 같은 폭탄의 외부 강화는 최초 1회만 적용됩니다.";
+                    yield return "같은 폭탄의 외부 강화는 최초 1회만 적용됩니다.";
             }
         }
         public static string BriefDescription(CardDef card)

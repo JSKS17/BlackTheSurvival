@@ -296,7 +296,7 @@ namespace Lumia
             int d = damage < 0 ? card.damage : damage;
             string attack = Particle("피해 " + d) + " 줍니다. ";
             string free = (card.freeCastNextTurn ? "다음 내 턴" : "이번 턴") + " " + card.freeCastCount + "회 무료 연계";
-            string targets = string.Join("·", (card.freeCastTargets ?? new string[0]).Select(CardKey));
+            string targets = card.freeCastLastSkill ? "" : string.Join("·", (card.freeCastTargets ?? new string[0]).Select(CardKey));
             switch (Id(card))
             {
                 case "nia_w":
@@ -486,10 +486,10 @@ namespace Lumia
         {
             var rule = card.freeCastCondition ?? new SkillRule();
             string condition = Condition(card, rule, card.freeCastOnHit || rule.onHit, card.freeCastEitherResource).Replace("적중했을 때", "적중 시");
-            string targets = string.Join("·", card.freeCastTargets.Select(CardKey));
-            string effect = card.freeCastLastSkill ? "직전 Q·W·E를 이번 턴에 무료로 " + card.freeCastCount + "회 재사용합니다"
+            string targets = card.freeCastLastSkill ? "" : string.Join("·", card.freeCastTargets.Select(CardKey));
+            string effect = card.freeCastLastSkill ? "실험체 구분 없이 마지막 Q·W·E 한 장을 이번 턴에 무료로 " + card.freeCastCount + "회 재사용합니다"
                 : Particle(targets) + " " + (card.freeCastNextTurn ? "다음 내 턴" : "이번 턴") + " 무료 " + (card.freeCastTargets.Length > 1 ? "각 " : "") + card.freeCastCount + "회 씁니다";
-            effect += "(턴당 1회)";
+            effect += card.freeCastLastSkill ? "(같은 대상은 턴당 1회)" : "(턴당 1회)";
             return new ConditionEffect { key = DescriptionSummary.ConditionKey(rule, onHit: card.freeCastOnHit || rule.onHit)
                 + (card.freeCastEitherResource ? "|resource_or" : ""), condition = condition, effect = effect };
         }

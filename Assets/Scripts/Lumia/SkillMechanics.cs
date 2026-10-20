@@ -64,7 +64,7 @@ namespace Lumia
         public bool persistent;
     }
     public struct SkillInstantBonus { public int damage, block, heal; }
-    public sealed class SkillPulse { public string sourceCard, kind, traitId, key; public int amount; }
+    public sealed class SkillPulse { public string sourceCard, kind, traitId, key; public int amount, externalAmount; }
 
     // A reviewed semantic link, never an automatic match on a resource key. The
     // passive may use a different key or encode a physical resource as a state.
@@ -419,11 +419,11 @@ namespace Lumia
                     if (rule.op == "bonus_heal") bonus.heal += Amount(rule, actor, card, 20);
                 }
             if (card.category == "basic" && card.key == "ATK") bonus.damage += actor.effects.Where(x => x.kind == "empower_basic").Sum(x => x.amount);
-            var cross=CrossSubjectSynergies.Bonuses(actor,card,landed);
-            bonus.damage+=cross.damage;bonus.block+=cross.block;bonus.heal+=cross.heal;
             var tactical=TacticalSkills.Bonuses(actor,card,landed);
             bonus.damage+=tactical.damage;bonus.block+=tactical.block;bonus.heal+=tactical.heal;
             bonus.damage = Clamp(bonus.damage, 0, 24); bonus.block = Clamp(bonus.block, 0, 24); bonus.heal = Clamp(bonus.heal, 0, 20);
+            var cross=CrossSubjectSynergies.Bonuses(actor,card,landed);
+            bonus.damage+=cross.damage;bonus.block+=cross.block;bonus.heal+=cross.heal;
             return bonus;
         }
         // Shield destruction is evaluated from the state before this card is used,
@@ -531,13 +531,30 @@ namespace Lumia
                 if (effect.kind == "tactical_buff" || effect.kind == "tactical_pending") continue;
                 if (effect.kind == "counter" || effect.kind == "revive" || effect.kind == "empower_basic") continue;
                 if (effect.kind == "delayed_damage" && --effect.delay > 0) continue;
-                bool heal = effect.kind == "hot", guard = effect.kind == "guard";
-                int amount = Math.Min(effect.amount, heal || guard ? healBudget : damageBudget);
-                if (amount > 0) pulses.Add(new SkillPulse { sourceCard=effect.sourceCard, key=effect.key,kind=effect.kind, amount=amount,traitId=effect.owner?.StartsWith("trait:")==true?effect.owner.Substring(6):null });
-                if (heal || guard) healBudget -= amount; else damageBudget -= amount;
+                int external = effect.owner?.StartsWith("synergy:")==true ? Math.Max(0,effect.amount)
+                    : effect.synergyBoosted ? Clamp(effect.synergyBoostAmount,0,effect.amount) : 0;
+                var pulse=new SkillPulse { sourceCard=effect.sourceCard, key=effect.key,kind=effect.kind, amount=effect.amount,externalAmount=external,traitId=effect.owner?.StartsWith("trait:")==true?effect.owner.Substring(6):null };
+                LimitScheduledPulse(pulse,ref damageBudget,ref healBudget);
+                if (pulse.amount > 0) pulses.Add(pulse);
                 if (effect.kind == "delayed_damage" || --effect.remaining <= 0) actor.effects.Remove(effect);
             }
             return pulses;
+        }
+        // Apply only the original skill/trait budget. Cooperative enhancements
+        // remain complete when actor and trait pulses are combined a second time.
+        public static void LimitScheduledPulse(SkillPulse pulse,ref int damageBudget,ref int supportBudget)
+        {
+            int external=Clamp(pulse.externalAmount,0,Math.Max(0,pulse.amount));
+            int native=Math.Max(0,pulse.amount-external);
+            if(pulse.kind=="hot" || pulse.kind=="guard")
+            {
+                native=Math.Min(native,Math.Max(0,supportBudget));supportBudget-=native;
+            }
+            else
+            {
+                native=Math.Min(native,Math.Max(0,damageBudget));damageBudget-=native;
+            }
+            pulse.amount=native+external;
         }
         public static bool CounterEveryHit(string sourceCard, string key) => sourceCard == "weapon_tonfa" && key == "spin";
         public static List<SkillPulse> Counters(SkillActorState defender, int landedHits = 1)
@@ -647,6 +664,7 @@ namespace Lumia
             if (card?.mechanics == null) return "";
             if(TacticalSkills.IsDelayed(card))return "준비한 전술 효과는 다음 자기 턴 시작에 한 번 적용됩니다. 시전한 턴의 종료에는 발동하지 않습니다. 효과와 예약한 상태이상은 저장·이어하기에도 유지됩니다.";
             var rules=card.mechanics.rules ?? new SkillRule[0]; var text=new List<string>();
+            bool external=CrossSubjectSynergies.FullDescription(card).Any();
             if (rules.Any(r=>r.op=="gain" || r.op=="set" || r.op=="consume" || r.op.StartsWith("state_",StringComparison.Ordinal) || !string.IsNullOrEmpty(r.scaleKey)))
             {
                 var shared=SharedResourcesFor(StateOwner(card.owner)+"_p").Where(x=>!x.legacyOnly).ToArray();
@@ -655,9 +673,9 @@ namespace Lumia
                     + (card.owner==TaziaResourceOwner ? " 유리 검은 Q가 소모하며, 빗나가도 소모됩니다." : ""));
             }
             if (rules.Any(r=>r.op=="discount")) text.Add("할인은 다음 대상 카드 1회에 적용되며, 같은 카드의 할인 부여는 자신의 한 턴에 1회로 제한됩니다.");
-            else if (rules.Any(r=>new[] {"bleed","burn","delayed_damage","summon","hot","guard"}.Contains(r.op))) text.Add("지속 효과는 시전자의 턴 종료에 적용되며, 같은 설치물을 다시 놓으면 수치와 남은 횟수의 큰 값을 유지합니다. 실험체 한 명의 기술·패시브·룬을 합친 턴 종료 효과는 피해 40, 회복과 방어 합계 25까지 적용됩니다.");
+            else if (rules.Any(r=>new[] {"bleed","burn","delayed_damage","summon","hot","guard"}.Contains(r.op))) text.Add("지속 효과는 시전자의 턴 종료에 적용되며, 같은 설치물을 다시 놓으면 수치와 남은 횟수의 큰 값을 유지합니다."+(external?"":" 실험체 한 명의 기술·패시브·룬을 합친 턴 종료 효과는 피해 40, 회복과 방어 합계 25까지 적용됩니다."));
             else if (rules.Any(r=>r.op=="counter" || r.op=="revive")) text.Add("반격과 치명상 방지의 남은 턴은 자신의 다음 턴 시작부터 감소합니다.");
-            if(rules.Count(r=>r.op=="bonus_damage")>1 || rules.Any(r=>r.op=="bonus_damage" && !string.IsNullOrEmpty(r.scaleKey))) text.Add("카드 1회의 추가 피해는 최대 24이며 다중 적중에서는 첫 적중 1회에 적용됩니다.");
+            if(rules.Count(r=>r.op=="bonus_damage")>1 || rules.Any(r=>r.op=="bonus_damage" && !string.IsNullOrEmpty(r.scaleKey))) text.Add(external?"추가 피해는 다중 적중에서도 첫 적중 1회에 적용됩니다.":"카드 1회의 추가 피해는 최대 24이며 다중 적중에서는 첫 적중 1회에 적용됩니다.");
             return string.Join("\n",text.Take(2));
         }
         public static string Summary(CardDef card)

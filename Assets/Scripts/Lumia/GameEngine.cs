@@ -356,6 +356,9 @@ namespace Lumia
                 if (c.enemyTurn || c.retainIndex < 0 || c.retainIndex >= c.hand.Count || c.retainUses >= 2) c.retainIndex = -1;
                 if (c.lastSkills == null) c.lastSkills = new List<SkillHistory>();
                 if (c.enemyLastSkills == null) c.enemyLastSkills = new List<SkillHistory>();
+                // Older saves kept each owner's most recent Q/W/E in insertion order.
+                // The existing global player pointer recovers the actual last cast.
+                RecordLastSkill(c.lastSkills, GameDatabase.Card(c.lastSkillCard));
                 if (c.freeCasts == null) c.freeCasts = new List<FreeCastGrant>();
                 if (c.freeCastSources == null) c.freeCastSources = new List<string>();
                 if (c.enemyFreeCasts == null) c.enemyFreeCasts = new List<FreeCastGrant>();
@@ -776,7 +779,7 @@ namespace Lumia
                 int missedCopy = c.discardPile.LastIndexOf(reference);
                 if (missedCopy >= 0) { c.discardPile.RemoveAt(missedCopy); c.exhaustPile.Add(reference); }
             }
-            GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills, card.owner), skillBefore, landed, c.pendingFreeCasts, c.turn, reference);
+            GrantFreeCasts(card, State.deck, c.freeCasts, c.freeCastSources, c.hand, c.drawPile, c.discardPile, true, LastSkill(c.lastSkills), skillBefore, landed, c.pendingFreeCasts, c.turn, reference);
             int cardHeal=State.hp-beforeHp;
             EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = id, cardReference = reference, upgradeLabel = CardUpgradeLabel(reference), enemy = false, damage = dealt, block = block, heal = cardHeal, avoided = avoided, missed = missed, absorbed = absorbedTotal, destroyedBlock = destroyedBlock, critical = criticalHits > 0, criticalHits = criticalHits, execution = execution });
             bool attackAttempt=card.damage>0 || bonusDamage>0;
@@ -970,7 +973,7 @@ namespace Lumia
             StatusMechanics.DamageTaken(c.playerStatuses,dealt);
             bool statusControl=ApplyCardStatuses(true,skillBefore,card,landed);
             RecordLastSkill(c.enemyLastSkills, card);
-            GrantFreeCasts(card, c.enemyDeck, c.enemyFreeCasts, c.enemyFreeCastSources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, false, LastSkill(c.enemyLastSkills, card.owner), skillBefore, landed, c.enemyPendingFreeCasts, c.turn);
+            GrantFreeCasts(card, c.enemyDeck, c.enemyFreeCasts, c.enemyFreeCastSources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, false, LastSkill(c.enemyLastSkills), skillBefore, landed, c.enemyPendingFreeCasts, c.turn);
             int cardHeal=c.enemyHp-beforeHp;
             EmitCombatAction(new CombatAction { id = ++actionSerial, cardId = id, enemy = true, damage = dealt, block = addedBlock, heal = cardHeal, avoided = avoided, missed = missed, absorbed = absorbedTotal, destroyedBlock = destroyedBlock, critical = criticalHits > 0, criticalHits = criticalHits, execution = execution });
             bool attackAttempt=damagePerHit>0 || bonusDamage>0;
@@ -993,18 +996,19 @@ namespace Lumia
 
         public static int CriticalBaseDamage(int damage) { return Math.Max(0, damage) * 3 / 2; }
 
-        private static string LastSkill(List<SkillHistory> history, string owner)
+        private static string LastSkill(List<SkillHistory> history)
         {
-            var entry = history.FirstOrDefault(x => x.owner == owner);
+            var entry = history.LastOrDefault(x => x != null && FreeCastMechanics.IsReplaySkill(GameDatabase.Card(x.cardId)));
             return entry == null ? null : entry.cardId;
         }
 
         private static bool RecordLastSkill(List<SkillHistory> history, CardDef card)
         {
-            if (card.category != "skill" || (card.key != "Q" && card.key != "W" && card.key != "E")) return false;
-            var entry = history.FirstOrDefault(x => x.owner == card.owner);
-            if (entry == null) { entry = new SkillHistory { owner = card.owner }; history.Add(entry); }
-            entry.cardId = card.id;
+            if (!FreeCastMechanics.IsReplaySkill(card)) return false;
+            // Keep one entry per owner, ordered by actual use so returning to an
+            // earlier owner also becomes the global most recently used skill.
+            history.RemoveAll(x => x != null && x.owner == card.owner);
+            history.Add(new SkillHistory { owner = card.owner, cardId = card.id });
             return true;
         }
 
@@ -1951,7 +1955,7 @@ namespace Lumia
                     foreach(var pulse in beforeTraits.pulses.Concat(afterTraits.pulses)){if(pulse.kind=="strength")planStrength+=pulse.amount;if(pulse.kind=="heal" || pulse.kind=="bonus_heal")planHp=Math.Min(c.enemyMaxHp,planHp+pulse.amount*(100-TraitMechanics.HealingReduction(traitPlan))/100);}
                     RecallSkillDiscounts(skillPlan, before, c.enemyDeck, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile);
                     RecallSkillDiscounts(traitPlan.skills,traitBefore,c.enemyDeck,c.enemyHand,c.enemyDrawPile,c.enemyDiscardPile);
-                    GrantFreeCasts(card, c.enemyDeck, grants, sources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, true, LastSkill(history, card.owner), before, true);
+                    GrantFreeCasts(card, c.enemyDeck, grants, sources, c.enemyHand, c.enemyDrawPile, c.enemyDiscardPile, true, LastSkill(history), before, true);
                 }
                 c.enemyDiscardPile.AddRange(c.enemyHand); c.enemyHand.Clear();
             }
@@ -2229,7 +2233,7 @@ namespace Lumia
                 PreviewTacticalCard(card,skillPreview,attackerStatuses,true,ref actorHp,c.enemyMaxHp,ref weak,ref available,skillBefore,actualDamage,defenderSkills,traitPreview,defenderTraits,defenderStatuses);
                 CompanionMechanics.AfterCard(skillPreview,card);
                 RecordLastSkill(history,card);
-                GrantFreeCasts(card,c.enemyDeck,grants,sources,null,null,null,false,LastSkill(history,card.owner),skillBefore,true);
+                GrantFreeCasts(card,c.enemyDeck,grants,sources,null,null,null,false,LastSkill(history),skillBefore,true);
                 StatusMechanics.CancelMissingInstallations(defenderStatuses,skillPreview);
                 bool statusControl=StatusMechanics.Apply(defenderStatuses,skillBefore,card,true);
                 if(card.category=="basic" && card.key=="ATK")statusControl|=StatusMechanics.Activate(defenderStatuses,card.id,"next_basic");
@@ -2273,8 +2277,9 @@ namespace Lumia
             int damageBudget=40,supportBudget=25;
             foreach (var pulse in SkillMechanics.Tick(skillPreview).Concat(SkillMechanics.Tick(traitPreview.skills)))
             {
-                if (pulse.kind == "guard" || pulse.kind=="hot") {int amount=Math.Min(supportBudget,pulse.amount);supportBudget-=amount;if(pulse.kind=="guard")c.intentBlock+=amount;}
-                else {int amount=Math.Min(damageBudget,pulse.amount);damageBudget-=amount;c.intentDamage+=amount;}
+                SkillMechanics.LimitScheduledPulse(pulse,ref damageBudget,ref supportBudget);
+                if (pulse.kind == "guard") c.intentBlock+=pulse.amount;
+                else if (pulse.kind != "hot") c.intentDamage+=pulse.amount;
             }
         }
 
@@ -2511,8 +2516,7 @@ namespace Lumia
             int damageBudget=40,supportBudget=25;
             foreach (var pulse in SkillMechanics.Tick(enemy ? c.enemySkills : c.playerSkills).Concat(SkillMechanics.Tick((enemy?c.enemyTraits:c.playerTraits).skills)))
             {
-                if(pulse.kind=="hot" || pulse.kind=="guard"){pulse.amount=Math.Min(supportBudget,pulse.amount);supportBudget-=pulse.amount;}
-                else {pulse.amount=Math.Min(damageBudget,pulse.amount);damageBudget-=pulse.amount;}
+                SkillMechanics.LimitScheduledPulse(pulse,ref damageBudget,ref supportBudget);
                 if(pulse.amount<=0)continue;
                 ResolveSkillPulse(pulse, enemy);
                 if (CheckBattleEnd()) break;

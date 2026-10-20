@@ -1328,9 +1328,30 @@ public static partial class CoreSmokeTests
         Check(CrossReady(actor,"vf")==0,"unspent preparations expire at the second own turn start");
         actor=new SkillActorState();CrossCast(actor,"hyunwoo_e");CrossCast(actor,"leon_e");
         Check(CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("magnus_e")).damage==4,"foreign displacement grants four immediate damage");
-        CrossCast(actor,"magnus_e",0);Check(CrossCast(actor,"rozzi_q",0).damage==2,"a second compatible family can use the remaining two-damage budget");
+        CrossCast(actor,"magnus_e",0);Check(CrossCast(actor,"rozzi_q",0).damage==2,"a second compatible family retains its complete two-damage bonus");
         actor.synergy.charges.Add(new SynergyCharge{family="bomb",owner=SubjectOwner("isol"),sourceCard="isol_q"});
-        Check(actor.synergy.damageUsed==6&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("theodore_e")).damage==0,"later families cannot bypass the spent shared damage ceiling");
+        Check(actor.synergy.damageUsed==6&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("theodore_e")).damage==2,"another eligible family still provides its full bonus after six external damage");
+        CrossCast(actor,"theodore_e",0);
+        Check(actor.synergy.damageUsed==8&&CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("theodore_e")).damage==0,"external damage can exceed six while each family's once-per-turn activation still applies");
+        Check(!CrossSubjectSynergies.Snapshot(actor).Any(x=>x.kind=="synergy_budget"||x.key.EndsWith("_budget")),"external totals never appear as field-window budget tokens");
+        foreach(var card in GameDatabase.Cards)
+        {
+            string description=string.Join(" ",CrossSubjectSynergies.FullDescription(card));
+            Check(!description.Contains("피해 합계 6")&&!description.Contains("방어도 합계 6")&&!description.Contains("회복 합계 4")&&!description.Contains("턴당 합계 6"),card.id+": external descriptions do not retain removed shared total limits");
+        }
+        actor=new SkillActorState();CrossCast(actor,"echion_q");CrossCast(actor,"blair_e");CrossCast(actor,"priya_q");CrossCast(actor,"johann_w");
+        Check(CrossCast(actor,"blair_w",0).block==3&&CrossCast(actor,"vanya_w",0).block==2&&CrossCast(actor,"sua_w",0).block==2&&actor.synergy.blockUsed==7,"VF, bloom and support shielding combine beyond the old six-block ceiling");
+        actor=new SkillActorState();CrossCast(actor,"vanya_q");actor.synergy.healUsed=4;
+        Check(CrossCast(actor,"priya_r",0).heal==2&&actor.synergy.healUsed==6,"saved per-turn healing totals cannot suppress a newly eligible recovery synergy");
+        actor=new SkillActorState();CrossCast(actor,"echion_q");CrossCast(actor,"blair_e");actor.synergy.blockUsed=99;
+        Check(CrossSubjectSynergies.Bonuses(actor,GameDatabase.Card("echion_w")).block==3,"legacy block totals do not clip a full eligible external shield");
+        var saturatedStrike=new CardDef{id="blair_r",owner=SubjectOwner("blair"),category="skill",key="R",mechanics=new SkillMechanicProfile{rules=new[]{new SkillRule{op="bonus_damage",amount=24},new SkillRule{op="bonus_damage",amount=24}}}};
+        var saturatedGuard=new CardDef{id="echion_w",owner=SubjectOwner("echion"),category="skill",key="W",mechanics=new SkillMechanicProfile{rules=new[]{new SkillRule{op="bonus_block",amount=24},new SkillRule{op="bonus_block",amount=24}}}};
+        Check(SkillMechanics.Bonuses(actor,saturatedStrike).damage==30&&SkillMechanics.Bonuses(actor,saturatedGuard).block==27,"external damage and protection are added in full after the original native twenty-four limits");
+        Check(SkillMechanics.Bonuses(new SkillActorState(),saturatedStrike).damage==24&&SkillMechanics.Bonuses(new SkillActorState(),saturatedGuard).block==24,"removing external limits does not change native extra-damage or extra-shield limits");
+        actor=new SkillActorState();CrossCast(actor,"vanya_q");
+        var saturatedRecovery=new CardDef{id="priya_r",owner=SubjectOwner("priya"),category="skill",key="R",mechanics=new SkillMechanicProfile{rules=new[]{new SkillRule{op="bonus_heal",amount=20},new SkillRule{op="bonus_heal",amount=20}}}};
+        Check(SkillMechanics.Bonuses(actor,saturatedRecovery).heal==22&&SkillMechanics.Bonuses(new SkillActorState(),saturatedRecovery).heal==20,"external recovery is added after the unchanged native twenty-healing limit");
         actor=new SkillActorState();CrossCast(actor,"theodore_w");CrossCast(actor,"rozzi_r");
         var fuse=actor.effects.Single(x=>x.sourceCard=="rozzi_r"&&x.kind=="delayed_damage");
         Check(fuse.synergyBoosted&&fuse.amount==18,"the first external fuse enhancement is recorded on the original timed effect");
@@ -1351,8 +1372,8 @@ public static partial class CoreSmokeTests
             Check(!SkillMechanics.Tick(actor).Any(x=>x.sourceCard=="rozzi_r"),id+": an early blast cannot explode again on a later scheduled tick");
         }
         actor=new SkillActorState();CrossCast(actor,"theodore_w");CrossCast(actor,"rozzi_r");actor.synergy.damageUsed=5;
-        Check(SkillMechanics.Bonuses(actor,GameDatabase.Card("rozzi_q")).damage==16,"early detonation transfers only the one remaining immediate-support damage under the shared six-damage ceiling");
-        CrossCast(actor,"rozzi_q",0);Check(actor.synergy.damageUsed==6,"early detonation accounts for its transferred support in the shared immediate budget");
+        Check(SkillMechanics.Bonuses(actor,GameDatabase.Card("rozzi_q")).damage==18,"early detonation retains all three stored external damage regardless of previous immediate bonuses");
+        CrossCast(actor,"rozzi_q",0);Check(actor.synergy.damageUsed==8,"early detonation transfers the complete stored enhancement while retaining its one-time consumption");
         var conditional=new CardDef{id="isol_q",owner=SubjectOwner("isol"),category="skill",key="Q",cost=2,mechanics=new SkillMechanicProfile{rules=new[]{new SkillRule{op="delayed_damage",key="conditional_fuse",amount=8,conditionKey="fixture_ready"}}}};
         actor=new SkillActorState();CrossCast(actor,"celine_q");var before=SkillMechanics.Clone(actor);pending=FieldSnapshot(actor.synergy);
         SkillMechanics.AfterCard(actor,before,conditional,true,paidCost:2);
@@ -1361,6 +1382,18 @@ public static partial class CoreSmokeTests
         for(int i=0;i<12;++i)actor.effects.Add(new SkillTimedEffect{owner="fixture",key="full"+i,sourceCard="basic_guard",kind="guard",amount=1,remaining=2});
         pending=FieldSnapshot(actor.synergy);CrossCast(actor,"isol_q");
         Check(!actor.effects.Any(x=>x.sourceCard=="isol_q")&&FieldSnapshot(actor.synergy)==pending,"a rejected thirteenth timed installation cannot spend a preparation without installing its promised blast");
+        var fullStrengthFuse=new CardDef{id="isol_q",owner=SubjectOwner("isol"),category="skill",key="Q",cost=2,mechanics=new SkillMechanicProfile{rules=new[]{new SkillRule{op="delayed_damage",key="full_fuse",amount=24,delay=1,duration=1}}}};
+        actor=new SkillActorState();CrossCast(actor,"theodore_w");before=SkillMechanics.Clone(actor);
+        SkillMechanics.AfterCard(actor,before,fullStrengthFuse,true,paidCost:2);
+        var completeFuse=actor.effects.Single(x=>x.key=="full_fuse");
+        Check(completeFuse.amount==27&&completeFuse.synergyBoostAmount==3,"an external screen adds all three damage to a native blast already at twenty-four");
+        for(int i=0;i<4;++i)actor.effects.Insert(i,new SkillTimedEffect{owner="fixture",key="native"+i,sourceCard="basic_attack",kind="burn",amount=10,remaining=1});
+        actor.effects.Add(new SkillTimedEffect{owner="synergy:oil",key="kindled_oil",sourceCard="kenneth_w",kind="burn",amount=3,remaining=1});
+        string originalTimedState=FieldSnapshot(actor);
+        var boundedCopy=SkillMechanics.Clone(actor);var timed=SkillMechanics.Tick(boundedCopy);
+        Check(timed.Sum(x=>x.amount)==46&&timed.Sum(x=>x.externalAmount)==6,"stored bomb enhancement and external oil damage remain complete after the forty native damage budget is spent");
+        Check(timed.Single(x=>x.key=="full_fuse").amount==3&&timed.Single(x=>x.key=="kindled_oil").amount==3,"a saturated native tick keeps each external contribution instead of discarding the entire later effect");
+        Check(FieldSnapshot(actor)==originalTimedState,"previewing saturated external ticks leaves the original effects untouched, including Theodore's existing empowered attack");
     }
     private static void CrossSubjectCombatAndSave()
     {
@@ -1382,7 +1415,7 @@ public static partial class CoreSmokeTests
         Check(e.PlayCard(0)&&hp-c.enemyHp==ordinary&&c.playerSkills.synergy.damageUsed==2&&CrossReady(c.playerSkills,"mobility")==0,"a repeated free consumer neither repeats the external bonus nor prepares its own movement");
         e=MechanicsFixture();c=e.State.combat;CrossCast(c.playerSkills,"hyunwoo_e");c.playerSkills.synergy.damageUsed=5;
         damage=e.CardTotalDamage("magnus_e");hp=c.enemyHp;CastSkill(e,"magnus_e");
-        Check(hp-c.enemyHp==damage&&c.playerSkills.synergy.damageUsed==6,"a partial one-damage remainder gives the same player preview and actual hit under the shared ceiling");
+        Check(hp-c.enemyHp==damage&&c.playerSkills.synergy.damageUsed==9,"a prior five-damage total leaves the complete four-damage player bonus and an accurate preview");
         e=MechanicsFixture();c=e.State.combat;CastSkill(e,"theodore_w");CastSkill(e,"rozzi_r");
         damage=e.CardTotalDamage("rozzi_q");hp=c.enemyHp;CastSkill(e,"rozzi_q");
         Check(hp-c.enemyHp==damage&&c.playerSkills.synergy.damageUsed==3&&!c.playerSkills.effects.Any(x=>x.key=="semtex_fuse"),"the actual early Semtex blast preserves Theodore's attached three damage, its preview and its one-time fuse consumption");
@@ -1428,20 +1461,41 @@ public static partial class CoreSmokeTests
         }
         e=MechanicsFixture();c=e.State.combat;e.State.hp=e.State.maxHp=9999;c.enemyLevel=20;
         CrossCast(c.enemySkills,"hyunwoo_e");CrossCast(c.enemySkills,"leon_e");
-        // Rozzi cannot spend its own bomb preparation. Mobility therefore gets
-        // the final two damage, leaving that bomb for Theodore after the cap.
+        // Rozzi cannot spend its own bomb preparation. Theodore can still use
+        // it after displacement and mobility have supplied six extra damage.
         c.enemySkills.synergy.charges.Add(new SynergyCharge{family="bomb",owner=SubjectOwner("rozzi"),sourceCard="rozzi_r"});
         c.enemyPlan=new List<string>{"magnus_e","rozzi_q","theodore_e"};c.enemyPlanCosts=c.enemyPlan.Select(e.CardCost).ToList();c.enemyPlanFreeCast=c.enemyPlan.Select(_=>false).ToList();
         string budgetIntent=e.EnemyIntent;int budgetDamage=c.intentDamage;hp=e.State.hp;
         Check(e.BeginEndTurn()&&e.AdvanceEnemyAction(),"enemy begins a mixed-family turn with displacement support");
         var continued=new GameEngine((RunState)Clone(e.State));
         Check(e.AdvanceEnemyAction()&&e.AdvanceEnemyAction()&&e.AdvanceEnemyAction()&&continued.AdvanceEnemyAction()&&continued.AdvanceEnemyAction()&&continued.AdvanceEnemyAction(),"both copies complete the saved paced enemy turn");
-        Check(hp-e.State.hp==budgetDamage&&c.enemySkills.synergy.damageUsed==6&&!c.enemySkills.synergy.uses.Any(x=>x.family=="bomb"),"enemy intent and actual resolution apply the same combined six-damage budget and keep the blocked later bomb preparation: forecast="+budgetDamage+", actual="+(hp-e.State.hp)+", budget="+c.enemySkills.synergy.damageUsed+", used="+string.Join(",",c.enemySkills.synergy.uses.Select(x=>x.family))+", remaining="+CrossReady(c.enemySkills,"bomb"));
-        Check(e.State.hp==continued.State.hp&&e.State.rngState==continued.State.rngState&&FieldSnapshot(c.enemySkills)==FieldSnapshot(continued.State.combat.enemySkills),"saving between enemy actions retains spent budgets and exact remaining cross-family behavior");
+        Check(hp-e.State.hp==budgetDamage&&c.enemySkills.synergy.damageUsed==8&&c.enemySkills.synergy.uses.Any(x=>x.family=="bomb"),"enemy intent and actual resolution both apply all eight extra damage across three families: forecast="+budgetDamage+", actual="+(hp-e.State.hp)+", total="+c.enemySkills.synergy.damageUsed+", used="+string.Join(",",c.enemySkills.synergy.uses.Select(x=>x.family))+", remaining="+CrossReady(c.enemySkills,"bomb"));
+        Check(e.State.hp==continued.State.hp&&e.State.rngState==continued.State.rngState&&FieldSnapshot(c.enemySkills)==FieldSnapshot(continued.State.combat.enemySkills),"saving between enemy actions retains exact remaining cross-family behavior without a shared total limit");
+        foreach(bool enemy in new[]{false,true})
+        {
+            e=MechanicsFixture();c=e.State.combat;e.State.hp=e.State.maxHp=9999;
+            var skills=enemy?c.enemySkills:c.playerSkills;var traits=enemy?c.enemyTraits:c.playerTraits;
+            for(int i=0;i<4;++i)skills.effects.Add(new SkillTimedEffect{owner="fixture",key="native"+i,kind="burn",sourceCard="basic_attack",amount=10,remaining=1});
+            skills.effects.Add(new SkillTimedEffect{owner=SubjectOwner("isol"),key="screen_fuse",kind="delayed_damage",sourceCard="isol_q",amount=27,synergyBoosted=true,synergyBoostAmount=3,delay=1,remaining=1});
+            skills.effects.Add(new SkillTimedEffect{owner="synergy:oil",key="kindled_oil",kind="burn",sourceCard="kenneth_w",amount=3,remaining=1});
+            traits.skills.effects.Add(new SkillTimedEffect{owner="trait:fixture",key="native_overflow",kind="burn",sourceCard="basic_attack",amount=10,remaining=1});
+            string original=FieldSnapshot(skills);int rng=e.State.rngState;
+            if(enemy)
+            {
+                string intent=e.EnemyIntent;
+                Check(c.intentDamage==46&&FieldSnapshot(skills)==original&&e.State.rngState==rng,"enemy forecast applies forty native and six external scheduled damage without mutating its source");
+            }
+            hp=enemy?e.State.hp:c.enemyHp;
+            var saved=new GameEngine((RunState)Clone(e.State));
+            Check(e.BeginEndTurn()&&saved.BeginEndTurn(),"start saturated native/external scheduled-effects turn: enemy="+enemy);
+            if(enemy)Check(e.AdvanceEnemyAction()&&saved.AdvanceEnemyAction(),"complete saturated enemy scheduled-effects turn");
+            Check(hp-(enemy?e.State.hp:c.enemyHp)==46,"actual scheduled damage keeps native forty and all six external damage: enemy="+enemy);
+            Check(e.State.hp==saved.State.hp&&c.enemyHp==saved.State.combat.enemyHp&&e.State.rngState==saved.State.rngState,"saved scheduled enhancements resolve identically after native-budget saturation: enemy="+enemy);
+        }
         var actor=new SkillActorState();CrossCast(actor,"echion_q");CrossCast(actor,"blair_e");CrossCast(actor,"blair_w");CrossCast(actor,"leon_e");
         var copy=SkillMechanics.Clone(actor);string untouched=FieldSnapshot(actor);
         copy.synergy.charges[0].remaining=0;copy.synergy.uses[0].count=9;copy.synergy.generations[0].count=9;copy.synergy.damageUsed=9;copy.synergy.blockUsed=9;copy.synergy.healUsed=9;
-        Check(FieldSnapshot(actor)==untouched&&!ReferenceEquals(copy.synergy,actor.synergy),"preview clones own all cross-family lists, entries, per-turn budgets and counters");
+        Check(FieldSnapshot(actor)==untouched&&!ReferenceEquals(copy.synergy,actor.synergy),"preview clones own all cross-family lists, entries, per-turn totals and counters");
         var malformed=new SkillActorState{synergy=null};var baseline=FieldSnapshot(malformed);
         Check(CrossSubjectSynergies.Bonuses(malformed,GameDatabase.Card("blair_r")).damage==0&&FieldSnapshot(malformed)==baseline,"read-only bonuses tolerate missing legacy synergy state without initializing the live actor");
         foreach(bool partial in new[]{false,true})
@@ -1787,16 +1841,125 @@ public static partial class CoreSmokeTests
 
     private static void LastOwnSkillReplay()
     {
-        var e = Ready(); Enter(e, ZoneKind.Wildlife); var c = e.State.combat;
-        e.State.deck = new List<string> { "sua_q", "sua_w", "sua_e", "sua_r", "aya_q" };
-        c.hand = new List<string> { "sua_q", "aya_q", "sua_r" }; c.drawPile = new List<string> { "sua_w", "sua_e" }; c.discardPile.Clear(); c.exhaustPile.Clear(); c.enemyHp = 999; c.enemyEvasion = 0; c.energy = 99;
-        Check(e.PlayCard(0) && e.PlayCard(0), "last skill records each owner independently");
-        c.energy = e.CardCost("sua_r");
-        Check(e.PlayCard(0) && c.energy == 0 && c.hand.SequenceEqual(new[] { "sua_q" }), "Sua ultimate recalls her most recent own QWE despite an intervening foreign skill");
-        Check(e.EffectiveCardCost("sua_q") == 0 && e.EffectiveCardCost("sua_w") == e.CardCost("sua_w") && e.EffectiveCardCost("sua_e") == e.CardCost("sua_e"), "last skill replay grants exactly one own target rather than all three");
-        Check(e.PlayCard(0) && c.exhaustPile.Contains("sua_r") && PileCount(c) == e.State.deck.Count, "last skill replay consumes a real card copy and ultimate remains exhausted");
-        var loaded = new GameEngine((RunState)Clone(e.State));
-        Check(loaded.State.combat.lastSkills.Any(x => x.owner == "수아" && x.cardId == "sua_q"), "last own skill history survives saved state restoration");
+        var targets = GameDatabase.Card("sua_r").freeCastTargets;
+        Check(targets.OrderBy(id => id).SequenceEqual(GameDatabase.Cards.Where(card => card.category == "skill"
+            && new[] { "Q", "W", "E" }.Contains(card.key)).Select(card => card.id).OrderBy(id => id)),
+            "Sua R's authored targets cover every subject QWE and exclude R, D, F and basic cards");
+        foreach (string target in new[] { "aya_q", "aya_w", "aya_e" })
+        {
+            var e = SuaReplayFixture("sua_q", target, "sua_r"); var c = e.State.combat;
+            Check(e.PlayCard(0) && e.PlayCard(0), "Sua replay records an earlier own skill and a later foreign " + GameDatabase.Card(target).key);
+            e = new GameEngine((RunState)Clone(e.State)); c = e.State.combat;
+            c.energy = e.CardCost("sua_r");
+            Check(e.PlayCard(0) && c.energy == 0 && c.hand.SequenceEqual(new[] { target }),
+                "Sua R recalls the latest foreign QWE after save/load at zero remaining energy: " + target);
+            Check(e.EffectiveCardCost(target) == 0 && e.EffectiveCardCost("sua_q") == e.CardCost("sua_q")
+                && c.freeCasts.Count(grant => grant.uses > 0) == 1,
+                "Sua R grants only its latest foreign target one free use: " + target);
+            Check(e.PlayCard(0) && c.exhaustPile.Contains("sua_r") && PileCount(c) == e.State.deck.Count,
+                "foreign replay consumes its one real copy and keeps Sua R exhausted: " + target);
+            Check(e.EffectiveCardCost(target) == e.CardCost(target), "the foreign replay grant cannot be used twice: " + target);
+        }
+
+        var latest = SuaReplayFixture("sua_q", "aya_q", "sua_q", "sua_r"); var live = latest.State.combat;
+        Check(latest.PlayCard(0) && latest.PlayCard(0) && latest.PlayCard(0), "replay history can return to an owner already recorded earlier");
+        // Earlier saves stored owner entries in first-use order, while this field
+        // already recorded the genuinely latest eligible player skill.
+        live.lastSkills.Reverse();
+        latest = new GameEngine((RunState)Clone(latest.State)); live = latest.State.combat;
+        live.energy = latest.CardCost("sua_r");
+        Check(latest.PlayCard(0) && live.hand.SequenceEqual(new[] { "sua_q" }) && latest.EffectiveCardCost("aya_q") > 0,
+            "the most recent cast wins across owners rather than history insertion order, including after save/load");
+
+        var skipped = SuaReplayFixture("aya_q", "aya_r", "weapon_glove", "tactical_wind", "basic_attack", "basic_guard", "sua_r");
+        live = skipped.State.combat;
+        for (int i = 0; i < 6; ++i) Check(skipped.PlayCard(0), "intervening R, D, F and basic cards can be cast normally");
+        live.energy = skipped.CardCost("sua_r");
+        Check(skipped.PlayCard(0) && live.hand.SequenceEqual(new[] { "aya_q" }) && skipped.EffectiveCardCost("aya_q") == 0,
+            "R, D, F, basic attack and basic guard do not replace the last eligible QWE");
+
+        var empty = SuaReplayFixture("sua_r"); live = empty.State.combat;
+        Check(empty.PlayCard(0) && live.hand.Count == 0 && live.freeCasts.All(grant => grant.uses <= 0)
+            && live.block == empty.PlayerCard("sua_r").block && PileCount(live) == 1,
+            "Sua R without prior QWE grants its own protection but creates no target or free permission");
+
+        var exhausted = SuaReplayFixture("nia_e", "sua_r"); live = exhausted.State.combat;
+        Check(exhausted.PlayCard(0) && live.exhaustPile.Contains("nia_e"), "the latest foreign QWE can be an exhausted skill");
+        int copies = PileCount(live); live.energy = exhausted.CardCost("sua_r");
+        Check(exhausted.PlayCard(0) && live.hand.Count == 0 && live.exhaustPile.Contains("nia_e") && PileCount(live) == copies,
+            "Sua R cannot resurrect or manufacture an exhausted foreign skill copy");
+
+        SuaReplayUpgradedCopy();
+        SuaReplayEnemyPlanning();
+    }
+
+    private static GameEngine SuaReplayFixture(params string[] cards)
+    {
+        var e = MechanicsFixture(); var c = e.State.combat;
+        e.State.deck = cards.ToList(); c.hand = cards.ToList();
+        e.State.hp = e.State.maxHp = c.enemyHp = c.enemyMaxHp = 9999;
+        c.playerSkills = new SkillActorState(); c.playerTraits = new TraitActorState();
+        c.playerStatuses = new StatusActorState(); c.enemyStatuses = new StatusActorState();
+        c.lastSkills.Clear(); c.enemyLastSkills.Clear(); c.lastSkillCard = null; c.energy = 100;
+        return e;
+    }
+
+    private static void SuaReplayUpgradedCopy()
+    {
+        var e = SuaReplayFixture("aya_q", "aya_q", "sua_r"); var c = e.State.combat;
+        string upgraded = CardInstances.CreateReference(e.State, "aya_q");
+        e.State.cardUpgrades.Add(new CardUpgradeSelection { cardId = "aya_q", instanceId = upgraded, branchId = "power" });
+        e.State.deck[0] = upgraded; c.hand = new List<string> { upgraded, "sua_r" }; c.drawPile.Add("aya_q");
+        var original = e.State.deck.OrderBy(id => id).ToArray();
+        Check(e.PlayCard(0) && c.discardPile.Contains(upgraded), "Sua replay fixture casts an individually upgraded foreign skill");
+        e = new GameEngine((RunState)Clone(e.State)); c = e.State.combat; c.energy = e.CardCost("sua_r");
+        Check(e.PlayCard(0) && c.hand.SequenceEqual(new[] { upgraded }) && c.drawPile.SequenceEqual(new[] { "aya_q" })
+            && e.EffectiveCardCost(upgraded) == 0,
+            "Sua R moves the actual upgraded discard copy without substituting its ordinary twin in draw");
+        Check(e.CardUpgradeLevel(upgraded) == 1 && e.PlayerCard(upgraded).damage > GameDatabase.Card("aya_q").damage
+            && e.CardUpgradeLevel("aya_q") == 0 && e.PlayerCard("aya_q").damage == GameDatabase.Card("aya_q").damage,
+            "the recalled card retains its upgrade while the same-type ordinary card stays unchanged");
+        e = new GameEngine((RunState)Clone(e.State)); c = e.State.combat;
+        Check(e.CanPlayCard(0) && e.PlayCard(0) && c.discardPile.Contains(upgraded)
+            && e.EffectiveCardCost(upgraded) == e.CardCost(upgraded),
+            "saving the prepared foreign upgraded replay preserves its single zero-cost use");
+        Check(c.hand.Concat(c.drawPile).Concat(c.discardPile).Concat(c.exhaustPile).OrderBy(id => id).SequenceEqual(original),
+            "foreign upgraded replay preserves the complete physical pile composition");
+    }
+
+    private static void SuaReplayEnemyPlanning()
+    {
+        var e = SuaReplayFixture(); var c = e.State.combat;
+        c.enemyDeck = new List<string> { "aya_q", "sua_r" };
+        c.enemyDrawPile = c.enemyDeck.AsEnumerable().Reverse().ToList();
+        int paid = e.CardCost("aya_q") + e.CardCost("sua_r");
+        c.enemyOpeningEnergy = Math.Max(0, paid - GameEngine.EnergyForLevel(c.enemyLevel));
+        typeof(GameEngine).GetMethod("PlanEnemyTurn", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(e, null);
+        Check(c.enemyPlan.SequenceEqual(new[] { "aya_q", "sua_r", "aya_q" })
+            && c.enemyPlanCosts.SequenceEqual(new[] { e.CardCost("aya_q"), e.CardCost("sua_r"), 0 })
+            && c.enemyPlanFreeCast.SequenceEqual(new[] { false, false, true }),
+            "enemy planner recalls a foreign QWE through Sua R and budgets the replay at zero cost");
+        Check(c.enemyLastSkills.Count == 0 && c.enemyFreeCasts.Count == 0,
+            "planning foreign replay never awards live history or live free uses");
+        string before = FieldSnapshot(new object[] { c.enemyLastSkills, c.enemySkills, c.enemyFreeCasts, c.enemyFreeCastSources,
+            c.enemyDrawPile, c.enemyDiscardPile, c.enemyExhaustPile, c.enemyPlan, c.enemyPlanCosts, c.enemyPlanFreeCast });
+        int rng = e.State.rngState, forecast = c.intentDamage;
+        for (int i = 0; i < 3; ++i) { string intent = e.EnemyIntent; }
+        Check(e.State.rngState == rng && c.intentDamage == forecast && before == FieldSnapshot(new object[] {
+            c.enemyLastSkills, c.enemySkills, c.enemyFreeCasts, c.enemyFreeCastSources,
+            c.enemyDrawPile, c.enemyDiscardPile, c.enemyExhaustPile, c.enemyPlan, c.enemyPlanCosts, c.enemyPlanFreeCast }),
+            "repeated foreign-replay forecasts preserve live history, resources, permissions, piles and RNG");
+        int hp = e.State.hp;
+        Check(e.BeginEndTurn() && e.AdvanceEnemyAction() && e.AdvanceEnemyAction(), "enemy executes the foreign skill then Sua R");
+        var resumed = new GameEngine((RunState)Clone(e.State));
+        Check(e.AdvanceEnemyAction() && resumed.AdvanceEnemyAction()
+            && e.State.hp == resumed.State.hp && e.State.rngState == resumed.State.rngState,
+            "a save after enemy Sua R preserves the pending foreign free replay and its exact outcome");
+        Check(e.CombatActions.Count(action => action.enemy && action.cardId == "aya_q" && string.IsNullOrEmpty(action.kind)) == 2
+            && hp - e.State.hp == forecast && c.enemyAvailableEnergy == Math.Max(0, GameEngine.EnergyForLevel(c.enemyLevel) - paid),
+            "enemy actually executes two foreign Q casts for the forecast damage and only pays for the first plus Sua R");
+        Check(c.enemyDiscardPile.Count(id => id == "aya_q") == 1 && c.enemyExhaustPile.Count(id => id == "sua_r") == 1,
+            "enemy foreign replay conserves its finite cards and leaves its ultimate exhausted");
     }
 
     private static void PacedEnemyActions()
