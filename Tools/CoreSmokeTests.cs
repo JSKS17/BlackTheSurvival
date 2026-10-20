@@ -15,6 +15,12 @@ public static partial class CoreSmokeTests
         try
         {
             if (args.Contains("--balance")) return BalanceSimulation.Run();
+            if (args.Contains("--status-only"))
+            {
+                OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates();
+                Console.WriteLine("PASS: " + checks + " assertions across source status coverage, restrictions, activation timing, forecasts and persistence.");
+                return 0;
+            }
             if (args.Contains("--tactical-only"))
             {
                 TacticalModuleMechanics(); TacticalDisplaySnapshots();
@@ -1858,7 +1864,26 @@ public static partial class CoreSmokeTests
                 int expectedDuration=status.key=="slow" && (card.id=="tactical_quake" || card.id=="tactical_plasma")?2:1;
                 Check(status.duration==expectedDuration && StatusMechanics.Name(status.key)!=status.key,"localized, bounded source status: "+card.id+"/"+status.key);
                 Check(card.description.Contains(StatusMechanics.Name(status.key)),"card detail names actual status: "+card.id+"/"+status.key);
-                if(status.timing!="cast" && status.timing!="next_basic")Check(card.mechanics!=null && card.mechanics.rules.Any(x=>x.key==status.timing && new[]{"delayed_damage","counter","summon","bleed","burn"}.Contains(x.op)),"delayed status has a real source effect: "+card.id+"/"+status.timing);
+                if(status.timing!="cast" && status.timing!="next_basic")
+                {
+                    bool realSource=card.mechanics!=null && card.mechanics.rules.Any(x=>x.key==status.timing && new[]{"delayed_damage","counter","summon","bleed","burn"}.Contains(x.op));
+                    if(card.id=="tactical_impulse")
+                    {
+                        // The defensive dash reserves its own zero-damage pulse instead of
+                        // declaring a damaging installation. Verify that real reservation
+                        // and activation, rather than exempting its knockback from coverage.
+                        var actor=new SkillActorState();var target=new StatusActorState();
+                        SkillMechanics.AfterCard(actor,SkillMechanics.Clone(actor),card,true);
+                        StatusMechanics.Apply(target,new SkillActorState(),card,true);
+                        realSource=actor.effects.Any(x=>x.sourceCard==card.id && x.kind=="tactical_pending" && x.key==status.timing && x.amount==0);
+                        Check(SkillMechanics.Tick(actor).Count==0 && !StatusMechanics.Has(target,status.key),"defensive impulse control waits through the casting turn: "+status.key);
+                        var opening=TacticalSkills.BeginTurn(actor,new StatusActorState());
+                        var pulse=opening.pulses.SingleOrDefault(x=>x.sourceCard==card.id && x.key==status.timing);
+                        Check(pulse!=null && pulse.kind=="tactical_impulse" && pulse.amount==0 && StatusMechanics.Activate(target,card.id,pulse.key) && StatusMechanics.Has(target,status.key),"defensive impulse's actual zero-damage activation applies its reserved control: "+status.key);
+                        Check(TacticalSkills.BeginTurn(actor,new StatusActorState()).pulses.Count==0,"defensive impulse reservation activates exactly once");
+                    }
+                    Check(realSource,"delayed status has a real source effect: "+card.id+"/"+status.timing);
+                }
             }
         }
         Check(GameDatabase.Card("sua_w").statuses.Any(x=>x.key=="blind"),"Sua's bird preserves original blindness");
