@@ -1,0 +1,101 @@
+{
+  "result": "PASS",
+  "startedAtUtc": "2026-10-25T17:34:40.3932455Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "gates": [
+    "Deployment succeeded",
+    "Publication identity matches",
+    "Source PASS",
+    "Live PASS",
+    "Browser PASS",
+    "Canonical release sync PASS",
+    "Verified servers stopped",
+    "CIM process inspection"
+  ],
+  "targets": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build",
+      "bytes": 6226040101,
+      "files": 48670,
+      "kind": "Disposable Unity build project, raw Web127 export and release build log"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteWickeline20261026",
+      "bytes": 734422748,
+      "files": 302,
+      "kind": "Completed official publication checkout and local runtime files"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\WickelineRelease20261026",
+      "bytes": 369283636,
+      "files": 13,
+      "kind": "Owned release package, isolated uploader and completed swap transaction backups"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-wickeline-20261026\\site.tar.gz",
+      "bytes": 26210588,
+      "files": 1,
+      "kind": "Successfully saved deployment archive"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-wickeline-20261026\\bridge.tar.gz",
+      "bytes": 26194924,
+      "files": 1,
+      "kind": "Completed old-game upload transition archive"
+    }
+  ],
+  "absentTargets": [],
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build",
+      "bytes": 6226040101,
+      "files": 48670,
+      "kind": "Disposable Unity build project, raw Web127 export and release build log"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteWickeline20261026",
+      "bytes": 734422748,
+      "files": 302,
+      "kind": "Completed official publication checkout and local runtime files"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\WickelineRelease20261026",
+      "bytes": 369283636,
+      "files": 13,
+      "kind": "Owned release package, isolated uploader and completed swap transaction backups"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-wickeline-20261026\\site.tar.gz",
+      "bytes": 26210588,
+      "files": 1,
+      "kind": "Successfully saved deployment archive"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-wickeline-20261026\\bridge.tar.gz",
+      "bytes": 26194924,
+      "files": 1,
+      "kind": "Completed old-game upload transition archive"
+    }
+  ],
+  "removedBytes": 7382151997,
+  "freeBytesBefore": 11690639360,
+  "unlinkedJunctions": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteWickeline20261026\\node_modules"
+  ],
+  "preserved": [
+    "Assets",
+    "ArtSource",
+    "Packages",
+    "ProjectSettings",
+    "Tools",
+    "docs",
+    "WebSite\\build",
+    "WebSite\\public\\game\\Build",
+    "WebSite\\.sites-runtime",
+    "WebSite\\node_modules"
+  ],
+  "noProcessWasStopped": true,
+  "completedAtUtc": "2026-10-25T17:35:05.8170490Z",
+  "freeBytesAfter": 19151011840,
+  "note": "Removed bytes are logical generated-file sizes; concurrent filesystem activity may change the free-space delta."
+}

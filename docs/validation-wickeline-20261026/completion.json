@@ -1,0 +1,90 @@
+{
+  "result": "PASS",
+  "completedAtUtc": "2026-10-25T17:35:15.022Z",
+  "site": "https://bser-sts.com/",
+  "gameVersion": "1.0.27",
+  "siteVersion": 55,
+  "sourceCommit": "46862e68b80dfcda579905deca700c6da5a1d68c",
+  "deploymentId": "appgdep_6ade399fb7d481919561e259d73956f7",
+  "environmentRevision": 57,
+  "gameBuildId": "00a3d6117a640e6b4da0d5d1",
+  "manifestSha256": "3f089e686f037fb8210499e8e37e868ee28c0f3483fab56335f430cfcbaf699e",
+  "runtimeSourceFiles": 122,
+  "frozenFilesVerified": 138,
+  "frozenTestSourcesVerified": 54,
+  "frozenArtFilesVerified": 13,
+  "changedRuntimeFiles": [
+    "CombatEffects.cs",
+    "CombatInformation.cs",
+    "CombatVisualProfiles.cs",
+    "GameAudio.cs",
+    "GameEngine.cs",
+    "GameEngineWickeline.cs",
+    "LumiaGame.cs",
+    "LumiaLumiUI.cs",
+    "LumiaUltimatePresentation.cs",
+    "LumiaWickelineUI.cs",
+    "LumiaWildlifeUI.cs",
+    "PixelArt.cs",
+    "WickelineMechanics.cs",
+    "WildlifeEngine.cs"
+  ],
+  "tests": {
+    "result": "PASS",
+    "assertions": 255768
+  },
+  "build": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 0
+  },
+  "github": {
+    "url": "https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.27",
+    "sourceCommit": "325c1e397f3cb954b104240e9243d1bb4450bf73",
+    "assets": [
+      {
+        "name": "BlackTheSurvival-v1.0.27-Windows-x64.zip",
+        "bytes": 346120155,
+        "sha256": "548d306d898dc27ad2622f99885ac7f44c959effbac30248807105b7a56a1fb2",
+        "id": 675677695,
+        "url": "https://github.com/JSKS17/BlackTheSurvival/releases/download/v1.0.27/BlackTheSurvival-v1.0.27-Windows-x64.zip"
+      },
+      {
+        "name": "SHA256SUMS-v1.0.27.txt",
+        "bytes": 107,
+        "sha256": "0d3dea831c458b6d27e2131cffe10b0e046dd7123dd111489bedbf21de49d633",
+        "id": 675678684,
+        "url": "https://github.com/JSKS17/BlackTheSurvival/releases/download/v1.0.27/SHA256SUMS-v1.0.27.txt"
+      }
+    ]
+  },
+  "windows": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 1,
+    "sourceCaptureSha256": "7600823f3ea581fc450857ab53bcd9314d50aed9f0bcf642696cb1b31bedbffa"
+  },
+  "browserProof": "browser-validation.json",
+  "physicalHardwareTested": false,
+  "screenshots": [
+    "desktop-map.png",
+    "desktop-guide.png",
+    "desktop-combat.png",
+    "desktop-skill.png",
+    "desktop-gas.png",
+    "desktop-triplet-detail.png",
+    "desktop-victory-campfire.png",
+    "desktop-r-animation.png",
+    "desktop-r-campfire-rewards.png",
+    "mobile-isolation.png",
+    "mobile-guide-top.png",
+    "mobile-guide-scroll.png"
+  ],
+  "liveChecks": 21,
+  "protectedWebFilesVerified": 7,
+  "cleanupTargetsAbsent": 5,
+  "removedTargets": 5,
+  "removedBytes": 7382151997,
+  "freeBytesAfter": 19151011840,
+  "limitation": "Browser verification completed; physical mobile hardware was not tested."
+}

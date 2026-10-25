@@ -1,0 +1,31 @@
+{
+  "result": "PASS",
+  "completedAtUtc": "2026-10-25T17:34:10.6685872Z",
+  "version": "1.0.27",
+  "repository": "JSKS17/BlackTheSurvival",
+  "tag": "v1.0.27",
+  "sourceCommit": "325c1e397f3cb954b104240e9243d1bb4450bf73",
+  "sourceFreezeSha256": "7600823f3ea581fc450857ab53bcd9314d50aed9f0bcf642696cb1b31bedbffa",
+  "windowsManifestSha256": "1f90a294e41d5b135ece809d4ad6ef67d01db4598c15aac6f47939e0a8fa37be",
+  "releaseId": 423554329,
+  "url": "https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.27",
+  "publishedAt": "2026-10-25T17:34:09Z",
+  "assets": [
+    {
+      "name": "BlackTheSurvival-v1.0.27-Windows-x64.zip",
+      "bytes": 346120155,
+      "sha256": "548d306d898dc27ad2622f99885ac7f44c959effbac30248807105b7a56a1fb2",
+      "id": 675677695,
+      "url": "https://github.com/JSKS17/BlackTheSurvival/releases/download/v1.0.27/BlackTheSurvival-v1.0.27-Windows-x64.zip"
+    },
+    {
+      "name": "SHA256SUMS-v1.0.27.txt",
+      "bytes": 107,
+      "sha256": "0d3dea831c458b6d27e2131cffe10b0e046dd7123dd111489bedbf21de49d633",
+      "id": 675678684,
+      "url": "https://github.com/JSKS17/BlackTheSurvival/releases/download/v1.0.27/SHA256SUMS-v1.0.27.txt"
+    }
+  ],
+  "credentialsLogged": false,
+  "gitStateModified": false
+}

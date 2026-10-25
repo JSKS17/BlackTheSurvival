@@ -26,9 +26,12 @@ Root execution status (latest root update, 2026-10-26)
   Final web Site55 deployment Succeeded; 21 live checks PASS, canonical sync
   PASS and actual-game browser QA PASS with physical-hardware limitations.
   Focused source tests:369; full source tests:255768 assertions PASS.
-  Root started Windows via StartBuild -Target Windows at 17:20:48 UTC,
-  PID9208, reusing the frozen shared clone. Windows/GitHub completion is
-  recorded separately after the production build, ZIP validation and upload.
+  Windows production build Succeeded, errors0/warnings1; the warning only
+  concerns omitted Unity Cloud native-symbol upload. ZIP/server digests match.
+  GitHub source/tag v1.0.27 and the Windows ZIP/checksum release are public.
+  The shared clone, raw build and deployment packages have been removed.
+  completion.json and cleanup.json hold the final audit and exact byte counts;
+  cache-trim.json and test-artifact-cleanup.json record earlier generated files.
 
 Root-owned source freeze
   FreezeSources.mjs is a template for root execution after implementation,
