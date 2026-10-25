@@ -1,0 +1,45 @@
+{
+  "result": "PASS",
+  "recordedAtUtc": "2026-10-25T18:01:48.8750949Z",
+  "executionTimestampsRecorded": false,
+  "completedBeforeUtc": "2026-10-25T17:57:27.59Z",
+  "timingNote": "Historical test stdout did not record an execution timestamp. The tests completed before the source freeze; recordedAtUtc is this evidence write time, not a fabricated execution time.",
+  "runtimeSources": 123,
+  "compilation": [
+    {
+      "target": "Normal runtime",
+      "define": "",
+      "exitCode": 0,
+      "toolSessionId": 71134
+    },
+    {
+      "target": "WebGL runtime",
+      "define": "UNITY_WEBGL",
+      "exitCode": 0,
+      "toolSessionId": 71134
+    }
+  ],
+  "compilationStdout": "PASS: final normal + UNITY_WEBGL runtime compilation.",
+  "bridge": {
+    "exitCode": 0,
+    "toolChunkId": "e396f9",
+    "cases": [
+      "Callback receives boolean game state",
+      "Late initialization reads cached latest state",
+      "CustomEvent carries the same state object",
+      "A throwing web callback does not break the Unity bridge"
+    ],
+    "stdout": "PASS: presence WebGL bridge callback, late initialization cache, state events, failure isolation."
+  },
+  "sourceFreezeSha256": "cc1ccc1061b81a3c78a015802045fabd8ee5b6ff029d33dc71fa589123808ae4",
+  "hookSourceSha256": {
+    "Assets/Scripts/Lumia/LumiaGame.cs": "76235399ede7d013932d6a785b36138fd5dbc535d0e7b324c139d8581b65d2a9",
+    "Assets/Scripts/Lumia/LumiaBrowserPresence.cs": "f26cc6c5e71cced14be9ef2a2ef7125e21c5d35d9fbbb9c9102474fcaceb813d",
+    "Assets/Scripts/Lumia/LumiaBrowserPresence.cs.meta": "7ddcbcdc9e8abf1d7ca51f8bee49900c5fa33ad8ae558f52900d8f96e57da457",
+    "Assets/Plugins/WebGL/BrowserPresence.jslib": "44198e18eadbdb2a8b14328a5200a3e317b7dee8f5bab8f8d58dc4a2ddbdeb51",
+    "Assets/Plugins/WebGL/BrowserPresence.jslib.meta": "8f610b46b1535cc4580b84f8736e18f643708021662ffbc629b8a3c274c35e9b"
+  },
+  "sourcesMatchFreeze": true,
+  "temporaryOutputsRemoved": true,
+  "cleanupStdout": "PASS: owned preflight outputs removed."
+}

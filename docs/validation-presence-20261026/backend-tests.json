@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "verifiedAt": "2026-10-25T17:55:46.123Z",
+  "node": "v22.20.0",
+  "tests": 18,
+  "testAssertionsIndividuallyCounted": false,
+  "results": [
+    {
+      "name": "accounts",
+      "startedAt": "2026-10-25T17:55:10.013Z",
+      "endedAt": "2026-10-25T17:55:39.213Z",
+      "exitCode": 0,
+      "tests": 12,
+      "pass": 12,
+      "fail": 0,
+      "log": "backend-accounts.log"
+    },
+    {
+      "name": "presence",
+      "startedAt": "2026-10-25T17:55:39.216Z",
+      "endedAt": "2026-10-25T17:55:46.114Z",
+      "exitCode": 0,
+      "tests": 6,
+      "pass": 6,
+      "fail": 0,
+      "log": "backend-presence.log"
+    }
+  ],
+  "sourceHashes": {
+    "lib/game-presence.mjs": "38d381fa73a61d76c6835cc18f7a58b2b2e10d71334480aa5988b657a9a5a178",
+    "lib/game-accounts.mjs": "17b6d120a49d09a22e69a49406786062110d7e8adba2693fcdd5b077f6a49887",
+    "app/api/presence/route.ts": "9e4e6503f50cdfe1e862e7ea61345df5e17e7d98c14fbb7bf56c79f361b98643",
+    "db/schema.ts": "5e4e29188816402c8dacc817aad2b4488a096ed1d4ebf598d2753df8197901e7",
+    "drizzle/0002_game_presence.sql": "b7706e4be840cc7bce59c10b86e4c71eab93237fd26f12c71cccea9b9d0e89e4",
+    "drizzle/meta/_journal.json": "5d84a4f513fa99592d5bfa8a1f722095e445056c8257562d32e16b18015431bf",
+    "drizzle/meta/0002_snapshot.json": "217d28daefb66e529495aca8554a458935543ba10806516ac1bef99f87b19f8e",
+    "scripts/game-accounts.test.mjs": "37a8d5d59f05e0fcf763c45c208226440cdb8dfe85f65b10b85cab5543eb93b5"
+  },
+  "immutablePriorMigrationHashes": {
+    "drizzle/0000_wide_ser_duncan.sql": "713d00c88e6b07dc4b0ea74910769bee1b9a36e361c2034519fee0795be397f4",
+    "drizzle/0001_display_preferences.sql": "50f88ff2f510d6d9b6317ca5d5462e22f23e4f5c3bb87d5658622cb881e7a660",
+    "drizzle/meta/0000_snapshot.json": "e3b98da6d8179e82a6494414449b11974c9a76de1838f981274598cdd4b37dd7",
+    "drizzle/meta/0001_snapshot.json": "e460c6103a32672f513e8d53867ab6aa411cd904656a63bf17ed972129cf11dd"
+  },
+  "testOnlyClockInjection": true,
+  "productionUsesServerDateNow": true,
+  "realWorkerd": true,
+  "realD1": true
+}

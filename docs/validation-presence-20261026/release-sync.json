@@ -1,0 +1,49 @@
+{
+  "mode": "sync",
+  "result": "PASS",
+  "startedAtUtc": "2026-10-25T18:46:05.386Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "version": "1.0.28",
+  "baselinePublication": {
+    "versionNumber": 55,
+    "commitSha": "46862e68b80dfcda579905deca700c6da5a1d68c"
+  },
+  "productionRequests": false,
+  "steps": {
+    "succeededPublicationAndLivePassVerified": true,
+    "oldCanonicalBaselineVerified": true,
+    "canonicalMatchesPublishedPackage": true,
+    "protectedSourceHashesPreserved": true
+  },
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\PresenceRelease20261026\\transactions\\sync-e2167351-00b6-4d9c-995c-f506b5265487",
+      "bytes": 23149891
+    }
+  ],
+  "sourceHashes": {
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "Temp\\SitePresence20261026\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SitePresence20261026\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da"
+  },
+  "publication": {
+    "versionId": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_df6c74c722f48191b81c51e55640a286",
+    "commitSha": "73b44728095b8aaae3edf8ada1ebe3409ef62ab2",
+    "deploymentId": "appgdep_6ade4da419708191b5a03a83c3a46e8f"
+  },
+  "sourceHashesAfter": {
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "Temp\\SitePresence20261026\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SitePresence20261026\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da"
+  },
+  "installed": {
+    "root": "C:\\Users\\azxar\\BlackTheSurvival\\WebSite",
+    "manifestSha256": "51e5ec5120bc56fd0ff2f0f2719a0410718049c699580f657a3742cd7fee7c4e",
+    "gameTreeSha256": "bd403dbde96161ef3ed5308634e7a5156dfdc21f5e840ff3ff30f3f1381e97dd",
+    "buildId": "e5ed02dac650693ec7fab3b6"
+  },
+  "gitAttributesSha256": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+  "completedAtUtc": "2026-10-25T18:46:06.854Z"
+}

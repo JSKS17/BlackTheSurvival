@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "recordedAtUtc": "2026-10-25T18:41:21.281Z",
+  "origin": "https://bser-sts.com",
+  "exitCode": 0,
+  "assets": 1,
+  "files": 1,
+  "bytes": 320414783,
+  "parts": 20,
+  "dataSha256": "07110621357dffff2270740a91fbccb2b412a1611a1bd85224820fade9af6a18",
+  "uploadClosedEnvRevision": 59
+}

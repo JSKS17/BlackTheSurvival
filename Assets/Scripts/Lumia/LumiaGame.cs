@@ -179,9 +179,11 @@ namespace Lumia
 
         void OnGUI()
         {
+            BeginBrowserPresenceFrame();
             BeginTouchScrollGUI();
-            try { DrawGameUIProfiled(); }
-            finally { EndTouchScrollGUI(); }
+            bool rendered = false;
+            try { DrawGameUIProfiled(); rendered = true; }
+            finally { EndTouchScrollGUI(); EndBrowserPresenceFrame(rendered); }
         }
 
         void DrawGameUI()
@@ -259,6 +261,7 @@ namespace Lumia
             Fill(new Rect(0, 0, W, 5), Mint);
             Txt(new Rect(62, 26, 460, 22), "AGLAIA  /  EXPERIMENT # 00", 14, Mint);
             DrawLobbyLogo(new Rect(54, 50, 432, 190));
+            DrawBrowserPresence();
             Fill(new Rect(64, 236, 62, 3), Mint);
             Txt(new Rect(64, 254, 412, 48), "그녀의 게임 속으로 떨어진 연구원.\n한 장의 카드로, 실험의 끝을 바꾼다.", 16, Muted);
             if (MenuButton(313, "01", "새로운 실험", "노말 · 하드 · 무한 모드 선택")) ShowModeSelection();

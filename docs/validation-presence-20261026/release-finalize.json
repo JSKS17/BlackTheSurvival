@@ -1,0 +1,43 @@
+{
+  "mode": "finalize",
+  "result": "PASS",
+  "startedAtUtc": "2026-10-25T18:41:22.458Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "version": "1.0.28",
+  "baselinePublication": {
+    "versionNumber": 55,
+    "commitSha": "46862e68b80dfcda579905deca700c6da5a1d68c"
+  },
+  "productionRequests": false,
+  "steps": {
+    "isolatedPackageVerified": true,
+    "stageGameAndManifestReplaced": true,
+    "rollbackAvailableDuringSwap": true,
+    "protectedSourceHashesPreserved": true
+  },
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\PresenceRelease20261026\\transactions\\finalize-d000c2f0-ccca-4ac4-b8cf-733aa4e0b900",
+      "bytes": 23153547
+    }
+  ],
+  "sourceHashes": {
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "Temp\\SitePresence20261026\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SitePresence20261026\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da"
+  },
+  "sourceHashesAfter": {
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "Temp\\SitePresence20261026\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SitePresence20261026\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da"
+  },
+  "installed": {
+    "root": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SitePresence20261026",
+    "manifestSha256": "51e5ec5120bc56fd0ff2f0f2719a0410718049c699580f657a3742cd7fee7c4e",
+    "gameTreeSha256": "bd403dbde96161ef3ed5308634e7a5156dfdc21f5e840ff3ff30f3f1381e97dd",
+    "buildId": "e5ed02dac650693ec7fab3b6"
+  },
+  "completedAtUtc": "2026-10-25T18:41:24.108Z"
+}

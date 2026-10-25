@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "assertions": 25,
+  "checks": [
+    "wrong origin, wrong frame, and malformed credential cannot create heartbeats",
+    "only ready authenticated player starts a heartbeat",
+    "server-confirmed count reaches the fullscreen-safe Unity receiver",
+    "leaving the lobby continues counting the active player without another request",
+    "heartbeat does not spam before thirty seconds",
+    "heartbeat repeats after thirty seconds with the same active-tab identifier",
+    "temporary network/server failure clears the count instead of inventing zero",
+    "next successful heartbeat restores an actual count",
+    "logout/host overlay stops heartbeats and sends authenticated best-effort leave",
+    "stopped player has no background timer",
+    "new activation isolates late leave requests with a new tab identifier",
+    "expired session clears count and requests host session validation",
+    "queued Unity state and late Unity instance receive the last confirmed count",
+    "return from a suspended tab hides an expired count before refresh finishes",
+    "offline transition immediately clears count",
+    "online transition refreshes without waiting thirty seconds",
+    "pagehide releases presence",
+    "back-forward cache restore uses a fresh presence identifier",
+    "zero is displayed only when the backend explicitly confirms it",
+    "frozen/failed Unity player releases presence",
+    "in-flight old heartbeat cleanup cannot remove a newly activated session",
+    "standalone local preview never contacts production presence",
+    "host validates iframe origin and source before presence messages",
+    "host enables presence only for a ready game with no host overlay",
+    "presence script loads before the Unity loader without altering fullscreen"
+  ],
+  "source": {
+    "path": "Assets/WebGLTemplates/BlackTheSurvival/TemplateData/presence.js",
+    "sha256": "a2c8cea865f02115b7a405de4d97d49f786e063377171b7622a710fcfe8af7e7"
+  },
+  "checkedAt": "2026-10-25T17:54:50.802Z",
+  "backend": "deterministic mocked API, no production requests",
+  "physicalHardwareTested": false
+}

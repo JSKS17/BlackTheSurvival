@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "recordedAtUtc": "2026-10-25T18:40:44.435Z",
+  "origin": "http://127.0.0.1:8249",
+  "path": "/qa?fixture=research",
+  "environment": "local ephemeral Miniflare D1; isolated QA accounts; no production login",
+  "gameVersion": "1.0.28",
+  "buildId": "e5ed02dac650693ec7fab3b6",
+  "actualBuiltUnityTested": true,
+  "observedCounts": [
+    1,
+    2,
+    1
+  ],
+  "normalHeartbeatWaited": true,
+  "nativeFullscreenTested": true,
+  "settingsOverlayHidesBadge": true,
+  "consoleErrors": [],
+  "physicalHardwareTested": false,
+  "physicalMobileTested": false,
+  "screenshots": [
+    "lobby-one.png",
+    "lobby-two.png",
+    "lobby-one-return.png",
+    "settings-hidden.png",
+    "lobby-fullscreen.png"
+  ]
+}

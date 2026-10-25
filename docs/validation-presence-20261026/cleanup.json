@@ -1,0 +1,101 @@
+{
+  "result": "PASS",
+  "startedAtUtc": "2026-10-25T18:46:43.1436562Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "gates": [
+    "Deployment succeeded",
+    "Publication identity matches",
+    "Source PASS",
+    "Live PASS",
+    "Browser PASS",
+    "Canonical release sync PASS",
+    "Verified servers stopped",
+    "CIM process inspection"
+  ],
+  "targets": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build",
+      "bytes": 6266309670,
+      "files": 44072,
+      "kind": "Disposable Unity build project, raw Web128 export and release build log"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SitePresence20261026",
+      "bytes": 747002162,
+      "files": 330,
+      "kind": "Completed official publication checkout and local runtime files"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\PresenceRelease20261026",
+      "bytes": 23168088,
+      "files": 12,
+      "kind": "Owned release package, isolated uploader and completed swap transaction backups"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-presence-20261026\\site.tar.gz",
+      "bytes": 26205780,
+      "files": 1,
+      "kind": "Successfully saved deployment archive"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-presence-20261026\\bridge.tar.gz",
+      "bytes": 26213795,
+      "files": 1,
+      "kind": "Completed old-game upload transition archive"
+    }
+  ],
+  "absentTargets": [],
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build",
+      "bytes": 6266309670,
+      "files": 44072,
+      "kind": "Disposable Unity build project, raw Web128 export and release build log"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SitePresence20261026",
+      "bytes": 747002162,
+      "files": 330,
+      "kind": "Completed official publication checkout and local runtime files"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\PresenceRelease20261026",
+      "bytes": 23168088,
+      "files": 12,
+      "kind": "Owned release package, isolated uploader and completed swap transaction backups"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-presence-20261026\\site.tar.gz",
+      "bytes": 26205780,
+      "files": 1,
+      "kind": "Successfully saved deployment archive"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-presence-20261026\\bridge.tar.gz",
+      "bytes": 26213795,
+      "files": 1,
+      "kind": "Completed old-game upload transition archive"
+    }
+  ],
+  "removedBytes": 7088899495,
+  "freeBytesBefore": 11628285952,
+  "unlinkedJunctions": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SitePresence20261026\\node_modules"
+  ],
+  "preserved": [
+    "Assets",
+    "ArtSource",
+    "Packages",
+    "ProjectSettings",
+    "Tools",
+    "docs",
+    "WebSite\\build",
+    "WebSite\\public\\game\\Build",
+    "WebSite\\.sites-runtime",
+    "WebSite\\node_modules"
+  ],
+  "noProcessWasStopped": true,
+  "completedAtUtc": "2026-10-25T18:47:13.4943150Z",
+  "freeBytesAfter": 18794651648,
+  "note": "Removed bytes are logical generated-file sizes; concurrent filesystem activity may change the free-space delta."
+}

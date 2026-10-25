@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "startedAt": "2026-10-25T18:05:37.252Z",
+  "endedAt": "2026-10-25T18:05:37.422Z",
+  "actualD1Counts": [
+    0,
+    1,
+    2,
+    1
+  ],
+  "actualBuiltUnityTested": false,
+  "productionRequests": 0,
+  "database": "in-memory real Miniflare D1",
+  "cookieForwarding": "single Set-Cookie, HttpOnly, full Expires preserved",
+  "boundedApiBytes": 1024,
+  "apiGuards": [
+    "authenticated session",
+    "same-origin mutation",
+    "bounded request"
+  ],
+  "qaEmbeddedScriptCompiled": true,
+  "sourceHashes": {
+    "Preview.mjs": "412b37c5f08c47350156127d5804389434c7b27762c594b830fd96f3d7af79a2",
+    "LocalPresenceBackend.mjs": "3b88459d64abcec21ca1315dd298142fea6dd6e4e4d3b948fb6d6ebb53e3d8a5",
+    "LocalPresenceBackend.test.mjs": "cba7f97252cf9d8ba7c77ed6856f20c30cd975ddff7c5fac39def5c2185efa95"
+  }
+}

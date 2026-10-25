@@ -1,0 +1,130 @@
+{
+  "status": "FAIL",
+  "startedAt": "2026-10-25T17:58:46.102Z",
+  "completedAt": "2026-10-25T17:58:48.025Z",
+  "runs": [
+    {
+      "name": "game-session",
+      "command": [
+        "node",
+        "--test",
+        "scripts/game-session.test.mjs"
+      ],
+      "startedAt": "2026-10-25T17:58:46.109Z",
+      "completedAt": "2026-10-25T17:58:48.022Z",
+      "exitCode": 1,
+      "signal": null,
+      "tests": 41,
+      "passed": 34,
+      "failed": 7,
+      "cancelled": 0,
+      "skipped": 0,
+      "log": "host-game-session.log"
+    },
+    {
+      "name": "cloud-sync-client",
+      "command": [
+        "node",
+        "--test",
+        "scripts/cloud-sync-client.test.mjs"
+      ],
+      "startedAt": "2026-10-25T17:58:46.121Z",
+      "completedAt": "2026-10-25T17:58:46.603Z",
+      "exitCode": 0,
+      "signal": null,
+      "tests": 8,
+      "passed": 8,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "log": "host-cloud-sync-client.log"
+    },
+    {
+      "name": "display-preferences-client",
+      "command": [
+        "node",
+        "--test",
+        "scripts/display-preferences-client.test.mjs"
+      ],
+      "startedAt": "2026-10-25T17:58:46.130Z",
+      "completedAt": "2026-10-25T17:58:47.492Z",
+      "exitCode": 0,
+      "signal": null,
+      "tests": 19,
+      "passed": 19,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "log": "host-display-preferences-client.log"
+    },
+    {
+      "name": "game-shell",
+      "command": [
+        "node",
+        "--test",
+        "scripts/game-shell.test.mjs"
+      ],
+      "startedAt": "2026-10-25T17:58:46.141Z",
+      "completedAt": "2026-10-25T17:58:47.783Z",
+      "exitCode": 0,
+      "signal": null,
+      "tests": 13,
+      "passed": 13,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "log": "host-game-shell.log"
+    },
+    {
+      "name": "game-loader",
+      "command": [
+        "node",
+        "--test",
+        "scripts/game-loader.test.mjs"
+      ],
+      "startedAt": "2026-10-25T17:58:46.152Z",
+      "completedAt": "2026-10-25T17:58:46.603Z",
+      "exitCode": 0,
+      "signal": null,
+      "tests": 16,
+      "passed": 16,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "log": "host-game-loader.log"
+    },
+    {
+      "name": "browser-account-bridge",
+      "command": [
+        "node",
+        "--test",
+        "C:\\Users\\azxar\\BlackTheSurvival\\Tools\\BrowserAccountBridgeTests.js"
+      ],
+      "startedAt": "2026-10-25T17:58:46.164Z",
+      "completedAt": "2026-10-25T17:58:47.277Z",
+      "exitCode": 0,
+      "signal": null,
+      "tests": 16,
+      "passed": 16,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "log": "host-browser-account-bridge.log"
+    }
+  ],
+  "passed": 106,
+  "sourceHashes": {
+    "stage/app/page.tsx": "643ee5a6068efc95789682680b2639a8a5b7cbb44ff363cef21dc817a5495bfd",
+    "stage/lib/cloud-sync-client.ts": "c73766a8c2720084e74670c79fa23f2308abdf0a5893d272c1209ad3da73a02d",
+    "stage/lib/display-preferences-client.ts": "ab21074c09fa1fbd4b05a98cd27fbe18dd974ff817e728a008f05ee258c4bcc5",
+    "stage/lib/game-session-state.ts": "480439d8c4b8d0234ea0e15ac43753ea0489d66721a5efdb4505c8c23d904e91",
+    "stage/components/game-shell.tsx": "1ef6a8e02668b5b89e97b4f5efb7633d420e1459872aa874c363cbb4c882d4e1",
+    "stage/public/game/index.html": "ed235fcbd8c5d5cdf94823fcd2e8b9cb082d58a6207c2880b498715a68b2d04c",
+    "Assets/WebGLTemplates/BlackTheSurvival/index.html": "62089b27a51cefc9cc29504c24c12ad5e8a657d430a49637012bbe650f3d27fc",
+    "Assets/WebGLTemplates/BlackTheSurvival/TemplateData/account-bridge.js": "c603c17f3a0627aee26b540843182676a018051f2950f5742471ce8867fe616f",
+    "Assets/WebGLTemplates/BlackTheSurvival/TemplateData/presence.js": "a2c8cea865f02115b7a405de4d97d49f786e063377171b7622a710fcfe8af7e7",
+    "Assets/Plugins/WebGL/BrowserAccount.jslib": "77e976f64b5535f16743bd0ccd53c0d8fd0a8761006bdce40f955769be70b800",
+    "Tools/BrowserAccountBridgeTests.js": "73f8dea1b23f486b5d55657ce147319ba7e3bf9395c4fe92b45cf3928d7657bd"
+  },
+  "scope": "Existing account lifecycle, cloud save, display preference, fullscreen and loading regressions; local Node only."
+}

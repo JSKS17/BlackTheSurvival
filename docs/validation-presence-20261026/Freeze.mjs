@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {readFile,readdir,writeFile,lstat} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const here=path.dirname(fileURLToPath(import.meta.url)),root=path.resolve(here,'../..'),stage=path.join(root,'Temp/SitePresence20261026');
+const sha=x=>createHash('sha256').update(x).digest('hex');
+const hash=async f=>{assert(!(await lstat(f)).isSymbolicLink());return sha(await readFile(f));};
+const product={};
+for(const dir of ['Assets/Scripts/Lumia','Assets/Editor']) for(const name of (await readdir(path.join(root,dir))).sort()) if(/\.cs(?:\.meta)?$/.test(name))product[dir+'/'+name]=await hash(path.join(root,dir,name));
+for(const f of ['ProjectSettings/ProjectSettings.asset','README.md','Assets/Plugins/WebGL/BrowserPresence.jslib','Assets/Plugins/WebGL/BrowserPresence.jslib.meta','Assets/WebGLTemplates/BlackTheSurvival/index.html','Assets/WebGLTemplates/BlackTheSurvival/TemplateData/presence.js','Assets/WebGLTemplates/BlackTheSurvival/TemplateData/presence.js.meta','Assets/WebGLTemplates/BlackTheSurvival/TemplateData/account-bridge.js','Assets/WebGLTemplates/BlackTheSurvival/TemplateData/style.css'])product[f]=await hash(path.join(root,f));
+const web={};
+for(const f of ['lib/game-accounts.mjs','lib/game-presence.mjs','app/page.tsx','app/api/presence/route.ts','db/schema.ts','drizzle/0002_game_presence.sql','drizzle/meta/_journal.json','drizzle/meta/0002_snapshot.json','scripts/game-accounts.test.mjs','.gitattributes','app/game.css','package-lock.json','scripts/package-unity.mjs','scripts/upload-unity.mjs'])web[f]=await hash(path.join(stage,f));
+const old=JSON.parse(await readFile(path.join(root,'docs/validation-wickeline-20261026/source-validation.json'),'utf8'));
+const art={};for(const f of Object.keys(old.artSourceHashes)){art[f]=await hash(path.join(root,f));assert.equal(art[f],old.artSourceHashes[f],'Unchanged Wickeline art: '+f);}
+const backend=JSON.parse(await readFile(path.join(here,'backend-tests.json'),'utf8'));assert.equal(backend.status,'PASS');for(const [f,h]of Object.entries(backend.sourceHashes))assert.equal(web[f],h,f);
+const client=JSON.parse(await readFile(path.join(here,'presence-client-tests.json'),'utf8'));assert.equal(client.result??client.status,'PASS');
+const value={result:'PASS',version:'1.0.28',previousVersion:'1.0.27',frozenAtUtc:new Date().toISOString(),runtimeSources:Object.keys(product).filter(f=>/^Assets\/Scripts\/Lumia\/.*\.cs$/.test(f)).length,product,web,unchangedArt:art,scope:'Online account presence and lobby badge only; gameplay and art unchanged'};
+await writeFile(path.join(here,'source-validation.json'),JSON.stringify(value,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({result:'PASS',runtimeSources:value.runtimeSources,productFiles:Object.keys(product).length,webFiles:Object.keys(web).length,artFiles:Object.keys(art).length,sha256:sha(await readFile(path.join(here,'source-validation.json')))}));

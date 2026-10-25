@@ -1,0 +1,144 @@
+{
+  "status": "PASS",
+  "startedAt": "2026-10-25T18:01:45.701Z",
+  "completedAt": "2026-10-25T18:01:47.765Z",
+  "runs": [
+    {
+      "name": "game-session",
+      "command": [
+        "node",
+        "--test",
+        "scripts/game-session.test.mjs"
+      ],
+      "startedAt": "2026-10-25T18:01:45.704Z",
+      "completedAt": "2026-10-25T18:01:47.763Z",
+      "exitCode": 0,
+      "signal": null,
+      "tests": 43,
+      "passed": 43,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "log": "host-game-session.log"
+    },
+    {
+      "name": "cloud-sync-client",
+      "command": [
+        "node",
+        "--test",
+        "scripts/cloud-sync-client.test.mjs"
+      ],
+      "startedAt": "2026-10-25T18:01:45.716Z",
+      "completedAt": "2026-10-25T18:01:46.444Z",
+      "exitCode": 0,
+      "signal": null,
+      "tests": 8,
+      "passed": 8,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "log": "host-cloud-sync-client.log"
+    },
+    {
+      "name": "display-preferences-client",
+      "command": [
+        "node",
+        "--test",
+        "scripts/display-preferences-client.test.mjs"
+      ],
+      "startedAt": "2026-10-25T18:01:45.727Z",
+      "completedAt": "2026-10-25T18:01:46.828Z",
+      "exitCode": 0,
+      "signal": null,
+      "tests": 19,
+      "passed": 19,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "log": "host-display-preferences-client.log"
+    },
+    {
+      "name": "game-shell",
+      "command": [
+        "node",
+        "--test",
+        "scripts/game-shell.test.mjs"
+      ],
+      "startedAt": "2026-10-25T18:01:45.739Z",
+      "completedAt": "2026-10-25T18:01:47.384Z",
+      "exitCode": 0,
+      "signal": null,
+      "tests": 13,
+      "passed": 13,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "log": "host-game-shell.log"
+    },
+    {
+      "name": "game-loader",
+      "command": [
+        "node",
+        "--test",
+        "scripts/game-loader.test.mjs"
+      ],
+      "startedAt": "2026-10-25T18:01:45.755Z",
+      "completedAt": "2026-10-25T18:01:46.460Z",
+      "exitCode": 0,
+      "signal": null,
+      "tests": 16,
+      "passed": 16,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "log": "host-game-loader.log"
+    },
+    {
+      "name": "browser-account-bridge",
+      "command": [
+        "node",
+        "--test",
+        "C:\\Users\\azxar\\BlackTheSurvival\\Tools\\BrowserAccountBridgeTests.js"
+      ],
+      "startedAt": "2026-10-25T18:01:45.770Z",
+      "completedAt": "2026-10-25T18:01:46.993Z",
+      "exitCode": 0,
+      "signal": null,
+      "tests": 16,
+      "passed": 16,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "log": "host-browser-account-bridge.log"
+    }
+  ],
+  "passed": 115,
+  "sourceHashes": {
+    "stage/app/page.tsx": "643ee5a6068efc95789682680b2639a8a5b7cbb44ff363cef21dc817a5495bfd",
+    "stage/lib/cloud-sync-client.ts": "c73766a8c2720084e74670c79fa23f2308abdf0a5893d272c1209ad3da73a02d",
+    "stage/lib/display-preferences-client.ts": "ab21074c09fa1fbd4b05a98cd27fbe18dd974ff817e728a008f05ee258c4bcc5",
+    "stage/lib/game-session-state.ts": "480439d8c4b8d0234ea0e15ac43753ea0489d66721a5efdb4505c8c23d904e91",
+    "stage/components/game-shell.tsx": "1ef6a8e02668b5b89e97b4f5efb7633d420e1459872aa874c363cbb4c882d4e1",
+    "stage/public/game/index.html": "ed235fcbd8c5d5cdf94823fcd2e8b9cb082d58a6207c2880b498715a68b2d04c",
+    "stage/scripts/game-session.test.mjs": "ba0d13e1873198205a6f70d87d8bb9d5f58925e7a2da418a1fa71fe838b22fb8",
+    "stage/scripts/cloud-sync-client.test.mjs": "22409d26c801ba4d606fdaaba940d7c3e6a222bd871f10a712a0e7386bd5212c",
+    "stage/scripts/display-preferences-client.test.mjs": "dadf7d56d22211987a91ea5f7dccda6583c91fbee35642e8b5de95e51ec81f5d",
+    "stage/scripts/game-shell.test.mjs": "63bc4e5fbf767cf950bc54f63c2c91ce70da192669ec527cc8c242db10317f88",
+    "stage/scripts/game-loader.test.mjs": "17d7116e0219536e73fa99b0509b158af13cfea5f9d71c61b011fdae17531b54",
+    "Assets/WebGLTemplates/BlackTheSurvival/index.html": "62089b27a51cefc9cc29504c24c12ad5e8a657d430a49637012bbe650f3d27fc",
+    "Assets/WebGLTemplates/BlackTheSurvival/TemplateData/account-bridge.js": "c603c17f3a0627aee26b540843182676a018051f2950f5742471ce8867fe616f",
+    "Assets/WebGLTemplates/BlackTheSurvival/TemplateData/presence.js": "a2c8cea865f02115b7a405de4d97d49f786e063377171b7622a710fcfe8af7e7",
+    "Assets/Plugins/WebGL/BrowserAccount.jslib": "77e976f64b5535f16743bd0ccd53c0d8fd0a8761006bdce40f955769be70b800",
+    "Tools/BrowserAccountBridgeTests.js": "73f8dea1b23f486b5d55657ce147319ba7e3bf9395c4fe92b45cf3928d7657bd"
+  },
+  "frozenInputsMatch": true,
+  "frozenInputs": {
+    "stage/app/page.tsx": "643ee5a6068efc95789682680b2639a8a5b7cbb44ff363cef21dc817a5495bfd",
+    "Assets/WebGLTemplates/BlackTheSurvival/index.html": "62089b27a51cefc9cc29504c24c12ad5e8a657d430a49637012bbe650f3d27fc",
+    "Assets/WebGLTemplates/BlackTheSurvival/TemplateData/account-bridge.js": "c603c17f3a0627aee26b540843182676a018051f2950f5742471ce8867fe616f",
+    "Assets/WebGLTemplates/BlackTheSurvival/TemplateData/presence.js": "a2c8cea865f02115b7a405de4d97d49f786e063377171b7622a710fcfe8af7e7"
+  },
+  "sourceValidationSha256": "cc1ccc1061b81a3c78a015802045fabd8ee5b6ff029d33dc71fa589123808ae4",
+  "harnessUpdate": "Dependency-aware multiple React effects and cleanup; presence control messages are recorded separately from account save commands. Original failure evidence is preserved in host-regressions.before-harness-update.json and host-game-session.before-harness-update.log.",
+  "scope": "Existing account lifecycle, cloud save, display preference, fullscreen and loading regressions; local Node only."
+}
