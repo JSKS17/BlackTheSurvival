@@ -13,12 +13,12 @@ namespace Lumia
         readonly Stack<TouchScrollScope> touchScrollScopes = new Stack<TouchScrollScope>();
         readonly Dictionary<TouchScrollAreaKey, string> touchScrollKeys = new Dictionary<TouchScrollAreaKey, string>();
         Vector2 touchGuiOrigin, touchNativePoint;
-        int touchInputFrame = -1, touchNativeCount, touchFinger, touchButtonControl, touchSuppressUntil = -1, touchEndedFrame = -1;
+        int touchInputFrame = -1, touchNativeCount, touchFinger, touchNativeFinger, touchButtonControl, touchSuppressUntil = -1, touchEndedFrame = -1;
         int touchContextLayer, touchContextStage, touchContextWidth, touchContextHeight, touchContextTurn;
         long touchContextFlags;
         string touchContextCard, touchContextTrait, touchContextGear, touchContextBoss, touchContextCraft, touchContextMap;
         GameEngine touchContextEngine;
-        bool touchContextFullscreen, touchWaitForRelease, touchReleaseButton, touchNativeExists;
+        bool touchContextFullscreen, touchWaitForRelease, touchReleaseButton, touchNativeExists, touchNativeTracking;
         TouchPhase touchNativePhase;
         EventType touchRawGuiEvent;
 
@@ -26,6 +26,7 @@ namespace Lumia
         {
             public string identity;
             public TouchScrollBounds visibleBounds;
+            public Vector2 contentOrigin;
         }
         struct TouchScrollAreaKey : IEquatable<TouchScrollAreaKey>
         {
@@ -72,11 +73,12 @@ namespace Lumia
             || inspectGear != touchContextGear || inspectBoss != touchContextBoss || craftPending != touchContextCraft || mapIntel != touchContextMap
             || Screen.width != touchContextWidth || Screen.height != touchContextHeight || Screen.fullScreen != touchContextFullscreen;
 
-        bool BeginNativeTouchScroll(int finger, Vector2 point)
+        bool BeginNativeTouchScroll(int finger, Vector2 point, bool native = false)
         {
             if (BrowserAccountFrozen || touchWaitForRelease) return false;
             if (!touchScrollGesture.Begin(finger, point.x, point.y, touchScrollAreas, TouchTopLayer(), TouchSwipeThreshold)) return false;
-            touchFinger = finger; touchSuppressUntil = -1; touchReleaseButton = false; touchEndedFrame = -1;
+            touchFinger = finger; touchNativeFinger = finger; touchNativeTracking = native;
+            touchSuppressUntil = -1; touchReleaseButton = false; touchEndedFrame = -1;
             RememberTouchContext(); return true;
         }
         void MoveNativeTouchScroll(Vector2 point, bool end)
@@ -94,7 +96,7 @@ namespace Lumia
         {
             if (suppressRelease)
             { touchReleaseButton = true; touchSuppressUntil = Time.frameCount + 1; }
-            touchScrollGesture.Cancel(); touchEndedFrame = Time.frameCount;
+            touchScrollGesture.Cancel(); touchNativeTracking = false; touchEndedFrame = Time.frameCount;
         }
 
         void UpdateTouchScrollInput()
@@ -105,7 +107,7 @@ namespace Lumia
             touchNativeCount = Input.touchCount; touchNativeExists = touchNativeCount == 1;
             if ((touchScrollGesture.IsTracking || touchScrollGesture.IsDragging) && TouchContextChanged()) CancelNativeTouchScroll(true);
             if (touchScrollGesture.IsDragging && !touchScrollGesture.IsTracking && Time.frameCount > touchEndedFrame)
-                touchScrollGesture.Reset();
+            { touchScrollGesture.Reset(); touchNativeTracking = false; }
             if (touchNativeCount > 1)
             {
                 if (touchScrollGesture.IsTracking || touchScrollGesture.IsDragging || touchButtonControl != 0) CancelNativeTouchScroll(true);
@@ -123,16 +125,20 @@ namespace Lumia
             }
             Touch touch = Input.GetTouch(0); touchNativePhase = touch.phase;
             touchNativePoint = new Vector2(touch.position.x, Screen.height - touch.position.y);
+            // Browser GUI events can arrive before legacy Input's touch snapshot.
+            // Adopt that snapshot without changing the gesture's stable pointer ID.
+            if (touchScrollGesture.IsTracking && !touchNativeTracking)
+            { touchNativeTracking = true; touchNativeFinger = touch.fingerId; }
             if (touch.phase == TouchPhase.Canceled)
             { if (touchScrollGesture.IsTracking || touchButtonControl != 0) CancelNativeTouchScroll(true); return; }
             if (touch.phase == TouchPhase.Began)
             {
-                if (!touchScrollGesture.IsTracking) BeginNativeTouchScroll(touch.fingerId, touchNativePoint);
+                if (!touchScrollGesture.IsTracking) BeginNativeTouchScroll(touch.fingerId, touchNativePoint, true);
                 return;
             }
             if (touchScrollGesture.IsTracking)
             {
-                if (touch.fingerId != touchFinger) { CancelNativeTouchScroll(true); return; }
+                if (touch.fingerId != touchNativeFinger) { CancelNativeTouchScroll(true); return; }
             }
 #endif
         }
@@ -149,10 +155,10 @@ namespace Lumia
 #if ENABLE_LEGACY_INPUT_MANAGER
             bool rawTouch = touchRawGuiEvent == EventType.TouchDown || touchRawGuiEvent == EventType.TouchMove || touchRawGuiEvent == EventType.TouchUp;
             bool nativePointer = (Event.current.isMouse || rawTouch) && (touchNativeExists || touchScrollGesture.IsTracking || Event.current.pointerType == PointerType.Touch);
-            if (nativePointer && !touchWaitForRelease && touchNativePhase != TouchPhase.Canceled)
+            if (nativePointer && !touchWaitForRelease && (!touchNativeExists || touchNativePhase != TouchPhase.Canceled))
             {
                 if ((touchRawGuiEvent == EventType.MouseDown || touchRawGuiEvent == EventType.TouchDown) && !touchScrollGesture.IsTracking)
-                    BeginNativeTouchScroll(touchNativeExists ? Input.GetTouch(0).fingerId : touchFinger, eventPoint);
+                    BeginNativeTouchScroll(touchNativeExists ? Input.GetTouch(0).fingerId : touchFinger, eventPoint, touchNativeExists);
                 else if (touchScrollGesture.IsTracking && (touchRawGuiEvent == EventType.MouseDrag || touchRawGuiEvent == EventType.MouseUp
                     || touchRawGuiEvent == EventType.TouchMove || touchRawGuiEvent == EventType.TouchUp))
                     MoveNativeTouchScroll(eventPoint, touchRawGuiEvent == EventType.MouseUp || touchRawGuiEvent == EventType.TouchUp);
@@ -160,7 +166,9 @@ namespace Lumia
             // Process queued native GUI events in their original order first.
             // Polling the latest touch before an older queued Drag would reverse
             // its delta at a clamped edge. Repaint is the safe native fallback.
-            if (touchRawGuiEvent == EventType.Repaint && touchScrollGesture.IsTracking && !touchWaitForRelease)
+            // An event-only Touch pointer has no polled native position or release.
+            // Keep it alive until GUI Up instead of ending it at a stale (0, 0).
+            if (touchRawGuiEvent == EventType.Repaint && touchScrollGesture.IsTracking && touchNativeTracking && !touchWaitForRelease)
             {
                 if (!touchNativeExists) MoveNativeTouchScroll(touchNativePoint, true);
                 else if (touchNativePhase == TouchPhase.Ended) MoveNativeTouchScroll(touchNativePoint, true);
@@ -199,9 +207,13 @@ namespace Lumia
         }
         void ObserveTouchScrollButton(int previousControl, EventType eventType)
         {
-            if (eventType == EventType.MouseDown && touchScrollGesture.IsTracking && !touchScrollGesture.IsDragging
-                && previousControl == 0 && GUIUtility.hotControl != 0) touchButtonControl = GUIUtility.hotControl;
-            if (eventType == EventType.MouseUp && GUIUtility.hotControl == 0) touchButtonControl = 0;
+            // Remember our own button even when GUI Down precedes Input.Began.
+            // Otherwise the next Layout mistakes that card for a foreign control
+            // and cancels its pending swipe before it crosses the threshold.
+            if ((eventType == EventType.MouseDown || eventType == EventType.TouchDown)
+                && previousControl == 0 && GUIUtility.hotControl != 0)
+            { touchButtonControl = GUIUtility.hotControl; touchEndedFrame = -1; }
+            if ((eventType == EventType.MouseUp || eventType == EventType.TouchUp) && GUIUtility.hotControl == 0) touchButtonControl = 0;
         }
 
         Vector2 BeginTouchScrollView(string key, Rect viewport, Vector2 position, Rect viewRect, bool alwaysShowHorizontal = false, bool alwaysShowVertical = false)
@@ -210,6 +222,15 @@ namespace Lumia
             Vector2 p1 = GUIUtility.GUIToScreenPoint(new Vector2(viewport.xMax, viewport.yMax)) - touchGuiOrigin;
             float scaleX = Math.Max(.0001f, (p1.x - p0.x) / Math.Max(.0001f, viewport.width));
             float scaleY = Math.Max(.0001f, (p1.y - p0.y) / Math.Max(.0001f, viewport.height));
+            if (touchScrollScopes.Count > 0)
+            {
+                // Unity applies GUI.matrix to the local point but adds enclosing
+                // clip origins without scaling. Derive nested screen positions
+                // from the parent's rendered content origin instead.
+                Vector2 origin = touchScrollScopes.Peek().contentOrigin;
+                p0 = origin + new Vector2(viewport.x * scaleX, viewport.y * scaleY);
+                p1 = p0 + new Vector2(viewport.width * scaleX, viewport.height * scaleY);
+            }
             var screenRect = new Rect(p0.x, p0.y, Math.Max(0, p1.x - p0.x), Math.Max(0, p1.y - p0.y));
             bool horizontal = alwaysShowHorizontal || viewRect.width > viewport.width;
             bool vertical = alwaysShowVertical || viewRect.height > viewport.height;
@@ -237,7 +258,10 @@ namespace Lumia
             // that state cannot overwrite a finger's authoritative drag position.
             Vector2 correction = native - desired;
             GUI.BeginGroup(new Rect(correction.x, correction.y, Math.Max(viewRect.xMax, viewport.width), Math.Max(viewRect.yMax, viewport.height)));
-            touchScrollScopes.Push(new TouchScrollScope { identity = areaKey, visibleBounds = visible });
+            Vector2 contentOrigin = p0 + new Vector2(
+                (Mathf.Round(-native.x - viewRect.x) + correction.x) * scaleX,
+                (Mathf.Round(-native.y - viewRect.y) + correction.y) * scaleY);
+            touchScrollScopes.Push(new TouchScrollScope { identity = areaKey, visibleBounds = visible, contentOrigin = contentOrigin });
             if (touchRawGuiEvent == EventType.Repaint)
             {
                 int index = touchScrollAreas.Count;

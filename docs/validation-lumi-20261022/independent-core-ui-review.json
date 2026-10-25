@@ -1,0 +1,53 @@
+{
+  "recordedAtUtc": "2026-10-21T16:02:22.508Z",
+  "result": "PASS",
+  "method": "Read-only source/geometry review; no code edits or test execution for this review",
+  "sourceHashes": {
+    "Assets/Scripts/Lumia/GameEngineLumi.cs": "281fc17c217c81b617df607aa2dae54d0b30479d1bc46ee86693b7a06208a40c",
+    "Assets/Scripts/Lumia/GameEngine.cs": "21634b8a3f6310f41b577503b0191a17ab56f864903a7c404f44c3507ac49095",
+    "Assets/Scripts/Lumia/LumiaLumiUI.cs": "4fea254f71b5b86e0299d1f40f5dbe138563ba813865dac55aa8d177f12a5f01",
+    "Assets/Scripts/Lumia/DataModels.cs": "18dde755a77666370dc571ba96075380643f63f7ed9813fd224e20d49c8ab142",
+    "Assets/Editor/LumiReleaseBuild.cs": "9e8df2be24d845d907ec9453bb438a5c9ec7e505e8628baa737dc7803c4d67c6"
+  },
+  "productionFindings": [],
+  "qaFindings": [
+    {
+      "priority": "P2",
+      "file": "Assets/Editor/LumiReleaseBuild.cs",
+      "issue": "Export profile sets data=2000 and leaves totalData=0, violating ResearchStore Parse totalData>=data; profile becomes read-only.",
+      "remedy": "Set totalData=2000 in the disposable profile fixture.",
+      "status": "Resolved by parent and confirmed in saved source"
+    },
+    {
+      "priority": "P2",
+      "file": "Assets/Editor/LumiReleaseBuild.cs",
+      "issue": "Rare fixture uses SendLumiAway then sets stage Encounter; activeNodeId remains -1 and node is completed. OpenLumiShopFromEncounter therefore fails.",
+      "remedy": "Create a valid active unvisited Encounter node for rare fixture before saving.",
+      "status": "Resolved by parent and confirmed in saved source"
+    }
+  ],
+  "checked": [
+    "Exactly three player turns including final poison/ticks",
+    "Player death/revival checked before forced challenge completion",
+    "No regular victory reward or repeated postcombat Lumi roll after challenge",
+    "Empty enemy plan/traits/gear prevents active/passive attacks",
+    "Damage payout uses shared actual-damage path and execution gives no lethal payout",
+    "Saved offer roll, shop stock, sold flags and challenge score persist",
+    "Portable kiosk restores original stage without completing unrelated node",
+    "Portable kiosk disallows pending reward/card/rune/passive choices",
+    "Challenge panel fits above hand boundary at y442",
+    "Product title, description and purchase-button rectangles do not overlap",
+    "Utility items and tactical-module row keep food scroll viewport available",
+    "Refreshed fixture research profile maintains totalData >= data (2000 each)",
+    "Rare Lumi fixture retains an active unvisited Encounter node",
+    "Nia cosmetic fixture enters assigned Nia subject combat from the current available lane",
+    "Rare Lumi shop selects virtual Lumi sprite using preserved chosenEventId",
+    "Final import log exits zero; current build log has no C# compile errors at review time"
+  ],
+  "limits": [
+    "Native font wrapping and pixels remain parent Unity/browser QA.",
+    "Fixture findings reported to parent for repair; this reviewer did not mutate owned parent files."
+  ],
+  "updatedAtUtc": "2026-10-21T16:11:36.0186539Z",
+  "remainingRequiredChanges": []
+}

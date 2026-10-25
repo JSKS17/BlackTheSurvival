@@ -17,6 +17,16 @@ namespace Lumia
         static string Particle(string value) => value.EndsWith("R", StringComparison.Ordinal) || value.EndsWith("F", StringComparison.Ordinal)
             ? value + "을" : CardPresentation.WithParticle(value, "를", "을");
         static string CardKey(string reference) => GameDatabase.Card(reference)?.key ?? reference ?? "기술";
+        static string SkillName(CardDef card, string reference) => SkillReferences.ShortName(reference, card);
+        static string PreviousSkills(CardDef card,IEnumerable<string> references)
+        {
+            var ids=references.Where(reference=>!string.IsNullOrEmpty(reference)).Distinct().ToArray();
+            if(ids.Length==0) return "";
+            var targets=ids.Select(reference=>SkillReferences.Resolve(reference,card)).ToArray();
+            return targets.All(target=>target!=null && target.owner==card.owner)
+                ? card.owner+"의 직전 "+string.Join("·",targets.Select(target=>target.key).Distinct())
+                : card.owner+"의 직전 기술("+SkillReferences.Keys(ids,card)+")";
+        }
         static string Resource(CardDef card, string key) => SkillMechanics.ResourceName(card, key ?? "자원");
 
         // All clauses keep their activation identity. A later hit, an earlier setup hit,
@@ -176,7 +186,7 @@ namespace Lumia
                 bool spend = conditionalTable.Any(r => r.op == "consume");
                 string effect = !spend ? Particle(outcomes) + " 강화합니다" : outcomes.Length == 0 ? "자원을 소모합니다"
                     : outcomes + " 강화·자원 소모를 적용합니다";
-                Add(result, "conditional:table", "조건별로", effect);
+                Add(result, "conditional:table", CompactCondition(card,conditionalTable,true), effect);
             }
             foreach (var modifierGroup in modifiers.Where(r => !conditionalTable.Contains(r)).GroupBy(r => DescriptionSummary.ConditionKey(r)))
             {
@@ -217,7 +227,7 @@ namespace Lumia
             foreach (var group in rules.Where(r => r.op == "discount").GroupBy(r => r.onHit))
             {
                 var selected = group.ToArray();
-                string targets = string.Join("·", selected.Select(r => CardKey(r.targetCard)).Distinct());
+                string targets = SkillReferences.Keys(selected.Select(r => r.targetCard),card);
                 AddCompact(result, card, selected, "다음 " + targets + (targets.EndsWith("R", StringComparison.Ordinal) ? "을" : "를") + " 할인합니다" + (dense ? "" : "(턴당 1회)"), terse: dense);
             }
             foreach (var group in rules.Where(r => r.op == "summon" || r.op == "bleed" || r.op == "burn").GroupBy(r => r.op))
@@ -296,36 +306,41 @@ namespace Lumia
             int d = damage < 0 ? card.damage : damage;
             string attack = Particle("피해 " + d) + " 줍니다. ";
             string free = (card.freeCastNextTurn ? "다음 내 턴" : "이번 턴") + " " + card.freeCastCount + "회 무료 연계";
-            string targets = card.freeCastLastSkill ? "" : string.Join("·", (card.freeCastTargets ?? new string[0]).Select(CardKey));
+            string targets = card.freeCastLastSkill ? "" : SkillReferences.Keys(card.freeCastTargets,card);
             switch (Id(card))
             {
+                case "emma_r":
+                    string magic=PreviousSkills(card,rules.Concat(card.statuses ?? new CardStatusRule[0]).Select(rule=>rule.conditionPrevious));
+                    string control=string.Join("·",(card.statuses ?? new CardStatusRule[0]).Select(rule=>StatusMechanics.Name(rule.key)).Distinct());
+                    string hat=PreviousSkills(card,rules.Where(rule=>rule.op=="clear_effect").Select(rule=>rule.conditionPrevious));
+                    return "공격·회피합니다. "+magic+"와 자원별로 피해·방어 강화·자원 소모를 적용합니다. 조건부 적중 시 "+control+"를 줍니다. 모자가 있고 "+hat+"면 모자 효과를 회수합니다.";
                 case "nia_w":
                     var blocks = rules.FirstOrDefault(r => r.op == "bonus_damage" && r.scaleKey == "blocks");
                     var qDiscount = rules.FirstOrDefault(r => r.op == "discount" && CardKey(r.targetCard) == "Q");
                     var batteryGain = rules.FirstOrDefault(r => r.op == "gain" && r.key == "battery");
                     if (blocks == null || qDiscount == null || batteryGain == null) return "";
-                    return Particle("피해 " + d) + " 주고 블록당 피해 " + blocks.amount + "(최대 " + Math.Min(24, blocks.amount * blocks.cap) + ")를 더하며 모두 소모합니다. Q 코스트를 " + qDiscount.amount + " 줄입니다. 적중 시 배터리를 " + batteryGain.amount + " 쌓고 끌어당김을 주며 블록이 있을 때 둔화합니다.";
+                    return Particle("피해 " + d) + " 주고 블록당 피해 " + blocks.amount + "(최대 " + Math.Min(24, blocks.amount * blocks.cap) + ")를 더하며 모두 소모합니다. "+SkillName(card,qDiscount.targetCard)+" 코스트를 " + qDiscount.amount + " 줄입니다. 적중 시 배터리를 " + batteryGain.amount + " 쌓고 끌어당김을 주며 블록이 있을 때 둔화합니다.";
                 case "nia_r":
                     var battery = rules.FirstOrDefault(r => r.op == "bonus_block" && r.scaleKey == "battery");
                     if (battery == null) return "";
                     int maximum = Math.Min(24, battery.amount * battery.cap);
                     int summons = rules.Where(r => r.op == "summon").Select(r => SkillMechanics.Clamp(r.duration, 1, 3)).DefaultIfEmpty(2).Max();
-                    return "공격·방어하며 배터리 ×" + battery.amount + "(최대 " + maximum + ")의 추가 방어를 얻고 모두 소모합니다. 적중 시 기절시킵니다. 게임월드로 턴 끝에 " + summons + "회 공격합니다. Q를 이번 턴 무료 " + card.freeCastCount + "회 쓰고 소멸합니다.";
+                    return "공격·방어하며 배터리 ×" + battery.amount + "(최대 " + maximum + ")의 추가 방어를 얻고 모두 소모합니다. 적중 시 기절시킵니다. 게임월드로 턴 끝에 " + summons + "회 공격합니다. "+targets+"를 이번 턴 무료 " + card.freeCastCount + "회 쓰고 소멸합니다.";
                 case "cathy_q":
                     int wound = card.freeCastCondition?.conditionAmount ?? 2;
-                    return "공격하며 다음 평타를 강화하고 적중 시 상처·출혈을 줍니다. 상처 " + wound + " 이상에서 적중해 최대면 소모해 중상·강한 출혈을 주며 이번 턴 Q " + card.freeCastCount + "회 무료로 씁니다. 상처·중상에 따라 방어·Q 할인을 얻습니다.";
+                    return "공격하며 다음 평타를 강화하고 적중 시 상처·출혈을 줍니다. 상처 " + wound + " 이상 적중으로 최대면 소모해 중상·강한 출혈을 주며 이번 턴 "+targets+" " + card.freeCastCount + "회 무료입니다. 상처·중상별 방어·"+SkillName(card,"cathy_q")+" 할인을 얻습니다.";
                 case "cathy_w":
-                    return attack + "다음 기본 공격을 강화하며 적중 시 상처·출혈·둔화를 줍니다. 상처 조건을 채워 적중하면 소모해 중상·강한 출혈을 줍니다. 상처·중상에 따라 방어·Q 할인을 얻습니다.";
+                    return attack + "다음 기본 공격을 강화하며 적중 시 상처·출혈·둔화를 줍니다. 상처 조건을 채워 적중하면 소모해 중상·강한 출혈을 줍니다. 상처·중상에 따라 방어·"+SkillName(card,"cathy_q")+" 할인을 얻습니다.";
                 case "garnet_r":
-                    return "공격하며 적중 시 표식·속박·지연 공격을 주고 " + (card.freeCastNextTurn ? "다음 내 턴" : "이번 턴") + " R " + card.freeCastCount + "회 무료 재사용합니다. 표식 무료 재사용은 필중하며 사용 전 체력 " + FreeCastMechanics.GarnetExecutionPercent + "% 이하인 적을 처형합니다. 재사용·실패·턴 종료 시 소멸합니다.";
+                    return "공격하며 적중 시 표식·속박·지연 공격을 주고 " + (card.freeCastNextTurn ? "다음 내 턴" : "이번 턴") + " "+targets+" " + card.freeCastCount + "회 무료 재사용합니다. 표식 무료 재사용은 필중하며 사용 전 체력 " + FreeCastMechanics.GarnetExecutionPercent + "% 이하인 적을 처형합니다. 재사용·실패·턴 종료 시 소멸합니다.";
                 case "shoichi_w":
-                    return "필중 공격하며 회피합니다. 단검·표식에 따라 피해·W 할인을 얻습니다. 단검이 있고 적중하면 모두 소모해 " + free + "하며, 표식도 있으면 E를 할인합니다.";
+                    return "필중 공격하며 회피합니다. 단검·표식에 따라 피해·"+SkillName(card,"shoichi_w")+" 할인을 얻습니다. 단검이 있고 적중하면 모두 소모해 " + targets+" "+free + "하며, 표식도 있으면 "+SkillName(card,"shoichi_e")+"를 할인합니다.";
                 case "isaac_e":
-                    return "공격·회피합니다. 적중 시 착취를 쌓고 기절시키며 경화를 해제합니다. 착취·경화 조건별로 피해·회복·QWE 할인과 소모를 적용합니다. 검거를 준비하며 준비된 E 적중 피해 전에 방어도를 모두 파괴합니다.";
+                    return "공격·회피하며 적중 시 착취·기절을 주고 경화를 풉니다. 착취·경화별 피해·회복·"+SkillReferences.Keys(rules.Where(r=>r.op=="discount").Select(r=>r.targetCard),card)+" 할인·소모가 있습니다. 검거를 준비하며 준비된 "+SkillName(card,"isaac_e")+" 적중 피해 전 방어도를 모두 파괴합니다.";
                 case "elena_w":
                     int cold = rules.Where(r => r.conditionKey == "chill" && r.op == "consume").Select(r => r.conditionAmount).DefaultIfEmpty(2).Min();
-                    string discount = string.Join("·", rules.Where(r => r.op == "discount").Select(r => CardKey(r.targetCard)).Distinct());
-                    return "공격·방어·회피하며 적중 시 냉기를 쌓습니다. 냉기 " + cold + " 이상 적중 시 소모해 빙결시킵니다. 빙결을 맞히면 강화·해제합니다. 빙결 지대에서 " + discount + "를 할인합니다. 적중 시 이번 턴 " + targets + "를 각 " + card.freeCastCount + "회 무료로 씁니다.";
+                    string discount = SkillReferences.Keys(rules.Where(r => r.op == "discount").Select(r => r.targetCard),card);
+                    return "공격·방어·회피합니다. 적중 시 냉기를 쌓고 이번 턴 " + targets + " 각 " + card.freeCastCount + "회 무료입니다. 냉기 " + cold + " 이상 적중 시 소모해 빙결시킵니다. 빙결 적중 시 강화·해제하며 빙결 지대면 " + discount + "를 할인합니다.";
                 case "elena_q":
                     int coldGate = rules.Where(r => r.op == "consume" && r.key == "chill").Select(r => r.conditionAmount).DefaultIfEmpty(2).Min();
                     int icicleDelay = rules.Where(r => r.op == "delayed_damage").Select(r => SkillMechanics.Clamp(r.delay, 1, 3)).DefaultIfEmpty(1).Min();
@@ -333,7 +348,7 @@ namespace Lumia
                 case "garnet_w":
                     var painDiscounts = rules.Where(r => r.op == "discount").ToArray();
                     int painGate = rules.Where(r => r.op == "delayed_damage" && !string.IsNullOrEmpty(r.conditionKey)).Select(r => r.conditionAmount).DefaultIfEmpty(3).Max();
-                    string painTargets = string.Join("·", painDiscounts.Select(r => CardKey(r.targetCard)).Distinct());
+                    string painTargets = SkillReferences.Keys(painDiscounts.Select(r => r.targetCard),card);
                     string painThresholds = string.Join("/", painDiscounts.Select(r => r.conditionAmount).Distinct());
                     return "방어·회복하고 고통을 모두 소모합니다. 소모 전 고통만큼 회복을 강화하며 " + painThresholds + " 이상에서 각각 다음 " + painTargets + "를 할인합니다. 턴 끝 둔화 공격을 설치하고 사용 전 고통 " + painGate + " 이상이면 속박 공격을 더합니다.";
                 case "ceres_q":
@@ -344,7 +359,7 @@ namespace Lumia
                 case "xuelin_e":
                     return "공격하며 회피합니다. 어검·검진에 따라 회수·소모하며 피해·회복을 강화합니다. 적중 시 외출 해제·둔화·지연 낙검을 적용합니다. 외출 어검이 있으면 적중 시 지속 어검도 남깁니다.";
                 case "rozzi_q": case "rozzi_w":
-                    return (Id(card) == "rozzi_w" ? "공격·방어하며 " : "공격·회피하며 ") + "다음 기본 공격을 강화합니다. 폭탄이 있으면 추가 피해·R 할인을 얻습니다. 적중 시 폭탄을 소모·회수하고 "
+                    return (Id(card) == "rozzi_w" ? "공격·방어하며 " : "공격·회피하며 ") + "다음 기본 공격을 강화합니다. 폭탄이 있으면 추가 피해·"+SkillName(card,"rozzi_r")+" 할인을 얻습니다. 적중 시 폭탄을 소모·회수하고 "
                         + (Id(card) == "rozzi_w" ? "치유 감소·방어력 감소를 주며 " : "") + targets + " " + free + "를 얻습니다.";
                 case "arda_w":
                     return "공격하며 정수 조건에 따라 회복·소모합니다. 적중 시 정수·둔화·지연 입방체를 남기고 각성을 해제합니다. 각성 상태에서 적중하면 입방체를 더 설치합니다. 입방체 적중 시 기절시킵니다.";
@@ -357,7 +372,7 @@ namespace Lumia
                 case "vanya_q":
                     return "공격·방어하며 꿈을 쌓고 귀환 나비를 지연 설치합니다. 꿈 조건을 채우면 소모해 방어·지속 나비 공격을 얻습니다. 적중 시 " + targets + " " + free + "를 예약합니다.";
                 case "barbara_r":
-                    return "카드 " + card.draw + "장을 뽑고 Q·W·E를 할인하며 " + free + "합니다. 조건에 따라 지속 소환 공격을 남깁니다. 이 카드 적중 시 둔화·기절을 줍니다. 사용 후 소멸합니다.";
+                    return "카드 " + card.draw + "장을 뽑고 "+SkillReferences.Keys(rules.Where(r=>r.op=="discount").Select(r=>r.targetCard),card)+"를 할인하며 " + targets+" "+free + "합니다. 조건에 따라 지속 소환 공격을 남깁니다. 이 카드 적중 시 둔화·기절을 줍니다. 사용 후 소멸합니다.";
                 case "felix_e":
                     return "공격·회복하며 다음 기본 공격을 강화합니다. 적중 시 자원을 쌓고 조건에 따라 소모해 더 회복합니다. 적중 시 " + targets + " 각각 " + free + "합니다.";
                 default: return "";
@@ -380,19 +395,21 @@ namespace Lumia
         static string CompactCondition(CardDef card, SkillRule[] rules, bool terse)
         {
             if (rules.Length == 0) return "";
+            string previous=PreviousSkills(card,rules.Select(rule=>rule.conditionPrevious));
             if (terse)
             {
                 if (rules.Select(r => DescriptionSummary.ConditionKey(r)).Distinct().Count() > 1)
-                    return "조건별로";
+                    return (previous.Length>0 ? previous+" 등 " : "")+"조건별로";
                 bool eligible = rules.Any(r => !string.IsNullOrEmpty(r.conditionKey) || !string.IsNullOrEmpty(r.conditionKey2) || !string.IsNullOrEmpty(r.conditionPrevious));
                 bool hit = rules.Any(r => r.onHit);
+                if(previous.Length>0) return previous+" 등 조건"+(hit?"·적중":"")+"에 따라";
                 return hit && rules.Any(r => !r.onHit) ? "적중 등 조건에 따라"
                     : eligible ? hit ? "조건부 적중 시" : "조건부로" : hit ? "적중 시" : "";
             }
             if (!terse && rules.Select(r => DescriptionSummary.ConditionKey(r)).Distinct().Count() == 1) return Condition(card, rules[0], rules[0].onHit);
             var conditions = new List<string>();
             if (rules.Any(r => r.onHit)) conditions.Add("적중");
-            if (rules.Any(r => !string.IsNullOrEmpty(r.conditionPrevious))) conditions.Add("직전 기술");
+            if (previous.Length>0) conditions.Add(previous);
             string[] keys = rules.SelectMany(r => new[] { r.conditionKey, r.conditionKey2 }).Where(s => !string.IsNullOrEmpty(s)).Distinct().ToArray();
             if (keys.Any(k => !SkillMechanics.IsState(card, k))) conditions.Add("자원");
             if (keys.Any(k => SkillMechanics.IsState(card, k))) conditions.Add("상태");
@@ -409,7 +426,7 @@ namespace Lumia
         public static string Condition(CardDef card, SkillRule rule, bool onHit, bool eitherResource = false)
         {
             var conditions = new List<string>();
-            if (rule.op == "forge_sword") conditions.Add("이번 E의 파편 수집 직후");
+            if (rule.op == "forge_sword") conditions.Add("이번 "+SkillReferences.ShortName(card)+"의 파편 수집 직후");
             if (!string.IsNullOrEmpty(rule.conditionKey)) conditions.Add(ResourceCondition(card, rule.conditionKey, rule.conditionAmount, rule.conditionExact));
             if (!string.IsNullOrEmpty(rule.conditionKey2)) conditions.Add(ResourceCondition(card, rule.conditionKey2, rule.conditionAmount2, rule.conditionExact2));
             if (eitherResource && conditions.Count == 2)
@@ -417,7 +434,7 @@ namespace Lumia
                 string alternatives = string.Join(" 또는 ", conditions.Select(x => x.EndsWith("이면", StringComparison.Ordinal) ? x.Substring(0, x.Length - 2) : x));
                 conditions = new List<string> { "(" + alternatives + ")이면" };
             }
-            if (!string.IsNullOrEmpty(rule.conditionPrevious)) conditions.Add("직전 " + CardKey(rule.conditionPrevious) + "이면");
+            if (!string.IsNullOrEmpty(rule.conditionPrevious)) conditions.Add(PreviousSkills(card,new[]{rule.conditionPrevious}) + "이면");
             if (onHit) conditions.Add("적중 시");
             return DescriptionSummary.JoinConditions(conditions);
         }
@@ -465,7 +482,7 @@ namespace Lumia
                 case "bonus_damage": return "첫 적중 피해에 " + amount + "을 더합니다";
                 case "bonus_block": return "추가 방어도 " + amount + "을 얻습니다";
                 case "bonus_heal": return "체력을 " + amount + " 추가 회복합니다";
-                case "discount": return "다음 " + CardKey(rule.targetCard) + " 코스트를 " + amount + " 줄입니다(턴당 1회)";
+                case "discount": return "다음 " + SkillName(card,rule.targetCard) + " 코스트를 " + amount + " 줄입니다(턴당 1회)";
                 case "bleed": case "burn": case "summon":
                     return "내 턴 끝마다 " + (rule.op == "bleed" ? "출혈" : rule.op == "burn" ? "화상" : effectLabel)
                         + " 피해 " + amount + "을 " + duration + "회 주는 효과를 남깁니다" + (rule.op == "summon" ? "" : "(방어도 무시)");
@@ -486,10 +503,13 @@ namespace Lumia
         {
             var rule = card.freeCastCondition ?? new SkillRule();
             string condition = Condition(card, rule, card.freeCastOnHit || rule.onHit, card.freeCastEitherResource).Replace("적중했을 때", "적중 시");
-            string targets = card.freeCastLastSkill ? "" : string.Join("·", card.freeCastTargets.Select(CardKey));
+            string targets = card.freeCastLastSkill ? "" : SkillReferences.Keys(card.freeCastTargets,card);
             string effect = card.freeCastLastSkill ? "실험체 구분 없이 마지막 Q·W·E 한 장을 이번 턴에 무료로 " + card.freeCastCount + "회 재사용합니다"
                 : Particle(targets) + " " + (card.freeCastNextTurn ? "다음 내 턴" : "이번 턴") + " 무료 " + (card.freeCastTargets.Length > 1 ? "각 " : "") + card.freeCastCount + "회 씁니다";
-            effect += card.freeCastLastSkill ? "(같은 대상은 턴당 1회)" : "(턴당 1회)";
+            // The named target already keeps the finite use count in the sentence.
+            // Full rules explain the per-source regrant limit; replaying a choice
+            // from any subject additionally needs its per-target limit here.
+            if(card.freeCastLastSkill) effect += "(같은 대상은 턴당 1회)";
             return new ConditionEffect { key = DescriptionSummary.ConditionKey(rule, onHit: card.freeCastOnHit || rule.onHit)
                 + (card.freeCastEitherResource ? "|resource_or" : ""), condition = condition, effect = effect };
         }

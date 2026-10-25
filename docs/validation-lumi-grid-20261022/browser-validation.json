@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-21T18:37:23.218Z",
+  "origin": "http://127.0.0.1:8243",
+  "gameVersion": "1.0.22",
+  "scope": "Disposable loopback-only WebGL account fixtures",
+  "productionAccountWrites": false,
+  "checks": {
+    "webglBuildLoads": true,
+    "normalLumiGridSpriteRendered": true,
+    "virtualLumiGridSpriteRendered": true,
+    "rareShopKeepsVirtualSprite": true,
+    "transparentBackgroundsAndCrispPixelEdges": true
+  },
+  "screenshots": [
+    "lumi-grid-offer.jpg",
+    "lumi-grid-rare.jpg",
+    "lumi-grid-rare-shop.jpg"
+  ],
+  "observations": [
+    "Normal Lumi appears in the post-combat catch-or-release screen with the approved coarse grid.",
+    "Virtual Lumi appears in the rare encounter and stays virtual when opening the special shop.",
+    "All game screens show v1.0.22."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "scope": "PublishGitHubRelease.ps1 parser and static review only",
+  "parser": "PowerShell7 Parser.ParseFile",
+  "scriptExecuted": false,
+  "authenticatedRequestsMadeByHelper": false,
+  "githubMutationsPerformed": false,
+  "gitMutationsPerformed": false,
+  "credentialsReadByHelper": false,
+  "version": "1.0.27",
+  "expectedRepository": "JSKS17/BlackTheSurvival",
+  "expectedAssetNames": ["BlackTheSurvival-v1.0.27-Windows-x64.zip", "SHA256SUMS-v1.0.27.txt"],
+  "requiredWindowsCapture": "windows.sourceCaptureSha256 equals SHA256 of final source-validation.json",
+  "rootWindowsClone": "Build/UnityWebBuild",
+  "rootWebBuildMethod": "Lumia.Editor.WickelineReleaseBuild.Build",
+  "rootWindowsBuildMethod": "Lumia.Editor.LumiaProjectSetup.BuildWindows"
+}

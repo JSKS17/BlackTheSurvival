@@ -5,7 +5,7 @@ namespace Lumia
 {
     public sealed partial class GameEngine
     {
-        public CardDef EnemyActionCard(string id) { return GameDatabase.Card(id) ?? WildlifeMechanics.Card(id); }
+        public CardDef EnemyActionCard(string id) { return GameDatabase.Card(id) ?? WildlifeMechanics.Card(id) ?? WickelineMechanics.Card(id); }
         public bool IsMutantWildlife(MapNode node)
         {
             if(node==null || node.kind!=ZoneKind.Wildlife || node.act<2)return false;

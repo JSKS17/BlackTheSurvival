@@ -41,7 +41,7 @@ namespace Lumia
         readonly Dictionary<GearSlot, CraftingItem[]> bySlot;
         readonly HashSet<string> selectedTags = new HashSet<string>(StringComparer.Ordinal);
         GearSlot previousSlot;
-        string previousQuery;
+        string previousQuery, previousMaterial;
         bool hasFilter;
         CraftingItem[] previousResult = new CraftingItem[0];
 
@@ -60,12 +60,14 @@ namespace Lumia
             bySlot = items.GroupBy(item => item.gear.slot).ToDictionary(group => group.Key, group => group.ToArray());
         }
 
-        public CraftingItem[] Filter(GearSlot slot, string query, IEnumerable<string> tags)
+        public CraftingItem[] Filter(GearSlot slot, string query, IEnumerable<string> tags, string materialId = null)
         {
             query = (query ?? "").Trim();
+            materialId = materialId ?? "";
             tags = tags ?? EmptyTags;
             if (hasFilter && slot == previousSlot
                 && string.Equals(query, previousQuery, StringComparison.OrdinalIgnoreCase)
+                && string.Equals(materialId, previousMaterial, StringComparison.Ordinal)
                 && selectedTags.SetEquals(tags)) return previousResult;
 
             selectedTags.Clear();
@@ -75,12 +77,14 @@ namespace Lumia
             if (bySlot.TryGetValue(slot, out candidates))
             {
                 foreach (var item in candidates)
-                    if (selectedTags.IsSubsetOf(item.tags)
+                    if ((materialId.Length == 0 || item.gear.objectId == materialId)
+                        && selectedTags.IsSubsetOf(item.tags)
                         && (query.Length == 0 || item.searchText.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0))
                         result.Add(item);
             }
             previousSlot = slot;
             previousQuery = query;
+            previousMaterial = materialId;
             previousResult = result.ToArray();
             hasFilter = true;
             return previousResult;

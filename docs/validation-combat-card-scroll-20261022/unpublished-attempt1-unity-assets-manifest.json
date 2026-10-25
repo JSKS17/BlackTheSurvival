@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "ready": true,
+  "buildId": "39d2b2a4f91df8ba79967cdb",
+  "basePath": "/game",
+  "totalBytes": 343514769,
+  "files": {
+    "/game/Build/c2ff33524a5e99814165617d97c0a0f8.framework.js.unityweb": {
+      "size": 90673,
+      "sha256": "9a8ee338bbef4b48660d992a0e012c843062a6e0933615c8e0365d804a6f4671",
+      "contentType": "application/octet-stream",
+      "parts": [
+        {
+          "path": "/game/Build/c2ff33524a5e99814165617d97c0a0f8.framework.js.unityweb",
+          "size": 90673
+        }
+      ]
+    },
+    "/game/Build/d664654552177156e5538ec9ec69b474.wasm.unityweb": {
+      "size": 12923785,
+      "sha256": "ebc1f13a38f2ea698ca9e8b1fc6eed83997ef5d21586e26e9d97c11a204d109c",
+      "contentType": "application/octet-stream",
+      "parts": [
+        {
+          "path": "/game/Build/d664654552177156e5538ec9ec69b474.wasm.unityweb",
+          "size": 12923785
+        }
+      ]
+    },
+    "/game/Build/e8ca3fe72d87ec641a6dc4eee248f813.data.unityweb": {
+      "size": 320394684,
+      "sha256": "1fb6aa381db23efefd3683c344a217026101de524ec452c434d5c126da597dfc",
+      "contentType": "application/octet-stream",
+      "storage": "r2",
+      "objectKey": "unity-assets/1fb6aa381db23efefd3683c344a217026101de524ec452c434d5c126da597dfc",
+      "uploadParts": [
+        {
+          "partNumber": 1,
+          "size": 16777216,
+          "sha256": "0791a473b17531474c762a050ae66f3a54e42398a58efac168f3b6718652b77c"
+        },
+        {
+          "partNumber": 2,
+          "size": 16777216,
+          "sha256": "77b8f11feab87bd59cc127e2fbecb479721dd58a2cef596168a343999e442583"
+        },
+        {
+          "partNumber": 3,
+          "size": 16777216,
+          "sha256": "023e5a14d69776a1030b578ffebe32e2bbac767d73514ce70529f9471d44fe9a"
+        },
+        {
+          "partNumber": 4,
+          "size": 16777216,
+          "sha256": "e6de885815f32324a99c468e475dd7ccbedf7d79d390c831a06cfba631eab099"
+        },
+        {
+          "partNumber": 5,
+          "size": 16777216,
+          "sha256": "80d53b6adefbb43b4908045deca6f84be94a7e3d3ec6952feae0c56662452a95"
+        },
+        {
+          "partNumber": 6,
+          "size": 16777216,
+          "sha256": "a4969be65305459ea51c745a69b512fa26485964ad22e43e9a345961f34952d2"
+        },
+        {
+          "partNumber": 7,
+          "size": 16777216,
+          "sha256": "10c7b813c72d40b5b39164c6e889a76f1a1dfc1fbe6bf39eee5cf629f8f77359"
+        },
+        {
+          "partNumber": 8,
+          "size": 16777216,
+          "sha256": "94a0e3848a39f18f35701a07bb46fbf9078be73963829de62bb9f1cf689769c5"
+        },
+        {
+          "partNumber": 9,
+          "size": 16777216,
+          "sha256": "0e12de5e5b34c6a4e21a1887df7ecf078629497619c82cc161cb138735e34c93"
+        },
+        {
+          "partNumber": 10,
+          "size": 16777216,
+          "sha256": "4b0474baf2238ba0f336708f4742aa8c258e098db0c85d6aa4923a295dcce76e"
+        },
+        {
+          "partNumber": 11,
+          "size": 16777216,
+          "sha256": "f3319a13c7604f445e4b31495fc8fba485751849d79a937ccedc69566e0511a7"
+        },
+        {
+          "partNumber": 12,
+          "size": 16777216,
+          "sha256": "b85de7be18b99c7bbdafa2f6ede95addc91cb433875d05c397945b65417e9ef5"
+        },
+        {
+          "partNumber": 13,
+          "size": 16777216,
+          "sha256": "c618defcaa9168d64e2b53c980a68d6e70324faff6562806ab071ed38700eba6"
+        },
+        {
+          "partNumber": 14,
+          "size": 16777216,
+          "sha256": "9d37217fe5a3c617a5af62b57d6e972eb4ca51c31b8bc0e861746c1264b801d7"
+        },
+        {
+          "partNumber": 15,
+          "size": 16777216,
+          "sha256": "b91cd08a7ad264a0940e3ad63928389e7595871449b7c7f8cd5334aef1313134"
+        },
+        {
+          "partNumber": 16,
+          "size": 16777216,
+          "sha256": "2dbd851544428a031f2f498964711a0ac032d87f1ac22c9afe0804de718acad0"
+        },
+        {
+          "partNumber": 17,
+          "size": 16777216,
+          "sha256": "2d248366ff9d47ffa0b2a01f2202617b99d4ed6b16c79f9878c46e663b003b0d"
+        },
+        {
+          "partNumber": 18,
+          "size": 16777216,
+          "sha256": "f8a74e5c4df7f9775e92c856f28c0c276f70b723d788788062cc7fa3b58aef28"
+        },
+        {
+          "partNumber": 19,
+          "size": 16777216,
+          "sha256": "1fc30c9cd18c1970abd7f9bb5f40d1288b11bbb5a55127c7e2b1c4ab31238214"
+        },
+        {
+          "partNumber": 20,
+          "size": 1627580,
+          "sha256": "aef08bdb992933c3996b9c41e408ef556465ad8743693b381fc882c33f3f9569"
+        }
+      ]
+    },
+    "/game/Build/f9f251f0652d1228dbf5c888753e20f5.loader.js": {
+      "size": 47866,
+      "sha256": "4507f2aeecce18ffeac1c30fb8f903c224ec7834a3f4a9d604d32e7c9561e8bb",
+      "contentType": "application/javascript; charset=utf-8",
+      "parts": [
+        {
+          "path": "/game/Build/f9f251f0652d1228dbf5c888753e20f5.loader.js",
+          "size": 47866
+        }
+      ]
+    },
+    "/game/build-manifest.json": {
+      "size": 5326,
+      "sha256": "f471ca096689010486b8aa1d018345d5f94d9557df825b0d4caca18db584e083",
+      "contentType": "application/json; charset=utf-8",
+      "parts": [
+        {
+          "path": "/game/build-manifest.json",
+          "size": 5326
+        }
+      ]
+    },
+    "/game/index.html": {
+      "size": 10660,
+      "sha256": "7895f0e4db5b6053bdb99930635ff0869a7a20bb3c4cee942af47283c5606d66",
+      "contentType": "text/html; charset=utf-8",
+      "parts": [
+        {
+          "path": "/game/index.html",
+          "size": 10660
+        }
+      ]
+    },
+    "/game/TemplateData/account-bridge.js": {
+      "size": 9470,
+      "sha256": "c603c17f3a0627aee26b540843182676a018051f2950f5742471ce8867fe616f",
+      "contentType": "application/javascript; charset=utf-8",
+      "parts": [
+        {
+          "path": "/game/TemplateData/account-bridge.js",
+          "size": 9470
+        }
+      ]
+    },
+    "/game/TemplateData/favicon.svg": {
+      "size": 33678,
+      "sha256": "45b62bf5f5519b031604a2d1b8d30f180680ff54b8385fd19ead644a601e9469",
+      "contentType": "image/svg+xml",
+      "parts": [
+        {
+          "path": "/game/TemplateData/favicon.svg",
+          "size": 33678
+        }
+      ]
+    },
+    "/game/TemplateData/nia-loading.webp": {
+      "size": 9995378,
+      "sha256": "9abb6f62093aad1045ab34162375ce32207f745178175cacdd1d39adfc4d6faa",
+      "contentType": "image/webp",
+      "parts": [
+        {
+          "path": "/game/_chunks/39d2b2a4f91df8ba79967cdb/9abb6f62093aad1045ab34162375ce32207f745178175cacdd1d39adfc4d6faa/00000.bin",
+          "size": 9995378
+        }
+      ]
+    },
+    "/game/TemplateData/style.css": {
+      "size": 3249,
+      "sha256": "97b8fddbfef9ecd36e93a793080fb1f8ad6c5c042cf50147b3580bbe6b84e44d",
+      "contentType": "text/css; charset=utf-8",
+      "parts": [
+        {
+          "path": "/game/TemplateData/style.css",
+          "size": 3249
+        }
+      ]
+    },
+    "/game/Build/19919064a8058a6e6e330c71c437d5f3.data.unityweb": {
+      "size": 320394255,
+      "sha256": "bc11e488229e7787608cf3ee23c03529faa0d0b5c7cd2292f7ba62e4acf1eb16",
+      "contentType": "application/octet-stream",
+      "storage": "r2",
+      "objectKey": "unity-assets/bc11e488229e7787608cf3ee23c03529faa0d0b5c7cd2292f7ba62e4acf1eb16",
+      "uploadParts": [
+        {
+          "partNumber": 1,
+          "size": 16777216,
+          "sha256": "b73cdf48e99b2d2b64400387169b42b0472f08e92d6be9d81f4fc40734f293b2"
+        },
+        {
+          "partNumber": 2,
+          "size": 16777216,
+          "sha256": "e4543c2741c0dd772a073eeacc07be8670e9a68de581ede3e0f04ca5071d75ce"
+        },
+        {
+          "partNumber": 3,
+          "size": 16777216,
+          "sha256": "1e4aaae181b2ba1872f8e0a571e6d1b7cda47e227bf81e3346d29ce7f667eb28"
+        },
+        {
+          "partNumber": 4,
+          "size": 16777216,
+          "sha256": "65125ee59ace02e91d6862314ce077590aad6909c494319d056a1750dd73ccb4"
+        },
+        {
+          "partNumber": 5,
+          "size": 16777216,
+          "sha256": "6b886df3d81f1eff10583808956da2eff3832f12b56b92fd076c444e0591b70a"
+        },
+        {
+          "partNumber": 6,
+          "size": 16777216,
+          "sha256": "62eb3f7d097635a7269a555fee9f869aa97be428e8ac66b49dbccf661e7dbbc9"
+        },
+        {
+          "partNumber": 7,
+          "size": 16777216,
+          "sha256": "9cd4e8cefd8ad548374364215c7ec5ef601b1e860c6e379f6e433a10c0a86025"
+        },
+        {
+          "partNumber": 8,
+          "size": 16777216,
+          "sha256": "e76518d0eba3deab7c0f9da0a8405c920b4a7876e84604afe99acf847548cbd5"
+        },
+        {
+          "partNumber": 9,
+          "size": 16777216,
+          "sha256": "da937f188d159b88d791131a7be1ad7dad50ed32f346f28f869dbcda389fad6a"
+        },
+        {
+          "partNumber": 10,
+          "size": 16777216,
+          "sha256": "914857ec7dd168b8d4da2a58831812b7b2180354d01493bc2aecdacff8959f3c"
+        },
+        {
+          "partNumber": 11,
+          "size": 16777216,
+          "sha256": "7835d7e3a1700cdc18fbf17873522b7b83903245ff2282a5c26cc4e7f864cd32"
+        },
+        {
+          "partNumber": 12,
+          "size": 16777216,
+          "sha256": "194cf57dc4bdb20bbb2d8c92a6f1b3c150a6ca913467204568768ae32542567d"
+        },
+        {
+          "partNumber": 13,
+          "size": 16777216,
+          "sha256": "7f79e1cc77b587b4c04a337131d72c373d13ff486cfdf7bc60b2328edc76d77a"
+        },
+        {
+          "partNumber": 14,
+          "size": 16777216,
+          "sha256": "f00b547439559d84425f9cc5574a7e4d4c99cae09282c70f70311dfe8491bf60"
+        },
+        {
+          "partNumber": 15,
+          "size": 16777216,
+          "sha256": "5b0673afb49687968ccb5d95da8d151f2b072325ccc14f61c979a9867e1890ec"
+        },
+        {
+          "partNumber": 16,
+          "size": 16777216,
+          "sha256": "5a2c64a5c737e675930398018242f66e9590d9b1f15a6441f87e83de43fda3e0"
+        },
+        {
+          "partNumber": 17,
+          "size": 16777216,
+          "sha256": "803325f858c55bf6be28777982ae69ac8a666f930d417b14fe66e29c325bb239"
+        },
+        {
+          "partNumber": 18,
+          "size": 16777216,
+          "sha256": "e61f8257f8054cb39538f8a45a5e2a463169e24c8c6710f8312b9e74a924a9e3"
+        },
+        {
+          "partNumber": 19,
+          "size": 16777216,
+          "sha256": "70d71d94b3d9487d1c3fd759d6865bfa0075ab4b22af09a1ed1da4fdff34625b"
+        },
+        {
+          "partNumber": 20,
+          "size": 1627151,
+          "sha256": "eec47fdb9d1ffe252dc78dbcb6b298a24fdfa378e88f84bb2c201af093e63815"
+        }
+      ]
+    }
+  },
+  "buildFiles": {
+    "loaderUrl": "/game/Build/f9f251f0652d1228dbf5c888753e20f5.loader.js",
+    "dataUrl": "/game/Build/e8ca3fe72d87ec641a6dc4eee248f813.data.unityweb",
+    "frameworkUrl": "/game/Build/c2ff33524a5e99814165617d97c0a0f8.framework.js.unityweb",
+    "codeUrl": "/game/Build/d664654552177156e5538ec9ec69b474.wasm.unityweb"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "result": "PASS",
+  "startedAtUtc": "2026-10-21T18:43:34.1810824Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "gates": [
+    "Deployment succeeded",
+    "Publication identity matches",
+    "Asset PASS",
+    "Live PASS",
+    "Browser PASS",
+    "Canonical release sync PASS",
+    "Verified servers stopped",
+    "CIM process inspection"
+  ],
+  "targets": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build",
+      "bytes": 6265002541,
+      "files": 44044,
+      "kind": "Disposable Unity build project, raw Web122 export and release build log"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteLumiGrid20261022",
+      "bytes": 684649565,
+      "files": 302,
+      "kind": "Completed official publication checkout and local runtime files"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiGridRelease20261022",
+      "bytes": 23142648,
+      "files": 11,
+      "kind": "Owned release package, isolated uploader and completed swap transaction backups"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-lumi-grid-20261022\\site.tar.gz",
+      "bytes": 26189362,
+      "files": 1,
+      "kind": "Successfully saved deployment archive"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-lumi-grid-20261022\\bridge.tar.gz",
+      "bytes": 26190456,
+      "files": 1,
+      "kind": "Completed old-game upload transition archive"
+    }
+  ],
+  "absentTargets": [],
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build",
+      "bytes": 6265002541,
+      "files": 44044,
+      "kind": "Disposable Unity build project, raw Web122 export and release build log"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteLumiGrid20261022",
+      "bytes": 684649565,
+      "files": 302,
+      "kind": "Completed official publication checkout and local runtime files"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiGridRelease20261022",
+      "bytes": 23142648,
+      "files": 11,
+      "kind": "Owned release package, isolated uploader and completed swap transaction backups"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-lumi-grid-20261022\\site.tar.gz",
+      "bytes": 26189362,
+      "files": 1,
+      "kind": "Successfully saved deployment archive"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-lumi-grid-20261022\\bridge.tar.gz",
+      "bytes": 26190456,
+      "files": 1,
+      "kind": "Completed old-game upload transition archive"
+    }
+  ],
+  "removedBytes": 7025174572,
+  "freeBytesBefore": 16787648512,
+  "unlinkedJunctions": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteLumiGrid20261022\\node_modules"
+  ],
+  "preserved": [
+    "Assets",
+    "ArtSource",
+    "Packages",
+    "ProjectSettings",
+    "Tools",
+    "docs",
+    "WebSite\\build",
+    "WebSite\\public\\game\\Build",
+    "WebSite\\.sites-runtime",
+    "WebSite\\node_modules"
+  ],
+  "noProcessWasStopped": true,
+  "completedAtUtc": "2026-10-21T18:44:02.6277546Z",
+  "freeBytesAfter": 23881035776,
+  "note": "Removed bytes are logical generated-file sizes; concurrent filesystem activity may change the free-space delta."
+}

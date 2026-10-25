@@ -1,0 +1,40 @@
+{
+  "package": {
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "checkout_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SitePlayerFeedback20261023",
+    "commit_sha": "c209652ecb9e937177db015c7eb14a7f696be5aa",
+    "archive": "C:/Users/azxar/BlackTheSurvival/docs/validation-player-feedback-20261023/bridge.tar.gz"
+  },
+  "saved": {
+    "id": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_9302e3321d608191ad1d45fb2cefe028",
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "version_number": 50,
+    "source": {
+      "commit_sha": "c209652ecb9e937177db015c7eb14a7f696be5aa"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000da9882099cd1a3a32495891a",
+      "content_hash": "sha256:8ef74ca3a4fac4cda80212aa993c3cf56ef12f4fccff4b01338fde98c619f4ab",
+      "size_bytes": 28282880,
+      "file_count": 88
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6ada6bc35ba881919a16e3a3e1a4226e",
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "title": "Black The Survival — Web Test",
+    "version_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_9302e3321d608191ad1d45fb2cefe028",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://black-the-survival-web-test.fun-chub-8874.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ad077cf90708191a3e75367b4b3b78c",
+    "failure_message": null,
+    "env_set_revision": 52,
+    "updated_at": "2026-10-22T20:02:31.432604+00:00"
+  }
+}

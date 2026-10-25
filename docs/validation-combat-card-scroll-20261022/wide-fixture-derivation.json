@@ -1,0 +1,37 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-22T03:13:21.077Z",
+  "scope": "Docs-only optional wide-hand QA fixture",
+  "productionChanges": false,
+  "source": "fixtures/nia-rare-combat.json",
+  "sourceSha256": "1bcbc5e94648d83a288170d9336a262dca02813ad009426bc01485ef3dd1de66",
+  "originalFixturePreserved": true,
+  "target": "fixtures/combat-touch-wide.json",
+  "targetSha256": "f4da4519ee86790e52d0854343afb0a7e744a503cae43176804a321462b6771b",
+  "normalHand": [
+    "basic_attack",
+    "basic_guard",
+    "luke_e",
+    "basic_attack",
+    "basic_guard"
+  ],
+  "normalHandCount": 5,
+  "wideHandCount": 15,
+  "handRepeated": 3,
+  "deckCount": 15,
+  "energy": 5,
+  "enemyHp": 48,
+  "changedFields": [
+    "deck",
+    "combat.hand",
+    "combat.drawPile"
+  ],
+  "clearedPiles": [
+    "drawPile",
+    "discardPile",
+    "exhaustPile"
+  ],
+  "allCardsExistInOriginalDeck": true,
+  "deckCountsMatchCombatPiles": true,
+  "baselineModeOmitsNewFixture": true
+}

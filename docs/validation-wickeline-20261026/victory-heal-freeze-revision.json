@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "changedAtUtc": "2026-10-25T16:35:20.016Z",
+  "oldFreezeSha256": "69876b297d3d1961281f03191866f831e4f4fb7269b9b9a42ba51bfedf126154",
+  "newFreezeSha256": "a45f237192701824488f6fab0e63055ab04d3e6ea6947734fe50f40c7838057a",
+  "changed": [
+    {
+      "path": "Assets/Scripts/Lumia/GameEngineWickeline.cs",
+      "oldSha256": "ea228ee7d8b83af04535c8c8212d23b6a7db72a7c7fa5c315b4bdf35e76bfdab",
+      "newSha256": "88b040a9b349393488f5f51480b89dd1f2a4e2ecaf55b2d3cb433cff8ba9f341"
+    },
+    {
+      "path": "Tools/WickelineSmokeTests.cs",
+      "oldSha256": "72a44872cf197dcb20995b3095a5dcc08d961efc404372e1c5599983400f2c1e",
+      "newSha256": "81358a71f90d4bf3bcef06c4422262382995dd0095bf326bfa1f546ee45e4f70"
+    }
+  ],
+  "initialBuildMustBeRebuilt": true
+}

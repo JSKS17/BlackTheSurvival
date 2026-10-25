@@ -31,3 +31,5 @@ __pycache__/
 
 Tools/.runtime/
 WebSite/
+docs/validation-*/site.tar.gz
+docs/validation-*/bridge.tar.gz

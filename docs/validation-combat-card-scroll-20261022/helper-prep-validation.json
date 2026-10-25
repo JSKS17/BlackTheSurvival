@@ -1,0 +1,61 @@
+{
+  "productSourceChanged": false,
+  "releaseCommandsExecuted": false,
+  "release": "Temp/CombatCardScrollRelease20261022",
+  "checkedAtUtc": "2026-10-22T02:27:31.0775461Z",
+  "syntaxChecks": [
+    {
+      "validation": "node --check",
+      "file": "PrepareRelease.mjs",
+      "result": "PASS"
+    },
+    {
+      "validation": "node --check",
+      "file": "VerifyBridge.mjs",
+      "result": "PASS"
+    },
+    {
+      "validation": "node --check",
+      "file": "VerifyLive.mjs",
+      "result": "PASS"
+    },
+    {
+      "validation": "node --check",
+      "file": "Preview.mjs",
+      "result": "PASS"
+    },
+    {
+      "validation": "PowerShell Parser.ParseFile",
+      "file": "Cleanup.ps1",
+      "result": "PASS"
+    },
+    {
+      "validation": "PowerShell Parser.ParseFile",
+      "file": "CreateHelpers.ps1",
+      "result": "PASS"
+    }
+  ],
+  "build": "Build/Web124",
+  "baselineEnvironmentRevision": 49,
+  "baselineHashes": {
+    "WebSite/lib/unity-assets-manifest.json": "3555cdf0a36169907fffca5dbd7b8f6befdf796fffe49d95eca4ef3abbbe1c13",
+    "WebSite/package-lock.json": "e224d3aa65e17c80c62fbfb9c38b871a4d675608ea7ce1373a979ff27990fd96",
+    "WebSite/app/page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite/scripts/upload-unity.mjs": "2d75155c56ac8fde907ebcefda16af24e1aad2d18bf2b81182b14aabac740d11",
+    "WebSite/scripts/package-unity.mjs": "31417f232e8262c05597a95a9124af42cf38fee06879420ae293d1861b27754a",
+    "WebSite/.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite/lib/game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite/app/game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da"
+  },
+  "previewPort": 8245,
+  "result": "PASS",
+  "baselineSiteVersion": 47,
+  "baselineGameVersion": "1.0.23",
+  "productionRequests": false,
+  "serverStarted": false,
+  "stage": "Temp/SiteCombatCardScroll20261022",
+  "scope": "Release helper preparation and syntax only",
+  "gameVersion": "1.0.24",
+  "helperGenerationExecuted": true,
+  "baselineSourceCommit": "16d05d61ab7099b7692216e97e8de82798d47fa2"
+}

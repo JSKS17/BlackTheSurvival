@@ -1,0 +1,76 @@
+{
+  "result": "PASS",
+  "generator": "builtin image_gen",
+  "prompt": "prompts.json",
+  "finalRefinementPrompt": "refinement-prompt.json",
+  "raw": "generated/wickeline.png",
+  "rawSha256": "318903919c7d2145f5c718b52ac33c09cb3e8c35578c63bb721cc61e7fb4444a",
+  "alphaCropBox": [
+    239,
+    214,
+    1098,
+    1133
+  ],
+  "alphaBoundingThreshold": 128,
+  "logicalGrid": [
+    80,
+    80
+  ],
+  "subjectFits": [
+    72,
+    72
+  ],
+  "resizedSize": [
+    67,
+    72
+  ],
+  "anchor": "x=(80-w)//2,y=76-h",
+  "faceCropLogical": [
+    17,
+    4,
+    61,
+    48
+  ],
+  "processing": "Alpha-bounds crop ignoring near-invisible generator haze, nearest-neighbour sampling preserving sampled RGBA, transparent framing, exact 2x enlargement, face crop only; no recoloring or painting.",
+  "assets": [
+    {
+      "path": "Assets/Resources/Lumia/Portraits/wickeline.png",
+      "sha256": "f7997bdbdde0a0d343ecfe5b699e60984bc96ea9e00631b48aaeb23abeaa6be6",
+      "size": [
+        160,
+        160
+      ],
+      "matching2xBlocks": true,
+      "transparent": true,
+      "metaSha256": "3b32551073ad5b390998d2a7effb41ae2d64801230d8ab3995f5476368889294"
+    },
+    {
+      "path": "Assets/Resources/Lumia/SystemIcons/wickeline.png",
+      "sha256": "a1e59cc9e8aaa92b6891ff56da24544ebc378030fd726c9352345b4f5c6dbb98",
+      "size": [
+        96,
+        96
+      ],
+      "matching2xBlocks": true,
+      "transparent": true,
+      "metaSha256": "b559f71e8f9a3b554d19f5098d0dcf97dd61fd7b59349f96b9b08ca544c82449"
+    }
+  ],
+  "sources": [
+    {
+      "role": "official character concept",
+      "page": "https://store.steampowered.com/news/posts/?appids=1049590&enddate=1575619255",
+      "image": "https://clan.akamai.steamstatic.com/images/34875433/c8f9adedba055b7d81058373871823c5c68c6388.png",
+      "local": "references/official-concept.png"
+    },
+    {
+      "role": "official model",
+      "image": "https://clan.akamai.steamstatic.com/images/34875433/db3a650519a6f449ec76f9e129aaf91d754599ed.png",
+      "local": "references/official-model.png"
+    },
+    {
+      "role": "existing game pixel style",
+      "local": "../../Assets/Resources/Lumia/Portraits/nia.png"
+    }
+  ]
+}

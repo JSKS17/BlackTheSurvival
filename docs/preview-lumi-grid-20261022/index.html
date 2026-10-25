@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>루미 · 80픽셀 격자 미리보기</title>
+<style>@font-face{font-family:Galmuri;src:url('/font.ttf')}*{box-sizing:border-box}body{margin:0;background:#09121d;color:#e1e9ef;font:13px Galmuri,monospace}.bar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:10px 18px;min-height:52px}button{font:inherit;padding:7px 12px;border:1px solid #405c70;background:#142638;color:#daeaed;cursor:pointer}button[aria-pressed=true]{border-color:#73ddcb;color:#9be5d6}#status{color:#94b3bf;margin-left:5px}canvas#preview{display:block;width:100%;max-width:1280px;height:auto;margin:0 auto;image-rendering:pixelated}.help{font-size:12px;color:#93a8ba;padding:12px 22px;max-width:1280px;margin:auto}</style>
+<div class="bar"><button id="compare" aria-pressed="true">기존 실험체와 비교</button><button id="before" aria-pressed="false">격자 적용 전후</button><a id="download" download="lumi-grid-comparison.png">미리보기 PNG 원본</a><a id="normal-file" download="lumi-grid80.png">루미 160px PNG</a><a id="virtual-file" download="virtual-lumi-grid80.png">버추얼 루미 160px PNG</a><span id="status" role="status">불러오는 중</span></div>
+<canvas id="preview" width="1280" height="720" aria-label="같은 80픽셀 논리 격자로 비교한 니아·재키·루미·버추얼 루미"></canvas>
+<p class="help">기존 제작 스크립트와 같은 처리: 원본 알파 영역 자르기 → 72px 안에 최근접 축소 → 80×80 투명 격자 → 정확한 2배 확대. 웹 배포 전 미리보기입니다.</p>
+<script type="module" src="/grid.js"></script></html>

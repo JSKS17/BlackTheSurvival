@@ -1,0 +1,37 @@
+{
+  "result": "PASS",
+  "scope": "Read-only local Git state and public GitHub release metadata; no authentication secret read or mutation",
+  "repository": "JSKS17/BlackTheSurvival",
+  "remote": "https://github.com/JSKS17/BlackTheSurvival.git",
+  "localBranch": "main",
+  "localHead": "282d76f0b43c61c5f6efe58dde32bc68f1059b22",
+  "observedTrackedModifications": 56,
+  "observedUntrackedPorcelainEntries": 37,
+  "ghExecutableFound": false,
+  "ghAuthStatus": "Not queried: gh was unavailable on PATH and checked standard install paths",
+  "remoteTagReadSucceeded": true,
+  "latestObservedVersionTag": "v1.0.20",
+  "v1_0_27TagObserved": false,
+  "publicApiReleaseReadSucceeded": true,
+  "latestRelease": {
+    "tag": "v1.0.20",
+    "title": "Black The Survival v1.0.20",
+    "sourceCommit": "282d76f0b43c61c5f6efe58dde32bc68f1059b22",
+    "publishedAt": "2026-10-20T07:48:09Z",
+    "draft": false,
+    "prerelease": false,
+    "url": "https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.20",
+    "assets": [
+      {"name":"BlackTheSurvival-v1.0.20-Windows-x64.zip","bytes":343683714,"sha256":"059d5c3c51262058d7dd73142a5dae900d6b63dc6b1fcedfa7e17c59f258a8ef"},
+      {"name":"SHA256SUMS-v1.0.20.txt","bytes":107,"sha256":"3884b855d7c095dfb3d6047fa367eed941f2ae52614910160598022e6687277d"}
+    ]
+  },
+  "readmeLatestWindowsLink": "v1.0.18",
+  "gitignore": ["Build/","Builds/","Temp/","Library/","WebSite/",".env and private keys"],
+  "rootPublicationDecision": "Root will preserve dirty state, verify the entire final frozen project, commit/push current main without reset if remote has not advanced, then publish v1.0.27 and complete Windows ZIP plus SHA asset. Agent performs no mutation.",
+  "authenticatedWriteCapabilityTested": false,
+  "gitStateModified": false,
+  "githubStateModified": false,
+  "credentialsLogged": false,
+  "notes": "Sites source commit and Unity repository commit belong to different checkouts; compare the shared frozen content proof rather than equating those commit IDs. Root README currently understates the latest Windows release. Root owns README and all Git mutations."
+}

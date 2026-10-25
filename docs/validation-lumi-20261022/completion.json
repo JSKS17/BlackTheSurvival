@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "completedAtUtc": "2026-10-21T17:17:29.4538098Z",
+  "url": "https://bser-sts.com/",
+  "gameVersion": "1.0.21",
+  "siteVersion": 43,
+  "sourceCommit": "ff3e49457e1ed53b96f730f828eaa97b3b26ab7f",
+  "gameBuildId": "304f20f71128fc570ae0da17",
+  "manifestSha256": "11bdf60a20a2b2ca1424f2badaed7ea400f638b5c103bdc7fc3fc04add37507a",
+  "fullAssertions": 252846,
+  "focusedAssertions": 16126,
+  "publicChecks": 21,
+  "browser": "PASS",
+  "generatedSprites": 4,
+  "generator": "builtin image_gen",
+  "prompts": "ArtSource/Lumi20261022/prompts.json",
+  "removedBytes": 7165050867,
+  "freeBytesAfter": 23440982016
+}

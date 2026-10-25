@@ -23,6 +23,7 @@ namespace Lumia
 
         void DrawCraftDescription(Rect rect, CraftingItem item, int size, Color color)
         {
+            size = UIFontSize(size);
             CraftDescriptionLayout layout;
             if (!craftingLayouts.TryGetValue(item.gear.id, out layout))
             {

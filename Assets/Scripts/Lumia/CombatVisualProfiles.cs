@@ -94,6 +94,13 @@ namespace Lumia
         {
             switch (id)
             {
+                case "wickeline_tracking": token = "sigil"; primary = "B7DB79"; accent = "E8F7B8"; break;
+                case "wickeline_gas": token = "poison"; primary = "9DD36B"; accent = "E4F5A6"; break;
+                case "wickeline_triplet": token = "thrust"; primary = "B7DB79"; accent = "F1F5C7"; break;
+                case "wickeline_control": token = "chain"; primary = "B7DB79"; accent = "D7ED9A"; break;
+                case "wickeline_isolation": token = "sigil"; primary = "87BB68"; accent = "DDF1AF"; break;
+                case "wickeline_release": token = "poison"; primary = "9DD36B"; accent = "E4F5A6"; break;
+                case "wickeline_collapse": token = "earth"; primary = "ADC96C"; accent = "ECF1B7"; break;
                 case "basic_attack": token = "slash"; primary = "F0D3A0"; accent = "FFF6D9"; break;
                 case "basic_guard": token = "shield:none"; primary = "83CDBA"; accent = "D9F9E8"; break;
                 case "weapon_glove": token = "earth"; primary = "F1B77C"; accent = "FFF0C8"; break;

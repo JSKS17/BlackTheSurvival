@@ -1,0 +1,404 @@
+[
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=1 cancel suppress=True tracking=False dragging=False owner= axis=None scroll=0,0 native=0/Began/False hot=0 ownButton=0 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:04:08.057Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3173 gui raw=mouseDown type=mouseDown pointer=Mouse eventPoint=(136.00, 201.00) mouse=(136.00, 201.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=0/Began/False hot=0 ownButton=0 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:01.562Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3173 gui down candidates areas=2 screen=632,355\n",
+    "timestamp": "2026-10-22T04:05:01.566Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3173 area touch-scroll-0 bounds=396.3681,272.6597,184.8958,28.5972 enabled=True layer=0 depth=1 max=0,42.84 pos=0,0 ppu=0.4930556,0.4930551\n",
+    "timestamp": "2026-10-22T04:05:01.566Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3173 area touch-scroll-1 bounds=148.8542,335.7708,463.4722,15.77777 enabled=True layer=0 depth=1 max=0,28.01 pos=0,0 ppu=0.4930556,0.4930553\n",
+    "timestamp": "2026-10-22T04:05:01.566Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3173 button captured event=mouseDown previous=0 tracking=False dragging=False owner= axis=None scroll=0,0 native=0/Began/False hot=2 ownButton=2 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:01.567Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3173 scope touch-scroll-0 semantic=body viewport=(x:803.00, y:553.00, width:388.00, height:58.00) screen=(x:396.37, y:272.66, width:191.31, height:28.60) visible=396.3681,272.6597,184.8958,28.5972 enabled=True max=0,42.84 desiredBefore=(0.00, 0.00) ppu=0.4930556,0.4930551 guiToScreenP0=(396.37, 272.66) matrixP0=(396.37, 272.66, 0.00) matrix=0.4930556,0.4930556,0.444458,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=0/Began/False hot=2 ownButton=2 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:01.567Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3173 scope touch-scroll-1 semantic=body viewport=(x:301.00, y:681.00, width:953.00, height:32.00) screen=(x:148.85, y:335.77, width:469.88, height:15.78) visible=148.8542,335.7708,463.4722,15.77777 enabled=True max=0,28.01 desiredBefore=(0.00, 0.00) ppu=0.4930556,0.4930553 guiToScreenP0=(148.85, 335.77) matrixP0=(148.85, 335.77, 0.00) matrix=0.4930556,0.4930556,0.444458,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=0/Began/False hot=2 ownButton=2 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:01.567Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3174 gui raw=mouseUp type=mouseUp pointer=Mouse eventPoint=(136.00, 201.00) mouse=(136.00, 201.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=0/Began/False hot=2 ownButton=2 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:01.574Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3200 cancel suppress=True tracking=False dragging=False owner= axis=None scroll=0,0 native=0/Began/False hot=0 ownButton=0 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.461Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 input finger=0 phase=Began raw=(57.00, 32.00) screen=(57.00, 323.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=0 ownButton=0 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.523Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 begin request finger=0 point=(57.00, 323.00) native=True tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=0 ownButton=0 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.529Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 begin candidates areas=5 screen=632,355\n",
+    "timestamp": "2026-10-22T04:05:02.529Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-2 bounds=224.2917,86.77778,176.5139,12.32639 enabled=True layer=0 depth=1 max=0,22.51 pos=0,0 ppu=0.4930556,0.4930554\n",
+    "timestamp": "2026-10-22T04:05:02.531Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-3 bounds=12.27779,225.8194,495.0278,129.1806 enabled=True layer=0 depth=1 max=0,0 pos=0,0 ppu=0.4930556,0.4930556\n",
+    "timestamp": "2026-10-22T04:05:02.532Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-4 bounds=29.86807,511.25,75.4375,0 enabled=True layer=0 depth=2 max=0,125.17 pos=0,0 ppu=0.4930556,0.4930554\n",
+    "timestamp": "2026-10-22T04:05:02.532Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-5 bounds=225.1181,511.25,75.4375,0 enabled=True layer=0 depth=2 max=0,358.51 pos=0,0 ppu=0.4930556,0.4930554\n",
+    "timestamp": "2026-10-22T04:05:02.532Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-6 bounds=322.7431,511.25,75.4375,0 enabled=True layer=0 depth=2 max=0,125.17 pos=0,0 ppu=0.4930556,0.4930554\n",
+    "timestamp": "2026-10-22T04:05:02.533Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 begin rejected no candidate\n",
+    "timestamp": "2026-10-22T04:05:02.533Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 gui raw=mouseDown type=mouseDown pointer=Mouse eventPoint=(57.00, 323.00) mouse=(57.00, 323.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=0 ownButton=0 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.533Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 gui down candidates areas=5 screen=632,355\n",
+    "timestamp": "2026-10-22T04:05:02.543Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-2 bounds=224.2917,86.77778,176.5139,12.32639 enabled=True layer=0 depth=1 max=0,22.51 pos=0,0 ppu=0.4930556,0.4930554\n",
+    "timestamp": "2026-10-22T04:05:02.543Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-3 bounds=12.27779,225.8194,495.0278,129.1806 enabled=True layer=0 depth=1 max=0,0 pos=0,0 ppu=0.4930556,0.4930556\n",
+    "timestamp": "2026-10-22T04:05:02.543Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-4 bounds=29.86807,511.25,75.4375,0 enabled=True layer=0 depth=2 max=0,125.17 pos=0,0 ppu=0.4930556,0.4930554\n",
+    "timestamp": "2026-10-22T04:05:02.543Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-5 bounds=225.1181,511.25,75.4375,0 enabled=True layer=0 depth=2 max=0,358.51 pos=0,0 ppu=0.4930556,0.4930554\n",
+    "timestamp": "2026-10-22T04:05:02.543Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-6 bounds=322.7431,511.25,75.4375,0 enabled=True layer=0 depth=2 max=0,125.17 pos=0,0 ppu=0.4930556,0.4930554\n",
+    "timestamp": "2026-10-22T04:05:02.544Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 begin request finger=0 point=(57.00, 323.00) native=True tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=0 ownButton=0 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.544Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 begin candidates areas=5 screen=632,355\n",
+    "timestamp": "2026-10-22T04:05:02.544Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-2 bounds=224.2917,86.77778,176.5139,12.32639 enabled=True layer=0 depth=1 max=0,22.51 pos=0,0 ppu=0.4930556,0.4930554\n",
+    "timestamp": "2026-10-22T04:05:02.544Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-3 bounds=12.27779,225.8194,495.0278,129.1806 enabled=True layer=0 depth=1 max=0,0 pos=0,0 ppu=0.4930556,0.4930556\n",
+    "timestamp": "2026-10-22T04:05:02.544Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-4 bounds=29.86807,511.25,75.4375,0 enabled=True layer=0 depth=2 max=0,125.17 pos=0,0 ppu=0.4930556,0.4930554\n",
+    "timestamp": "2026-10-22T04:05:02.544Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-5 bounds=225.1181,511.25,75.4375,0 enabled=True layer=0 depth=2 max=0,358.51 pos=0,0 ppu=0.4930556,0.4930554\n",
+    "timestamp": "2026-10-22T04:05:02.544Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 area touch-scroll-6 bounds=322.7431,511.25,75.4375,0 enabled=True layer=0 depth=2 max=0,125.17 pos=0,0 ppu=0.4930556,0.4930554\n",
+    "timestamp": "2026-10-22T04:05:02.544Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 begin rejected no candidate\n",
+    "timestamp": "2026-10-22T04:05:02.544Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 scope touch-scroll-2 semantic=body viewport=(x:454.00, y:176.00, width:371.00, height:25.00) screen=(x:224.29, y:86.78, width:182.92, height:12.33) visible=224.2917,86.77778,176.5139,12.32639 enabled=True max=0,22.51 desiredBefore=(0.00, 0.00) ppu=0.4930556,0.4930554 guiToScreenP0=(224.29, 86.78) matrixP0=(224.29, 86.78, 0.00) matrix=0.4930556,0.4930556,0.444458,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=0 ownButton=0 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.545Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 scope touch-scroll-3 semantic=combat-hand viewport=(x:24.00, y:458.00, width:1004.00, height:262.00) screen=(x:12.28, y:225.82, width:495.03, height:129.18) visible=12.27779,225.8194,495.0278,129.1806 enabled=True max=0,0 desiredBefore=(0.00, 0.00) ppu=0.4930556,0.4930556 guiToScreenP0=(12.28, 225.82) matrixP0=(12.28, 225.82, 0.00) matrix=0.4930556,0.4930556,0.444458,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=0 ownButton=0 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.545Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 scope touch-scroll-4 semantic=body viewport=(x:11.00, y:108.00, width:166.00, height:109.00) screen=(x:29.87, y:511.25, width:81.85, height:53.74) visible=29.86807,511.25,75.4375,0 enabled=True max=0,125.17 desiredBefore=(0.00, 0.00) ppu=0.4930556,0.4930554 guiToScreenP0=(29.87, 511.25) matrixP0=(5.87, 53.25, 0.00) matrix=0.4930556,0.4930556,0.444458,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=0 ownButton=0 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.545Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 button captured event=mouseDown previous=0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.545Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 scope touch-scroll-5 semantic=body viewport=(x:407.00, y:108.00, width:166.00, height:109.00) screen=(x:225.12, y:511.25, width:81.85, height:53.74) visible=225.1181,511.25,75.4375,0 enabled=True max=0,358.51 desiredBefore=(0.00, 0.00) ppu=0.4930556,0.4930554 guiToScreenP0=(225.12, 511.25) matrixP0=(201.12, 53.25, 0.00) matrix=0.4930556,0.4930556,0.444458,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.545Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3204 scope touch-scroll-6 semantic=body viewport=(x:605.00, y:108.00, width:166.00, height:109.00) screen=(x:322.74, y:511.25, width:81.85, height:53.74) visible=322.7431,511.25,75.4375,0 enabled=True max=0,125.17 desiredBefore=(0.00, 0.00) ppu=0.4930556,0.4930554 guiToScreenP0=(322.74, 511.25) matrixP0=(298.74, 53.25, 0.00) matrix=0.4930556,0.4930556,0.444458,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.545Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3207 input finger=0 phase=Moved raw=(57.00, 35.00) screen=(57.00, 320.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.588Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3207 gui raw=mouseDrag type=mouseDrag pointer=Mouse eventPoint=(57.00, 320.00) mouse=(57.00, 320.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.593Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3209 input finger=0 phase=Moved raw=(57.00, 38.00) screen=(57.00, 317.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.629Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3209 gui raw=mouseDrag type=mouseDrag pointer=Mouse eventPoint=(57.00, 317.00) mouse=(57.00, 317.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.633Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3211 input finger=0 phase=Moved raw=(57.00, 41.00) screen=(57.00, 314.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.658Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3211 gui raw=mouseDrag type=mouseDrag pointer=Mouse eventPoint=(57.00, 314.00) mouse=(57.00, 314.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.662Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3213 input finger=0 phase=Moved raw=(57.00, 44.00) screen=(57.00, 311.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.696Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3213 gui raw=mouseDrag type=mouseDrag pointer=Mouse eventPoint=(57.00, 311.00) mouse=(57.00, 311.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.696Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3215 input finger=0 phase=Moved raw=(57.00, 47.00) screen=(57.00, 308.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.728Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3215 gui raw=mouseDrag type=mouseDrag pointer=Mouse eventPoint=(57.00, 308.00) mouse=(57.00, 308.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.730Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3217 input finger=0 phase=Moved raw=(57.00, 51.00) screen=(57.00, 304.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.755Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3217 gui raw=mouseDrag type=mouseDrag pointer=Mouse eventPoint=(57.00, 304.00) mouse=(57.00, 304.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.758Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3219 input finger=0 phase=Moved raw=(57.00, 54.00) screen=(57.00, 301.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.788Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3219 gui raw=mouseDrag type=mouseDrag pointer=Mouse eventPoint=(57.00, 301.00) mouse=(57.00, 301.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.792Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3221 input finger=0 phase=Moved raw=(57.00, 57.00) screen=(57.00, 298.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.822Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3221 gui raw=mouseDrag type=mouseDrag pointer=Mouse eventPoint=(57.00, 298.00) mouse=(57.00, 298.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.825Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3223 input finger=0 phase=Moved raw=(57.00, 60.00) screen=(57.00, 295.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.855Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3223 gui raw=mouseDrag type=mouseDrag pointer=Mouse eventPoint=(57.00, 295.00) mouse=(57.00, 295.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.858Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3225 input finger=0 phase=Moved raw=(57.00, 63.00) screen=(57.00, 292.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.888Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3225 gui raw=mouseDrag type=mouseDrag pointer=Mouse eventPoint=(57.00, 292.00) mouse=(57.00, 292.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.892Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3227 input finger=0 phase=Moved raw=(57.00, 66.00) screen=(57.00, 289.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.922Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3227 gui raw=mouseDrag type=mouseDrag pointer=Mouse eventPoint=(57.00, 289.00) mouse=(57.00, 289.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.925Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3229 input finger=0 phase=Moved raw=(57.00, 70.00) screen=(57.00, 285.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.955Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3229 gui raw=mouseDrag type=mouseDrag pointer=Mouse eventPoint=(57.00, 285.00) mouse=(57.00, 285.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Moved/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.958Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3231 input finger=0 phase=Ended raw=(57.00, 70.00) screen=(57.00, 285.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Ended/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:02.986Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3232 gui raw=mouseUp type=mouseUp pointer=Mouse eventPoint=(57.00, 285.00) mouse=(57.00, 285.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=0/Ended/False hot=44 ownButton=44 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:03.007Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  },
+  {
+    "level": "log",
+    "message": "BTS_TOUCH f=3232 gui raw=mouseUp type=Ignore pointer=Mouse eventPoint=(340282300000000000000000000000000000000.00, 340282300000000000000000000000000000000.00) mouse=(340282300000000000000000000000000000000.00, 340282300000000000000000000000000000000.00) origin=(0.00, 0.00) previousMatrix=1,1,0,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=0/Ended/False hot=0 ownButton=0 layer=0/0 wait=False\n",
+    "timestamp": "2026-10-22T04:05:03.036Z",
+    "url": "blob:http://127.0.0.1:8245/ca96d987-9275-436a-a3ec-21932d4fde16"
+  }
+]

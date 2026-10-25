@@ -1,0 +1,12 @@
+{
+  "runtimeSourceFiles": 119,
+  "checkedAtUtc": "2026-10-21T19:30:38.7602179Z",
+  "gameVersion": "1.0.23",
+  "mobilePluginLinkInputs": [
+    "Build/UnityWebBuild/Library/Bee\\Playerd09a2ebc.dag.json",
+    "Build/UnityWebBuild/Library/Bee\\Playerd09a2ebc-inputdata.json",
+    "Build/UnityWebBuild/Library/Bee\\artifacts\\rsp\\8995565923215908413.rsp"
+  ],
+  "result": "PASS",
+  "mobilePluginMatches": true
+}

@@ -12,6 +12,8 @@ namespace Lumia
         public string assignedOpponent, assignedAnimal;
         public bool mutantAnimal;
         public int wildlifeVariantVersion;
+        public bool wickeline, wickelineDefeated;
+        public int wickelineVersion;
     }
 
     [Serializable] public class FreeCastGrant
@@ -50,6 +52,8 @@ namespace Lumia
 
     [Serializable] public class CombatState
     {
+        public bool lumi;
+        public int lumiDamage, lumiCredits;
         public string enemyName, enemyId, animal, lastSkillCard;
         public bool mutantAnimal;
         public int enemyLevel, enemyHp, enemyMaxHp, enemyBlock, enemyEnergy;
@@ -65,6 +69,7 @@ namespace Lumia
         public string retainedCardId;
         public int retainVersion = 1;
         public BossBattleState boss;
+        public WickelineBattleState wickeline;
         public string enemyWeaponClass, enemyWeaponCardId, enemyTacticalCardId, enemyPassiveId;
         public List<string> enemyGear = new List<string>();
         public List<DeferredDamage> playerDeferredDamage = new List<DeferredDamage>(), enemyDeferredDamage = new List<DeferredDamage>();
@@ -93,6 +98,7 @@ namespace Lumia
 
     [Serializable] public class RewardState
     {
+        public bool lumiRolled, lumiAppears;
         public int xp, credits, cardBudget;
         public string objectId, foodId;
         public bool boss, cardsCommitted;
@@ -133,6 +139,11 @@ namespace Lumia
         public int cardInstanceVersion, nextCardInstanceId = 1;
         public List<CardUpgradeSelection> cardUpgrades = new List<CardUpgradeSelection>();
         public int tacticalModules;
+        public int telescopicCameras, portableKiosks;
+        public bool portableKioskActive;
+        public RunStage portableKioskReturnStage;
+        public string lumiShopObjectId;
+        public List<string> lumiShopPurchases = new List<string>();
         public List<string> tacticalCardUpgrades = new List<string>();
         public List<int> scoutedActs = new List<int>(), hyperloopActs = new List<int>(), revealedNodeIds = new List<int>();
         public List<PendingEncounterFollowup> pendingEncounterFollowups = new List<PendingEncounterFollowup>();
@@ -297,7 +308,8 @@ namespace Lumia
             if (State.level < 1 || State.level > 20 || State.map == null || State.deck == null) throw new ArgumentException("손상된 저장 데이터입니다.");
             State.nextMapNodeId = Math.Max(State.nextMapNodeId, State.map.Concat(State.archivedMapNodes).Select(n => n.id).DefaultIfEmpty(-1).Max() + 1);
             // Old saves never stayed at the campfire after resting, so an absent budget remains zero.
-            State.campRemovalsRemaining = State.stage == RunStage.Campfire && State.campChoice == 1
+            State.campRemovalsRemaining = (State.stage == RunStage.Campfire
+                || State.stage == RunStage.Kiosk && State.portableKioskActive && State.portableKioskReturnStage == RunStage.Campfire) && State.campChoice == 1
                 ? Math.Max(0, Math.Min(2, State.campRemovalsRemaining)) : 0;
             if (State.defeatedBosses == null) State.defeatedBosses = new List<string>();
             if (State.energyGrowthVersion == 0)
@@ -309,6 +321,7 @@ namespace Lumia
             }
             RefreshMapProximity();
             EnsureWildlifeAssignments();
+            EnsureWickelineAssignments();
             State.mapRows = State.map.Count > 0 ? State.map.Max(n => n.row) + 1 : RowsPerAct;
             EnsureBossAssignments();
             if (State.version == 1)
@@ -368,9 +381,9 @@ namespace Lumia
                 FreeCastMechanics.SanitizePending(c.pendingFreeCasts);
                 FreeCastMechanics.SanitizePending(c.enemyPendingFreeCasts);
                 if (c.enemyPlanCosts == null) c.enemyPlanCosts = new List<int>();
-                if (c.enemyPlanCosts.Count != c.enemyPlan.Count) c.enemyPlanCosts = c.enemyPlan.Select(id => WildlifeMechanics.IsAnimalSkill(id) ? 0 : CardCost(id)).ToList();
+                if (c.enemyPlanCosts.Count != c.enemyPlan.Count) c.enemyPlanCosts = c.enemyPlan.Select(id => WildlifeMechanics.IsAnimalSkill(id) || WickelineMechanics.IsAction(id) ? 0 : CardCost(id)).ToList();
                 if (c.enemyPlanFreeCast == null || c.enemyPlanFreeCast.Count != c.enemyPlan.Count)
-                    c.enemyPlanFreeCast = c.enemyPlan.Select((id, i) => !WildlifeMechanics.IsAnimalSkill(id) && c.enemyPlanCosts[i] == 0 && CardCost(id) > 0).ToList();
+                    c.enemyPlanFreeCast = c.enemyPlan.Select((id, i) => !WildlifeMechanics.IsAnimalSkill(id) && !WickelineMechanics.IsAction(id) && c.enemyPlanCosts[i] == 0 && CardCost(id) > 0).ToList();
                 c.playerSkills = SkillMechanics.Ensure(c.playerSkills); c.enemySkills = SkillMechanics.Ensure(c.enemySkills);
                 EnsureAdvancedCombat();
                 c.playerTraits=TraitMechanics.Ensure(c.playerTraits);c.enemyTraits=TraitMechanics.Ensure(c.enemyTraits);
@@ -407,6 +420,8 @@ namespace Lumia
             NormalizeTacticalModules();
             NormalizeWeaponGrantReferences();
             NormalizeRareEncounters();
+            NormalizeLumi();
+            NormalizeWickeline();
             // Equipment grants synchronize between nodes; instance migration preserves existing piles.
             EnsureEndlessAugments();
             if(State.stage!=RunStage.Combat)SyncWeaponCards();
@@ -479,7 +494,7 @@ namespace Lumia
             if (State.stage != RunStage.Preparation) return false;
             ResearchProgression.EnsureRun(State);
             State.research.unlockedReports = (subjectIds ?? Enumerable.Empty<string>())
-                .Where(id => GameDatabase.Character(id) != null).Distinct().ToList();
+                .Where(id => id == "lumi" || GameDatabase.Character(id) != null).Distinct().ToList();
             return true;
         }
 
@@ -581,6 +596,7 @@ namespace Lumia
                 case ZoneKind.Boss: StartBattle(false, true); break;
                 case ZoneKind.Kiosk: State.stage = RunStage.Kiosk; Say("키오스크에 도착했습니다. 크레딧으로 오브젝트와 음식을 구매하세요."); break;
                 case ZoneKind.Campfire:
+                    if (IsWickelineNode(node) && !node.wickelineDefeated) { StartBattle(false, false); break; }
                     State.stage = RunStage.Campfire; State.campChoice = 0; State.campActions = 3; State.campRemovalsRemaining = 0;
                     Say("휴식하면 체력을 모두 회복하고 만년 스프를 받으며 카드를 최대 2장 제거할 수 있습니다. 제작·요리를 선택하면 회복 없이 최대 3번 작업합니다."); break;
                 case ZoneKind.Encounter:
@@ -608,7 +624,7 @@ namespace Lumia
         public int EnemyEffectiveCardCost(string id)
         {
             var c = State.combat;
-            if(WildlifeMechanics.IsAnimalSkill(id))return 0;
+            if(WildlifeMechanics.IsAnimalSkill(id) || IsWickelineCombat && (WickelineMechanics.IsAction(id) || id=="basic_attack"))return 0;
             if(c != null && AdvancedCardMechanics.IsX(GameDatabase.Card(id))) return c.enemyFreeCasts.Any(g => g.cardId == id && g.uses > 0) ? 0 : Math.Max(0,c.enemyAvailableEnergy);
             return c != null && c.enemyFreeCasts.Any(g => g.cardId == id && g.uses > 0) ? 0 : Math.Max(0, CardCost(id) + (c==null?0:StatusMechanics.CostPenalty(c.enemyStatuses,GameDatabase.Card(id))) - (c == null ? 0 : Math.Max(SkillMechanics.Discount(c.enemySkills,id),SkillMechanics.Discount(c.enemyTraits.skills,id))));
         }
@@ -623,7 +639,7 @@ namespace Lumia
                 if(deferred.Count>0)tokens.Add(new SkillMechanicToken{owner="gear:ao_dai",key="deferred_damage",label="유예 피해",kind="deferred_damage",sourceCard="ao_dai",amount=deferred.Sum(x=>x.amount),remaining=deferred.Max(x=>x.remaining)});
                 tokens.AddRange(CompanionMechanics.Snapshot(enemy?State.combat.enemySkills:State.combat.playerSkills));
                 foreach(var held in enemy ? State.combat.enemyChargedCards : State.combat.chargedCards)
-                    tokens.Add(new SkillMechanicToken { owner=GameDatabase.Card(held.reference)?.owner, key="charge", label=GameDatabase.Card(held.reference)?.name+" 충전", kind="charge", sourceCard=CardInstances.BaseId(held.reference), amount=1, remaining=Math.Max(0,held.readyTurn-State.combat.turn) });
+                    tokens.Add(new SkillMechanicToken { owner=GameDatabase.Card(held.reference)?.owner, key="charge", label=SkillReferences.Name(held.reference)+" 충전", kind="charge", sourceCard=CardInstances.BaseId(held.reference), amount=1, remaining=Math.Max(0,held.readyTurn-State.combat.turn) });
             }
             return tokens;
         }
@@ -836,6 +852,7 @@ namespace Lumia
             TraitMechanics.EndTurn(c.playerTraits);
             StatusMechanics.EndTurn(c.playerStatuses);
             if (CheckBattleEnd()) return true;
+            if (IsLumiCombat && c.turn >= LumiTurnLimit) { FinishLumiCombat(); return true; }
             RecordBossProgress(BossMechanics.FinalizeChallenge(c));
             ClearCombatBlock(true);
             if (c.enemyEvasionTurns > 0 && --c.enemyEvasionTurns == 0) c.enemyEvasion = BaseEnemyEvasion();
@@ -881,6 +898,7 @@ namespace Lumia
             }
             int index = c.enemyActionIndex++;
             var id = c.enemyPlan[index];
+            if(ResolveWickelineAction(id))return true;
             if(ResolveWildlifeSkill(id))return true;
             var card = GameDatabase.Card(id);
             var advancedAction = EnemyAdvancedActionAt(index);
@@ -891,12 +909,12 @@ namespace Lumia
             bool execution = false;
             bool plannedFree = index < c.enemyPlanFreeCast.Count && c.enemyPlanFreeCast[index];
             // A predicted reset may have recalled this exact copy. A missed source must not turn it into a second paid cast.
-            if (plannedFree && !freeGranted && advancedAction.charge==0) { Say(c.enemyName + "의 " + card.name + " 연계가 취소되었습니다."); return true; }
+            if (plannedFree && !freeGranted && advancedAction.charge==0) { Say(c.enemyName + "의 " + SkillReferences.Name(card) + " 연계가 취소되었습니다."); return true; }
             int price = EnemyEffectiveCardCost(id);
             price=AdvancedEnemyPrice(card,price,c.enemyAvailableEnergy,freeGranted,advancedAction);
             if(index<c.enemyPlanCosts.Count && c.enemyPlanCosts[index]==0 && CardCost(id)>0 && price>0 && !AdvancedCardMechanics.IsX(card))
-            {Say(c.enemyName+"의 "+card.name+" 할인 연계가 취소되었습니다.");return true;}
-            if (price > c.enemyAvailableEnergy) { Say(c.enemyName + "의 " + card.name + " 연계가 취소되었습니다."); return true; }
+            {Say(c.enemyName+"의 "+SkillReferences.Name(card)+" 할인 연계가 취소되었습니다.");return true;}
+            if (price > c.enemyAvailableEnergy) { Say(c.enemyName + "의 " + SkillReferences.Name(card) + " 연계가 취소되었습니다."); return true; }
             if(advancedAction.mode=="charge")return BeginEnemyCharge(card,price);
             if(advancedAction.charge>0 && !c.enemyChargedCards.Any(held=>held.reference==id && held.readyTurn<=c.turn))return true;
             int x=AdvancedCardMechanics.IsX(card)?freeGranted?0:price:0;
@@ -1152,7 +1170,7 @@ namespace Lumia
             return Say(item.name + " 구매 · " + price + " 크레딧");
         }
 
-        public bool LeaveKiosk() { if (State.stage != RunStage.Kiosk) return false; CompleteNode(); return true; }
+        public bool LeaveKiosk() { if (State.stage != RunStage.Kiosk) return false; if (State.portableKioskActive) return LeavePortableKiosk(); CompleteNode(); return true; }
 
         public bool ChooseCamp(bool craft)
         {
@@ -1341,6 +1359,8 @@ namespace Lumia
                     var tactics = GameDatabase.Cards.Where(card => card.category == "tactical").Select(card => card.id).Distinct().ToList();
                     State.deck.Add(tactics[Next(tactics.Count)]); break;
                 case "tactical_module": State.tacticalModules += Math.Max(1, o.amount); break;
+                case "lumi_shop": return OpenLumiShopFromEncounter();
+                case "lumi_cooked_foods": GrantLumiCookedFoods(Math.Max(1, o.amount)); break;
                 case "trade_tactical_enhanced": State.credits -= Math.Max(0, o.amount); AddEnhancedTacticalRewardCard(o.cardId); break;
                 case "heal": Heal(o.amount); break;
                 case "credits": State.credits = Math.Max(0, State.credits + o.amount); break;
@@ -1403,7 +1423,7 @@ namespace Lumia
             int price = State.stage == RunStage.Combat ? FoodUseCost(food.id) : 0;
             if (price > 0) State.combat.energy -= price;
             State.foods.RemoveAt(index); int before = State.hp;
-            if (food.fullHeal) State.hp = State.maxHp; else Heal(food.heal);
+            if (food.fullHeal && !WickelineMechanics.GasActive(State.combat)) State.hp = State.maxHp; else Heal(food.fullHeal ? State.maxHp-State.hp : food.heal);
             int recovered=State.hp-before;
             if(State.stage==RunStage.Combat && recovered>0) TraitEvent(false,"heal",null,false,heal:recovered);
             if (State.stage == RunStage.Combat)
@@ -1434,6 +1454,7 @@ namespace Lumia
             }
             RefreshMapProximity();
             EnsureWildlifeAssignments();
+            EnsureWickelineAssignments();
         }
 
         public CharacterDef BossForAct(int act)
@@ -1676,7 +1697,9 @@ namespace Lumia
             State.combat = c; State.stage = RunStage.Combat;
             c.playerSkills=SkillMechanics.Ensure(c.playerSkills);c.enemySkills=SkillMechanics.Ensure(c.enemySkills);
             c.playerTraits=TraitMechanics.NewBattle(State.persistentTraits);State.persistentTraits=c.playerTraits;
-            if (wildlife)
+            if (IsWickelineNode(node) && !node.wickelineDefeated)
+                ConfigureWickeline(c);
+            else if (wildlife)
             {
                 string[] animals = { "chicken", "dog", "boar", "wolf", "bear" };
                 string[] names = { "닭", "들개", "멧돼지", "늑대", "곰" };
@@ -1777,7 +1800,12 @@ namespace Lumia
         // Self-paid HP and event costs intentionally do not enter this external-damage path.
         private int ApplyExternalHealthDamage(bool enemy,int damage,bool applyTacticalReduction=true)
         {
+            return ApplyExternalHealthDamageCore(enemy,damage,applyTacticalReduction,true);
+        }
+        private int ApplyExternalHealthDamageCore(bool enemy,int damage,bool applyTacticalReduction,bool applyWickelineReduction)
+        {
             var combat=State.combat;int hp=enemy?combat.enemyHp:State.hp;
+            if(enemy && applyWickelineReduction)damage=WickelineMechanics.IncomingDamage(combat,damage);
             damage=TacticalSkills.IncomingDamage(enemy?combat.enemySkills:combat.playerSkills,damage,applyTacticalReduction);
             int immediate=CompanionMechanics.ClampOwnerDamage(enemy?combat.enemySkills:combat.playerSkills,hp,damage);
             if(hp>0 && damage>=hp && immediate<hp)
@@ -1785,17 +1813,20 @@ namespace Lumia
                 EmitCombatAction(new CombatAction {id=++actionSerial,cardId="chloe_r",kind="companion_guard",enemy=enemy});
                 Say((enemy?combat.enemyName:"하나")+" · 니나 생존 보호 · 체력 1을 남깁니다.");
             }
-            if(enemy)combat.enemyHp-=immediate;else State.hp-=immediate;
+            if (enemy && IsLumiCombat) RecordLumiDamage(immediate);
+            else if(enemy)combat.enemyHp-=immediate;else State.hp-=immediate;
             if((enemy?combat.enemyDeck:State.deck).Any(id=>CardInstances.BaseId(id)=="tactical_soul"))TacticalSkills.RecordDamage(enemy?combat.enemySkills:combat.playerSkills,immediate);
-            if (enemy) { BossMechanics.CheckPhase(combat); RecordBossProgress(BossMechanics.ObserveDamage(combat, immediate)); }
+            if (enemy) { BossMechanics.CheckPhase(combat); RecordBossProgress(BossMechanics.ObserveDamage(combat, immediate)); ObserveWickelineDamage(immediate); }
             return immediate;
         }
         private int TakeExecutionDamage(bool enemy)
         {
+            // The timed merchant challenge has no lethal target or execution payout.
+            if (enemy && IsLumiCombat) return 0;
             var combat=State.combat;var owner=enemy?combat.enemySkills:combat.playerSkills;int hp=enemy?combat.enemyHp:State.hp;
             if(CompanionMechanics.HasLethalProtection(owner))RecordCompanionAbsorption(enemy,CompanionMechanics.Absorb(owner,hp));
             // Execution is lethal regardless of percentage mitigation; stasis and Nina still protect it.
-            return ApplyExternalHealthDamage(enemy,hp,false);
+            return ApplyExternalHealthDamageCore(enemy,hp,false,false);
         }
         private void ResolveDeferredDamage(bool enemy)
         {
@@ -1855,6 +1886,8 @@ namespace Lumia
         {
             var c = State.combat; c.enemyPlan.Clear(); c.enemyPlanCosts.Clear(); c.enemyPlanFreeCast.Clear(); c.enemyAdvancedActions.Clear(); c.enemyHand.Clear();
             c.enemyActionIndex = 0; c.enemyEnergy = EnergyForLevel(c.enemyLevel)+TraitMechanics.EnergyBonus(c.enemyTraits)+c.enemyOpeningEnergy;
+            if (IsLumiCombat) { c.enemyEnergy = c.enemyAvailableEnergy = 0; RefreshEnemyIntent(); return; }
+            if (IsWickelineCombat) { PlanWickelineTurn(); RefreshWickelineIntent(); return; }
             if (!string.IsNullOrEmpty(c.animal))
             {
                 PlanWildlifeTurn();
@@ -2141,6 +2174,7 @@ namespace Lumia
         {
             var c = State.combat;
             if (c == null) return;
+            if(IsWickelineCombat) { RefreshWickelineIntent(); return; }
             int strength = c.enemyStrength,weak=c.enemyWeak,defenderHp=State.hp,defenderBlock=c.block;
             var skillPreview = SkillMechanics.Clone(c.enemySkills);
             var traitPreview=TraitMechanics.Clone(c.enemyTraits);int actorHp=c.enemyHp;
@@ -2490,6 +2524,7 @@ namespace Lumia
 
         private bool CheckBattleEnd()
         {
+            if (IsLumiCombat) State.combat.enemyHp = State.combat.enemyMaxHp;
             if (State.stage == RunStage.Combat && State.combat != null)
             {
                 var c = State.combat;
@@ -2553,7 +2588,7 @@ namespace Lumia
         }
         private void RecordStatusChanges(bool enemy,StatusActorState target,List<SkillMechanicToken> previous)
         {
-            if(TacticalSkills.Has(enemy?State.combat.playerSkills:State.combat.enemySkills,"tenacity"))
+            if(TacticalSkills.Has(enemy?State.combat.playerSkills:State.combat.enemySkills,"tenacity") || !enemy && IsWickelineCombat)
                 foreach(var status in target.effects.Where(x=>!x.pending && StatusMechanics.IsCrowdControl(x.kind) && !previous.Any(old=>old.kind==x.kind && old.remaining>=x.remaining)))status.remaining=Math.Max(1,(status.remaining+1)/2);
             foreach(var status in StatusMechanics.Snapshot(target))
                 if(!previous.Any(x=>x.kind==status.kind && x.remaining>=status.remaining))
@@ -2611,6 +2646,7 @@ namespace Lumia
 
         private void WinBattle()
         {
+            if(IsWickelineCombat) { WinWickelineBattle(); return; }
             RecordCombatInformation(new CombatLogEntry { kind = "battle_end", title = "전투 승리", detail = State.combat.enemyName + " 제압 · 하나 체력 " + State.hp + "/" + State.maxHp });
             var c = State.combat; var node = ActiveNode(); bool boss = node.kind == ZoneKind.Boss;
             int bossEnergyGained = 0;
@@ -2648,6 +2684,8 @@ namespace Lumia
             if (!string.IsNullOrEmpty(r.foodId)) State.foods.Add(r.foodId);
             GainXp(r.xp); Heal(Modifier("kill_heal") + AugmentAmount("victory_heal"));
             Say("전투 승리 · 경험치 +" + r.xp + " · 크레딧 +" + r.credits + (boss ? bossEnergyGained > 0 ? " · 최대 코스트 +1 (" + PlayerBaseEnergy + ")" : " · 보스 최대 코스트 성장 완료 (+6)" : "") + (r.objectId == null ? "" : " · " + GameDatabase.Object(r.objectId).name) + (r.foodId == null ? "" : " · " + GameDatabase.Food(r.foodId).name + " 1개"));
+            r.lumiRolled = true;
+            r.lumiAppears = !boss && (node.kind == ZoneKind.Subject || node.kind == ZoneKind.Wildlife) && Roll(LumiEncounterChance);
         }
 
         private string RandomObject(int count) { return GameDatabase.Objects.Take(count).ElementAt(Next(Math.Min(count, GameDatabase.Objects.Count))).id; }
@@ -2677,6 +2715,7 @@ namespace Lumia
         private void CompleteNode()
         {
             var node = ActiveNode(); if (node == null || node.visited) return;
+            if (TryStartLumiAfterReward()) return;
             ResearchProgression.CompleteNode(State, node.id);
             node.visited = true; State.row = node.row; State.lane = node.lane;
             State.activeNodeId = -1; State.combat = null; State.stage = RunStage.Map;
@@ -2714,6 +2753,7 @@ namespace Lumia
         private void Heal(int amount)
         {
             int reduction=State.stage==RunStage.Combat && State.combat!=null ? Math.Max(TraitMechanics.HealingReduction(State.combat.playerTraits),StatusMechanics.HealingReduction(State.combat.playerStatuses)) : 0;
+            if(State.stage==RunStage.Combat && WickelineMechanics.GasActive(State.combat))reduction=Math.Max(reduction,40);
             State.hp = (int)Math.Min(State.maxHp, Math.Max(0L, (long)State.hp + (long)Math.Max(0, amount)*(100-reduction)/100));
         }
         private void HealEnemy(int amount)

@@ -1,0 +1,48 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-21T20:00:24.336Z",
+  "gameVersion": "1.0.23",
+  "origin": "http://127.0.0.1:8244",
+  "scope": "Disposable loopback WebGL fixtures; phone-sized viewports with a local-only navigator.userAgentData.mobile model",
+  "productionAccountWrites": false,
+  "physicalMobileHardwareTested": false,
+  "viewports": [
+    {
+      "browserWidth": 915,
+      "browserHeight": 484,
+      "gameFrameWidth": 915,
+      "gameFrameHeight": 412,
+      "mobileDetectionModel": true
+    },
+    {
+      "browserWidth": 414,
+      "browserHeight": 968,
+      "gameFrameWidth": 414,
+      "gameFrameHeight": 896,
+      "mobileDetectionModel": true
+    },
+    {
+      "browserWidth": 1280,
+      "browserHeight": 720,
+      "mobileDetectionModel": false
+    }
+  ],
+  "checks": {
+    "mobileBodyTextVisiblyEnlarged": true,
+    "cardBodyTapPlayedExactlyOneCard": true,
+    "textScrollDidNotPlayAnotherCard": true,
+    "passiveFullDescriptionLastLineVisible": true,
+    "portraitResizeReflowedText": true,
+    "desktopFontSizesPreserved": true,
+    "desktopWebglConsoleErrors": 0,
+    "temporaryViewportReset": true
+  },
+  "touchScrollRegression": "touch-scroll-tests.json: 114 assertions / 17 scenarios",
+  "screenshots": [
+    "mobile-combat.jpg",
+    "mobile-card-scroll.jpg",
+    "mobile-passive-detail.jpg",
+    "mobile-portrait-detail.jpg",
+    "desktop-combat.jpg"
+  ]
+}

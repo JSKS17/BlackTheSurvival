@@ -1,0 +1,51 @@
+{
+  "result": "PASS",
+  "verifiedAtUtc": "2026-10-21T17:12:29.595Z",
+  "gameVersion": "1.0.21",
+  "gameBuildId": "304f20f71128fc570ae0da17",
+  "scope": "Rendered WebGL in the Codex in-app browser; disposable localhost account fixtures only",
+  "productionAccountWrites": false,
+  "checks": {
+    "artPreviewFourTransparentSprites": true,
+    "offerRendersAndPassingReturnsToMap": true,
+    "shopPrices": [
+      20,
+      160,
+      160,
+      100
+    ],
+    "shopPurchases": {
+      "startingCredits": 2000,
+      "endingCredits": 1560,
+      "allFourSlotsSold": true
+    },
+    "cameraRevealsNextTwoRowsWithoutExtraCreditCost": true,
+    "portableKioskOpensOrdinaryShopAndReturnsToSameMap": true,
+    "challengePlayerHpUnchanged": 80,
+    "challengeObservedDamage": 42,
+    "challengeObservedCredits": 20,
+    "challengeEndsAfterThirdPlayerTurn": true,
+    "rareLumiThreeChoicesVisible": true,
+    "rareShopKeepsVirtualLumiSprite": true,
+    "completedReportAppearanceSwitchVisible": true,
+    "appearanceOffRetainedAfterReopeningReport": true,
+    "enabledNiaRareSpriteInCombatAndEnemyInformation": true
+  },
+  "screenshots": [
+    "lumi-art-preview.jpg",
+    "lumi-offer.jpg",
+    "lumi-shop.jpg",
+    "lumi-challenge.jpg",
+    "lumi-payout.jpg",
+    "lumi-after-three-turns.jpg",
+    "lumi-rare.jpg",
+    "lumi-rare-shop.jpg",
+    "rare-appearance-setting.jpg",
+    "rare-appearance-off-retained.jpg",
+    "nia-rare-combat.jpg"
+  ],
+  "limits": [
+    "Cross-device account synchronization uses the existing research save bundle; this visual QA uses no production credentials.",
+    "Random appearance distribution and all rare reward effects are covered by the passing focused/full C# suites."
+  ]
+}

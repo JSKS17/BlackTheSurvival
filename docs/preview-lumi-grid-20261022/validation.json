@@ -1,0 +1,44 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-21T17:33:54.6438178Z",
+  "purpose": "Preview only of existing subject grid processing",
+  "logicalCanvas": [
+    80,
+    80
+  ],
+  "subjectFits": [
+    72,
+    72
+  ],
+  "anchor": "x=(80-w)//2, y=76-h",
+  "processing": "Alpha>0 crop, nearest sampling at pixel centers, 80px transparent framing and exact 2x enlargement",
+  "sourceAssetsUnchanged": true,
+  "websiteChanged": false,
+  "files": [
+    {
+      "file": "lumi-grid80.png",
+      "width": 160,
+      "height": 160,
+      "logicalGrid": [
+        80,
+        80
+      ],
+      "matching2xBlocks": true,
+      "visibleLogicalPixels": 1380,
+      "sha256": "e25f686dcef1bdc4b5a1f1ea52c70b54c24679a71a0d41727ec5ffe30e2f3254"
+    },
+    {
+      "file": "virtual-lumi-grid80.png",
+      "width": 160,
+      "height": 160,
+      "logicalGrid": [
+        80,
+        80
+      ],
+      "matching2xBlocks": true,
+      "visibleLogicalPixels": 1461,
+      "sha256": "7ffd742aaa57b858a6236684c23119ab5e72f1bb66ad52de64043bc5f5b073f7"
+    }
+  ],
+  "independentReview": "PASS: Tools pipeline matching; both outputs have zero mismatched 2x2 RGBA blocks"
+}

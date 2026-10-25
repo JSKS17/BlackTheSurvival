@@ -41,6 +41,36 @@ public static partial class CoreSmokeTests
             Check(item.optionTags.Contains("치명타 확률")== (item.critChance>0),"chance tag agrees with actual equipment stat: "+item.id);
             if(item.critDamageBonus>0)Check(DescriptionSummary.Gear(item).Contains(item.critDamageBonus+"%p"),"critical-damage option displays exact additive percentage points: "+item.id);
         }
+        EquipmentStackingScopes();
+    }
+
+    private static void EquipmentStackingScopes()
+    {
+        var e=MechanicsFixture();var c=e.State.combat;
+        e.State.gear.AddRange(new[]{"fragarach","fragarach","mithril_helm"});
+        Check(e.TotalAttack==6 && e.TotalBlock==1,"identical equipment copies add their base stats");
+        c.hand.Add("tactical_blink");
+        Check(e.PlayCard(0),"a real movement card activates equipped Footwork effects");
+        var resources=c.playerTraits.skills;
+        Check(SkillMechanics.Resource(resources,"trait:gear:fragarach","stride")==1
+            && SkillMechanics.Resource(resources,"trait:gear:mithril_helm","stride")==1
+            && resources.resources.Count(x=>x.key=="stride")==2,
+            "duplicate gear has one trigger source, while different gear with the same named Footwork effect owns separate resources");
+        resources.resources.Single(x=>x.owner=="trait:gear:fragarach" && x.key=="stride").amount=3;
+        c.hand.Add("basic_attack");int hp=c.enemyHp;
+        Check(e.PlayCard(0) && hp-c.enemyHp==GameDatabase.Card("basic_attack").damage+e.TotalAttack+4,
+            "different equipment with the same Footwork effect each adds its bonus once; identical copies do not multiply it");
+        Check(StatusMechanics.Has(c.enemyStatuses,"slow")
+            && SkillMechanics.Resource(resources,"trait:gear:fragarach","stride")==0
+            && SkillMechanics.Resource(resources,"trait:gear:mithril_helm","stride")==0,
+            "each equipment source checks its own Footwork threshold and consumes only its own resource");
+
+        e=MechanicsFixture();c=e.State.combat;e.State.gear.AddRange(new[]{"skadi","eternal_frost","empress"});
+        c.hand.Add("nia_q");Check(e.PlayCard(0),"a real skill hit activates three different coldwave equipment sources");
+        Check(e.CombatActions.Count(x=>x.kind=="status_slow" && x.traitId!=null && x.traitId.StartsWith("gear:"))==3
+            && c.enemyStatuses.effects.Count(x=>x.kind=="slow" && !x.pending)==1
+            && c.enemyStatuses.effects.Single(x=>x.kind=="slow" && !x.pending).remaining==1,
+            "same named coldwave effects trigger separately, but their shared slow status never multiplies its duration");
     }
 
     private static void EquipmentCriticalDamageAndPersistence()

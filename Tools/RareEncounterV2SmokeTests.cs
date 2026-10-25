@@ -25,8 +25,8 @@ public static partial class CoreSmokeTests
     public static void RareEncounterV2()
     {
         int rosterCount = GameDatabase.Characters.Count;
-        Check(ResearchEncounters.Events.Count == 91 && GameDatabase.Characters.Count == 91, "all ninety-one subjects retain a rare encounter: " + ResearchEncounters.Events.Count + "/" + GameDatabase.Characters.Count);
-        var groups = ResearchEncounters.Events.GroupBy(ev => ev.options[2].effect).ToDictionary(group => group.Key, group => group.Count());
+        Check(ResearchEncounters.Events.Count == 92 && GameDatabase.Characters.Count == 91, "all ninety-one subjects retain a rare encounter: " + ResearchEncounters.Events.Count + "/" + GameDatabase.Characters.Count);
+        var groups = ResearchEncounters.Events.Where(ev => ResearchEncounters.SubjectForEvent(ev.id) != "lumi").GroupBy(ev => ev.options[2].effect).ToDictionary(group => group.Key, group => group.Count());
         Check(groups.Count == 6 && groups["tactical_module"] == 6 && groups["trade_tactical_enhanced"] == 8
             && new[] { "rare_remove_cards", "rare_support_runes", "rare_copy_cards", "rare_tactical" }.All(effect => groups[effect] >= 15),
             "specialist tactical choices expand selected rare stories while retaining all four earlier reward families");
@@ -34,7 +34,7 @@ public static partial class CoreSmokeTests
         var representatives = ResearchEncounters.Events.Select(ev => ev.options[0].cardId).ToArray();
         RareEncounterRules.Configure(ResearchEncounters.Events); EventPresentation.Configure(ResearchEncounters.Events);
         Check(ResearchEncounters.Events.Select(ev => ev.options[0].cardId).SequenceEqual(representatives), "rare configuration is idempotent and retains original representative skills");
-        foreach (var story in ResearchEncounters.Events)
+        foreach (var story in ResearchEncounters.Events.Where(ev => ResearchEncounters.SubjectForEvent(ev.id) != "lumi"))
         {
             var subject = GameDatabase.Character(ResearchEncounters.SubjectForEvent(story.id));
             var purchase = story.options[0]; var baseCard = GameDatabase.Card(purchase.cardId);

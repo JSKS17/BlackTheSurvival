@@ -1,0 +1,13 @@
+{
+  "statusPx": 13,
+  "sha256": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+  "bodyPx": 14,
+  "result": "PASS",
+  "desktopPrefixBytesUnchanged": 14583,
+  "review": "mobile_web_audit",
+  "mediaCondition": "(pointer: coarse) and (hover: none)",
+  "source": "WebSite\\app\\game.css",
+  "parser": "PostCSS",
+  "scope": "Touch-only account UI typography",
+  "inputAndButtonPx": 16
+}

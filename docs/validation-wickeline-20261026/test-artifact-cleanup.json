@@ -1,0 +1,28 @@
+{
+  "sourceAndProofsPreserved": true,
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\CoreTests.exe",
+      "bytes": 1905152,
+      "sha256": "4689b90e41c5157624f45e0c38a382591bdf0d72220be269d289b386a389db3e"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiResearchTests",
+      "bytes": 0
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\ModeUnlockTests",
+      "bytes": 0
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\ResearchStoreTests",
+      "bytes": 0
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\StoryHistoryTests",
+      "bytes": 0
+    }
+  ],
+  "result": "PASS",
+  "removedAtUtc": "2026-10-25T17:30:36.1434250Z"
+}

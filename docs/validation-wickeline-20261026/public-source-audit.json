@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "scope": "New source, art and validation materials for GitHub v1.0.27, including previously web-published v1.0.21 through v1.0.26",
+  "rawUnityLogs": "Preserved locally; all newly staged docs/**/*.log files excluded from publication",
+  "sensitiveLiteralScan": "No credentials, private keys or real account identifiers found among non-log public candidates",
+  "frozenInputsIncluded": true,
+  "finalWickelineRegressionRestaged": true,
+  "browserEvidenceIndependentReview": "12 screenshots exist and support the stated observations. Random assignment is verified by core regressions rather than a single screenshot.",
+  "runtimeAndArtChangedDuringPublication": false
+}

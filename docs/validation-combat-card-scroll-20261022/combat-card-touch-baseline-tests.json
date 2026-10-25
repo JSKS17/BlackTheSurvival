@@ -1,0 +1,41 @@
+{
+  "result": "FAIL",
+  "checkedAtUtc": "2026-10-22T04:11:24.8335267Z",
+  "assertions": 53,
+  "scenarios": 23,
+  "failedScenarios": [
+    "EventOnlyTouchSurvivesRepaint",
+    "DelayedNativePollAdoptsEventGesture",
+    "NativePollAfterPlainMouseDown",
+    "ScaledCardSwipe",
+    "EventOnlyTapUsesExactlyOnce",
+    "EventOnlyAfterCanceledNative",
+    "MeasuredMobileNestedBounds",
+    "MeasuredMobileNestedSwipe",
+    "ScrolledParentFractionalRounding",
+    "DoubleNestedMobileBoundsAndSwipe",
+    "NonzeroViewRectOrigins"
+  ],
+  "failureDetails": [
+    "﻿CASE_FAIL EventOnlyTouchSurvivesRepaint: no Input.touch snapshot must not end an event-only finger on repaint",
+    "CASE_FAIL DelayedNativePollAdoptsEventGesture: adopted native finger retains gesture pointer ownership actual=0 expected=40",
+    "CASE_FAIL NativePollAfterPlainMouseDown: late native Began recognizes this card's previous GUI capture",
+    "CASE_FAIL ScaledCardSwipe: physical screen distance scales to card content units actual=0 expected=50",
+    "CASE_FAIL EventOnlyTapUsesExactlyOnce: event-only touch tap uses card exactly once",
+    "CASE_FAIL EventOnlyAfterCanceledNative: stale Canceled native phase does not reject a new event-only finger",
+    "CASE_FAIL MeasuredMobileNestedBounds: registered nested viewport left follows actual paint actual=29.86807 expected=17.7014",
+    "CASE_FAIL MeasuredMobileNestedSwipe: actual measured mobile touch starts on inner body even with no hand overflow",
+    "CASE_FAIL ScrolledParentFractionalRounding: fractional parent position uses Unity-rounded content origin actual=12.27779 expected=17.7014",
+    "CASE_FAIL DoubleNestedMobileBoundsAndSwipe: second nested viewport composes both parent rounded origins actual=74.23612 expected=44.3264",
+    "CASE_FAIL NonzeroViewRectOrigins: nonzero viewRect origin participates before native rounding actual=66.36112 expected=35.94446"
+  ],
+  "sourceHashes": {
+    "Assets/Scripts/Lumia/TouchScrollGesture.cs": "607491feb7812ba7f90826c8d9ff5802cc5b5fa9655036ea8edb69d8795095b1",
+    "Temp/CombatCardTouchBaseline/4fcf3f7ce5744e53bb232b6905e5b68a/LumiaTouchScroll.cs": "65804dc52aa9008d3334d8cbb56f32247de56fef481d96601071ff281b7a059d",
+    "Tools/CombatCardTouchIntegrationTests.cs": "a1e16f85c6c0fb505e3afd9fb9ad887d4587e96b009a95e70f4252603ea8109a",
+    "Tools/CombatCardTouchTests.ps1": "978678007ef8dc9269890d4825fe6e2f2db1053139c030282e8df65dcbaee4a4"
+  },
+  "scope": "Production LumiaTouchScroll + TouchScrollGesture compiled directly; deterministic Unity host doubles; no physical browser touch claim",
+  "durationSeconds": 0.9736767,
+  "temporaryFilesRemoved": true
+}

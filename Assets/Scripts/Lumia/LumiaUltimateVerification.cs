@@ -341,7 +341,7 @@ namespace Lumia
             if (!Engine.EnterNode(node.lane) || !Engine.ChooseCamp(true))
                 throw new InvalidOperationException("The native critical equipment fixture must enter and choose an actual crafting campfire.");
             s.objects.AddRange(GameDatabase.Objects.Select(value => value.id));
-            craftSlot = GearSlot.Weapon; craftTags.Clear(); craftTags.Add("치명타 피해"); craftQuery = ""; scroll = Vector2.zero;
+            craftSlot = GearSlot.Weapon; craftTags.Clear(); craftTags.Add("치명타 피해"); craftQuery = craftMaterial = ""; scroll = Vector2.zero;
             var gear = FilterCraftGear().ToArray();
             if (!gear.Any(value => value.id == "joyeuse") || gear.Any(value => value.critDamageBonus <= 0)
                 || gear.Any(value => !DescriptionSummary.Gear(value).Contains("치명타 피해") || !PixelArt.SystemIcon(value.id)))

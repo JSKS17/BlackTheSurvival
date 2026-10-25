@@ -1,0 +1,108 @@
+{
+  "generator": "builtin image_gen",
+  "newAssetsOnly": true,
+  "noExistingArtOverwritten": true,
+  "sources": [
+    {
+      "role": "Official original robot LUMI, shop item icons and kiosk gadget visual references",
+      "page": "https://playeternalreturn.com/posts/news/2132?hl=ko-KR",
+      "local": "references/reference-3.png",
+      "related": [
+        "references/reference-2.gif",
+        "references/reference-4.gif"
+      ]
+    },
+    {
+      "role": "Official human LUMI character design sheet: exact virtual character outfit identity",
+      "page": "https://x.com/EternalReturnKR/status/1906966287903015104",
+      "image": "https://pbs.twimg.com/media/GnbnlQOawAADxYw.jpg",
+      "local": "references/virtual-lumi-official-concept.jpg"
+    },
+    {
+      "role": "Official streamer LUMI emote package: supporting face and headgear identity reference",
+      "page": "https://playeternalreturn.com/posts/news/3785?hl=ko-KR",
+      "local": "references/reference-5.png"
+    },
+    {
+      "role": "Original robot concept art repost, corroborated by official in-game footage; supporting visual reference only",
+      "page": "https://vortexgaming.io/postdetail/392524",
+      "image": "https://resources.vortexgaming.io/upload/comment/2024/09/02/62c30bc13d9d4e7a9644a5ff93906841.png",
+      "local": "references/lumi-robot-concept.png"
+    },
+    {
+      "role": "Existing project pixel technique only, not copied identity",
+      "local": "../../Assets/Resources/Lumia/Portraits/nia.png"
+    },
+    {
+      "role": "Existing project inventory pixel style only",
+      "local": "../../Assets/Resources/Lumia/SystemIcons/tactical_module.png"
+    }
+  ],
+  "assets": [
+    {
+      "id": "normal",
+      "resourcePath": "Lumia/Portraits/lumi",
+      "projectPath": "Assets/Resources/Lumia/Portraits/lumi.png",
+      "rawPath": "ArtSource/Lumi20261022/generated/normal.png",
+      "sha256": "2d70059022dbd8a73c8eea40a1644cbdf85e0f2b3638e177348c951361d75eec",
+      "importer": {
+        "filterMode": "Point",
+        "mipmaps": false,
+        "textureCompression": "Uncompressed",
+        "alphaIsTransparency": true,
+        "maxTextureSize": 256
+      }
+    },
+    {
+      "id": "virtual",
+      "resourcePath": "Lumia/PortraitsRare/lumi",
+      "projectPath": "Assets/Resources/Lumia/PortraitsRare/lumi.png",
+      "rawPath": "ArtSource/Lumi20261022/generated/virtual.png",
+      "sha256": "682f8860b3fb87461ce1f48fa7d7c48758d37c1f2cc2efbe826b38599105b32b",
+      "importer": {
+        "filterMode": "Point",
+        "mipmaps": false,
+        "textureCompression": "Uncompressed",
+        "alphaIsTransparency": true,
+        "maxTextureSize": 256
+      }
+    },
+    {
+      "id": "camera",
+      "resourcePath": "Lumia/SystemIcons/telescope_camera",
+      "projectPath": "Assets/Resources/Lumia/SystemIcons/telescope_camera.png",
+      "rawPath": "ArtSource/Lumi20261022/generated/camera.png",
+      "sha256": "9f93c5732583884d502188bc6578e056c171999a7fb26272fc2c9b857816b411",
+      "importer": {
+        "filterMode": "Point",
+        "mipmaps": false,
+        "textureCompression": "Uncompressed",
+        "alphaIsTransparency": true,
+        "maxTextureSize": 128
+      }
+    },
+    {
+      "id": "kiosk",
+      "resourcePath": "Lumia/SystemIcons/portable_kiosk",
+      "projectPath": "Assets/Resources/Lumia/SystemIcons/portable_kiosk.png",
+      "rawPath": "ArtSource/Lumi20261022/generated/kiosk.png",
+      "sha256": "9415ead546bb24db969be1b806b3071de5bfce7615dfc553b311e54d786ed00e",
+      "importer": {
+        "filterMode": "Point",
+        "mipmaps": false,
+        "textureCompression": "Uncompressed",
+        "alphaIsTransparency": true,
+        "maxTextureSize": 128
+      }
+    }
+  ],
+  "prompts": "prompts.json",
+  "validation": "validation.json",
+  "previewFiles": [
+    "Assets/Resources/Lumia/Portraits/lumi.png",
+    "Assets/Resources/Lumia/PortraitsRare/lumi.png",
+    "Assets/Resources/Lumia/SystemIcons/telescope_camera.png",
+    "Assets/Resources/Lumia/SystemIcons/portable_kiosk.png"
+  ],
+  "previewDescription": "One robot Lumi, one human Virtual Lumi and original-camera/kiosk inspired transparent inventory icons."
+}

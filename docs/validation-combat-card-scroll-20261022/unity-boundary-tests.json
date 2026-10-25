@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-22T02:34:57.8311137Z",
+  "unityEditor": "C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor",
+  "moduleSha256": "486612a6c2b8dc9a988a05c88f0541d29ed3925e1549e9269aa99b3e31aaa6d5",
+  "sourceSha256": "c3c6a9dfed7a69b151a2c2521766b8bdc5ef4fa50c355e7d99c6ce8beeb9f1dc",
+  "findings": {
+    "result": "PASS",
+    "assemblyVersion": "0.0.0.0",
+    "assembly": "UnityEngine.IMGUIModule",
+    "buttonEventBranches": [
+      "mouseDown",
+      "mouseUp",
+      "mouseDrag",
+      "KeyDown",
+      "repaint"
+    ],
+    "rawTouchButtonCapture": false,
+    "captureContract": "GrabMouseControl/HasMouseControl/ReleaseMouseControl"
+  },
+  "scope": "Reflection of actual installed Unity managed IL; native GUI APIs not invoked"
+}

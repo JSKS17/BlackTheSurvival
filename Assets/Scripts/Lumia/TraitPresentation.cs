@@ -48,7 +48,7 @@ namespace Lumia
                 var conditions = new List<string>();
                 if (!string.IsNullOrEmpty(r.conditionKey)) conditions.Add(SkillMechanics.IsState(stateCard,r.conditionKey) ? SkillMechanics.StateCondition(stateCard,r.conditionKey,r.conditionAmount,r.conditionExact) : Condition(label(r.conditionKey), r.conditionAmount, r.conditionExact));
                 if (!string.IsNullOrEmpty(r.conditionKey2)) conditions.Add(SkillMechanics.IsState(stateCard,r.conditionKey2) ? SkillMechanics.StateCondition(stateCard,r.conditionKey2,r.conditionAmount2,r.conditionExact2) : Condition(label(r.conditionKey2), r.conditionAmount2, r.conditionExact2));
-                if (!string.IsNullOrEmpty(r.conditionPrevious)) conditions.Add("직전에 사용한 기술이 " + (GameDatabase.Card(r.conditionPrevious)?.name ?? r.conditionPrevious) + "이면");
+                if (!string.IsNullOrEmpty(r.conditionPrevious)) conditions.Add("실험체 구분 없이 직전에 사용한 기술이 " + SkillReferences.Name(r.conditionPrevious) + "이면");
                 if (!string.IsNullOrEmpty(r.conditionCategory)) conditions.Add(Category(r.conditionCategory) + "일 때");
                 if (r.hpBelowPercent > 0) conditions.Add("체력이 최대 체력의 " + SkillMechanics.Clamp(r.hpBelowPercent, 1, 100) + "% 이하이면");
                 if(r.hpBelowDenominator>0)conditions.Add("체력이 최대 체력의 "+r.hpBelowNumerator+"/"+r.hpBelowDenominator+" 이하이면");
@@ -62,11 +62,11 @@ namespace Lumia
                     (r.trigger ?? "").StartsWith("before_", StringComparison.Ordinal) ? ", 사용 직전에" :
                     (r.trigger ?? "").StartsWith("after_", StringComparison.Ordinal) ? ", 사용을 마친 후" : "");
                 if (r.op == "shop_discount") timing = "";
-                if (compact) timing = timing.Replace("어느 실험체의 기술 카드든", "기술을")
-                    .Replace("어느 실험체의 기술 카드", "기술 카드").Replace("어느 실험체의 기술이든", "기술이").Replace("어느 실험체의 R 카드든", "R 카드를")
+                if (compact) timing = timing.Replace("어느 실험체의 기술 카드든", "모든 실험체 기술을")
+                    .Replace("어느 실험체의 기술 카드", "모든 실험체 기술 카드").Replace("어느 실험체의 기술이든", "모든 실험체 기술이").Replace("어느 실험체의 R 카드든", "모든 실험체 R을")
                     .Replace("사용을 마친 후", "사용 후").Replace("자신의 ", "").Replace("전투가 시작될 때", "전투 시작 시")
                     .Replace("체력 피해를 받아 체력이 낮아질 때", "피해를 받은 후").Replace("체력 피해를 받을 때", "피해를 받을 때")
-                    .Replace("기술을 사용 후", "기술 사용 후").Replace("R 카드를 사용 후", "R 카드 사용 후");
+                    .Replace("기술을 사용 후", "기술 사용 후").Replace("R을 사용 후", "R 사용 후").Replace("R 카드를 사용 후", "R 카드 사용 후");
                 string when = timing + (conditions.Count == 0 ? "" : (timing.Length == 0 ? "" : ", ") + JoinConditions(conditions));
                 string limit = Limits(r, compact);
                 // Conditions are evaluated against one snapshot before this trigger. Per-rule
@@ -88,9 +88,9 @@ namespace Lumia
             }
             var shared=SkillMechanics.SharedResourcesFor(passiveId).Where(x=>!x.legacyOnly).ToArray();
             if(shared.Length>0)
-                lines.Add(string.Join("·",shared.Select(x=>x.label).Distinct())+"은 해당 실험체의 기술과 공유하며 전투가 끝나면 초기화됩니다. 패시브와 기술의 획득·소모 효과는 각각 적용됩니다.");
+                lines.Add(string.Join("·",shared.Select(x=>x.label).Distinct())+"은 "+shared[0].owner+"의 기술과 공유하며 전투가 끝나면 초기화됩니다. 다른 실험체의 고유 자원으로 대신할 수 없으며, 패시브와 기술의 획득·소모 효과는 각각 적용됩니다.");
             if (profile.stateOwner == "trait:tazia_p")
-                lines.Add("유리 파편·파편 수집은 타지아 Q·W·E·R과 공유합니다. E는 파편을 수집한 직후 수집이 3 이상이면 모두 소모해 유리 검 1을 얻습니다(최대 1). 유리 검은 Q의 첫 적중 추가 피해를 8 늘리며 Q 사용 시 빗나가도 소모됩니다.");
+                lines.Add("유리 파편·파편 수집은 타지아 Q·W·E·R과 공유합니다. "+SkillReferences.Name("tazia_e")+"는 파편을 수집한 직후 수집이 3 이상이면 모두 소모해 유리 검 1을 얻습니다(최대 1). 유리 검은 "+SkillReferences.Name("tazia_q")+"의 첫 적중 추가 피해를 8 늘리며, 해당 기술을 사용하면 빗나가도 소모됩니다.");
             // This equipment-dependent Alex rule is resolved by the engine outside the trigger table.
             if ((profile.summary ?? "").Contains("장착한 무기마다"))
                 lines.Add("장착한 무기마다 해당 무기군과 다른 D 스킬 카드 1장을 추가로 받습니다. 장비·패시브를 바꾸면 자동으로 갱신됩니다.");
@@ -151,11 +151,11 @@ namespace Lumia
             switch (trigger)
             {
                 case "before_basic": case "after_basic": return "기본 공격 사용";
-                case "before_skill": case "after_skill": return "기술 카드 사용";
+                case "before_skill": case "after_skill": return "모든 실험체 기술 카드 사용";
                 case "after_movement": return "이동 기술 사용";
-                case "before_ultimate": case "after_ultimate": return "R 카드 사용";
+                case "before_ultimate": case "after_ultimate": return "모든 실험체 R 카드 사용";
                 case "before_attack": return "공격 카드 사용";
-                case "hit": return "공격 적중"; case "skill_hit": return "기술 적중";
+                case "hit": return "공격 적중"; case "skill_hit": return "모든 실험체 기술 적중";
                 case "install_hit": return "설치물·소환물 적중"; case "wildlife_hit": return "야생동물 공격 적중";
                 case "evade": return "공격 회피"; case "damaged": return "체력 피해를 받은";
                 case "incoming_hit": return "공격에 맞은"; case "before_incoming": return "적에게 공격받은";
@@ -239,8 +239,8 @@ namespace Lumia
                 case "shop_discount": return "키오스크 구매 가격을 10% 줄입니다(중첩되지 않음)";
                 case "damage_resource": return "실제로 준 피해의 " + SkillMechanics.Clamp(r.amount, 0, 25) + "%를 " + name + "에 축적합니다(최대 " + SkillMechanics.Clamp(r.cap, 1, 12) + ")";
                 case "execute": return "체력과 방어도의 합이 " + label(r.conditionKey ?? r.key) + " 이하인 적을 처형합니다";
-                case "discount": return "다음 " + (GameDatabase.Card(r.targetCard)?.name ?? r.targetCard) + "의 코스트를 " + n + " 줄입니다(1회)";
-                case "discount_last": return "마지막으로 사용한 Q·W·E 카드의 다음 코스트를 " + n + " 줄입니다(1회)";
+                case "discount": return "다음 " + SkillReferences.Name(r.targetCard) + "의 코스트를 " + n + " 줄입니다(1회)";
+                case "discount_last": return "실험체 구분 없이 마지막으로 사용한 Q·W·E 카드의 다음 코스트를 " + n + " 줄입니다(1회)";
                 case "bleed": case "burn": return "자신의 턴 종료마다 방어도를 무시하는 " + n + "의 피해를 " + turns + "회 주는 " + name + " 효과를 남깁니다";
                 case "summon": return "자신의 턴 종료마다 " + n + "의 피해를 " + turns + "회 주는 " + name + " 효과를 남깁니다";
                 case "hot": return "자신의 턴 종료마다 체력을 " + n + "씩 " + turns + "회 회복하는 " + name + " 효과를 얻습니다";

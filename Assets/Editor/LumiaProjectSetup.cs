@@ -29,10 +29,12 @@ namespace Lumia.Editor
         public static bool Apply(TextureImporter importer, string path)
         {
             bool readable = path.Contains("Atlas");
+            int maxSize = path == "Assets/Resources/Lumia/Portraits/lumi.png" || path == "Assets/Resources/Lumia/PortraitsRare/lumi.png" || path == "Assets/Resources/Lumia/Portraits/wickeline.png" ? 256
+                : path == "Assets/Resources/Lumia/SystemIcons/telescope_camera.png" || path == "Assets/Resources/Lumia/SystemIcons/portable_kiosk.png" || path == "Assets/Resources/Lumia/SystemIcons/wickeline.png" ? 128 : 4096;
             bool changed = importer.textureType != TextureImporterType.Default || importer.filterMode != FilterMode.Point || importer.mipmapEnabled ||
                 importer.isReadable != readable || importer.textureCompression != TextureImporterCompression.Uncompressed ||
                 importer.npotScale != TextureImporterNPOTScale.None || importer.wrapMode != TextureWrapMode.Clamp || importer.anisoLevel != 0 ||
-                importer.maxTextureSize != 4096 || !importer.alphaIsTransparency || importer.alphaSource != TextureImporterAlphaSource.FromInput || !importer.sRGBTexture;
+                importer.maxTextureSize != maxSize || !importer.alphaIsTransparency || importer.alphaSource != TextureImporterAlphaSource.FromInput || !importer.sRGBTexture;
             importer.textureType = TextureImporterType.Default;
             importer.filterMode = FilterMode.Point;
             importer.mipmapEnabled = false;
@@ -41,7 +43,7 @@ namespace Lumia.Editor
             importer.npotScale = TextureImporterNPOTScale.None;
             importer.wrapMode = TextureWrapMode.Clamp;
             importer.anisoLevel = 0;
-            importer.maxTextureSize = 4096;
+            importer.maxTextureSize = maxSize;
             importer.alphaIsTransparency = true;
             importer.alphaSource = TextureImporterAlphaSource.FromInput;
             importer.sRGBTexture = true;

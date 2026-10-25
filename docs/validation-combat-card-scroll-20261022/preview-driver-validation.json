@@ -1,0 +1,209 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-22T03:46:57.781Z",
+  "scope": "Local QA driver only",
+  "productionRequests": false,
+  "injectedScriptSyntaxChecks": 3,
+  "fullMobileModelChecks": 6,
+  "driverScenarios": 15,
+  "physicalMobileHardwareTested": false,
+  "UnityInputTested": false,
+  "limitation": "TouchEvents are untrusted synthetic browser events. Unity behavior must be checked separately in the actual browser build.",
+  "scenarios": [
+    {
+      "canvas": [
+        1280,
+        720
+      ],
+      "css": [
+        640,
+        360
+      ],
+      "action": "description-up",
+      "events": 14,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1280,
+        720
+      ],
+      "css": [
+        640,
+        360
+      ],
+      "action": "description-down",
+      "events": 14,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1280,
+        720
+      ],
+      "css": [
+        640,
+        360
+      ],
+      "action": "hand-left",
+      "events": 14,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1280,
+        720
+      ],
+      "css": [
+        640,
+        360
+      ],
+      "action": "hand-right",
+      "events": 14,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1280,
+        720
+      ],
+      "css": [
+        640,
+        360
+      ],
+      "action": "first-card-tap",
+      "events": 2,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1000,
+        1000
+      ],
+      "css": [
+        500,
+        500
+      ],
+      "action": "description-up",
+      "events": 14,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1000,
+        1000
+      ],
+      "css": [
+        500,
+        500
+      ],
+      "action": "description-down",
+      "events": 14,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1000,
+        1000
+      ],
+      "css": [
+        500,
+        500
+      ],
+      "action": "hand-left",
+      "events": 14,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1000,
+        1000
+      ],
+      "css": [
+        500,
+        500
+      ],
+      "action": "hand-right",
+      "events": 14,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1000,
+        1000
+      ],
+      "css": [
+        500,
+        500
+      ],
+      "action": "first-card-tap",
+      "events": 2,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1800,
+        720
+      ],
+      "css": [
+        900,
+        360
+      ],
+      "action": "description-up",
+      "events": 14,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1800,
+        720
+      ],
+      "css": [
+        900,
+        360
+      ],
+      "action": "description-down",
+      "events": 14,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1800,
+        720
+      ],
+      "css": [
+        900,
+        360
+      ],
+      "action": "hand-left",
+      "events": 14,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1800,
+        720
+      ],
+      "css": [
+        900,
+        360
+      ],
+      "action": "hand-right",
+      "events": 14,
+      "result": "PASS"
+    },
+    {
+      "canvas": [
+        1800,
+        720
+      ],
+      "css": [
+        900,
+        360
+      ],
+      "action": "first-card-tap",
+      "events": 2,
+      "result": "PASS"
+    }
+  ]
+}

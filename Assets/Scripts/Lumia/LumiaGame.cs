@@ -13,13 +13,16 @@ namespace Lumia
         public GameEngine Engine { get; private set; }
         public GameAudio Audio { get; private set; }
         const float W = 1280, H = 720;
+        const float CraftViewportHeight = 244;
         static readonly Color Ink = C("0b1421"), Panel = C("142233"), Line = C("33465b"), Text = C("dce8e1"), Muted = C("acbdc8"), Mint = C("91dfbd"), Gold = C("efc979"), Pink = C("dd88ae"), RareTone = C("c8a2ff");
         Font font;
         GUIStyle label, centered, wrapped, button, field;
         bool initialized, lobby = true, settings, catalog, inventory, help, fieldInfo, fieldEnemy, inspectEnemyCard, summaryMode = true, enemyLoadout;
         int prepStep, inventoryTab, catalogPage;
-        string catalogQuery = "", craftQuery = "", craftPending = "", inspectCard = "", inspectTrait = "", inspectGear = "";
+        string catalogQuery = "", craftQuery = "", craftMaterial = "", craftPending = "", inspectCard = "", inspectTrait = "", inspectGear = "";
         readonly HashSet<string> craftTags = new HashSet<string>();
+        static readonly string[] CraftMaterialIds = { "", "meteorite", "tree", "mithril", "force", "blood" };
+        static readonly string[] CraftMaterialLabels = { "전체 재료", "운석", "생명의 나무", "미스릴", "포스코어", "VF 혈액 샘플" };
         readonly HashSet<int> campRemovalSelection = new HashSet<int>();
         RunState campSelectionState;
         int campSelectionNode = -1;
@@ -158,7 +161,7 @@ namespace Lumia
                     AudioClip clip;
                     if (!skillSounds.TryGetValue(action.cardId, out clip))
                     {
-                        clip = CombatEffects.SoundFor(GameDatabase.Card(action.cardId)); skillSounds[action.cardId] = clip;
+                        clip = CombatEffects.SoundFor(GameDatabase.Card(action.cardId) ?? WildlifeMechanics.Card(action.cardId) ?? WickelineMechanics.Card(action.cardId)); skillSounds[action.cardId] = clip;
                     }
                     audioSource.PlayOneShot(clip, volume * effectsVolume);
                 }
@@ -184,7 +187,10 @@ namespace Lumia
         void DrawGameUI()
         {
             if (BrowserAccountFrozen) return;
+            UpdateMobileTypography();
             InitStyles();
+            field.fontSize = mobileTypography ? 21 : 16;
+            field.padding.top = field.padding.bottom = mobileTypography ? 4 : 8;
             float scale = Mathf.Min(Screen.width / W, Screen.height / H);
             float ox = (Screen.width - W * scale) / 2, oy = (Screen.height - H * scale) / 2;
             GUI.matrix = Matrix4x4.TRS(new Vector3(ox, oy, 0), Quaternion.identity, new Vector3(scale, scale, 1));
@@ -211,13 +217,15 @@ namespace Lumia
                     case RunStage.PassiveChoice: DrawPassiveChoice(); break;
                     case RunStage.AugmentChoice: DrawAugmentChoice(); break;
                     case RunStage.EquipmentSlotChoice: DrawEquipmentSlotChoice(); break;
+                    case RunStage.LumiOffer: DrawLumiOffer(); break;
+                    case RunStage.LumiShop: DrawLumiShop(); break;
                     case RunStage.Won: case RunStage.Lost: DrawEnding(); break;
                 }
                 currentLayer = 0;
                 if (Btn(new Rect(1174, 18, 84, 32), "메뉴", false, Muted)) OpenRunMenu();
                 if (RunModes.ModeFor(Engine.State) == RunMode.Endless && Btn(new Rect(1174, 56, 84, 25), "증강 " + Engine.AugmentCount, false, AugmentColor(AugmentTier.Prismatic))) OpenAugmentInventory();
             }
-            if (!lobby && Engine != null && (Engine.State.stage == RunStage.Combat || Engine.State.stage == RunStage.Rewards || Engine.State.stage == RunStage.Lost)) effects.Draw(label, reduceMotion);
+            if (!lobby && Engine != null && (Engine.State.stage == RunStage.Combat || Engine.State.stage == RunStage.Rewards || Engine.State.stage == RunStage.Lost || UltimateResultHold)) effects.Draw(label, reduceMotion);
             if (!string.IsNullOrEmpty(mapIntel)) { currentLayer = 1; GUI.enabled = topLayer == 1; DrawMapIntel(); }
             if (catalog) { currentLayer = 1; GUI.enabled = topLayer == 1; DrawCatalog(); }
             if (research) { currentLayer = 1; GUI.enabled = topLayer == 1; DrawResearch(); }
@@ -452,9 +460,10 @@ namespace Lumia
             {
                 Rect r = NodeRect(n);
                 // Include the name, boss label and scouted information surrounding the icon.
-                if (!MapDisplayVisible(new Rect(r.x - 25, r.y - 20, 112, 121), mapScroll)) continue;
+                if (!MapDisplayVisible(new Rect(r.x - 25, r.y - 20, 112, 125), mapScroll)) continue;
                 bool available = reachable.Any(x => x.id == n.id);
-                Color tone = n.kind == ZoneKind.Boss ? Pink : n.kind == ZoneKind.Kiosk ? Gold : n.kind == ZoneKind.Campfire ? C("dfac7d") : Mint;
+                bool wickeline = n.wickeline && !n.wickelineDefeated;
+                Color tone = wickeline ? WickelineTone : n.kind == ZoneKind.Boss ? Pink : n.kind == ZoneKind.Kiosk ? Gold : n.kind == ZoneKind.Campfire ? C("dfac7d") : Mint;
                 Box(r, n.visited ? C("2b4540") : available ? C("20394a") : C("142231"), available ? tone : n.visited ? Mint : Line);
                 var boss = n.kind == ZoneKind.Boss ? Engine.BossForNode(n) : null;
                 if (boss != null)
@@ -462,8 +471,13 @@ namespace Lumia
                     Tex(new Rect(r.x + 8, r.y + 3, 44, 54), PixelArt.Portrait(boss.id), ScaleMode.ScaleToFit, available || n.visited ? Color.white : Muted);
                     Txt(new Rect(r.x - 22, r.y - 20, 106, 20), "보스", 10, tone, true);
                 }
+                else if (wickeline)
+                {
+                    Tex(new Rect(r.x + 10, r.y + 3, 40, 40), PixelArt.SystemIcon(WickelineMechanics.EnemyId), ScaleMode.ScaleToFit, available || n.visited ? Color.white : Muted);
+                    Txt(new Rect(r.x + 1, r.y + 44, 58, 15), "특수 전투", 9, WickelineTone, true);
+                }
                 else Tex(new Rect(r.x + 12, r.y + 9, 36, 36), PixelArt.Icon(n.kind.ToString()), ScaleMode.ScaleToFit, available || n.visited ? Color.white : Muted);
-                Txt(new Rect(r.x - 22, r.y + 65, 106, 22), boss == null ? ZoneName(n.kind) : boss.name, 11, available ? tone : Muted, true);
+                Txt(new Rect(r.x - 22, r.y + 65, 106, 22), wickeline ? WickelineMechanics.Name : boss == null ? ZoneName(n.kind) : boss.name, 11, available ? tone : Muted, true);
                 if (n.nearKiosk && (n.kind == ZoneKind.Subject || n.kind == ZoneKind.Wildlife))
                 {
                     Rect badge = new Rect(r.xMax - 21, r.yMax - 21, 20, 20);
@@ -471,7 +485,13 @@ namespace Lumia
                     Tex(new Rect(badge.x + 2, badge.y + 2, 16, 16), PixelArt.Icon(ZoneKind.Kiosk.ToString()), ScaleMode.ScaleToFit);
                 }
                 string intel = Engine.NodeIntel(n);
-                if (!string.IsNullOrEmpty(intel))
+                if (wickeline)
+                {
+                    Rect guideRect = new Rect(r.x - 25, r.y + 86, 112, 14);
+                    Txt(guideRect, "처치 후 모닥불 · 공략 +", 9, WickelineTone, true);
+                    if (Hit(guideRect)) OpenBossGuide(WickelineMechanics.EnemyId);
+                }
+                else if (!string.IsNullOrEmpty(intel))
                 {
                     Rect intelRect = new Rect(r.x - 25, r.y + 86, 112, 14);
                     Txt(intelRect, n.kind == ZoneKind.Kiosk ? "키오스크 재고 보기 +" : intel, 9, Gold, true);
@@ -587,7 +607,10 @@ namespace Lumia
         {
             var s = Engine.State; var c = s.combat;
             if (c == null) return;
-            Header("전투  /  " + c.enemyName, "TURN " + c.turn + (c.enemyTurn ? "  ·  상대가 기술을 사용하고 있습니다." : "  ·  무료 연계 카드는 코스트를 모두 써도 사용할 수 있습니다."));
+            Header(Engine.IsWickelineCombat ? "위클라인  /  특수 전투" : Engine.IsLumiCombat ? "루미 챌린지" : "전투  /  " + c.enemyName, Engine.IsLumiCombat
+                ? "TURN " + c.turn + " / 3  ·  루미는 공격하지 않습니다. 누적 피해 40마다 20 CR을 얻습니다."
+                : Engine.IsWickelineCombat ? "TURN " + c.turn + (c.enemyTurn ? "  ·  위클라인의 행동 중입니다." : "  ·  행동 예고를 확인하세요. 처치하면 이 구역의 모닥불을 이용합니다.")
+                : "TURN " + c.turn + (c.enemyTurn ? "  ·  상대가 기술을 사용하고 있습니다." : "  ·  무료 연계 카드는 코스트를 모두 써도 사용할 수 있습니다."));
             Tex(new Rect(0, 80, W, 359), PixelArt.BattleBackground(), ScaleMode.ScaleAndCrop);
             Fill(new Rect(0, 80, W, 359), new Color(.02f, .04f, .07f, .2f));
             bool ultimateShowing = effects.UltimateFrame(reduceMotion) >= 0;
@@ -621,7 +644,7 @@ namespace Lumia
             // overlapping faces by restoring that actor's usual portrait only after playback ends.
             if (!ultimateShowing || effects.UltimateEnemy) effects.DrawActor(new Rect(129, 169 + bob, 214, 215), PixelArt.Portrait("hana"), false, reduceMotion);
             if (!ultimateShowing || !effects.UltimateEnemy) effects.DrawActor(new Rect(913, 169 - bob, 218, 216), string.IsNullOrEmpty(c.animal)
-                ? PixelArt.Portrait(c.enemyId) : PixelArt.WildlifePortrait(c.animal, c.mutantAnimal), true, reduceMotion);
+                ? CombatSubjectPortrait(c.enemyId) : PixelArt.WildlifePortrait(c.animal, c.mutantAnimal), true, reduceMotion);
             if (!ultimateShowing || !effects.UltimateEnemy) DrawWildlifeVariantBadge();
             if (!ultimateShowing || effects.UltimateEnemy) Txt(new Rect(142, 388, 188, 22), "하나  ·  방어 " + c.block, 14, Mint, true);
             if (!ultimateShowing || !effects.UltimateEnemy)
@@ -636,7 +659,9 @@ namespace Lumia
             {
             Txt(new Rect(343, 220, 516, 27), "ENERGY", 11, Gold, true);
             Txt(new Rect(343, 247, 516, 49), c.energy + " / " + Engine.MaxEnergy, 33, Gold, true);
-            if (Engine.IsBossCombat) DrawBossCombatPanel();
+            if (Engine.IsWickelineCombat) DrawWickelineCombatPanel();
+            else if (Engine.IsLumiCombat) DrawLumiChallengePanel();
+            else if (Engine.IsBossCombat) DrawBossCombatPanel();
             else if (!string.IsNullOrEmpty(c.animal)) DrawWildlifeCombatPanel();
             else if (string.IsNullOrEmpty(c.animal) && Btn(new Rect(481, 322, 252, 33), "상대 패시브 · 장비 · D/F", false, Pink)) { enemyLoadout=true; inventoryScroll=Vector2.zero; }
             }
@@ -715,6 +740,7 @@ namespace Lumia
 
         void DrawBossGuide()
         {
+            if (inspectBoss == WickelineMechanics.EnemyId) { DrawWickelineGuide(); return; }
             var guide = Engine?.BossGuideFor(inspectBoss);
             if (guide == null) { inspectBoss = ""; return; }
             Modal(new Rect(210, 82, 860, 562));
@@ -758,9 +784,9 @@ namespace Lumia
             Color costTone=free?Mint:taxed?Pink:Gold;
             Box(new Rect(r.x + 7, r.y + 7, 26, 25), Ink, costTone);
             Txt(new Rect(r.x + 8, r.y + 6, 25, 25), xCost ? "X" : cost.ToString(), 16, costTone, true);
-            string heading = sealedByStatus ? "상태이상 · 사용 불가" : chargeLabel.Length > 0 ? (Engine.IsCharged(id) ? "충전 완료 · 무료 " : "충전 중 · 다음 턴 ") + d.key
-                : xCost ? "남은 코스트 전부 · " + d.key : free ? (cost == 0 ? "무료 연계 " : "코스트 할인 ") + d.key
-                : taxed ? "상태 코스트 +" + (cost-d.cost) + " / " + d.key : d.owner + " " + d.key;
+            string heading = sealedByStatus ? "상태이상 · 사용 불가" : chargeLabel.Length > 0 ? SkillReferences.ShortName(d) + (Engine.IsCharged(id) ? " · 충전 완료" : " · 다음 턴 충전")
+                : xCost ? SkillReferences.ShortName(d) + " · 남은 코스트 전부" : free ? SkillReferences.ShortName(d) + (cost == 0 ? " · 무료" : " · 할인")
+                : taxed ? SkillReferences.ShortName(d) + " · +" + (cost-d.cost) + "코스트" : SkillReferences.ShortName(d);
             Txt(new Rect(r.x + 38, r.y + 11, r.width - (selected ? 73 : 45), 20), heading, d.owner.Length > 7 || sealedByStatus || xCost || chargeLabel.Length > 0 ? 9 : 11, sealedByStatus ? Pink : chargeLabel.Length > 0 ? Gold : enabled ? Text : Muted);
             if (selected) DrawCardSelectionCheck(new Rect(r.xMax - 31, r.y + 7, 24, 25));
             float artHeight = CardArtHeight(r);
@@ -910,8 +936,12 @@ namespace Lumia
             Txt(new Rect(36, 202, 95, 28), "장비 검색", 12, Muted);
             string query = GUI.TextField(new Rect(133, 198, 322, 34), craftQuery, field);
             if (query != craftQuery) { craftQuery = query; scroll = Vector2.zero; }
-            if (Btn(new Rect(471, 198, 100, 34), "초기화", false, Muted)) { craftQuery = ""; craftTags.Clear(); scroll = Vector2.zero; }
+            if (Btn(new Rect(471, 198, 100, 34), "초기화", false, Muted)) { craftQuery = craftMaterial = ""; craftTags.Clear(); scroll = Vector2.zero; }
             Txt(new Rect(590, 203, 645, 24), "태그를 여러 개 고르면 모든 옵션을 가진 장비를 찾습니다.", 11, Muted);
+            Txt(new Rect(36, 248, 100, 25), "제작 재료", 12, Muted);
+            for (int i = 0; i < CraftMaterialIds.Length; i++)
+                if (Btn(new Rect(140 + i * 184, 243, 177, 32), CraftMaterialLabels[i], craftMaterial == CraftMaterialIds[i], Mint))
+                { craftMaterial = CraftMaterialIds[i]; scroll = Vector2.zero; }
             var tags = CraftCatalog.Tags;
             int longTags = tags.Count(tag => tag == "치명타 확률" || tag == "치명타 피해");
             float shortWidth = (1202f - Math.Max(0, tags.Length - 1) * 7 - longTags * 118) / Math.Max(1, tags.Length - longTags);
@@ -919,16 +949,16 @@ namespace Lumia
             for (int i = 0; i < tags.Length; i++)
             {
                 float tagWidth = tags[i] == "치명타 확률" || tags[i] == "치명타 피해" ? 118 : shortWidth;
-                if (Btn(new Rect(tagX, 243, tagWidth, 29), tags[i], craftTags.Contains(tags[i]), Gold))
+                if (Btn(new Rect(tagX, 284, tagWidth, 29), tags[i], craftTags.Contains(tags[i]), Gold))
                 { if (!craftTags.Add(tags[i])) craftTags.Remove(tags[i]); scroll = Vector2.zero; }
                 tagX += tagWidth + 7;
             }
-            var gear = CraftCatalog.Filter(craftSlot, craftQuery, craftTags);
-            Txt(new Rect(36, 283, 1202, 20), "검색 결과 " + gear.Length + "개" + (craftTags.Count > 0 ? "  /  " + string.Join(" · ", craftTags) : ""), 11, Muted);
-            scroll = BeginTouchScrollView("camp-craft", new Rect(36, 310, 1202, 284), scroll, new Rect(0, 0, 1174, Mathf.Ceil(gear.Length / 3f) * 151));
-            if (gear.Length == 0) Para(new Rect(15, 16, 1130, 55), "조건에 맞는 장비가 없습니다. 다른 슬롯을 선택하거나 검색어와 태그를 줄여보세요.", 15, Muted);
+            var gear = CraftCatalog.Filter(craftSlot, craftQuery, craftTags, craftMaterial);
+            Txt(new Rect(36, 324, 1202, 20), "검색 결과 " + gear.Length + "개" + (craftMaterial.Length > 0 ? "  /  재료: " + GameDatabase.Object(craftMaterial).name : "") + (craftTags.Count > 0 ? "  /  " + string.Join(" · ", craftTags) : ""), 11, Muted);
+            scroll = BeginTouchScrollView("camp-craft", new Rect(36, 350, 1202, CraftViewportHeight), scroll, new Rect(0, 0, 1174, Mathf.Ceil(gear.Length / 3f) * 151));
+            if (gear.Length == 0) Para(new Rect(15, 16, 1130, 55), "조건에 맞는 장비가 없습니다. 다른 슬롯을 선택하거나 재료·검색어·태그 조건을 줄여보세요.", 15, Muted);
             craftPerformanceItems = 0;
-            var visible = CraftingCatalog.VisibleItems(gear.Length, scroll.y, 284);
+            var visible = CraftingCatalog.VisibleItems(gear.Length, scroll.y, CraftViewportHeight);
             for (int i = visible.first; i < visible.end; i++)
             {
                 craftPerformanceItems++;
@@ -996,7 +1026,7 @@ namespace Lumia
 
         IEnumerable<GearDef> FilterCraftGear()
         {
-            return CraftCatalog.Filter(craftSlot, craftQuery, craftTags).Select(item => item.gear);
+            return CraftCatalog.Filter(craftSlot, craftQuery, craftTags, craftMaterial).Select(item => item.gear);
         }
 
         void DrawCraftReplacement()
@@ -1239,7 +1269,7 @@ namespace Lumia
                     Tex(new Rect(x,207,29,29),PixelArt.SystemIcon(objects[i].Key),ScaleMode.ScaleToFit);
                     Txt(new Rect(x+36,212,179,24),(obj?.name ?? objects[i].Key)+" ×"+objects[i].Count(),12,Gold);
                 }
-                float bagTop = DrawTacticalModuleBagRow(), bagHeight = 632 - bagTop;
+                float bagTop = DrawTacticalModuleBagRow(DrawLumiUtilityBagRows()), bagHeight = 632 - bagTop;
                 var foods = s.foods.ToArray();
                 inventoryScroll = BeginTouchScrollView("inventory-foods", new Rect(80, bagTop, 1120, bagHeight), inventoryScroll, new Rect(0, 0, 1090, Math.Max(bagHeight, foods.Length * 82)));
                 if (foods.Length == 0) Txt(new Rect(10, 36, 1000, 40), "회복 음식이 없습니다. 키오스크에서 음식과 요리 재료를 구입할 수 있습니다.", 16, Muted);
@@ -1374,6 +1404,7 @@ namespace Lumia
 
         void DrawCardDetail()
         {
+            if (WickelineMechanics.Card(inspectCard) != null) { DrawWickelineSkillDetail(); return; }
             if (WildlifeMechanics.IsAnimalSkill(inspectCard)) { DrawWildlifeSkillDetail(); return; }
             var variant = DisplayCard(inspectCard, inspectEnemyCard, inspectRareReward, inspectTacticalReward); var d = variant?.card;
             if (d == null) { inspectCard = ""; inspectRareReward=inspectTacticalReward=false; return; }
@@ -1437,7 +1468,7 @@ namespace Lumia
         {
             var c=Engine?.State.combat;if(c==null){enemyLoadout=false;return;}
             Modal(new Rect(180,75,920,574));
-            Tex(new Rect(210,101,125,147),string.IsNullOrEmpty(c.animal) ? PixelArt.Portrait(c.enemyId)
+            Tex(new Rect(210,101,125,147),string.IsNullOrEmpty(c.animal) ? CombatSubjectPortrait(c.enemyId)
                 : PixelArt.WildlifePortrait(c.animal,c.mutantAnimal),ScaleMode.ScaleToFit);
             Txt(new Rect(360,103,700,38),c.enemyName+" · LV."+c.enemyLevel,25,Pink);
             Txt(new Rect(360,151,700,26),"무기군 "+c.enemyWeaponClass+" / 최대 코스트 "+GameEngine.EnergyForLevel(c.enemyLevel),16,Gold);
@@ -1504,14 +1535,14 @@ namespace Lumia
             {
                 var card=GameDatabase.Card(grant.cardId);
                 string reference=string.IsNullOrEmpty(grant.cardReference)?grant.cardId:grant.cardReference;
-                tokens.Add(new SkillMechanicToken { owner=card?.owner,key=grant.cardId,sourceCard=reference,targetCard=grant.cardId,label=enemy?card?.name ?? grant.cardId:PlayerCardName(reference),kind="free_cast",amount=grant.uses });
+                tokens.Add(new SkillMechanicToken { owner=card?.owner,key=grant.cardId,sourceCard=reference,targetCard=grant.cardId,label=enemy?SkillReferences.Name(grant.cardId):SkillReferences.ShortName(card)+" "+PlayerCardName(reference),kind="free_cast",amount=grant.uses });
             }
             var pending = enemy ? c.enemyPendingFreeCasts : c.pendingFreeCasts;
             foreach (var grant in (pending ?? new List<PendingFreeCast>()).Where(x => x != null && x.uses > 0))
             {
                 var card = GameDatabase.Card(grant.cardId);
                 tokens.Add(new SkillMechanicToken { owner = card?.owner, key = grant.cardId, sourceCard = grant.sourceCardId,
-                    targetCard = grant.cardId, label = card?.name ?? grant.cardId, kind = "pending_free_cast", amount = grant.uses,
+                    targetCard = grant.cardId, label = SkillReferences.Name(grant.cardId), kind = "pending_free_cast", amount = grant.uses,
                     remaining = Math.Max(1, grant.readyTurn - c.turn) });
             }
             // Show control and actionable cooperation first, followed by the remaining
@@ -1534,8 +1565,12 @@ namespace Lumia
             if (token.kind == "free_cast") return token.label + " 무료 " + token.amount + "회";
             if (token.kind == "pending_free_cast") return token.label + " · 다음 자기 턴 무료 " + token.amount + "회";
             if (token.kind == "revive" && token.persistent) return token.label;
-            if (token.kind == "state") return token.label + " · 활성";
-            if (token.kind == "resource") return token.label + " " + token.amount + "/" + token.cap;
+            if(token.kind=="state" || token.kind=="resource")
+            {
+                string owner=(token.owner??"").StartsWith("trait:",StringComparison.Ordinal) ? GameDatabase.Passive(token.owner.Substring(6))?.owner : token.owner;
+                string scopedLabel=(string.IsNullOrEmpty(owner)?"":owner+" ")+token.label;
+                return scopedLabel+(token.kind=="state"?" · 활성":" "+token.amount+"/"+token.cap);
+            }
             if (token.kind == "discount") return token.label + " −" + token.amount;
             if (token.kind == "delayed_damage") return token.label + " " + token.delay + "회 후";
             if (token.kind == "energy_buff") return token.label + " 코스트 +" + token.amount + " · " + token.remaining + "턴";
@@ -1662,6 +1697,7 @@ namespace Lumia
             text+="\n\n10  레어 조우는 일반 후보가 1막 12%, 2막 18%, 3막 이후 25% 확률로 변환되며 한 막에 한 번만 제시됩니다. 다른 후보를 선택해도 그 막의 레어 출현은 소진됩니다. 전용 ++ 카드는 구입한 한 장만 강화되며 보라색 테두리와 레어++ 표시로 구분합니다. 패시브·R·카드 최대 2장 정리·나머지 보조 룬·1코스트 이하 미강화 카드의 일반 사본 2장·무작위 F 보상도 선택할 수 있습니다. 추가 보조 룬은 중복 없이 원정 동안 함께 발동합니다.";
             text+="\n\n11  대상 선택·충전·카드 교환·다른 손패 소멸 기술은 사용 방법을 고른 뒤 확정합니다. 선택 중에는 다른 카드를 사용하거나 턴을 마칠 수 없으며 사용 취소 또는 Esc로 돌아갑니다. 충전은 코스트를 먼저 지불하고 실제 카드 한 장을 손패에 보존합니다. 다음 자기 턴부터 한 번 무료로 발동하며, 사용하기 전까지 새로 뽑을 자리 한 칸을 차지합니다. X 코스트 카드는 남은 코스트를 모두 사용합니다. 소멸 선택은 이번 전투에만 적용되며 영구 덱에서는 제거하지 않습니다. 니나의 체력과 피해 분담은 전투 화면과 필드에서 확인하세요.";
             text+="\n\n12  명중률은 기본 100%이며 회피율과 따로 판정합니다. 실명은 명중률을 25%p 낮춥니다. 적을 직접 지정하는 필중 기술은 명중률 감소와 상대 회피율을 무시합니다. 속박과 기절은 회피율을 20%p 낮추며, 둘이 함께 걸려도 이 감소는 중첩되지 않습니다. 명중률과 회피율은 나와 상대의 필드 창에서 확인하세요.";
+            text+="\n\n13  3막의 모닥불 한 곳에는 위클라인이 등장합니다. 지도에서 얼굴 아이콘과 특수 전투 표시로 구별하며, 공략 +에서 행동과 대응 방법을 확인할 수 있습니다. 위클라인을 처치하면 VF 혈액 샘플 1개, 100크레딧, 생명의 나무 또는 운석 1개를 즉시 얻고 같은 구역의 모닥불을 이용합니다. 위클라인의 기술은 NPC 전용 행동이며 플레이어 카드 보상에 나오지 않습니다.";
             if(Engine!=null)text+="\n\n현재 장비 부위별 장착 한도 / "+EquipmentCapacityLabel()+". 장비 목록과 교체 목록은 스크롤하여 모두 확인할 수 있습니다.";
             wrapped.fontSize = 15; float height = Math.Max(350, CachedTextHeight(text, 15, 877) + 12);
             helpScroll = BeginTouchScrollView("help", new Rect(185, 181, 900, 356), helpScroll, new Rect(0, 0, 877, height));
@@ -1712,12 +1748,14 @@ namespace Lumia
             switch (s.stage)
             {
                 case RunStage.Combat:
-                    bool boss = s.map.Any(n => n.id == s.activeNodeId && n.kind == ZoneKind.Boss);
+                    bool boss = Engine.IsWickelineCombat || s.map.Any(n => n.id == s.activeNodeId && n.kind == ZoneKind.Boss);
                     AudioCue(boss ? "boss.start" : "combat.start");
                     if (!string.IsNullOrEmpty(s.combat?.animal)) AudioCue("wild." + s.combat.animal + ".enter");
                     break;
                 case RunStage.Kiosk: AudioCue("kiosk.enter"); break;
-                case RunStage.Campfire: AudioCue("camp.enter"); break;
+                case RunStage.Campfire:
+                    if (previous == RunStage.Combat) AudioCue("combat.win");
+                    AudioCue("camp.enter"); break;
                 case RunStage.Encounter: AudioCue("encounter.enter"); break;
                 case RunStage.Rewards: AudioCue("combat.win"); break;
                 case RunStage.Won: AudioCue("game.win"); break;
@@ -2730,7 +2768,7 @@ namespace Lumia
             if (!Debug.isDebugBuild || (Array.IndexOf(Environment.GetCommandLineArgs(), "-lumia-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-camp-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-strategy-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-reward-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-variety-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-boss-paths-verify") < 0 && Array.IndexOf(Environment.GetCommandLineArgs(), "-bts-research-verify") < 0 && !LayeredStoryVerificationEnabled && !CraftPerformanceVerificationEnabled && !ListPerformanceVerificationEnabled)) return;
             lobby = catalog = inventory = settings = help = fieldInfo = enemyLoadout = research = false;
             inspectCard = inspectTrait = inspectGear = craftPending = ""; inspectEnemyCard=false; inspectRareReward=inspectTacticalReward=false; summaryMode=true; scroll = inventoryScroll = encounterStoryScroll = detailScroll = Vector2.zero;summaryScroll.Clear();
-            craftQuery = ""; craftTags.Clear(); craftSlot = GearSlot.Weapon; campRemovalSelection.Clear(); campSelectionState = null;
+            craftQuery = craftMaterial = ""; craftTags.Clear(); craftSlot = GearSlot.Weapon; campRemovalSelection.Clear(); campSelectionState = null;
             retainSelecting = hyperloopSelecting = false; upgradeSelected = -1; upgradeBranch = mapIntel = inspectBoss = ""; mapIntelScroll = helpScroll = upgradeCardScroll = upgradePreviewScroll = Vector2.zero;
             if (view.StartsWith("research_", StringComparison.Ordinal)) { VerificationResearchView(view); return; }
             if (view == "lobby" || view == "audio_settings") { lobby = true; settings = view == "audio_settings"; return; }
@@ -3194,16 +3232,24 @@ namespace Lumia
         }
         void Txt(Rect r, string value, int size, Color color, bool center = false)
         {
-            var style = center ? centered : label; style.fontSize = size; style.normal.textColor = color;
+            var style = center ? centered : label;
+            style.fontSize = FittedUIFontSize(style, value, r, size, value != null && value.Contains("\n")); style.normal.textColor = color;
             GUI.Label(r, value ?? "", style);
+            style.wordWrap = false;
         }
-        void Para(Rect r, string value, int size, Color color) { wrapped.fontSize = size; wrapped.normal.textColor = color; GUI.Label(r, value ?? "", wrapped); }
+        void Para(Rect r, string value, int size, Color color)
+        {
+            if (mobileTypography) { DrawCachedSummary(r, value, size, color, null, false); return; }
+            wrapped.fontSize = size; wrapped.normal.textColor = color; GUI.Label(r, value ?? "", wrapped);
+        }
         bool Btn(Rect r, string value, bool primary = false, Color? tone = null, bool enabled = true)
         {
             Color accent = tone ?? Mint; bool hover = r.Contains(Event.current.mousePosition) && enabled;
             Box(r, enabled ? primary ? C("27433d") : hover ? C("263b49") : Panel : C("121c28"), enabled ? accent : Line);
-            button.fontSize = value.Contains("\n") ? 14 : 16; button.normal.textColor = enabled ? accent : Muted;
-            GUI.Label(new Rect(r.x + 8, r.y + 2, r.width - 16, r.height - 4), value, button);
+            Rect textRect = new Rect(r.x + 8, r.y + 2, r.width - 16, r.height - 4);
+            button.fontSize = FittedUIFontSize(button, value, textRect, value.Contains("\n") ? 14 : 16, true);
+            button.normal.textColor = enabled ? accent : Muted;
+            GUI.Label(textRect, value, button); button.wordWrap = false;
             return Hit(r, enabled);
         }
         bool Hit(Rect r, bool enabled = true)

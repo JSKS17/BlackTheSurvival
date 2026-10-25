@@ -1,0 +1,56 @@
+{
+  "completedAtUtc": "2026-10-21T18:44:44.128108Z",
+  "gameBuildId": "ba37e9133dcc3c683df82b2a",
+  "environmentRevision": 47,
+  "browserEvidence": [
+    "lumi-grid-offer.jpg",
+    "lumi-grid-rare.jpg",
+    "lumi-grid-rare-shop.jpg"
+  ],
+  "siteAccess": "public",
+  "deployment": "appgdep_6ad9077321f48191a89924d686fb99c2",
+  "gameVersion": "1.0.22",
+  "removedTargets": 5,
+  "site": "https://bser-sts.com/",
+  "removedBytes": 7025174572,
+  "result": "PASS",
+  "manifestSha256": "722031b666e32e04bcbe18c2f59c48b21d7e46cd518796864c39f3a40c0b9fa5",
+  "liveChecks": 21,
+  "siteVersion": 45,
+  "preserved": [
+    "Unity source and meta files",
+    "High resolution art masters",
+    "Current published game package in WebSite/public/game",
+    "Dependency runtime and node_modules",
+    "Validation records and screenshots"
+  ],
+  "approvedSprites": [
+    {
+      "source": "docs\\preview-lumi-grid-20261022\\lumi-grid80.png",
+      "target": "Assets\\Resources\\Lumia\\Portraits\\lumi.png",
+      "oldSha256": "2d70059022dbd8a73c8eea40a1644cbdf85e0f2b3638e177348c951361d75eec",
+      "sha256": "e25f686dcef1bdc4b5a1f1ea52c70b54c24679a71a0d41727ec5ffe30e2f3254",
+      "metaSha256": "b45d94479045a97d8289d2f1fb30313a7c08d06d5baf45d9535190226547db33",
+      "width": 160,
+      "height": 160,
+      "logicalGrid": [
+        80,
+        80
+      ]
+    },
+    {
+      "source": "docs\\preview-lumi-grid-20261022\\virtual-lumi-grid80.png",
+      "target": "Assets\\Resources\\Lumia\\PortraitsRare\\lumi.png",
+      "oldSha256": "682f8860b3fb87461ce1f48fa7d7c48758d37c1f2cc2efbe826b38599105b32b",
+      "sha256": "7ffd742aaa57b858a6236684c23119ab5e72f1bb66ad52de64043bc5f5b073f7",
+      "metaSha256": "9c62d50ed9bbf83d9a35e70ee9cc8024d890a482f3e2ee960a4a1e9111368d19",
+      "width": 160,
+      "height": 160,
+      "logicalGrid": [
+        80,
+        80
+      ]
+    }
+  ],
+  "sourceCommit": "0c1349601a9237f220c86a97f35b69682eb0ba26"
+}

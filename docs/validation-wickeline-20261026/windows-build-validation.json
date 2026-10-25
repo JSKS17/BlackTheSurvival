@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "version": "1.0.27",
+  "runtimeFilesVerifiedInRootAndClone": 122,
+  "artSourceFilesVerified": 13,
+  "runtimeArtAndMetaFilesVerifiedInClone": 4,
+  "sourceCaptureSha256": "7600823f3ea581fc450857ab53bcd9314d50aed9f0bcf642696cb1b31bedbffa",
+  "manifestSha256": "1f90a294e41d5b135ece809d4ad6ef67d01db4598c15aac6f47939e0a8fa37be",
+  "errors": 0,
+  "warnings": 1,
+  "warningDisposition": "Unity Cloud native-symbol upload was skipped because no Cloud access token was configured. The local production player built successfully.",
+  "nativePlayerInteractiveTested": false,
+  "sharedRuntimeVerification": "Full core regressions and actual WebGL browser QA; the native player was built and packaged, not launched interactively."
+}

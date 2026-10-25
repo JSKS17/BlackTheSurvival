@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "source": "fixtures/wickeline-victory-ready.json",
+  "sourceSha256": "c9e125b12606f89ea14fa5634a1004dffa8c06772702f368a6d7d67ddd6a3116",
+  "target": "fixtures/wickeline-r-victory.json",
+  "sha256": "9153f3de6b40644e953f92f66a20b3ef39b9eaf47acf2492a00efff6fd95fcaf",
+  "changes": [
+    "Garnet R hand and deck entry",
+    "free-recast grant and embrace=1",
+    "energy=0",
+    "enemyBlock=500"
+  ],
+  "purpose": "Actual browser fatal-R presentation after instant campfire reward; local disposable account only."
+}

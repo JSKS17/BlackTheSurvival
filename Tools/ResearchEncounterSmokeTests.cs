@@ -8,9 +8,9 @@ public static partial class CoreSmokeTests
 {
     static void ResearchEncounterCoverage()
     {
-        Check(ResearchEncounters.Events.Count == GameDatabase.Characters.Count, "every subject has one research encounter");
-        Check(ResearchEncounters.Events.Select(x => x.id).Distinct().Count() == GameDatabase.Characters.Count, "research encounter IDs are unique");
-        Check(ResearchEncounters.Events.Select(x => x.title).Distinct().Count() == GameDatabase.Characters.Count, "research stories have distinct titles");
+        Check(ResearchEncounters.Events.Count == ResearchProgression.ReportSubjects.Count(), "every subject has one research encounter");
+        Check(ResearchEncounters.Events.Select(x => x.id).Distinct().Count() == ResearchProgression.ReportSubjects.Count(), "research encounter IDs are unique");
+        Check(ResearchEncounters.Events.Select(x => x.title).Distinct().Count() == ResearchProgression.ReportSubjects.Count(), "research stories have distinct titles");
         foreach (var character in GameDatabase.Characters)
         {
             var story = ResearchEncounters.EventForSubject(character.id);

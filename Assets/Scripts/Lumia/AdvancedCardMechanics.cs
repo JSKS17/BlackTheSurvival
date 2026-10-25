@@ -193,7 +193,7 @@ namespace Lumia
         static string ChargeDescription(CardDef card)
         {
             int damage = ChargeBonusDamage(card);
-            return "즉시 사용하거나 1턴 충전할 수 있습니다. 충전할 때 코스트를 미리 지불하고 카드를 보관합니다. 다음 자기 턴부터 한 번 무료로 사용할 수 있으며 충전은 중첩되지 않습니다. 완료된 카드는 사용할 때까지 보관되고, 보관한 장수만큼 다음 턴에 새로 뽑는 카드가 줄어듭니다."
+            return CardPresentation.WithParticle(SkillReferences.Name(card),"를","을")+" 즉시 사용하거나 1턴 충전할 수 있습니다. 충전할 때 코스트를 미리 지불하고 해당 카드 한 장을 보관합니다. 다음 자기 턴부터 보관한 카드 한 장을 한 번 무료로 사용할 수 있으며 충전은 중첩되지 않습니다. 완료된 카드는 사용할 때까지 보관되고, 보관한 장수만큼 다음 턴에 새로 뽑는 카드가 줄어듭니다."
                 + (damage > 0 ? " 충전 후 직접 피해가 " + damage + " 증가합니다." : "");
         }
     }

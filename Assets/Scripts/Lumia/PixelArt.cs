@@ -82,6 +82,8 @@ namespace Lumia
             {
                 case "하나": case "dr. 하나": key = "hana"; break;
                 case "니아": case "niah": key = "nia"; break;
+                case "루미": key = "lumi"; break;
+                case "위클라인": key = "wickeline"; break;
                 case "닭": key = "chicken"; break;
                 case "들개": case "wilddog": case "wild dog": key = "dog"; break;
                 case "멧돼지": case "wildboar": key = "boar"; break;
@@ -217,6 +219,8 @@ namespace Lumia
             Texture2D result;
             if (Cache.TryGetValue("skill/" + key, out result)) return result;
             result = Load("SkillIcons/" + key);
+            // NPC actions use their encounter icon without entering the playable card catalog.
+            if (result == null && WickelineMechanics.Card(key) != null) result = SystemIcon(WickelineMechanics.EnemyId);
             // This keeps development previews usable. The art verification tool requires
             // a dedicated PNG for every card and never accepts this placeholder.
             if (result == null)

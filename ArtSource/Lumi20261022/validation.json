@@ -1,0 +1,130 @@
+{
+  "result": "PASS",
+  "generatedWith": "builtin image_gen",
+  "generatedAtUtc": "2026-10-21T15:53:53.435Z",
+  "noPythonImageEditing": true,
+  "originalSpritesModified": false,
+  "artifacts": [
+    {
+      "key": "normal",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a15f22-d887-7501-a760-9ea7a2d47e35\\exec-7e9a8a05-6136-4693-a042-6112fe858548.png",
+      "raw": "ArtSource/Lumi20261022/generated/normal.png",
+      "target": "Assets/Resources/Lumia/Portraits/lumi.png",
+      "guid": "b718ec3180364e3ba85720bff1fa8c0c",
+      "sha256": "2d70059022dbd8a73c8eea40a1644cbdf85e0f2b3638e177348c951361d75eec",
+      "bytes": 460719,
+      "width": 1254,
+      "height": 1254,
+      "channels": 4,
+      "alpha": {
+        "transparent": 1218437,
+        "opaque": 1448,
+        "partial": 352631,
+        "contentBounds": [
+          65,
+          75,
+          1217,
+          1181
+        ]
+      },
+      "importer": {
+        "filterMode": "Point",
+        "mipmaps": false,
+        "textureCompression": "Uncompressed",
+        "alphaIsTransparency": true,
+        "maxTextureSize": 256
+      }
+    },
+    {
+      "key": "virtual",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a15f22-d887-7501-a760-9ea7a2d47e35\\exec-fd4eda2a-8deb-48ca-9db3-3db4455fcd69.png",
+      "raw": "ArtSource/Lumi20261022/generated/virtual.png",
+      "target": "Assets/Resources/Lumia/PortraitsRare/lumi.png",
+      "guid": "2482010eca4a4119b713c98d7f8af6fe",
+      "sha256": "682f8860b3fb87461ce1f48fa7d7c48758d37c1f2cc2efbe826b38599105b32b",
+      "bytes": 706054,
+      "width": 1254,
+      "height": 1254,
+      "channels": 4,
+      "alpha": {
+        "transparent": 1150987,
+        "opaque": 1258,
+        "partial": 420271,
+        "contentBounds": [
+          0,
+          35,
+          1223,
+          1253
+        ]
+      },
+      "importer": {
+        "filterMode": "Point",
+        "mipmaps": false,
+        "textureCompression": "Uncompressed",
+        "alphaIsTransparency": true,
+        "maxTextureSize": 256
+      }
+    },
+    {
+      "key": "camera",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a15f22-d887-7501-a760-9ea7a2d47e35\\exec-ad1b0047-e925-4d48-bc3d-0d730a4d7dea.png",
+      "raw": "ArtSource/Lumi20261022/generated/camera.png",
+      "target": "Assets/Resources/Lumia/SystemIcons/telescope_camera.png",
+      "guid": "f845ba0e7e76414d8d354722036d2792",
+      "sha256": "9f93c5732583884d502188bc6578e056c171999a7fb26272fc2c9b857816b411",
+      "bytes": 415794,
+      "width": 1254,
+      "height": 1254,
+      "channels": 4,
+      "alpha": {
+        "transparent": 1268703,
+        "opaque": 1554,
+        "partial": 302259,
+        "contentBounds": [
+          0,
+          15,
+          1233,
+          1237
+        ]
+      },
+      "importer": {
+        "filterMode": "Point",
+        "mipmaps": false,
+        "textureCompression": "Uncompressed",
+        "alphaIsTransparency": true,
+        "maxTextureSize": 128
+      }
+    },
+    {
+      "key": "kiosk",
+      "source": "C:\\Users\\azxar\\.codex\\generated_images\\01a15f22-d887-7501-a760-9ea7a2d47e35\\exec-20b534bd-1c7d-4330-9f97-53edfe0dda0e.png",
+      "raw": "ArtSource/Lumi20261022/generated/kiosk.png",
+      "target": "Assets/Resources/Lumia/SystemIcons/portable_kiosk.png",
+      "guid": "7c6cd98217fc4cb68e67bee670c11672",
+      "sha256": "9415ead546bb24db969be1b806b3071de5bfce7615dfc553b311e54d786ed00e",
+      "bytes": 432476,
+      "width": 1280,
+      "height": 1229,
+      "channels": 4,
+      "alpha": {
+        "transparent": 1229843,
+        "opaque": 778,
+        "partial": 342499,
+        "contentBounds": [
+          0,
+          72,
+          1227,
+          1204
+        ]
+      },
+      "importer": {
+        "filterMode": "Point",
+        "mipmaps": false,
+        "textureCompression": "Uncompressed",
+        "alphaIsTransparency": true,
+        "maxTextureSize": 128
+      }
+    }
+  ],
+  "note": "PNG image pixels and alpha copied exactly from built-in image_gen outputs. Point-sampled uncompressed importer; parent will preserve path-specific max sizes in PixelImportRules. Alpha uses near-opaque values253-254 inside the sprite and genuine zero alpha outside."
+}

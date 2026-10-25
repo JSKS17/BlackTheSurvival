@@ -330,9 +330,9 @@ namespace Lumia
             var rules=card.mechanics?.rules ?? new SkillRule[0];
             bool attack=card.damage>0 || rules.Any(r=>r.op=="bonus_damage" && r.amount>0);
             if(new[]{"echion_q","echion_e"}.Contains(card.id))
-                lines.Add("코스트를 지불한 뒤 자신의 VF가 실제 증가하면 블레어를 위한 VF 공명을 준비합니다. 블레어의 공명도 함께 있으면 두 공명으로 에키온·블레어의 W 또는 R을 강화할 수 있습니다. 외부 공명은 고유 VF의 획득과 소모를 바꾸지 않습니다.");
+                lines.Add("코스트를 지불한 뒤 자신의 VF가 실제 증가하면 블레어를 위한 VF 공명을 준비합니다. 블레어의 공명도 함께 있으면 두 공명으로 "+SkillReferences.Names(VfConsumers)+"을 강화할 수 있습니다. 외부 공명은 고유 VF의 획득과 소모를 바꾸지 않습니다.");
             if(new[]{"blair_q","blair_w","blair_e","blair_r"}.Contains(card.id))
-                lines.Add("코스트를 지불한 뒤 VF 추적력이 실제 증가하거나 블레이드 형태가 바뀌면 에키온을 위한 VF 공명을 준비합니다. 에키온의 공명도 함께 있으면 두 공명으로 에키온·블레어의 W 또는 R을 강화할 수 있습니다. 외부 공명은 고유 추적력과 형태 조건을 바꾸지 않습니다.");
+                lines.Add("코스트를 지불한 뒤 VF 추적력이 실제 증가하거나 블레이드 형태가 바뀌면 에키온을 위한 VF 공명을 준비합니다. 에키온의 공명도 함께 있으면 두 공명으로 "+SkillReferences.Names(VfConsumers)+"을 강화할 수 있습니다. 외부 공명은 고유 추적력과 형태 조건을 바꾸지 않습니다.");
             if(card.id=="echion_w" || card.id=="blair_w")
                 lines.Add("에키온과 블레어의 VF 공명이 모두 준비되어 있으면: 두 공명을 모두 소모하고 방어도 3을 추가로 얻습니다.");
             if(card.id=="echion_r" || card.id=="blair_r")
@@ -346,7 +346,7 @@ namespace Lumia
             if(card.id=="theodore_e")
                 lines.Add("코스트를 지불한 이 카드가 적중하면 아이솔·로지·셀린을 위한 폭파 연계를 준비합니다.");
             if(card.id=="theodore_w")
-                lines.Add("코스트를 지불해 증폭 스크린을 새로 얻으면 아이솔·로지·셀린을 위한 폭파 연계를 준비합니다. 이 준비는 아이솔 Q·R과 로지 R의 첫 폭발 피해를 3 강화하거나, 아이솔 W·로지 Q·W·E·셀린 W의 첫 적중에 피해 2를 더하거나, 셀린 Q에 폭탄 1을 더합니다. 이미 켜진 스크린을 다시 사용하는 것으로는 준비하지 않습니다.");
+                lines.Add("코스트를 지불해 증폭 스크린을 새로 얻으면 아이솔·로지·셀린을 위한 폭파 연계를 준비합니다. 이 준비는 "+SkillReferences.Names(new[]{"isol_q","isol_r","rozzi_r"})+"의 첫 폭발 피해를 3 강화하거나, "+SkillReferences.Names(new[]{"isol_w","rozzi_q","rozzi_w","rozzi_e","celine_w"})+"의 첫 적중에 피해 2를 더하거나, "+SkillReferences.Name("celine_q")+"에 폭탄 1을 더합니다. 이미 켜진 스크린을 다시 사용하는 것으로는 준비하지 않습니다.");
             if(delayedBomb)
                 lines.Add("다른 실험체의 폭파 준비가 있고 이 카드의 지연 폭발을 설치·갱신할 때 아직 외부 강화를 받지 않았다면: 준비를 소모해 해당 폭발의 피해를 최초 1회만 2 늘립니다."
                     +(subject!="theodore"?" 테오도르의 증폭 스크린으로 만든 준비라면 3 늘립니다.":""));
@@ -357,18 +357,18 @@ namespace Lumia
             if(new[]{"rozzi_q","rozzi_w","rozzi_e"}.Contains(card.id))
                 lines.Add("기존 셈텍스탄의 외부 강화를 이어 받는 경우가 아니고 다른 실험체의 폭파 준비가 있으며 공격이 적중하면: 준비를 소모해 첫 적중에 추가 피해 2를 줍니다.");
             if(new[]{"rozzi_q","rozzi_w","rozzi_e","rozzi_r"}.Contains(card.id))
-                lines.Add("기존 셈텍스탄을 Q·W·E로 조기 기폭하면 저장된 외부 강화량을 이어 받으며 새 폭파 준비는 중복해서 소모하지 않습니다. 이월 피해는 새 폭파 연계의 발동으로 세지 않습니다.");
+                lines.Add("기존 셈텍스탄을 "+SkillReferences.Names(new[]{"rozzi_q","rozzi_w","rozzi_e"})+"로 조기 기폭하면 저장된 외부 강화량을 이어 받으며 새 폭파 준비는 중복해서 소모하지 않습니다. 이월 피해는 새 폭파 연계의 발동으로 세지 않습니다.");
 
             if(subject=="adriana" && rules.Any(r=>r.key=="oil" && r.op=="gain"))
-                lines.Add("코스트를 지불한 뒤 기름이 실제 증가하면 다른 실험체의 점화를 준비합니다. 케네스의 업화·화염 분쇄 또는 비형의 도깨비 불 지대가 이 준비와 기름 1을 소모하면 턴 종료마다 피해 3을 2회 주는 연계 기름 화재를 남깁니다.");
+                lines.Add("코스트를 지불한 뒤 기름이 실제 증가하면 다른 실험체의 점화를 준비합니다. "+CardPresentation.WithParticle(SkillReferences.Names(FireCards),"가","이")+" 이 준비와 기름 1을 소모하면 턴 종료마다 피해 3을 2회 주는 연계 기름 화재를 남깁니다.");
             if(FireCards.Contains(card.id))
                 lines.Add("아드리아나의 기름 준비가 남아 있고 이 카드의 화염 효과가 만들어지면: 준비와 기름 1을 소모해 시전자의 턴 종료마다 방어도를 무시하는 피해 3을 2회 주는 연계 기름 화재를 남깁니다. 화상 틱은 점화를 다시 발동하지 않습니다.");
             if(subject!="cathy" && rules.Any(r=>r.op=="bleed"))
-                lines.Add("코스트를 지불한 이 카드의 출혈이 실제 적용되면 캐시를 위한 상처 연계를 준비합니다. 그 출혈이 남아 있는 적에게 캐시의 동맥절제술·앰퓨테이션이 적중하면 카드 처리 후 캐시의 상처가 추가로 1 증가합니다.");
+                lines.Add("코스트를 지불한 이 카드의 출혈이 실제 적용되면 캐시를 위한 상처 연계를 준비합니다. 그 출혈이 남아 있는 적에게 "+CardPresentation.WithParticle(SkillReferences.Names(new[]{"cathy_q","cathy_w"}),"가","이")+" 적중하면 카드 처리 후 캐시의 상처가 추가로 1 증가합니다.");
             if(new[]{"cathy_q","cathy_w"}.Contains(card.id))
                 lines.Add("다른 실험체의 상처 준비와 그 실험체의 출혈이 남아 있고 공격이 적중하면: 준비를 소모하고 카드 처리가 끝난 뒤 상처를 추가로 1 증가시킵니다. 현재 카드의 중상 조건에는 추가 상처가 소급 적용되지 않습니다.");
             if(subject!="magnus" && (card.statuses ?? new CardStatusRule[0]).Any(r=>r.key=="knockback" && r.timing=="cast"))
-                lines.Add("코스트를 지불한 이 카드의 넉백이 적중하면 매그너스의 강타를 위한 밀려난 위치를 준비합니다. 강타는 이 준비로 추가 피해 4를 주지만 외부 연계로 기절을 추가하지 않습니다.");
+                lines.Add("코스트를 지불한 이 카드의 넉백이 적중하면 "+SkillReferences.Name("magnus_e")+"을 위한 밀려난 위치를 준비합니다. 이 기술은 이 준비로 추가 피해 4를 주지만 외부 연계로 기절을 추가하지 않습니다.");
             if(card.id=="magnus_e")
                 lines.Add("다른 실험체가 밀려난 위치를 준비했고 고유 벽 압박이 없으며 공격이 적중하면: 준비를 소모해 추가 피해 4를 줍니다. 고유 벽 압박 연계와 중복되지 않으며 외부 연계는 기절을 추가하지 않습니다.");
             if(MobileOwners.Contains(subject))
@@ -387,7 +387,7 @@ namespace Lumia
             }
             if(IsSupport(card))
             {
-                lines.Add((card.id=="sua_w"?"자신을 대상으로 ":"")+"코스트를 지불해 이 지원 카드를 사용하면 다른 실험체를 위한 보호 지원을 준비합니다. 자신을 대상으로 한 수아 W, 요한 W·R, 레니 Q·E, 샬럿 W·E가 이 준비를 사용할 수 있습니다.");
+                lines.Add((card.id=="sua_w"?"자신을 대상으로 ":"")+"코스트를 지불해 이 지원 카드를 사용하면 다른 실험체를 위한 보호 지원을 준비합니다. "+CardPresentation.WithParticle(SkillReferences.Names(SupportCards),"가","이")+" 이 준비를 사용할 수 있으며, "+SkillReferences.Name("sua_w")+"는 자신을 대상으로 해야 합니다.");
                 lines.Add("다른 실험체의 보호 지원이 있으면: 준비를 소모해 "+(card.heal>0?"체력 2를 추가로 회복합니다.":"방어도 2를 추가로 얻습니다."));
             }
             foreach(var line in lines)yield return line;

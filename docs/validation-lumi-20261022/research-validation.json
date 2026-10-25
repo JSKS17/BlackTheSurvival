@@ -1,0 +1,66 @@
+{
+  "result": "PASS",
+  "recordedAtUtc": "2026-10-21T15:56:05.482Z",
+  "validation": {
+    "command": "Tools/RunCoreTests.ps1 -LumiOnly",
+    "scope": "Core agent executed focused C# integration suite containing LumiResearchAndAppearance",
+    "combinedSuiteAssertions": 16126,
+    "standaloneLumiRareAppearances": 11,
+    "standaloneOfferSamples": 2000,
+    "fullSuite": "Pending parent/core agent report",
+    "nativeUiRendering": "Parent Unity validation"
+  },
+  "sourceHashes": {
+    "Assets/Scripts/Lumia/ResearchProgression.cs": "9ca63874f1a7079073a1913722e73da240b1381a86ae5e621ebab0e75729688f",
+    "Assets/Scripts/Lumia/ResearchStore.cs": "f2714e4d44967ca203cf2daeb11e6735f5dcaa593000117ad5bef8802dfa6f8c",
+    "Assets/Scripts/Lumia/ResearchEncounters.cs": "4672453658e6a8e665f4c3279e6b0cbb74ae1ebb178becc94d518835e9ba316a",
+    "Assets/Scripts/Lumia/ResearchRareEncounters.cs": "e287d319830b02b6e45fc5964a2f98790ea3cd53acb8ad29c5573798db148e7a",
+    "Assets/Scripts/Lumia/RareEncounterEngine.cs": "38b55e2ef444e8b2186d039ab6d8aae041d7bc152387f5389141556df92c1c4f",
+    "Assets/Scripts/Lumia/RareSkinCatalog.cs": "102f5dcfbb72dc266338b25b60613783ce2b4b84903847e4368321d20c164d24",
+    "Assets/Scripts/Lumia/RareSkinStories.cs": "ef60360acc883b6eca410ab001c41ce389079f725b2f7bc37938c133deaaa0a5",
+    "Assets/Scripts/Lumia/LumiaResearchUI.cs": "52ddbb35c81edaf532802a42dc47afb637fc0f217e67b0f8ba50180add69dc96",
+    "Tools/LumiResearchSmokeTests.cs": "a32c64f8f67a42d1a9dc0ebe8e5c5dba7e59e9c5faa95d257ee7b261be4f704c",
+    "Tools/ResearchRareSmokeTests.cs": "731ac2a6e55fe7b7ebb2f413076253e88512ba497a6ebf255473d4346c9353d1",
+    "Tools/RareEncounterV2SmokeTests.cs": "4855800f3827da5756c2a02279a383b6352e389c597eecebb624d974b809ec80",
+    "Tools/ResearchEncounterSmokeTests.cs": "ab083bccf81e460a81dcb8312f064f495538e98ead2c800f3a853f0a876050da"
+  },
+  "contracts": {
+    "reportSubject": "lumi",
+    "normalRosterEntry": false,
+    "requirements": {
+      "discoveries": 3,
+      "objectPurchases": 1,
+      "earnedCredits": 50,
+      "cost": 1000
+    },
+    "journalHooks": [
+      "ResearchProgression.LumiFound(state)",
+      "ResearchProgression.LumiObjectPurchased(state)",
+      "ResearchProgression.LumiCreditsEarned(state,actualCredits)"
+    ],
+    "settlement": "Run journal counters merge exactly once using existing settled-run ledger",
+    "rareEffects": [
+      "lumi_shop",
+      "tactical_module",
+      "lumi_cooked_foods"
+    ],
+    "appearance": [
+      "ResearchStore.CanUseRareAppearance(subjectId)",
+      "ResearchStore.UsesRareAppearance(subjectId)",
+      "ResearchStore.TrySetRareAppearance(subjectId,enabled,out error)"
+    ],
+    "accountPersistence": "ResearchProfile.rareAppearanceSubjects and Lumi cumulative counters are serialized in existing research bundle; BrowserPersistence.RequestSync marks account dirty"
+  },
+  "coverage": [
+    "All three AND thresholds and exact 1000 cost",
+    "Cumulative cross-expedition counters; negative credits ignored",
+    "Repeated settlement does not add counters or spend again",
+    "Standalone rare candidate exists without ordinary Lumi source",
+    "Reload does not reroll candidates",
+    "Completed report required for appearance toggle",
+    "Appearance survives disk serialization and reload",
+    "Toggle changes no data or run totals",
+    "Older profile defaults to original appearances",
+    "Malformed/duplicate/unknown/incomplete selections normalize safely"
+  ]
+}

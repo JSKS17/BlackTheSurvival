@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "completedAtUtc": "2026-10-21T15:20:24.974Z",
+  "canonicalSourceVerified": true,
+  "deploymentVersion": 41,
+  "testsPassed": 109,
+  "liveChecks": 20,
+  "removedBytes": 10117579549,
+  "remainingTempEntries": [],
+  "freeBytesAfter": 25035714560,
+  "preserved": [
+    "Unity source",
+    "original art",
+    "web source and runtime game assets",
+    "project dependencies",
+    "compact verification evidence"
+  ]
+}

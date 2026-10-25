@@ -1,0 +1,42 @@
+{
+  "result": "PASS",
+  "completedAtUtc": "2026-10-21T15:14:16.064Z",
+  "baselineCommit": "52378ec49d4b4469b077e6540551984d21c5ff96",
+  "allFilesVerified": true,
+  "fileCount": 4,
+  "files": [
+    {
+      "path": "lib/game-accounts.mjs",
+      "guard": "baseline-or-already-current",
+      "beforeSha256": "11fe32993f73c90318c9b54af50abc143b6c33d329d84b52b140135cfdda47c7",
+      "sha256": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33"
+    },
+    {
+      "path": "scripts/game-accounts.test.mjs",
+      "guard": "baseline-or-already-current",
+      "beforeSha256": "3c067944ae54ada197ceed8e540b9b7200518af9f44038ae992e88fa6e6f7f82",
+      "sha256": "f5c42c9607c963e3f385aa476c34c7c6aefcb1db530e4d6ee6e1e6327210198b"
+    },
+    {
+      "path": "app/page.tsx",
+      "guard": "baseline-or-already-current",
+      "beforeSha256": "4c6970a10e898dfe75d779a9097eb370504baff50c85ad89b3fbc1b04aceabd7",
+      "sha256": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77"
+    },
+    {
+      "path": "scripts/game-session.test.mjs",
+      "guard": "baseline-or-already-current",
+      "beforeSha256": "76dab823ac98ecd47580f90c6ced0db6b89fccd49f2caaf329d67e2d4bf58e9f",
+      "sha256": "c9cc033e2ff15535d305645b74f4515c2c47bc74aa31977ae2c1b114c4ad0bb7"
+    }
+  ],
+  "gameBuildId": "e1d8a35c79f9230cb20a9f98",
+  "gameManifestSha256": "2666013c5f9d9214c21b72008716dc5e079cd3fd3e331c18d1c76021123b8c7e",
+  "excluded": [
+    ".git",
+    "node_modules",
+    "build outputs",
+    "compiler cache",
+    "runtime game assets"
+  ]
+}

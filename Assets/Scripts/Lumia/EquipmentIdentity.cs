@@ -93,7 +93,7 @@ namespace Lumia
             Set(gear,"wilderness_star",attack:2,summary:"기본 공격의 유도 바늘이 추가 피해를 주고 적의 치유 효과를 감소시킵니다.",rules:new[]{R("before_basic","bonus_damage",2,turn:2),HealReduction()});
             Set(gear,"opera_mask",attack:3,evasion:6,summary:"가면의 관통력으로 첫 공격을 강화하고 치유 효과를 감소시킵니다.",rules:new[]{R("before_attack","bonus_damage",2,turn:1),HealReduction()});
             Set(gear,"mithril_shield",block:2,health:6,summary:"세 번 적중하면 신속으로 두 턴 동안 회피율이 증가합니다.",rules:new[]{Hit(R("hit","evasion_buff",8,every:3,cooldown:1,duration:2))});
-            Set(gear,"cube_watch",attack:1,summary:"기본 공격 적중마다 타임 엣지가 마지막 Q·W·E 카드의 다음 코스트를 1 줄입니다.",rules:new[]{Hit(new TraitRule{trigger="after_basic",op="discount_last",amount=1,maxPerTurn=1})});
+            Set(gear,"cube_watch",attack:1,summary:"기본 공격 적중마다 타임 엣지가 실험체 구분 없이 마지막 Q·W·E 카드의 다음 코스트를 1 줄입니다.",rules:new[]{Hit(new TraitRule{trigger="after_basic",op="discount_last",amount=1,maxPerTurn=1})});
             Set(gear,"skadi",summary:"스킬 적중 시 한파로 둔화를 부여합니다.",rules:new[]{R("before_skill","bonus_damage",1,turn:2),Slow("skill_hit",1)});
             Set(gear,"auto_arms",attack:2,block:2,health:8,summary:"기계 팔의 방해 효과 저항으로 제어 효과의 코스트 감소를 1 완화합니다.");gear.Find(x=>x.id=="auto_arms").controlResistance=1;
             Set(gear,"prominence",block:1,health:12,summary:"불꽃 결계가 매 턴 피해를 주고 적의 치유 효과를 감소시킵니다.",rules:new[]{R("battle_start","burn",2,"flame_barrier","불꽃 결계",duration:3),HealReduction()});
@@ -152,10 +152,32 @@ namespace Lumia
                 if(item.mechanics!=null && !string.IsNullOrEmpty(item.mechanics.summary))sentences.Add(TraitMechanics.Describe(item.mechanics));
                 if(item.damageDeferral>0)sentences.Add("방어도로 막은 뒤 받는 체력 피해의 "+item.damageDeferral+"%를 다음 세 번의 자신의 턴 시작으로 나누어 미룹니다. 미룬 피해는 방어도를 무시하며 전투가 끝나면 사라집니다.");
                 if(item.slot==GearSlot.Weapon)sentences.Add("장착하면 "+GameDatabase.Card(item.cardId).name+" D 카드 1장이 덱에 자동으로 추가됩니다.");
-                sentences.Add("같은 장비의 특수 효과는 중첩되지 않습니다.");
+                sentences.Add(StackingDescription(item));
                 item.description=string.Join("\n",sentences);
                 item.optionTags=OptionTags(item);
             }
+        }
+
+        // EquipmentSum counts every copy, while ActorTraits uses one source per gear ID.
+        // Effect labels are presentation only: they do not define a shared unique group.
+        public static string StackingDescription(GearDef item)
+        {
+            if(item==null)return "";
+            var lines=new List<string>();
+            if(item.attack>0 || item.block>0 || item.health>0 || item.evasion>0 || item.critChance>0 || item.critDamageBonus>0)
+                lines.Add("기본 능력치는 같은 장비도 장착한 개수만큼 합산하며, 각 능력치의 상한을 적용합니다.");
+            var rules=item.mechanics?.rules ?? new TraitRule[0];
+            if(rules.Length>0)
+            {
+                lines.Add("발동 효과의 중첩 제한은 장비별입니다. "+item.name+" 여러 개의 발동 효과는 1개분만 적용됩니다. 다른 장비는 효과 이름이 같아도 각각 발동하며, 발동 횟수·대기 턴·누적 자원을 따로 계산합니다.");
+                if(rules.Any(r=>r.op=="status"))
+                    lines.Add("여러 장비가 같은 상태이상을 부여해도 그 수치와 남은 턴은 합산하지 않으며, 남은 턴은 큰 값을 유지합니다.");
+            }
+            if(item.controlResistance>0)
+                lines.Add("방해 효과 저항은 같은 장비와 다른 장비를 모두 합해 코스트 감소를 최대 1까지만 완화합니다.");
+            if(item.damageDeferral>0)
+                lines.Add("유예 비율은 같은 장비와 다른 장비를 모두 합해 최대 20%까지 적용합니다.");
+            return string.Join("\n",lines);
         }
 
         // The same explicit, readable tags drive campfire filtering and gear details.

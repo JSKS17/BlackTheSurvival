@@ -5,7 +5,7 @@ namespace Lumia
 {
     public enum ZoneKind { Wildlife, Subject, Kiosk, Campfire, Encounter, Boss }
     public enum GearSlot { Weapon, Clothes, Head, Arm, Legs }
-    public enum RunStage { Preparation, Map, Combat, Rewards, Kiosk, Campfire, Encounter, PassiveChoice, Won, Lost, AugmentChoice, EquipmentSlotChoice }
+    public enum RunStage { Preparation, Map, Combat, Rewards, Kiosk, Campfire, Encounter, PassiveChoice, Won, Lost, AugmentChoice, EquipmentSlotChoice, LumiOffer, LumiShop }
     [Serializable] public class CardDef
     {
         public string id, name, owner, key, description, category = "skill";

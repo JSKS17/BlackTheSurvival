@@ -573,6 +573,16 @@ namespace Lumia
                 O("다음 경호가 이어질 자세를 점검한다", "기존 기술의 빈틈을 함께 다듬는다.", "upgrade_card"),
                 O("경호를 교대하고 잠시 치료받는다", "세레스가 길을 지키는 동안 몸을 회복한다.", "heal", 18));
 
+            // This NPC has no ordinary encounter, skill cards or passive reward.
+            // Add its authored options after the experiment-subject reward pass.
+            Reports.Add("lumi", "버추얼 루미의 안내 신호를 따라 작은 상점을 찾았다. 같은 세 가지 보상 중 하나를 선택하며, 루미의 거래는 전투 능력과 별개로 기록한다.");
+            Events.Add(new EventDef { id = EventPrefix + "lumi", owner = "루미", title = "신호 너머의 작은 상점",
+                story = "버추얼 루미가 반짝이는 화면 너머로 하나를 반긴다. 작은 안내 신호가 조용한 상점으로 이어진다. 루미는 오늘의 상품을 둘러보거나, 여행에 필요한 지원품을 골라 가라고 손짓한다.",
+                options = new[] {
+                    O("작은 상점을 둘러본다", "버추얼 루미가 안내한 물품을 크레딧으로 구매할 수 있습니다.", "lumi_shop"),
+                    O("전술 장치의 지원품을 받는다", "루미가 준비한 전술 강화 모듈을 받습니다.", "tactical_module", 1),
+                    O("따뜻한 여행 식사를 챙긴다", "루미가 무작위로 고른 조리 완료 음식 3개를 포장해 줍니다.", "lumi_cooked_foods", 3)
+                } });
             RareSkinStories.Configure(Events, Reports);
             RareEncounterRules.Configure(Events);
             // Final card names/costs and ordinary reward details share the existing UI.

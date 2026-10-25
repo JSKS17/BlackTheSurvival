@@ -100,6 +100,14 @@ namespace Lumia
                         || State.research.completedResearchEvents.Contains(rare.id) || !Roll(CurrentRareOfferChance)) continue;
                     originalIds[rare.id] = ordinary[i].id; ordinary[i] = rare;
                 }
+                var lumi = ResearchEncounters.EventForSubject("lumi");
+                if (lumi != null && State.research.unlockedReports.Contains("lumi")
+                    && !State.research.completedResearchEvents.Contains(lumi.id) && Roll(CurrentRareOfferChance))
+                {
+                    // One eligible pool entry, like every other researched subject.
+                    // No ordinary Lumi event is manufactured as a replacement source.
+                    ordinary.Add(lumi); originalIds[lumi.id] = null;
+                }
             }
             ordinary.AddRange(State.pendingEncounterFollowups.Where(x => x != next).Select(x => GameDatabase.Event(x.eventId)).Where(x => x != null));
             bool featured = next != null && Roll(FollowupOfferChance);
@@ -109,7 +117,18 @@ namespace Lumia
             if (rares.Count > 0)
             {
                 string keep = rares[Next(rares.Count)];
-                foreach (string id in rares.Where(id => id != keep)) State.encounterOffers[State.encounterOffers.IndexOf(id)] = originalIds[id];
+                foreach (string id in rares.Where(id => id != keep).OrderBy(id => originalIds[id] == null ? 1 : 0))
+                {
+                    string replacement = originalIds[id];
+                    if (replacement == null)
+                    {
+                        var fallback = GameDatabase.Events.Where(ev => !ev.chainOnly
+                            && !State.encounterOffers.Contains(ev.id) && ev.id != originalIds[keep]
+                            && !pendingOwners.Contains(ev.owner)).ToList();
+                        replacement = fallback[Next(fallback.Count)].id;
+                    }
+                    State.encounterOffers[State.encounterOffers.IndexOf(id)] = replacement;
+                }
                 State.rareOfferedActs.Add(GlobalAct);
                 State.rareRevealEventId = keep; State.rareRevealSourceEventId = originalIds[keep]; State.rareRevealSeen = false;
             }

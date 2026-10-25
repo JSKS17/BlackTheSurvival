@@ -4,6 +4,55 @@ using System.Linq;
 
 namespace Lumia
 {
+    /// <summary>Display exact skill identities without treating a shared hotkey as a target.</summary>
+    public static class SkillReferences
+    {
+        public static CardDef Resolve(string reference, CardDef source = null)
+        {
+            if (string.IsNullOrEmpty(reference)) return null;
+            var target = GameDatabase.Card(reference);
+            // Previous-skill rules may store a key. The combat history for these
+            // rules is subject-scoped, so a global first Q/W/E match is incorrect.
+            return target ?? (source == null ? null : GameDatabase.Cards.FirstOrDefault(card => card.owner == source.owner && card.key == reference));
+        }
+
+        public static string Name(CardDef card)
+        {
+            return card == null ? "기술" : string.Join(" ", new[] { card.owner, card.key, card.name }.Where(part => !string.IsNullOrWhiteSpace(part)));
+        }
+
+        public static string Name(string reference, CardDef source = null)
+        {
+            var target = Resolve(reference, source);
+            return target == null ? (source == null || string.IsNullOrEmpty(source.owner) ? reference ?? "기술" : source.owner + " " + reference) : Name(target);
+        }
+
+        public static string ShortName(CardDef card) => card == null ? "기술" : string.Join(" ",new[]{card.owner,card.key}.Where(part=>!string.IsNullOrWhiteSpace(part)));
+
+        public static string ShortName(string reference, CardDef source = null)
+        {
+            var target=Resolve(reference,source);
+            return target == null ? Name(reference,source) : ShortName(target);
+        }
+
+        public static string Keys(IEnumerable<string> references, CardDef source = null)
+        {
+            var targets=(references ?? Enumerable.Empty<string>()).Distinct().Select(reference=>new {reference,card=Resolve(reference,source)});
+            return string.Join(" / ",targets.GroupBy(target=>target.card?.owner ?? "").Select(group=>
+                (string.IsNullOrEmpty(group.Key)?"":group.Key+" ")+string.Join("·",group.Select(target=>target.card?.key ?? Name(target.reference,source)))));
+        }
+
+        public static string Names(IEnumerable<string> references, CardDef source = null)
+        {
+            var targets = (references ?? Enumerable.Empty<string>()).Distinct().Select(reference => new { reference, card=Resolve(reference,source) }).ToArray();
+            // One explicit owner scopes every key/name in the group, keeping a
+            // multi-target combo readable on a narrow card without losing names.
+            return string.Join(" / ", targets.GroupBy(target => target.card?.owner ?? "").Select(group =>
+                (string.IsNullOrEmpty(group.Key) ? "" : group.Key + " ") + string.Join("·", group.Select(target => target.card == null
+                    ? Name(target.reference,source) : string.Join(" ", new[]{target.card.key,target.card.name}.Where(part=>!string.IsNullOrWhiteSpace(part)))))));
+        }
+    }
+
     /// <summary>One vocabulary for the catalog, rewards, hand and detailed card view.</summary>
     public static class CardPresentation
     {

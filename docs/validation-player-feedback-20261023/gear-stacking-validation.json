@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "validationStage": "Equipment wording and runtime scope checks, completed before final combined source validation",
+  "command": "Tools/RunCoreTests.ps1 -CraftingOnly",
+  "output": "PASS: 35717 assertions across crafting cache, viewport, search and equipment/camp behavior.",
+  "assertions": 35717,
+  "finalCombinedValidation": false,
+  "implementationFiles": [
+    "Assets/Scripts/Lumia/EquipmentIdentity.cs",
+    "Assets/Scripts/Lumia/DescriptionSummary.cs"
+  ],
+  "testFile": "Tools/EquipmentExpansionSmokeTests.cs",
+  "runtimeMechanicsChanged": false,
+  "artChanged": false,
+  "verifiedRuntimeScopes": [
+    "EquipmentSum and EnemyEquipmentSum count every equipped copy when adding base stats.",
+    "ActorTraits creates one source per distinct equipment ID; TraitMechanics.Resolve also de-duplicates source IDs.",
+    "Effect names do not create unique-effect groups. Different equipment IDs own separate trigger counters, cooldowns and resources.",
+    "StatusMechanics.Add merges the same status on one target and preserves the greater remaining duration.",
+    "ControlEnergyPenalty applies a combined equipment resistance ceiling of one energy.",
+    "Health damage deferral applies a combined equipment ceiling of twenty percent."
+  ],
+  "addedRuntimeChecks": [
+    "Two Fragarach copies add their six total attack while Mithril Helm adds its one turn-start block.",
+    "A real Tactical Blink gives one Footwork resource to the Fragarach source and one to the Mithril Helm source; the duplicate Fragarach creates no third resource.",
+    "A basic attack receives each different item's Footwork bonus once and consumes each item's own resource.",
+    "Skadi, Eternal Frost and Empress all emit their own Coldwave slow application, while the target retains one one-turn slow status."
+  ],
+  "presentationExamples": [
+    {
+      "itemId": "fragarach",
+      "before": "같은 장비의 특수 효과는 중첩되지 않습니다.",
+      "after": "기본 능력치는 같은 장비도 장착한 개수만큼 합산하며, 각 능력치의 상한을 적용합니다. 발동 효과의 중첩 제한은 장비별입니다. 프라가라흐 여러 개의 발동 효과는 1개분만 적용됩니다. 다른 장비는 효과 이름이 같아도 각각 발동하며, 발동 횟수·대기 턴·누적 자원을 따로 계산합니다."
+    },
+    {
+      "itemId": "auto_arms",
+      "scope": "방해 효과 저항은 같은 장비와 다른 장비를 모두 합해 코스트 감소를 최대 1까지만 완화합니다."
+    },
+    {
+      "itemId": "ao_dai",
+      "scope": "유예 비율은 같은 장비와 다른 장비를 모두 합해 최대 20%까지 적용합니다."
+    },
+    {
+      "itemId": "intervention",
+      "scope": "Stats-only equipment explains stacked base stats without claiming a triggered special effect."
+    }
+  ]
+}

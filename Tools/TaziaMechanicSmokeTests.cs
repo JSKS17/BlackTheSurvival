@@ -315,7 +315,7 @@ public static class TaziaMechanicSmokeTests
     static void ResearchSwordCompletion()
     {
         string task=ResearchProgression.Tasks(new ResearchProfile(),"tazia")[2].description;
-        Check(task.Contains("(E)") && task.Contains("직후") && task.Contains("유리 검"),"Tazia's existing E research objective follows the same-cast forging rule");
+        Check(task.Contains(SkillReferences.Name("tazia_e")) && task.Contains("직후") && task.Contains("유리 검"),"Tazia's E research objective names its subject, key and skill while retaining the same-cast forging rule");
         foreach (bool hit in new[]{false,true})
         foreach (int existing in new[]{0,1})
         {

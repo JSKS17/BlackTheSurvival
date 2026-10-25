@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "changedAtUtc": "2026-10-25T16:19:26.640Z",
+  "reason": "Existing automatic route helper now accepts the requested immediate Wickeline-to-camp victory flow.",
+  "runtimeAndArtByteIdentical": true,
+  "oldFreezeSha256": "34c7a9c84e3a77e93883bc7e807441b8dff809f0d06c3e8e8baecccd977d7bc3",
+  "newFreezeSha256": "69876b297d3d1961281f03191866f831e4f4fb7269b9b9a42ba51bfedf126154",
+  "changed": [
+    {
+      "path": "Tools/CoreSmokeTests.cs",
+      "oldSha256": "de2d2357cb9b2e261f09e7db910f0165892d1f5bb9abfc18699cac2fb52746b3",
+      "newSha256": "7ac1bc59dcbc405347c67dcc22ae04ad691d91cd4174d4483217ee576458d861"
+    }
+  ]
+}

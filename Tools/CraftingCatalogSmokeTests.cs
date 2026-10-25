@@ -68,12 +68,34 @@ public static partial class CoreSmokeTests
         var cleared = catalog.Filter(GearSlot.Weapon, "", selected);
         Check(cleared.Select(item => item.gear.id).SequenceEqual(weapons.Select(item => item.gear.id)), "clearing selected tags restores all weapons");
 
+        // A material selection composes with slot, raw name search and AND tags;
+        // it must also participate in cache invalidation.
+        foreach (GearSlot slot in Enum.GetValues(typeof(GearSlot)))
+            foreach (string material in new[] { "meteorite", "tree", "mithril", "force", "blood", "missing material" })
+                foreach (string query in new[] { "", "피해", "레이더" })
+                    foreach (var tags in new[] { new string[0], new[] { "치명타 확률" }, new[] { "치명타 확률", "일반 공격" } })
+                    {
+                        var expected = OriginalCraftFilter(source, slot, query, tags).Where(item => item.objectId == material).Select(item => item.id);
+                        var actual = catalog.Filter(slot, query, tags, material);
+                        Check(actual.Select(item => item.gear.id).SequenceEqual(expected), "material filter composes with slot, query and all option tags: " + material);
+                        Check(ReferenceEquals(actual, catalog.Filter(slot, query, tags.Reverse(), material)), "unchanged material and reordered tags reuse the cached array");
+                    }
+        var meteorite = catalog.Filter(GearSlot.Weapon, "", null, "meteorite");
+        var tree = catalog.Filter(GearSlot.Weapon, "", null, "tree");
+        Check(meteorite.Length > 0 && tree.Length > 0 && !ReferenceEquals(meteorite, tree), "changing a real material rebuilds results even with identical slot/query/tags");
+        var allMaterials = catalog.Filter(GearSlot.Weapon, "", null, "");
+        Check(allMaterials.Select(item => item.gear.id).SequenceEqual(weapons.Select(item => item.gear.id)), "all materials restores every weapon");
+        Check(ReferenceEquals(allMaterials, catalog.Filter(GearSlot.Weapon, "", null, null)), "null and empty material share the all-materials cache");
+
         CheckCraftingRange(28, 0, 284, 0, 6, "top viewport only draws two rows");
         CheckCraftingRange(28, 150, 284, 0, 9, "partial rows include all intersecting items");
         CheckCraftingRange(28, 151, 284, 3, 9, "exact row boundary excludes the row above");
         CheckCraftingRange(28, 604, 284, 12, 18, "middle viewport selects the correct full rows");
         CheckCraftingRange(28, 1226, 284, 24, 28, "bottom viewport includes the final partial row");
         CheckCraftingRange(28, 1359, 151, 27, 28, "last row is bounded by actual equipment count");
+        CheckCraftingRange(28, 0, 244, 0, 6, "material-filter viewport includes the first two rows");
+        CheckCraftingRange(28, 151, 244, 3, 9, "material-filter viewport keeps middle rows visible");
+        CheckCraftingRange(28, 1266, 244, 24, 28, "material-filter viewport reaches the actual bottom row");
         CheckCraftingRange(28, 1510, 284, 28, 28, "scroll beyond content draws nothing");
         CheckCraftingRange(28, -50, 284, 0, 6, "negative scrolling clamps to the top");
         CheckCraftingRange(28, 0, 151, 0, 3, "viewport ending at row boundary excludes the next row");

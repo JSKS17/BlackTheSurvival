@@ -92,7 +92,7 @@ namespace Lumia
             if (!string.IsNullOrEmpty(rule.conditionPrevious))
             {
                 var previous = actor?.history?.FirstOrDefault(x => x.owner == card.owner);
-                parts.Add("직전 기술: " + (GameDatabase.Card(previous?.cardId)?.name ?? "없음"));
+                parts.Add(card.owner+"의 직전 기술: " + (previous == null ? "없음" : SkillReferences.Name(previous.cardId)));
             }
             return string.Join(" · ", parts);
         }
@@ -116,8 +116,8 @@ namespace Lumia
                 bool met = forge ? collected>=rule.conditionAmount : ConditionsMet(rule, actor, card);
                 result.Add(new CardConditionPreview { condition = DescriptionSummary.ConditionPrefix(text.FirstOrDefault()?.condition ?? "추가 효과 조건").TrimEnd(',', ' '),
                     effect = DescriptionSummary.Normalize(string.Join(", ", text.Select(x => x.effect).Distinct())),
-                    current = forge ? "이번 E의 수집 직후 예상 파편 수집 " + collected + " / 필요 " + rule.conditionAmount + " 이상" : CurrentCondition(rule, actor, card), met = met, requiresHit = rule.onHit,
-                    result = forge ? met ? "수집 직후 조건 충족 · 즉시 유리 검 완성" : "이번 E의 수집 직후에도 조건 미충족"
+                    current = forge ? "이번 "+SkillReferences.Name(card)+"의 수집 직후 예상 파편 수집 " + collected + " / 필요 " + rule.conditionAmount + " 이상" : CurrentCondition(rule, actor, card), met = met, requiresHit = rule.onHit,
+                    result = forge ? met ? "수집 직후 조건 충족 · 즉시 유리 검 완성" : "이번 "+SkillReferences.Name(card)+"의 수집 직후에도 조건 미충족"
                         : !met ? "현재 수치·직전 기술 조건 미충족" : rule.onHit ? "현재 수치 조건 충족 · 적중 후 발동 여부 결정" : "현재 사용 전 조건 충족" });
             }
             if (card.freeCastCount > 0 && card.freeCastTargets?.Length > 0)
@@ -125,7 +125,7 @@ namespace Lumia
                 var effect = FreeCastMechanics.Effect(card);
                 bool met = FreeCastMechanics.Eligible(card, actor, true);
                 bool hit = card.freeCastOnHit || card.freeCastCondition?.onHit == true;
-                string targetNote = card.freeCastLastSkill ? " 실제 직전 기술과 보유 카드가 있어야 다시 가져옵니다." : " 보유한 대상 카드에만 무료 사용권이 생깁니다.";
+                string targetNote = card.freeCastLastSkill ? " 실험체 구분 없이 마지막으로 사용한 Q·W·E 중 보유한 카드 한 장만 다시 가져옵니다." : " 보유한 대상 카드에만 무료 사용권이 생깁니다.";
                 result.Add(new CardConditionPreview { condition = DescriptionSummary.ConditionPrefix(effect.condition).TrimEnd(',', ' '), effect = effect.effect + targetNote,
                     current = CurrentCondition(card.freeCastCondition ?? new SkillRule(), actor, card), met = met, requiresHit = hit, scheduled = card.freeCastNextTurn,
                     result = !met ? "현재 연계 조건 미충족" : card.freeCastNextTurn ? "다음 자기 턴에 사용할 무료 연계를 예약합니다" + (hit ? " · 적중 필요" : "") : hit ? "현재 수치 조건 충족 · 적중해야 무료 사용권 획득" : "현재 무료 연계 조건 충족" });
@@ -228,6 +228,20 @@ namespace Lumia
                 if(interrupted) {result.normalDamage=0;result.unavailableReason="강한 제어 또는 속박으로 동물 기술 시전이 중단됩니다.";}
                 result.damageNote=WildlifeMechanics.Description(id);
             }
+            if(enemy && IsWickelineCombat)
+            {
+                result.classification="특수 NPC 전용 · "+(card.movement?"이동":card.damage>0?"공격":"전투 기믹");
+                result.currentCost=0;
+                if(WickelineInterrupted(card) || id==WickelineMechanics.Release && !c.wickeline.isolationPending)
+                {result.normalDamage=0;result.unavailableReason="구조 붕괴·제어 또는 충전 취소로 행동이 중단됩니다.";}
+                if(WickelineMechanics.IsAction(id))result.damageNote=card.description;
+            }
+            if(!enemy && IsWickelineCombat)
+            {
+                if(WickelineMechanics.Isolating(c))result.damageNote+=" 격리 충전 중에는 방어도 차감 후 실제 체력 피해가 40% 감소합니다.";
+                if(WickelineMechanics.Collapsed(c))result.damageNote+=" 구조 붕괴 중에는 방어도 차감 후 실제 체력 피해가 30% 증가합니다.";
+                result.damageNote+=" 실제 체력 피해로 불안정 구조 게이지를 쌓습니다. 구조 붕괴 자체 피해는 위 합계와 별도입니다.";
+            }
             if (card.id == "garnet_r")
             {
                 int targetHp = enemy ? State.hp : c.enemyHp, targetMaxHp = enemy ? State.maxHp : c.enemyMaxHp;
@@ -319,7 +333,7 @@ namespace Lumia
             string identity = passive != null ? "패시브 · " + passive.name : rune != null ? "룬 · " + rune.name : gear != null ? "장비 · " + gear.name
                 : action.cardId == "status_poison" ? "중독" : (card?.name ?? "전투 효과") + RareCardUpgrades.SuffixForLabel(action.upgradeLabel);
             var parts = new List<string>();
-            string target = action.enemy ? "하나" : c.enemyName;
+            string target = action.kind=="wickeline_collapse" ? c.enemyName : action.enemy ? "하나" : c.enemyName;
             if (action.damage > 0) parts.Add(target + " 체력 피해 " + action.damage);
             if (action.absorbed > 0) parts.Add(target + " 방어도 흡수 " + action.absorbed);
             if (action.destroyedBlock > 0) parts.Add(target + " 방어도 파괴 " + action.destroyedBlock + " · 직접 피해 전 제거");
@@ -349,6 +363,7 @@ namespace Lumia
                 case "boss_interrupt": return "보스 특수 행동 저지"; case "augment": return "증강 발동";
                 case "wildlife_skill": return "동물 전용 기술"; case "wildlife_interrupt": return "동물 기술 시전 중단";
                 case "wildlife_despair": return "좌절 · 다음 내 턴까지 받는 피해 +50%";
+                case "wickeline_collapse": return "구조 붕괴 · 상대 행동 중단 · 받는 체력 피해 +30%";
                 default: return kind.StartsWith("boss_", StringComparison.Ordinal) ? "보스 특수 행동" : "부가 효과";
             }
         }

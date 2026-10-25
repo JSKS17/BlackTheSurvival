@@ -1,0 +1,70 @@
+{
+  "mode": "prepare",
+  "result": "PASS",
+  "startedAtUtc": "2026-10-22T04:27:37.256Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "version": "1.0.24",
+  "baselinePublication": {
+    "versionNumber": 47,
+    "commitSha": "16d05d61ab7099b7692216e97e8de82798d47fa2"
+  },
+  "productionRequests": false,
+  "steps": {
+    "successfulBuildPackaged": true,
+    "isolatedUploaderCopiedUnchanged": true,
+    "oldPublicGameRestoredToVerifiedCanonicalBytes": true,
+    "oldBuildMetadataPreserved": true,
+    "newR2RecordsAllowed": true
+  },
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\CombatCardScrollRelease20261022\\transactions\\prepare-87cbe5b4-9c74-4776-9037-95c98bd960ad",
+      "bytes": 23127375
+    }
+  ],
+  "sourceHashes": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "Temp\\SiteCombatCardScroll20261022\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "Temp\\SiteCombatCardScroll20261022\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "Temp\\SiteCombatCardScroll20261022\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SiteCombatCardScroll20261022\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da"
+  },
+  "verifiedOldStaticAssets": 9,
+  "verifiedNewStaticAssets": 9,
+  "sourceHashesAfter": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "Temp\\SiteCombatCardScroll20261022\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "Temp\\SiteCombatCardScroll20261022\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "Temp\\SiteCombatCardScroll20261022\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SiteCombatCardScroll20261022\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da"
+  },
+  "release": {
+    "root": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\CombatCardScrollRelease20261022",
+    "manifestSha256": "1e0633db77b024d6f4d85f46c92d4269ce80723e92bf21057d4361c9994b73d4",
+    "buildId": "8fa247b1755a774777d8e213",
+    "gameTreeSha256": "f45dc27102403437601aff261ba15235644d8c7d30fdbda9c21816999382c07d",
+    "uploaderSha256": "2d75155c56ac8fde907ebcefda16af24e1aad2d18bf2b81182b14aabac740d11",
+    "r2Assets": [
+      {
+        "path": "/game/Build/ee3af8cb959a2f6f65370f28e58ca11b.data.unityweb",
+        "size": 320394504,
+        "sha256": "122f118d7a13e98c3030b3725aca7f4e50bfd36d7e5fd48e85cdd6111b937ee2"
+      }
+    ]
+  },
+  "baseline": {
+    "manifestSha256": "3555cdf0a36169907fffca5dbd7b8f6befdf796fffe49d95eca4ef3abbbe1c13",
+    "canonicalGameTreeSha256": "59c40d25fafad622c3acc3def2f8803b238f5ae94d52d7ef698df7c92a5501b5",
+    "stageOriginalGameTreeSha256": "59c40d25fafad622c3acc3def2f8803b238f5ae94d52d7ef698df7c92a5501b5",
+    "stageOriginalManifestSha256": "3555cdf0a36169907fffca5dbd7b8f6befdf796fffe49d95eca4ef3abbbe1c13",
+    "stageGameTreeSha256": "59c40d25fafad622c3acc3def2f8803b238f5ae94d52d7ef698df7c92a5501b5",
+    "stageUnionManifestSha256": "ebd0280aa98116cbd265682108dfd84a02b92da10c075d7b07211a8c939bcac5"
+  },
+  "completedAtUtc": "2026-10-22T04:27:43.414Z"
+}

@@ -1,0 +1,178 @@
+{
+    "result": "Succeeded",
+    "unityVersion": "6000.3.11f1",
+    "productVersion": "1.0.27",
+    "builtAtUtc": "2026-10-25T16:50:33.5116148Z",
+    "compression": "Gzip",
+    "activeInputHandling": "Both",
+    "development": false,
+    "decompressionFallback": true,
+    "threads": false,
+    "legacyInputManagerEnabled": true,
+    "inputSystemPackageEnabled": true,
+    "totalBytes": 392834813,
+    "durationSeconds": 2052.7304672,
+    "errors": 0,
+    "warnings": 0,
+    "activeInputHandler": 2,
+    "files": [
+        {
+            "path": "Build/1e961bfd1c7748c66e4b8c2562364474.data.unityweb",
+            "bytes": 320414442
+        },
+        {
+            "path": "Build/5ea4365f768b7fdf42c947463c47bca6.wasm.unityweb",
+            "bytes": 12946267
+        },
+        {
+            "path": "TemplateData/nia-loading.webp",
+            "bytes": 9995378
+        },
+        {
+            "path": "Build/1fbaedf6504a763546d8b01964ac3d07.framework.js.unityweb",
+            "bytes": 90654
+        },
+        {
+            "path": "Build/44ba68f80cb43631825ff1bbcb45f90b.loader.js",
+            "bytes": 47866
+        },
+        {
+            "path": "TemplateData/favicon.svg",
+            "bytes": 33678
+        },
+        {
+            "path": "index.html",
+            "bytes": 10660
+        },
+        {
+            "path": "TemplateData/account-bridge.js",
+            "bytes": 9470
+        },
+        {
+            "path": "TemplateData/style.css",
+            "bytes": 3249
+        }
+    ],
+    "largestAssets": [
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/bihyung.png",
+            "bytes": 13079352
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/echion.png",
+            "bytes": 11666472
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/elena.png",
+            "bytes": 11197992
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/irem.png",
+            "bytes": 11151668
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/nadine.png",
+            "bytes": 10693752
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/darko.png",
+            "bytes": 10603320
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/sissela.png",
+            "bytes": 10468392
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/tia.png",
+            "bytes": 10378916
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/garnet.png",
+            "bytes": 10245432
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/martina.png",
+            "bytes": 10156920
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/jackie.png",
+            "bytes": 10024872
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/isol.png",
+            "bytes": 9937316
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/aya.png",
+            "bytes": 8834084
+        },
+        {
+            "path": "Assets/Resources/Lumia/Branding/black-the-survival-logo.png",
+            "bytes": 6294808
+        },
+        {
+            "path": "Assets/Resources/Lumia/CharacterAtlas.png",
+            "bytes": 6290240
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/debi_marlene.png",
+            "bytes": 6290236
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/charlotte.png",
+            "bytes": 6290236
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/adriana.png",
+            "bytes": 6290232
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/xuelin.png",
+            "bytes": 6290232
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/barbara.png",
+            "bytes": 6290232
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/lenox.png",
+            "bytes": 6290232
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/coraline.png",
+            "bytes": 6290232
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/aiden.png",
+            "bytes": 6290232
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/alonso.png",
+            "bytes": 6290232
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/fiora.png",
+            "bytes": 6290232
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/istvan.png",
+            "bytes": 6290232
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/bernice.png",
+            "bytes": 6290232
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/rozzi.png",
+            "bytes": 6290232
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/silvia.png",
+            "bytes": 6290232
+        },
+        {
+            "path": "Assets/Resources/Lumia/UltimateAnimations/eleven.png",
+            "bytes": 6290232
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "changedAtUtc": "2026-10-25T17:12:37.663Z",
+  "reason": "Add observer-free assertions that committed NPC intent is correct immediately after turn transitions and save/load.",
+  "runtimeAndArtByteIdentical": true,
+  "verifiedProtectedInputs": 151,
+  "oldFreezeSha256": "a45f237192701824488f6fab0e63055ab04d3e6ea6947734fe50f40c7838057a",
+  "newFreezeSha256": "7600823f3ea581fc450857ab53bcd9314d50aed9f0bcf642696cb1b31bedbffa",
+  "changed": [
+    {
+      "path": "Tools/WickelineSmokeTests.cs",
+      "oldSha256": "81358a71f90d4bf3bcef06c4422262382995dd0095bf326bfa1f546ee45e4f70",
+      "newSha256": "e46fd2fd60323130c345f655ea267a6a5f806266bcfc92bc8f61942743e1a56a"
+    }
+  ],
+  "build": {
+    "rebuildRequired": false,
+    "existingWebBuildFreezeSha256": "a45f237192701824488f6fab0e63055ab04d3e6ea6947734fe50f40c7838057a",
+    "preservedFreeze": "source-validation.before-intent-regression.json",
+    "unityBuildManifestSha256": "6c21c61e210cca39dd25c78f3407161087a7485f523e935b46b5c5b41fc19a86",
+    "explanation": "Only test bytes changed. The existing Web build runtime, art, settings and build sources retain their exact hashes; the original build-process freeze binding is preserved."
+  }
+}

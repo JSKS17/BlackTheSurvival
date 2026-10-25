@@ -1,0 +1,14 @@
+{
+  "files": 1,
+  "environmentRevision": 48,
+  "result": "PASS",
+  "bytes": 320394684,
+  "assets": 1,
+  "path": "/game/Build/e8ca3fe72d87ec641a6dc4eee248f813.data.unityweb",
+  "sha256": "1fb6aa381db23efefd3683c344a217026101de524ec452c434d5c126da597dfc",
+  "processExitCode": 0,
+  "completedAtUtc": "2026-10-21T19:58:43.8908524Z",
+  "closedEnvironmentRevision": 49,
+  "credentialPersisted": false,
+  "partCount": 20
+}

@@ -1,0 +1,165 @@
+{
+  "result": "PASS",
+  "derivedAtUtc": "2026-10-22T19:12:59.450Z",
+  "scope": "Disposable local browser QA fixtures only",
+  "productionRequests": false,
+  "accountRequests": false,
+  "unityExecuted": false,
+  "serverStarted": false,
+  "productSourceChanged": false,
+  "source": {
+    "path": "docs/validation-combat-card-scroll-20261022/fixtures/nia-rare-combat.json",
+    "bytes": 51684,
+    "sha256": "1bcbc5e94648d83a288170d9336a262dca02813ad009426bc01485ef3dd1de66"
+  },
+  "research": {
+    "sourcePath": "docs/validation-combat-card-scroll-20261022/fixtures/research.json",
+    "bytes": 544,
+    "sha256": "76ab5af66b7c6a2ef785221ccfd0ae0a493a44e324cf0d54816627a331f98ec9",
+    "copiedByteExact": true
+  },
+  "inspectedSchema": {
+    "Assets/Scripts/Lumia/DataModels.cs": "18dde755a77666370dc571ba96075380643f63f7ed9813fd224e20d49c8ab142",
+    "Assets/Scripts/Lumia/GameEngine.cs": "21634b8a3f6310f41b577503b0191a17ab56f864903a7c404f44c3507ac49095",
+    "Assets/Scripts/Lumia/GameDatabase.cs": "646fbc1b23c51fecaa49a653f8f93b812fa37438a0ed4d043bdc8851771cad5b",
+    "Assets/Scripts/Lumia/EquipmentIdentity.cs": "e13e08ccfe06afbcb1da62942306e44016ae766327c4c8247fb35fa21c2ee0fa"
+  },
+  "enumValues": {
+    "RunStage.Campfire": 5,
+    "RunStage.Combat": 2,
+    "ZoneKind.Campfire": 3
+  },
+  "crafting": {
+    "activeNodeId": 12,
+    "row": 4,
+    "lane": 0,
+    "campChoice": 2,
+    "campActions": 3,
+    "materialCounts": {
+      "meteorite": 5,
+      "tree": 5,
+      "mithril": 5,
+      "force": 5,
+      "blood": 5
+    },
+    "legalSlotGroups": {
+      "Weapon": [
+        "altair",
+        "altair"
+      ],
+      "Clothes": [
+        "titan_armor",
+        "ao_dai"
+      ],
+      "Head": [
+        "mithril_helm",
+        "tactical_visor"
+      ],
+      "Arm": [
+        "mithril_armband",
+        "auto_arms"
+      ],
+      "Legs": [
+        "hermes",
+        "galaxy_step"
+      ]
+    },
+    "hp": 140,
+    "maxHp": 140,
+    "sameItemExample": [
+      "altair",
+      "altair"
+    ],
+    "sameNamedEffectsAcrossItems": {
+      "가벼운 발걸음": [
+        "altair",
+        "mithril_helm",
+        "mithril_armband"
+      ],
+      "전자기 충격": [
+        "titan_armor",
+        "tactical_visor"
+      ],
+      "방해 효과 저항": [
+        "auto_arms",
+        "hermes"
+      ]
+    },
+    "weaponGrantedCards": [
+      "weapon_pistol",
+      "weapon_pistol"
+    ]
+  },
+  "combat": {
+    "enemyId": "nia",
+    "enemyHp": 48,
+    "energy": 5,
+    "hand": [
+      "yuki_w",
+      "yuki_e",
+      "aya_e",
+      "basic_attack",
+      "basic_guard"
+    ],
+    "drawPile": [
+      "basic_attack",
+      "basic_attack",
+      "basic_attack",
+      "basic_attack",
+      "basic_guard",
+      "basic_guard"
+    ],
+    "playerTurn": true,
+    "enemyStatePreserved": true,
+    "startsBeforeAnyCombo": true,
+    "pileMultisetMatchesDeck": true
+  },
+  "outputs": [
+    {
+      "name": "feedback-crafting",
+      "bytes": 35617,
+      "sha256": "9afb65284be1ba63e2c746be4e13acc9983fe6990cc092e954db45f444831b11",
+      "stage": 5,
+      "changedTopLevelKeys": [
+        "row",
+        "lane",
+        "activeNodeId",
+        "stage",
+        "hp",
+        "maxHp",
+        "message",
+        "campChoice",
+        "campActions",
+        "deck",
+        "gear",
+        "foods",
+        "objects",
+        "weaponGrantedCards",
+        "log",
+        "research",
+        "map",
+        "combat"
+      ],
+      "deckCards": 13,
+      "handCards": 0,
+      "pileMultisetMatchesDeck": "not in combat"
+    },
+    {
+      "name": "feedback-combat",
+      "bytes": 40917,
+      "sha256": "2b65222fc1c3161e25bf734e44452e2b35bf9d7f5f69e2e6d991ea43fef85ecf",
+      "stage": 2,
+      "changedTopLevelKeys": [
+        "message",
+        "deck",
+        "log",
+        "research",
+        "combat"
+      ],
+      "deckCards": 11,
+      "handCards": 5,
+      "pileMultisetMatchesDeck": true
+    }
+  ],
+  "limitation": "Schema and fixture derivation were checked offline. Root agent performs actual Unity WebGL browser interactions."
+}

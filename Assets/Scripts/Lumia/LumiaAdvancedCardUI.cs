@@ -227,10 +227,10 @@ namespace Lumia
             float iconSize = rect.height > 150 ? 54 : 34;
             Tex(new Rect(rect.x + 12, rect.y + 12, iconSize, iconSize), PixelArt.SkillIcon(card.id), ScaleMode.ScaleToFit, enabled ? Color.white : Muted);
             string price = AdvancedCardMechanics.IsX(card) ? "X" : card.cost.ToString();
-            Txt(new Rect(rect.x + iconSize + 22, rect.y + 12, rect.width - iconSize - 31, 21), card.key + " · " + price + "코스트", 11, Gold);
+            Para(new Rect(rect.x + iconSize + 22, rect.y + 10, rect.width - iconSize - 31, iconSize + 12),
+                SkillReferences.ShortName(card)+"\n"+price+"코스트"+(heading.Length>0?"\n"+heading:""),11,Gold);
             Para(new Rect(rect.x + 12, rect.y + iconSize + 23, rect.width - 24, 48), card.name + display.suffix, 13, selected ? Gold : Text);
             if (rect.height > 150) Para(new Rect(rect.x + 12, rect.y + iconSize + 82, rect.width - 24, rect.height-iconSize-94), CardSummary(display, false, reference), 11, Muted);
-            if (heading.Length > 0) Txt(new Rect(rect.x + iconSize + 22, rect.y + 36, rect.width - iconSize - 31, 20), heading, 10, Muted);
             return Hit(rect, enabled);
         }
     }

@@ -1,0 +1,62 @@
+
+async function qaHtml() {
+  const names = await fixtureNames();
+  const labels = { 'feedback-crafting': '제작 재료·장비 효과 범위', 'feedback-combat': '유키 W·E / 아야 E 연계', research: '연구 기록' };
+  const options = names.map(name => '<option value="' + name + '">' + (labels[name] ?? name) + '</option>').join('');
+  return `<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>플레이어 피드백 WebGL ${gameVersion} 로컬 검증</title><style>
+*{box-sizing:border-box}body{margin:0;background:#0b1420;color:#d7e4ee;font:13px system-ui,sans-serif}.bar{min-height:72px;padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}select,button{background:#192e40;border:1px solid #456174;color:#edf3f7;border-radius:4px;padding:7px 10px}button{cursor:pointer}#status{color:#8bdec5}#status[data-error=true]{color:#ff9b98}#game{height:calc(100vh - var(--qa-toolbar-height,72px))}iframe{display:block;border:0;width:100%;height:100%;background:#02060d}small{color:#9eb0c1}
+</style><div class="bar"><strong>플레이어 피드백 · 로컬 QA / ${gameVersion}${baseline ? ' / 기준 버전' : ''}</strong><label>장면 <select id="fixture">${options}</select></label><button id="reload" type="button">새 QA 계정으로 불러오기</button><span id="status" role="status">준비 중</span><small>로컬 검증 기록 전용 · 로비의 ‘이어하기’로 장면에 진입하세요.</small></div><div id="game"></div><script>
+'use strict';
+const names=new Set(${JSON.stringify(names)}),gameVersion=${JSON.stringify(gameVersion)};
+const mobileDetectionModel=new URLSearchParams(location.search).get('mobile')==='1';
+const select=document.querySelector('#fixture'),status=document.querySelector('#status'),holder=document.querySelector('#game');
+let frame=null,generation=0,accountId='',bundleJson='',bundleHash='',booting=false,sequence=0,revision=1;
+const waiting=new Map();
+function show(text,error=false){status.textContent=(mobileDetectionModel?'[모바일 감지 모형] ':'')+text;status.dataset.error=String(error);}
+function assertCurrent(value){if(value!==generation)throw new Error('이전 QA 장면 요청이 종료됐습니다.');}
+function post(type,payload={}){if(frame)frame.contentWindow.postMessage({type,...payload},location.origin);}
+function command(type,payload={}){const own=generation,requestId='qa-'+(++sequence);return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{waiting.delete(requestId);reject(new Error('로컬 저장 브리지 응답 시간 초과'));},30000);waiting.set(requestId,{own,resolve,reject,timer});post(type,{...payload,requestId});});}
+async function fixtureJson(name){const response=await fetch('/fixtures/'+name+'.json',{cache:'no-store',credentials:'omit'});if(!response.ok)throw new Error('검증용 fixture가 아직 없습니다: '+name);const text=await response.text();if(new TextEncoder().encode(text).length>4*1024*1024)throw new Error('Fixture가 너무 큽니다.');return {text,value:JSON.parse(text)};}
+async function reload(){const own=++generation;booting=false;for(const p of waiting.values()){clearTimeout(p.timer);p.reject(new Error('QA 장면 교체'));}waiting.clear();if(frame){frame.src='about:blank';frame.remove();frame=null;}show('검증 기록을 읽는 중');const name=select.value;try{if(!names.has(name))throw new Error('허용되지 않은 장면');if(!names.has('research'))throw new Error('fixtures/research.json이 필요합니다.');const profile=await fixtureJson('research');assertCurrent(own);const run=name==='research'?null:await fixtureJson(name);assertCurrent(own);const bundle={schemaVersion:1,gameVersion,run:run?run.text:null,research:profile.text,pending:[],tutorialSeen:true,settings:{volume:0,musicVolume:0,effectsVolume:0,sound:false,reduceMotion:true,fullScreen:false}};bundleJson=JSON.stringify(bundle);if(new TextEncoder().encode(bundleJson).length>4*1024*1024)throw new Error('검증 저장 묶음이 너무 큽니다.');bundleHash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(bundleJson)))].map(v=>v.toString(16).padStart(2,'0')).join('');assertCurrent(own);accountId=crypto.randomUUID();revision=1;frame=document.createElement('iframe');frame.title='플레이어 피드백 검증용 게임';frame.allow='autoplay; fullscreen';frame.allowFullscreen=true;frame.src='/qa/game/index.html'+(mobileDetectionModel?'?mobile=1':'');holder.append(frame);show('Unity 게임을 불러오는 중');}catch(error){if(own===generation)show(error.message,true);}}
+async function ready(){if(booting)return;booting=true;const own=generation;try{show('검증 기록을 적용하는 중');await command('bts:import',{bundleJson,revision,sha256:bundleHash});assertCurrent(own);await command('bts:ack',{revision,sha256:bundleHash});assertCurrent(own);await command('bts:resume');assertCurrent(own);show(select.value==='research'?'준비 완료 · 연구 기록 메뉴를 여세요.':'준비 완료 · 로비에서 이어하기를 누르세요.');}catch(error){if(own===generation)show(error.message,true);}}
+window.addEventListener('message',event=>{if(!frame||event.source!==frame.contentWindow||event.origin!==location.origin||!event.data||typeof event.data!=='object')return;const message=event.data;if(message.type==='bts:hello'){post('bts:bootstrap',{accountId});return;}if(message.type==='bts:ready'){void ready();return;}if(message.type==='bts:load-progress'){show('Unity 로딩 '+Number(message.progress||0)+'%');return;}if(message.type==='bts:error'||message.type==='bts:blocked'){show(message.error||'로컬 게임 오류',true);return;}if(message.type==='bts:dirty'){return;}const pending=waiting.get(message.requestId);if(!pending||pending.own!==generation||message.type!=='bts:result')return;waiting.delete(message.requestId);clearTimeout(pending.timer);if(message.ok&&message.localPersisted)pending.resolve(message);else pending.reject(new Error(message.error||'로컬 기록 보관 실패'));});
+function fit(){document.documentElement.style.setProperty('--qa-toolbar-height',document.querySelector('.bar').getBoundingClientRect().height+'px');}
+new ResizeObserver(fit).observe(document.querySelector('.bar'));fit();
+document.querySelector('#reload').addEventListener('click',()=>void reload());select.addEventListener('change',()=>{const u=new URL(location.href);u.searchParams.set('fixture',select.value);history.replaceState(null,'',u);void reload();});const requested=new URLSearchParams(location.search).get('fixture');if(names.has(requested))select.value=requested;else if(names.has('feedback-crafting'))select.value='feedback-crafting';if(names.size)void reload();else show('fixtures 폴더에 검증 기록을 추가한 뒤 새로고침하세요.',true);
+</script></html>`;
+}
+
+const server = http.createServer(async (req, res) => {
+  try {
+    if (!['GET','HEAD'].includes(req.method)) { send(res, req.method, 405, 'text/plain; charset=utf-8', 'Read-only preview', {Allow:'GET, HEAD'}); return; }
+    if (![`127.0.0.1:${port}`,`localhost:${port}`].includes(req.headers.host)) { send(res, req.method, 421, 'text/plain; charset=utf-8', 'Loopback host required'); return; }
+    const rawPath = (req.url ?? '/').split('?')[0];
+    let pathname; try { pathname=decodeURIComponent(rawPath); } catch { throw Object.assign(new Error('Bad URL'),{status:400}); }
+    if (pathname.includes('\\') || pathname.includes('\0') || pathname.split('/').some(part=>part==='..')) throw Object.assign(new Error('Bad path'),{status:404});
+    if (['/','/qa','/qa/'].includes(pathname)) { send(res, req.method, 200, 'text/html; charset=utf-8', await qaHtml()); return; }
+    const fixture=/^\/fixtures\/([a-z][a-z0-9-]{0,63})\.json$/.exec(pathname);
+    if (fixture && (await fixtureNames()).includes(fixture[1])) {
+      const entry=await containedFile(fixtureRoot, fixture[1]+'.json');
+      if(entry.info.size>4*1024*1024)throw Object.assign(new Error('Oversized fixture'),{status:413});
+      await streamFile(req,res,entry);return;
+    }
+    if (pathname === '/qa/game/index.html' && new URL(req.url, 'http://' + host + ':' + port).searchParams.get('mobile') === '1') {
+      await streamMobileDetectionModel(req, res); return;
+    }
+    if (pathname.startsWith('/qa/game/')) {
+      const relative=pathname.slice('/qa/game/'.length),logicalPath='/game/'+relative;
+      if(baseline && baselineManifest.files[logicalPath]?.storage==='r2'){
+        await streamBaselineR2(req,res,logicalPath,baselineManifest.files[logicalPath]);return;
+      }
+      await streamFile(req,res,await containedFile(gameRoot,relative));return;
+    }
+    send(res, req.method, 404, 'text/plain; charset=utf-8', 'Unknown preview route');
+  } catch (error) {
+    if (res.headersSent) { res.destroy(); return; }
+    const status=error.status??(['ENOENT','ENOTDIR'].includes(error.code)?404:500);
+    send(res,req.method,status,'text/plain; charset=utf-8',status===500?'Preview read failed':status===404?'Preview file not available':'Preview request rejected');
+  }
+});
+server.requestTimeout=30000;server.headersTimeout=10000;
+server.listen(port,host,()=>console.log(JSON.stringify({ready:true,origin:'http://'+host+':'+port,qa:'/qa',gameVersion,gameRoot,fixtureRoot,localOnly:true,productionRequests:baseline,readOnlyBaseline:baseline,remoteAssetOrigin:baseline?baselinePublicOrigin:null,diskCaching:false,mobileModelLimit:'Mobile browser detection is modeled; physical mobile hardware is not emulated'})));
+for(const signal of ['SIGINT','SIGTERM'])process.once(signal,()=>server.close(()=>process.exit(0)));

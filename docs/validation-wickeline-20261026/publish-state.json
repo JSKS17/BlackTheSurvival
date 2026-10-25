@@ -1,0 +1,41 @@
+{
+  "package": {
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "checkout_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteWickeline20261026",
+    "commit_sha": "46862e68b80dfcda579905deca700c6da5a1d68c",
+    "archive": "C:/Users/azxar/BlackTheSurvival/docs/validation-wickeline-20261026/site.tar.gz"
+  },
+  "saved": {
+    "id": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_6a5938d18bf481919a69093a540d6723",
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "version_number": 55,
+    "source": {
+      "commit_sha": "46862e68b80dfcda579905deca700c6da5a1d68c"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000a1708206943da8c15e326ff7",
+      "content_hash": "sha256:b7435679cb5ef90236e625ae9560633ae269f801bb7e8fbc5146ba3e58824580",
+      "size_bytes": 28303360,
+      "file_count": 88
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6ade399fb7d481919561e259d73956f7",
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "title": "Black The Survival — Web Test",
+    "version_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_6a5938d18bf481919a69093a540d6723",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://black-the-survival-web-test.fun-chub-8874.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ad077cf90708191a3e75367b4b3b78c",
+    "failure_message": null,
+    "env_set_revision": 57,
+    "updated_at": "2026-10-25T17:17:44.297003+00:00"
+  },
+  "environmentRevision": 57
+}

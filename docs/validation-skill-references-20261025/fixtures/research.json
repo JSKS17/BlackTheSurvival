@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "data": 2000,
+    "totalData": 2000,
+    "totalRuns": 0,
+    "totalWins": 0,
+    "normalCleared": false,
+    "hardCleared": false,
+    "lumiDiscoveries": 0,
+    "lumiObjectPurchases": 0,
+    "lumiCreditsEarned": 0,
+    "rareAppearanceSubjects": [
+        "nia"
+    ],
+    "storyHistoryVersion": 0,
+    "seenStories": [],
+    "subjects": [],
+    "completedReports": [
+        "nia",
+        "lumi"
+    ],
+    "settledRunIds": [],
+    "defeatedBosses": [],
+    "synergyKeys": [],
+    "settlements": [],
+    "history": []
+}

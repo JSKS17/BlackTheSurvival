@@ -1,0 +1,118 @@
+{
+  "result": "PASS",
+  "startedAtUtc": "2026-10-25T17:13:04.524Z",
+  "origin": "https://bser-sts.com",
+  "authenticatedRequests": false,
+  "productionWrites": false,
+  "largeGameDataDownloads": false,
+  "checks": {
+    "bridgeDeploymentSucceeded": true,
+    "existingAttributesPreserved": true,
+    "bridgeOnlyAddsNewR2Assets": true,
+    "oldStaticAssetsByteExact": true,
+    "homeStillLoads": true,
+    "oldGameManifestStillServed": true,
+    "oldDataHeadOnly": true,
+    "oldWasmHeadOnly": true
+  },
+  "responses": [
+    {
+      "route": "/",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": null,
+        "Content-Encoding": null,
+        "Content-Range": null,
+        "Cache-Control": "no-store, must-revalidate",
+        "ETag": null
+      },
+      "bytes": 9869,
+      "sha256": "8004d0983a767b0300baad87e0f4839855ebeb7758614b4bfdb209f2fc6f3452"
+    },
+    {
+      "route": "/game/build-manifest.json",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "5326",
+        "Content-Encoding": null,
+        "Content-Range": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"805e196133d67db1606fc0342d376b6a\""
+      },
+      "bytes": 5326,
+      "sha256": "9953efac33e7617e5b4dc8335ab137786b25350cf4ba402fef31d80ab5c1a929"
+    },
+    {
+      "route": "/game/Build/d6500381e61e624c3b7deb6c7a68f247.data.unityweb",
+      "method": "HEAD",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Content-Length": "320396841",
+        "Content-Encoding": null,
+        "Content-Range": null,
+        "Cache-Control": "public, max-age=0, must-revalidate, no-transform",
+        "ETag": "\"028965d2d2252600f10e69897547f70586f8305304da22b3360f7f13f941092f\""
+      },
+      "bytes": 0
+    },
+    {
+      "route": "/game/Build/88a601853ba577e778a53423e1345604.wasm.unityweb",
+      "method": "HEAD",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Content-Length": null,
+        "Content-Encoding": null,
+        "Content-Range": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"bad86b67a5bed4e084069bb51e4f5aca\""
+      },
+      "bytes": 0
+    },
+    {
+      "route": "/game/Build/88a601853ba577e778a53423e1345604.wasm.unityweb",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Content-Length": "12934740",
+        "Content-Encoding": null,
+        "Content-Range": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"bad86b67a5bed4e084069bb51e4f5aca\""
+      },
+      "bytes": 12934740,
+      "sha256": "ebc3ed8c73b67db690f09f538bb7b3a7460be8e5e85337ecb31be7dab8aa6e53"
+    }
+  ],
+  "errors": [],
+  "publication": {
+    "commitSha": "52178bd3049694be6e80b2175b13ea3f43bdb013",
+    "versionId": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_afaed891272081918176d7d0c30f6f13",
+    "versionNumber": 54,
+    "deploymentId": "appgdep_6ade387555288191ae9f81ba8e5ba51c",
+    "status": "succeeded"
+  },
+  "oldBuildId": "75e2024a587fc1546e8b2861",
+  "nextBuildId": "00a3d6117a640e6b4da0d5d1",
+  "oldManifestSha256": "69d87aa28379352f3ba29eefada716159fd299ac3c9ff59d050f4414519aee0f",
+  "bridgeManifestSha256": "702881b107349ad5e1d2c97a0e2ece590f27a70e3f10efda1e02531e020e8230",
+  "gitAttributesSha256": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+  "addedR2Assets": [
+    {
+      "path": "/game/Build/f1610a68fb49ec4813df23cc34113dfd.data.unityweb",
+      "size": 320414619,
+      "sha256": "2ae444623e40c0f394b41a56c200bdba0030811b8173f70a2c49530c04161784"
+    }
+  ],
+  "staticAssetsVerified": 9,
+  "staticGameTreeSha256": "cf8e2b2cda2d887432e90beb39ac74170806ef7c3a6588900fb4a1f50a4fbefc",
+  "gameVersion": "1.0.26",
+  "staticWasmFullHashVerified": true,
+  "completedAtUtc": "2026-10-25T17:13:05.983Z"
+}

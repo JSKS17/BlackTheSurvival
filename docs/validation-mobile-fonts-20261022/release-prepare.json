@@ -1,0 +1,66 @@
+{
+  "mode": "prepare",
+  "result": "PASS",
+  "startedAtUtc": "2026-10-21T19:53:00.872Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "version": "1.0.23",
+  "baselinePublication": {
+    "versionNumber": 45,
+    "commitSha": "0c1349601a9237f220c86a97f35b69682eb0ba26"
+  },
+  "productionRequests": false,
+  "steps": {
+    "successfulBuildPackaged": true,
+    "isolatedUploaderCopiedUnchanged": true,
+    "oldPublicGameRestoredToVerifiedCanonicalBytes": true,
+    "oldBuildMetadataPreserved": true,
+    "newR2RecordsAllowed": true
+  },
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\MobileFontsRelease20261022\\transactions\\prepare-ccc49944-3c63-49a5-a375-65446bffa434",
+      "bytes": 23129165
+    }
+  ],
+  "sourceHashes": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SiteMobileFonts20261022\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "Temp\\SiteMobileFonts20261022\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "Temp\\SiteMobileFonts20261022\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a"
+  },
+  "verifiedOldStaticAssets": 9,
+  "verifiedNewStaticAssets": 9,
+  "sourceHashesAfter": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SiteMobileFonts20261022\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "Temp\\SiteMobileFonts20261022\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "Temp\\SiteMobileFonts20261022\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a"
+  },
+  "release": {
+    "root": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\MobileFontsRelease20261022",
+    "manifestSha256": "3555cdf0a36169907fffca5dbd7b8f6befdf796fffe49d95eca4ef3abbbe1c13",
+    "buildId": "39d2b2a4f91df8ba79967cdb",
+    "gameTreeSha256": "59c40d25fafad622c3acc3def2f8803b238f5ae94d52d7ef698df7c92a5501b5",
+    "uploaderSha256": "2d75155c56ac8fde907ebcefda16af24e1aad2d18bf2b81182b14aabac740d11",
+    "r2Assets": [
+      {
+        "path": "/game/Build/e8ca3fe72d87ec641a6dc4eee248f813.data.unityweb",
+        "size": 320394684,
+        "sha256": "1fb6aa381db23efefd3683c344a217026101de524ec452c434d5c126da597dfc"
+      }
+    ]
+  },
+  "baseline": {
+    "manifestSha256": "722031b666e32e04bcbe18c2f59c48b21d7e46cd518796864c39f3a40c0b9fa5",
+    "canonicalGameTreeSha256": "cacf3314f5ed6af3ca6df7f47ccb8de0e8eb7eeab8394a7e63d0d9b5470a88a5",
+    "stageOriginalGameTreeSha256": "cacf3314f5ed6af3ca6df7f47ccb8de0e8eb7eeab8394a7e63d0d9b5470a88a5",
+    "stageOriginalManifestSha256": "722031b666e32e04bcbe18c2f59c48b21d7e46cd518796864c39f3a40c0b9fa5",
+    "stageGameTreeSha256": "cacf3314f5ed6af3ca6df7f47ccb8de0e8eb7eeab8394a7e63d0d9b5470a88a5",
+    "stageUnionManifestSha256": "70b0e608ef4083c20826a56f941be494fdca5f3cc7a80e5b43b7e20d2c5a0057"
+  },
+  "completedAtUtc": "2026-10-21T19:53:04.934Z"
+}

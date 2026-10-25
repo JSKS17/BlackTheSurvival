@@ -584,7 +584,7 @@ namespace Lumia
             if (actor == null) return result;
             result.AddRange(actor.resources.Where(x => x.amount > 0).Select(x => new SkillMechanicToken { owner=x.owner, key=x.key, label=x.isState || (x.cap == 1 && IsState(x.owner,x.key)) ? StateName(x.owner,x.key,x.label) : x.label, kind=x.isState || (x.cap == 1 && IsState(x.owner,x.key)) ? "state" : "resource", amount=x.amount, cap=x.cap,persistent=x.persistent }));
             result.AddRange(actor.effects.Select(x => new SkillMechanicToken { owner=x.owner, key=x.key, label=x.label, kind=x.kind, sourceCard=x.sourceCard, amount=x.amount, remaining=x.remaining, delay=x.delay,persistent=x.persistent }));
-            result.AddRange(actor.discounts.Select(x => new SkillMechanicToken { label=(GameDatabase.Card(x.targetCard)?.name ?? x.targetCard) + " 할인", kind="discount", sourceCard=x.sourceCard, targetCard=x.targetCard, amount=x.amount }));
+            result.AddRange(actor.discounts.Select(x => new SkillMechanicToken { label=SkillReferences.Name(x.targetCard) + " 할인", kind="discount", sourceCard=x.sourceCard, targetCard=x.targetCard, amount=x.amount }));
             result.AddRange(CrossSubjectSynergies.Snapshot(actor));
             return result;
         }
@@ -612,7 +612,7 @@ namespace Lumia
                 key="garnet_execution|recast|hit",
                 condition="이번 턴에 얻은 무료 사용권으로 재사용하고, 적에게 철처녀 표식이 남아 있으며, 사용 전 적의 체력이 최대 체력의 " + FreeCastMechanics.GarnetExecutionPercent + "% 이하이고 공격이 적중하면",
                 effect="방어도를 무시하고 적의 남은 체력을 모두 없애 처형합니다",
-                note="처형 조건은 재사용 피해를 주기 전 체력으로 판정합니다. 가넷 Q·E가 철처녀 표식을 소모했다면 처형되지 않습니다. 보스에게도 같은 체력 비율을 적용하며, 치명상 방지 효과는 기존 규칙대로 적용됩니다." });
+                note="처형 조건은 재사용 피해를 주기 전 체력으로 판정합니다. "+CardPresentation.WithParticle(SkillReferences.Names(new[]{"garnet_q","garnet_e"}),"가","이")+" 철처녀 표식을 소모했다면 처형되지 않습니다. 보스에게도 같은 체력 비율을 적용하며, 치명상 방지 효과는 기존 규칙대로 적용됩니다." });
             foreach (var rule in card.mechanics.rules ?? new SkillRule[0])
             {
                 string label = new[] { "gain", "set", "consume" }.Contains(rule.op) ? ResourceName(card, rule.key ?? rule.op) : string.IsNullOrWhiteSpace(rule.label) ? ResourceName(card, rule.key ?? rule.op) : rule.label;
@@ -638,7 +638,7 @@ namespace Lumia
                     case "bonus_damage": text = "첫 적중에 추가 피해를 " + amount + "만큼 줍니다"; break;
                     case "bonus_block": text = "방어도를 " + amount + "만큼 추가로 얻습니다"; break;
                     case "bonus_heal": text = "체력을 " + amount + "만큼 추가로 회복합니다"; break;
-                    case "discount": text = "다음 " + (GameDatabase.Card(rule.targetCard)?.name ?? rule.targetCard) + "의 코스트를 " + amount + " 줄이는 할인을 얻습니다(1회, 중첩되지 않음)"; break;
+                    case "discount": text = "다음 " + SkillReferences.Name(rule.targetCard,card) + "의 코스트를 " + amount + " 줄이는 할인을 얻습니다(1회, 중첩되지 않음)"; break;
                     case "bleed": case "burn": case "summon": text = "자신의 턴 종료마다 " + amount + "의 피해를 " + Clamp(rule.duration, 1, 3) + "회 주는 " + label + " 효과를 남깁니다"+(rule.op=="summon"?"":"(방어도 무시)"); break;
                     case "hot": text = "자신의 턴 종료마다 체력을 " + amount + "씩 " + Clamp(rule.duration, 1, 3) + "회 회복하는 " + label + " 효과를 얻습니다"; break;
                     case "guard": text = "자신의 턴 종료마다 방어도를 " + amount + "씩 " + Clamp(rule.duration, 1, 3) + "회 얻는 " + label + " 효과를 얻습니다"; break;
@@ -651,9 +651,9 @@ namespace Lumia
                     default: continue;
                 }
                 var conditions = new List<string>();
-                if (!string.IsNullOrEmpty(rule.conditionKey)) conditions.Add((rule.op == "forge_sword" ? "이번 E의 파편 수집을 마친 직후 " : "") + StateCondition(card, rule.conditionKey, rule.conditionAmount, rule.conditionExact));
+                if (!string.IsNullOrEmpty(rule.conditionKey)) conditions.Add((rule.op == "forge_sword" ? "이번 "+SkillReferences.Name(card)+"의 파편 수집을 마친 직후 " : "") + StateCondition(card, rule.conditionKey, rule.conditionAmount, rule.conditionExact));
                 if (!string.IsNullOrEmpty(rule.conditionKey2)) conditions.Add(StateCondition(card, rule.conditionKey2, rule.conditionAmount2, rule.conditionExact2));
-                if (!string.IsNullOrEmpty(rule.conditionPrevious)) conditions.Add("같은 실험체의 직전 기술이 " + (GameDatabase.Card(rule.conditionPrevious)?.name ?? rule.conditionPrevious) + "이면");
+                if (!string.IsNullOrEmpty(rule.conditionPrevious)) conditions.Add(card.owner+"의 직전 기술이 " + SkillReferences.Name(rule.conditionPrevious,card) + "이면");
                 if (rule.onHit) conditions.Add("공격이 적중하면");
                 result.Add(new ConditionEffect { key=DescriptionSummary.ConditionKey(rule), condition=DescriptionSummary.JoinConditions(conditions), effect=text, note=note });
             }
@@ -665,12 +665,12 @@ namespace Lumia
             if(TacticalSkills.IsDelayed(card))return "준비한 전술 효과는 다음 자기 턴 시작에 한 번 적용됩니다. 시전한 턴의 종료에는 발동하지 않습니다. 효과와 예약한 상태이상은 저장·이어하기에도 유지됩니다.";
             var rules=card.mechanics.rules ?? new SkillRule[0]; var text=new List<string>();
             bool external=CrossSubjectSynergies.FullDescription(card).Any();
-            if (rules.Any(r=>r.op=="gain" || r.op=="set" || r.op=="consume" || r.op.StartsWith("state_",StringComparison.Ordinal) || !string.IsNullOrEmpty(r.scaleKey)))
+            if (rules.Any(r=>r.op=="gain" || r.op=="set" || r.op=="consume" || r.op.StartsWith("state_",StringComparison.Ordinal) || !string.IsNullOrEmpty(r.scaleKey) || !string.IsNullOrEmpty(r.conditionKey) || !string.IsNullOrEmpty(r.conditionKey2)))
             {
                 var shared=SharedResourcesFor(StateOwner(card.owner)+"_p").Where(x=>!x.legacyOnly).ToArray();
-                text.Add("자원과 상태는 같은 실험체의 카드끼리 공유하며 전투가 끝나면 초기화됩니다."
+                text.Add("이 카드의 고유 자원과 상태는 "+card.owner+"의 카드끼리 공유하며 전투가 끝나면 초기화됩니다. 다른 실험체의 고유 자원과 상태로 대신할 수 없습니다."
                     + (shared.Length>0 ? " 패시브의 "+string.Join("·",shared.Select(x=>x.label))+"도 공유하며, 패시브와 기술의 획득·소모는 각각 적용됩니다." : "")
-                    + (card.owner==TaziaResourceOwner ? " 유리 검은 Q가 소모하며, 빗나가도 소모됩니다." : ""));
+                    + (card.owner==TaziaResourceOwner ? " 유리 검은 "+CardPresentation.WithParticle(SkillReferences.Name("tazia_q"),"가","이")+" 소모하며, 빗나가도 소모됩니다." : ""));
             }
             if (rules.Any(r=>r.op=="discount")) text.Add("할인은 다음 대상 카드 1회에 적용되며, 같은 카드의 할인 부여는 자신의 한 턴에 1회로 제한됩니다.");
             else if (rules.Any(r=>new[] {"bleed","burn","delayed_damage","summon","hot","guard"}.Contains(r.op))) text.Add("지속 효과는 시전자의 턴 종료에 적용되며, 같은 설치물을 다시 놓으면 수치와 남은 횟수의 큰 값을 유지합니다."+(external?"":" 실험체 한 명의 기술·패시브·룬을 합친 턴 종료 효과는 피해 40, 회복과 방어 합계 25까지 적용됩니다."));

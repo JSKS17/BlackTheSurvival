@@ -269,7 +269,7 @@ namespace Lumia
                 case "tactical_impulse": lines.Add("다음 자기 턴 시작에 피해 없이 돌진하여 넉백을 1턴 부여합니다. 이후 1턴간 새로 받는 군중 제어를 무시하고, 방어도 적용 후 받는 체력 피해가 "+(c.tacticalEnhanced?30:20)+"% 감소하며 회피율이 35% 증가합니다. 기존 상태이상과 체력 소모 비용에는 영향을 주지 않습니다.");break;
                 case "tactical_lightning_shield": lines.Add("자신의 중독·약화·취약·상태이상과 지속 피해를 해제합니다.");break;
                 case "tactical_meditation": lines.Add("최대 체력의 "+(c.tacticalEnhanced?25:20)+"%를 즉시 회복하고, 2턴간 체력을 5씩 회복합니다.");break;
-                case "tactical_lock_on": lines.Add("첫 공격이 적중했을 때만 이번 턴 무료로 재사용할 수 있습니다. 무료 사용권은 턴당 1회이며 재사용 시 다시 획득하지 않습니다.");break;
+                case "tactical_lock_on": lines.Add(SkillReferences.Name(c)+"의 첫 공격이 적중했을 때만 같은 카드를 이번 턴 무료로 재사용할 수 있습니다. 무료 사용권은 턴당 1회이며 재사용 시 다시 획득하지 않습니다.");break;
                 case "tactical_meteor": lines.Add("다음 자기 턴 시작에 방어도를 무시하는 "+P("고정 피해 "+c.mechanics.rules[0].amount)+" 주고 기절을 1턴 부여합니다.");break;
                 case "tactical_gravity": lines.Add("다음 자기 턴 시작에 "+P("피해 "+c.mechanics.rules[0].amount)+" 주고 끌어당김을 1턴, 기절을 "+c.statuses.First(x=>x.key=="stun").duration+"턴 부여합니다.");break;
             }
@@ -306,7 +306,7 @@ namespace Lumia
                 case "tactical_meteor":t="다음 내 턴 시작에 "+P("고정 피해 "+c.mechanics.rules[0].amount)+" 주고 기절을 1턴 부여합니다.";break;
                 case "tactical_lightning_shield":t="내 디버프를 해제하고 "+P("방어도 "+b)+" 얻습니다. 2턴간 피격 시 반격으로 "+P("피해 "+c.mechanics.rules[0].amount)+" 줍니다(턴당 1회).";break;
                 case "tactical_meditation":t="최대 체력의 "+(c.tacticalEnhanced?25:20)+"%를 회복하고 2턴간 체력을 5씩 더 회복합니다.";break;
-                case "tactical_lock_on":t=attack+" 첫 공격 적중 시 F를 이번 턴 1회 무료로 재사용해 돌진합니다.";break;
+                case "tactical_lock_on":t=attack+" 첫 공격 적중 시 "+P(SkillReferences.ShortName(c))+" 이번 턴 1회 무료로 재사용해 돌진합니다.";break;
                 case "tactical_asthenia":t="적에게 둔화·공격력 감소를 "+c.statuses[0].duration+"턴 부여합니다.";break;
             }
             var rareGuard=c.mechanics?.rules.FirstOrDefault(rule=>rule.op=="guard" && rule.key=="rare_guard");

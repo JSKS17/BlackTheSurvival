@@ -1,0 +1,104 @@
+Player feedback release helpers / game 1.0.25
+
+Prepared only: these helpers have passed offline checks. No release mode,
+server, build, production request, cleanup or product source edit ran during
+helper preparation. CreateHelpers.mjs is a one-time generator and refuses to
+overwrite generated helpers.
+
+Baseline
+  Game: 1.0.24 / buildId 8fa247b1755a774777d8e213
+  Site: 49 / environment revision 51
+  Source commit: 1c0f270115c544860886030bf1028a0aec060e5d
+  Manifest SHA256:
+    1e0633db77b024d6f4d85f46c92d4269ce80723e92bf21057d4361c9994b73d4
+  Full protected hashes are in helper-prep-validation.json.
+
+Run commands from C:\Users\azxar\BlackTheSurvival.
+
+Offline helper verification
+  node docs/validation-player-feedback-20261023/ValidateHelpers.mjs
+
+Frozen Unity source snapshot (after export is ready, before cleanup)
+  node docs/validation-player-feedback-20261023/ValidateBuildSnapshot.mjs
+  Requires source-validation.json and Build/UnityWebBuild. It compares all
+  120 frozen root files, 53 frozen Tools sources, all 119 cloned C# files,
+  the 14-file runtime delta from deployed 1.0.24, unchanged touch/typography,
+  and exact standard WebGL settings overrides. Writes build-source-validation.json.
+
+Final local evidence (only after all proofs and cleanup are complete)
+  node docs/validation-player-feedback-20261023/Complete.mjs
+  Requires source-validation.json, build-source-validation.json, core-tests.json,
+  unity-build-manifest.json, browser-validation.json, live-validation.json,
+  publish-state.json, release-sync.json, helper-prep-validation.json, cleanup.json.
+  core-tests must bind sourceHashes to frozen.files and testSourceHashes to
+  frozen.testSourceHashes, with PASS and a positive integer assertions count.
+  Browser proof must contain gameVersion 1.0.25, physicalHardwareTested false,
+  PASS and a nonempty screenshots list of filenames relative to this directory.
+  Live proof must contain all 21 successful checks. Cleanup must remove exactly
+  the five declared generated targets; all five must still be absent.
+  Writes completion.json after successful local evidence verification only.
+
+Local browser QA
+  Targeted fixtures are now present and derivation is recorded in
+  fixture-derivation.json. Preview defaults to feedback-crafting.
+    feedback-crafting: Campfire crafting with all five materials, 3 actions,
+      duplicate Altair and distinct items sharing named equipment effects.
+    feedback-combat: Nia combat, energy 5, Yuki W/E/Aya E plus basic cards.
+  Both fixtures retain the previously valid raw run schema. The combat deck
+  and all player piles match as multisets. Research is a byte-exact copy.
+  Put research.json and the requested run JSON files in this task's fixtures
+  directory. Only ordinary JSON filenames matching [a-z][a-z0-9-]{0,63}.json
+  are selectable. Each run file is a raw game run save; research.json is the
+  research profile. The QA page creates a fresh local account ID per reload
+  and imports the bundle through the existing game bridge.
+  node docs/validation-player-feedback-20261023/Preview.mjs
+  Open http://127.0.0.1:8246/qa?fixture=NAME
+  Add &mobile=1 for the visible local mobile detection model.
+  Add --baseline to the node command for exact canonical 1.0.24 comparison.
+  Baseline mode streams declared immutable public R2 assets without disk
+  caching. It makes no account or authenticated requests. Ordinary mode uses
+  only Build/Web125. A mobile detection model does not prove phone hardware.
+  Fixtures are discovered on each QA page request; adding files needs only
+  a page reload. Stop the server before final cleanup.
+
+Release paths
+  Raw Unity export: Build/Web125
+  Official Sites checkout: Temp/SitePlayerFeedback20261023
+  Isolated package/uploader: Temp/PlayerFeedbackRelease20261023
+
+Two-stage release order
+  1. Root prepares the official Sites checkout, successful Unity export and
+     saved unity-build-manifest.json proof in this task's proof directory.
+  2. node docs/validation-player-feedback-20261023/PrepareRelease.mjs prepare
+     Packages the new export separately. The stage keeps byte-exact baseline
+     public game files and old build metadata, adding only new immutable R2
+     records to its manifest. Canonical WebSite remains baseline.
+  3. Root builds/packages/saves/publishes this bridge through Sites native
+     tools and saves the package/saved/deployment responses as bridge-state.json.
+  4. node docs/validation-player-feedback-20261023/VerifyBridge.mjs
+     Requires the new bridge publication and proves it still serves 1.0.24.
+  5. Root runs the unchanged isolated uploader against the new raw build,
+     supplying credentials only through hidden stdin, records upload proof,
+     and closes the upload gate for the final deployment.
+  6. node docs/validation-player-feedback-20261023/PrepareRelease.mjs finalize
+     Replaces the stage game/manifest with the already verified new package.
+  7. Root builds/packages/saves/publishes the final stage and saves the native
+     tool responses as publish-state.json.
+  8. node docs/validation-player-feedback-20261023/VerifyLive.mjs
+  9. Root completes source-validation.json and browser-validation.json (PASS).
+ 10. node docs/validation-player-feedback-20261023/PrepareRelease.mjs sync
+     Requires successful final publication and matching live proof; syncs
+     only canonical game/manifest through checked renames with rollback.
+ 11. After all task processes are stopped:
+     powershell -NoProfile -File docs/validation-player-feedback-20261023/Cleanup.ps1 -VerifiedServersStopped
+
+Cleanup requires publication identity, source/live/browser PASS, canonical
+release-sync PASS, matching final manifest and read-only process inspection.
+It can remove the root Build tree only while direct entries remain within
+UnityWebBuild, Web125 and LumiaWebBuild.log. If Web125 exists, its manifest
+must match the exact saved successful 1.0.25 build proof. Any future task test
+output requires an explicitly inspected whitelist/proof addition first.
+The stage node_modules junction is unlinked only if its sole target is the
+canonical WebSite/node_modules; other links abort cleanup. The helper never
+stops processes. Owned stage/release Temp trees and deployment archives are
+the remaining cleanup targets. Source, art, dependencies and proof files stay.

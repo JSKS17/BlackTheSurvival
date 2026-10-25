@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "removedAtUtc": "2026-10-25T17:20:46.7770023Z",
+  "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build\\UnityWebBuild\\Library\\Bee",
+  "removedBytes": 2323369022,
+  "reason": "Web build and browser QA passed; discard WebGL native intermediates before reusing source/assets for the Windows Mono build.",
+  "rootSourcesPreserved": true,
+  "rawWebBuildPreserved": true,
+  "noProcessWasStopped": true
+}

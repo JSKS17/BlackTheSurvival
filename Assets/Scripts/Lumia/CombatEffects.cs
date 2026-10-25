@@ -102,7 +102,7 @@ namespace Lumia
         public float Add(CombatAction action, bool reduced, bool mutantAnimal = false)
         {
             if (action == null) return 0;
-            var card = GameDatabase.Card(action.cardId) ?? WildlifeMechanics.Card(action.cardId);
+            var card = GameDatabase.Card(action.cardId) ?? WildlifeMechanics.Card(action.cardId) ?? WickelineMechanics.Card(action.cardId);
             var passive = GameDatabase.Passive(action.traitId);
             var rune = GameDatabase.Rune(action.traitId);
             var gear = (action.traitId ?? "").StartsWith("gear:", StringComparison.Ordinal)
@@ -129,7 +129,7 @@ namespace Lumia
                 color = color, accent = accent, seed = profile.seed ^ (action.id * 31 & 255) };
             burst.textUntil = Impact(burst) * duration + (reduced ? ReducedTextSeconds : ReadableTextSeconds);
             bursts.Add(burst);
-            if (action.damage > 0 || action.avoided > 0 || action.missed > 0 || direct && card.damage > 0) burst.damageLane = ReserveFeedbackLane(!action.enemy);
+            if (action.damage > 0 || action.avoided > 0 || action.missed > 0 || direct && card.damage > 0) burst.damageLane = ReserveFeedbackLane(DamageTargetEnemy(action));
             if (action.heal > 0) burst.healLane = ReserveFeedbackLane(action.enemy);
             if (action.block > 0) burst.blockLane = ReserveFeedbackLane(action.enemy);
             if (!direct && action.damage == 0 && action.avoided == 0 && action.missed == 0 && action.heal == 0 && action.block == 0)
@@ -137,13 +137,16 @@ namespace Lumia
             return duration;
         }
 
+        // A structure collapse damages Wickeline herself; its owner remains the enemy in logs.
+        static bool DamageTargetEnemy(CombatAction action) => action.kind == "wickeline_collapse" ? action.enemy : !action.enemy;
+
         int ReserveFeedbackLane(bool enemy)
         {
             int occupied = 0;
             foreach (var b in bursts)
             {
                 if (Age(b) >= b.textUntil) continue;
-                if (b.action.enemy != enemy && b.damageLane >= 0) occupied |= 1 << b.damageLane;
+                if (DamageTargetEnemy(b.action) == enemy && b.damageLane >= 0) occupied |= 1 << b.damageLane;
                 if (b.action.enemy == enemy)
                 {
                     if (b.healLane >= 0) occupied |= 1 << b.healLane;
@@ -158,7 +161,7 @@ namespace Lumia
             foreach (var b in bursts)
             {
                 if (Age(b) >= b.textUntil) continue;
-                if (b.action.enemy != enemy && b.damageLane >= 0) { int lane = b.damageLane; b.damageLane = -1; return lane; }
+                if (DamageTargetEnemy(b.action) == enemy && b.damageLane >= 0) { int lane = b.damageLane; b.damageLane = -1; return lane; }
                 if (b.action.enemy == enemy && b.healLane >= 0) { int lane = b.healLane; b.healLane = -1; return lane; }
                 if (b.action.enemy == enemy && b.blockLane >= 0) { int lane = b.blockLane; b.blockLane = -1; return lane; }
                 bool statusEnemy = (b.action.kind ?? "").StartsWith("status_", StringComparison.Ordinal) ? !b.action.enemy : b.action.enemy;
@@ -180,7 +183,7 @@ namespace Lumia
                 foreach (var b in bursts)
                 {
                     if (Age(b) >= b.textUntil) continue;
-                    int[] lanes = { b.action.enemy != enemy ? b.damageLane : -1,
+                    int[] lanes = { DamageTargetEnemy(b.action) == enemy ? b.damageLane : -1,
                         b.action.enemy == enemy ? b.healLane : -1, b.action.enemy == enemy ? b.blockLane : -1,
                         ((b.action.kind ?? "").StartsWith("status_", StringComparison.Ordinal) ? !b.action.enemy : b.action.enemy) == enemy ? b.statusLane : -1 };
                     foreach (int lane in lanes)
@@ -279,7 +282,7 @@ namespace Lumia
                 for (int i = bursts.Count - 1; i >= 0; i--)
                 {
                     var hit = bursts[i];
-                    if (!VisualAlive(hit) || hit.action.enemy == enemy || hit.action.damage <= 0) continue;
+                    if (!VisualAlive(hit) || DamageTargetEnemy(hit.action) != enemy || hit.action.damage <= 0) continue;
                     float phase = Progress(hit), impactAt = hit.direct ? hit.profile.impactAt : .16f;
                     float hp = (phase - impactAt) / .24f;
                     if (hp >= 0 && hp < 1)
@@ -323,7 +326,7 @@ namespace Lumia
                 bool motionReduced = b.ultimate != null ? b.reduced : reduced;
                 float p = Progress(b);
                 Vector2 source = b.action.enemy ? new Vector2(1015, 282) : new Vector2(232, 282);
-                Vector2 target = b.action.enemy ? new Vector2(232, 282) : new Vector2(1015, 282);
+                Vector2 target = DamageTargetEnemy(b.action) ? new Vector2(1015, 282) : new Vector2(232, 282);
                 bool status = (b.action.kind ?? "").StartsWith("status_", StringComparison.Ordinal);
                 bool stoppedWildlife = b.action.kind == "wildlife_interrupt" || b.action.kind == "wildlife_despair";
                 bool attack = !stoppedWildlife && (status || b.action.damage > 0 || b.action.avoided > 0 || b.action.missed > 0 || b.card != null && (b.card.damage > 0 || b.card.poison > 0 || b.card.weak > 0 || b.card.vulnerable > 0));
@@ -351,7 +354,7 @@ namespace Lumia
                     alpha = Mathf.Clamp01((b.textUntil - Age(b)) / .28f);
                     color = WithAlpha(b.color, alpha);
                     float lift = motionReduced ? 0 : Mathf.Clamp01((Age(b) - impactAt * b.duration) / .8f) * 2;
-                    Vector2 damageAt = FeedbackPosition(!b.action.enemy, b.damageLane, lift);
+                    Vector2 damageAt = FeedbackPosition(DamageTargetEnemy(b.action), b.damageLane, lift);
                     Vector2 healAt = FeedbackPosition(b.action.enemy, b.healLane, lift);
                     Vector2 blockAt = FeedbackPosition(b.action.enemy, b.blockLane, lift);
                     string label = b.direct ? "" : ReactionIdentity(b) + " ";
@@ -420,6 +423,7 @@ namespace Lumia
                 case "guard": return "지속 보호";
                 case "revive": return "치명상 방지";
                 case "companion_guard": return "니나 생존 보호 · 체력 1 유지";
+                case "wickeline_collapse": return "위클라인 · 불안정 구조 붕괴";
                 case "companion_damage": return "니나 피해 분담";
                 case "boss_interrupt": return "보스 기믹 저지";
                 default: return "효과 발동";

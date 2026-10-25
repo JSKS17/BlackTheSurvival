@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "site": "https://bser-sts.com",
+  "gameVersion": "1.0.26",
+  "buildId": "75e2024a587fc1546e8b2861",
+  "uploaderExitCode": 0,
+  "assets": 1,
+  "files": 1,
+  "bytes": 320396841,
+  "parts": 20,
+  "asset": "/game/Build/d6500381e61e624c3b7deb6c7a68f247.data.unityweb",
+  "sha256": "028965d2d2252600f10e69897547f70586f8305304da22b3360f7f13f941092f",
+  "credentialsPersisted": false,
+  "closedUploadGateEnvironmentRevision": 55
+}

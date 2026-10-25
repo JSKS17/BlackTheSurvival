@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "reviewedAt": "2026-10-21T15:13:42.418Z",
+  "reviewType": "Independent read-only source review; no test execution in this review",
+  "baselineCommit": "52378ec49d4b4469b077e6540551984d21c5ff96",
+  "sourceHashes": {
+    "app/page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "lib/game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "scripts/game-session.test.mjs": "c9cc033e2ff15535d305645b74f4515c2c47bc74aa31977ae2c1b114c4ad0bb7",
+    "scripts/game-accounts.test.mjs": "f5c42c9607c963e3f385aa476c34c7c6aefcb1db530e4d6ee6e1e6327210198b"
+  },
+  "requiredChanges": [],
+  "checks": [
+    "Account-save GET no longer shares write admission, preserving cross-account first-login reads.",
+    "PUT admission remains after existing session, account, origin and CSRF guards.",
+    "Write admission is per-account and bounded to eight requests and a 32 MiB weighted request budget; unknown lengths reserve the worst-case allowance.",
+    "Request length validation and readBytes body limits remain enforced; admission released in finally.",
+    "Revision CAS, operation IDs, R2 exact metadata/hash checks and lost-ack recovery are unchanged.",
+    "Initial cloud-read retry is read-only and bounded by three attempts and a 15 second budget, with capped backoff.",
+    "Session generation checks prevent superseded responses/retries from mounting a stale game or issuing further reads.",
+    "401/403/409, session_changed, csrf_failed and invalid_response do not enter transient retry.",
+    "Failure does not invent an empty cloud save, repeat authentication or overwrite a saved record.",
+    "Regression tests cover different-account held writes plus reads, concurrent writes, same-account safety, slot release, budget limits and client cancellation."
+  ]
+}

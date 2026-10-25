@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "completedAtUtc": "2026-10-21T17:08:03.825Z",
+  "assets": 1,
+  "files": 1,
+  "bytes": 320473609,
+  "parts": 20,
+  "exitCode": 0,
+  "sha256": "be99991b89a0cf9aa0baaf910b16e72e59b2e491b5072a810d47b8d2ea6efd92",
+  "credentialsStoredInFiles": false,
+  "closingEnvironmentRevision": 45
+}

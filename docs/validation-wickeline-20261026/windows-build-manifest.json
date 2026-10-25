@@ -1,0 +1,14 @@
+{
+    "result": "Succeeded",
+    "productVersion": "1.0.27",
+    "unityVersion": "6000.3.11f1",
+    "buildStartedAtUtc": "2026-10-25T17:26:40.6991218Z",
+    "buildEndedAtUtc": "2026-10-25T17:30:40.8750390Z",
+    "outputPath": "C:/Users/azxar/BlackTheSurvival/Build/UnityWebBuild/Build/Windows/BlackTheSurvival.exe",
+    "sourceCaptureSha256": "7600823f3ea581fc450857ab53bcd9314d50aed9f0bcf642696cb1b31bedbffa",
+    "development": false,
+    "errors": 0,
+    "warnings": 1,
+    "totalBytes": 1018352513,
+    "durationSeconds": 240.1759172
+}

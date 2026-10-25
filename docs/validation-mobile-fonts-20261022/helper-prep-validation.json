@@ -1,0 +1,47 @@
+{
+  "productSourceChanged": false,
+  "baselineSiteVersion": 45,
+  "checkedAtUtc": "2026-10-21T18:55:57.8374791Z",
+  "scriptsExecuted": false,
+  "scope": "Release helper preparation and syntax only",
+  "baselineGameVersion": "1.0.22",
+  "productionRequests": false,
+  "baselineSourceCommit": "0c1349601a9237f220c86a97f35b69682eb0ba26",
+  "serverStarted": false,
+  "gameVersion": "1.0.23",
+  "syntaxChecks": [
+    {
+      "validation": "node --check",
+      "file": "PrepareRelease.mjs",
+      "result": "PASS"
+    },
+    {
+      "validation": "node --check",
+      "file": "VerifyBridge.mjs",
+      "result": "PASS"
+    },
+    {
+      "validation": "node --check",
+      "file": "VerifyLive.mjs",
+      "result": "PASS"
+    },
+    {
+      "validation": "node --check",
+      "file": "Preview.mjs",
+      "result": "PASS"
+    },
+    {
+      "validation": "PowerShell Parser.ParseFile",
+      "file": "Cleanup.ps1",
+      "result": "PASS"
+    }
+  ],
+  "previewPort": 8244,
+  "baselineHashes": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite\\lib\\unity-assets-manifest.json": "722031b666e32e04bcbe18c2f59c48b21d7e46cd518796864c39f3a40c0b9fa5"
+  },
+  "result": "PASS"
+}

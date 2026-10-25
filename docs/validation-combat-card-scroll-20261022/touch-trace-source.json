@@ -1,0 +1,18 @@
+{
+  "createdAtUtc": "2026-10-22T03:49:32.1332185Z",
+  "purpose": "Localhost-only actual Unity Input/IMGUI touch trace",
+  "rootProductionSHA256": "6dec57870b95cb38bbb89591cab6b9e3c5afa917e7d8b27c756706fd25b7f867",
+  "instrumentedCloneSHA256": "19a2968fe9f3909f9885876b68f9b254793251505d82b894fc669d9e2b19bb9f",
+  "sourcePath": "C:\\Users\\azxar\\BlackTheSurvival\\Build\\UnityWebBuild\\Assets\\Scripts\\Lumia\\LumiaTouchScroll.cs",
+  "gate": "Application.absoluteURL contains 127.0.0.1",
+  "maxLogEntries": 4000,
+  "launchesUnity": false,
+  "logs": [
+    "raw GUI pointer event and eventPoint",
+    "registered candidates and nested viewport geometry",
+    "GUI.matrix and GUIToScreenPoint vs matrix point",
+    "native Input finger phase and position",
+    "begin move cancel and foreign hotControl",
+    "gesture owner axis scroll and own button"
+  ]
+}

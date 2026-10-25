@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "gameVersion": "1.0.26",
+  "physicalHardwareTested": false,
+  "mobileDetectionModel": true,
+  "productionAccountRequests": false,
+  "observations": {
+    "chloeEDescriptionNamesChloeQ": true,
+    "chloeEPendingFieldNamesOwnerKeyAndSkill": true,
+    "chloeQNextTurnCost": 0,
+    "chloeQFreeHeading": "클로에 Q · 무료",
+    "emmaDenseSummaryNamesScopedPreviousKeys": true,
+    "emmaHistoryAfterEmmaQThenAyaQ": "엠마 Q 비둘기 딜러",
+    "emmaRConditionalDamage": 13,
+    "emmaEnemyHpBeforeR": 31,
+    "emmaEnemyHpAfterR": 18,
+    "taziaECollectionConditionNamesOwnerKeyAndSkill": true,
+    "taziaPredictedCollection": 3,
+    "taziaSwordCreated": 1,
+    "advancedSelectionShowsOwnerKeyAndCost": true,
+    "mobileLongOwnerAndKeyVisible": true,
+    "mobileHeaderCostAccessibleByScroll": true
+  },
+  "errors": [],
+  "previewNotes": [
+    "The local mobile detection model produced a ResizeObserver loop notification at initialization. After dismissal, the game and all tested UI continued normally. No dev error logs were returned.",
+    "Mobile detection and large-font behavior were modeled; physical phone hardware and touch gestures were not tested."
+  ],
+  "screenshots": [
+    "chloe-summary.jpg",
+    "chloe-pending-target.jpg",
+    "chloe-free-target.jpg",
+    "emma-summary.jpg",
+    "emma-owner-history.jpg",
+    "emma-activation.jpg",
+    "tazia-summary.jpg",
+    "tazia-collection-target.jpg",
+    "tazia-sword-created.jpg",
+    "advanced-owner-labels.jpg",
+    "advanced-mobile-owner.jpg",
+    "advanced-mobile-cost.jpg"
+  ]
+}

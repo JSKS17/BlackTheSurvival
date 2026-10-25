@@ -19,7 +19,7 @@ namespace Lumia
         {
             var q=P("아케이드 블록을 최대 3개 남기고 적중 시 배터리를 충전합니다.", Gain("blocks","아케이드 블록"), Gain("battery","VF 배터리",1,4,true));
             q.damage=7; q.draw=0; p["nia_q"]=q;
-            q=P("블록마다 추가 피해를 주고 블록을 회수하며 다음 Q의 코스트를 1 줄입니다.", Bonus("bonus_damage",4,"blocks"), Consume("blocks"), Discount("nia_q"), Gain("battery","VF 배터리",1,4,true));
+            q=P("블록마다 추가 피해를 주고 블록을 회수하며 다음 "+SkillReferences.Name("nia_q")+"의 코스트를 1 줄입니다.", Bonus("bonus_damage",4,"blocks"), Consume("blocks"), Discount("nia_q"), Gain("battery","VF 배터리",1,4,true));
             q.damage=10; q.vulnerable=1; p["nia_w"]=q;
             q=P("2턴 동안 치명상을 한 번 막고 체력을 20 회복합니다.", Effect("revive","one_up","1UP",20));
             q.block=8; q.heal=0; q.evasion=0; p["nia_e"]=q;
@@ -39,7 +39,7 @@ namespace Lumia
             q.damage=5; q.hits=2; p["aya_q"]=q;
             q=P("쌓인 연발 준비를 소비해 추가 피해를 줍니다.", Bonus("bonus_damage",2,"rapid",2), Consume("rapid"), When(Bonus("bonus_damage",2),"fear"), Consume("fear",1,true));
             q.damage=4; q.hits=4; p["aya_w"]=q;
-            q=P("위치를 옮기며 다음 Q와 W의 코스트를 각각 1 줄입니다.", Discount("aya_q"), Discount("aya_w"));
+            q=P("위치를 옮기며 다음 "+SkillReferences.Names(new[]{"aya_q","aya_w"})+"의 코스트를 각각 1 줄입니다.", Discount("aya_q"), Discount("aya_w"));
             q.block=6; q.draw=0; q.evasion=25; q.duration=2; p["aya_e"]=q;
             q=P("공포를 남겨 다음 사격의 피해를 높입니다.", Set("fear","공포",1,1));
             q.damage=38; q.weak=2; p["aya_r"]=q;
@@ -55,18 +55,18 @@ namespace Lumia
 
             q=P("단추를 하나 소비하면 공격이 강화됩니다.", When(Bonus("bonus_damage",4),"cuff"), Consume("cuff",1,true));
             q.damage=6; q.weak=1; p["yuki_q"]=q;
-            q=P("단추를 3개 보충하고 E의 연계 사용권을 얻습니다.", Set("cuff","단추",3));
+            q=P("단추를 3개 보충하고 유키 E 빗겨치고 일격의 연계 사용권을 얻습니다.", Set("cuff","단추",3));
             q.block=12; q.draw=0; p["yuki_w"]=q;
-            q=P("적중하면 같은 턴에 빗겨치기를 한 번 다시 사용할 수 있습니다.");
+            q=P("적중하면 같은 턴에 유키 E 빗겨치고 일격을 한 번 다시 사용할 수 있습니다.");
             q.damage=16; q.block=6; q.evasion=15; q.duration=1; p["yuki_e"]=q;
             q=P("새긴 검흔이 턴 종료에 폭발합니다.", Effect("delayed_damage","scar","검흔",8,1,1));
             q.damage=42; q.vulnerable=1; p["yuki_r"]=q;
 
-            q=P("적중하면 흉조를 쌓고 한 번 다시 사용할 수 있습니다.", Gain("omen","흉조",1,3,true));
+            q=P("적중하면 흉조를 쌓고 "+SkillReferences.Name("hyejin_q")+"를 한 번 다시 사용할 수 있습니다.", Gain("omen","흉조",1,3,true));
             q.damage=14; q.weak=1; p["hyejin_q"]=q;
             q=P("지면에 놓은 부적이 턴 종료에 피해를 줍니다.", Effect("delayed_damage","charm","제압 부적",10));
             q.damage=0; q.weak=1; q.vulnerable=0; p["hyejin_w"]=q;
-            q=P("이동 부적을 남기며 다시 사용하면 부적을 소비해 추가 피해를 줍니다.", When(Bonus("bonus_damage",4),"nomad"), When(Consume("nomad"),"nomad"), When(Set("nomad","이동 부적",1,1),"nomad",0));
+            q=P("이동 부적을 남기며 "+SkillReferences.Name("hyejin_e")+"를 다시 사용하면 부적을 소비해 추가 피해를 줍니다.", When(Bonus("bonus_damage",4),"nomad"), When(Consume("nomad"),"nomad"), When(Set("nomad","이동 부적",1,1),"nomad",0));
             q.rules[2].conditionExact=true; q.damage=12; q.evasion=25; q.duration=1; q.freeCastTargets=new[]{"hyejin_e"}; q.freeCastCount=1; q.freeCastOnHit=true; p["hyejin_e"]=q;
             q=P("흉조를 소비해 피해를 높이고 오대존명왕을 2턴 유지합니다.", Bonus("bonus_damage",2,"omen"), Consume("omen"), Effect("summon","orbit","오대존명왕",5));
             q.damage=5; q.hits=5; q.weak=1; p["hyejin_r"]=q;
@@ -111,7 +111,7 @@ namespace Lumia
             var consumeHat=When(Consume("hat"),"hat"); consumeHat.conditionPrevious="emma_w";
             var consumeRabbit=When(Consume("rabbit"),"rabbit"); consumeRabbit.conditionPrevious="emma_e";
             var clear=When(new SkillRule { op="clear_effect",key="hat" },"hat"); clear.conditionPrevious="emma_w";
-            q=P("직전에 사용한 자신의 마술에 따라 비둘기·모자·토끼를 소비해 다른 효과를 얻습니다.", dove,hat,rabbit,consumeDove,consumeHat,consumeRabbit,clear);
+            q=P("엠마의 직전 기술("+SkillReferences.Names(new[]{"emma_q","emma_w","emma_e"})+")에 따라 비둘기·모자·토끼를 소비해 다른 효과를 얻습니다.", dove,hat,rabbit,consumeDove,consumeHat,consumeRabbit,clear);
             q.damage=7; q.evasion=20; q.duration=1; q.draw=0; p["emma_r"]=q;
         }
     }

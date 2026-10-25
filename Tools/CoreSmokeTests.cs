@@ -15,6 +15,19 @@ public static partial class CoreSmokeTests
         try
         {
             if (args.Contains("--balance")) return BalanceSimulation.Run();
+            if (args.Contains("--wickeline-only"))
+            {
+                WickelineMapAndIsolation(); WickelineCombatAndPersistence(); WickelineRewardsAndEndless();
+                LevelTwentyOnCombatRoute();
+                Console.WriteLine("PASS: " + checks + " assertions across Wickeline assignment, enemy-only actions, forecasts, saves, camp transition and unique rewards.");
+                return 0;
+            }
+            if (args.Contains("--lumi-only"))
+            {
+                LumiMechanics(); LumiResearchAndAppearance();
+                Console.WriteLine("PASS: " + checks + " assertions across Lumi encounters, challenge, shop, research and appearances.");
+                return 0;
+            }
             if (args.Contains("--status-only"))
             {
                 OriginalStatusCoverage(); StatusUseRestrictions(); StatusTimingAndForecast(); StatusPersistenceAndRates();
@@ -109,6 +122,8 @@ public static partial class CoreSmokeTests
                 Console.WriteLine("PASS: " + checks + " assertions across all card summaries, upgrades, combat numbers and defining conditions.");
                 return 0;
             }
+            WickelineMapAndIsolation(); WickelineCombatAndPersistence(); WickelineRewardsAndEndless();
+            LumiMechanics(); LumiResearchAndAppearance();
             TacticalModuleMechanics(); TacticalDisplaySnapshots(); TacticalSkillMechanics();
             KioskUnlockAndStock(); MapKioskProximity(); BossMapPreview(); BossPathLegacyMigration(); BossPathRouteRewards(); PermanentEnergyGrowth(); CriticalBasicAttacks();
             DatabaseIntegrity(); PreparationAndLocks(); RouteProgression(); CombatPilesAndEnergy();
@@ -184,6 +199,8 @@ public static partial class CoreSmokeTests
 
     private static void Win(GameEngine e)
     {
+        bool wickeline = e.IsWickelineCombat;
+        int nodeId = e.State.activeNodeId;
         // A source passive may legitimately prevent its first lethal result once.
         for(int attempt=0;attempt<3 && e.State.stage==RunStage.Combat;++attempt)
         {
@@ -191,7 +208,11 @@ public static partial class CoreSmokeTests
             e.State.combat.hand.Add("basic_attack"); e.State.combat.energy = 99;
             Check(e.PlayCard(e.State.combat.hand.Count - 1), "winning attack, including finite enemy lethal prevention");
         }
-        Check(e.State.stage == RunStage.Rewards, "combat transitions to rewards");
+        if (wickeline)
+            Check(e.State.stage == RunStage.Campfire && e.State.combat == null && e.State.rewards == null
+                && e.State.activeNodeId == nodeId && e.State.map.Any(n => n.id == nodeId && n.wickelineDefeated),
+                "Wickeline victory transitions to its rewarded original campfire");
+        else Check(e.State.stage == RunStage.Rewards, "combat transitions to rewards");
     }
 
     private static void DatabaseIntegrity()
@@ -2442,11 +2463,12 @@ public static partial class CoreSmokeTests
         {
             var node = e.AvailableNodes().OrderBy(n => n.kind == ZoneKind.Boss ? 9 : n.kind == ZoneKind.Subject ? 8 : n.kind == ZoneKind.Wildlife ? 7 : n.kind == ZoneKind.Campfire ? 6 : n.kind == ZoneKind.Kiosk ? 5 : 4).Last();
             Check(e.EnterNode(node.lane), "real generated route remains reachable");
-            if (e.State.stage == RunStage.Combat) { battles++; Win(e); e.FinishRewards(); }
-            else if (e.State.stage == RunStage.Campfire) { e.ChooseCamp(false); e.LeaveCamp(); }
+            if (e.State.stage == RunStage.Combat) { battles++; Win(e); if (e.State.stage == RunStage.Rewards) e.FinishRewards(); }
+            if (e.State.stage == RunStage.Campfire) { e.ChooseCamp(false); e.LeaveCamp(); }
             else if (e.State.stage == RunStage.Kiosk) e.LeaveKiosk();
             else if (e.State.stage == RunStage.Encounter) { e.SelectEncounter(e.State.encounterOffers[0]); e.ChooseEventOption(Enumerable.Range(0,e.CurrentEncounter.options.Length).First(e.CanChooseEventOption)); if (e.State.cardUpgradePending) { string card=e.UpgradeCandidates().First(); e.UpgradeCard(card,e.CardUpgradeOptions(card).First().id); } if (e.State.runeChangePending) e.FinishRuneChange(); }
             if (e.State.stage == RunStage.PassiveChoice) e.ReplacePassive(-1);
+            if (e.State.stage == RunStage.LumiOffer) Check(e.SendLumiAway(), "combat route can pass an optional post-battle Lumi without advancing twice");
         }
         Check(e.State.level == 20 && battles >= 12, "max level twenty is reachable through earned combat XP");
         Console.WriteLine("Combat-heavy generated route: " + battles + " victories, final level " + e.State.level + ".");

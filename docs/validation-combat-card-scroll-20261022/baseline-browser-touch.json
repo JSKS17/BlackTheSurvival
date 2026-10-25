@@ -1,0 +1,51 @@
+{
+  "result": "REPRODUCED",
+  "gameVersion": "1.0.23",
+  "syntheticBrowserTouch": true,
+  "physicalHardwareTested": false,
+  "before": {
+    "energy": 5,
+    "enemyHp": 48,
+    "hand": 5
+  },
+  "after": {
+    "energy": 4,
+    "enemyHp": 42,
+    "hand": 4
+  },
+  "expected": "description scrolls without playing a card",
+  "actual": "swipe used first attack card",
+  "event": {
+    "type": "bts:qa-touch-result",
+    "requestId": "touch-1",
+    "action": "description-up",
+    "ok": true,
+    "events": 14,
+    "totalEvents": 14,
+    "preventedEvents": 14,
+    "isTrusted": false,
+    "limit": "Synthetic browser TouchEvents; physical mobile hardware is not emulated",
+    "logicalFrom": [
+      115,
+      655
+    ],
+    "logicalTo": [
+      115,
+      578
+    ],
+    "clientFrom": {
+      "clientX": 195.10000610351562,
+      "clientY": 327.6875
+    },
+    "clientTo": {
+      "clientX": 195.10000610351562,
+      "clientY": 289.1875
+    },
+    "canvas": {
+      "width": 640,
+      "height": 360,
+      "clientWidth": 640,
+      "clientHeight": 360
+    }
+  }
+}

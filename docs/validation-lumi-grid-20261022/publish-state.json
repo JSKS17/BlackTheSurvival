@@ -1,0 +1,40 @@
+{
+  "package": {
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "checkout_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteLumiGrid20261022",
+    "commit_sha": "0c1349601a9237f220c86a97f35b69682eb0ba26",
+    "archive": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-lumi-grid-20261022\\site.tar.gz"
+  },
+  "saved": {
+    "id": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_2d3b69c67a2c8191b23443951b0b3bd2",
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "version_number": 45,
+    "source": {
+      "commit_sha": "0c1349601a9237f220c86a97f35b69682eb0ba26"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000a2348206b210891c41922828",
+      "content_hash": "sha256:562d91e7e494fc7f97f6065736dd8b41f96604ace699535262b80c7542efe962",
+      "size_bytes": 28282880,
+      "file_count": 88
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6ad9077321f48191a89924d686fb99c2",
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "title": "Black The Survival — Web Test",
+    "version_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_2d3b69c67a2c8191b23443951b0b3bd2",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://black-the-survival-web-test.fun-chub-8874.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ad077cf90708191a3e75367b4b3b78c",
+    "failure_message": null,
+    "env_set_revision": 47,
+    "updated_at": "2026-10-21T18:42:18.583586+00:00"
+  }
+}

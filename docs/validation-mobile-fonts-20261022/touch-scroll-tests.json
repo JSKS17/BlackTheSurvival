@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-21T19:04:20.0196798Z",
+  "assertions": 114,
+  "scenarios": 17,
+  "sourceHashes": {
+    "Assets/Scripts/Lumia/TouchScrollGesture.cs": "607491feb7812ba7f90826c8d9ff5802cc5b5fa9655036ea8edb69d8795095b1",
+    "Tools/TouchScrollSmokeTests.cs": "fcdf5d9fbd78b9e57ccdf1783f2c127f4f7fcf7ce32381e50fadba7fce9ccd0b",
+    "Tools/RunTouchScrollTests.ps1": "5f3337375801267907c1ac6fe38fac284367532d333ff777c2a9748d346a008c"
+  },
+  "durationSeconds": 3.1310925,
+  "temporaryFilesRemoved": true
+}

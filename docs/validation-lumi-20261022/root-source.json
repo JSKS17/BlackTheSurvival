@@ -1,0 +1,24 @@
+{
+  "recordedAtUtc": "2026-10-21T16:11:19.6068899Z",
+  "gameVersion": "1.0.21",
+  "rootOwnedSourceHashes": {
+    "Assets/Scripts/Lumia/DataModels.cs": "18dde755a77666370dc571ba96075380643f63f7ed9813fd224e20d49c8ab142",
+    "Assets/Scripts/Lumia/LumiaGame.cs": "d14dfee24e211e6cdea9e9d4c8d001669c17bc31a12808bb60e55ea38fdf36b7",
+    "Assets/Scripts/Lumia/LumiaLumiUI.cs": "4fea254f71b5b86e0299d1f40f5dbe138563ba813865dac55aa8d177f12a5f01",
+    "Assets/Scripts/Lumia/LumiaTacticalModuleUI.cs": "8362794757cc041b9f8aa7cc3d667fe3b79e346293228f5eed25b17afe6f37d9",
+    "Assets/Scripts/Lumia/EventPresentation.cs": "f2e8aef50ba9e79124f6720736028787bbdc8746a989eb17c1e3f9d630b833da",
+    "Assets/Scripts/Lumia/PixelArt.cs": "797822116caae53c2d709fc70cda8549604e8c2d1dedf22a98cb855df7295536",
+    "Assets/Scripts/Lumia/GameAudio.cs": "ff7ef3dd42df3626fec1ca432300e84c3c809dfa62084a3008575d00883e7ca2",
+    "Assets/Editor/LumiaProjectSetup.cs": "0f1542f3c6fd1ef157d10cc1c4176ce225f4ae0fb0b8fa54fcc315f0db252171",
+    "Assets/Editor/LumiReleaseBuild.cs": "9e8df2be24d845d907ec9453bb438a5c9ec7e505e8628baa737dc7803c4d67c6",
+    "ProjectSettings/ProjectSettings.asset": "01cb139b99c91cddbc1e9d12fd173f6fa843a8096c9b2c37123a001d3d48ac9d"
+  },
+  "features": [
+    "Postvictory 3% optional Lumi offer",
+    "Kiosk-nearby 3-turn nonattacking challenge;40damage/20credits",
+    "Lumi shop fixed stock prices and nonstacking40objectdiscount",
+    "Camera/portablekiosk saved inventory and normal kiosk return",
+    "Lumi research-only NPC, virtual rare event",
+    "Account-saved completed-report cosmetic appearance toggles"
+  ]
+}

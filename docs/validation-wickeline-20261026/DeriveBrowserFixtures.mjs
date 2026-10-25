@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const here=path.dirname(fileURLToPath(import.meta.url));
+const bytes=await readFile(path.join(here,'fixtures/wickeline-victory-ready.json'));
+const state=JSON.parse(bytes); assert.equal(state.combat.enemyId,'wickeline'); assert.equal(state.combat.enemyHp,1);
+state.combat.hand=['garnet_r'];state.combat.energy=0;state.combat.enemyBlock=500;
+state.combat.freeCasts.push({cardId:'garnet_r',uses:1});
+state.combat.playerSkills.resources.push({owner:'가넷',key:'embrace',amount:1,cap:1});
+state.deck.push('garnet_r');
+const output=Buffer.from(JSON.stringify(state,null,2)+'\n');
+await writeFile(path.join(here,'fixtures/wickeline-r-victory.json'),output,{flag:'wx'});
+const sha=b=>createHash('sha256').update(b).digest('hex');
+await writeFile(path.join(here,'browser-fixture-derivation.json'),JSON.stringify({result:'PASS',source:'fixtures/wickeline-victory-ready.json',sourceSha256:sha(bytes),target:'fixtures/wickeline-r-victory.json',sha256:sha(output),changes:['Garnet R hand and deck entry','free-recast grant and embrace=1','energy=0','enemyBlock=500'],purpose:'Actual browser fatal-R presentation after instant campfire reward; local disposable account only.'},null,2)+'\n');
+console.log('R victory fixture derived; original engine fixtures preserved.');

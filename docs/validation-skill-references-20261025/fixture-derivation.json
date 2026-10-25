@@ -1,0 +1,102 @@
+{
+  "result": "PASS",
+  "derivedAtUtc": "2026-10-25T14:45:01.822Z",
+  "scope": "Disposable localhost QA only",
+  "source": "docs/validation-player-feedback-20261023/fixtures/feedback-combat.json",
+  "sourceSha256": "2b65222fc1c3161e25bf734e44452e2b35bf9d7f5f69e2e6d991ea43fef85ecf",
+  "productionRequests": false,
+  "accountRequests": false,
+  "outputs": [
+    {
+      "name": "chloe-combat",
+      "sha256": "739419a558643a67acad4a80634dd184a8eec5768acb63d7266f16d285aa86cf",
+      "bytes": 40873,
+      "hand": [
+        "chloe_q",
+        "chloe_e",
+        "aya_q",
+        "basic_attack",
+        "basic_guard"
+      ],
+      "deckSize": 11,
+      "pilesMatch": true,
+      "initialResources": []
+    },
+    {
+      "name": "emma-combat",
+      "sha256": "75897d798b28cc85ed53ff87a5070d2ce2b578a6c022bcbc20c9f90d5c89e851",
+      "bytes": 40867,
+      "hand": [
+        "emma_q",
+        "emma_r",
+        "aya_q",
+        "basic_attack",
+        "basic_guard"
+      ],
+      "deckSize": 11,
+      "pilesMatch": true,
+      "initialResources": []
+    },
+    {
+      "name": "tazia-combat",
+      "sha256": "2c4ff5d5b3f437fdbde080d3ff725458413bef0122899786b81c48f3e886abf2",
+      "bytes": 41604,
+      "hand": [
+        "tazia_e",
+        "tazia_q",
+        "aya_e",
+        "basic_attack",
+        "basic_guard"
+      ],
+      "deckSize": 11,
+      "pilesMatch": true,
+      "initialResources": [
+        {
+          "owner": "타지아",
+          "key": "shard",
+          "label": "유리 파편",
+          "amount": 3,
+          "cap": 4,
+          "fraction": 0,
+          "persistent": false,
+          "isState": false
+        },
+        {
+          "owner": "타지아",
+          "key": "collection",
+          "label": "파편 수집",
+          "amount": 0,
+          "cap": 4,
+          "fraction": 0,
+          "persistent": false,
+          "isState": false
+        },
+        {
+          "owner": "타지아",
+          "key": "sword",
+          "label": "유리 검",
+          "amount": 0,
+          "cap": 1,
+          "fraction": 0,
+          "persistent": false,
+          "isState": false
+        }
+      ]
+    },
+    {
+      "name": "advanced-combat",
+      "sha256": "84c5bff2d7344d7dffaa76ec1c41c99f73a74d0e7e0e95505f74353d41b83c64",
+      "bytes": 40939,
+      "hand": [
+        "adina_r",
+        "debi_marlene_e",
+        "aya_e",
+        "basic_attack",
+        "basic_guard"
+      ],
+      "deckSize": 12,
+      "pilesMatch": true,
+      "initialResources": []
+    }
+  ]
+}

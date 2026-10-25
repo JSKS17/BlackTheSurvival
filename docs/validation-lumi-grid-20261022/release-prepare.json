@@ -1,0 +1,66 @@
+{
+  "mode": "prepare",
+  "result": "PASS",
+  "startedAtUtc": "2026-10-21T18:35:09.050Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "version": "1.0.22",
+  "baselinePublication": {
+    "versionNumber": 43,
+    "commitSha": "ff3e49457e1ed53b96f730f828eaa97b3b26ab7f"
+  },
+  "productionRequests": false,
+  "steps": {
+    "successfulBuildPackaged": true,
+    "isolatedUploaderCopiedUnchanged": true,
+    "oldPublicGameRestoredToVerifiedCanonicalBytes": true,
+    "oldBuildMetadataPreserved": true,
+    "newR2RecordsAllowed": true
+  },
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiGridRelease20261022\\transactions\\prepare-bde3fb95-1ae2-4ec2-abfb-0dae3a0986be",
+      "bytes": 23129171
+    }
+  ],
+  "sourceHashes": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SiteLumiGrid20261022\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "Temp\\SiteLumiGrid20261022\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "Temp\\SiteLumiGrid20261022\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a"
+  },
+  "verifiedOldStaticAssets": 9,
+  "verifiedNewStaticAssets": 9,
+  "sourceHashesAfter": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SiteLumiGrid20261022\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "Temp\\SiteLumiGrid20261022\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "Temp\\SiteLumiGrid20261022\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a"
+  },
+  "release": {
+    "root": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiGridRelease20261022",
+    "manifestSha256": "722031b666e32e04bcbe18c2f59c48b21d7e46cd518796864c39f3a40c0b9fa5",
+    "buildId": "ba37e9133dcc3c683df82b2a",
+    "gameTreeSha256": "cacf3314f5ed6af3ca6df7f47ccb8de0e8eb7eeab8394a7e63d0d9b5470a88a5",
+    "uploaderSha256": "2d75155c56ac8fde907ebcefda16af24e1aad2d18bf2b81182b14aabac740d11",
+    "r2Assets": [
+      {
+        "path": "/game/Build/791565d4534023df7e319ab66dff6e98.data.unityweb",
+        "size": 320394632,
+        "sha256": "95d10e59ad55d5c8a0972764b522044bffbaf84856d285f28720dd1b66b5c6bb"
+      }
+    ]
+  },
+  "baseline": {
+    "manifestSha256": "11bdf60a20a2b2ca1424f2badaed7ea400f638b5c103bdc7fc3fc04add37507a",
+    "canonicalGameTreeSha256": "bb30ad27f53c83520123948dbac7e2770c3cc6e35a60cbefd59a43a5f8c8c376",
+    "stageOriginalGameTreeSha256": "bb30ad27f53c83520123948dbac7e2770c3cc6e35a60cbefd59a43a5f8c8c376",
+    "stageOriginalManifestSha256": "11bdf60a20a2b2ca1424f2badaed7ea400f638b5c103bdc7fc3fc04add37507a",
+    "stageGameTreeSha256": "bb30ad27f53c83520123948dbac7e2770c3cc6e35a60cbefd59a43a5f8c8c376",
+    "stageUnionManifestSha256": "5c38aef92bbc2d844f88d0ba2f2aa589991f10fe277433e4c4e51821c5e9ea8a"
+  },
+  "completedAtUtc": "2026-10-21T18:35:14.536Z"
+}

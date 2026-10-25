@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "completedAtUtc": "2026-10-25T17:15:57.400Z",
+  "origin": "https://bser-sts.com",
+  "assets": 1,
+  "files": 1,
+  "bytes": 320414619,
+  "parts": 20,
+  "uploadGateClosedRevision": 57,
+  "credentialsPersisted": false,
+  "bridgeDeploymentId": "appgdep_6ade387555288191ae9f81ba8e5ba51c"
+}

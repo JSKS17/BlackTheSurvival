@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "completedAtUtc": "2026-10-22T04:34:34.6896116+00:00",
+  "origin": "https://bser-sts.com",
+  "uploaderExitCode": 0,
+  "assets": 1,
+  "files": 1,
+  "bytes": 320394504,
+  "parts": 20,
+  "sha256": "122f118d7a13e98c3030b3725aca7f4e50bfd36d7e5fd48e85cdd6111b937ee2",
+  "sourcePath": "/game/Build/ee3af8cb959a2f6f65370f28e58ca11b.data.unityweb",
+  "allPartProgressConfirmed": true,
+  "tokenLogged": false,
+  "tokenCleared": true,
+  "gateUntilOnFinalDeploy": "2000-01-01T00:00:00.000Z"
+}

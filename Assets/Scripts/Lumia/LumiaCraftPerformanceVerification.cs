@@ -128,9 +128,9 @@ namespace Lumia
         {
             GuardCraftPerformanceVerification();
             VerificationView("campfire");
-            craftSlot = GearSlot.Weapon; craftQuery = ""; craftTags.Clear();
+            craftSlot = GearSlot.Weapon; craftQuery = craftMaterial = ""; craftTags.Clear();
             int count = GameDatabase.Gear.Count(g => g.slot == GearSlot.Weapon);
-            float bottom = Math.Max(0, Mathf.Ceil(count / 3f) * 151 - 284);
+            float bottom = Math.Max(0, Mathf.Ceil(count / 3f) * 151 - CraftViewportHeight);
             scroll = new Vector2(0, view == "middle" ? 453 : view == "bottom" ? bottom : 0);
         }
     }

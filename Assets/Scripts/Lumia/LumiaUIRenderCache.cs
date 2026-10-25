@@ -65,6 +65,8 @@ namespace Lumia
         }
         sealed class TextMeasure { public GUIContent content; public float height; }
         TextMeasure MeasureUIText(string text, int size, float width)
+            => MeasureUITextAtSize(text, UIFontSize(size), width);
+        TextMeasure MeasureUITextAtSize(string text, int size, float width)
         {
             if (textMeasureRevision != craftingFontRevision) { textMeasures.Clear(); summaryLayouts.Clear(); textMeasureRevision = craftingFontRevision; }
             var key = new TextMeasureKey { text = text ?? "", size = size, width = width }; TextMeasure measure;
@@ -86,6 +88,7 @@ namespace Lumia
         sealed class SummaryLayout { public TextMeasure plain, scrolling; public float scrollWidth, scrollHeight; public string scrollKey; }
         void DrawCachedSummary(Rect rect, string text, int size, Color color, string key, bool normalize)
         {
+            size = BodyUIFontSize(size, rect.height);
             // The content and native height are independent of selection colors and position.
             if (textMeasureRevision != craftingFontRevision) { textMeasures.Clear(); summaryLayouts.Clear(); textMeasureRevision = craftingFontRevision; }
             var cacheKey = new SummaryLayoutKey { text = text ?? "", size = size, width = rect.width, height = rect.height, normalize = normalize };
@@ -93,15 +96,15 @@ namespace Lumia
             if (!summaryLayouts.TryGetValue(cacheKey, out layout))
             {
                 string content = normalize ? CachedNormalize(text) : text ?? "";
-                layout = new SummaryLayout { plain = MeasureUIText(content, size, rect.width) };
+                layout = new SummaryLayout { plain = MeasureUITextAtSize(content, size, rect.width) };
                 layout.scrollWidth = Math.Max(30, rect.width - 15);
-                if (layout.plain.height > rect.height) { layout.scrolling = MeasureUIText(content, size, layout.scrollWidth); layout.scrollHeight = layout.scrolling.height + 5; }
-                if (normalize) layout.scrollKey = "preview/" + text + "/" + rect.width + "/" + rect.height;
+                if (layout.plain.height > rect.height) { layout.scrolling = MeasureUITextAtSize(content, size, layout.scrollWidth); layout.scrollHeight = layout.scrolling.height + 5; }
+                layout.scrollKey = (normalize ? "preview/" : "body/") + text + "/" + rect.width + "/" + rect.height + "/" + size;
                 if (summaryLayouts.Count >= 512) summaryLayouts.Clear(); summaryLayouts[cacheKey] = layout;
             }
             wrapped.fontSize = size; wrapped.normal.textColor = color;
             if (layout.scrolling == null) { GUI.Label(rect, layout.plain.content, wrapped); return; }
-            string scrollKey = normalize ? layout.scrollKey : key;
+            string scrollKey = normalize || key == null ? layout.scrollKey : key;
             Vector2 position; summaryScroll.TryGetValue(scrollKey, out position);
             position = BeginTouchScrollView(scrollKey, rect, position, new Rect(0, 0, layout.scrollWidth, layout.scrollHeight), false, true);
             GUI.Label(new Rect(0, 0, layout.scrollWidth, layout.scrollHeight), layout.scrolling.content, wrapped);

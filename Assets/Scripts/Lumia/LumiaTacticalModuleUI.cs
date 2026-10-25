@@ -24,18 +24,18 @@ namespace Lumia
             }
         }
 
-        float DrawTacticalModuleBagRow()
+        float DrawTacticalModuleBagRow(float top = 249)
         {
-            if (Engine.State.tacticalModules <= 0) return 256;
-            Rect row = new Rect(80, 249, 1120, 82);
+            if (Engine.State.tacticalModules <= 0) return top + 7;
+            Rect row = new Rect(80, top, 1120, 82);
             Box(row, Panel, Gold);
-            Tex(new Rect(94, 264, 49, 49), PixelArt.SystemIcon("tactical_module"), ScaleMode.ScaleToFit);
-            Txt(new Rect(159, 259, 713, 25), "전술 강화 모듈 ×" + Engine.State.tacticalModules, 17, Gold);
+            Tex(new Rect(94, top + 15, 49, 49), PixelArt.SystemIcon("tactical_module"), ScaleMode.ScaleToFit);
+            Txt(new Rect(159, top + 10, 713, 25), "전술 강화 모듈 ×" + Engine.State.tacticalModules, 17, Gold);
             bool usable = Engine.CanUseTacticalModule();
-            Para(new Rect(159, 290, 782, 31), usable
+            Para(new Rect(159, top + 41, 782, 31), usable
                 ? "보유한 F 카드 한 장을 선택해 스킬별 전술 강화 효과를 추가합니다."
                 : Engine.TacticalModuleUnavailableReason(), 12, usable ? Text : Muted);
-            if (Btn(new Rect(969, 271, 207, 37), "전술 카드 강화", false, Gold, usable))
+            if (Btn(new Rect(969, top + 22, 207, 37), "전술 카드 강화", false, Gold, usable))
             {
                 tacticalModuleSelecting = true;
                 tacticalModuleState = Engine.State;
@@ -44,7 +44,7 @@ namespace Lumia
                 tacticalModuleReference = "";
                 tacticalModuleListScroll = tacticalModuleDetailScroll = Vector2.zero;
             }
-            return 343;
+            return top + 94;
         }
 
         void CloseTacticalModuleChoice()

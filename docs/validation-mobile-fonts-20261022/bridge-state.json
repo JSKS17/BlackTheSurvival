@@ -1,0 +1,40 @@
+{
+  "package": {
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "checkout_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteMobileFonts20261022",
+    "commit_sha": "3dd45c5464186797d09d4fe632bbbd1e655d27c7",
+    "archive": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-mobile-fonts-20261022\\bridge.tar.gz"
+  },
+  "saved": {
+    "id": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_c8d6a2cfe0188191b945fd668d20c021",
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "version_number": 46,
+    "source": {
+      "commit_sha": "3dd45c5464186797d09d4fe632bbbd1e655d27c7"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_00000000c4a882098df6a2e117728390",
+      "content_hash": "sha256:cf9adb83105ae6e47b4f470424827720cd2e5a6d244e38501229e9953d3b5be9",
+      "size_bytes": 28282880,
+      "file_count": 88
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6ad918e12c30819189ed4b20be35078c",
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "title": "Black The Survival — Web Test",
+    "version_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_c8d6a2cfe0188191b945fd668d20c021",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://black-the-survival-web-test.fun-chub-8874.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ad077cf90708191a3e75367b4b3b78c",
+    "failure_message": null,
+    "env_set_revision": 48,
+    "updated_at": "2026-10-21T19:56:33.797253+00:00"
+  }
+}

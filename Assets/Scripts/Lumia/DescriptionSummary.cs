@@ -230,7 +230,7 @@ namespace Lumia
             if (gear.controlResistance > 0) lines.Add("군중 제어로 줄어드는 코스트를 " + gear.controlResistance + " 줄입니다.");
             if (gear.damageDeferral > 0) lines.Add("방어도로 막은 뒤 체력 피해의 " + gear.damageDeferral + "%를 다음 3턴 시작에 나눠 받습니다. 미룬 피해는 방어도를 무시하며 전투 종료 시 사라집니다.");
             if (gear.slot == GearSlot.Weapon) lines.Add("장착하면 " + (GameDatabase.Card(gear.cardId)?.name ?? gear.cardId) + " D 카드 1장이 덱에 자동으로 추가됩니다.");
-            lines.Add("같은 장비의 특수 효과는 중첩되지 않습니다.");
+            lines.Add(EquipmentIdentity.StackingDescription(gear));
             return string.Join("\n", CleanLines(lines));
         }
     }

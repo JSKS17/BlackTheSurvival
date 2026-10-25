@@ -1,0 +1,26 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-22T03:46:22.577Z",
+  "productionRequests": false,
+  "productionChanges": false,
+  "canonicalChanged": false,
+  "gates": {
+    "unpublishedBaselineHead": true,
+    "noPublicationArtifacts": true,
+    "stageGameByteExactCanonical": true,
+    "onlyKnownAttempt1R2Record": true,
+    "oldBuildMetadataUnchanged": true,
+    "protectedSourcesUnchanged": true
+  },
+  "stageHead": "16d05d61ab7099b7692216e97e8de82798d47fa2",
+  "canonicalManifestSha256": "3555cdf0a36169907fffca5dbd7b8f6befdf796fffe49d95eca4ef3abbbe1c13",
+  "stageManifestBeforeSha256": "53edcaca174ad5c5ba0ce480566d35b08d6c53dd20d7e0cb26c7f03c6f8ca7ad",
+  "removedAllowlistRecord": {
+    "path": "/game/Build/19919064a8058a6e6e330c71c437d5f3.data.unityweb",
+    "size": 320394255,
+    "sha256": "bc11e488229e7787608cf3ee23c03529faa0d0b5c7cd2292f7ba62e4acf1eb16"
+  },
+  "stageManifestAfterSha256": "3555cdf0a36169907fffca5dbd7b8f6befdf796fffe49d95eca4ef3abbbe1c13",
+  "prepareCanRerun": true,
+  "completedAtUtc": "2026-10-22T03:46:23.640Z"
+}

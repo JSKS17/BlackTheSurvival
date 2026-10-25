@@ -222,15 +222,16 @@ namespace Lumia
         void PrepareStoryStyles()
         {
             if (storyNarrationStyle != null) return;
-            storyNarrationStyle = new GUIStyle(wrapped) { fontSize = 23, alignment = TextAnchor.MiddleLeft, wordWrap = true };
+            storyNarrationStyle = new GUIStyle(wrapped) { fontSize = UIFontSize(23), alignment = TextAnchor.MiddleLeft, wordWrap = true };
             storyNarrationStyle.normal.textColor = Text;
-            storyDialogueStyle = new GUIStyle(wrapped) { fontSize = 23, alignment = TextAnchor.MiddleLeft, wordWrap = true };
+            storyDialogueStyle = new GUIStyle(wrapped) { fontSize = UIFontSize(23), alignment = TextAnchor.MiddleLeft, wordWrap = true };
             storyDialogueStyle.normal.textColor = Ink;
         }
         Rect StoryBubbleRect(StoryFrame frame, Rect canvas)
         {
             string dialogue = StoryDialogueText(frame);
             float height = storyDialogueStyle.CalcHeight(new GUIContent(dialogue), 472) + 64;
+            if (mobileTypography) height = Math.Min(height, canvas.height - 36);
             return new Rect(canvas.xMax - 546, canvas.yMax - height - 26, 520, height);
         }
         void DrawStoryBubble(Rect bubble)
@@ -244,7 +245,9 @@ namespace Lumia
         void DrawStoryDialogueText(StoryFrame frame, Rect bubble)
         {
             Txt(new Rect(bubble.x + 20, bubble.y + 13, bubble.width - 40, 24), frame.speaker, 15, C("88516f"));
-            GUI.Label(new Rect(bubble.x + 24, bubble.y + 43, bubble.width - 48, bubble.height - 56), StoryDialogueText(frame), storyDialogueStyle);
+            Rect body = new Rect(bubble.x + 24, bubble.y + 43, bubble.width - 48, bubble.height - 56);
+            if (mobileTypography) DrawCachedSummary(body, StoryDialogueText(frame), 23, Ink, null, false);
+            else GUI.Label(body, StoryDialogueText(frame), storyDialogueStyle);
         }
         static string StoryDialogueText(StoryFrame frame) => frame.image == "normal_3" ? frame.dialogue.Replace("건 우리", "건\n우리") : frame.dialogue;
 

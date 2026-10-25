@@ -1,0 +1,236 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-22T04:35:46.714Z",
+  "gameVersion": "1.0.24",
+  "syntheticBrowserTouch": true,
+  "physicalHardwareTested": false,
+  "viewport": {
+    "width": 915,
+    "height": 596
+  },
+  "canvas": {
+    "width": 632,
+    "height": 355
+  },
+  "mobileDetectionModel": "Android user agent, userAgentData.mobile, maxTouchPoints and ontouchstart; synthetic TouchEvents on actual Unity canvas",
+  "productionAccountRequests": false,
+  "observations": {
+    "normalDescriptionUp": {
+      "textMoved": true,
+      "energy": 5,
+      "enemyHp": 48,
+      "handCount": 5
+    },
+    "normalDescriptionDown": {
+      "textReturned": true,
+      "energy": 5,
+      "enemyHp": 48,
+      "handCount": 5
+    },
+    "normalTap": {
+      "uses": 1,
+      "energy": 4,
+      "enemyHp": 42,
+      "handCount": 4
+    },
+    "wideHandLeft": {
+      "handMoved": true,
+      "energy": 5,
+      "enemyHp": 48,
+      "handCount": 15
+    },
+    "wideHandRight": {
+      "handReturned": true,
+      "energy": 5,
+      "enemyHp": 48,
+      "handCount": 15
+    },
+    "wideDescriptionUp": {
+      "textMoved": true,
+      "horizontalHandUnchanged": true,
+      "energy": 5,
+      "enemyHp": 48,
+      "handCount": 15
+    },
+    "desktopMouseLobbyContinue": true
+  },
+  "gestureResults": [
+    {
+      "type": "bts:qa-touch-result",
+      "requestId": "touch-2",
+      "action": "description-down",
+      "ok": true,
+      "events": 14,
+      "totalEvents": 28,
+      "preventedEvents": 14,
+      "isTrusted": false,
+      "limit": "Synthetic browser TouchEvents; physical mobile hardware is not emulated",
+      "logicalFrom": [
+        115,
+        578
+      ],
+      "logicalTo": [
+        115,
+        655
+      ],
+      "clientFrom": {
+        "clientX": 198.74583943684897,
+        "clientY": 285.67361111111114
+      },
+      "clientTo": {
+        "clientX": 198.74583943684897,
+        "clientY": 323.6388888888889
+      },
+      "canvas": {
+        "width": 632,
+        "height": 355,
+        "clientWidth": 632,
+        "clientHeight": 355
+      }
+    },
+    {
+      "type": "bts:qa-touch-result",
+      "requestId": "touch-3",
+      "action": "first-card-tap",
+      "ok": true,
+      "events": 2,
+      "totalEvents": 30,
+      "preventedEvents": 2,
+      "isTrusted": false,
+      "limit": "Synthetic browser TouchEvents; physical mobile hardware is not emulated",
+      "logicalFrom": [
+        115,
+        615
+      ],
+      "logicalTo": [
+        115,
+        615
+      ],
+      "clientFrom": {
+        "clientX": 198.74583943684897,
+        "clientY": 303.9166666666667
+      },
+      "clientTo": {
+        "clientX": 198.74583943684897,
+        "clientY": 303.9166666666667
+      },
+      "canvas": {
+        "width": 632,
+        "height": 355,
+        "clientWidth": 632,
+        "clientHeight": 355
+      }
+    },
+    {
+      "type": "bts:qa-touch-result",
+      "requestId": "touch-4",
+      "action": "hand-left",
+      "ok": true,
+      "events": 14,
+      "totalEvents": 14,
+      "preventedEvents": 14,
+      "isTrusted": false,
+      "limit": "Synthetic browser TouchEvents; physical mobile hardware is not emulated",
+      "logicalFrom": [
+        875,
+        620
+      ],
+      "logicalTo": [
+        385,
+        620
+      ],
+      "clientFrom": {
+        "clientX": 573.4680616590713,
+        "clientY": 306.38194444444446
+      },
+      "clientTo": {
+        "clientX": 331.870839436849,
+        "clientY": 306.38194444444446
+      },
+      "canvas": {
+        "width": 632,
+        "height": 355,
+        "clientWidth": 632,
+        "clientHeight": 355
+      }
+    },
+    {
+      "type": "bts:qa-touch-result",
+      "requestId": "touch-5",
+      "action": "hand-right",
+      "ok": true,
+      "events": 14,
+      "totalEvents": 28,
+      "preventedEvents": 14,
+      "isTrusted": false,
+      "limit": "Synthetic browser TouchEvents; physical mobile hardware is not emulated",
+      "logicalFrom": [
+        385,
+        620
+      ],
+      "logicalTo": [
+        875,
+        620
+      ],
+      "clientFrom": {
+        "clientX": 331.870839436849,
+        "clientY": 306.38194444444446
+      },
+      "clientTo": {
+        "clientX": 573.4680616590713,
+        "clientY": 306.38194444444446
+      },
+      "canvas": {
+        "width": 632,
+        "height": 355,
+        "clientWidth": 632,
+        "clientHeight": 355
+      }
+    },
+    {
+      "type": "bts:qa-touch-result",
+      "requestId": "touch-6",
+      "action": "description-up",
+      "ok": true,
+      "events": 14,
+      "totalEvents": 42,
+      "preventedEvents": 14,
+      "isTrusted": false,
+      "limit": "Synthetic browser TouchEvents; physical mobile hardware is not emulated",
+      "logicalFrom": [
+        115,
+        655
+      ],
+      "logicalTo": [
+        115,
+        578
+      ],
+      "clientFrom": {
+        "clientX": 198.74583943684897,
+        "clientY": 323.6388888888889
+      },
+      "clientTo": {
+        "clientX": 198.74583943684897,
+        "clientY": 285.67361111111114
+      },
+      "canvas": {
+        "width": 632,
+        "height": 355,
+        "clientWidth": 632,
+        "clientHeight": 355
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "mobile-combat-before.jpg",
+    "mobile-card-swipe.jpg",
+    "mobile-card-swipe-down.jpg",
+    "mobile-card-tap.jpg",
+    "mobile-wide-before.jpg",
+    "mobile-hand-swipe.jpg",
+    "mobile-hand-return.jpg",
+    "mobile-wide-description.jpg"
+  ],
+  "limitation": "Synthetic browser TouchEvents are untrusted; physical Android hardware was not tested."
+}

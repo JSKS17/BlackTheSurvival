@@ -8,8 +8,8 @@ public static partial class CoreSmokeTests
 {
     static void RareSkinStoryIsolation()
     {
-        var subjects = GameDatabase.Characters.Select(c => c.id).OrderBy(id => id).ToArray();
-        Check(RareSkinCatalog.Count == 91 && RareSkinCatalog.SubjectIds.OrderBy(id => id).SequenceEqual(subjects), "rare skin catalog matches the complete current subject roster");
+        var subjects = ResearchProgression.ReportSubjects.Select(c => c.id).OrderBy(id => id).ToArray();
+        Check(RareSkinCatalog.Count == GameDatabase.Characters.Count + 1 && RareSkinCatalog.SubjectIds.OrderBy(id => id).SequenceEqual(subjects), "rare skin catalog matches the complete current subject roster");
         Check(subjects.Where(RareSkinCatalog.IsCustomOutfit).SequenceEqual(new[] { "ceres", "craver", "lucia" }), "exactly the three user-requested subjects use original casual outfits");
         var fixtures = ResearchEncounters.Events.Select(e => new EventDef {
             id = e.id, owner = e.owner, title = e.title, story = e.story, chainOnly = e.chainOnly,
@@ -24,7 +24,7 @@ public static partial class CoreSmokeTests
         Check(RareSkinStories.Preview(null) == "" && RareSkinStories.Preview("  ") == ""
             && RareSkinStories.Preview("한 문장입니다.") == "한 문장입니다."
             && RareSkinStories.Preview("마침표 없는 설명") == "마침표 없는 설명", "rare scene previews handle absent, single-sentence and unpunctuated text safely");
-        Check(fixtures.Count == subjects.Length && reports.Keys.OrderBy(id => id).SequenceEqual(subjects), "all ninety-one skin scenes provide exactly one report");
+        Check(fixtures.Count == subjects.Length && reports.Keys.OrderBy(id => id).SequenceEqual(subjects), "all subject and Lumi skin scenes provide exactly one report");
         for (int i = 0; i < choices.Length; i++)
             Check(fields.Select(f => f.GetValue(choices[i])).SequenceEqual(preserved[i]), "skin narrative replacement preserves every reward, cost, requirement and follow-up field: " + i);
         for (int i = 0; i < fixtures.Count; i++)

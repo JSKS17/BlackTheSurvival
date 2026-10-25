@@ -32,12 +32,13 @@ namespace Lumia
             string query = (researchQuery ?? "").Trim();
             if (researchFilteredCharacters != null && string.Equals(query, researchFilteredQuery, StringComparison.OrdinalIgnoreCase)) return researchFilteredCharacters;
             researchFilteredQuery = query;
-            researchFilteredCharacters = GameDatabase.Characters.Where(character => query.Length == 0 || character.name.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0).ToArray();
+            researchFilteredCharacters = ResearchProgression.ReportSubjects.Where(character => query.Length == 0 || character.name.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0).ToArray();
             return researchFilteredCharacters;
         }
 
         ResearchTaskView[] ResearchDisplayTasks(ResearchProfile profile, string subjectId)
         {
+            if (subjectId == "lumi") return ResearchProgression.Tasks(profile, subjectId);
             if (!ReferenceEquals(profile, researchTaskProfile)) { researchTaskProfile = profile; researchTaskDisplays.Clear(); }
             ResearchSubjectProgress progress = null;
             if (profile?.subjects != null)
@@ -70,7 +71,7 @@ namespace Lumia
         {
             RetryPendingResearch();
             research = true; researchReadReport = false; researchEndingScroll = Vector2.zero;
-            if (GameDatabase.Character(researchSubject) == null) researchSubject = "nia";
+            if (ResearchProgression.ForSubject(researchSubject) == null) researchSubject = "nia";
         }
 
         void DrawResearch()
@@ -86,7 +87,7 @@ namespace Lumia
             ResearchMetric(new Rect(64, 134, 274, 51), "관측 데이터", profile.data.ToString(), Gold);
             ResearchMetric(new Rect(352, 134, 274, 51), "종료한 원정", profile.totalRuns.ToString(), Mint);
             ResearchMetric(new Rect(640, 134, 274, 51), "성공한 탈출", profile.totalWins.ToString(), Mint);
-            ResearchMetric(new Rect(928, 134, 286, 51), "완성한 보고서", profile.completedReports.Count + " / " + GameDatabase.Characters.Count, Pink);
+            ResearchMetric(new Rect(928, 134, 286, 51), "완성한 보고서", profile.completedReports.Count + " / " + ResearchProgression.ReportSubjects.Count(), Pink);
 
             researchQuery = GUI.TextField(new Rect(64, 202, 274, 35), researchQuery, field);
             if (string.IsNullOrEmpty(researchQuery)) Txt(new Rect(78, 211, 244, 22), "실험체 이름 검색", 13, Muted);
@@ -106,7 +107,7 @@ namespace Lumia
             }
             EndTouchScrollView();
             if (characters.Length == 0) Txt(new Rect(76, 265, 245, 28), "검색 결과가 없습니다.", 14, Muted);
-            Txt(new Rect(64, 628, 274, 20), "전체 " + GameDatabase.Characters.Count + "명 · 진척은 원정 종료 후 반영", 11, Muted);
+            Txt(new Rect(64, 628, 274, 20), "전체 " + ResearchProgression.ReportSubjects.Count() + "명 · 진척은 원정 종료 후 반영", 11, Muted);
             DrawResearchSubject();
         }
 
@@ -119,11 +120,17 @@ namespace Lumia
 
         void DrawResearchSubject()
         {
-            var profile = researchStore.Profile; var character = GameDatabase.Character(researchSubject) ?? GameDatabase.Characters[0];
+            var profile = researchStore.Profile; var character = researchSubject == "lumi" ? ResearchProgression.LumiSubject : GameDatabase.Character(researchSubject) ?? GameDatabase.Characters[0];
             var definition = ResearchDisplayDefinition(character.id); var tasks = ResearchDisplayTasks(profile, character.id);
             bool complete = profile.completedReports.Contains(character.id), ready = tasks.All(task => task.completed);
             Tex(new Rect(361, 201, 86, 88), PixelArt.RarePortrait(character.id), ScaleMode.ScaleToFit);
-            Txt(new Rect(465, 207, 726, 31), definition.title, 22, Mint);
+            Txt(new Rect(465, 207, complete ? 457 : 726, 31), definition.title, 22, Mint);
+            if (complete && Btn(new Rect(939, 207, 258, 32), "레어 외형으로 만나기: " + (researchStore.UsesRareAppearance(character.id) ? "ON" : "OFF"), false, Mint, !researchStore.IsReadOnly))
+            {
+                string error;
+                if (researchStore.TrySetRareAppearance(character.id, !researchStore.UsesRareAppearance(character.id), out error)) AudioCue("encounter.choose");
+                else Notify(error);
+            }
             Txt(new Rect(466, 246, 726, 24), complete ? "연구 보고서 완성 · 레어 조우 해금" : "연구 과제 " + tasks.Count(task => task.completed) + " / 3 달성", 14, complete ? Gold : Muted);
             FitText(new Rect(466, 271, 726, 19), "레어 조우 모습 · " + RareSkinCatalog.NameForSubject(character.id), 12, Gold);
             if (researchReadReport && complete)
@@ -149,12 +156,12 @@ namespace Lumia
             Box(new Rect(361, 551, 853, 71), Panel, complete || ready ? Gold : Line);
             string status = complete ? "보고서를 완성했습니다." : ready ? "세 연구 과제를 달성했습니다." : "세 연구 과제를 달성하면 보고서를 완성할 수 있습니다.";
             Txt(new Rect(377, 561, 556, 23), status, 14, complete || ready ? Gold : Text);
-            Txt(new Rect(377, 589, 556, 20), complete ? "레어 후보: 1막 12% · 2막 18% · 3막 이후 25% · 막당 1회" : "완성 비용: 관측 데이터 " + ResearchProgression.ReportCost + (ready && profile.data < ResearchProgression.ReportCost ? " · 데이터가 부족합니다." : " · 보고서와 레어 조우를 해금합니다."), 11, Muted);
+            Txt(new Rect(377, 589, 556, 20), complete ? "레어 후보: 1막 12% · 2막 18% · 3막 이후 25% · 막당 1회" : "완성 비용: 관측 데이터 " + ResearchProgression.CostForReport(character.id) + (ready && profile.data < ResearchProgression.CostForReport(character.id) ? " · 데이터가 부족합니다." : " · 보고서와 레어 조우를 해금합니다."), 11, Muted);
             if (complete)
             {
                 if (Btn(new Rect(944, 565, 253, 42), "연구 보고서 읽기", true, Gold)) researchReadReport = true;
             }
-            else if (Btn(new Rect(944, 565, 253, 42), "보고서 완성 · " + ResearchProgression.ReportCost, true, Gold, ready && profile.data >= ResearchProgression.ReportCost && !researchStore.IsReadOnly))
+            else if (Btn(new Rect(944, 565, 253, 42), "보고서 완성 · " + ResearchProgression.CostForReport(character.id), true, Gold, ready && profile.data >= ResearchProgression.CostForReport(character.id) && !researchStore.IsReadOnly))
             {
                 CompleteResearchReport(character.id);
             }

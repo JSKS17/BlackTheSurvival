@@ -69,7 +69,7 @@ namespace Lumia
                 R("after_basic","vulnerable",n:1,hit:true,cd:2),
                 R("after_basic","block",n:3,hit:true,cd:2));
 
-            p["lenore_p"] = P("세 번째 기술은 트릴로 강화되고 코스트를 회복합니다. 트릴이 모은 비명은 다음 R 카드의 피해를 강화합니다.",
+            p["lenore_p"] = P("실험체 구분 없이 세 번째 기술은 트릴로 강화되고 코스트를 회복합니다. 트릴이 모은 비명은 어느 실험체의 다음 R 카드든 피해를 강화합니다.",
                 R("before_skill","bonus_damage",n:3,every:3),
                 R("after_skill","energy",n:1,every:3,turn:1),
                 R("after_skill","gain","scream","비명과 아첼레란도",1,cap:3,every:3,hit:true),

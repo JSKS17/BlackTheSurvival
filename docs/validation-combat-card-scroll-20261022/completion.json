@@ -1,0 +1,73 @@
+{
+  "result": "PASS",
+  "completedAtUtc": "2026-10-22T04:39:42.710Z",
+  "site": "https://bser-sts.com/",
+  "gameVersion": "1.0.24",
+  "siteVersion": 49,
+  "sourceCommit": "1c0f270115c544860886030bf1028a0aec060e5d",
+  "deploymentId": "appgdep_6ad992c1582c8191be45cd24cc476570",
+  "environmentRevision": 51,
+  "gameBuildId": "8fa247b1755a774777d8e213",
+  "manifestSha256": "1e0633db77b024d6f4d85f46c92d4269ce80723e92bf21057d4361c9994b73d4",
+  "runtimeSourceFiles": 119,
+  "frozenFilesVerified": 120,
+  "changedRuntimeFiles": [
+    "LumiaTouchScroll.cs"
+  ],
+  "tests": {
+    "combatCardTouch": {
+      "assertions": 88,
+      "scenarios": 23,
+      "result": "PASS"
+    },
+    "touchScrollCore": {
+      "assertions": 114,
+      "scenarios": 17,
+      "result": "PASS"
+    },
+    "baselineExpectedFailures": [
+      "EventOnlyTouchSurvivesRepaint",
+      "DelayedNativePollAdoptsEventGesture",
+      "NativePollAfterPlainMouseDown",
+      "ScaledCardSwipe",
+      "EventOnlyTapUsesExactlyOnce",
+      "EventOnlyAfterCanceledNative",
+      "MeasuredMobileNestedBounds",
+      "MeasuredMobileNestedSwipe",
+      "ScrolledParentFractionalRounding",
+      "DoubleNestedMobileBoundsAndSwipe",
+      "NonzeroViewRectOrigins"
+    ],
+    "preGeometryExpectedFailures": [
+      "ScaledCardSwipe",
+      "MeasuredMobileNestedBounds",
+      "MeasuredMobileNestedSwipe",
+      "ScrolledParentFractionalRounding",
+      "DoubleNestedMobileBoundsAndSwipe",
+      "NonzeroViewRectOrigins"
+    ],
+    "baselineSyntheticBrowserBugReproduced": true
+  },
+  "rootCauseProof": "touch-root-cause-review.json",
+  "approvedTouchSourceSha256": "165cbbfa78dae4346d2d82320234e2acad90d83669a562386ac8471fe25abd83",
+  "browserProof": "browser-validation.json",
+  "physicalHardwareTested": false,
+  "liveChecks": 21,
+  "removedBytes": 7379314903,
+  "removedTargets": 5,
+  "freeBytesAfter": 18488238080,
+  "publicSiteMetadataVerified": true,
+  "siteAccess": "public",
+  "siteMetadataFile": "site-final-metadata.json",
+  "screenshots": [
+    "mobile-combat-before.jpg",
+    "mobile-card-swipe.jpg",
+    "mobile-card-swipe-down.jpg",
+    "mobile-card-tap.jpg",
+    "mobile-wide-before.jpg",
+    "mobile-hand-swipe.jpg",
+    "mobile-hand-return.jpg",
+    "mobile-wide-description.jpg"
+  ],
+  "limitation": "Browser touch verification uses synthetic TouchEvents; physical mobile hardware was not tested."
+}

@@ -1,0 +1,13 @@
+{
+  "runtimeCsFilesUnchanged": 118,
+  "originalArtPreserved": true,
+  "approvedSpritesMatch": true,
+  "checkedAtUtc": "2026-10-21T17:49:05.5691244Z",
+  "unityImportedSprites": [
+    "Start importing Assets/Resources/Lumia/PortraitsRare/lumi.png using Guid(2482010eca4a4119b713c98d7f8af6fe) (TextureImporter) -> (artifact id: 'ef43a7afdc2370ca64a3e4539f1e392e') in 0.0202643 seconds",
+    "Start importing Assets/Resources/Lumia/Portraits/lumi.png using Guid(b718ec3180364e3ba85720bff1fa8c0c) (TextureImporter) -> (artifact id: '59e8396d6066f3622e4081e3bb64f4f2') in 0.0061672 seconds"
+  ],
+  "scope": "Asset-only grid replacement; no game logic changes",
+  "metaFilesPreserved": true,
+  "result": "PASS"
+}

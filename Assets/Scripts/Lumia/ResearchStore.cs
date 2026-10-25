@@ -160,5 +160,32 @@ namespace Lumia
             }
             catch (Exception e) { error = "연구 보고서를 저장하지 못했습니다. 데이터는 소모되지 않았습니다. " + e.Message; return false; }
         }
+
+        public bool CanUseRareAppearance(string subjectId) => !string.IsNullOrEmpty(subjectId)
+            && (subjectId == "lumi" || GameDatabase.Character(subjectId) != null) && Profile.completedReports.Contains(subjectId);
+
+        public bool UsesRareAppearance(string subjectId) => CanUseRareAppearance(subjectId)
+            && Profile.rareAppearanceSubjects.Contains(subjectId);
+
+        public bool TrySetRareAppearance(string subjectId, bool enabled, out string error)
+        {
+            error = "";
+            try
+            {
+                using (Lock())
+                {
+                    Reload();
+                    if (IsReadOnly) { error = LoadError; return false; }
+                    if (!CanUseRareAppearance(subjectId)) { error = "연구 보고서를 먼저 완성해야 합니다."; return false; }
+                    if (UsesRareAppearance(subjectId) == enabled) return true;
+                    var candidate = Parse(serialize(Profile));
+                    if (enabled) candidate.rareAppearanceSubjects.Add(subjectId);
+                    else candidate.rareAppearanceSubjects.Remove(subjectId);
+                    Persist(candidate);
+                    return true;
+                }
+            }
+            catch (Exception e) { error = "레어 조우 외형 설정을 저장하지 못했습니다. " + e.Message; return false; }
+        }
     }
 }

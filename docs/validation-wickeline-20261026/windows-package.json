@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "version": "1.0.27",
+  "createdAtUtc": "2026-10-25T17:32:26.9403632Z",
+  "zip": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\WickelineRelease20261026\\BlackTheSurvival-v1.0.27-Windows-x64.zip",
+  "bytes": 346120155,
+  "sha256": "548d306d898dc27ad2622f99885ac7f44c959effbac30248807105b7a56a1fb2",
+  "sourceFreezeSha256": "7600823f3ea581fc450857ab53bcd9314d50aed9f0bcf642696cb1b31bedbffa",
+  "manifestSha256": "1f90a294e41d5b135ece809d4ad6ef67d01db4598c15aac6f47939e0a8fa37be"
+}

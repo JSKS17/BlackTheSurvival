@@ -226,7 +226,7 @@ namespace Lumia
                 R("after_skill", "heal_reduction", 10, duration:2, hit:true, turn:1),
                 R("after_skill", "evasion_buff", 6, duration:1, need:"stigma", min:4, hit:true, turn:1));
 
-            T(p, "tazia_p", "기본 공격과 기술로 얻는 유리 파편·파편 수집은 타지아의 Q·W·E·R과 공유합니다. 파편 수집 4에서는 다음 기술의 피해가 증가하며, E는 수집을 마친 직후 3 이상이면 유리 검을 완성합니다.",
+            T(p, "tazia_p", "기본 공격과 기술로 얻는 유리 파편·파편 수집은 타지아 Q·W·E·R과 공유합니다. 파편 수집 4에서는 실험체 구분 없이 다음 기술의 피해가 증가하며, "+SkillReferences.Name("tazia_e")+"는 수집을 마친 직후 3 이상이면 유리 검을 완성합니다.",
                 R("before_basic", "bonus_damage", 3, every:3, turn:1),
                 R("after_basic", "gain", 1, "shard", "유리 파편", 4, every:3, hit:true),
                 R("after_skill", "gain", 1, "collection", "파편 수집", 4, need:"shard", turn:1),

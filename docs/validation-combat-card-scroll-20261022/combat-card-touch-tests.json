@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-22T04:10:46.6541718Z",
+  "assertions": 88,
+  "scenarios": 23,
+  "failedScenarios": [],
+  "failureDetails": [],
+  "sourceHashes": {
+    "Assets/Scripts/Lumia/TouchScrollGesture.cs": "607491feb7812ba7f90826c8d9ff5802cc5b5fa9655036ea8edb69d8795095b1",
+    "Assets/Scripts/Lumia/LumiaTouchScroll.cs": "165cbbfa78dae4346d2d82320234e2acad90d83669a562386ac8471fe25abd83",
+    "Tools/CombatCardTouchIntegrationTests.cs": "a1e16f85c6c0fb505e3afd9fb9ad887d4587e96b009a95e70f4252603ea8109a",
+    "Tools/CombatCardTouchTests.ps1": "978678007ef8dc9269890d4825fe6e2f2db1053139c030282e8df65dcbaee4a4"
+  },
+  "scope": "Production LumiaTouchScroll + TouchScrollGesture compiled directly; deterministic Unity host doubles; no physical browser touch claim",
+  "durationSeconds": 1.4199976,
+  "temporaryFilesRemoved": true
+}

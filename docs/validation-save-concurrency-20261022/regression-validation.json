@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "typecheck": {
+    "command": "node node_modules/typescript/bin/tsc --noEmit --incremental false",
+    "exitCode": 0
+  },
+  "additionalRegression": {
+    "command": "node --test scripts/game-loader.test.mjs scripts/game-shell.test.mjs scripts/cloud-sync-client.test.mjs scripts/display-preferences-client.test.mjs",
+    "passed": 56,
+    "failed": 0,
+    "exitCode": 0
+  },
+  "combinedTests": {
+    "realWorkerdBackend": 12,
+    "actualHomeComponentHarness": 41,
+    "loaderShellCloudAndDisplayClients": 56,
+    "passed": 109,
+    "failed": 0
+  },
+  "limitations": [
+    "Frontend validation executes the real component in a deterministic local hook, HTTP, timer and iframe harness; no authenticated production user was used.",
+    "Public asset delivery and ongoing request logs are checked separately after publication."
+  ]
+}

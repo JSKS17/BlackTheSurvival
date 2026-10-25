@@ -1,0 +1,48 @@
+{
+  "result": "PASS",
+  "gameVersion": "1.0.25",
+  "physicalHardwareTested": false,
+  "mobileDetectionModel": true,
+  "productionAccountRequests": false,
+  "observations": {
+    "craftingMaterials": [
+      "meteorite",
+      "tree",
+      "mithril",
+      "force",
+      "blood"
+    ],
+    "combinedMaterialAndTag": true,
+    "reset": true,
+    "gearStackingScope": true,
+    "comboSummaryOwnerKey": true,
+    "comboDetailOwnerKeyAndName": true,
+    "yukiFreeEActual": {
+      "energyBefore": 5,
+      "energyAfterW": 2,
+      "yukiECost": 0,
+      "ayaECost": 3
+    },
+    "mobileMaterialLayout": true,
+    "mobileBloodFilterResults": 2
+  },
+  "errors": [],
+  "previewNotes": [
+    "Mobile viewport preview showed a local ResizeObserver loop notification during initialization; it was dismissed, then the game continued normally and the mobile material filter worked. Desktop and mobile dev error logs returned empty arrays.",
+    "Phone hardware and touch gestures were not physically tested."
+  ],
+  "screenshots": [
+    "crafting-all.jpg",
+    "crafting-meteorite.jpg",
+    "crafting-tree.jpg",
+    "crafting-mithril.jpg",
+    "crafting-force.jpg",
+    "crafting-blood.jpg",
+    "crafting-combined-empty.jpg",
+    "gear-stacking-scope.jpg",
+    "skill-combo-summary.jpg",
+    "skill-combo-detail.jpg",
+    "skill-combo-actual-costs.jpg",
+    "crafting-mobile.jpg"
+  ]
+}

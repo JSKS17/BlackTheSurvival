@@ -1,0 +1,15 @@
+{
+  "baselineCommit": "52378ec49d4b4469b077e6540551984d21c5ff96",
+  "gameBuildId": "e1d8a35c79f9230cb20a9f98",
+  "gameManifestSha256": "2666013c5f9d9214c21b72008716dc5e079cd3fd3e331c18d1c76021123b8c7e",
+  "normalizedTextAssets": [
+    "/game/build-manifest.json",
+    "/game/index.html",
+    "/game/TemplateData/account-bridge.js",
+    "/game/TemplateData/favicon.svg",
+    "/game/TemplateData/style.css"
+  ],
+  "dependencyLockMatches": true,
+  "dependencyJunction": "C:\\Users\\azxar\\BlackTheSurvival\\WebSite\\node_modules",
+  "noUnityRebuild": true
+}

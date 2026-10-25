@@ -1,0 +1,866 @@
+{
+  "capturedUtc": "2026-10-25T14:52:25.9133825Z",
+  "runtimeCSharpCount": 119,
+  "files": [
+    {
+      "path": "Assets/Scripts/Lumia/AccuracyMechanics.cs",
+      "sha256": "BA8FCD43AFBC1A078BF9B6E42CC9B23651CE91ABE1E9D37352FAE2E426D98DE3",
+      "bytes": 2272
+    },
+    {
+      "path": "Assets/Scripts/Lumia/AdvancedCardMechanics.cs",
+      "sha256": "1C6A9F3E705B14278FC957470B1B38EDAB25D25BA1E883158B1B8D5376442538",
+      "bytes": 16511
+    },
+    {
+      "path": "Assets/Scripts/Lumia/BossMechanics.cs",
+      "sha256": "A79FBFD376BDF81421ED5A8309997BBD38369B94DD1A8BEADB821EF97C6B8B8B",
+      "bytes": 22509
+    },
+    {
+      "path": "Assets/Scripts/Lumia/BossProfiles.cs",
+      "sha256": "F81492A710118B12EAB74150AE1E21FDCF8F06FE6FEC26443ABA3025903EDC40",
+      "bytes": 8946
+    },
+    {
+      "path": "Assets/Scripts/Lumia/BossProfilesClassic.cs",
+      "sha256": "CA4F7B8855D28AF8EC2E45994F70D850C85E70405D7D6C97071B20532A9B5F76",
+      "bytes": 36357
+    },
+    {
+      "path": "Assets/Scripts/Lumia/BossProfilesRecent.cs",
+      "sha256": "8FD6E29CD8B9579BCE018AA39E09A0924ADF73DB8C4D29578758F620B6B5B349",
+      "bytes": 19914
+    },
+    {
+      "path": "Assets/Scripts/Lumia/BrowserAccountStorage.cs",
+      "sha256": "335CFB3B82D480B19B49B5773A9D68CD86DD025FEB061BD88022BE08F3FE15F7",
+      "bytes": 12321
+    },
+    {
+      "path": "Assets/Scripts/Lumia/BrowserPersistence.cs",
+      "sha256": "CC1416C94EE3E6E2EE37BFD15CED881B535313E331EAE56DF5B3ED975B925710",
+      "bytes": 1799
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CardDisplayCatalog.cs",
+      "sha256": "A5F34B29B04085BAC38DB9110915935906D217D114FDEBFF27D96039D96DE4C0",
+      "bytes": 13869
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CardInstances.cs",
+      "sha256": "FFC3D255F166929412382CF00DD55052B35A111FABA281EAE302EB58FBF51A5D",
+      "bytes": 8815
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CardPresentation.cs",
+      "sha256": "536C4AD1BBDBC3FDBA5371142F6D56BFB9C4C586C7EA81F968B14579C8D2B6DA",
+      "bytes": 24667
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CardSummaryMechanics.cs",
+      "sha256": "CC9A43EFF83F883F35B5DCE67C273C1E73CB3E0D1F842D7782102AB8E4F98044",
+      "bytes": 46301
+    },
+    {
+      "path": "Assets/Scripts/Lumia/ClassicRoster.cs",
+      "sha256": "64FD30549A97CC428F1376D63B6BB21B21350C36474609B1401AAC61D03A7349",
+      "bytes": 30289
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CombatCardCue.cs",
+      "sha256": "25C8C48A09DF847F0B10524BD909738AE830DBD032DED6D6F39EE5AA00D4B957",
+      "bytes": 10167
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CombatEffects.cs",
+      "sha256": "090625348DCF43F95AFB9316BEF142929C04478478AFCD8CBA32977A993DA58D",
+      "bytes": 29701
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CombatEffectsShapes.cs",
+      "sha256": "1EC74F6D84896CCFB9EC71F80398D786C6672983382D121F19CA4332992260DF",
+      "bytes": 41997
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CombatInformation.cs",
+      "sha256": "2F9223E275AACECEE5833A09B9E44583FD0ADB2BFB121EBC10F81710294650A7",
+      "bytes": 29689
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CombatVisualProfiles.cs",
+      "sha256": "D68EB732138097D22F539705BED1B22FA63499617DA846BDE58ED193482CDAA5",
+      "bytes": 30983
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CompanionMechanics.cs",
+      "sha256": "C5D518B12111400A5C1CF5B896F05DC9C622F9E7D57952D69DABD0FA2F05F155",
+      "bytes": 12930
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CraftingCatalog.cs",
+      "sha256": "4BF49DFC1AE9143D5CF2F93C0B15B856FBB9F313621360012DF945F4D5788025",
+      "bytes": 5053
+    },
+    {
+      "path": "Assets/Scripts/Lumia/CrossSubjectSynergies.cs",
+      "sha256": "A27503F831EECB8908C7344A4E1A0D7ADD2F0F03D8F2E8B850A574EF487CB6C1",
+      "bytes": 38893
+    },
+    {
+      "path": "Assets/Scripts/Lumia/DataModels.cs",
+      "sha256": "18DDE755A77666370DC571BA96075380643F63F7ED9813FD224E20D49C8AB142",
+      "bytes": 3195
+    },
+    {
+      "path": "Assets/Scripts/Lumia/DescriptionSummary.cs",
+      "sha256": "5EA5237A1A5AF3AC057B60F450AC0D6EF26117CCC633EDA367CA4E4709F602C4",
+      "bytes": 16618
+    },
+    {
+      "path": "Assets/Scripts/Lumia/EncounterChains.cs",
+      "sha256": "52C51A4CFA1DC86360F746EBAA2665D2A2D8FD964824DDDD69A48549236DAAA6",
+      "bytes": 11331
+    },
+    {
+      "path": "Assets/Scripts/Lumia/EndlessAugmentEngine.cs",
+      "sha256": "3F8F1C20E44AA80068B9C876D0CBB69E91A46CFD05FD271961A4011ABAFB2C89",
+      "bytes": 16050
+    },
+    {
+      "path": "Assets/Scripts/Lumia/EndlessAugments.cs",
+      "sha256": "F3271A73FADB91626D754E0D5D7F57352758AC5A71B1DFFBF237430576BFF2E9",
+      "bytes": 9834
+    },
+    {
+      "path": "Assets/Scripts/Lumia/EquipmentCritical.cs",
+      "sha256": "BBF2C34869ABE8C79E92AF231E8B95C78E92B9993F2BDA1A7C11CCC633F87E7C",
+      "bytes": 975
+    },
+    {
+      "path": "Assets/Scripts/Lumia/EquipmentIdentity.cs",
+      "sha256": "9726049BEE7F9A1FA840A6E290B0800A3578D916FA777F47DF9D6F4EC029F83A",
+      "bytes": 22407
+    },
+    {
+      "path": "Assets/Scripts/Lumia/EventIdentity.cs",
+      "sha256": "F8899CC081910151A7C8B1991FCB970C2C725B937A385D35E7DB3AE85A1F73A8",
+      "bytes": 71356
+    },
+    {
+      "path": "Assets/Scripts/Lumia/EventPresentation.cs",
+      "sha256": "F2E8AEF50BA9E79124F6720736028787BBDC8746A989EB17C1E3F9D630B833DA",
+      "bytes": 10495
+    },
+    {
+      "path": "Assets/Scripts/Lumia/FreeCastMechanics.cs",
+      "sha256": "E9B867E7E537C32E612982443918EB0AC1661F63F6BBEE300EAE924443B2727E",
+      "bytes": 12053
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameAudio.cs",
+      "sha256": "FF7EF3DD42DF3626FEC1CA432300E84C3C809DFA62084A3008575D00883E7CA2",
+      "bytes": 20662
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameAudioCatalog.cs",
+      "sha256": "BAA5BA76A3BCBBBA662EA6F9C7CE55D5F5F33FB803B327E26D1ADFB52F91BEE7",
+      "bytes": 9792
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameAudioVerification.cs",
+      "sha256": "668BCAD02759D870B3C061C1D89AC7DD85E5C4BDA1B20B9AFF89D6464A202E7F",
+      "bytes": 29358
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameDatabase.cs",
+      "sha256": "646FBC1B23C51FECAA49A653F8F93B812FA37438A0ED4D043BDC8851771CAD5B",
+      "bytes": 61621
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameEngine.cs",
+      "sha256": "0AD92537413C970B551F91C7A4640139BCBC671B206F68EBF5250E1990FDAC11",
+      "bytes": 215907
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameEngineAdvancedCards.cs",
+      "sha256": "8480B7708B1133EB233CC5A8A80DCC9B68BD81057D892D4AAED067D19DFCF233",
+      "bytes": 18540
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameEngineCardInstances.cs",
+      "sha256": "61AAB1C51095DA87D3A97750F5559B3CA90485FB5CD9EA1FA7A34DBDBFF92987",
+      "bytes": 4079
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameEngineLumi.cs",
+      "sha256": "281FC17C217C81B617DF607AA2DAE54D0B30479D1BC46EE86693B7A06208A40C",
+      "bytes": 11407
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameEngineTacticalModules.cs",
+      "sha256": "97A9096062BB9CDDB9A810B53B31C6ADF6ADCFB314D45E5F8ED543BF6471535D",
+      "bytes": 4670
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameEngineTacticalSkills.cs",
+      "sha256": "6EEAB21ACE08AD23CBC0B7D3AD685F5CB2E60EB006DFC4D40BE710FC339D0033",
+      "bytes": 6638
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameIdentity.cs",
+      "sha256": "45897BFC1443F4E7CDE963C4FA0358729AE6509494A055F417AF3C3334167ABC",
+      "bytes": 13403
+    },
+    {
+      "path": "Assets/Scripts/Lumia/GameIdentityVerification.cs",
+      "sha256": "23122F980042C345B9DB53463EC41B2902FF2FCB35FA21D7A3CDFFC492EE4624",
+      "bytes": 9678
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LobbyDialogue.cs",
+      "sha256": "0302ECB0487486AD81DF5F0276FB50D4957A08A399B14A76F42979CD7FF6A80B",
+      "bytes": 8153
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaAdvancedCardUI.cs",
+      "sha256": "B2B3E509EDA5E91CDDC7FD7BF746F40A9AB64A536702AFFA546B9DC2530BA225",
+      "bytes": 14421
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaAdvancedCardVerification.cs",
+      "sha256": "39A4D0329316121370939F2330908BB55E958D38ABE8325458EADB7C20494D30",
+      "bytes": 12223
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaArtVerification.cs",
+      "sha256": "B84377073C77A9472CD26F9310258DB0DB112699B5EDF12175BF4DEB76BAAD19",
+      "bytes": 11933
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaAugmentsUI.cs",
+      "sha256": "3F945EA1ECCB0067C49513040F078FA54981FDD48844DDADC6B80DEE8A04BAD9",
+      "bytes": 34024
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaBrowserAccount.cs",
+      "sha256": "09CB1B7FE8912DA443C608B33B328ECC56FE0E399136DE5441F6D45FE1A4343B",
+      "bytes": 12083
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaCombatInformationUI.cs",
+      "sha256": "AC2532C6F134A50FFB9939276ED524DA44632E670A2A233817A80D40601F7EC8",
+      "bytes": 15174
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaCraftingUI.cs",
+      "sha256": "50CA44FA77873D2FCB3854F3B8A2A1DC6B2029F4ACA93AE8DC313B3D7D6BD592",
+      "bytes": 2474
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaCraftPerformanceVerification.cs",
+      "sha256": "4D558956BB4C4A501356C5A87F308218548F5FD3819F34FD59204662C8859354",
+      "bytes": 7164
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaCriticalVerification.cs",
+      "sha256": "EB19CFF61FFE62EDC233E3C519F9D97AE198C40840241907636F7B994325B35B",
+      "bytes": 3796
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaEffectsVerification.cs",
+      "sha256": "F99AAF9A428BD4A77B29F04111E738F571CA1A7FF2F108CDEF310AFF8D1B4D99",
+      "bytes": 28085
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaFieldDisplayCache.cs",
+      "sha256": "9C1E4C4CC3FFF5815A18067CE5A50768F1643F30C9C7006172FACCFF100798B9",
+      "bytes": 2535
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaGame.cs",
+      "sha256": "0979956F50F75BEC440ADC2635CCF335C3244270597A5E4F84F38DB9366B9DB5",
+      "bytes": 264098
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaGameSettings.cs",
+      "sha256": "F31652A4EEAF126CEC59C8D9E6737106E77EDDF5DF6DEBEE2FF66762DE792EEA",
+      "bytes": 4204
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaLayeredStoryAudit.cs",
+      "sha256": "D50C99156E23AC48269458E106F4C276DE3AB5649EFD967A70F24BB20F230C10",
+      "bytes": 3852
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaLayeredStoryVerification.cs",
+      "sha256": "B2A8A200EBE8263016E09E5EC573C1694198277951EA9F30DEB03E93858C81C4",
+      "bytes": 10519
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaListPerformanceVerification.cs",
+      "sha256": "CB1CDF32A79CE6B20B39EC329DF42BC00AFB80B250662B086735A9AC645642F9",
+      "bytes": 16473
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaLobbyArt.cs",
+      "sha256": "BFE9DBC026EFE03CF9F5FF9788E9EF1195E779C30313E914722FC515E87938F4",
+      "bytes": 4542
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaLumiUI.cs",
+      "sha256": "4FEA254F71B5B86E0299D1F40F5DBE138563BA813865DAC55AA8D177F12A5F01",
+      "bytes": 6423
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaMapDisplayCache.cs",
+      "sha256": "217DFBB5D5D0260068AA118EA99DABACDD51B708C45558BBB09706DD36CFA4FD",
+      "bytes": 2693
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaMobileTypography.cs",
+      "sha256": "62923720BE12105360C78C215CFC512963F157C33A714BAF2272FCBAE0B995C9",
+      "bytes": 4273
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaModesUI.cs",
+      "sha256": "F8C6F5E3C83C05C77D24A8DBF397B3BAAF0F38391D5802B4CDC5806E1BC284F5",
+      "bytes": 25077
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaPixelLayers.cs",
+      "sha256": "CB34234A0EF038BD60BB6530E9C1E571903190FB96F6965E93FA197B2691198A",
+      "bytes": 2390
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaPresentationVerification.cs",
+      "sha256": "DE08C55FEDDD188B091815DFB71DF7547D5B921F87EAA3C6949BC4813E6F3772",
+      "bytes": 12697
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaRareEncounterUI.cs",
+      "sha256": "5B0F1E79A18101313BEF0398610C9FE995BD7ACD9964CB6C19C6810BECA51FF6",
+      "bytes": 23486
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaResearchPersistence.cs",
+      "sha256": "17C77026CD69F8B9CA7AEC9C2EBF8EAE25A9640D17215DE0830C31EC873E7630",
+      "bytes": 6868
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaResearchUI.cs",
+      "sha256": "52DDBB35C81EDAF532802A42DC47AFB637FC0F217E67B0F8BA50180ADD69DC96",
+      "bytes": 52369
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaStoryHistory.cs",
+      "sha256": "E7EEDEA119F7089C3295EB3669F87FCDADCFEE088CCDFAEAFC528329C69C557A",
+      "bytes": 2735
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaStoryUI.cs",
+      "sha256": "257556D58909C8757E133EE44D92DB3C24CB499930322BAF8488A4EED4796A3E",
+      "bytes": 16797
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaTacticalModuleUI.cs",
+      "sha256": "8362794757CC041B9F8AA7CC3D667FE3B79E346293228F5EED25B17AFE6F37D9",
+      "bytes": 8249
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaTouchScroll.cs",
+      "sha256": "165CBBFA78DAE4346D2D82320234E2ACAD90D83669A562386AC8471FE25ABD83",
+      "bytes": 19477
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaTutorialUI.cs",
+      "sha256": "E58EBD339BC16A727F9B24F87089EDA938E6AE3D0245CF01247F2EFCD5975196",
+      "bytes": 7595
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaUIRenderCache.cs",
+      "sha256": "B363DCEFF929930B3723F01CED07450CE00AC030119B4377D72114850A104BF2",
+      "bytes": 8651
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaUltimatePresentation.cs",
+      "sha256": "BD564C5060177C52DDFCB8C086A5518E5705F2FDF6855D5BF9A518DBC4CC0158",
+      "bytes": 1731
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaUltimateVerification.cs",
+      "sha256": "17067A11EDCC148900A8549357369F2482A40CFC889D3074983F7B3AD1EB980C",
+      "bytes": 29854
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaVerification.cs",
+      "sha256": "D4C1ACBDA3C70A3758C328E901B9E273E8312FFE853043989F51252C6EE9606F",
+      "bytes": 18898
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaWildlifeUI.cs",
+      "sha256": "248164D50D11113883CE3E864070D71BDA5DB408CDCAD82E47B220EB051E4BEE",
+      "bytes": 5996
+    },
+    {
+      "path": "Assets/Scripts/Lumia/LumiaWildlifeVerification.cs",
+      "sha256": "43F7D55F8D6031F61139AF60DBDAA221AE4AA603100B8CE266C2977BCE326D93",
+      "bytes": 22494
+    },
+    {
+      "path": "Assets/Scripts/Lumia/PassiveIdentityClassic.cs",
+      "sha256": "E48896E72B3886A26884394CAF4D934239B911AC5262E70149360DD5D520FA20",
+      "bytes": 24960
+    },
+    {
+      "path": "Assets/Scripts/Lumia/PassiveIdentityCore.cs",
+      "sha256": "81ABCDC079D4238332B9D1E96557ACD376CA8A4FBCBC746DB1A26DEF24CB2DD7",
+      "bytes": 4584
+    },
+    {
+      "path": "Assets/Scripts/Lumia/PassiveIdentityRecent.cs",
+      "sha256": "19B5BA81A4763682F7937B749D398E51377459E5D97912C9AFAC73E9B731BC50",
+      "bytes": 16009
+    },
+    {
+      "path": "Assets/Scripts/Lumia/PixelArt.cs",
+      "sha256": "797822116CAAE53C2D709FC70CDA8549604E8C2D1DEDF22A98CB855DF7295536",
+      "bytes": 35028
+    },
+    {
+      "path": "Assets/Scripts/Lumia/RareCardUpgrades.cs",
+      "sha256": "4D181351CBB03F406ED684F6A6321A7C6CC6449CFEE6EAC0FF6028A9E51D5A83",
+      "bytes": 4964
+    },
+    {
+      "path": "Assets/Scripts/Lumia/RareEncounterEngine.cs",
+      "sha256": "38B55E2EF444E8B2186D039AB6D8AAE041D7BC152387F5389141556DF92C1C4F",
+      "bytes": 12824
+    },
+    {
+      "path": "Assets/Scripts/Lumia/RareSkinCatalog.cs",
+      "sha256": "102F5DCFBB72DC266338B25B60613783CE2B4B84903847E4368321D20C164D24",
+      "bytes": 5974
+    },
+    {
+      "path": "Assets/Scripts/Lumia/RareSkinStories.cs",
+      "sha256": "EF60360ACC883B6ECA410AB001C41CE389079F725B2F7BC37938C133DEAAA0A5",
+      "bytes": 94412
+    },
+    {
+      "path": "Assets/Scripts/Lumia/RecentRoster.cs",
+      "sha256": "EC22A2C96319E2442939F2624178D4299A24AE66F77FE5AC55F444F60845385C",
+      "bytes": 18528
+    },
+    {
+      "path": "Assets/Scripts/Lumia/ResearchEncounters.cs",
+      "sha256": "4672453658E6A8E665F4C3279E6B0CBB74AE1EBB178BECC94D518835E9BA316A",
+      "bytes": 86584
+    },
+    {
+      "path": "Assets/Scripts/Lumia/ResearchProgression.cs",
+      "sha256": "5425DEE44F4F5B7B9FEAAEC79C1CE924345DF0705D566130D26F0BAC34D41157",
+      "bytes": 40074
+    },
+    {
+      "path": "Assets/Scripts/Lumia/ResearchRareEncounters.cs",
+      "sha256": "E287D319830B02B6E45FC5964A2F98790EA3CD53ACB8AD29C5573798DB148E7A",
+      "bytes": 6795
+    },
+    {
+      "path": "Assets/Scripts/Lumia/ResearchStore.cs",
+      "sha256": "F2714E4D44967CA203CF2DAEB11E6735F5DCAA593000117AD5BEF8802DFA6F8C",
+      "bytes": 8965
+    },
+    {
+      "path": "Assets/Scripts/Lumia/ResearchStoryStore.cs",
+      "sha256": "59B0F74A83F6B142099DE9353BB2BCB9AF85164EC8BB755700C26135288AFF7E",
+      "bytes": 1151
+    },
+    {
+      "path": "Assets/Scripts/Lumia/RuneIdentityCore.cs",
+      "sha256": "C266A06DDECC73E0D3868E05FE9E854BB5A0436BED29EE17E1A732292B9EC09E",
+      "bytes": 5983
+    },
+    {
+      "path": "Assets/Scripts/Lumia/RunModes.cs",
+      "sha256": "4803A2613576429365F7E1EA52178FB4A1DDF474470D47EFB0C27DA29D2117FF",
+      "bytes": 3778
+    },
+    {
+      "path": "Assets/Scripts/Lumia/SkillIdentityClassic.cs",
+      "sha256": "00863A15CBAD0D61D5FEAD451AFD02B9FA2CB0BB6838A0751F494777D96683B7",
+      "bytes": 44533
+    },
+    {
+      "path": "Assets/Scripts/Lumia/SkillIdentityCore.cs",
+      "sha256": "B663D3C1DAAFEB895A9E36BF8CEA512DBAE75455C49DA9C210BEB944BC4BC032",
+      "bytes": 11495
+    },
+    {
+      "path": "Assets/Scripts/Lumia/SkillIdentityRecent.cs",
+      "sha256": "78330FCC0816182DE09CDEE66502F6AB9AB3F0F06EBF917CB1BC8241FD9BEC6B",
+      "bytes": 24037
+    },
+    {
+      "path": "Assets/Scripts/Lumia/SkillMechanics.cs",
+      "sha256": "EED3E1D306526AF4BAC1AEDC6E6FFB134FC04EC008D2281F3B8677F49B7A41EB",
+      "bytes": 54044
+    },
+    {
+      "path": "Assets/Scripts/Lumia/StatusIdentity.cs",
+      "sha256": "99272341A6F5BAC1AFCA83BC9C2201EBF25798AF6F7E2A4208E4A0B6669BF1F3",
+      "bytes": 17504
+    },
+    {
+      "path": "Assets/Scripts/Lumia/StatusMechanics.cs",
+      "sha256": "409026D797CB53EF2A65A7F8FD659E6CC20499256C14B1823117C728C59CEFB4",
+      "bytes": 16471
+    },
+    {
+      "path": "Assets/Scripts/Lumia/StoryComposition.cs",
+      "sha256": "9813691DFFEE8339EBD94C2CE5115C394AFC14EDA25308A62DC83748764014DF",
+      "bytes": 3514
+    },
+    {
+      "path": "Assets/Scripts/Lumia/StoryScenes.cs",
+      "sha256": "728C6B969A001F32C1C45F28573049E1356D6B5B8609DCEF5B4939301F89A695",
+      "bytes": 11252
+    },
+    {
+      "path": "Assets/Scripts/Lumia/StrategyMechanics.cs",
+      "sha256": "71FA7DDB0438183AE6306015E8DEDFD9E62E4A4E7D418AA1B7D89E215EA3F7D9",
+      "bytes": 6714
+    },
+    {
+      "path": "Assets/Scripts/Lumia/TacticalEncounterOptions.cs",
+      "sha256": "937BA9F1A87BAB603F676397519A5782F72B12A95BC2DAE7950187631A8A1C43",
+      "bytes": 6661
+    },
+    {
+      "path": "Assets/Scripts/Lumia/TacticalModules.cs",
+      "sha256": "D7C040A121C7B71D0C81B7A8B0154E3AA83810FFE6F1C2A5FDBB8C28789E9C11",
+      "bytes": 2154
+    },
+    {
+      "path": "Assets/Scripts/Lumia/TacticalSkills.cs",
+      "sha256": "5D06C620171FBC5BA3EB7A3E75B4D715DBFE787BFB8955BAE1F13810584CE826",
+      "bytes": 32274
+    },
+    {
+      "path": "Assets/Scripts/Lumia/TouchScrollGesture.cs",
+      "sha256": "607491FEB7812BA7F90826C8D9FF5802CC5B5FA9655036EA8EDB69D8795095B1",
+      "bytes": 6322
+    },
+    {
+      "path": "Assets/Scripts/Lumia/TraitMechanics.cs",
+      "sha256": "CB47C1B94E095B45D00E45D582A3EB96A0B781AD16E17D96669706855E0E2C62",
+      "bytes": 19572
+    },
+    {
+      "path": "Assets/Scripts/Lumia/TraitPresentation.cs",
+      "sha256": "2975ACD8E6F3109BC9A3C894E166CA96A3374EB02F5D10B98E6D47510A2A6B65",
+      "bytes": 22938
+    },
+    {
+      "path": "Assets/Scripts/Lumia/TutorialSession.cs",
+      "sha256": "849E2326EFA4CA966C4B4BCA9DB48D468AB46ADF1B1707AEFF590C5A142F0E95",
+      "bytes": 5954
+    },
+    {
+      "path": "Assets/Scripts/Lumia/UiDeckSnapshot.cs",
+      "sha256": "BC93BE933D80D7F891D4CD204F0162AA7F8954D9CA9D051C4F0F23F7030BA9CC",
+      "bytes": 4241
+    },
+    {
+      "path": "Assets/Scripts/Lumia/UltimateAnimations.cs",
+      "sha256": "227ADBBDC294FAF5AE0B4F40CDED902B5F80F68F196AC4437CED399FA90606E0",
+      "bytes": 8749
+    },
+    {
+      "path": "Assets/Scripts/Lumia/WeaponDamageBalance.cs",
+      "sha256": "FFD3A7A9C695CAA65F2EE79D13476CF91E59418FCB02EF1A51307C7C5DA979F2",
+      "bytes": 1308
+    },
+    {
+      "path": "Assets/Scripts/Lumia/WeaponIdentity.cs",
+      "sha256": "0A1D5AE3F2FC78646F61C7B8B037F0F29C764C0FA7D3AC763DAC9B905A67CAC0",
+      "bytes": 11196
+    },
+    {
+      "path": "Assets/Scripts/Lumia/WildlifeEngine.cs",
+      "sha256": "69653EDED6FA280A6D6018D1551D60044A8B7F077D4FC312640169D7CFACA9C9",
+      "bytes": 6103
+    },
+    {
+      "path": "Assets/Scripts/Lumia/WildlifeMechanics.cs",
+      "sha256": "7CE5AB191C88E17B4354F064708C725B032D658A93D37AA6E1F7EF29B798C6FF",
+      "bytes": 3861
+    },
+    {
+      "path": "Tools/AccuracySmokeTests.cs",
+      "sha256": "FAB29A2D4078A836EC70970EAD084AB295A06C81CBAD4AC1480EA1FCD2939D1D",
+      "bytes": 11403
+    },
+    {
+      "path": "Tools/AdvancedCardPresentationSmokeTests.cs",
+      "sha256": "B0A1D5C5EFC72BAC7FB02908F7D9A8DAEE26489EC2606D1156880F07E07E0F0B",
+      "bytes": 4691
+    },
+    {
+      "path": "Tools/AdvancedCombatSmokeTests.cs",
+      "sha256": "B6E5FB38E38EC3F1E3DB0345DCD57630B140ACB403F13AF93FE905F8D222B061",
+      "bytes": 35156
+    },
+    {
+      "path": "Tools/AdvancedRulesSmokeTests.cs",
+      "sha256": "A36602296F6F03FB479910A14FEE368BCCC1CA80F65A80C6151F5E0FF4930755",
+      "bytes": 10155
+    },
+    {
+      "path": "Tools/AudioAudit.cs",
+      "sha256": "528CB0EC78DBB3D8789DF6DCEE14AA6F10FC115ABE83C4AFA4E8D2CA3CE8ED5A",
+      "bytes": 16728
+    },
+    {
+      "path": "Tools/BalanceSimulation.cs",
+      "sha256": "2950A7BFFAD7E704F9C554ADFA4BB2C965375DAEFCE0350FF49CD609A8672DF7",
+      "bytes": 13543
+    },
+    {
+      "path": "Tools/BossSmokeTests.cs",
+      "sha256": "CD86B10083D253583D091C3ECE58B8AE346B95A85AE84F0C1F2D1A80EE66AF6C",
+      "bytes": 44228
+    },
+    {
+      "path": "Tools/BrowserAccountStorageSmokeTests.cs",
+      "sha256": "E69D218B931B57C4C8FFF3A265986DD6BCF32866E74528E298FAA9CBB9356711",
+      "bytes": 11091
+    },
+    {
+      "path": "Tools/CardClassificationSmokeTests.cs",
+      "sha256": "96CA8B6C07BB5CAE15DC873DE2FD7BE2EDF71E7AFB488D2554187C321CDA40E4",
+      "bytes": 5196
+    },
+    {
+      "path": "Tools/CardDisplayCacheSmokeTests.cs",
+      "sha256": "BF2C0B6990A01102BDC64700D7CF091D086F62D93A24AA653BD98220BBE38AF6",
+      "bytes": 18207
+    },
+    {
+      "path": "Tools/CardSummaryRegressionTests.cs",
+      "sha256": "E0011755E63A0620A8E648AAA90A029280E8144AF4E5C306F8E52EF18773A7B7",
+      "bytes": 20325
+    },
+    {
+      "path": "Tools/CombatCardTouchIntegrationTests.cs",
+      "sha256": "A1E16F85C6C0FB505E3AFD9FB9AD887D4587E96B009A95E70F4252603EA8109A",
+      "bytes": 26291
+    },
+    {
+      "path": "Tools/CombatCardTouchUnityBoundaryTests.cs",
+      "sha256": "C3C6A9DFED7A69B151A2C2521766B8BDC5EF4FA50C355E7D99C6CE8BEEB9F1DC",
+      "bytes": 3526
+    },
+    {
+      "path": "Tools/CombatInformationSmokeTests.cs",
+      "sha256": "B32D71B9B15D4501C55711973D71B4F29DB56E6C791C76649442A70579DB0B24",
+      "bytes": 10048
+    },
+    {
+      "path": "Tools/CombatVisualSmokeTests.cs",
+      "sha256": "81E511DE72D82F6CB5B76C9F785251FB9446B8EFBC6F5140BE1F83640F911859",
+      "bytes": 7714
+    },
+    {
+      "path": "Tools/CompanionSmokeTests.cs",
+      "sha256": "91FB21492EA77A6D378B170FBDC194FCCA6D0E97BFF3A77B348964385D26B55C",
+      "bytes": 14684
+    },
+    {
+      "path": "Tools/CoreSmokeTests.cs",
+      "sha256": "12850F7939B0254640297E85EE702A277B64255CA38148CCA0027F5868F8BE70",
+      "bytes": 244466
+    },
+    {
+      "path": "Tools/CraftingCatalogSmokeTests.cs",
+      "sha256": "24A02F6EA36C825F46DEA1CAFEFA13488A1EB73401BB6F9D6290DAD8508B9147",
+      "bytes": 12282
+    },
+    {
+      "path": "Tools/DescriptionAudit.cs",
+      "sha256": "B5FE54A9D1E5D708C27D848AAB24307051E3AC26C8AEDEA5578799EF115B4AD7",
+      "bytes": 63116
+    },
+    {
+      "path": "Tools/EndlessAugmentSmokeTests.cs",
+      "sha256": "60424F0024B87F2428E4B67D97472E1834BB70999F7CEE9EB51182FE8DC4D52F",
+      "bytes": 36205
+    },
+    {
+      "path": "Tools/EndlessCriticalSmokeTests.cs",
+      "sha256": "83D6DA5B1E5E6F61530A258B83EE53AFFF1725B9EBBDDF5126601C93379E3ED3",
+      "bytes": 8191
+    },
+    {
+      "path": "Tools/EquipmentExpansionSmokeTests.cs",
+      "sha256": "4BEFEEF0DC6785E6BD097A99CF63A18C61DF879633728239E74486312EC68174",
+      "bytes": 11251
+    },
+    {
+      "path": "Tools/ExportTacticalPreview.cs",
+      "sha256": "170993D7C186B51B2B9F05EFDF685F20FA456A11CD17C0BE10A1FEF803F6973D",
+      "bytes": 4015
+    },
+    {
+      "path": "Tools/FoodAndDelayedRecastSmokeTests.cs",
+      "sha256": "D110D8577F3B67116E1C0A02846ADE8ADBDA54F42F918FBE21F06BA2054CE754",
+      "bytes": 9141
+    },
+    {
+      "path": "Tools/GarnetExecutionSmokeTests.cs",
+      "sha256": "28F7FDA2C43F32459B2A9DDE323EB8965893C721107F1C431F791CEE9458AEA6",
+      "bytes": 11216
+    },
+    {
+      "path": "Tools/LayeredStorySmokeTests.cs",
+      "sha256": "CD47251FBD08DA30E9A66093DD0338B8D509342A5D560EF5E2619E5755EAFEDD",
+      "bytes": 2706
+    },
+    {
+      "path": "Tools/LobbyDialogueSmokeTests.cs",
+      "sha256": "EA0CB32D795EB50A38365D1B7D0CBD7E347715E90A60F3BAE9381B848A033F19",
+      "bytes": 6611
+    },
+    {
+      "path": "Tools/LumiResearchSmokeTests.cs",
+      "sha256": "A32C64F8F67A42D1A9DC0EBE8E5C5DBA7E59E9C5FAA95D257EE7B261BE4F704C",
+      "bytes": 7682
+    },
+    {
+      "path": "Tools/LumiSmokeTests.cs",
+      "sha256": "C73FE343E91D962B43BDA2DA174CD1E7CB64B04E23422929A1FF4F3D1C215F75",
+      "bytes": 8328
+    },
+    {
+      "path": "Tools/RareCardUpgradeSmokeTests.cs",
+      "sha256": "221831C723F8B5FEA715536E453205E6FED226EB9DA270CCE477607144B70C91",
+      "bytes": 18875
+    },
+    {
+      "path": "Tools/RareEncounterV2SmokeTests.cs",
+      "sha256": "4855800F3827DA5756C2A02279A383B6352E389C597EECEBB624D974B809EC80",
+      "bytes": 19978
+    },
+    {
+      "path": "Tools/ResearchEncounterSmokeTests.cs",
+      "sha256": "AB083BCCF81E460A81DCB8312F064F495538E98EAD2C800F3A853F0A876050DA",
+      "bytes": 5885
+    },
+    {
+      "path": "Tools/ResearchModeSmokeTests.cs",
+      "sha256": "57072D7B4AC49B02D754576856F9BBBC6D8E335911512DB556078393EF3CDA38",
+      "bytes": 7324
+    },
+    {
+      "path": "Tools/ResearchRareSmokeTests.cs",
+      "sha256": "731AC2A6E55FE7B7EBB2F413076253E88512BA497A6EBF255473D4346C9353D1",
+      "bytes": 5904
+    },
+    {
+      "path": "Tools/ResearchSmokeTests.cs",
+      "sha256": "241772CA85758AB570F1870DD5F794E898895B487C063CA660A7201E5BEF7399",
+      "bytes": 23748
+    },
+    {
+      "path": "Tools/ResearchStoreSmokeTests.cs",
+      "sha256": "E59CA2344E2D847E6DA5BB581771E942B01E89DC0BEEDDD2EFA0F84D560084FE",
+      "bytes": 6450
+    },
+    {
+      "path": "Tools/RunCoreTests.ps1",
+      "sha256": "8E75D263D44092FC34D8836399431555C198196A98BB8C0DB5E2DEB85B3641B0",
+      "bytes": 9681
+    },
+    {
+      "path": "Tools/RunModesSmokeTests.cs",
+      "sha256": "248EFA2CC9419FAEEDD0512EA46E404A26B68C5C3A82A79498487FB353AFBC27",
+      "bytes": 17577
+    },
+    {
+      "path": "Tools/SharedPassiveResourceSmokeTests.cs",
+      "sha256": "D1D106EBF7A569FF25DAD74D9EE2625526E1AFE7351E1588D5EEBF208690E771",
+      "bytes": 23310
+    },
+    {
+      "path": "Tools/StoryScenesSmokeTests.cs",
+      "sha256": "8502A418463ACBE15D0978A7CEC4F46F6EB31E4E26993F53605C7205630711F3",
+      "bytes": 22973
+    },
+    {
+      "path": "Tools/StrategySmokeTests.cs",
+      "sha256": "DE0540768F2020EC1EDD59BDDBD8A2F4F549855378440FF9FFF1879E79F5B73F",
+      "bytes": 36307
+    },
+    {
+      "path": "Tools/SuaBlindSmokeTests.cs",
+      "sha256": "035B8F363E23EF93860B1F582A4086E47DB6B056A1D074F50F20F9815D2D9AD4",
+      "bytes": 16682
+    },
+    {
+      "path": "Tools/TacticalDisplaySmokeTests.cs",
+      "sha256": "8899F413D7B77E9D16F85897CBDA8F9C01401D9DC42A1B12D7AA6341F9B60304",
+      "bytes": 3501
+    },
+    {
+      "path": "Tools/TacticalModuleSmokeTests.cs",
+      "sha256": "C2DF4C0B0EEE855A7540A81932216B6B5D3C250F342889F6E24473E4FD6F3856",
+      "bytes": 15946
+    },
+    {
+      "path": "Tools/TacticalSkillSmokeTests.cs",
+      "sha256": "FDE1B340C750F381B22AC92C960ED96FBBDA53EDC91975ACB05A7942E873B478",
+      "bytes": 19678
+    },
+    {
+      "path": "Tools/TaziaMechanicSmokeTests.cs",
+      "sha256": "A2573843FE4954F5B85F8F7804B02642C598A79A87DE55E7E7D4044E3B2FCEBE",
+      "bytes": 24567
+    },
+    {
+      "path": "Tools/TouchScrollSmokeTests.cs",
+      "sha256": "FCDF5D9FBD78B9E57CCDF1783F2C127F4F7FCF7CE32381E50FADBA7FCE9CCD0B",
+      "bytes": 19092
+    },
+    {
+      "path": "Tools/TutorialSmokeTests.cs",
+      "sha256": "3C78E9923A9C835798C6ABC2485542FA83AA2B2C473CCA8C5314624D718BB582",
+      "bytes": 4204
+    },
+    {
+      "path": "Tools/UiDeckSnapshotSmokeTests.cs",
+      "sha256": "A0FF19BA34FCF8456FB8522CBF6B84E304B56395477A80F6F6DEB36F0DA9326E",
+      "bytes": 4117
+    },
+    {
+      "path": "Tools/WeaponDamageBalanceSmokeTests.cs",
+      "sha256": "5C21C6AABCAEF63FC2173D8BBE1DD85D30586B6C5F3ED4B26EB896A79A103F47",
+      "bytes": 13638
+    },
+    {
+      "path": "Tools/WeaponGrantIntegritySmokeTests.cs",
+      "sha256": "A56990754FE25B04C4A944CD60F22965C83E44060122B7932C64F8FC68A4A989",
+      "bytes": 11417
+    },
+    {
+      "path": "Tools/WeaponSpecialMechanicSmokeTests.cs",
+      "sha256": "5DEE44723AFFCE38A04CC5B8E46932513734F5D16E6655DE12D9102FC2F82699",
+      "bytes": 11901
+    },
+    {
+      "path": "Tools/WildlifeSmokeTests.cs",
+      "sha256": "6129EC68F25137E2A0592E6C4E7F660D64A3D2626E0BD56AFC8510E83B983226",
+      "bytes": 14169
+    }
+  ]
+}

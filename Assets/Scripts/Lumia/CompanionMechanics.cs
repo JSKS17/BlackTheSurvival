@@ -171,7 +171,7 @@ namespace Lumia
             {
                 case "chloe_q": return "니나를 체력 18로 소환하거나 체력을 4 회복합니다.";
                 case "chloe_w": return "니나가 살아 있을 때만 협공합니다.";
-                case "chloe_e": return "니나를 6 회복하고 다음 내 턴 Q 무료 연계를 준비합니다.";
+                case "chloe_e": return "니나를 6 회복하고 다음 내 턴 "+SkillReferences.ShortName("chloe_q")+" 무료 연계를 준비합니다.";
                 case "chloe_r": return "소멸한 니나를 체력 12로 부활시켜 2턴간 피해를 50% 분담합니다. 1턴간 분담 후 니나가 살아 있으면 체력 1로 버팁니다.";
                 default: return "";
             }

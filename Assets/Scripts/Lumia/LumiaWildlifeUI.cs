@@ -11,6 +11,12 @@ namespace Lumia
 
         void DrawEnemyIntentIcon(Rect rect, string id)
         {
+            if (WickelineMechanics.Card(id) != null)
+            {
+                Box(rect, Ink, WickelineTone);
+                Tex(new Rect(rect.x + 2, rect.y + 2, rect.width - 4, rect.height - 4), PixelArt.SystemIcon(WickelineMechanics.EnemyId), ScaleMode.ScaleToFit);
+                return;
+            }
             if (!WildlifeMechanics.IsAnimalSkill(id))
             {
                 Tex(rect, PixelArt.SkillIcon(id), ScaleMode.ScaleToFit);
@@ -79,8 +85,7 @@ namespace Lumia
             }
             // The one canonical rule block ends with its debuff glossary.
             text += WildlifeMechanics.Description(skill.id);
-            wrapped.fontSize = 16;
-            float height = Math.Max(300, wrapped.CalcHeight(new GUIContent(text), 536) + 12);
+            float height = Math.Max(300, CachedTextHeight(text, 16, 536) + 12);
             detailScroll = BeginTouchScrollView("wildlife-skill-detail", new Rect(480, 221, 559, 317), detailScroll, new Rect(0, 0, 536, height));
             Para(new Rect(0, 0, 536, height), text, 16, Text);
             EndTouchScrollView();

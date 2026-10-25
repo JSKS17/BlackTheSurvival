@@ -1,0 +1,37 @@
+{
+  "result": "SYNTAX_PASS",
+  "server": "docs/validation-lumi-20261022/Preview.mjs",
+  "serverStarted": false,
+  "port": 8241,
+  "bind": "127.0.0.1",
+  "art": "/art",
+  "qa": "/qa?fixture=lumi-shop",
+  "runtimeRoot": "Build/Web121",
+  "fixtureRoot": "docs/validation-lumi-20261022/fixtures",
+  "fixtures": [
+    "lumi-offer",
+    "lumi-shop",
+    "lumi-combat",
+    "lumi-rare",
+    "research"
+  ],
+  "qaProtocol": [
+    "Use a new crypto.randomUUID QA account for each iframe reload",
+    "Receive bts:hello and send bts:bootstrap with accountId",
+    "After bts:ready, send bts:import of serialized schema1 BrowserSaveBundle and revision1+SHA256",
+    "Wait for persisted result; send bts:ack and then bts:resume",
+    "Raw fixture run states are wrapped as JSON strings; research.json is the ResearchProfile JSON string",
+    "Select research fixture to import no run; other scenes require clicking 이어하기 in lobby"
+  ],
+  "productionRequests": false,
+  "methods": [
+    "GET",
+    "HEAD"
+  ],
+  "rangeSupported": true,
+  "largeRuntimeStreams": "256 KiB high-water mark, no readFile of Unity data",
+  "limits": [
+    "Runtime/visual validation requires parent launch after Web121 and fixture export are complete.",
+    "No production or local web account backend used; disposable localhost account files only."
+  ]
+}

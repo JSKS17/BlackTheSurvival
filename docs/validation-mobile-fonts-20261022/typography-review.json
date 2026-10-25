@@ -1,0 +1,120 @@
+{
+  "result": "PASS",
+  "reviewedAtUtc": "2026-10-21T19:05:55.488Z",
+  "scope": "Read-only independent source review and actual jslib execution in node:vm; does not claim Unity build/browser verification",
+  "productFilesModified": false,
+  "sourceHashes": {
+    "Assets/Scripts/Lumia/LumiaMobileTypography.cs": "62923720be12105360c78c215cfc512963f157c33a714baf2272fcbae0b995c9",
+    "Assets/Plugins/WebGL/MobilePresentation.jslib": "bc7fd3c5a61cab8faae08eaae57e63669c9fbc7eec7f3e220fa0d193c291eae7",
+    "Assets/Scripts/Lumia/LumiaGame.cs": "b35b5b6a03fde59410d529a2f729183d9fe12f3498624ef8002ae63af1551bc1",
+    "Assets/Scripts/Lumia/LumiaUIRenderCache.cs": "b363dceff929930b3723f01ced07450ce00ac030119b4377d72114850a104bf2",
+    "Assets/Scripts/Lumia/LumiaCraftingUI.cs": "50ca44fa77873d2fcb3854f3b8a2a1dc6b2029f4aca93ae8dc313b3d7d6bd592",
+    "Assets/Scripts/Lumia/LumiaStoryUI.cs": "257556d58909c8757e133ee44d92db3c24cb499930322baf8488a4eed4796a3e"
+  },
+  "mobileDetectionCases": [
+    {
+      "name": "Android UA",
+      "expected": 1,
+      "actual": 1,
+      "result": "PASS"
+    },
+    {
+      "name": "iPhone UA",
+      "expected": 1,
+      "actual": 1,
+      "result": "PASS"
+    },
+    {
+      "name": "iPad UA",
+      "expected": 1,
+      "actual": 1,
+      "result": "PASS"
+    },
+    {
+      "name": "iPad desktop UA + multitouch + coarse",
+      "expected": 1,
+      "actual": 1,
+      "result": "PASS"
+    },
+    {
+      "name": "userAgentData.mobile",
+      "expected": 1,
+      "actual": 1,
+      "result": "PASS"
+    },
+    {
+      "name": "Desktop mouse",
+      "expected": 0,
+      "actual": 0,
+      "result": "PASS"
+    },
+    {
+      "name": "Touch desktop fine pointer",
+      "expected": 0,
+      "actual": 0,
+      "result": "PASS"
+    },
+    {
+      "name": "Desktop UA coarse multitouch tablet",
+      "expected": 1,
+      "actual": 1,
+      "result": "PASS"
+    },
+    {
+      "name": "False client hint desktop",
+      "expected": 0,
+      "actual": 0,
+      "result": "PASS"
+    },
+    {
+      "name": "Single coarse touch without mobile UA",
+      "expected": 0,
+      "actual": 0,
+      "result": "PASS"
+    },
+    {
+      "name": "Missing optional navigator fields",
+      "expected": 0,
+      "actual": 0,
+      "result": "PASS"
+    },
+    {
+      "name": "Android fine pointer",
+      "expected": 1,
+      "actual": 1,
+      "result": "PASS"
+    }
+  ],
+  "staticChecks": {
+    "bodyUsesActualGuiLineHeightAndRequestedFloor": true,
+    "bodyDesktopBranchKeepsRequestedSize": true,
+    "fitKeyDeclarationIncludesRequested": true,
+    "fitKeyEqualityIncludesRequested": true,
+    "fitKeyHashIncludesRequested": true,
+    "fitKeyLookupIncludesRequested": true,
+    "webglNativeCallExcludesEditor": true,
+    "typographyChangesInvalidateSharedFontRevision": true,
+    "summaryScrollInvalidatedOnTypographyChange": true,
+    "textMeasuresInvalidatedOnTypographyChange": true,
+    "summaryLayoutsInvalidatedOnTypographyChange": true,
+    "craftingLayoutsInvalidatedOnTypographyChange": true,
+    "mobileFontFitsInvalidatedOnTypographyChange": true,
+    "summaryUsesHeightAdjustedBodySizeOnce": true,
+    "summaryMeasuresFinalSizeWithoutSecondExpansion": true,
+    "atSizeMeasurementDoesNotExpandAgain": true,
+    "cachedHeightUsesOneExpansion": true,
+    "mobileParagraphPassesBaseSize": true,
+    "craftingMeasuresAndRendersSameSize": true,
+    "storyStylesUseMobilePolicy": true
+  },
+  "policyChecks": {
+    "desktopIdentityCases": 96,
+    "mobileMonotonicAndMinimumCases": 1632,
+    "oldBoundary": {
+      "requested27": 35,
+      "requested28": 36
+    },
+    "result": "PASS"
+  },
+  "completedAtUtc": "2026-10-21T19:05:55.526Z"
+}

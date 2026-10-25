@@ -1,0 +1,319 @@
+{
+  "result": "PASS",
+  "startedAtUtc": "2026-10-21T18:42:32.088Z",
+  "origin": "https://bser-sts.com",
+  "authenticatedRequests": false,
+  "productionWrites": false,
+  "largeGameDataDownloads": false,
+  "checks": {
+    "deploymentSucceeded": true,
+    "preservedAccountConcurrencyFix": true,
+    "unityManifestReady": true,
+    "homeLoadsCurrentBootstrap": true,
+    "client:_next/static/chunks/app-route-prefetch-policy-DpY08KBe.js": true,
+    "client:_next/static/chunks/framework-D_rUT4EX.js": true,
+    "client:_next/static/chunks/index-kkC6oXs0.js": true,
+    "client:_next/static/chunks/layout-segment-context-ZqlCDQ1B.js": true,
+    "client:_next/static/chunks/page-ByKnJCR7.js": true,
+    "client:_next/static/chunks/rolldown-runtime-C60lm6uB.js": true,
+    "client:_next/static/chunks/streamed-icons-Bumrcy-j.js": true,
+    "client:_next/static/css/index.Cd4RJcrY.css": true,
+    "client:_next/static/css/page.x2n0G1kR.css": true,
+    "anonymousSession": true,
+    "protected:/api/save": true,
+    "protected:/api/preferences": true,
+    "gamePageMatchesLumiRelease": true,
+    "gameManifestMatchesLumiRelease": true,
+    "uploadEndpointClosed": true,
+    "gameDataHeadOnly": true,
+    "staticWasmBytesMatchRelease": true
+  },
+  "responses": [
+    {
+      "route": "/",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": null,
+        "Content-Encoding": null,
+        "Cache-Control": "no-store, must-revalidate",
+        "ETag": null,
+        "Vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode"
+      },
+      "bytes": 9859,
+      "sha256": "398345931a5493a4f7f2052d0db535747af82883c3b4816e624b21d4ca6ff5b7"
+    },
+    {
+      "route": "/_next/static/chunks/app-route-prefetch-policy-DpY08KBe.js",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/javascript",
+        "Content-Length": "937",
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"173d565598efeb153f104b1712a7a206\"",
+        "Vary": null
+      },
+      "bytes": 937,
+      "sha256": "f03107b4f509f55b99e3e683b179a30baae3a4b679255f458092d6b84e927256"
+    },
+    {
+      "route": "/_next/static/chunks/framework-D_rUT4EX.js",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/javascript",
+        "Content-Length": "190152",
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"4866b0669de80344ca5f9f60ab589270\"",
+        "Vary": null
+      },
+      "bytes": 190152,
+      "sha256": "939d0fabebb3b2f01753bb866b067d8d3384fb06da19f0e6557609d3b1a9f4f7"
+    },
+    {
+      "route": "/_next/static/chunks/index-kkC6oXs0.js",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/javascript",
+        "Content-Length": "195277",
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"db46d7a472de29d33f6c01da0de0fc77\"",
+        "Vary": null
+      },
+      "bytes": 195277,
+      "sha256": "88e4990f36a9778b463571510e106794bc25e63bfb449583c9659ee0ee858a9d"
+    },
+    {
+      "route": "/_next/static/chunks/layout-segment-context-ZqlCDQ1B.js",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/javascript",
+        "Content-Length": "494",
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"957813cc21c26fb37c0c7d90b9fde3a3\"",
+        "Vary": null
+      },
+      "bytes": 494,
+      "sha256": "40eca52b653c81b2d5f606592399398f20c346183821f4aac36b73f52b3ae423"
+    },
+    {
+      "route": "/_next/static/chunks/page-ByKnJCR7.js",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/javascript",
+        "Content-Length": "38470",
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"b0585d944408eaaf9b03c296445fcaec\"",
+        "Vary": null
+      },
+      "bytes": 38470,
+      "sha256": "39692ba257b35449b419db742ba0728046302ccfc2f5c51082117b9960cab63b"
+    },
+    {
+      "route": "/_next/static/chunks/rolldown-runtime-C60lm6uB.js",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/javascript",
+        "Content-Length": "694",
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"c8cdaaec5895312e5b73c5bb9f16e614\"",
+        "Vary": null
+      },
+      "bytes": 694,
+      "sha256": "5db5ba82eef00d1dee7e86e663098c9427d01183a88d357437daff295aec3e75"
+    },
+    {
+      "route": "/_next/static/chunks/streamed-icons-Bumrcy-j.js",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/javascript",
+        "Content-Length": "772",
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"004d007e3516492ad8d2057b35248def\"",
+        "Vary": null
+      },
+      "bytes": 772,
+      "sha256": "7eb2a6b44b9c0faa7300c8dd36b0fae7a35d9f65e139dd9046b3df193aa83bc8"
+    },
+    {
+      "route": "/_next/static/css/index.Cd4RJcrY.css",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/css",
+        "Content-Length": "149661",
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"636ef2aa820fab9a5a9e389a93b767be\"",
+        "Vary": null
+      },
+      "bytes": 149661,
+      "sha256": "3c76971f561b5c87f5b2774396b286ba3c5dcdf94b0b4fd3f0d7dcc546c65e38"
+    },
+    {
+      "route": "/_next/static/css/page.x2n0G1kR.css",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/css",
+        "Content-Length": "12699",
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"6aff7f228147881f2fa69742f04d27b4\"",
+        "Vary": null
+      },
+      "bytes": 12699,
+      "sha256": "96b8667c7d0d4af8362662cc608b0b36d740af8dc44e20620b3b61bda4a94b22"
+    },
+    {
+      "route": "/api/session",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": null,
+        "Content-Encoding": null,
+        "Cache-Control": "private, no-store",
+        "ETag": null,
+        "Vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode"
+      },
+      "bytes": 23,
+      "sha256": "3e58c6fcf10a31770582814c2babfd1ff71bb1a72cae32cdb1c1a428f406d47f"
+    },
+    {
+      "route": "/api/save",
+      "method": "GET",
+      "status": 401,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": null,
+        "Content-Encoding": null,
+        "Cache-Control": "private, no-store",
+        "ETag": null,
+        "Vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode"
+      },
+      "bytes": 66,
+      "sha256": "768980476ec38a264e49c5666d3ba72803f994d6f041576d71664038e601a970"
+    },
+    {
+      "route": "/api/preferences",
+      "method": "GET",
+      "status": 401,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": null,
+        "Content-Encoding": null,
+        "Cache-Control": "private, no-store",
+        "ETag": null,
+        "Vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode"
+      },
+      "bytes": 66,
+      "sha256": "768980476ec38a264e49c5666d3ba72803f994d6f041576d71664038e601a970"
+    },
+    {
+      "route": "/game/",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html",
+        "Content-Length": null,
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": null,
+        "Vary": null
+      },
+      "bytes": 11598,
+      "sha256": "4aafb290a0560529373ea237ebd70b5e6dc53ebbcffa9861a85115187714f00a"
+    },
+    {
+      "route": "/game/build-manifest.json",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "5320",
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"8e7bfb19a4ad59442a58b2157fcb0f3e\"",
+        "Vary": null
+      },
+      "bytes": 5320,
+      "sha256": "fc68b7d9fb09d5c476fe84b709472336a01c42a0a9d3c1384575e1f8604af770"
+    },
+    {
+      "route": "/api/unity-upload",
+      "method": "GET",
+      "status": 404,
+      "headers": {
+        "Content-Type": "text/plain;charset=UTF-8",
+        "Content-Length": "9",
+        "Content-Encoding": null,
+        "Cache-Control": null,
+        "ETag": null,
+        "Vary": null
+      },
+      "bytes": 9,
+      "sha256": "e3ebaa16dd9d9b9fc107c42183fb6cf9d22927e1af03dbbdfa0ccc38e4e4ac31"
+    },
+    {
+      "route": "/game/Build/791565d4534023df7e319ab66dff6e98.data.unityweb",
+      "method": "HEAD",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Content-Length": "320394632",
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate, no-transform",
+        "ETag": "\"95d10e59ad55d5c8a0972764b522044bffbaf84856d285f28720dd1b66b5c6bb\"",
+        "Vary": null
+      },
+      "bytes": 0
+    },
+    {
+      "route": "/game/Build/81e9ba7d9baf8053e9ef9285042ae305.wasm.unityweb",
+      "method": "GET",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream",
+        "Content-Length": "12925671",
+        "Content-Encoding": null,
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "ETag": "\"34279c070ec74644179deafcaf6ad859\"",
+        "Vary": null
+      },
+      "bytes": 12925671,
+      "sha256": "a5ff85c5c760fe35a9ac0ba82cac7e9d874838bd5c875b23fa7205eac0c4f6d6"
+    }
+  ],
+  "sourceHashes": {
+    "lib/game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "app/page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    ".gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a"
+  },
+  "errors": [],
+  "publication": {
+    "commitSha": "0c1349601a9237f220c86a97f35b69682eb0ba26",
+    "versionNumber": 45,
+    "versionId": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_2d3b69c67a2c8191b23443951b0b3bd2",
+    "deploymentId": "appgdep_6ad9077321f48191a89924d686fb99c2",
+    "status": "succeeded"
+  },
+  "gameBuildId": "ba37e9133dcc3c683df82b2a",
+  "gameManifestSha256": "722031b666e32e04bcbe18c2f59c48b21d7e46cd518796864c39f3a40c0b9fa5",
+  "gameVersion": "1.0.22",
+  "completedAtUtc": "2026-10-21T18:42:44.646Z"
+}

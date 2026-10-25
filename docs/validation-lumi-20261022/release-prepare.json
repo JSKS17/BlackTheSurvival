@@ -1,0 +1,58 @@
+{
+  "mode": "prepare",
+  "result": "PASS",
+  "startedAtUtc": "2026-10-21T16:59:36.643Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "version": "1.0.21",
+  "productionRequests": false,
+  "steps": {
+    "successfulBuildPackaged": true,
+    "isolatedUploaderCopiedUnchanged": true,
+    "oldPublicGameRestoredToVerifiedCanonicalBytes": true,
+    "oldBuildMetadataPreserved": true,
+    "newR2RecordsAllowed": true
+  },
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiRelease20261022\\transactions\\prepare-f413150a-67dc-419e-8272-cae16ca89baa",
+      "bytes": 178910137
+    }
+  ],
+  "sourceHashes": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "Temp\\SiteLumi20261022\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "Temp\\SiteLumi20261022\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77"
+  },
+  "verifiedOldStaticAssets": 44,
+  "verifiedNewStaticAssets": 9,
+  "sourceHashesAfter": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "Temp\\SiteLumi20261022\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "Temp\\SiteLumi20261022\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77"
+  },
+  "release": {
+    "root": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiRelease20261022",
+    "manifestSha256": "11bdf60a20a2b2ca1424f2badaed7ea400f638b5c103bdc7fc3fc04add37507a",
+    "buildId": "304f20f71128fc570ae0da17",
+    "gameTreeSha256": "bb30ad27f53c83520123948dbac7e2770c3cc6e35a60cbefd59a43a5f8c8c376",
+    "uploaderSha256": "2d75155c56ac8fde907ebcefda16af24e1aad2d18bf2b81182b14aabac740d11",
+    "r2Assets": [
+      {
+        "path": "/game/Build/764bf557808ff45391ddb9a28d36bb40.data.unityweb",
+        "size": 320473609,
+        "sha256": "be99991b89a0cf9aa0baaf910b16e72e59b2e491b5072a810d47b8d2ea6efd92"
+      }
+    ]
+  },
+  "baseline": {
+    "manifestSha256": "2666013c5f9d9214c21b72008716dc5e079cd3fd3e331c18d1c76021123b8c7e",
+    "canonicalGameTreeSha256": "247925b1d0e972710fef4dea92f3b8ef7e774c5a91686c6ec2de2cb0a5d3c0e5",
+    "stageOriginalGameTreeSha256": "434fdd0cedf44031fd2db835b2fbbe535fe2f8ebfb7d4d2ce35826838fb1dda5",
+    "stageOriginalManifestSha256": "241d970c870985e9d0e48d6f06ed0479b25cdc88aaceaf821335b28f3b5b007d",
+    "stageGameTreeSha256": "247925b1d0e972710fef4dea92f3b8ef7e774c5a91686c6ec2de2cb0a5d3c0e5",
+    "stageUnionManifestSha256": "ac3da560a874663aea24c0eae1ddf30f030e99264709974f7ca8aa17c699be4c"
+  },
+  "completedAtUtc": "2026-10-21T16:59:55.868Z"
+}

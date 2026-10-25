@@ -1,0 +1,61 @@
+{
+  "result": "PASS",
+  "recordedAtUtc": "2026-10-21T15:11:55.316Z",
+  "stageRoot": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteSaveConcurrency20261022",
+  "command": "node --test scripts/game-session.test.mjs",
+  "tests": {
+    "passed": 41,
+    "failed": 0,
+    "topLevel": 29,
+    "existingTopLevel": 20
+  },
+  "sourceHashes": {
+    "app/page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "scripts/game-session.test.mjs": "c9cc033e2ff15535d305645b74f4515c2c47bc74aa31977ae2c1b114c4ad0bb7"
+  },
+  "behavior": {
+    "initialCloudReadAttempts": 3,
+    "totalDeadlineMs": 15000,
+    "backoffMs": [
+      500,
+      1000
+    ],
+    "jitterMs": "0..249",
+    "retryAfterCapMs": 3000,
+    "retryStatuses": [
+      429,
+      502,
+      503,
+      504
+    ],
+    "networkErrors": [
+      "TypeError",
+      "AbortError"
+    ],
+    "noRetryFor": [
+      "401",
+      "403",
+      "409",
+      "invalid_response",
+      "non-transient failures"
+    ],
+    "authenticationAndPutSemantics": "Unchanged; initial GET has no CSRF refresh because it does not require CSRF",
+    "generationChecks": "Before request, after response/catch and after wait; old generation never launches its next request",
+    "emptySaveFallback": false,
+    "iframeMountBeforeReadSuccess": false
+  },
+  "coverage": [
+    "Transient first read recovers after login and registration without repeating authentication",
+    "Exhaustion produces load-specific failure with no PUT or iframe",
+    "401/403/409, malformed response and validation errors do not retry",
+    "Retry-After clamped; gateway and network recovery",
+    "Effect restart invalidates old generation retry",
+    "Unmount prevents new request and late UI updates",
+    "Elapsed deadline stops another request",
+    "Auth busy response remains one attempt",
+    "All existing game/session/preference tests pass"
+  ],
+  "limitations": [
+    "Deterministic VM executes actual Home component with local React/HTTP/iframe/timer harness; real-browser and production delivery verification belong to parent."
+  ]
+}

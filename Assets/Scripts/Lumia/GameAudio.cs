@@ -144,10 +144,10 @@ namespace Lumia
                 case RunStage.Preparation: return "music.preparation";
                 case RunStage.Combat:
                     var node = state.map == null ? null : state.map.Find(x => x != null && x.id == state.activeNodeId);
-                    return node != null && node.kind == ZoneKind.Boss ? "music.boss" : "music.combat";
-                case RunStage.Kiosk: return "music.kiosk";
+                    return (node != null && node.kind == ZoneKind.Boss || state.combat?.enemyId == WickelineMechanics.EnemyId) ? "music.boss" : "music.combat";
+                case RunStage.Kiosk: case RunStage.LumiShop: return "music.kiosk";
                 case RunStage.Campfire: return "music.camp";
-                case RunStage.Encounter: return "music.encounter";
+                case RunStage.Encounter: case RunStage.LumiOffer: return "music.encounter";
                 case RunStage.Won: return "music.win";
                 case RunStage.Lost: return "music.lose";
                 default: return "music.map";
@@ -351,7 +351,7 @@ namespace Lumia
                 if (action.kind == "revive") PlayCue("combat.revive", .6f);
                 return true;
             }
-            var card = GameDatabase.Card(action.cardId) ?? WildlifeMechanics.Card(action.cardId);
+            var card = GameDatabase.Card(action.cardId) ?? WildlifeMechanics.Card(action.cardId) ?? WickelineMechanics.Card(action.cardId);
             if (card == null) { secondarySuppressed++; return true; }
             lastCardId = card.id;
             string cue = "card." + card.id;

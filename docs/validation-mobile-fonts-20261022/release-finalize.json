@@ -1,0 +1,47 @@
+{
+  "mode": "finalize",
+  "result": "PASS",
+  "startedAtUtc": "2026-10-21T19:58:44.033Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "version": "1.0.23",
+  "baselinePublication": {
+    "versionNumber": 45,
+    "commitSha": "0c1349601a9237f220c86a97f35b69682eb0ba26"
+  },
+  "productionRequests": false,
+  "steps": {
+    "isolatedPackageVerified": true,
+    "stageGameAndManifestReplaced": true,
+    "rollbackAvailableDuringSwap": true,
+    "protectedSourceHashesPreserved": true
+  },
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\MobileFontsRelease20261022\\transactions\\finalize-0196031d-8f57-4d20-a7a8-04ec55adcb4a",
+      "bytes": 23132821
+    }
+  ],
+  "sourceHashes": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SiteMobileFonts20261022\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "Temp\\SiteMobileFonts20261022\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "Temp\\SiteMobileFonts20261022\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a"
+  },
+  "sourceHashesAfter": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SiteMobileFonts20261022\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "Temp\\SiteMobileFonts20261022\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "Temp\\SiteMobileFonts20261022\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a"
+  },
+  "installed": {
+    "root": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteMobileFonts20261022",
+    "manifestSha256": "3555cdf0a36169907fffca5dbd7b8f6befdf796fffe49d95eca4ef3abbbe1c13",
+    "gameTreeSha256": "59c40d25fafad622c3acc3def2f8803b238f5ae94d52d7ef698df7c92a5501b5",
+    "buildId": "39d2b2a4f91df8ba79967cdb"
+  },
+  "completedAtUtc": "2026-10-21T19:58:45.913Z"
+}

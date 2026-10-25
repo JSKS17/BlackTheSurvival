@@ -1,0 +1,28 @@
+{
+  "site": "https://bser-sts.com/",
+  "removedBytes": 7025561222,
+  "gameBuildId": "39d2b2a4f91df8ba79967cdb",
+  "manifestSha256": "3555cdf0a36169907fffca5dbd7b8f6befdf796fffe49d95eca4ef3abbbe1c13",
+  "completedAtUtc": "2026-10-21T20:03:30.4142488Z",
+  "siteVersion": 47,
+  "mobileBrowserDetectionCases": 12,
+  "touchScrollAssertions": 114,
+  "sourceCommit": "16d05d61ab7099b7692216e97e8de82798d47fa2",
+  "screenshots": [
+    "mobile-combat.jpg",
+    "mobile-card-scroll.jpg",
+    "mobile-passive-detail.jpg",
+    "mobile-portrait-detail.jpg",
+    "desktop-combat.jpg"
+  ],
+  "typographyPolicyCases": 1728,
+  "result": "PASS",
+  "siteAccess": "public",
+  "removedTargets": 5,
+  "browserProof": "browser-validation.json",
+  "runtimeSourceFiles": 119,
+  "gameVersion": "1.0.23",
+  "liveChecks": 21,
+  "deploymentId": "appgdep_6ad919f72a988191a1fc0a2fdc44c117",
+  "environmentRevision": 49
+}

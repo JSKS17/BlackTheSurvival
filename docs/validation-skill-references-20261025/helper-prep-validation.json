@@ -1,0 +1,118 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-25T14:39:30.955Z",
+  "scope": "Release helper preparation, offline syntax and local baseline provenance only",
+  "productSourceChanged": false,
+  "oldProofsChanged": false,
+  "releaseCommandsExecuted": false,
+  "productionRequests": false,
+  "serverStarted": false,
+  "buildExecuted": false,
+  "cleanupExecuted": false,
+  "gameVersion": "1.0.26",
+  "baselineGameVersion": "1.0.25",
+  "baselineSiteVersion": 51,
+  "baselineSourceCommit": "24f431c9fdbb006f28a476aff6302ba41e89054d",
+  "baselineEnvironmentRevision": 53,
+  "baselineGameBuildId": "0f171eb9c2bb8ec4c369e905",
+  "baselineManifestSha256": "4f2bdd240435265a6ad38e49e67469f478664109463f91535c0603de1d147373",
+  "build": "Build/Web126",
+  "stage": "Temp/SiteSkillReferences20261025",
+  "release": "Temp/SkillReferencesRelease20261025",
+  "previewPort": 8247,
+  "syntaxChecks": [
+    {
+      "file": "CreateHelpers.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "SourceSchema.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "PrepareRelease.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "VerifyBridge.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "VerifyLive.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "Preview.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "ValidateHelpers.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "ValidateBuildSnapshot.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "Complete.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "Cleanup.ps1",
+      "validation": "pwsh 7 Parser.ParseFile only",
+      "result": "PASS"
+    }
+  ],
+  "baselineHashes": {
+    "WebSite/lib/unity-assets-manifest.json": "4f2bdd240435265a6ad38e49e67469f478664109463f91535c0603de1d147373",
+    "WebSite/lib/game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite/app/page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite/.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite/app/game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "WebSite/package-lock.json": "e224d3aa65e17c80c62fbfb9c38b871a4d675608ea7ce1373a979ff27990fd96",
+    "WebSite/scripts/upload-unity.mjs": "2d75155c56ac8fde907ebcefda16af24e1aad2d18bf2b81182b14aabac740d11",
+    "WebSite/scripts/package-unity.mjs": "31417f232e8262c05597a95a9124af42cf38fee06879420ae293d1861b27754a"
+  },
+  "copiedFixtures": [
+    {
+      "source": "docs/validation-player-feedback-20261023/fixtures/research.json",
+      "target": "fixtures/research.json",
+      "bytes": 544,
+      "sha256": "76ab5af66b7c6a2ef785221ccfd0ae0a493a44e324cf0d54816627a331f98ec9",
+      "byteExact": true
+    },
+    {
+      "source": "docs/validation-player-feedback-20261023/fixtures/feedback-combat.json",
+      "target": "fixtures/yuki-combat.json",
+      "bytes": 40917,
+      "sha256": "2b65222fc1c3161e25bf734e44452e2b35bf9d7f5f69e2e6d991ea43fef85ecf",
+      "byteExact": true
+    }
+  ],
+  "embeddedBrowserScripts": [
+    {
+      "script": "dynamic fixture QA",
+      "gameVersion": "1.0.26",
+      "result": "PASS"
+    },
+    {
+      "script": "dynamic fixture QA",
+      "gameVersion": "1.0.25",
+      "result": "PASS"
+    },
+    {
+      "script": "local mobile detection model",
+      "result": "PASS",
+      "runtimeAssertions": 3
+    }
+  ]
+}

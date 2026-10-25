@@ -28,6 +28,8 @@ namespace Lumia
     {
         public int version = 1, data, totalData, totalRuns, totalWins;
         public bool normalCleared, hardCleared;
+        public int lumiDiscoveries, lumiObjectPurchases, lumiCreditsEarned;
+        public List<string> rareAppearanceSubjects = new List<string>();
         // Account-wide story history survives replacing the current expedition.
         public int storyHistoryVersion;
         public List<string> seenStories = new List<string>();
@@ -40,6 +42,7 @@ namespace Lumia
     {
         public string runId, startedAt;
         public bool begun, settled, legacyEnded;
+        public int lumiDiscoveries, lumiObjectPurchases, lumiCreditsEarned;
         public List<int> completedNodeIds = new List<int>(), victoryNodeIds = new List<int>(), bossNodeIds = new List<int>();
         public List<string> observedSubjects = new List<string>(), usedSkillIds = new List<string>(), completedUniqueSubjects = new List<string>();
         public List<string> defeatedBossSubjects = new List<string>(), synergyKeys = new List<string>(), bossInterruptions = new List<string>();
@@ -63,6 +66,11 @@ namespace Lumia
     public static class ResearchProgression
     {
         public const int ReportCost = 500;
+        public const int LumiReportCost = 1000;
+        public static readonly CharacterDef LumiSubject = new CharacterDef { id = "lumi", name = "루미", cards = new string[0] };
+        // Lumi is a research NPC, never a normal opponent or ordinary encounter.
+        public static IEnumerable<CharacterDef> ReportSubjects => GameDatabase.Characters.Concat(new[] { LumiSubject });
+        public static int CostForReport(string subjectId) => subjectId == "lumi" ? LumiReportCost : ReportCost;
         sealed class Experiment
         {
             public string subjectId, kind, description;
@@ -72,7 +80,8 @@ namespace Lumia
         static Dictionary<string, Experiment> experiments;
         static readonly string[] SkillKeys = { "Q", "W", "E", "R" };
         static string Stamp() => DateTime.UtcNow.ToString("o");
-        static bool SubjectExists(string id) => !string.IsNullOrEmpty(id) && GameDatabase.Character(id) != null;
+        static bool SubjectExists(string id) => id == "lumi" || !string.IsNullOrEmpty(id) && GameDatabase.Character(id) != null;
+        static int AddCount(int current, int amount) => (int)Math.Min(int.MaxValue, (long)Math.Max(0, current) + Math.Max(0, amount));
         static List<T> Present<T>(List<T> values) => values ?? new List<T>();
         static void Add<T>(List<T> values, T value) { if (!values.Contains(value)) values.Add(value); }
         static string SubjectOf(CardDef card) => card == null ? null : GameDatabase.Characters.FirstOrDefault(c => (c.cards ?? new string[0]).Contains(card.id))?.id;
@@ -86,6 +95,8 @@ namespace Lumia
                 subjectId = group.Key, observed = group.Any(x => x.observed), uniqueCompleted = group.Any(x => x.uniqueCompleted), usedSkills = group.SelectMany(x => Present(x.usedSkills)).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList()
             }).ToList();
             profile.completedReports = Present(profile.completedReports).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
+            profile.rareAppearanceSubjects = Present(profile.rareAppearanceSubjects).Where(id => SubjectExists(id) && profile.completedReports.Contains(id)).Distinct().ToList();
+            profile.lumiDiscoveries = Math.Max(0, profile.lumiDiscoveries); profile.lumiObjectPurchases = Math.Max(0, profile.lumiObjectPurchases); profile.lumiCreditsEarned = Math.Max(0, profile.lumiCreditsEarned);
             profile.settledRunIds = Present(profile.settledRunIds).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
             profile.defeatedBosses = Present(profile.defeatedBosses).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
             profile.synergyKeys = Present(profile.synergyKeys).Where(x => !string.IsNullOrEmpty(x)).Distinct().ToList();
@@ -111,6 +122,7 @@ namespace Lumia
             run.observedSubjects = Present(run.observedSubjects); run.usedSkillIds = Present(run.usedSkillIds); run.completedUniqueSubjects = Present(run.completedUniqueSubjects);
             run.defeatedBossSubjects = Present(run.defeatedBossSubjects); run.synergyKeys = Present(run.synergyKeys); run.bossInterruptions = Present(run.bossInterruptions);
             run.unlockedReports = Present(run.unlockedReports); run.completedResearchEvents = Present(run.completedResearchEvents);
+            run.lumiDiscoveries = Math.Max(0, run.lumiDiscoveries); run.lumiObjectPurchases = Math.Max(0, run.lumiObjectPurchases); run.lumiCreditsEarned = Math.Max(0, run.lumiCreditsEarned);
             if (added && migrateExisting)
             {
                 run.begun = state.stage != RunStage.Preparation;
@@ -130,6 +142,20 @@ namespace Lumia
         public static void ObserveSubject(RunState state, string subjectId)
         {
             if (Active(state) && SubjectExists(subjectId)) Add(state.research.observedSubjects, subjectId);
+        }
+        public static void LumiFound(RunState state)
+        {
+            if (!Active(state)) return;
+            state.research.lumiDiscoveries = AddCount(state.research.lumiDiscoveries, 1);
+            ObserveSubject(state, "lumi");
+        }
+        public static void LumiObjectPurchased(RunState state)
+        {
+            if (Active(state)) state.research.lumiObjectPurchases = AddCount(state.research.lumiObjectPurchases, 1);
+        }
+        public static void LumiCreditsEarned(RunState state, int amount)
+        {
+            if (Active(state)) state.research.lumiCreditsEarned = AddCount(state.research.lumiCreditsEarned, amount);
         }
         public static void CompleteNode(RunState state, int nodeId)
         {
@@ -223,7 +249,7 @@ namespace Lumia
         }
         static Experiment BuildExperiment(CharacterDef character)
         {
-            if (character.id == "nia") return new Experiment { subjectId = "nia", kind = "nia", card = GameDatabase.Card("nia_w"), description = "아케이드 블록이 3일 때 W를 적중시켜 블록을 회수하고 추가 피해를 줍니다." };
+            if (character.id == "nia") return new Experiment { subjectId = "nia", kind = "nia", card = GameDatabase.Card("nia_w"), description = "아케이드 블록이 3일 때 "+SkillReferences.Name("nia_w")+"를 적중시켜 블록을 회수하고 추가 피해를 줍니다." };
             if (character.id == "isaac") return new Experiment { subjectId = "isaac", kind = "isaac", description = "아이작의 패시브를 보유한 상태에서 세 번째 기본 공격을 적중시키고, 착취의 추가 피해와 체력 회복을 실제로 발동합니다. 어느 실험체의 기본 공격이든 인정됩니다." };
             var candidate = (character.cards ?? new string[0]).Select(GameDatabase.Card).Where(c => c?.mechanics != null)
                 .SelectMany(c => (c.mechanics.rules ?? new SkillRule[0]).Select(r => new { card = c, rule = r, score = RuleScore(r) }))
@@ -233,7 +259,7 @@ namespace Lumia
                 // All current subjects have source mechanics; this safe fallback
                 // also keeps a future roster addition visible until it gains one.
                 var card = (character.cards ?? new string[0]).Select(GameDatabase.Card).FirstOrDefault(c => c != null && c.damage > 0);
-                return new Experiment { subjectId = character.id, card = card, kind = "hit", description = (card?.name ?? "기술") + "을 적중시켜 실제 피해를 줍니다." };
+                return new Experiment { subjectId = character.id, card = card, kind = "hit", description = CardPresentation.WithParticle(SkillReferences.Name(card),"를","을") + " 적중시켜 실제 피해를 줍니다." };
             }
             var result = new Experiment { subjectId = character.id, card = candidate.card, rule = candidate.rule, kind = candidate.rule.op };
             result.description = ExperimentDescription(result);
@@ -242,9 +268,9 @@ namespace Lumia
         static string ConditionText(CardDef card, SkillRule rule)
         {
             var conditions = new List<string>();
-            if (!string.IsNullOrEmpty(rule.conditionKey)) conditions.Add((rule.op == "forge_sword" ? "이번 E의 파편 수집을 마친 직후 " : "") + SkillMechanics.StateCondition(card, rule.conditionKey, rule.conditionAmount, rule.conditionExact));
+            if (!string.IsNullOrEmpty(rule.conditionKey)) conditions.Add((rule.op == "forge_sword" ? "이번 "+SkillReferences.Name(card)+"의 파편 수집을 마친 직후 " : "") + SkillMechanics.StateCondition(card, rule.conditionKey, rule.conditionAmount, rule.conditionExact));
             if (!string.IsNullOrEmpty(rule.conditionKey2)) conditions.Add(SkillMechanics.StateCondition(card, rule.conditionKey2, rule.conditionAmount2, rule.conditionExact2));
-            if (!string.IsNullOrEmpty(rule.conditionPrevious)) conditions.Add("직전에 " + (GameDatabase.Card(rule.conditionPrevious)?.name ?? rule.conditionPrevious) + " 사용");
+            if (!string.IsNullOrEmpty(rule.conditionPrevious)) conditions.Add(card.owner+"의 직전 기술로 " + SkillReferences.Name(rule.conditionPrevious,card) + " 사용");
             if (!string.IsNullOrEmpty(rule.scaleKey)) conditions.Add(SkillMechanics.ResourceName(card, rule.scaleKey) + " 1 이상");
             return conditions.Count == 0 ? "" : "조건: " + string.Join(" · ", conditions) + ". ";
         }
@@ -262,10 +288,10 @@ namespace Lumia
             else if (rule.op == "bonus_damage") action = "조건부 추가 피해를 실제로 발동합니다";
             else if (rule.op == "bonus_block") action = "조건부 추가 방어도를 실제로 얻습니다";
             else if (rule.op == "bonus_heal") action = "조건부 체력 회복을 실제로 받습니다";
-            else if (rule.op == "discount") action = (GameDatabase.Card(rule.targetCard)?.name ?? "연계 기술") + "의 코스트 감소를 새로 얻습니다";
+            else if (rule.op == "discount") action = SkillReferences.Name(rule.targetCard) + "의 코스트 감소를 새로 얻습니다";
             else if (rule.op == "set") action = label + " 수치를 " + rule.amount + "로 새로 만듭니다";
             else action = (rule.label ?? label) + " 효과를 필드에 새로 남깁니다";
-            return ConditionText(card, rule) + card.name + "(" + card.key + ")을 사용해 " + action + "." + (rule.onHit ? " 공격이 적중해야 합니다." : "");
+            return ConditionText(card, rule) + CardPresentation.WithParticle(SkillReferences.Name(card),"를","을") + " 사용해 " + action + "." + (rule.onHit ? " 공격이 적중해야 합니다." : "");
         }
         static bool Eligible(SkillRule r, SkillActorState before, CardDef card, bool landed)
         {
@@ -320,12 +346,22 @@ namespace Lumia
 
         public static ResearchSubjectDef ForSubject(string subjectId)
         {
+            if (subjectId == "lumi") return new ResearchSubjectDef {
+                subjectId = "lumi", title = "루미 연구 보고서",
+                reportText = "희미한 신호를 따라 나타난 루미는 전투가 끝난 자리에 새로운 거래를 남긴다. 키오스크 주변에서는 3턴 동안 가한 피해가 크레딧으로 바뀌고, 다른 장소에서는 한정된 물품을 판매한다. 버추얼 루미의 목소리 너머에도 같은 안내 신호가 이어진다.",
+                unlockText = "‘버추얼 루미’ 레어 조우를 해금합니다. 루미에게는 일반 조우가 없으며, 다른 실험체의 레어 조우와 비슷한 확률로 별도 후보가 등장합니다. 막당 레어 후보 1회·원정당 루미 레어 조우 1회 제한을 공유합니다.", tasks = Tasks(null, subjectId)
+            };
             var character = GameDatabase.Character(subjectId); if (character == null) return null;
             return new ResearchSubjectDef { subjectId = subjectId, title = character.name + " 연구 보고서", reportText = ResearchEncounters.ReportText(subjectId) + "\n관측과 기술 활용, 고유 실험을 기록했습니다. " + ExperimentFor(subjectId).description,
                 unlockText = "‘" + RareSkinCatalog.NameForSubject(subjectId) + "’ 레어 조우를 해금합니다. 다음 원정부터 일반 후보가 1막 12%, 2막 18%, 3막 이후 25% 확률로 대체됩니다. 막마다 레어 후보는 한 번만 등장하며, 각 실험체의 레어 조우는 원정마다 한 번씩 완료할 수 있습니다.", tasks = Tasks(null, subjectId) };
         }
         public static ResearchTaskView[] Tasks(ResearchProfile profile, string subjectId)
         {
+            if (subjectId == "lumi") return new[] {
+                TaskView("lumi:discover", "뜻밖의 안내자", "전투가 끝난 뒤 나타나는 루미를 3회 발견합니다. 잡지 않고 보내도 발견으로 기록됩니다.", profile?.lumiDiscoveries ?? 0, 3),
+                TaskView("lumi:object", "작은 상점의 단골", "루미 상점에서 할인된 오브젝트를 1회 구매합니다. 다른 품목 구매는 포함하지 않습니다.", profile?.lumiObjectPurchases ?? 0, 1),
+                TaskView("lumi:credits", "빛나는 거래의 대가", "키오스크 주변의 루미 전투에서 크레딧을 총 50 이상 획득합니다. 실제 받은 크레딧만 누적됩니다.", profile?.lumiCreditsEarned ?? 0, 50)
+            };
             var character = GameDatabase.Character(subjectId); if (character == null) return new ResearchTaskView[0];
             var entry = Present(profile?.subjects).FirstOrDefault(x => x != null && x.subjectId == subjectId);
             int skills = (character.cards ?? new string[0]).Select(GameDatabase.Card).Count(c => c != null && SkillKeys.Contains(c.key) && Present(entry?.usedSkills).Contains(c.id));
@@ -339,20 +375,20 @@ namespace Lumia
         public static string ReportText(ResearchProfile profile, string subjectId)
         {
             var definition = ForSubject(subjectId); if (definition == null) return "연구 대상이 없습니다.";
-            return definition.reportText + "\n" + (Present(profile?.completedReports).Contains(subjectId) ? "보고서 완성. " : "세 과제를 완료하고 관측 데이터 " + ReportCost + "로 보고서를 완성할 수 있습니다. ") + definition.unlockText;
+            return definition.reportText + "\n" + (Present(profile?.completedReports).Contains(subjectId) ? "보고서 완성. " : "세 과제를 완료하고 관측 데이터 " + CostForReport(subjectId) + "로 보고서를 완성할 수 있습니다. ") + definition.unlockText;
         }
         public static string ReportError(ResearchProfile profile, string subjectId)
         {
             if (!SubjectExists(subjectId)) return "연구 대상이 없습니다.";
             if (Present(profile?.completedReports).Contains(subjectId)) return "이미 완성한 보고서입니다.";
             if (Tasks(profile, subjectId).Any(t => !t.completed)) return "세 연구 과제를 먼저 완료해야 합니다.";
-            if ((profile?.data ?? 0) < ReportCost) return "관측 데이터가 " + ReportCost + " 필요합니다.";
+            if ((profile?.data ?? 0) < CostForReport(subjectId)) return "관측 데이터가 " + CostForReport(subjectId) + " 필요합니다.";
             return "";
         }
         public static bool CompleteReport(ResearchProfile profile, string subjectId)
         {
             if (profile == null || ReportError(profile, subjectId) != "") return false;
-            Normalize(profile); profile.data -= ReportCost; Add(profile.completedReports, subjectId); return true;
+            Normalize(profile); profile.data -= CostForReport(subjectId); Add(profile.completedReports, subjectId); return true;
         }
         static ResearchSubjectProgress Combined(ResearchSubjectProgress original, ResearchRunState run, string id)
         {
@@ -374,12 +410,15 @@ namespace Lumia
             var report = new ResearchSettlement { runId = run.runId, seed = state.seed, mode = state.mode, escaped = escaped, nodes = Present(run.completedNodeIds).Distinct().Count(), victories = Present(run.victoryNodeIds).Distinct().Count(), bosses = Present(run.bossNodeIds).Distinct().Count(), interruptions = Present(run.bossInterruptions).Where(key => ValidInterruption(state, key)).Distinct().Count(), escapeBonus = escaped ? 12 : 0 };
             report.observedSubjects = Present(run.observedSubjects).Where(SubjectExists).Distinct().ToList();
             report.newSubjects = report.observedSubjects.Count(id => !Present(profile?.subjects).Any(x => x != null && x.subjectId == id && x.observed));
-            foreach (var character in GameDatabase.Characters)
+            foreach (var character in ReportSubjects)
             {
                 var original = Present(profile?.subjects).FirstOrDefault(x => x != null && x.subjectId == character.id);
                 var originalTasks = Tasks(profile, character.id);
                 var merged = Combined(original, run, character.id);
-                var combinedProfile = new ResearchProfile { subjects = new List<ResearchSubjectProgress> { merged } };
+                var combinedProfile = new ResearchProfile { subjects = new List<ResearchSubjectProgress> { merged },
+                    lumiDiscoveries = AddCount(profile?.lumiDiscoveries ?? 0, run.lumiDiscoveries),
+                    lumiObjectPurchases = AddCount(profile?.lumiObjectPurchases ?? 0, run.lumiObjectPurchases),
+                    lumiCreditsEarned = AddCount(profile?.lumiCreditsEarned ?? 0, run.lumiCreditsEarned) };
                 var mergedTasks = Tasks(combinedProfile, character.id);
                 for (int i = 0; i < mergedTasks.Length; ++i) if (mergedTasks[i].completed && !originalTasks[i].completed) report.completedTasks.Add(mergedTasks[i].id);
             }
@@ -423,7 +462,7 @@ namespace Lumia
                 run.settled = true; run.settlement = CopySettlement(report, true); return report;
             }
             Normalize(profile);
-            foreach (var character in GameDatabase.Characters)
+            foreach (var character in ReportSubjects)
             {
                 var old = profile.subjects.FirstOrDefault(x => x.subjectId == character.id);
                 var merged = Combined(old, run, character.id);
@@ -433,6 +472,9 @@ namespace Lumia
             }
             foreach (var boss in run.defeatedBossSubjects.Where(SubjectExists)) Add(profile.defeatedBosses, boss);
             foreach (var key in report.synergyKeys) Add(profile.synergyKeys, key);
+            profile.lumiDiscoveries = AddCount(profile.lumiDiscoveries, run.lumiDiscoveries);
+            profile.lumiObjectPurchases = AddCount(profile.lumiObjectPurchases, run.lumiObjectPurchases);
+            profile.lumiCreditsEarned = AddCount(profile.lumiCreditsEarned, run.lumiCreditsEarned);
             profile.data += report.earned; profile.totalData += report.earned; profile.totalRuns++; if (report.escaped) profile.totalWins++;
             if (report.escaped && report.mode == RunMode.Normal) profile.normalCleared = true;
             if (report.escaped && report.mode == RunMode.Hard) profile.normalCleared = profile.hardCleared = true;

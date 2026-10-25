@@ -27,6 +27,7 @@ namespace Lumia
         {
             foreach (var encounter in encounters)
             {
+                if (ResearchEncounters.SubjectForEvent(encounter.id) == "lumi") continue;
                 var subject = GameDatabase.Character(ResearchEncounters.SubjectForEvent(encounter.id));
                 if (subject == null) throw new InvalidOperationException("Unknown rare encounter: " + encounter.id);
                 var skills = (subject.cards ?? new string[0]).Select(GameDatabase.Card).Where(card => card != null).ToArray();

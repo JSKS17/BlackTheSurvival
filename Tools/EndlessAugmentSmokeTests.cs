@@ -59,6 +59,8 @@ public static partial class CoreSmokeTests
     {
         Check((int)RunStage.AugmentChoice > (int)RunStage.Lost, "augment stage appends without changing existing save identifiers");
         Check(EndlessAugments.All.Count == 27 && EndlessAugments.All.Select(x => x.id).Distinct().Count() == 27, "twenty-seven unique augments");
+        foreach(string id in new[]{"aug_g_qwe_energy","aug_g_ultimate_draw","aug_p_arsenal","aug_p_debuffed_r"})
+            Check(EndlessAugments.Description(id,1).Contains("실험체 구분 없이"),id+": global skill-key augment descriptions preserve cross-subject scope");
         foreach (AugmentTier tier in Enum.GetValues(typeof(AugmentTier)))
         {
             var entries = EndlessAugments.All.Where(x => x.tier == tier).ToArray();
@@ -198,6 +200,9 @@ public static partial class CoreSmokeTests
         Check(e.State.combat.energy == baseline.State.combat.energy + 1, "paid Q W E completion refunds one energy independent of owner");
         foreach (var id in new[] { "nia_q", "nia_w", "nia_e" }) { PlayAugmentCard(e, id); PlayAugmentCard(baseline, id); }
         Check(e.State.combat.energy == baseline.State.combat.energy + 1, "Q W E refund occurs only once each turn");
+        e=AugmentBattle("aug_g_qwe_energy");baseline=AugmentBattle();
+        foreach(var id in new[]{"nia_q","aya_w","yuki_e"}) {PlayAugmentCard(e,id);PlayAugmentCard(baseline,id);}
+        Check(e.State.combat.energy==baseline.State.combat.energy+1,"paid Q W E from three different subjects satisfy the same global circuit without narrowing the actual rules");
         e = AugmentBattle("aug_g_ultimate_draw"); baseline = AugmentBattle(); string ultimate = AugmentCard("R");
         PlayAugmentCard(e, ultimate); PlayAugmentCard(baseline, ultimate);
         Check(e.State.combat.hand.Count == baseline.State.combat.hand.Count + 2, "first paid ultimate draws two additional cards");

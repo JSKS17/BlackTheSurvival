@@ -1,0 +1,63 @@
+{
+  "result": "PASS",
+  "completedAtUtc": "2026-10-22T20:07:40.926Z",
+  "site": "https://bser-sts.com/",
+  "gameVersion": "1.0.25",
+  "siteVersion": 51,
+  "sourceCommit": "24f431c9fdbb006f28a476aff6302ba41e89054d",
+  "deploymentId": "appgdep_6ada6ca8cc8081919a635db12a05354f",
+  "environmentRevision": 53,
+  "gameBuildId": "0f171eb9c2bb8ec4c369e905",
+  "manifestSha256": "4f2bdd240435265a6ad38e49e67469f478664109463f91535c0603de1d147373",
+  "runtimeSourceFiles": 119,
+  "frozenFilesVerified": 120,
+  "frozenTestSourcesVerified": 53,
+  "changedRuntimeFiles": [
+    "CardPresentation.cs",
+    "CardSummaryMechanics.cs",
+    "CraftingCatalog.cs",
+    "CrossSubjectSynergies.cs",
+    "DescriptionSummary.cs",
+    "EquipmentIdentity.cs",
+    "FreeCastMechanics.cs",
+    "LumiaCraftPerformanceVerification.cs",
+    "LumiaGame.cs",
+    "LumiaUltimateVerification.cs",
+    "SkillIdentityCore.cs",
+    "SkillMechanics.cs",
+    "StatusMechanics.cs",
+    "TacticalSkills.cs"
+  ],
+  "tests": {
+    "result": "PASS",
+    "assertions": 254386
+  },
+  "build": {
+    "result": "Succeeded",
+    "errors": 0,
+    "warnings": 0
+  },
+  "browserProof": "browser-validation.json",
+  "physicalHardwareTested": false,
+  "screenshots": [
+    "crafting-all.jpg",
+    "crafting-meteorite.jpg",
+    "crafting-tree.jpg",
+    "crafting-mithril.jpg",
+    "crafting-force.jpg",
+    "crafting-blood.jpg",
+    "crafting-combined-empty.jpg",
+    "gear-stacking-scope.jpg",
+    "skill-combo-summary.jpg",
+    "skill-combo-detail.jpg",
+    "skill-combo-actual-costs.jpg",
+    "crafting-mobile.jpg"
+  ],
+  "liveChecks": 21,
+  "protectedWebFilesVerified": 7,
+  "cleanupTargetsAbsent": 5,
+  "removedTargets": 5,
+  "removedBytes": 7049076365,
+  "freeBytesAfter": 20510846976,
+  "limitation": "Browser verification completed; physical mobile hardware was not tested."
+}

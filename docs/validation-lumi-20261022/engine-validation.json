@@ -1,0 +1,38 @@
+{
+  "result": "PASS",
+  "verifiedAtUtc": "2026-10-21T16:10:19.612Z",
+  "runtime": "Unity 6000.3.11f1 Roslyn compiler and bundled Mono; pure C# game engine, no Unity graphics",
+  "focused": {
+    "command": "Tools/RunCoreTests.ps1 -LumiOnly",
+    "assertions": 16126,
+    "exitCode": 0
+  },
+  "full": {
+    "command": "Tools/RunCoreTests.ps1",
+    "assertions": 252846,
+    "exitCode": 0
+  },
+  "sourceHashes": {
+    "Assets/Scripts/Lumia/GameEngine.cs": "21634b8a3f6310f41b577503b0191a17ab56f864903a7c404f44c3507ac49095",
+    "Assets/Scripts/Lumia/GameEngineLumi.cs": "281fc17c217c81b617df607aa2dae54d0b30479d1bc46ee86693b7a06208a40c",
+    "Tools/LumiSmokeTests.cs": "c73fe343e91d962b43bda2da174cd1e7cb64b04e23422929a1ff4f3d1c215f75",
+    "Tools/CoreSmokeTests.cs": "12850f7939b0254640297e85ee702a277b64255ca38148cca0027f5868f8be70",
+    "Tools/RunCoreTests.ps1": "8e75d263d44092fc34d8836399431555c198196a98bb8c0db5e2deb85b3641b0"
+  },
+  "coverage": [
+    "Three-percent occurrence committed in victory rewards before confirmation; no post-confirmation reroll or retroactive legacy roll",
+    "Subject/wildlife post-reward offer, catch/pass and save persistence",
+    "Computed kiosk proximity starts exactly three nonattacking turns; normal shop otherwise",
+    "Cumulative damage40→credits20, multi-threshold payouts, research journal grants and no ordinary challenge rewards",
+    "Four exact prices, no coupon, one stock per visit, all valid objects eligible and stock/purchases persisted",
+    "Camera two-row reveal without credit charge; portable kiosk map/camp preservation across save/load",
+    "Lumi research1000data, cumulative tasks, report-only subject, standalone rare offer and account appearance preferences",
+    "Complete existing game-rule regression suite"
+  ],
+  "notes": [
+    "The first full attempt caught a confirmation-RNG regression; production was corrected to commit the appearance roll at victory.",
+    "The next full attempt found an old generated-route fixture without a valid optional Lumi decision; that fixture now passes Lumi and verifies continued progression.",
+    "Final full suite above passed on the final engine source.",
+    "Headless core validation does not replace Unity rendering/browser QA handled by parent."
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "mode": "prepare",
+  "result": "PASS",
+  "startedAtUtc": "2026-10-25T15:27:27.247Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "version": "1.0.26",
+  "baselinePublication": {
+    "versionNumber": 51,
+    "commitSha": "24f431c9fdbb006f28a476aff6302ba41e89054d"
+  },
+  "productionRequests": false,
+  "steps": {
+    "successfulBuildPackaged": true,
+    "isolatedUploaderCopiedUnchanged": true,
+    "oldPublicGameRestoredToVerifiedCanonicalBytes": true,
+    "oldBuildMetadataPreserved": true,
+    "newR2RecordsAllowed": true
+  },
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SkillReferencesRelease20261025\\transactions\\prepare-55393dc5-6664-4fa0-81ed-1d8dbade324f",
+      "bytes": 23136717
+    }
+  ],
+  "sourceHashes": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "Temp\\SiteSkillReferences20261025\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "Temp\\SiteSkillReferences20261025\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "Temp\\SiteSkillReferences20261025\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SiteSkillReferences20261025\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da"
+  },
+  "verifiedOldStaticAssets": 9,
+  "verifiedNewStaticAssets": 9,
+  "sourceHashesAfter": {
+    "WebSite\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "Temp\\SiteSkillReferences20261025\\lib\\game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "Temp\\SiteSkillReferences20261025\\app\\page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "Temp\\SiteSkillReferences20261025\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SiteSkillReferences20261025\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da"
+  },
+  "release": {
+    "root": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SkillReferencesRelease20261025",
+    "manifestSha256": "69d87aa28379352f3ba29eefada716159fd299ac3c9ff59d050f4414519aee0f",
+    "buildId": "75e2024a587fc1546e8b2861",
+    "gameTreeSha256": "cf8e2b2cda2d887432e90beb39ac74170806ef7c3a6588900fb4a1f50a4fbefc",
+    "uploaderSha256": "2d75155c56ac8fde907ebcefda16af24e1aad2d18bf2b81182b14aabac740d11",
+    "r2Assets": [
+      {
+        "path": "/game/Build/d6500381e61e624c3b7deb6c7a68f247.data.unityweb",
+        "size": 320396841,
+        "sha256": "028965d2d2252600f10e69897547f70586f8305304da22b3360f7f13f941092f"
+      }
+    ]
+  },
+  "baseline": {
+    "manifestSha256": "4f2bdd240435265a6ad38e49e67469f478664109463f91535c0603de1d147373",
+    "canonicalGameTreeSha256": "b72c4ccc55dc3847b3c895cd06f0dfde405e4015235c0d1aab644556524328a4",
+    "stageOriginalGameTreeSha256": "b72c4ccc55dc3847b3c895cd06f0dfde405e4015235c0d1aab644556524328a4",
+    "stageOriginalManifestSha256": "4f2bdd240435265a6ad38e49e67469f478664109463f91535c0603de1d147373",
+    "stageGameTreeSha256": "b72c4ccc55dc3847b3c895cd06f0dfde405e4015235c0d1aab644556524328a4",
+    "stageUnionManifestSha256": "47cf6279b7f6700a5ee1e89955874ccbdb8b7f92f0cff7b9d6fb89f90eb691b0"
+  },
+  "completedAtUtc": "2026-10-25T15:27:31.196Z"
+}

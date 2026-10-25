@@ -1,0 +1,125 @@
+{
+  "result": "PASS",
+  "startedAtUtc": "2026-10-21T17:15:46.2704218Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "gates": [
+    "Deployment succeeded",
+    "Publication identity matches",
+    "Live PASS",
+    "Browser PASS",
+    "Core PASS",
+    "Canonical release sync PASS",
+    "Verified servers stopped",
+    "CIM process inspection"
+  ],
+  "targets": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build",
+      "bytes": 6266897321,
+      "files": 44045,
+      "kind": "Disposable Unity build project, raw Web121 export and release build log"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteLumi20261022",
+      "bytes": 672215570,
+      "files": 304,
+      "kind": "Completed official publication checkout and local runtime files"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiRelease20261022",
+      "bytes": 23142654,
+      "files": 11,
+      "kind": "Owned release package, isolated uploader and completed swap transaction backups"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\CoreTests.exe",
+      "bytes": 1850368,
+      "files": 1,
+      "kind": "Generated focused/full C# test executable"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiResearchTests",
+      "bytes": 0,
+      "files": 0,
+      "kind": "Owned Lumi profile transaction test scratch directory"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-lumi-20261022\\site.tar.gz",
+      "bytes": 26189383,
+      "files": 1,
+      "kind": "Successfully saved deployment archive"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-lumi-20261022\\bridge.tar.gz",
+      "bytes": 174755571,
+      "files": 1,
+      "kind": "Completed old-game upload transition archive"
+    }
+  ],
+  "absentTargets": [],
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build",
+      "bytes": 6266897321,
+      "files": 44045,
+      "kind": "Disposable Unity build project, raw Web121 export and release build log"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteLumi20261022",
+      "bytes": 672215570,
+      "files": 304,
+      "kind": "Completed official publication checkout and local runtime files"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiRelease20261022",
+      "bytes": 23142654,
+      "files": 11,
+      "kind": "Owned release package, isolated uploader and completed swap transaction backups"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\CoreTests.exe",
+      "bytes": 1850368,
+      "files": 1,
+      "kind": "Generated focused/full C# test executable"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiResearchTests",
+      "bytes": 0,
+      "files": 0,
+      "kind": "Owned Lumi profile transaction test scratch directory"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-lumi-20261022\\site.tar.gz",
+      "bytes": 26189383,
+      "files": 1,
+      "kind": "Successfully saved deployment archive"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-lumi-20261022\\bridge.tar.gz",
+      "bytes": 174755571,
+      "files": 1,
+      "kind": "Completed old-game upload transition archive"
+    }
+  ],
+  "removedBytes": 7165050867,
+  "freeBytesBefore": 16198422528,
+  "unlinkedJunctions": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteLumi20261022\\node_modules"
+  ],
+  "preserved": [
+    "Assets",
+    "ArtSource",
+    "Packages",
+    "ProjectSettings",
+    "Tools",
+    "docs",
+    "WebSite\\build",
+    "WebSite\\public\\game\\Build",
+    "WebSite\\.sites-runtime",
+    "WebSite\\node_modules"
+  ],
+  "noProcessWasStopped": true,
+  "completedAtUtc": "2026-10-21T17:16:32.4901064Z",
+  "freeBytesAfter": 23440982016,
+  "note": "Removed bytes are logical generated-file sizes; concurrent filesystem activity may change the free-space delta."
+}

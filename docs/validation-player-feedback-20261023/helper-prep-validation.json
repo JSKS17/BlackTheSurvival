@@ -1,0 +1,88 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-22T19:13:37.256Z",
+  "scope": "Release helper preparation and offline syntax/provenance only",
+  "productSourceChanged": false,
+  "releaseCommandsExecuted": false,
+  "productionRequests": false,
+  "serverStarted": false,
+  "gameVersion": "1.0.25",
+  "baselineGameVersion": "1.0.24",
+  "baselineSiteVersion": 49,
+  "baselineSourceCommit": "1c0f270115c544860886030bf1028a0aec060e5d",
+  "baselineEnvironmentRevision": 51,
+  "baselineGameBuildId": "8fa247b1755a774777d8e213",
+  "build": "Build/Web125",
+  "stage": "Temp/SitePlayerFeedback20261023",
+  "release": "Temp/PlayerFeedbackRelease20261023",
+  "previewPort": 8246,
+  "syntaxChecks": [
+    {
+      "file": "CreateHelpers.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "PrepareRelease.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "VerifyBridge.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "VerifyLive.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "Preview.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "ValidateHelpers.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "DeriveFixtures.mjs",
+      "validation": "node --check",
+      "result": "PASS"
+    },
+    {
+      "file": "Cleanup.ps1",
+      "validation": "PowerShell Parser.ParseFile",
+      "result": "PASS"
+    }
+  ],
+  "baselineHashes": {
+    "WebSite/lib/unity-assets-manifest.json": "1e0633db77b024d6f4d85f46c92d4269ce80723e92bf21057d4361c9994b73d4",
+    "WebSite/lib/game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite/app/page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite/.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite/app/game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "WebSite/package-lock.json": "e224d3aa65e17c80c62fbfb9c38b871a4d675608ea7ce1373a979ff27990fd96",
+    "WebSite/scripts/upload-unity.mjs": "2d75155c56ac8fde907ebcefda16af24e1aad2d18bf2b81182b14aabac740d11",
+    "WebSite/scripts/package-unity.mjs": "31417f232e8262c05597a95a9124af42cf38fee06879420ae293d1861b27754a"
+  },
+  "embeddedBrowserScripts": [
+    {
+      "script": "generic fixture QA",
+      "gameVersion": "1.0.25",
+      "result": "PASS"
+    },
+    {
+      "script": "generic fixture QA",
+      "gameVersion": "1.0.24",
+      "result": "PASS"
+    },
+    {
+      "script": "local mobile detection model",
+      "result": "PASS",
+      "runtimeAssertions": 3
+    }
+  ]
+}

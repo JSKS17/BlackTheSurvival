@@ -1,0 +1,109 @@
+{
+  "result": "CONFIRMED",
+  "reviewedAtUtc": "2026-10-22T04:08:51.8176275Z",
+  "traceSHA256": "f9272f4d6d5b9a5301c5f22cc6a605163fe9c648abfbfab6ec1123d51d00c771",
+  "mainCause": "GUIToScreenPoint applies the current GUI scale but adds nested native ScrollView group origins without scaling them. Registered card-body bounds are below the screen and intersect to zero height, so native touch has no scroll candidate and the overlapping card button activates.",
+  "nativeTouch": {
+    "screen": [
+      57,
+      323
+    ],
+    "guiPointerType": "Mouse",
+    "phase": "Began",
+    "fingerId": 0,
+    "inputCount": 1,
+    "guiRawType": "mouseDown"
+  },
+  "parent": {
+    "key": "touch-scroll-3",
+    "maximumScroll": [
+      0,
+      0
+    ],
+    "screenBounds": [
+      12.27779,
+      225.8194,
+      495.0278,
+      129.1806
+    ],
+    "logicalViewport": [
+      24,
+      458,
+      1004,
+      262
+    ],
+    "ppu": [
+      0.4930556,
+      0.4930556
+    ]
+  },
+  "childOriginal": {
+    "beginOutcome": "rejected no candidate",
+    "buttonControlAfterDown": 44,
+    "registeredBounds": [
+      29.86807,
+      511.25,
+      75.4375,
+      0
+    ],
+    "key": "touch-scroll-4",
+    "logicalViewport": [
+      11,
+      108,
+      166,
+      109
+    ],
+    "maxScrollY": 125.17,
+    "containsNativeTouch": false
+  },
+  "childCorrected": {
+    "visibleSize": [
+      75.4375068,
+      53.7430604
+    ],
+    "derivation": "parent.screenContentOrigin + child.localViewport.position * parent.pixelsPerUnit",
+    "origin": [
+      17.7014016,
+      279.06940480000003
+    ],
+    "containsNativeTouch": true
+  },
+  "fixReview": {
+    "nestedComposition": {
+      "directlyComposed": [
+        110.475,
+        59.275
+      ],
+      "recurrence": [
+        110.475,
+        59.275
+      ],
+      "scale": 0.5,
+      "result": "PASS",
+      "depth": 3,
+      "includesNonzeroViewRectAndFractionalScrollAndNativeCorrection": true
+    },
+    "rounding": "Round combined native scroll and viewRect offset per axis before adding correction",
+    "verdict": "APPROVED",
+    "contentOriginFormula": "viewportScreenOrigin + (Round(-nativeScroll - viewRect.position) + (nativeScroll - desiredScroll)) * pixelsPerUnit",
+    "identity": "Child viewport key stays independent of its own scroll; parent identity distinguishes equal semantic content",
+    "assumptionChecked": "Current nested managed scrollers contain no intervening unmanaged GUI.BeginGroup or GUI.matrix mutation",
+    "diagnostics": "Native input exists and follows the full swipe; touch tracking never begins because child bounds are empty. Event-only and delayed-input fixes are separate edge-case protections."
+  },
+  "evidence": [
+    "BTS_TOUCH f=3204 input finger=0 phase=Began raw=(57.00, 32.00) screen=(57.00, 323.00) tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=0 ownButton=0 layer=0/0 wait=False",
+    "BTS_TOUCH f=3204 area touch-scroll-3 bounds=12.27779,225.8194,495.0278,129.1806 enabled=True layer=0 depth=1 max=0,0 pos=0,0 ppu=0.4930556,0.4930556",
+    "BTS_TOUCH f=3204 area touch-scroll-4 bounds=29.86807,511.25,75.4375,0 enabled=True layer=0 depth=2 max=0,125.17 pos=0,0 ppu=0.4930556,0.4930554",
+    "BTS_TOUCH f=3204 begin rejected no candidate",
+    "BTS_TOUCH f=3204 area touch-scroll-3 bounds=12.27779,225.8194,495.0278,129.1806 enabled=True layer=0 depth=1 max=0,0 pos=0,0 ppu=0.4930556,0.4930556",
+    "BTS_TOUCH f=3204 area touch-scroll-4 bounds=29.86807,511.25,75.4375,0 enabled=True layer=0 depth=2 max=0,125.17 pos=0,0 ppu=0.4930556,0.4930554",
+    "BTS_TOUCH f=3204 area touch-scroll-3 bounds=12.27779,225.8194,495.0278,129.1806 enabled=True layer=0 depth=1 max=0,0 pos=0,0 ppu=0.4930556,0.4930556",
+    "BTS_TOUCH f=3204 area touch-scroll-4 bounds=29.86807,511.25,75.4375,0 enabled=True layer=0 depth=2 max=0,125.17 pos=0,0 ppu=0.4930556,0.4930554",
+    "BTS_TOUCH f=3204 begin rejected no candidate",
+    "BTS_TOUCH f=3204 scope touch-scroll-3 semantic=combat-hand viewport=(x:24.00, y:458.00, width:1004.00, height:262.00) screen=(x:12.28, y:225.82, width:495.03, height:129.18) visible=12.27779,225.8194,495.0278,129.1806 enabled=True max=0,0 desiredBefore=(0.00, 0.00) ppu=0.4930556,0.4930556 guiToScreenP0=(12.28, 225.82) matrixP0=(12.28, 225.82, 0.00) matrix=0.4930556,0.4930556,0.444458,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=0 ownButton=0 layer=0/0 wait=False",
+    "BTS_TOUCH f=3204 scope touch-scroll-4 semantic=body viewport=(x:11.00, y:108.00, width:166.00, height:109.00) screen=(x:29.87, y:511.25, width:81.85, height:53.74) visible=29.86807,511.25,75.4375,0 enabled=True max=0,125.17 desiredBefore=(0.00, 0.00) ppu=0.4930556,0.4930554 guiToScreenP0=(29.87, 511.25) matrixP0=(5.87, 53.25, 0.00) matrix=0.4930556,0.4930556,0.444458,0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=0 ownButton=0 layer=0/0 wait=False",
+    "BTS_TOUCH f=3204 button captured event=mouseDown previous=0 tracking=False dragging=False owner= axis=None scroll=0,0 native=1/Began/False hot=44 ownButton=44 layer=0/0 wait=False"
+  ],
+  "reviewedProductionSHA256": "165cbbfa78dae4346d2d82320234e2acad90d83669a562386ac8471fe25abd83",
+  "productionImplementationReview": "Actual 165cbbfa patch implements approved nested-origin recurrence and combined Round/native correction formula. Root GUIToScreenPoint behavior remains unchanged; local ppu derives from endpoint differences, which cancel incorrect clip-origin translations. No production edits by reviewer."
+}

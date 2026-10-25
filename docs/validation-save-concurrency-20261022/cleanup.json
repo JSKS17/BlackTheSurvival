@@ -1,0 +1,609 @@
+{
+  "result": "PASS",
+  "startedAtUtc": "2026-10-21T15:19:02.7932859Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "gates": [
+    "Deployment succeeded",
+    "Live verification PASS",
+    "Canonical allFilesVerified",
+    "Backend PASS",
+    "Frontend PASS",
+    "Owned servers stopped"
+  ],
+  "processesInspected": true,
+  "targets": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build",
+      "bytes": 8933968358,
+      "files": 54788,
+      "kind": "All root build exports, archives, caches and obsolete verification outputs"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\DescriptionAudit",
+      "bytes": 1119744,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiaVerification",
+      "bytes": 1686528,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\ModeUnlockTests",
+      "bytes": 0,
+      "files": 0,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\ResearchStoreTests",
+      "bytes": 0,
+      "files": 0,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\StoryHistoryTests",
+      "bytes": 0,
+      "files": 0,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalPreview",
+      "bytes": 225207,
+      "files": 8,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\CoreTests.exe",
+      "bytes": 1823744,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\ExportTacticalPreview.exe",
+      "bytes": 9216,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\ProseAudit.exe",
+      "bytes": 6656,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalAdvancedSmokeTests.exe",
+      "bytes": 1802240,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalModuleTests.exe",
+      "bytes": 1793024,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalStatusSmokeTests.exe",
+      "bytes": 1803264,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\RunTacticalModuleTests.ps1",
+      "bytes": 8316,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalModuleCoreSmokeTests.cs",
+      "bytes": 226513,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalModuleTestRunner.cs",
+      "bytes": 309,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalStatusHarness.cs",
+      "bytes": 810,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalQaFullTail20261020-result.json",
+      "bytes": 3592,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalQaFullTail20261020-resumed.log",
+      "bytes": 5581,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalQaFullTail20261020.cs",
+      "bytes": 2274,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalQaFullTail20261020.exe",
+      "bytes": 6656,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalQaFullTail20261020.log",
+      "bytes": 4056,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalQaFullTail20261020.methods.txt",
+      "bytes": 2294,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release119-full-core-tests.log",
+      "bytes": 892,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release119-summary-tests.log",
+      "bytes": 109,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release119-tactical-tests.log",
+      "bytes": 98,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release120-core-tests.log",
+      "bytes": 892,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release120-description-audit-final.log",
+      "bytes": 3521,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release120-description-audit-updated.log",
+      "bytes": 3521,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release120-description-audit.log",
+      "bytes": 431,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\sua-replay-core-tests.log",
+      "bytes": 892,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\sua-replay-summary-tests.log",
+      "bytes": 109,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\tactical-full-core-tests.log",
+      "bytes": 892,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\tactical-prose-summary-tests.log",
+      "bytes": 109,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\tactical-prose-tests.log",
+      "bytes": 98,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\tactical-runtime-compile.log",
+      "bytes": 906,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\tactical-weapon-regression.log",
+      "bytes": 108,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteSaveConcurrency20261022",
+      "bytes": 971272655,
+      "files": 364,
+      "kind": "This completed publication checkout and local QA data"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\WebSite\\dist",
+      "bytes": 26810339,
+      "files": 84,
+      "kind": "Canonical generated web build/preview output"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\WebSite\\.next",
+      "bytes": 1257,
+      "files": 1,
+      "kind": "Canonical generated web build/preview output"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\WebSite\\.wrangler",
+      "bytes": 230880,
+      "files": 18,
+      "kind": "Canonical generated web build/preview output"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\site.tar.gz",
+      "bytes": 174753458,
+      "files": 1,
+      "kind": "Saved publication archive"
+    }
+  ],
+  "unlinkedJunctions": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Build\\SiteTactical118\\node_modules",
+    "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteSaveConcurrency20261022\\node_modules"
+  ],
+  "copiedEvidence": [
+    {
+      "source": "C:\\Users\\azxar\\BlackTheSurvival\\Build\\LoginSaveDiagnosis20261021\\diagnosis.json",
+      "destination": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\prior-evidence\\Build\\LoginSaveDiagnosis20261021\\diagnosis.json",
+      "bytes": 3734,
+      "sha256": "53bac8aa6f237eb79da163ebede0e687add9ea3018dda4bac12385e0eddd4988"
+    },
+    {
+      "source": "C:\\Users\\azxar\\BlackTheSurvival\\Build\\LoginSaveDiagnosis20261021\\global-save-lock-reproduction.json",
+      "destination": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\prior-evidence\\Build\\LoginSaveDiagnosis20261021\\global-save-lock-reproduction.json",
+      "bytes": 948,
+      "sha256": "8d6357e8e0b926e16ff57262e717dd8163aa9bc1c7d0450fe044f4643716227d"
+    },
+    {
+      "source": "C:\\Users\\azxar\\BlackTheSurvival\\Build\\LoginSaveDiagnosis20261021\\reproduce-global-save-lock.mjs",
+      "destination": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\prior-evidence\\Build\\LoginSaveDiagnosis20261021\\reproduce-global-save-lock.mjs",
+      "bytes": 4069,
+      "sha256": "9d00880f9d2c8b2659512c4caa4e756c63013ce36051bc9350745b710d3e9ae6"
+    },
+    {
+      "source": "C:\\Users\\azxar\\BlackTheSurvival\\Build\\DisplayPreferencesVerification\\publish-state.json",
+      "destination": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\prior-evidence\\Build\\DisplayPreferencesVerification\\publish-state.json",
+      "bytes": 2142,
+      "sha256": "2dc42cef268fcd553b0c83b1eaf3cebcebdb340c9cb265162b32ab714b01a17a"
+    },
+    {
+      "source": "C:\\Users\\azxar\\BlackTheSurvival\\Build\\DisplayPreferencesVerification\\backend-validation.json",
+      "destination": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\prior-evidence\\Build\\DisplayPreferencesVerification\\backend-validation.json",
+      "bytes": 3397,
+      "sha256": "f0eaa9f21dbf073c7789fc62147c720d3154f1928e541e0c7c087c8560ebb5e1"
+    },
+    {
+      "source": "C:\\Users\\azxar\\BlackTheSurvival\\Build\\DisplayPreferencesVerification\\client-validation.json",
+      "destination": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\prior-evidence\\Build\\DisplayPreferencesVerification\\client-validation.json",
+      "bytes": 2951,
+      "sha256": "3ffdaba1acfabae691a80dd1793cf65055434e31c628174288fae85c15225253"
+    },
+    {
+      "source": "C:\\Users\\azxar\\BlackTheSurvival\\Build\\DisplayPreferencesVerification\\integration-validation.json",
+      "destination": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\prior-evidence\\Build\\DisplayPreferencesVerification\\integration-validation.json",
+      "bytes": 1954,
+      "sha256": "6991985ebe36a9e451ef391be5331e0a2695f73d468824fa322aef588a2cb260"
+    },
+    {
+      "source": "C:\\Users\\azxar\\BlackTheSurvival\\Build\\DisplayPreferencesVerification\\browser-validation.json",
+      "destination": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\prior-evidence\\Build\\DisplayPreferencesVerification\\browser-validation.json",
+      "bytes": 1275,
+      "sha256": "4bc904cc5196bb4fcedc3186d3aabf58d1952496bde492c767292a6edf125dd1"
+    },
+    {
+      "source": "C:\\Users\\azxar\\BlackTheSurvival\\Build\\DisplayPreferencesVerification\\live-validation.json",
+      "destination": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\prior-evidence\\Build\\DisplayPreferencesVerification\\live-validation.json",
+      "bytes": 12627,
+      "sha256": "cc1025cfeea22e82c320b530034d6b37f3402a5a98fdda9c7e4d24fe38d2839f"
+    },
+    {
+      "source": "C:\\Users\\azxar\\BlackTheSurvival\\Build\\Release120Verification\\Transition\\state.json",
+      "destination": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\prior-evidence\\Build\\Release120Verification\\Transition\\state.json",
+      "bytes": 14912,
+      "sha256": "1094951b08f1c0126d4df130459f194f281de7f08cfdea1574df5bd716835fe3"
+    }
+  ],
+  "skippedEvidence": [],
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build",
+      "bytes": 8933968358,
+      "files": 54788,
+      "kind": "All root build exports, archives, caches and obsolete verification outputs"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\DescriptionAudit",
+      "bytes": 1119744,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\LumiaVerification",
+      "bytes": 1686528,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\ModeUnlockTests",
+      "bytes": 0,
+      "files": 0,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\ResearchStoreTests",
+      "bytes": 0,
+      "files": 0,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\StoryHistoryTests",
+      "bytes": 0,
+      "files": 0,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalPreview",
+      "bytes": 225207,
+      "files": 8,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\CoreTests.exe",
+      "bytes": 1823744,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\ExportTacticalPreview.exe",
+      "bytes": 9216,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\ProseAudit.exe",
+      "bytes": 6656,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalAdvancedSmokeTests.exe",
+      "bytes": 1802240,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalModuleTests.exe",
+      "bytes": 1793024,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalStatusSmokeTests.exe",
+      "bytes": 1803264,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\RunTacticalModuleTests.ps1",
+      "bytes": 8316,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalModuleCoreSmokeTests.cs",
+      "bytes": 226513,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalModuleTestRunner.cs",
+      "bytes": 309,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalStatusHarness.cs",
+      "bytes": 810,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalQaFullTail20261020-result.json",
+      "bytes": 3592,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalQaFullTail20261020-resumed.log",
+      "bytes": 5581,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalQaFullTail20261020.cs",
+      "bytes": 2274,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalQaFullTail20261020.exe",
+      "bytes": 6656,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalQaFullTail20261020.log",
+      "bytes": 4056,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\TacticalQaFullTail20261020.methods.txt",
+      "bytes": 2294,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release119-full-core-tests.log",
+      "bytes": 892,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release119-summary-tests.log",
+      "bytes": 109,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release119-tactical-tests.log",
+      "bytes": 98,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release120-core-tests.log",
+      "bytes": 892,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release120-description-audit-final.log",
+      "bytes": 3521,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release120-description-audit-updated.log",
+      "bytes": 3521,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\release120-description-audit.log",
+      "bytes": 431,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\sua-replay-core-tests.log",
+      "bytes": 892,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\sua-replay-summary-tests.log",
+      "bytes": 109,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\tactical-full-core-tests.log",
+      "bytes": 892,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\tactical-prose-summary-tests.log",
+      "bytes": 109,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\tactical-prose-tests.log",
+      "bytes": 98,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\tactical-runtime-compile.log",
+      "bytes": 906,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\tactical-weapon-regression.log",
+      "bytes": 108,
+      "files": 1,
+      "kind": "Recognized obsolete generated test/preview artifact"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteSaveConcurrency20261022",
+      "bytes": 971272655,
+      "files": 364,
+      "kind": "This completed publication checkout and local QA data"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\WebSite\\dist",
+      "bytes": 26810339,
+      "files": 84,
+      "kind": "Canonical generated web build/preview output"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\WebSite\\.next",
+      "bytes": 1257,
+      "files": 1,
+      "kind": "Canonical generated web build/preview output"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\WebSite\\.wrangler",
+      "bytes": 230880,
+      "files": 18,
+      "kind": "Canonical generated web build/preview output"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\site.tar.gz",
+      "bytes": 174753458,
+      "files": 1,
+      "kind": "Saved publication archive"
+    }
+  ],
+  "absentTargets": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-save-concurrency-20261022\\site-final.tar.gz"
+  ],
+  "removedBytes": 10117579549,
+  "freeBytesBefore": 14992764928,
+  "preserved": [
+    "Assets",
+    "ArtSource",
+    "Packages",
+    "ProjectSettings",
+    "Tools",
+    "docs",
+    "WebSite\\build",
+    "WebSite\\public\\game\\Build",
+    "WebSite\\.sites-runtime",
+    "WebSite\\node_modules"
+  ],
+  "completedAtUtc": "2026-10-21T15:19:52.6748446Z",
+  "freeBytesAfter": 25035714560,
+  "note": "removedBytes counts logical generated-file sizes; free-space change can include concurrent filesystem activity."
+}

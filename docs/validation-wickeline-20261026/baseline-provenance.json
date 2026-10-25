@@ -1,0 +1,48 @@
+{
+  "result": "PASS",
+  "observedAtUtc": "2026-10-25T15:57:22.350Z",
+  "scope": "Canonical local baseline corroborated by preserved publication proofs",
+  "gameVersion": "1.0.26",
+  "siteVersion": 53,
+  "sourceCommit": "3618d496050cce352223ca1098b4ea43b1f0dc4d",
+  "environmentRevision": 55,
+  "gameBuildId": "75e2024a587fc1546e8b2861",
+  "manifestSha256": "69d87aa28379352f3ba29eefada716159fd299ac3c9ff59d050f4414519aee0f",
+  "hashes": {
+    "WebSite/lib/unity-assets-manifest.json": "69d87aa28379352f3ba29eefada716159fd299ac3c9ff59d050f4414519aee0f",
+    "WebSite/lib/game-accounts.mjs": "8e267ad2fd69c8fb892ef6e17efd0f49cea96a17986d428012ac85dbad373e33",
+    "WebSite/app/page.tsx": "16a10237fce86c4c6239a03c73f4812d077bb567e58b024d252ac3a4441e0b77",
+    "WebSite/.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite/app/game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "WebSite/package-lock.json": "e224d3aa65e17c80c62fbfb9c38b871a4d675608ea7ce1373a979ff27990fd96",
+    "WebSite/scripts/upload-unity.mjs": "2d75155c56ac8fde907ebcefda16af24e1aad2d18bf2b81182b14aabac740d11",
+    "WebSite/scripts/package-unity.mjs": "31417f232e8262c05597a95a9124af42cf38fee06879420ae293d1861b27754a"
+  },
+  "helperInputs": {
+    "SourceSchema.mjs": "2ae124442152916e13cc3ab6d6c695d89022c35b14f258f27ae0311024123eb5",
+    "PrepareRelease.mjs": "896f6ea8f95475f71d465b23637ca01424d447122d48d5f452359674933b7947",
+    "VerifyBridge.mjs": "e4ecaf2fe4f40c75fe7eeb91ba926903c9e69945a9c94ee8f7d256ebb009d969",
+    "VerifyLive.mjs": "f5f4656722599e22a50df0a629b339752e7c15d50f6da8140b3bb8006bbdaeb9",
+    "Cleanup.ps1": "81db1ec27588d7d16c27a7ca658f32f3fa39a0c6e6acc4d0dab2e6f60f05a1bd",
+    "Preview.mjs": "047ebf668d401ce0efd18b904a4e8fef21f66dca44406160c3ee9de2ab3ba314",
+    "ValidateBuildSnapshot.mjs": "839ddee3780e02dfa9eb41a379c565cd70c6ca7ec75367369426c45849e591b7",
+    "Complete.mjs": "c8a02ce0074f4ff881bed9799e1294a5934ebcaafef7926300e70d9f69f3a5cd",
+    "ValidateHelpers.mjs": "f78f10b072c7c616f5f953df91ec2166289dc708a0e9a5fc4fd63fc44774ef31",
+    "FreezeSources.mjs": "9b9a1101ff09a760eb17194457897ca7a03afcad127004a3feb18cb54e2c0931",
+    "RecordCoreResults.mjs": "5ae5dca427539625dfb8dd62fe35c610d1c8166ac0517551c0eb3a27cc3cf606"
+  },
+  "copiedFixtures": [
+    {
+      "source": "docs/validation-skill-references-20261025/fixtures/research.json",
+      "target": "fixtures/research.json",
+      "bytes": 544,
+      "sha256": "76ab5af66b7c6a2ef785221ccfd0ae0a493a44e324cf0d54816627a331f98ec9",
+      "byteExact": true
+    }
+  ],
+  "baselineSourceProof": "docs/validation-skill-references-20261025/source-validation.json",
+  "baselineSourceProofSha256": "ae86d9c94e042308e34dbd0f38e6c049e4f009eaaa47d20b8d43ca2535711baa",
+  "productSourceChanged": false,
+  "oldProofsChanged": false,
+  "releaseCommandsExecuted": false
+}

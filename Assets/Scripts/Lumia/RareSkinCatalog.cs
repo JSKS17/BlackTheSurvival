@@ -7,6 +7,7 @@ namespace Lumia
     {
         static readonly Dictionary<string, string> Names = new Dictionary<string, string>
         {
+            { "lumi", "버추얼 루미" },
             { "nia", "니아 (물속성)" },
             { "jackie", "고스트헌터 재키" },
             { "aya", "엘페르트 아야" },

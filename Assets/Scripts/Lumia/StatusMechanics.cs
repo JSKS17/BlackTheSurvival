@@ -199,7 +199,7 @@ namespace Lumia
                 var conditions = new List<string>();
                 if(!string.IsNullOrEmpty(rule.conditionKey))
                     conditions.Add(SkillMechanics.StateCondition(card,rule.conditionKey,rule.conditionAmount,rule.conditionExact));
-                if(!string.IsNullOrEmpty(rule.conditionPrevious))conditions.Add("직전 기술이 "+(GameDatabase.Card(rule.conditionPrevious)?.name ?? rule.conditionPrevious)+"이면");
+                if(!string.IsNullOrEmpty(rule.conditionPrevious))conditions.Add(card.owner+"의 직전 기술이 "+SkillReferences.Name(rule.conditionPrevious,card)+"이면");
                 if(!string.IsNullOrEmpty(rule.conditionKey2))
                     conditions.Add(SkillMechanics.StateCondition(card,rule.conditionKey2,rule.conditionAmount2,rule.conditionExact2));
                 bool hitCondition = rule.timing=="next_basic" || rule.timing!="cast" || rule.onHit;

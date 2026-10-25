@@ -4,7 +4,7 @@
 
 ## 실행
 
-- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 정식 버전은 [v1.0.18](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.18)에 있습니다.
+- [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 정식 버전은 [v1.0.27](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.27)에 있습니다.
 - [웹에서 플레이](https://bser-sts.com): 계정별 진행 기록과 환경 설정을 저장하며 Windows와 같은 게임 규칙을 사용합니다.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
@@ -150,6 +150,8 @@ v1.0.2에서는 늑대·멧돼지·곰·닭을 원작의 외형과 장구를 참
 v1.0.3에서는 변이 동물5종을 원작의 붉은 털·어두운 무늬·보라색 닭 배색을 참고한 전용 스프라이트로 표시합니다. 일반 동물의 기존 그림과 굵은 도트·화면 크기는 유지하며, 기술 아이콘·상세·발동 배너에서도 변이 그림을 사용합니다. 프롤로그2 니아는 작은 도트 표시에서 한쪽 검은 눈라인이 빠지던 문제를 고쳤습니다. [변이 도트와 프롬프트](docs/art-refresh-v1.0.3/wildlife/README.md), [Windows 검증](docs/validation-v1.0.3/README.md)을 참고하세요.
 
 ## 개발·검증
+
+v1.0.27에서는 3막의 모닥불 5곳 중 무작위 한 곳이 위클라인 구역으로 표시됩니다. 위클라인의 신경가스·트리플렛 코드·통제·격리와 불안정 구조를 턴제 전투로 구현했습니다. 승리하면 VF 혈액샘플 1개, 100 크레딧, 생명의 나무 또는 운석 1개를 받고 같은 구역의 모닥불로 바로 이어집니다. 전용 기술은 플레이어 카드 획득 목록에 들어가지 않습니다. [격자 적용 스프라이트와 제작 기록](ArtSource/Wickeline20261026/validation.json), [검증 기록](docs/validation-wickeline-20261026)을 참고하세요.
 
 - `Assets/Scripts/Lumia/DataModels.cs`: 확장 가능한 데이터 정의.
 - `GameDatabase.cs`: 카드·장비·음식·룬·패시브·실험체·이벤트.

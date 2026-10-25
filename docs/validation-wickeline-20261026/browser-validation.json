@@ -1,0 +1,52 @@
+{
+  "result": "PASS",
+  "gameVersion": "1.0.27",
+  "buildId": "00a3d6117a640e6b4da0d5d1",
+  "verifiedAtUtc": "2026-10-25T17:20:40.287Z",
+  "physicalHardwareTested": false,
+  "scope": "Actual built WebGL under desktop Chromium and mobile-detection model; deterministic local account fixtures only.",
+  "checks": {
+    "mapFaceIconAndCampPlacementObserved": true,
+    "wickelineSpriteTransparentGrid": true,
+    "npcGuideAndSkillDetails": true,
+    "gasAndTripletForecast": true,
+    "isolationForecastAndMobileTypography": true,
+    "basicKillImmediatelyCampfire": true,
+    "garnetFatalRAnimationPlaysBeforeCampfire": true,
+    "credits50To150": true,
+    "bloodAndTreeRewardObserved": true,
+    "sameNode84Defeated": true,
+    "guideTextScrollViaWheel": true,
+    "desktopRuntimeErrors": 0
+  },
+  "victorySave": {
+    "stage": "Campfire",
+    "stageEnum": 5,
+    "credits": 150,
+    "objects": [
+      "blood",
+      "tree"
+    ],
+    "activeNodeId": 84,
+    "wickelineDefeated": true,
+    "note": "Unity JsonUtility may emit an empty combat object for null. Stage=Campfire is the active-state discriminator."
+  },
+  "limitations": [
+    "Physical mobile touch hardware was not tested. Drag simulation did not establish real touch input.",
+    "The optional local mobile-detection harness produced a ResizeObserver notification-loop alert at startup; normal retry/dismiss allowed the actual game to run. Desktop fixtures had no runtime console errors."
+  ],
+  "screenshots": [
+    "desktop-map.png",
+    "desktop-guide.png",
+    "desktop-combat.png",
+    "desktop-skill.png",
+    "desktop-gas.png",
+    "desktop-triplet-detail.png",
+    "desktop-victory-campfire.png",
+    "desktop-r-animation.png",
+    "desktop-r-campfire-rewards.png",
+    "mobile-isolation.png",
+    "mobile-guide-top.png",
+    "mobile-guide-scroll.png"
+  ]
+}
