@@ -15,6 +15,12 @@ public static partial class CoreSmokeTests
         try
         {
             if (args.Contains("--balance")) return BalanceSimulation.Run();
+            if (args.Contains("--rune-offers-only"))
+            {
+                RuneRoleCoverage(); RuneWeightedDistributions(); RuneStartingChoicesAndSaves(); RuneRewardBoundaries(); PassiveCardOffers();
+                Console.WriteLine("PASS: " + checks + " assertions across official subject roles, rune-weighted offers, deterministic choices, legacy saves and fixed reward boundaries.");
+                return 0;
+            }
             if (args.Contains("--wickeline-only"))
             {
                 WickelineMapAndIsolation(); WickelineCombatAndPersistence(); WickelineRewardsAndEndless();
@@ -134,7 +140,7 @@ public static partial class CoreSmokeTests
             WeaponGrantChoiceIdentity();
             AdvancedCardRuleDefinitions(); CompanionMechanicTests(); AdvancedCombatMechanics(); AdvancedCardPresentation(); CardSummaryRegression();
             SuaTargetAndBlindMechanics();
-            SaveDeterminism(); PassiveCardOffers(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); CrossSubjectRules(); CrossSubjectCombatAndSave(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
+            SaveDeterminism(); PassiveCardOffers(); RuneRoleCoverage(); RuneWeightedDistributions(); RuneStartingChoicesAndSaves(); RuneRewardBoundaries(); NiaSkillIdentity(); SkillRulesAndIsolation(); BinarySkillStates(); SkillTimedEffects(); SkillEnemyPlanning(); SkillPersistenceAndLimits(); CrossSubjectRules(); CrossSubjectCombatAndSave(); TargetedFreeCasts(); LastOwnSkillReplay(); PacedEnemyActions(); SaveMigration(); LevelCap(); LevelTwentyOnCombatRoute(); CompleteEscapeAndDeath();
             checks += TaziaMechanicSmokeTests.Run();
             checks += SharedPassiveResourceSmokeTests.Run();
             TraitCoverageAndDescriptions(); GlobalPassiveCombat(); GlobalRuneCombat(); TraitHitAndHealingHooks(); TraitPersistenceAndEconomy(); TraitEnemyIntent(); ConditionalSkillRecallAndEffects();
@@ -415,6 +421,9 @@ public static partial class CoreSmokeTests
     private static void RewardsOnlyOnce()
     {
         var e = Ready(); Enter(e, ZoneKind.Subject); int beforeCredit = e.State.credits; Win(e);
+        // This fixture verifies reward idempotence; Lumi's optional continuation
+        // has its own tests and must not depend on a particular initial RNG seed.
+        e.State.rewards.lumiAppears = false;
         Check(e.State.row == -1 && e.State.credits == beforeCredit + e.State.rewards.credits, "rewards awarded once before route resolves");
         int credit = e.State.credits;
         Check(!e.EndTurn() && !e.PlayCard(0) && e.State.credits == credit, "combat cannot re-award rewards");
@@ -426,6 +435,7 @@ public static partial class CoreSmokeTests
         Check(e.FinishRewards() && e.State.row == 0 && !e.FinishRewards(), "rewards resolve node exactly once");
         Check(e.State.deck.Count(x => x == id) == copies + 1 && !e.CanClaimCard(id), "only confirmed reward appended exactly once and cannot be selected after resolution");
         e = Ready(); Enter(e, ZoneKind.Wildlife); Win(e);
+        e.State.rewards.lumiAppears = false;
         e.State.rewards.choices = new List<string> { "basic_attack", "basic_guard" }; e.State.rewards.cardBudget = 1;
         Check(!e.RewardUsesCardLimit && e.RewardCardLimit == 0 && e.RewardRemainingCards == 0 && e.State.rewards.source == RewardSource.Wildlife, "wildlife keeps its cost budget and does not expose a two-card restriction");
         Check(e.CanClaimCard("basic_attack") && e.ClaimCard("basic_attack") && !e.CanClaimCard("basic_guard") && !e.ClaimCard("basic_guard"), "wildlife budget rejects alternate card while full");
@@ -433,6 +443,7 @@ public static partial class CoreSmokeTests
         count = e.State.deck.Count; e.FinishRewards();
         Check(e.State.deck.Count == count + 1 && e.State.deck.Last() == "basic_guard", "changed selection commits only the replacement");
         e = Ready(); Enter(e, ZoneKind.Wildlife); Win(e);
+        e.State.rewards.lumiAppears = false;
         var threeWildlifeChoices = e.State.rewards.choices.Take(3).ToArray();
         e.State.rewards.cardBudget = threeWildlifeChoices.Sum(e.RewardCardPrice);
         count = e.State.deck.Count;
@@ -955,6 +966,7 @@ public static partial class CoreSmokeTests
         // WinBattle spends one RNG draw for credits before drawing the three weighted wildlife skills.
         var predicted = new GameEngine(2); predicted.State.passives = new List<string> { "nia_p" }; predicted.State.rngState = 987654321;
         e = Ready(8821); Enter(e, ZoneKind.Wildlife); e.State.passives = new List<string> { "nia_p" }; e.State.rngState = predicted.State.rngState;
+        predicted.State.mainRune = e.State.mainRune;
         typeof(GameEngine).GetMethod("Next", BindingFlags.NonPublic | BindingFlags.Instance, null, new[] { typeof(int) }, null).Invoke(predicted, new object[] { 25 });
         var expectedReward = SampleCards(predicted, GameDatabase.Cards.Where(c => c.category == "skill" || c.category == "tactical").Select(c => c.id), 3);
         typeof(GameEngine).GetMethod("WinBattle", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(e, null);

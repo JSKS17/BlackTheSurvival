@@ -1,0 +1,32 @@
+{
+  "result": "PREPARED",
+  "preparedAtUtc": "2026-10-26T08:17:10.956Z",
+  "baseline": {
+    "version": "1.0.28",
+    "siteVersion": 57,
+    "environmentVersion": 59,
+    "siteSourceCommit": "73b44728095b8aaae3edf8ada1ebe3409ef62ab2",
+    "manifestSha256": "51e5ec5120bc56fd0ff2f0f2719a0410718049c699580f657a3742cd7fee7c4e",
+    "buildId": "e5ed02dac650693ec7fab3b6",
+    "files": {
+      "lib/game-accounts.mjs": "17b6d120a49d09a22e69a49406786062110d7e8adba2693fcdd5b077f6a49887",
+      "app/page.tsx": "643ee5a6068efc95789682680b2639a8a5b7cbb44ff363cef21dc817a5495bfd",
+      ".gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+      "app/game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+      "package-lock.json": "e224d3aa65e17c80c62fbfb9c38b871a4d675608ea7ce1373a979ff27990fd96",
+      "scripts/package-unity.mjs": "31417f232e8262c05597a95a9124af42cf38fee06879420ae293d1861b27754a",
+      "scripts/upload-unity.mjs": "2d75155c56ac8fde907ebcefda16af24e1aad2d18bf2b81182b14aabac740d11"
+    }
+  },
+  "created": [
+    "PrepareRelease.mjs",
+    "VerifyBridge.mjs",
+    "VerifyLive.mjs",
+    "ObserveUnityBuild.ps1",
+    "Cleanup.ps1",
+    "Preview.mjs",
+    "LocalPresenceBackend.mjs"
+  ],
+  "productionRequests": false,
+  "productChanges": false
+}

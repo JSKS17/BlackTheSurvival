@@ -1,0 +1,56 @@
+{
+  "result": "PASS",
+  "removedAtUtc": "2026-10-26T08:22:29.0834021Z",
+  "reason": "Exploration JavaScript and duplicate full-biography responses removed after preserving source hashes and compact role evidence.",
+  "removedFiles": [
+    {
+      "file": "official-nav-db-entry.js",
+      "bytes": 1608545,
+      "sha256": "f9ba9f5bc65313a78c4b28579a6d5bae2513a48ab22c8dc1a2f77fe4509c71bb"
+    },
+    {
+      "file": "official-db-characters.json",
+      "bytes": 111863,
+      "sha256": "0731b500e0f02d22e02f4bdde3f26518490ac2d204d58e5cfddde2a0fe8e74e1"
+    },
+    {
+      "file": "official-detail-nia.json",
+      "bytes": 14165,
+      "sha256": "3c1a727ae8e69129091463f1d3996a3d8756e3bb619639e69d81a51991b7da1f"
+    },
+    {
+      "file": "official-role-탱커.json",
+      "bytes": 14310,
+      "sha256": "4fafa26870a281de370a8b71d1527c740944a39013e0ec3dd179cfe810160227"
+    },
+    {
+      "file": "official-role-전사.json",
+      "bytes": 48142,
+      "sha256": "4c059f42277de27379b6baf767d18f8671b0c25f9b5b95ad8c829e2af8bacbca"
+    },
+    {
+      "file": "official-role-암살자.json",
+      "bytes": 5572,
+      "sha256": "8f933f78d636fcb3fc3dfd0dcdadc1999cf0905504afe84d42e48c5aa93c4ab5"
+    },
+    {
+      "file": "official-role-스킬-딜러.json",
+      "bytes": 38476,
+      "sha256": "dbbb9d4943e8ec000a56f4d02179f20fd7d4596ddadddb0b70c2a167aee3a00a"
+    },
+    {
+      "file": "official-role-원거리-딜러.json",
+      "bytes": 18742,
+      "sha256": "66730bf05448dae1bf7a732b719aea3e0e6055ccb61ca9bea0f562f3b204d57f"
+    },
+    {
+      "file": "official-role-지원가.json",
+      "bytes": 10976,
+      "sha256": "64d9adbec66380fb34a4e9509b3e728140a5947540e04b57c6cf897cd0b36767"
+    }
+  ],
+  "removedBytes": 1870791,
+  "retainedCharacters": 91,
+  "retainedRoleFilters": 6,
+  "runtimeFilesChanged": false
+}

@@ -7,6 +7,7 @@
 - [Windows 다운로드](https://github.com/JSKS17/BlackTheSurvival/releases): ZIP을 폴더에 모두 압축 해제한 뒤 `BlackTheSurvival.exe`를 실행하세요. 최신 정식 버전은 [v1.0.27](https://github.com/JSKS17/BlackTheSurvival/releases/tag/v1.0.27)에 있습니다.
 - [웹에서 플레이](https://bser-sts.com): 계정별 진행 기록과 환경 설정을 저장하며 Windows와 같은 게임 규칙을 사용합니다.
 - 웹 v1.0.28에서는 로비 로고 오른쪽 위에 현재 접속자 수를 표시합니다. 로그인한 게임 접속 계정을 중복 없이 집계하며, 종료된 접속은 최대 90초 뒤 제외합니다.
+- 웹 v1.1.0에서는 선택한 룬 계열에 맞는 공식 역할군 실험체의 스킬·패시브 추첨 가중치를 4배로 높입니다. 파괴(빨강)는 전사·원거리 딜러, 저항(파랑)은 탱커·전사, 혼돈(보라)은 스킬 딜러·암살자, 지원(초록)은 탱커·지원가에 적용합니다. 복수 역할군을 반영하며 기존 보유 패시브의 스킬 등장 보정과 함께 적용합니다. [공식 역할군 자료](docs/rune-roles-1.1.0/official-roles.json)를 참고하세요.
 - 소스에는 Unity 프로젝트와 제작·검증 자료가 포함됩니다. Unity 캐시·개인 환경 설정·빌드 출력·개인 이어하기 저장은 포함하지 않습니다. Unity **6000.3.11f1**에서 프로젝트 루트를 열면 됩니다.
 - Unity에서 이 프로젝트를 열고 **Play**를 누르면 로비가 나타납니다. `SampleScene`에 오브젝트를 직접 배치할 필요 없이 런타임 부트스트랩이 게임을 시작합니다.
 - 완성된 Windows 빌드가 있으면 `Build/Windows/BlackTheSurvival.exe`를 실행하세요. 같은 폴더의 `BlackTheSurvival_Data`, `MonoBleedingEdge`, `UnityPlayer.dll`도 함께 있어야 합니다.

@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "removedAtUtc": "2026-10-26T08:48:37.7901201Z",
+  "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\CoreTests.exe",
+  "bytes": 1923584,
+  "sha256": "d7c834661557b6824eb6aad94a99df421b38197e47925eeb40a1633a9630dc04",
+  "reason": "Completed full and focused test binary; source, proof and logs preserved"
+}

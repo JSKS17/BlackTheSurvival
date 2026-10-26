@@ -1,0 +1,39 @@
+{
+  "result": "PASS",
+  "recordedAtUtc": "2026-10-26T08:32:47.7177933Z",
+  "reviewer": "/root/presence_backend",
+  "method": "Read-only code and test-source review; no product edits, runtime execution, test execution, server startup or deployment by reviewer.",
+  "sourceFreezeSha256": "67ca424a23542ac7c3bebc9d38abb6f5cfbb04ae0b1b99ec5654358014d50f2a",
+  "reviewedProductHashes": {
+    "Assets/Scripts/Lumia/GameEngineRuneOffers.cs": "7250d7afdac5acf71c6242be5d801d846d096c687935355e6e208dbb86b02a31",
+    "Assets/Scripts/Lumia/SubjectRoleCatalog.cs": "b40c0154b044f48ecdcbe3443c0ef16bd1c58e9fbeb020ec0ac1d3e5d764be1e",
+    "Assets/Scripts/Lumia/GameEngine.cs": "434fda54b2fa7baad877e5d1e53894cc2b6753d00e6277e137488520ff1e34ea",
+    "Assets/Scripts/Lumia/LumiaGame.cs": "7626474e84a4698df8fb4f744e9fb4e611209c726d6e6193e984e80386a037bb",
+    "Assets/Scripts/Lumia/GameDatabase.cs": "646fbc1b23c51fecaa49a653f8f93b812fa37438a0ed4d043bdc8851771cad5b"
+  },
+  "reviewedTestSourceHashes": {
+    "Tools/RuneOfferSmokeTests.cs": "0b1a010b554ba0bb96ede2102d3f3d4a4c15ef8e9b7a18ba36ba761ecf003859",
+    "Tools/CoreSmokeTests.cs": "1f7e316dfdef816dcd8f5c27381a8af23f1f66b8d30309327d55cdc5c41e0210",
+    "Tools/RunCoreTests.ps1": "2d9b09cb0b37525b5977c49db05026ef81452fb897f6f05cef89c30e914959ae"
+  },
+  "testsExecutedByReviewer": false,
+  "gameRuntimeExecutedByReviewer": false,
+  "reviewScope": [
+    "Sequential weighted sampling without replacement removes each selected candidate and its weight together.",
+    "Default card weight 5 and owned-passive weight 9 combine multiplicatively with the rune role factor 4; jointly favored Q/W/E/R cards weigh 36, equivalent to 7.2 times baseline.",
+    "Red Fighter/Marksman, blue Tank/Fighter, purple Mage/Assassin and green Tank/Support mapping; multiple matching roles apply the multiplier once.",
+    "Official 91-subject role catalogue; NPCs and non-subject basic/weapon/tactical cards do not receive role weighting.",
+    "Starting passive/card offers and actual wildlife random card rewards use the weighted paths; authored subject/boss/encounter rewards remain fixed.",
+    "Preparation selections and card slots survive rune changes; stored per-roll seeds prevent color round trips or same-color main/support changes from creating free rerolls.",
+    "Legacy load and same-passive reselect preserve displayed offers and RNG; explicit rune color change or paid reroll opts into new weighting.",
+    "New sampling calls are confined to initial offers, explicit offer changes and wildlife reward generation; loading, enemy intent and combat hand shuffling introduce no new role sampler calls.",
+    "New test sources cover expected 80/20 and 7.2/8.2 distributions, unique offers, save/seed/selection round trips, legacy opt-in, wildlife integration and fixed-reward/combat-shuffle boundaries."
+  ],
+  "resolvedFinding": {
+    "issue": "A support rune from another color could display that color role weighting as if active while actual weighting follows the main rune.",
+    "resolution": "Implementation owner changed support-rune detail text to state that only the current main rune color contributes role weighting and the inspected support rune adds no independent role modifier.",
+    "verifiedInFrozenSource": true,
+    "location": "Assets/Scripts/Lumia/LumiaGame.cs: DrawTraitDetail"
+  },
+  "assessment": "No unresolved blocking issues found within this read-only review scope. Runtime and statistical test execution are separate evidence owned by the parent and implementation agent."
+}

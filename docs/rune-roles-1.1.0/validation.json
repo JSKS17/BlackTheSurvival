@@ -1,0 +1,198 @@
+{
+  "result": "PASS",
+  "startedAtUtc": "2026-10-26T08:19:10.551Z",
+  "completedAtUtc": "2026-10-26T08:19:15.037Z",
+  "rosterSources": {
+    "Assets/Scripts/Lumia/GameDatabase.cs": "646fbc1b23c51fecaa49a653f8f93b812fa37438a0ed4d043bdc8851771cad5b",
+    "Assets/Scripts/Lumia/ClassicRoster.cs": "64fd30549a97cc428f1376d63b6bb21b21350c36474609b1401aac61d03a7349",
+    "Assets/Scripts/Lumia/RecentRoster.cs": "ec22a2c96319e2442939f2624178d4299a24ae66f77fe5ac55f444f60845385c"
+  },
+  "gameCharacters": 91,
+  "officialCharacters": 91,
+  "matchedNames": 91,
+  "missingNames": [],
+  "missingRoles": [],
+  "ambiguousMappings": [],
+  "officialRoleFiltersCrossChecked": 6,
+  "detailsCrossChecked": 91,
+  "roleCounts": {
+    "탱커": 12,
+    "전사": 38,
+    "암살자": 4,
+    "스킬 딜러": 31,
+    "원거리 딜러": 16,
+    "지원가": 9
+  },
+  "singleRoleCharacters": 72,
+  "multipleRoleCharacters": 19,
+  "multiRole": [
+    {
+      "id": "aya",
+      "name": "아야",
+      "roles": [
+        "스킬 딜러",
+        "원거리 딜러"
+      ]
+    },
+    {
+      "id": "sua",
+      "name": "수아",
+      "roles": [
+        "전사",
+        "스킬 딜러"
+      ]
+    },
+    {
+      "id": "isol",
+      "name": "아이솔",
+      "roles": [
+        "스킬 딜러",
+        "원거리 딜러"
+      ]
+    },
+    {
+      "id": "nadine",
+      "name": "나딘",
+      "roles": [
+        "스킬 딜러",
+        "원거리 딜러"
+      ]
+    },
+    {
+      "id": "mai",
+      "name": "마이",
+      "roles": [
+        "탱커",
+        "지원가"
+      ]
+    },
+    {
+      "id": "markus",
+      "name": "마커스",
+      "roles": [
+        "탱커",
+        "전사"
+      ]
+    },
+    {
+      "id": "magnus",
+      "name": "매그너스",
+      "roles": [
+        "탱커",
+        "전사"
+      ]
+    },
+    {
+      "id": "silvia",
+      "name": "실비아",
+      "roles": [
+        "전사",
+        "스킬 딜러"
+      ]
+    },
+    {
+      "id": "adina",
+      "name": "아디나",
+      "roles": [
+        "스킬 딜러",
+        "지원가"
+      ]
+    },
+    {
+      "id": "estelle",
+      "name": "에스텔",
+      "roles": [
+        "탱커",
+        "전사"
+      ]
+    },
+    {
+      "id": "irem",
+      "name": "이렘",
+      "roles": [
+        "전사",
+        "스킬 딜러"
+      ]
+    },
+    {
+      "id": "theodore",
+      "name": "테오도르",
+      "roles": [
+        "원거리 딜러",
+        "지원가"
+      ]
+    },
+    {
+      "id": "priya",
+      "name": "프리야",
+      "roles": [
+        "스킬 딜러",
+        "지원가"
+      ]
+    },
+    {
+      "id": "arda",
+      "name": "아르다",
+      "roles": [
+        "스킬 딜러",
+        "지원가"
+      ]
+    },
+    {
+      "id": "garnet",
+      "name": "가넷",
+      "roles": [
+        "탱커",
+        "전사"
+      ]
+    },
+    {
+      "id": "xuelin",
+      "name": "슈린",
+      "roles": [
+        "전사",
+        "암살자"
+      ]
+    },
+    {
+      "id": "mirka",
+      "name": "미르카",
+      "roles": [
+        "탱커",
+        "전사"
+      ]
+    },
+    {
+      "id": "craver",
+      "name": "크레이버",
+      "roles": [
+        "스킬 딜러",
+        "원거리 딜러"
+      ]
+    },
+    {
+      "id": "ceres",
+      "name": "세레스",
+      "roles": [
+        "탱커",
+        "지원가"
+      ]
+    }
+  ],
+  "externalRuntimeCallsRequired": false,
+  "officialRolesSha256": "86d7d28a1bf73e04b5bbadba098117b61f518091514144f891ddbc3fb1cd9214",
+  "ignoredMalformedRoleFields": [
+    {
+      "id": "alonso",
+      "name": "알론소",
+      "field": "역할군",
+      "value": "글러브"
+    },
+    {
+      "id": "garnet",
+      "name": "가넷",
+      "field": "역할군",
+      "value": "방망이"
+    }
+  ]
+}

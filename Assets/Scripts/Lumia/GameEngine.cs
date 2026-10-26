@@ -125,9 +125,11 @@ namespace Lumia
         // One saved seed per paid draft roll: changing the passive reweights this same roll.
         // Zero marks an older saved draft whose displayed offers must remain intact.
         public int draftSeed;
+        public int passiveOfferSeed;
         public int weaponGrantVersion;
         public int energyGrowthVersion, maxEnergyBonus, bossVictories;
         public string draftBiasPassive;
+        public string passiveBiasRuneTree, draftBiasRuneTree;
         public bool runeChangePending;
         public bool cardUpgradePending;
         public bool rareRemovalPending, rareCopyPending;
@@ -272,7 +274,7 @@ namespace Lumia
             ResearchProgression.EnsureRun(State);
             GenerateMap();
             EnsureBossAssignments();
-            State.passiveOffers = Offer(GameDatabase.Passives.Select(x => x.id), 3);
+            RollStartingPassives();
             RollStartingDraft();
             for (int i = 0; i < 5; ++i) State.deck.Add("basic_attack");
             for (int i = 0; i < 3; ++i) State.deck.Add("basic_guard");
@@ -434,7 +436,9 @@ namespace Lumia
             if (State.rareRemovalPending || State.rareCopyPending || (State.stage != RunStage.Preparation && !State.runeChangePending)) return Fail("룬은 조우 이벤트에서만 변경할 수 있습니다.");
             var m = GameDatabase.Rune(main); var s = GameDatabase.Rune(support);
             if (m == null || s == null || !m.main || s.main || m.tree != s.tree) return Fail("메인 룬과 같은 계열의 보조 룬 1개를 선택하세요.");
+            string previousTree = CurrentRuneTree;
             State.mainRune = main; State.supportRune = support;
+            if (State.stage == RunStage.Preparation && previousTree != m.tree) RefreshStartingRuneOffers();
             PruneUnownedTraits();
             RecalculateHealth(State.stage == RunStage.Preparation);
             return Say(m.name + " / " + s.name + " 룬을 선택했습니다.");
@@ -446,7 +450,7 @@ namespace Lumia
             State.passiveRerolls--;
             State.chosenPassive = null; State.passives.Clear();
             PruneUnownedTraits();
-            State.passiveOffers = Offer(GameDatabase.Passives.Select(x => x.id), 3);
+            RollStartingPassives();
             RefreshStartingDraft();
             RecalculateHealth(true);
             return Say("시작 패시브 선택지를 다시 뽑았습니다.");
@@ -2858,27 +2862,21 @@ namespace Lumia
         }
         private List<string> CardOffer(IEnumerable<string> pool, int amount, ref int randomState)
         {
+            return CardOfferWithRune(pool, amount, true, ref randomState);
+        }
+        private List<string> CardOfferWithRune(IEnumerable<string> pool, int amount, bool runeAffinity, ref int randomState)
+        {
             var candidates = pool.Where(x => !string.IsNullOrEmpty(x)).Distinct().Select(GameDatabase.Card).Where(x => x != null).ToList();
             var owners = PassiveCardOwners();
-            var result = new List<string>();
-            while (result.Count < amount && candidates.Count > 0)
-            {
-                // 9:5 modestly raises the former 3:2 owner preference by 20%.
-                int total = candidates.Sum(card => FavoredSkill(card, owners) ? PassiveSkillOfferWeight : OrdinaryCardOfferWeight);
-                int pick = Next(ref randomState, total), selected = 0;
-                for (; selected < candidates.Count - 1; ++selected)
-                {
-                    pick -= FavoredSkill(candidates[selected], owners) ? PassiveSkillOfferWeight : OrdinaryCardOfferWeight;
-                    if (pick < 0) break;
-                }
-                result.Add(candidates[selected].id); candidates.RemoveAt(selected);
-            }
-            return result;
+            var weights = candidates.ToDictionary(card => card.id, card => CardOfferWeight(card, owners, runeAffinity));
+            return WeightedOffer(candidates.Select(card => card.id), amount,
+                id => weights[id], ref randomState);
         }
         private void RollStartingDraft()
         {
             State.draftSeed = Next(int.MaxValue) + 1;
             State.draftBiasPassive = null;
+            State.draftBiasRuneTree = CurrentRuneTree;
             int randomState = State.draftSeed;
             State.draftOffers = StartingOffers(ref randomState);
             State.draftBiasPassive = State.chosenPassive;
@@ -2889,8 +2887,9 @@ namespace Lumia
             var slots=State.draftOffers==null?new List<string>():State.draftOffers.ToList();
             var pool=RandomCardPool().Where(id=>CardCost(id)<5).ToList();
             // Reweight the same full sample first, so switching passive away and back cannot farm a new roll.
-            var fresh=CardOffer(pool,6,ref randomState).Where(id=>!locked.Contains(id)).Take(6-locked.Count).ToList();
-            if(fresh.Count<6-locked.Count)fresh.AddRange(CardOffer(pool.Where(id=>!locked.Contains(id) && !fresh.Contains(id)),6-locked.Count-fresh.Count,ref randomState));
+            bool runeAffinity = State.draftBiasRuneTree != null;
+            var fresh=CardOfferWithRune(pool,6,runeAffinity,ref randomState).Where(id=>!locked.Contains(id)).Take(6-locked.Count).ToList();
+            if(fresh.Count<6-locked.Count)fresh.AddRange(CardOfferWithRune(pool.Where(id=>!locked.Contains(id) && !fresh.Contains(id)),6-locked.Count-fresh.Count,runeAffinity,ref randomState));
             // Preserve selected cards in their original visual positions, including older saved selections.
             var result=new List<string>();int next=0;
             for(int i=0;i<6;++i)
@@ -2902,13 +2901,21 @@ namespace Lumia
             foreach(var id in locked)if(!result.Contains(id))result.Add(id);
             return result.Take(6).ToList();
         }
-        private void RefreshStartingDraft()
+        private void RefreshStartingDraft(bool runeChange = false)
         {
-            // Legacy saves retain their existing valid offers until the player explicitly rerolls.
-            if (State.draftSeed == 0 || State.draftBiasPassive == State.chosenPassive) return;
+            // Loading legacy offers never changes them. An explicit reroll or
+            // rune color change opts that saved preparation into role weighting.
+            if (runeChange)
+            {
+                if (State.draftSeed == 0) State.draftSeed = Next(int.MaxValue) + 1;
+                State.draftBiasRuneTree = CurrentRuneTree;
+            }
+            else if (State.draftSeed == 0 || State.draftBiasPassive == State.chosenPassive
+                && (State.draftBiasRuneTree == null || State.draftBiasRuneTree == CurrentRuneTree)) return;
             int randomState = State.draftSeed;
             State.draftOffers = StartingOffers(ref randomState);
             State.draftBiasPassive = State.chosenPassive;
+            if (State.draftBiasRuneTree != null) State.draftBiasRuneTree = CurrentRuneTree;
             State.draftSelected.RemoveAll(id => !State.draftOffers.Contains(id));
         }
         private void Shuffle<T>(List<T> list)

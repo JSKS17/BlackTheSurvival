@@ -168,7 +168,11 @@ public static class SharedPassiveResourceSmokeTests
         Check(Resource(c.playerSkills,"yuki","cuff")==0,"one remaining Yuki button is consumed without becoming negative");
         Cast(engine,"yuki_w");
         Check(Resource(c.playerSkills,"yuki","cuff")==3,"Yuki W refills the pool read by both passive and Q");
-        c.enemyEvasion=100; targetHp=c.enemyHp; Cast(engine,"yuki_q");
+        // Earlier Q casts stun the target, reducing even raw 100 evasion to 80.
+        // Isolate the guaranteed-miss case from that separate control mechanic.
+        c.enemyStatuses=new StatusActorState(); c.enemyEvasion=100;
+        Check(engine.EnemyEvasion==100,"the miss fixture has one hundred effective evasion without leftover control");
+        targetHp=c.enemyHp; Cast(engine,"yuki_q");
         Check(Resource(c.playerSkills,"yuki","cuff")==3 && c.enemyHp==targetHp,"a missed Yuki Q spends neither the skill nor passive hit-gated button cost");
         c.enemyEvasion=0;
         Cast(engine,"basic_attack");

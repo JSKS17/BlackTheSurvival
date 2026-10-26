@@ -1,0 +1,24 @@
+{
+  "retrievedAtUtc": "2026-10-26T08:20:12.5695342Z",
+  "officialHomepage": {
+    "url": "https://playeternalreturn.com/main?hl=ko-KR",
+    "responseSha256": "b41da499a937177826d1cadf9a4e5a9761e889044da9177fa7028aab49e9b97f",
+    "status": 200,
+    "linkedCharacterPage": "https://game.naver.com/lounge/Eternal_Return/db/character",
+    "linkOccurrences": 2
+  },
+  "characterPage": {
+    "url": "https://game.naver.com/lounge/Eternal_Return/db/character",
+    "responseSha256": "b771f7643da819cb1e489c4959bc64ea779ce32a79c4341ebb6c7948f51384ec"
+  },
+  "publicJavascript": {
+    "url": "https://ssl.pstatic.net/static/nng/resource/p/static/js/index-Duu5d2dY.js",
+    "responseSha256": "f9ba9f5bc65313a78c4b28579a6d5bae2513a48ab22c8dc1a2f77fe4509c71bb",
+    "bytes": 1608545,
+    "observedApiBase": "https://comm-api.game.naver.com/nng_main/v1",
+    "observedCharacterIndexPath": "/game/db/character/GM_670/dataType/character",
+    "observedCharacterDetailPath": "/game/db/character/objectId/{objectId}",
+    "cacheRemovalPlanned": false,
+    "cacheRemoved": true
+  }
+}

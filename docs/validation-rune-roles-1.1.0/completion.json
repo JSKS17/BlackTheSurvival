@@ -1,0 +1,44 @@
+{
+  "result": "PASS",
+  "completedAtUtc": "2026-10-26T09:19:24.777Z",
+  "version": "1.1.0",
+  "site": "https://bser-sts.com/",
+  "siteVersion": 59,
+  "deploymentId": "appgdep_6adf1a2293e0819189b51e2d5489a948",
+  "siteSourceCommit": "73dec621568bf3ab9ddbf7aae2aac501c588595f",
+  "sourceFreezeSha256": "67ca424a23542ac7c3bebc9d38abb6f5cfbb04ae0b1b99ec5654358014d50f2a",
+  "runtimeSources": 125,
+  "gameplayTests": 257493,
+  "testSourceAmendment": {
+    "amendmentSha256": "fdcd3d39158da85f05ee7a2adefc9f08db2a5ff01183b1dbdd70c24420a8e566",
+    "changes": [
+      {
+        "path": "Tools/CoreSmokeTests.cs",
+        "frozenSha256": "1f7e316dfdef816dcd8f5c27381a8af23f1f66b8d30309327d55cdc5c41e0210",
+        "amendedSha256": "5fef7ea7b1099334bbcd7d68fbf04155a96ed379646a0871adff2ace1c0ffc50",
+        "preservedOriginalTest": "CoreSmokeTests.before-lumi-fixture.cs"
+      },
+      {
+        "path": "Tools/SharedPassiveResourceSmokeTests.cs",
+        "frozenSha256": "d1d106ebf7a569ff25dad74d9ee2625526e1afe7351e1588d5eebf208690e771",
+        "amendedSha256": "5fc888aaa148b6338af3b311b4eebecde0f34d388fa7b1de667f36c932cdd929",
+        "preservedOriginalTest": "SharedPassiveResourceSmokeTests.before-yuki-fixture.cs"
+      }
+    ]
+  },
+  "screenshots": [
+    "rune-red.png",
+    "rune-blue.png",
+    "rune-purple.png",
+    "rune-green.png",
+    "rune-detail.png",
+    "passive-selected.png",
+    "passive-preserved-after.png",
+    "card-selected-before.png",
+    "card-preserved-after.png",
+    "rune-fullscreen.png"
+  ],
+  "physicalMobileTested": false,
+  "liveChecks": 11,
+  "removedBytes": 7099634228
+}

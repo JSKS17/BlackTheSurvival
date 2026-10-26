@@ -1,6 +1,6 @@
-param([string]$UnityEditor = 'C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor', [switch]$Balance, [switch]$UpgradeOnly, [switch]$RareOnly, [switch]$StoryOnly, [switch]$AccuracyOnly, [switch]$WeaponOnly, [switch]$WeaponGrantsOnly, [switch]$AdvancedOnly, [switch]$SuaBlindOnly, [switch]$SummaryOnly, [switch]$CraftingOnly, [switch]$UiOnly, [switch]$SharedResourcesOnly, [switch]$TacticalOnly, [switch]$LumiOnly, [switch]$WickelineOnly)
+param([string]$UnityEditor = 'C:/Program Files/Unity/Hub/Editor/6000.3.11f1/Editor', [switch]$Balance, [switch]$UpgradeOnly, [switch]$RareOnly, [switch]$StoryOnly, [switch]$AccuracyOnly, [switch]$WeaponOnly, [switch]$WeaponGrantsOnly, [switch]$AdvancedOnly, [switch]$SuaBlindOnly, [switch]$SummaryOnly, [switch]$CraftingOnly, [switch]$UiOnly, [switch]$SharedResourcesOnly, [switch]$TacticalOnly, [switch]$LumiOnly, [switch]$WickelineOnly, [switch]$RuneOffersOnly)
 $ErrorActionPreference = 'Stop'
-if (@($Balance,$UpgradeOnly,$RareOnly,$StoryOnly,$AccuracyOnly,$WeaponOnly,$WeaponGrantsOnly,$AdvancedOnly,$SuaBlindOnly,$SummaryOnly,$CraftingOnly,$UiOnly,$SharedResourcesOnly,$TacticalOnly,$LumiOnly,$WickelineOnly).Where({$_}).Count -gt 1) { throw 'Choose only one focused test mode.' }
+if (@($Balance,$UpgradeOnly,$RareOnly,$StoryOnly,$AccuracyOnly,$WeaponOnly,$WeaponGrantsOnly,$AdvancedOnly,$SuaBlindOnly,$SummaryOnly,$CraftingOnly,$UiOnly,$SharedResourcesOnly,$TacticalOnly,$LumiOnly,$WickelineOnly,$RuneOffersOnly).Where({$_}).Count -gt 1) { throw 'Choose only one focused test mode.' }
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $outputPath = Join-Path $projectRoot 'Temp/CoreTests.exe'
 [IO.Directory]::CreateDirectory((Split-Path -Parent $outputPath)) | Out-Null
@@ -27,6 +27,9 @@ foreach ($advancedTest in @('AdvancedRulesSmokeTests.cs','CompanionSmokeTests.cs
     if (Test-Path -LiteralPath $advancedTestPath) { $arguments += $advancedTestPath }
 }
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/AccuracyMechanics.cs'
+$arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/SubjectRoleCatalog.cs'
+$arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/GameEngineRuneOffers.cs'
+$arguments += Join-Path $PSScriptRoot 'RuneOfferSmokeTests.cs'
 $arguments += Join-Path $PSScriptRoot 'AccuracySmokeTests.cs'
 $arguments += Join-Path $projectRoot 'Assets/Scripts/Lumia/WeaponDamageBalance.cs'
 $arguments += Join-Path $PSScriptRoot 'WeaponSpecialMechanicSmokeTests.cs'
@@ -79,7 +82,8 @@ $arguments += @(Get-ChildItem -LiteralPath $PSScriptRoot -Filter 'Research*Smoke
 $arguments += @(Get-ChildItem -LiteralPath (Join-Path $projectRoot 'Assets/Scripts/Lumia') -Filter 'BossProfiles*.cs' | Where-Object { $_.Name -ne 'BossProfiles.cs' } | ForEach-Object { $_.FullName })
 & $runtimePath @arguments
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-if ($WickelineOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--wickeline-only' }
+if ($RuneOffersOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--rune-offers-only' }
+elseif ($WickelineOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--wickeline-only' }
 elseif ($LumiOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--lumi-only' }
 elseif ($TacticalOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--tactical-only' }
 elseif ($SharedResourcesOnly) { & (Join-Path $UnityEditor 'Data/MonoBleedingEdge/bin/mono.exe') $outputPath '--shared-resources-only' }

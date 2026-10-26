@@ -1,0 +1,170 @@
+{
+  "result": "PASS",
+  "gameVersion": "1.1.0",
+  "sourceFreezeSha256": "67ca424a23542ac7c3bebc9d38abb6f5cfbb04ae0b1b99ec5654358014d50f2a",
+  "focusedAssertions": 1922,
+  "log": "rune-offer-tests.log",
+  "logSha256": "adbd65f885de5d1269ce161e1a78bd5920e65f87597a556aa7fca8b914f4a833",
+  "roleLabelRecovery": "The native Mono child emitted CP949 Korean labels through a UTF-8 Node pipe. Numeric output is unchanged. Structured row labels use the fixed four-tree loop order in the frozen RuneOfferSmokeTests.cs source.",
+  "testSourceSha256": "0b1a010b554ba0bb96ede2102d3f3d4a4c15ef8e9b7a18ba36ba761ecf003859",
+  "method": "Actual GameEngine preparation before and after selecting a rune, 160 fixed seeds per color, no owned passive selected; unique weighted sampling without replacement. Pair tests use 16,000 draws per case.",
+  "pairResults": {
+    "unweightedCard": {
+      "hits": 8038,
+      "samples": 16000,
+      "fraction": 0.502375
+    },
+    "roleWeightedCard": {
+      "hits": 12799,
+      "samples": 16000,
+      "fraction": 0.7999375
+    },
+    "roleWeightedPassive": {
+      "hits": 12742,
+      "samples": 16000,
+      "fraction": 0.796375
+    },
+    "roleAndOwnedPassiveCard": {
+      "hits": 14026,
+      "samples": 16000,
+      "fraction": 0.876625
+    }
+  },
+  "combinedCandidateWeight": 7.2,
+  "dualRoleMatchesStack": false,
+  "fixedSubjectBossAndEncounterRewardsReplaced": false,
+  "groups": [
+    {
+      "tree": "파괴",
+      "roles": [
+        "전사",
+        "원거리 딜러"
+      ],
+      "favoredSubjects": 54,
+      "totalSubjects": 91,
+      "candidateWeight": 4,
+      "firstPassiveProbabilityWithoutRoleWeight": 0.5934065934065934,
+      "firstPassiveProbabilityWithRoleWeight": 0.8537549407114624,
+      "empiricalPreparation": {
+        "independentRunSeeds": {
+          "first": 2101,
+          "last": 2260,
+          "count": 160
+        },
+        "passive": {
+          "samples": 480,
+          "beforeHits": 307,
+          "afterHits": 409,
+          "beforeFraction": 0.6395833333333333,
+          "afterFraction": 0.8520833333333333
+        },
+        "card": {
+          "samples": 960,
+          "beforeHits": 527,
+          "afterHits": 782,
+          "beforeFraction": 0.5489583333333333,
+          "afterFraction": 0.8145833333333333
+        }
+      }
+    },
+    {
+      "tree": "저항",
+      "roles": [
+        "탱커",
+        "전사"
+      ],
+      "favoredSubjects": 45,
+      "totalSubjects": 91,
+      "candidateWeight": 4,
+      "firstPassiveProbabilityWithoutRoleWeight": 0.4945054945054945,
+      "firstPassiveProbabilityWithRoleWeight": 0.7964601769911505,
+      "empiricalPreparation": {
+        "independentRunSeeds": {
+          "first": 2101,
+          "last": 2260,
+          "count": 160
+        },
+        "passive": {
+          "samples": 480,
+          "beforeHits": 252,
+          "afterHits": 386,
+          "beforeFraction": 0.525,
+          "afterFraction": 0.8041666666666667
+        },
+        "card": {
+          "samples": 960,
+          "beforeHits": 418,
+          "afterHits": 735,
+          "beforeFraction": 0.4354166666666667,
+          "afterFraction": 0.765625
+        }
+      }
+    },
+    {
+      "tree": "혼돈",
+      "roles": [
+        "스킬 딜러",
+        "암살자"
+      ],
+      "favoredSubjects": 35,
+      "totalSubjects": 91,
+      "candidateWeight": 4,
+      "firstPassiveProbabilityWithoutRoleWeight": 0.38461538461538464,
+      "firstPassiveProbabilityWithRoleWeight": 0.7142857142857143,
+      "empiricalPreparation": {
+        "independentRunSeeds": {
+          "first": 2101,
+          "last": 2260,
+          "count": 160
+        },
+        "passive": {
+          "samples": 480,
+          "beforeHits": 178,
+          "afterHits": 346,
+          "beforeFraction": 0.37083333333333335,
+          "afterFraction": 0.7208333333333333
+        },
+        "card": {
+          "samples": 960,
+          "beforeHits": 368,
+          "afterHits": 662,
+          "beforeFraction": 0.38333333333333336,
+          "afterFraction": 0.6895833333333333
+        }
+      }
+    },
+    {
+      "tree": "지원",
+      "roles": [
+        "탱커",
+        "지원가"
+      ],
+      "favoredSubjects": 19,
+      "totalSubjects": 91,
+      "candidateWeight": 4,
+      "firstPassiveProbabilityWithoutRoleWeight": 0.2087912087912088,
+      "firstPassiveProbabilityWithRoleWeight": 0.5135135135135135,
+      "empiricalPreparation": {
+        "independentRunSeeds": {
+          "first": 2101,
+          "last": 2260,
+          "count": 160
+        },
+        "passive": {
+          "samples": 480,
+          "beforeHits": 96,
+          "afterHits": 237,
+          "beforeFraction": 0.2,
+          "afterFraction": 0.49375
+        },
+        "card": {
+          "samples": 960,
+          "beforeHits": 175,
+          "afterHits": 463,
+          "beforeFraction": 0.18229166666666666,
+          "afterFraction": 0.4822916666666667
+        }
+      }
+    }
+  ]
+}

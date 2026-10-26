@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "sourceFreezeSha256": "67ca424a23542ac7c3bebc9d38abb6f5cfbb04ae0b1b99ec5654358014d50f2a",
+  "productSourceChanged": false,
+  "approvedByRoot": true,
+  "reason": "Old reward idempotence fixture now encounters its legitimate 3% Lumi continuation under the newly seeded initial offers. Scope this fixture to non-Lumi completion; original reward assertions remain unchanged. Dedicated Lumi tests and diagnostic prove cards/currency cannot duplicate.",
+  "diagnosticLog": "reward-fixture-diagnostic.log",
+  "diagnosticLogSha256": "8585e64a0de2ad0c0247537d3377c64628df3aa39747025db07734dcfa8dd83f",
+  "preservedOriginalTest": "CoreSmokeTests.before-lumi-fixture.cs",
+  "changes": [
+    {
+      "path": "Tools/CoreSmokeTests.cs",
+      "frozenSha256": "1f7e316dfdef816dcd8f5c27381a8af23f1f66b8d30309327d55cdc5c41e0210",
+      "amendedSha256": "5fef7ea7b1099334bbcd7d68fbf04155a96ed379646a0871adff2ace1c0ffc50",
+      "scope": "RewardsOnlyOnce: explicitly set lumiAppears=false on its three reward fixtures; no runtime edits."
+    }
+  ]
+}

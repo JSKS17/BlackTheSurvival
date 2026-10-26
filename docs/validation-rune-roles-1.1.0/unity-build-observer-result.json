@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "processId": 10056,
+  "observerStartedAtUtc": "2026-10-26T08:29:52.4892680Z",
+  "finishedAtUtc": "2026-10-26T09:03:48.1310867Z",
+  "exitCode": 0,
+  "manifestResult": "Succeeded",
+  "productVersion": "1.1.0",
+  "errors": 0,
+  "warnings": 0,
+  "durationSeconds": 1996.5828287,
+  "checkedAssetFiles": 287,
+  "rootAndCloneMatchFreeze": true,
+  "mismatches": [],
+  "sourceFreezeSha256": "67ca424a23542ac7c3bebc9d38abb6f5cfbb04ae0b1b99ec5654358014d50f2a",
+  "manifestSha256": "d4e0219e04a1e6bb042caea61b305369f508b1945a5bb2509d2877e4f070d2d6"
+}

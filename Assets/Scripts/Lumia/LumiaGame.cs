@@ -388,16 +388,17 @@ namespace Lumia
         void DrawRuneSelection(bool eventChange)
         {
             Txt(new Rect(36, 170, 1150, 28), "메인 룬 1개 + 같은 계열의 보조 룬 1개", 20, Text);
-            Txt(new Rect(36, 209, 1150, 25), "룬은 특정 조우 이벤트에서만 변경할 수 있습니다.", 14, Muted);
+            Txt(new Rect(36, 209, 1150, 25), "빨강 전사·원거리 딜러 / 파랑 탱커·전사 / 보라 스킬 딜러·암살자 / 초록 탱커·지원가", 14, Muted);
             var mains = GameDatabase.Runes.Where(x => x.main).ToArray();
             for (int i = 0; i < mains.Length; i++)
             {
                 var r = mains[i];
                 int columns = Math.Min(mains.Length, 4);
                 Rect box = new Rect(36 + (i % columns) * (1206f / columns), 257 + (i / columns) * 101, 1206f / columns - 14, 91);
-                Box(box, Panel, r.id == Engine.State.mainRune ? Mint : Line);
+                Color runeColor = RuneTreeColor(r.tree);
+                Box(box, Panel, r.id == Engine.State.mainRune ? runeColor : Line);
                 Tex(new Rect(box.x+12,box.y+13,40,40),PixelArt.SystemIcon(r.id),ScaleMode.ScaleToFit);
-                Txt(new Rect(box.x + 64, box.y + 10, box.width - 78, 25), r.name + " / " + r.tree, 15, Mint);
+                Txt(new Rect(box.x + 64, box.y + 10, box.width - 78, 25), r.name + " / " + r.tree, 15, runeColor);
                 FitText(new Rect(box.x + 64, box.y + 36, box.width - 78, 32), TraitSummary(r.mechanics,r.description), 11, Text);
                 TraitDetailButton(new Rect(box.x + 14,box.y + 70,box.width - 28,16),r.id);
                 if (Hit(box))
@@ -407,6 +408,9 @@ namespace Lumia
                 }
             }
             var selected = GameDatabase.Rune(Engine.State.mainRune);
+            Txt(new Rect(36, 473, 1205, 25), selected == null
+                ? "메인 룬 색상에 맞는 실험체의 스킬·패시브 등장 가중치가 4배로 증가합니다."
+                : SubjectRoleCatalog.OfferDescription(selected.tree), 14, selected == null ? Muted : RuneTreeColor(selected.tree));
             if (selected != null)
             {
                 var supports = GameDatabase.Runes.Where(x => !x.main && x.tree == selected.tree).ToArray();
@@ -425,6 +429,18 @@ namespace Lumia
             if (Btn(new Rect(999, 626, 241, 48), eventChange ? "룬 변경 완료  >" : "패시브 선택으로  >", true, Mint, !string.IsNullOrEmpty(Engine.State.supportRune)))
             {
                 if (eventChange) Act(Engine.FinishRuneChange); else prepStep = 1;
+            }
+        }
+
+        static Color RuneTreeColor(string tree)
+        {
+            switch (tree)
+            {
+                case "파괴": return new Color(1f, .43f, .43f);
+                case "저항": return new Color(.40f, .68f, 1f);
+                case "혼돈": return new Color(.77f, .54f, 1f);
+                case "지원": return new Color(.40f, .90f, .60f);
+                default: return Mint;
             }
         }
 
@@ -1378,6 +1394,16 @@ namespace Lumia
             Txt(new Rect(445,164,590,25),owner+" / "+(passive!=null?"패시브":"룬"),16,Gold);
             DescriptionTabs(new Rect(445,200,590,32));
             string text=summaryMode ? (passive!=null?CachedPassiveSummary(passive):CachedRuneSummary(rune)) : CachedNormalize(description)+"\n\n"+(passive!=null?"패시브의 전투 효과는 주인의 카드가 없어도 발동합니다.\n"+PassiveAffinity(passive):"룬의 효과는 중첩·발동 횟수와 지속 턴 제한을 따릅니다.");
+            if (rune != null)
+            {
+                if (rune.main) text += "\n\n이 메인 룬 선택 시 " + SubjectRoleCatalog.OfferDetails(rune.tree);
+                else
+                {
+                    var main = GameDatabase.Rune(Engine.State.mainRune);
+                    text += "\n\n역할군 등장 가중치는 메인 룬의 색상만 따릅니다. 이 보조 룬은 별도의 역할군 보정을 추가하지 않습니다."
+                        + (main == null ? "" : "\n현재 메인 룬: " + SubjectRoleCatalog.OfferDescription(main.tree));
+                }
+            }
             wrapped.fontSize=15;float height=Math.Max(273,CachedTextHeight(text, 15, 568)+12);
             detailScroll=BeginTouchScrollView("trait-detail", new Rect(445,244,590,279),detailScroll,new Rect(0,0,568,height));
             Para(new Rect(0,0,568,height),text,15,Text);EndTouchScrollView();

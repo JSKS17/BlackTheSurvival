@@ -1,0 +1,492 @@
+{
+  "roles": [
+    {
+      "role": "탱커",
+      "source": "https://comm-api.game.naver.com/nng_main/v1/game/db/character/GM_670/dataType/character?order=ranking&offset=0&limit=200&f1Name=%EC%97%AD%ED%95%A0%EA%B5%B0&f1Value=%ED%83%B1%EC%BB%A4",
+      "responseSha256": "4fafa26870a281de370a8b71d1527c740944a39013e0ec3dd179cfe810160227",
+      "count": 12,
+      "characters": [
+        {
+          "objectId": "CH_AD_670_1381",
+          "name": "가넷"
+        },
+        {
+          "objectId": "CH_670_20",
+          "name": "레녹스"
+        },
+        {
+          "objectId": "CH_AD_670_179",
+          "name": "마이"
+        },
+        {
+          "objectId": "CH_AD_670_261",
+          "name": "마커스"
+        },
+        {
+          "objectId": "CH_670_4",
+          "name": "매그너스"
+        },
+        {
+          "objectId": "CH_AD_670_1550",
+          "name": "미르카"
+        },
+        {
+          "objectId": "CH_AD_670_1669",
+          "name": "세레스"
+        },
+        {
+          "objectId": "CH_670_13",
+          "name": "쇼우"
+        },
+        {
+          "objectId": "CH_AD_670_1135",
+          "name": "알론소"
+        },
+        {
+          "objectId": "CH_AD_670_263",
+          "name": "에스텔"
+        },
+        {
+          "objectId": "CH_AD_670_210",
+          "name": "엘레나"
+        },
+        {
+          "objectId": "CH_AD_670_96",
+          "name": "일레븐"
+        }
+      ]
+    },
+    {
+      "role": "전사",
+      "source": "https://comm-api.game.naver.com/nng_main/v1/game/db/character/GM_670/dataType/character?order=ranking&offset=0&limit=200&f1Name=%EC%97%AD%ED%95%A0%EA%B5%B0&f1Value=%EC%A0%84%EC%82%AC",
+      "responseSha256": "4c059f42277de27379b6baf767d18f8671b0c25f9b5b95ad8c829e2af8bacbca",
+      "count": 38,
+      "characters": [
+        {
+          "objectId": "CH_AD_670_1381",
+          "name": "가넷"
+        },
+        {
+          "objectId": "CH_AD_670_99",
+          "name": "니키"
+        },
+        {
+          "objectId": "CH_AD_670_1315",
+          "name": "다르코"
+        },
+        {
+          "objectId": "CH_AD_670_1054",
+          "name": "데비&마를렌"
+        },
+        {
+          "objectId": "CH_AD_670_207",
+          "name": "라우라"
+        },
+        {
+          "objectId": "CH_AD_670_95",
+          "name": "레온"
+        },
+        {
+          "objectId": "CH_AD_670_3",
+          "name": "루크"
+        },
+        {
+          "objectId": "CH_670_10",
+          "name": "리 다이린"
+        },
+        {
+          "objectId": "CH_AD_670_261",
+          "name": "마커스"
+        },
+        {
+          "objectId": "CH_670_4",
+          "name": "매그너스"
+        },
+        {
+          "objectId": "CH_AD_670_1550",
+          "name": "미르카"
+        },
+        {
+          "objectId": "CH_AD_670_828",
+          "name": "바냐"
+        },
+        {
+          "objectId": "CH_AD_670_1521",
+          "name": "블레어"
+        },
+        {
+          "objectId": "CH_AD_670_1601",
+          "name": "비형"
+        },
+        {
+          "objectId": "CH_AD_670_94",
+          "name": "수아"
+        },
+        {
+          "objectId": "CH_AD_670_1490",
+          "name": "슈린"
+        },
+        {
+          "objectId": "CH_670_16",
+          "name": "실비아"
+        },
+        {
+          "objectId": "CH_AD_670_1129",
+          "name": "아비게일"
+        },
+        {
+          "objectId": "CH_AD_670_267",
+          "name": "아이작"
+        },
+        {
+          "objectId": "CH_AD_670_93",
+          "name": "알렉스"
+        },
+        {
+          "objectId": "CH_AD_670_144",
+          "name": "얀"
+        },
+        {
+          "objectId": "CH_AD_670_263",
+          "name": "에스텔"
+        },
+        {
+          "objectId": "CH_AD_670_180",
+          "name": "에이든"
+        },
+        {
+          "objectId": "CH_AD_670_178",
+          "name": "에키온"
+        },
+        {
+          "objectId": "CH_670_11",
+          "name": "유키"
+        },
+        {
+          "objectId": "CH_AD_670_385",
+          "name": "이렘"
+        },
+        {
+          "objectId": "CH_AD_670_1470",
+          "name": "이슈트반"
+        },
+        {
+          "objectId": "CH_AD_670_807",
+          "name": "이안"
+        },
+        {
+          "objectId": "CH_670_1",
+          "name": "재키"
+        },
+        {
+          "objectId": "CH_AD_670_149",
+          "name": "카밀로"
+        },
+        {
+          "objectId": "CH_AD_670_1168",
+          "name": "케네스"
+        },
+        {
+          "objectId": "CH_670_14",
+          "name": "키아라"
+        },
+        {
+          "objectId": "CH_AD_670_1578",
+          "name": "펜리르"
+        },
+        {
+          "objectId": "CH_AD_670_209",
+          "name": "펠릭스"
+        },
+        {
+          "objectId": "CH_670_3",
+          "name": "피오라"
+        },
+        {
+          "objectId": "CH_AD_670_264",
+          "name": "피올로"
+        },
+        {
+          "objectId": "CH_670_7",
+          "name": "현우"
+        },
+        {
+          "objectId": "CH_AD_670_1426",
+          "name": "히스이"
+        }
+      ]
+    },
+    {
+      "role": "암살자",
+      "source": "https://comm-api.game.naver.com/nng_main/v1/game/db/character/GM_670/dataType/character?order=ranking&offset=0&limit=200&f1Name=%EC%97%AD%ED%95%A0%EA%B5%B0&f1Value=%EC%95%94%EC%82%B4%EC%9E%90",
+      "responseSha256": "8f933f78d636fcb3fc3dfd0dcdadc1999cf0905504afe84d42e48c5aa93c4ab5",
+      "count": 4,
+      "characters": [
+        {
+          "objectId": "CH_AD_670_147",
+          "name": "다니엘"
+        },
+        {
+          "objectId": "CH_670_18",
+          "name": "쇼이치"
+        },
+        {
+          "objectId": "CH_AD_670_1490",
+          "name": "슈린"
+        },
+        {
+          "objectId": "CH_AD_670_87",
+          "name": "캐시"
+        }
+      ]
+    },
+    {
+      "role": "스킬 딜러",
+      "source": "https://comm-api.game.naver.com/nng_main/v1/game/db/character/GM_670/dataType/character?order=ranking&offset=0&limit=200&f1Name=%EC%97%AD%ED%95%A0%EA%B5%B0&f1Value=%EC%8A%A4%ED%82%AC%20%EB%94%9C%EB%9F%AC",
+      "responseSha256": "dbbb9d4943e8ec000a56f4d02179f20fd7d4596ddadddb0b70c2a167aee3a00a",
+      "count": 31,
+      "characters": [
+        {
+          "objectId": "CH_670_6",
+          "name": "나딘"
+        },
+        {
+          "objectId": "CH_AD_670_142",
+          "name": "나타폰"
+        },
+        {
+          "objectId": "CH_AD_670_1474",
+          "name": "니아"
+        },
+        {
+          "objectId": "CH_AD_670_208",
+          "name": "띠아"
+        },
+        {
+          "objectId": "CH_AD_670_1648",
+          "name": "루치아"
+        },
+        {
+          "objectId": "CH_AD_670_1345",
+          "name": "르노어"
+        },
+        {
+          "objectId": "CH_AD_670_91",
+          "name": "바바라"
+        },
+        {
+          "objectId": "CH_AD_670_175",
+          "name": "비앙카"
+        },
+        {
+          "objectId": "CH_AD_670_176",
+          "name": "셀린"
+        },
+        {
+          "objectId": "CH_AD_670_94",
+          "name": "수아"
+        },
+        {
+          "objectId": "CH_670_15",
+          "name": "시셀라"
+        },
+        {
+          "objectId": "CH_670_16",
+          "name": "실비아"
+        },
+        {
+          "objectId": "CH_AD_670_89",
+          "name": "아델라"
+        },
+        {
+          "objectId": "CH_670_17",
+          "name": "아드리아나"
+        },
+        {
+          "objectId": "CH_AD_670_260",
+          "name": "아디나"
+        },
+        {
+          "objectId": "CH_AD_670_1078",
+          "name": "아르다"
+        },
+        {
+          "objectId": "CH_670_2",
+          "name": "아야"
+        },
+        {
+          "objectId": "CH_670_9",
+          "name": "아이솔"
+        },
+        {
+          "objectId": "CH_670_19",
+          "name": "엠마"
+        },
+        {
+          "objectId": "CH_AD_670_1396",
+          "name": "유민"
+        },
+        {
+          "objectId": "CH_AD_670_1444",
+          "name": "유스티나"
+        },
+        {
+          "objectId": "CH_AD_670_385",
+          "name": "이렘"
+        },
+        {
+          "objectId": "CH_AD_670_145",
+          "name": "이바"
+        },
+        {
+          "objectId": "CH_670_5",
+          "name": "자히르"
+        },
+        {
+          "objectId": "CH_AD_670_1582",
+          "name": "코렐라인"
+        },
+        {
+          "objectId": "CH_AD_670_1611",
+          "name": "크레이버"
+        },
+        {
+          "objectId": "CH_AD_670_268",
+          "name": "타지아"
+        },
+        {
+          "objectId": "CH_AD_670_259",
+          "name": "프리야"
+        },
+        {
+          "objectId": "CH_AD_670_266",
+          "name": "헤이즈"
+        },
+        {
+          "objectId": "CH_AD_670_1507",
+          "name": "헨리"
+        },
+        {
+          "objectId": "CH_670_12",
+          "name": "혜진"
+        }
+      ]
+    },
+    {
+      "role": "원거리 딜러",
+      "source": "https://comm-api.game.naver.com/nng_main/v1/game/db/character/GM_670/dataType/character?order=ranking&offset=0&limit=200&f1Name=%EC%97%AD%ED%95%A0%EA%B5%B0&f1Value=%EC%9B%90%EA%B1%B0%EB%A6%AC%20%EB%94%9C%EB%9F%AC",
+      "responseSha256": "66730bf05448dae1bf7a732b719aea3e0e6055ccb61ca9bea0f562f3b204d57f",
+      "count": 16,
+      "characters": [
+        {
+          "objectId": "CH_670_6",
+          "name": "나딘"
+        },
+        {
+          "objectId": "CH_670_21",
+          "name": "로지"
+        },
+        {
+          "objectId": "CH_AD_670_97",
+          "name": "리오"
+        },
+        {
+          "objectId": "CH_AD_670_265",
+          "name": "마르티나"
+        },
+        {
+          "objectId": "CH_AD_670_90",
+          "name": "버니스"
+        },
+        {
+          "objectId": "CH_670_2",
+          "name": "아야"
+        },
+        {
+          "objectId": "CH_670_9",
+          "name": "아이솔"
+        },
+        {
+          "objectId": "CH_AD_670_98",
+          "name": "윌리엄"
+        },
+        {
+          "objectId": "CH_AD_670_148",
+          "name": "제니"
+        },
+        {
+          "objectId": "CH_AD_670_1152",
+          "name": "츠바메"
+        },
+        {
+          "objectId": "CH_AD_670_1174",
+          "name": "카티야"
+        },
+        {
+          "objectId": "CH_AD_670_262",
+          "name": "칼라"
+        },
+        {
+          "objectId": "CH_AD_670_1611",
+          "name": "크레이버"
+        },
+        {
+          "objectId": "CH_AD_670_150",
+          "name": "클로에"
+        },
+        {
+          "objectId": "CH_AD_670_455",
+          "name": "테오도르"
+        },
+        {
+          "objectId": "CH_670_8",
+          "name": "하트"
+        }
+      ]
+    },
+    {
+      "role": "지원가",
+      "source": "https://comm-api.game.naver.com/nng_main/v1/game/db/character/GM_670/dataType/character?order=ranking&offset=0&limit=200&f1Name=%EC%97%AD%ED%95%A0%EA%B5%B0&f1Value=%EC%A7%80%EC%9B%90%EA%B0%80",
+      "responseSha256": "64d9adbec66380fb34a4e9509b3e728140a5947540e04b57c6cf897cd0b36767",
+      "count": 9,
+      "characters": [
+        {
+          "objectId": "CH_AD_670_1136",
+          "name": "레니"
+        },
+        {
+          "objectId": "CH_AD_670_179",
+          "name": "마이"
+        },
+        {
+          "objectId": "CH_AD_670_1264",
+          "name": "샬럿"
+        },
+        {
+          "objectId": "CH_AD_670_1669",
+          "name": "세레스"
+        },
+        {
+          "objectId": "CH_AD_670_260",
+          "name": "아디나"
+        },
+        {
+          "objectId": "CH_AD_670_1078",
+          "name": "아르다"
+        },
+        {
+          "objectId": "CH_AD_670_172",
+          "name": "요한"
+        },
+        {
+          "objectId": "CH_AD_670_455",
+          "name": "테오도르"
+        },
+        {
+          "objectId": "CH_AD_670_259",
+          "name": "프리야"
+        }
+      ]
+    }
+  ]
+}

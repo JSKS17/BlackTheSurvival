@@ -1,0 +1,103 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-26T09:16:14.082Z",
+  "gameVersion": "1.1.0",
+  "authenticatedRequests": false,
+  "productionWrites": false,
+  "checks": {
+    "deploymentSucceeded": true,
+    "frozenServerSources": true,
+    "homeAndUpdatedClientBootstrap": true,
+    "anonymousSessionUnchanged": true,
+    "presenceRequiresAccount": true,
+    "gameIndexVersionAndPresenceScript": true,
+    "gameBuildManifest": true,
+    "presenceClientBytes": true,
+    "uploadGateClosed": true,
+    "dataHeadMatchesRelease": true,
+    "wasmBytesMatchRelease": true
+  },
+  "responses": [
+    {
+      "route": "/",
+      "method": "GET",
+      "status": 200,
+      "bytes": 9845,
+      "sha256": "c561ea78c10d8787047ed04c5f95f318b798064eb96e3da40859e1dc696eb970"
+    },
+    {
+      "route": "/api/session",
+      "method": "GET",
+      "status": 200,
+      "bytes": 23,
+      "sha256": "3e58c6fcf10a31770582814c2babfd1ff71bb1a72cae32cdb1c1a428f406d47f"
+    },
+    {
+      "route": "/api/presence",
+      "method": "GET",
+      "status": 401,
+      "bytes": 66,
+      "sha256": "768980476ec38a264e49c5666d3ba72803f994d6f041576d71664038e601a970"
+    },
+    {
+      "route": "/game/index.html",
+      "method": "GET",
+      "status": 200,
+      "bytes": 11666,
+      "sha256": "6790bff153a9f1b61b13b39c5df4a90346a371f0798adb081c34d2afefba7bcf"
+    },
+    {
+      "route": "/game/build-manifest.json",
+      "method": "GET",
+      "status": 200,
+      "bytes": 5414,
+      "sha256": "d4e0219e04a1e6bb042caea61b305369f508b1945a5bb2509d2877e4f070d2d6"
+    },
+    {
+      "route": "/game/TemplateData/presence.js",
+      "method": "GET",
+      "status": 200,
+      "bytes": 6122,
+      "sha256": "a2c8cea865f02115b7a405de4d97d49f786e063377171b7622a710fcfe8af7e7"
+    },
+    {
+      "route": "/api/unity-upload",
+      "method": "GET",
+      "status": 404,
+      "bytes": 9,
+      "sha256": "e3ebaa16dd9d9b9fc107c42183fb6cf9d22927e1af03dbbdfa0ccc38e4e4ac31"
+    },
+    {
+      "route": "/game/Build/2cae470e1b653b47fe11357ccd8ad1bb.data.unityweb",
+      "method": "HEAD",
+      "status": 200,
+      "bytes": 0
+    },
+    {
+      "route": "/game/Build/f75488c7b39097640fb51e436fb4357b.wasm.unityweb",
+      "method": "GET",
+      "status": 200,
+      "bytes": 12942319,
+      "sha256": "794e363587fd985889a29fae722847c0ee7deadb66117dc8528620d1f2f1ec77"
+    }
+  ],
+  "errors": [],
+  "publication": {
+    "versionId": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_ed6b9fc3fcf08191895fdc0dea801c58",
+    "versionNumber": 59,
+    "commitSha": "73dec621568bf3ab9ddbf7aae2aac501c588595f",
+    "deploymentId": "appgdep_6adf1a2293e0819189b51e2d5489a948"
+  },
+  "canonicalGameRedirect": {
+    "status": 307,
+    "from": "/game/index.html",
+    "to": "/game/"
+  },
+  "hostingHtmlInjection": {
+    "provider": "Cloudflare JavaScript detection",
+    "bytes": 938,
+    "gameSourceSha256": "1c9d1d8be3b3ce53dc1b5bb78704c8e5a00955582f59a39427422c9d3569a0b7"
+  },
+  "gameBuildId": "9cd4b9c05da11eff0f692005",
+  "gameManifestSha256": "ed5d614e627e50bc492133aed6eb717b228c22c1d5f8a90afe3d41cac05e5929"
+}

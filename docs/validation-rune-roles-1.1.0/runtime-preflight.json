@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "recordedAtUtc": "2026-10-26 08:30:57 UTC",
+  "command": "Tools/VerifyRuntime.ps1",
+  "exitCode": 0,
+  "runtimeSources": 125,
+  "target": "Normal Unity runtime",
+  "conditionalWebGLOnlyUnusedFieldWarnings": 6,
+  "sourceFreezeSha256": "67ca424a23542ac7c3bebc9d38abb6f5cfbb04ae0b1b99ec5654358014d50f2a",
+  "executionTiming": "Completed successfully immediately before the source freeze; recordedAtUtc is the evidence write time.",
+  "temporaryOutput": "Temp/LumiaVerification/Lumia.Runtime.dll"
+}

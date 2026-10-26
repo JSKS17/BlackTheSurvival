@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "validatedAtUtc": "2026-10-26T08:42:54.111Z",
+  "nodeScripts": 13,
+  "powerShellScripts": 4,
+  "embeddedPreviewScript": true,
+  "protectedWebFiles": 7,
+  "baselineVersion": "1.0.28",
+  "baselineManifestSha256": "51e5ec5120bc56fd0ff2f0f2719a0410718049c699580f657a3742cd7fee7c4e",
+  "buildStarted": false,
+  "serverStarted": false,
+  "productionRequests": false,
+  "files": {
+    "Cleanup.ps1": "81f427a9770ad8f12fdd50dcecb7937ee01f8744574b434a567b6d472897b852",
+    "Complete.mjs": "6ed7b04a744b006cb60596bd3d251c0cdcdf9441cc25d1d0803c3365a8454c7c",
+    "CrosscheckOfficialCatalog.mjs": "2e36bb01d7853edee30e1821495f7f6611f9f4e44f531f5727ddb722ecc4f6ec",
+    "Freeze.mjs": "98a2a30c6710ddecf655f56db1a05e3049f3a0dc7fde61b19170d72a10e2cc6b",
+    "LocalPresenceBackend.mjs": "b7d04df87251d2d1f947fd44952b5faf3f05b1d089bb30ad5f129d4226ddba49",
+    "ObserveUnityBuild.ps1": "65853138004d8695bd933b6ade0c543988fbf5b73f983f09190a58eeca94d1c7",
+    "PrepareHelpers.mjs": "9ba694df21cdb3091f72204ed61e2a9812d00e1b670757db4657f86f1e824412",
+    "PrepareRelease.mjs": "4926fd998bf5d5a745db33bf0d0bb3bea272edea1b29304f8d8ad0828bc3b4d8",
+    "Preview.mjs": "7f736a5381799019026b95309c8b7429f705ca2821b19f2f02683153e04f3a54",
+    "RunGameplayProof.mjs": "b70f3dee0f9bac77eccca4a336270421313c2985a3ec375151500c34e5f8533f",
+    "StartBuild.ps1": "87251be91110014652b83e0db562d019e6e841082b05de78c0adc3f4fa8cd1cb",
+    "SyncWebSources.mjs": "70589df8ce5f5362bff4488a966e7acbab117ba64b1dd04bcf8651f16b4b52a7",
+    "ValidateHelpers.mjs": "d4e7de965d2daa2b12a5810986282f61562a62a23e17ef609cbf86725b113eb4",
+    "ValidatePowerShell.ps1": "b65ee7618be6783cf5bee372a6c09207aa14a0658de25c3c2b054d10368bc910",
+    "VerifyBridge.mjs": "820edc7605c58c365ee94c1e4c6cc3463015dca6c640fee9386a5ce568f9626a",
+    "VerifyLive.mjs": "16be2d4aface6817d4e86f0f960320577b0d603f27cda24bf810177a4e5b09d6",
+    "WriteRuneStatistics.mjs": "607095751ef30f50c32c6dd5952021840ff61357d762c44ae335a1b008a1dcc1"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "result": "PASS",
+  "subjects": 91,
+  "officialSha256": "86d7d28a1bf73e04b5bbadba098117b61f518091514144f891ddbc3fb1cd9214",
+  "catalogSha256": "99980d9f935fd0c6f116f9d056393936238aaab64a0c8e565829ce3d8269a80d",
+  "groups": [
+    {
+      "tree": "파괴",
+      "roles": [
+        "전사",
+        "원거리 딜러"
+      ],
+      "favoredSubjects": 54,
+      "totalSubjects": 91,
+      "ordinaryPassiveProbability": 0.5934065934065934,
+      "weightedFirstPassiveProbability": 0.8537549407114624
+    },
+    {
+      "tree": "저항",
+      "roles": [
+        "탱커",
+        "전사"
+      ],
+      "favoredSubjects": 45,
+      "totalSubjects": 91,
+      "ordinaryPassiveProbability": 0.4945054945054945,
+      "weightedFirstPassiveProbability": 0.7964601769911505
+    },
+    {
+      "tree": "혼돈",
+      "roles": [
+        "스킬 딜러",
+        "암살자"
+      ],
+      "favoredSubjects": 35,
+      "totalSubjects": 91,
+      "ordinaryPassiveProbability": 0.38461538461538464,
+      "weightedFirstPassiveProbability": 0.7142857142857143
+    },
+    {
+      "tree": "지원",
+      "roles": [
+        "탱커",
+        "지원가"
+      ],
+      "favoredSubjects": 19,
+      "totalSubjects": 91,
+      "ordinaryPassiveProbability": 0.2087912087912088,
+      "weightedFirstPassiveProbability": 0.5135135135135135
+    }
+  ]
+}

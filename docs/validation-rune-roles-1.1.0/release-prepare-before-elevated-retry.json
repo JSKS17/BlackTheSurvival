@@ -1,0 +1,33 @@
+{
+  "mode": "prepare",
+  "result": "FAIL",
+  "startedAtUtc": "2026-10-26T09:04:57.076Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "version": "1.1.0",
+  "baselinePublication": {
+    "versionNumber": 57,
+    "commitSha": "73b44728095b8aaae3edf8ada1ebe3409ef62ab2"
+  },
+  "productionRequests": false,
+  "steps": {},
+  "removed": [],
+  "sourceHashes": {
+    "WebSite\\lib\\game-accounts.mjs": "17b6d120a49d09a22e69a49406786062110d7e8adba2693fcdd5b077f6a49887",
+    "WebSite\\app\\page.tsx": "643ee5a6068efc95789682680b2639a8a5b7cbb44ff363cef21dc817a5495bfd",
+    "WebSite\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "WebSite\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "WebSite\\package-lock.json": "e224d3aa65e17c80c62fbfb9c38b871a4d675608ea7ce1373a979ff27990fd96",
+    "WebSite\\scripts\\package-unity.mjs": "31417f232e8262c05597a95a9124af42cf38fee06879420ae293d1861b27754a",
+    "WebSite\\scripts\\upload-unity.mjs": "2d75155c56ac8fde907ebcefda16af24e1aad2d18bf2b81182b14aabac740d11",
+    "Temp\\SiteRuneRoles110\\lib\\game-accounts.mjs": "17b6d120a49d09a22e69a49406786062110d7e8adba2693fcdd5b077f6a49887",
+    "Temp\\SiteRuneRoles110\\app\\page.tsx": "643ee5a6068efc95789682680b2639a8a5b7cbb44ff363cef21dc817a5495bfd",
+    "Temp\\SiteRuneRoles110\\.gitattributes": "fcd4902b9b599e41443f819411a5c47fb77218e5efd2b7be19b62841675ccc5a",
+    "Temp\\SiteRuneRoles110\\app\\game.css": "22704ccabea784d856a9e068cb7e3d34d983a36804363a80c0e33d512f7aa1da",
+    "Temp\\SiteRuneRoles110\\package-lock.json": "e224d3aa65e17c80c62fbfb9c38b871a4d675608ea7ce1373a979ff27990fd96",
+    "Temp\\SiteRuneRoles110\\scripts\\package-unity.mjs": "31417f232e8262c05597a95a9124af42cf38fee06879420ae293d1861b27754a",
+    "Temp\\SiteRuneRoles110\\scripts\\upload-unity.mjs": "2d75155c56ac8fde907ebcefda16af24e1aad2d18bf2b81182b14aabac740d11"
+  },
+  "verifiedOldStaticAssets": 10,
+  "error": "EPERM: operation not permitted, rename 'C:\\Users\\azxar\\BlackTheSurvival\\Temp\\RuneRolesRelease110\\public\\.unity-stage-96ccae54-f502-4564-8e9b-4fd8d6879d7f' -> 'C:\\Users\\azxar\\BlackTheSurvival\\Temp\\RuneRolesRelease110\\public\\game'",
+  "completedAtUtc": "2026-10-26T09:04:59.582Z"
+}

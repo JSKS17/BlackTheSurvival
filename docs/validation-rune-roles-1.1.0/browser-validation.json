@@ -1,0 +1,34 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-26T09:14:08.977Z",
+  "gameVersion": "1.1.0",
+  "gameBuildId": "9cd4b9c05da11eff0f692005",
+  "origin": "http://127.0.0.1:8250",
+  "path": "/qa?fixture=research",
+  "scope": "Actual completed WebGL build with disposable local D1 accounts; no production account writes",
+  "physicalHardwareTested": false,
+  "physicalMobileTested": false,
+  "observations": {
+    "allFourRoleGroupsVisible": true,
+    "fourfoldWeightDescriptionVisible": true,
+    "mainRuneDetailsIncludeCombinedSevenPointTwoWeight": true,
+    "selectedPassivePreservedAcrossGreenToPurple": "가넷 · 익숙한 아픔",
+    "selectedCardAndVisualSlotPreservedAcrossGreenToPurple": "세레스 E · 경호, second slot",
+    "otherUnselectedOffersReweighted": true,
+    "nativeCanvasFullscreen": true,
+    "existingLobbyPresenceVisible": true,
+    "consoleErrors": []
+  },
+  "screenshots": [
+    "rune-red.png",
+    "rune-blue.png",
+    "rune-purple.png",
+    "rune-green.png",
+    "rune-detail.png",
+    "passive-selected.png",
+    "passive-preserved-after.png",
+    "card-selected-before.png",
+    "card-preserved-after.png",
+    "rune-fullscreen.png"
+  ]
+}

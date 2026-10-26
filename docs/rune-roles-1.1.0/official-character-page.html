@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>네이버 게임</title>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta property="og:title" content="네이버 게임"/>
+    <meta property="og:image" content="https://ssl.pstatic.net/static/nng/resource/common/ogtag.png"/>
+    <meta property="og:description" content="게임을 더 재미있게! 게임에 관한 모든 것"/>
+    <meta name="google-site-verification" content="sMRp4cQd_Nx4V438sWjNusC2jTiD9zo0K7A3MRZmMmc" />
+
+    <link rel="icon" href="https://ssl.pstatic.net/static/nng/resource/common/favicon.svg">
+    <link rel="shortcut icon" href="https://ssl.pstatic.net/static/nng/resource/common/favicon.svg">
+    <link rel="mask-icon" href="https://ssl.pstatic.net/static/nng/resource/common/mask-icon.svg" color="#03c75a">
+    <link rel="apple-touch-icon" href="https://ssl.pstatic.net/static/nng/resource/common/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://ssl.pstatic.net/static/nng/resource/p/static/css/desktop-media-viewer.css" />
+
+    <script type="text/javascript" src="https://ssl.pstatic.net/static/nng/resource/p/static/js/shuttle-0.2.25.min.js"></script>
+<!--    <script async src="https://test-img.tveta.naver.net/libs/glad/test/gfp-core.js"></script> &lt;!&ndash; 임시 src &ndash;&gt;-->
+<!--    <script>-->
+<!--      window.gladsdk = window.gladsdk || { cmd: [] };-->
+<!--    </script>-->
+    <script type="module" crossorigin src="https://ssl.pstatic.net/static/nng/resource/p/static/js/index-Duu5d2dY.js"></script>
+    <link rel="modulepreload" crossorigin href="https://ssl.pstatic.net/static/nng/resource/p/static/js/rolldown-runtime-CMxvf4Kt.js">
+    <link rel="modulepreload" crossorigin href="https://ssl.pstatic.net/static/nng/resource/p/static/js/common-vendor-Q-1_sCmE.js">
+    <link rel="modulepreload" crossorigin href="https://ssl.pstatic.net/static/nng/resource/p/static/js/vendor-By545EiY.js">
+    <link rel="modulepreload" crossorigin href="https://ssl.pstatic.net/static/nng/resource/p/static/js/player-vendor-Bh8umYkg.js">
+    <link rel="modulepreload" crossorigin href="https://ssl.pstatic.net/static/nng/resource/p/static/js/date-vendor-KG0Dud8w.js">
+    <link rel="stylesheet" crossorigin href="https://ssl.pstatic.net/static/nng/resource/p/static/css/vendor-By61NBo-.css">
+    <link rel="stylesheet" crossorigin href="https://ssl.pstatic.net/static/nng/resource/p/static/css/player-vendor-BxMM25ju.css">
+    <link rel="stylesheet" crossorigin href="https://ssl.pstatic.net/static/nng/resource/p/static/css/index-jE24AbyN.css">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div id="portal"></div>
+    <script>
+      window.nng = {}
+      const params = new URLSearchParams(window.location.search)
+      const theme = params.get('theme')
+      const mode = params.get('mode')
+      if (theme === 'dark') {
+        window.document.body.style.backgroundColor = mode === 'page' ? '#141517' : '#1c1d1f'
+      } else {
+        window.document.body.style.backgroundColor = '#fff'
+      }
+    </script>
+    <script id="scriptHolder"></script>
+    <script src="https://ssl.pstatic.net/static/nng/resource/p/static/js/desktop-media-viewer.min.js"></script>
+    <script>
+      (function () {
+        try {
+          if (window.navigator.userAgent.indexOf('Edg/140.0') !== -1) {
+            window.addEventListener('load', () => {
+              setTimeout(() => {
+                const elementCount = document.getElementById('root').childElementCount
+                if (elementCount === 0) {
+                  window.alert('긴급 점검 안내\n\n현재 엣지 브라우저 일부 버전에서 치지직과 네이버 게임 서비스에 접속되지 않는 현상이 확인되어 긴급 점검 중입니다.\n\n※ 임시 해결방법\nEdge 브라우저 설정 - 개인정보 - 추적방지 - "엄격" 설정을 "기본 or 밸런스"로 변경시 정상 접속 가능\n또는\n엣지 브라우저 외 다른 브라우저(크롬, 웨일 등) 사용\n\n최대한 빨리 정상화 될 수 있도록 최선을 다하겠습니다.\n서비스 이용에 불편을 드려 죄송합니다.')
+                }
+              }, 1000)
+            })
+          }
+        } catch (error) {
+          console.error(error)
+        }
+      })()
+    </script>
+  </body>
+</html>

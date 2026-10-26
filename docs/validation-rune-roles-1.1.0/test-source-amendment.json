@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "sourceFreezeSha256": "67ca424a23542ac7c3bebc9d38abb6f5cfbb04ae0b1b99ec5654358014d50f2a",
+  "productSourceChanged": false,
+  "approvedByRoot": true,
+  "reason": "Old reward idempotence fixture now encounters its legitimate 3% Lumi continuation under the newly seeded initial offers. Scope this fixture to non-Lumi completion; original reward assertions remain unchanged. Dedicated Lumi tests and diagnostic prove cards/currency cannot duplicate. A second preexisting fixture used raw 100 evasion while Yuki stun reduced effective evasion to 80, allowing a legitimate seeded hit. Clear only this test target status and assert effective evasion 100 before the miss test.",
+  "diagnosticLog": "reward-fixture-diagnostic.log",
+  "diagnosticLogSha256": "8585e64a0de2ad0c0247537d3377c64628df3aa39747025db07734dcfa8dd83f",
+  "preservedOriginalTest": "CoreSmokeTests.before-lumi-fixture.cs",
+  "changes": [
+    {
+      "path": "Tools/CoreSmokeTests.cs",
+      "frozenSha256": "1f7e316dfdef816dcd8f5c27381a8af23f1f66b8d30309327d55cdc5c41e0210",
+      "amendedSha256": "5fef7ea7b1099334bbcd7d68fbf04155a96ed379646a0871adff2ace1c0ffc50",
+      "scope": "RewardsOnlyOnce: explicitly set lumiAppears=false on its three reward fixtures; no runtime edits.",
+      "preservedOriginalTest": "CoreSmokeTests.before-lumi-fixture.cs"
+    },
+    {
+      "path": "Tools/SharedPassiveResourceSmokeTests.cs",
+      "frozenSha256": "d1d106ebf7a569ff25dad74d9ee2625526e1afe7351e1588d5eebf208690e771",
+      "amendedSha256": "5fc888aaa148b6338af3b311b4eebecde0f34d388fa7b1de667f36c932cdd929",
+      "scope": "NativePlayerLinks: clear old enemy control statuses and assert effective evasion 100 before the existing hit-gated-resource miss assertions.",
+      "diagnosticLog": "yuki-miss-fixture-diagnostic.log",
+      "diagnosticLogSha256": "4038c55c1d8095c6896d9e3bb748ef09bcffe8eaea2b76a05ef4171fac9ca70c",
+      "preservedOriginalTest": "SharedPassiveResourceSmokeTests.before-yuki-fixture.cs"
+    }
+  ]
+}
