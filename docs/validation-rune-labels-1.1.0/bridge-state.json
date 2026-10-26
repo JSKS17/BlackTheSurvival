@@ -1,0 +1,42 @@
+{
+  "result": "PASS",
+  "recordedAtUtc": "2026-10-26T10:21:31.558Z",
+  "package": {
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "checkout_path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteRuneLabels110",
+    "commit_sha": "6ac4e506af7f5e1af115152cbf99dc618e85716e",
+    "archive": "C:/Users/azxar/BlackTheSurvival/docs/validation-rune-labels-1.1.0/bridge.tar.gz"
+  },
+  "saved": {
+    "id": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_0c4c0f364da08191966253ba43c58edb",
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "version_number": 60,
+    "source": {
+      "commit_sha": "6ac4e506af7f5e1af115152cbf99dc618e85716e"
+    },
+    "archive_storage": {
+      "archive_format": "tar",
+      "sediment_file_id": "file_0000000039088230a9ddb8d31ed3c081",
+      "content_hash": "sha256:68f960b0df21295b6f8ac0b61694eeebbe160eba937cf304947bcf203c3c0159",
+      "size_bytes": 28334080,
+      "file_count": 92
+    },
+    "screenshot_url": null,
+    "deployment_id": null
+  },
+  "deployment": {
+    "id": "appgdep_6adf297a412481918dfd065c6b5c4286",
+    "project_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c",
+    "title": "Black The Survival — Web Test",
+    "version_id": "appgprj_6ad077cf90708191a3e75367b4b3b78c~appgver_0c4c0f364da08191966253ba43c58edb",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://black-the-survival-web-test.fun-chub-8874.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ad077cf90708191a3e75367b4b3b78c",
+    "failure_message": null,
+    "env_set_revision": 62,
+    "updated_at": "2026-10-26T10:21:08.777267+00:00"
+  }
+}

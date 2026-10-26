@@ -1,0 +1,101 @@
+{
+  "result": "PASS",
+  "startedAtUtc": "2026-10-26T10:33:53.5637885Z",
+  "workspace": "C:\\Users\\azxar\\BlackTheSurvival",
+  "gates": [
+    "Deployment succeeded",
+    "Publication identity matches",
+    "Source PASS",
+    "Live PASS",
+    "Browser PASS",
+    "Canonical release sync PASS",
+    "Verified servers stopped",
+    "CIM process inspection"
+  ],
+  "targets": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build",
+      "bytes": 6267364165,
+      "files": 44076,
+      "kind": "Disposable Unity build project, raw Web110Labels export and release build log"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteRuneLabels110",
+      "bytes": 771919286,
+      "files": 311,
+      "kind": "Completed official publication checkout and local runtime files"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\RuneLabelsRelease110",
+      "bytes": 23166235,
+      "files": 12,
+      "kind": "Owned release package, isolated uploader and completed swap transaction backups"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-rune-labels-1.1.0\\site.tar.gz",
+      "bytes": 26202762,
+      "files": 1,
+      "kind": "Successfully saved deployment archive"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-rune-labels-1.1.0\\bridge.tar.gz",
+      "bytes": 26203339,
+      "files": 1,
+      "kind": "Completed old-game upload transition archive"
+    }
+  ],
+  "absentTargets": [],
+  "removed": [
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Build",
+      "bytes": 6267364165,
+      "files": 44076,
+      "kind": "Disposable Unity build project, raw Web110Labels export and release build log"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteRuneLabels110",
+      "bytes": 771919286,
+      "files": 311,
+      "kind": "Completed official publication checkout and local runtime files"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\RuneLabelsRelease110",
+      "bytes": 23166235,
+      "files": 12,
+      "kind": "Owned release package, isolated uploader and completed swap transaction backups"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-rune-labels-1.1.0\\site.tar.gz",
+      "bytes": 26202762,
+      "files": 1,
+      "kind": "Successfully saved deployment archive"
+    },
+    {
+      "path": "C:\\Users\\azxar\\BlackTheSurvival\\docs\\validation-rune-labels-1.1.0\\bridge.tar.gz",
+      "bytes": 26203339,
+      "files": 1,
+      "kind": "Completed old-game upload transition archive"
+    }
+  ],
+  "removedBytes": 7114855787,
+  "freeBytesBefore": 12001079296,
+  "unlinkedJunctions": [
+    "C:\\Users\\azxar\\BlackTheSurvival\\Temp\\SiteRuneLabels110\\node_modules"
+  ],
+  "preserved": [
+    "Assets",
+    "ArtSource",
+    "Packages",
+    "ProjectSettings",
+    "Tools",
+    "docs",
+    "WebSite\\build",
+    "WebSite\\public\\game\\Build",
+    "WebSite\\.sites-runtime",
+    "WebSite\\node_modules"
+  ],
+  "noProcessWasStopped": true,
+  "completedAtUtc": "2026-10-26T10:34:18.8832263Z",
+  "freeBytesAfter": 19193458688,
+  "note": "Removed bytes are logical generated-file sizes; concurrent filesystem activity may change the free-space delta."
+}

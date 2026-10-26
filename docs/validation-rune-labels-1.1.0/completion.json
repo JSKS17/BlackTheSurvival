@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "completedAtUtc": "2026-10-26T10:35:04.257Z",
+  "version": "1.1.0",
+  "site": "https://bser-sts.com/",
+  "siteVersion": 61,
+  "deploymentId": "appgdep_6adf2c1736dc81918d2a1b978a2dd941",
+  "siteSourceCommit": "56fa4d79d6dbfbf376bc95c5aee3241c54fabde3",
+  "sourceFreezeSha256": "5ac565853e2adf1d5faebc9283ba167070e98609ab84113bb3ba594fdd26eaa6",
+  "runtimeSources": 125,
+  "gameplayTests": 1922,
+  "screenshots": [
+    "rune-family-names.png",
+    "rune-main-details.png",
+    "rune-support-details.png",
+    "rune-family-fullscreen.png"
+  ],
+  "physicalMobileTested": false,
+  "liveChecks": 11,
+  "removedBytes": 7114855787
+}

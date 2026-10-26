@@ -141,10 +141,10 @@ namespace Lumia
         {
             switch (tree)
             {
-                case "파괴": return "파괴(빨강)";
-                case "저항": return "저항(파랑)";
-                case "혼돈": return "혼돈(보라)";
-                case "지원": return "지원(초록)";
+                case "파괴": return "파괴";
+                case "저항": return "저항";
+                case "혼돈": return "혼돈";
+                case "지원": return "지원";
                 default: return "룬 미선택";
             }
         }

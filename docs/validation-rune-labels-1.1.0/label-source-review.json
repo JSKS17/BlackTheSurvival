@@ -1,0 +1,167 @@
+{
+  "result": "PASS",
+  "reviewedAtUtc": "2026-10-26T09:24:55.605Z",
+  "baselineCommit": "9b0ef5e90b3424c902e258161df3379ce3632af5",
+  "gameVersion": "1.1.0",
+  "method": "Read-only source and Git diff review. No game code, build, compiler or test runner was executed.",
+  "changedTrackedFiles": [
+    "Assets/Scripts/Lumia/LumiaGame.cs",
+    "Assets/Scripts/Lumia/SubjectRoleCatalog.cs",
+    "README.md"
+  ],
+  "onlyExpectedFiles": true,
+  "fileReview": [
+    {
+      "file": "Assets/Scripts/Lumia/SubjectRoleCatalog.cs",
+      "baselineSha256": "b40c0154b044f48ecdcbe3443c0ef16bd1c58e9fbeb020ec0ac1d3e5d764be1e",
+      "currentSha256": "76df7456a1a10a314333073d8f5ba873afe35a016e9292f9333bfe6db2f1a658",
+      "onlyListedTextReplacements": true,
+      "replacements": [
+        {
+          "before": "파괴(빨강)",
+          "after": "파괴",
+          "occurrences": 1
+        },
+        {
+          "before": "저항(파랑)",
+          "after": "저항",
+          "occurrences": 1
+        },
+        {
+          "before": "혼돈(보라)",
+          "after": "혼돈",
+          "occurrences": 1
+        },
+        {
+          "before": "지원(초록)",
+          "after": "지원",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "Assets/Scripts/Lumia/LumiaGame.cs",
+      "baselineSha256": "7626474e84a4698df8fb4f744e9fb4e611209c726d6e6193e984e80386a037bb",
+      "currentSha256": "a0505b64414210fdeea745d9873d83e6a370b0996690ed4e3c344d6602de992e",
+      "onlyListedTextReplacements": true,
+      "replacements": [
+        {
+          "before": "빨강 전사·원거리 딜러 / 파랑 탱커·전사 / 보라 스킬 딜러·암살자 / 초록 탱커·지원가",
+          "after": "파괴 전사·원거리 딜러 / 저항 탱커·전사 / 혼돈 스킬 딜러·암살자 / 지원 탱커·지원가",
+          "occurrences": 1
+        },
+        {
+          "before": "메인 룬 색상에 맞는 실험체의 스킬·패시브 등장 가중치가 4배로 증가합니다.",
+          "after": "메인 룬 계열에 맞는 실험체의 스킬·패시브 등장 가중치가 4배로 증가합니다.",
+          "occurrences": 1
+        },
+        {
+          "before": "역할군 등장 가중치는 메인 룬의 색상만 따릅니다.",
+          "after": "역할군 등장 가중치는 메인 룬의 계열만 따릅니다.",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "file": "README.md",
+      "baselineSha256": "a17fa81df7df5224997271fe740e457a68a3b1296f587a9db9f0017e80c934dc",
+      "currentSha256": "2d23bf5534f9293cb481e0a092abfd678f656eb1b660111ee4cc37a415d75552",
+      "onlyListedTextReplacements": true,
+      "replacements": [
+        {
+          "before": "파괴(빨강)",
+          "after": "파괴",
+          "occurrences": 1
+        },
+        {
+          "before": "저항(파랑)",
+          "after": "저항",
+          "occurrences": 1
+        },
+        {
+          "before": "혼돈(보라)",
+          "after": "혼돈",
+          "occurrences": 1
+        },
+        {
+          "before": "지원(초록)",
+          "after": "지원",
+          "occurrences": 1
+        }
+      ]
+    }
+  ],
+  "officialRoleEntriesUnchanged": true,
+  "runeColorFunctionUnchanged": true,
+  "runeIconAssetsUnchanged": true,
+  "probabilityLogicUnchanged": true,
+  "roleToRuneMappingUnchanged": true,
+  "runeOfferMultiplierUnchanged": true,
+  "protectedFiles": [
+    {
+      "file": "Assets/Scripts/Lumia/GameEngineRuneOffers.cs",
+      "unchanged": true,
+      "currentSha256": "7250d7afdac5acf71c6242be5d801d846d096c687935355e6e208dbb86b02a31"
+    },
+    {
+      "file": "Assets/Scripts/Lumia/GameEngine.cs",
+      "unchanged": true,
+      "currentSha256": "434fda54b2fa7baad877e5d1e53894cc2b6753d00e6277e137488520ff1e34ea"
+    },
+    {
+      "file": "Assets/Scripts/Lumia/GameDatabase.cs",
+      "unchanged": true,
+      "currentSha256": "646fbc1b23c51fecaa49a653f8f93b812fa37438a0ed4d043bdc8851771cad5b"
+    },
+    {
+      "file": "Assets/Scripts/Lumia/RuneIdentityCore.cs",
+      "unchanged": true,
+      "currentSha256": "c266a06ddecc73e0d3868e05fe9e854bb5a0436bed29ee17e1a732292b9ec09e"
+    },
+    {
+      "file": "Assets/Scripts/Lumia/PixelArt.cs",
+      "unchanged": true,
+      "currentSha256": "40737d86ff03e920fdaacaf9469a2816025e3747017f725d7cca4fc548630912"
+    },
+    {
+      "file": "Assets/Scripts/Lumia/RareSkinStories.cs",
+      "unchanged": true,
+      "currentSha256": "ef60360acc883b6eca410ab001c41ce389079f725b2f7bc37938c133deaaa0a5"
+    },
+    {
+      "file": "ProjectSettings/ProjectSettings.asset",
+      "unchanged": true,
+      "currentSha256": "39808e896f508521c04842c0c652eeeb726ce0c2546319c82ab94bbac6fd1ea1"
+    }
+  ],
+  "relevantRuneColorTermsAbsent": true,
+  "unrelatedColorTextPreserved": [
+    {
+      "file": "Assets/Scripts/Lumia/LumiaGame.cs",
+      "text": "파랑새 보호 ",
+      "preserved": true
+    },
+    {
+      "file": "Assets/Scripts/Lumia/LumiaGame.cs",
+      "text": "보라색 테두리와 레어++ 표시",
+      "preserved": true
+    },
+    {
+      "file": "Assets/Scripts/Lumia/RareSkinStories.cs",
+      "text": "띠아가 룬을 색상표처럼 펼쳐 새 조합을 고르게 한다.",
+      "preserved": true
+    },
+    {
+      "file": "README.md",
+      "text": "보라색 닭 배색",
+      "preserved": true
+    }
+  ],
+  "productSourceModifiedByReviewer": false,
+  "buildExecuted": false,
+  "testsExecuted": false,
+  "notes": [
+    "Only four TreeLabel return strings, three rune UI strings and one README line changed.",
+    "Historical release evidence and unrelated skill, story and rare-card color descriptions are intentionally retained."
+  ]
+}

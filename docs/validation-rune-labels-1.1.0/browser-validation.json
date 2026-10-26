@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "checkedAtUtc": "2026-10-26T10:22:09.086Z",
+  "gameVersion": "1.1.0",
+  "gameBuildId": "d44e9acd7c777ecff8356b81",
+  "sourceFreezeSha256": "5ac565853e2adf1d5faebc9283ba167070e98609ab84113bb3ba594fdd26eaa6",
+  "origin": "http://127.0.0.1:8251",
+  "scope": "Actual label-only WebGL build with disposable local D1; no production account writes",
+  "physicalHardwareTested": false,
+  "physicalMobileTested": false,
+  "observations": {
+    "familyOverviewUsesOriginalNames": [
+      "파괴",
+      "저항",
+      "혼돈",
+      "지원"
+    ],
+    "selectedRuneDescriptionHasNoColorParentheses": true,
+    "mainRuneDetailsUseOriginalFamilyName": true,
+    "supportDetailsSayMainRuneFamily": true,
+    "existingFourfoldWeightVisible": true,
+    "nativeCanvasFullscreen": true,
+    "existingLobbyPresenceVisible": true,
+    "consoleErrors": []
+  },
+  "screenshots": [
+    "rune-family-names.png",
+    "rune-main-details.png",
+    "rune-support-details.png",
+    "rune-family-fullscreen.png"
+  ]
+}

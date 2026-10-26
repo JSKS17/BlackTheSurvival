@@ -388,7 +388,7 @@ namespace Lumia
         void DrawRuneSelection(bool eventChange)
         {
             Txt(new Rect(36, 170, 1150, 28), "메인 룬 1개 + 같은 계열의 보조 룬 1개", 20, Text);
-            Txt(new Rect(36, 209, 1150, 25), "빨강 전사·원거리 딜러 / 파랑 탱커·전사 / 보라 스킬 딜러·암살자 / 초록 탱커·지원가", 14, Muted);
+            Txt(new Rect(36, 209, 1150, 25), "파괴 전사·원거리 딜러 / 저항 탱커·전사 / 혼돈 스킬 딜러·암살자 / 지원 탱커·지원가", 14, Muted);
             var mains = GameDatabase.Runes.Where(x => x.main).ToArray();
             for (int i = 0; i < mains.Length; i++)
             {
@@ -409,7 +409,7 @@ namespace Lumia
             }
             var selected = GameDatabase.Rune(Engine.State.mainRune);
             Txt(new Rect(36, 473, 1205, 25), selected == null
-                ? "메인 룬 색상에 맞는 실험체의 스킬·패시브 등장 가중치가 4배로 증가합니다."
+                ? "메인 룬 계열에 맞는 실험체의 스킬·패시브 등장 가중치가 4배로 증가합니다."
                 : SubjectRoleCatalog.OfferDescription(selected.tree), 14, selected == null ? Muted : RuneTreeColor(selected.tree));
             if (selected != null)
             {
@@ -1400,7 +1400,7 @@ namespace Lumia
                 else
                 {
                     var main = GameDatabase.Rune(Engine.State.mainRune);
-                    text += "\n\n역할군 등장 가중치는 메인 룬의 색상만 따릅니다. 이 보조 룬은 별도의 역할군 보정을 추가하지 않습니다."
+                    text += "\n\n역할군 등장 가중치는 메인 룬의 계열만 따릅니다. 이 보조 룬은 별도의 역할군 보정을 추가하지 않습니다."
                         + (main == null ? "" : "\n현재 메인 룬: " + SubjectRoleCatalog.OfferDescription(main.tree));
                 }
             }

@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "recordedAtUtc": "2026-10-26T10:26:44.451Z",
+  "origin": "https://bser-sts.com",
+  "exitCode": 0,
+  "assets": 1,
+  "files": 1,
+  "bytes": 320416050,
+  "parts": 20,
+  "dataSha256": "92cf32804bcb1f293125596443eb93a1d619881ba0d226fffa25633381f4648a",
+  "uploadClosedEnvRevision": 64,
+  "uploadDeadlineValue": "2000-01-01T00:00:00.000Z",
+  "tokenKeyRemovalCompleted": true,
+  "tokenRemovalNote": "Upload deadline closed in revision 63; token key removed in revision 64 after temporary native-service errors."
+}

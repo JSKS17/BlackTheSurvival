@@ -1,0 +1,30 @@
+{
+  "result": "PASS",
+  "validatedAtUtc": "2026-10-26T09:26:02.233Z",
+  "nodeScripts": 11,
+  "powerShellScripts": 4,
+  "embeddedPreviewScript": true,
+  "protectedWebFiles": 7,
+  "baselineVersion": "1.1.0",
+  "baselineManifestSha256": "ed5d614e627e50bc492133aed6eb717b228c22c1d5f8a90afe3d41cac05e5929",
+  "buildStarted": false,
+  "serverStarted": false,
+  "productionRequests": false,
+  "files": {
+    "Cleanup.ps1": "3431bbccce6c842b6163d05b5c5d180c47bf83573893e7640ff9e0faa755d94f",
+    "Complete.mjs": "b09f5048398c7f9da12b11da0d7cc33cc2633e847ab0d4c1bd725bf1692811ef",
+    "Freeze.mjs": "817036313100d8191355b1f23dcbb38fc4e5bc458ead773f09978048817974d3",
+    "LocalPresenceBackend.mjs": "6aa07fec9b48833d824df63a6938e1ab0d62f4fb0c34174a82830c95588efe61",
+    "ObserveUnityBuild.ps1": "e1a666cc4e77b9dd9982194bf7a8871a2c3e272f79a60313968269c51cddb13e",
+    "PrepareHelpers.mjs": "da0f1ce49eb8a942f5b4661f9683932f7f3938f7456b33ac10ee361cf3eddd36",
+    "PrepareRelease.mjs": "595afc5cc8131163460bb48d352eaf8a12fcc37e691095c451bcc632fc66f470",
+    "Preview.mjs": "64654ffeae928aad186601a4d62e9b75726afedaa900e34b0dbc0fa80a8a825d",
+    "RunFocusedProof.mjs": "64ad4b6548561afab35f81baa1ae8fe6bd6a7381df27f5d489e66b10f80f9694",
+    "StartBuild.ps1": "3ac7032d9de95ce6cffa382a4c1f0527132a9cf3517652420544abe70641f5b9",
+    "SyncWebSources.mjs": "135d6e371929a652ceaba6ba1d1b2357ce6792cfe1bdf36573b944ecab3bf1d7",
+    "ValidateHelpers.mjs": "d4e7de965d2daa2b12a5810986282f61562a62a23e17ef609cbf86725b113eb4",
+    "ValidatePowerShell.ps1": "b65ee7618be6783cf5bee372a6c09207aa14a0658de25c3c2b054d10368bc910",
+    "VerifyBridge.mjs": "a180e6c56e563b100aea618ce378c067411498bc24b51e00b16081ae36f3fd50",
+    "VerifyLive.mjs": "39996f9cf7f9a10e048768be178ee100bcb164d9eb27f3c02da9b1aaac13b2c6"
+  }
+}
